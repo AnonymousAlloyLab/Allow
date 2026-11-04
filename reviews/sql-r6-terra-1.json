@@ -1,0 +1,23 @@
+{
+  "reviewer": "terra-1",
+  "seat": "sql-r6-terra-1",
+  "review_type": "INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_DESIGN_SUBJECT_TO_REGISTERED_GATES",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 6,
+  "spec_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "formal_types_sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac",
+  "assessment": "Revision 6 accounts before forwarding for Q/P/B/D/E/C/S, including pre-Execute planning and analysis hooks. It advances and queues barriers for Q/Sync, retains progress for extended-query and COPY flows, and rejects unexpected Ready. This addresses ASTRA2-R5-01 at the specified policy level.",
+  "formal_assessment": "No change needed to the generic forwardEffect, pending, and completion model for this specification delta: it is message-agnostic and its quantified results apply to every assigned cycle. The message classification, ordered cycle assignment, progress, startup Ready and failure handling remain runtime adapter obligations, not Lean theorems. The Lean model does not prove the expanded classification or the Python implementation.",
+  "blocking_findings": [],
+  "implementation_acceptance_notes": [
+    "Mark every forwarded Q/P/B/D/E/C/S pending before sending; check Q/P gating first. Ensure Sync is accounted before sealing its cycle.",
+    "Do not create orphan effects for COPY continuation frames; reject unsolicited Ready and do not infer acknowledgements from skipped or ignored messages.",
+    "Test P followed by pipelined P, delayed Bind and Describe followed by SQL, older Ready after newer effect, Close and Sync, normal extended-query progress, and COPY completion. Validate lexical statuses before releasing effects.",
+    "A rejected connection remains closed; successful completion permits later SQL only on a surviving session."
+  ],
+  "formal_run": "Final revision requires fresh two-clean-build formal verification bound to the final input hash; prior draft evidence is stale.",
+  "production_edits": false,
+  "current_disk_hash_at_write": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4"
+}

@@ -1,0 +1,56 @@
+{
+  "reviewer": "astra-1",
+  "decision": "REQUEST_CHANGES",
+  "classification": "DESIGN_ONLY_BLOCKERS_NOT_RUNTIME_DEFECT_CLAIMS",
+  "input_root_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "input_hashes": {
+    "gates/document/validator-session-candidate/ValidatorSession.lean": "42c49d2cb8c65f31642f2112389047243d9fd4747d58f696c34687c93f61a271",
+    "gates/document/validator-session-candidate/claims.json": "3d531f7fdc4031087ba3dff884468d2342c77b3b78647f9cbadb0541faad5952",
+    "gates/document/validator-session-candidate/contract.json": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d",
+    "gates/document/validator-session-candidate/development-check.json": "b76b0a35e4ec03519564096c9a9f34e968a4307ec01acdbfb460b1dfdd38dbf2",
+    "gates/document/validator-session-candidate/runtime-test-plan.json": "eab89c16afbe713648a3b5971da47bedae996031e9d4ced3ff0f945baedb60b0",
+    "gates/document/validator-session-candidate/source-evidence.json": "79cd993e64d1275c435ee39455408bd47391e534d9dd4710732f8833aada87a1"
+  },
+  "findings": [
+    {
+      "id": "VSA1-01",
+      "severity": "high",
+      "location": "contract.json isolation_and_reset.classloader/reset; VS10/VS13; VS-U02",
+      "problem": "Fresh child loaders isolate classes they actually define, not shared JDK globals. The draft requires a complete global-state audit and reset inventory but supplies neither an exact delegation/resource allowlist nor an executable way to establish absence of child references in shared registries. Thread/file enumeration and dropping supervisor references cannot establish that property. System properties/streams, logging/provider caches, shutdown hooks, native state and JDK-created asynchronous work remain shared. Presence of Alloy static fields alone proves neither contamination nor safety.",
+      "required_fix": "Before implementation approval, freeze the exact JDK/Alloy/Jackson/transitive inventory and delegation/resource/service-loading rules; enumerate reached shared-state writes/registrations and define a concrete prevention/reset/retire mechanism for each. Include rare/error/unsupported-source paths and forbid silently expanding the allowlist. State precisely which observations are checkable and which remain trusted. If any required isolation property cannot be established for the pinned stack, keep fresh processes rather than accepting RESET_READY plus finite differential agreement."
+    },
+    {
+      "id": "VSA1-02",
+      "severity": "medium",
+      "location": "ValidatorSession.lean finish/reaped/releaseReaped and claimed cancellation/capacity model",
+      "problem": "The22 propositions are individually conditional facts, but there is no guarded transition/reachability invariant. finish(retire s) becomes idle; finish(reaped s) likewise revives it; start accepts arbitrary sessions without requiring canStart. releaseReaped can decrement capacity without mayReleaseLive, and repeated release can consume another live slot. Thus the definitions permit traces contradicting generation nonrevival and exactly-once release, despite local retiring_cannot_publish and reaped_can_release_live theorems. This is a model-coverage gap, not evidence that Lean proved a false theorem.",
+      "required_fix": "Either narrow the advertised model surface to independent predicate lemmas, or add an explicit guarded transition relation with terminal dead/retiring behavior, unique live-slot ownership and one-time release, then prove nonrevival and capacity preservation for reachable traces. Keep real reap/reset/semantic facts as explicit premises; do not add axioms asserting the missing algorithm."
+    },
+    {
+      "id": "VSA1-03",
+      "severity": "high",
+      "location": "VS-U01/VS-U03; selected_scope; implementation_order",
+      "problem": "A credible performance and bootstrap design remains unresolved, as the package correctly admits. Current fresh-worker exchange221-240ms includes JVM/class initialization and actual work without separating the parts a fresh loader must repeat. The proposed loader reinitializes Alloy/Jackson each request, retains two build scans and mandatory persistence calls, and adds image/reset/retirement costs. Constructor20ms/launch31ms alone do not justify the required reduction from observed HTTP p95468ms to below300ms. No concrete sealed-jar/bootstrap/fd adapter has been demonstrated within the frozen limits.",
+      "required_fix": "Resolve U01/U03 with a narrow isolated feasibility experiment before committing to this architecture: identical fresh process versus fresh loader in reusable JVM, same pinned classes/context, separate CPU/wall/class initialization/reset/retirement and all image/bootstrap costs. Do not infer endpoint percentile from component arithmetic. Freeze concrete fd transport and deterministic logical-manifest adapter with bounds only after demonstrated launch. If gain is inadequate or global-state safety unresolved, stop this candidate."
+    }
+  ],
+  "smallest_coherent_safe_path": [
+    "Keep fresh JVM validation and durable recovery semantics intact while finishing exact component attribution.",
+    "Pursue the already identified combined read+ownedIds context bridge as a separate small contract if one round-trip can be removed without changing scoped-history authority; all SQL still passes SQLeanParser. This may improve latency but is not a claim that it alone reaches300ms.",
+    "Use isolated experiments for loader reuse only after a finite pinned shared-state audit has a credible enforcement story. Do not authorize a general reusable validator merely to close a benchmark.",
+    "If proceeding, reduce the first implementation to advisory-only exact byte protocol, sealed immutable image, guarded lifecycle/ledger and explicit retirement; then finite differential/error/cancel evidence and unchanged end-to-end benchmark. Retain all failed runs and startup costs."
+  ],
+  "formal_assessment": "No obvious invalid proof step was identified by source reading; no Lean build was run. fresh_correspondence_is_required is exactly its observational-equivalence premise, advisory_preserves_durable follows from an identity function, and CPU bound follows from supplied lifetime cap. These cannot establish Alloy semantics, cleanup, syscall facts, freshness, or commercial fitness. The22 candidate claims do not increase active287 count.",
+  "commercial_boundary": "No legal rights, deployment readiness, named manual AT/accessibility acceptance, operational economics or product guarantee follows from this design, proofs or timing. Existing exclusions are appropriate and must remain.",
+  "primary_sources": [
+    {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/ClassLoader.html",
+      "relevance": "Class loading and resource delegation define class identity; platform classes remain shared and resource resolution requires explicit policy."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/System.html",
+      "relevance": "JVM-wide properties, standard streams and native-library facilities illustrate shared state outside request child-loader statics."
+    }
+  ],
+  "validation": "Verified all six package hashes and canonical root; read contract, Lean, claim inventory, runtime plan and source evidence. Primary Java documentation consulted for loader/global-state boundary. No active/candidate edits, runtime/DB/HTTP/browser execution or clean-build claim."
+}

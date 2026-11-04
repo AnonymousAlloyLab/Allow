@@ -1,0 +1,73 @@
+{
+  "claim_id": "CC05",
+  "subcase": "normal-empty",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r6",
+  "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "a378b72748066bc1b391f67d5d927fcb8d1a964f70c4cc0c8cf0a5b682c84bcb",
+  "expected_predicate": "Original exact nonce-bound5-field context with empty inventory, exit0, independently observed backend absence, all7 document-table hashes unchanged.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 220.51895,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-nyhmu1lw/.tools/retrieval-venv/bin/python",
+      "-m",
+      "allow_documents.cli"
+    ],
+    "fixture_sha256": "2eb06cfb6a28bfc3f3657719e60a1a90e42ab5ece8a5d56c3a2db4772c96002f",
+    "stdout_sha256": "0b12662031e0d57029e3373562ef0efde31cea90c083791a0936103ec7e91d17",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62507719993266
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62507722090690
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62507726278247
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62507728373161
+      },
+      {
+        "phase": "RETIRING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62507861212872
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 62507863282945
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true,
+  "mechanism_predicate": true
+}

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "classification": "DEVELOPMENT_TESTED_NOT_RUNTIME_ACCEPTANCE",
+  "tests": 13,
+  "files": [
+    {
+      "path": "scripts/warm_worker_image.py",
+      "sha256": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0"
+    },
+    {
+      "path": "scripts/tests/test_warm_worker_image.py",
+      "sha256": "b2df6dbe781694fcc5c3674b418371557fde78ea6d577ccc7bbd9ba9a3835a48"
+    }
+  ],
+  "log_sha256": "d66977177a4741ff16797d55544b2be383401230643d086f449a8efd04b14542",
+  "scope": [
+    "Actual configured512/513-file inventory boundary",
+    "Actual sparse-file lengths64MiB and64MiB+1 under unchanged production limits",
+    "Existing bootstrap/schema/capture/seal tests"
+  ],
+  "exclusions": [
+    "No whole application image mount acceptance",
+    "No new cgroup or SQL evidence"
+  ]
+}

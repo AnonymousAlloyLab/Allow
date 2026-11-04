@@ -1,0 +1,22 @@
+{
+  "Allow.EGraph.rule_sound": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Rule a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+  "Allow.EGraph.derivation_sound": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Derivation a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+  "Allow.EGraph.merge_preserves_key": "∀ {n : Nat} {g : Allow.EGraph.Graph n} {a b : Allow.ContextualFormula n}, Allow.EGraph.Merge g a b → Allow.canonicalKey a = Allow.canonicalKey b",
+  "Allow.EGraph.class_sound": "∀ {n : Nat} {a b : Allow.Formula n} (g : Allow.EGraph.Graph n), g.sameClass a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+  "Allow.EGraph.extraction_sound": "∀ {n : Nat} (g : Allow.EGraph.Graph n) (root extracted : Allow.Formula n), g.sameClass root extracted → ∀ (v : Fin n → Bool), Allow.eval v root = Allow.eval v extracted",
+  "Allow.EGraph.bounded_run_no_false_saturation": "∀ (remaining : Bool) (reason : Allow.EGraph.StopReason), reason ≠ Allow.EGraph.StopReason.saturated → Allow.EGraph.stopReason remaining reason = Allow.EGraph.StopReason.saturated → remaining = false",
+  "Allow.EGraph.rel_rule_sound": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelRule a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b",
+  "Allow.EGraph.rel_derivation_sound": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b",
+  "Allow.EGraph.rel_merge_sound": "∀ {n : Nat} {Tuple : Type} {g : Allow.EGraph.RelGraph n} {a b : Allow.EGraph.ContextualRelation n}, Allow.EGraph.RelMerge g a b → a.context = b.context ∧ a.schema = b.schema ∧ a.inventory = b.inventory ∧ ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a.body = Allow.EGraph.evalRelation v b.body",
+  "Allow.EGraph.rel_extraction_sound": "∀ {n : Nat} {Tuple : Type} (g : Allow.EGraph.RelGraph n) (root extracted : Allow.EGraph.RelExpr n), g.sameClass root extracted → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v root = Allow.EGraph.evalRelation v extracted",
+  "Allow.EGraph.rel_nonempty_congruence": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ∃ x, Allow.EGraph.evalRelation v b x = true",
+  "Allow.EGraph.rel_empty_congruence": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (¬∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ¬∃ x, Allow.EGraph.evalRelation v b x = true",
+  "Allow.EGraph.implication_lowering": "∀ (a b : Bool), (!a || b) = if a = true then b else true",
+  "Allow.EGraph.iff_lowering": "∀ (a b : Bool), ((!a || b) && (!b || a)) = (a == b)",
+  "Allow.EGraph.witness_boolean_absorption": "Allow.EGraph.Derivation ((Allow.Formula.atom (0 : Fin 2)).and ((Allow.Formula.atom (0 : Fin 2)).or (Allow.Formula.atom (1 : Fin 2)))) (Allow.Formula.atom (0 : Fin 2))",
+  "Allow.EGraph.witness_relation_absorption": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).inter ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).union (Allow.EGraph.RelExpr.atom (1 : Fin 2)))) (Allow.EGraph.RelExpr.atom (0 : Fin 2))",
+  "Allow.EGraph.witness_relation_difference": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 1)).diff (Allow.EGraph.RelExpr.atom (0 : Fin 1))) Allow.EGraph.RelExpr.empty",
+  "Allow.EGraph.witness_budget_stop": "Allow.EGraph.stopReason true Allow.EGraph.StopReason.nodeLimit ≠ Allow.EGraph.StopReason.saturated",
+  "Allow.EGraph.eval_substB": "∀ {n bn rn : Nat} {Tuple : Type} (σ : Fin n → Allow.EGraph.MixedFormula bn rn) (a : Allow.Formula n) (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain (Allow.EGraph.substB σ a) = Allow.eval (fun i => Allow.EGraph.evalMixed bv rv domain (σ i)) a",
+  "Allow.EGraph.mixed_sound": "∀ {bn rn : Nat} {Tuple : Type} {a b : Allow.EGraph.MixedFormula bn rn}, Allow.EGraph.MixedDerivation a b → ∀ (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain a = Allow.EGraph.evalMixed bv rv domain b"
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "classification": "DEVELOPMENT_TESTED_NOT_RUNTIME_ACCEPTANCE",
+  "counts": {
+    "tests": 9,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "dev.allow.backend.WarmAdmissionDeadlineTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "sha256": "fee2dc572cdc58afdeb8b3d41aeafabe35f9959e165fe4852a2e12e38917a579"
+    },
+    {
+      "name": "dev.allow.backend.WarmDeadlineTest",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "sha256": "bb2b6192ebb997948093683ae01f4009a736c017ae40b7fa500d6ef0c88d1772"
+    },
+    {
+      "name": "dev.allow.backend.WarmGatewayDeadlineTest",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "sha256": "9c411898a348fc2e01a994abc540e6334d2899d8521e3715d1211e5336f69a2c"
+    }
+  ],
+  "manifest_sha256": "c09c7f80c4d423f9c4b477e8a682a2cd35173d31f82ab6ac1621c16c94d6c371",
+  "log_sha256": "6231861ab2e2209d5dae14088a453f713964bbd709e67721f720d783a0fc9c01",
+  "scope": "Original admission deadline passes through dispatch; expired/cancelled dispatch rejects before context or pool lookup. No actual SQL/cgroup authority inferred."
+}

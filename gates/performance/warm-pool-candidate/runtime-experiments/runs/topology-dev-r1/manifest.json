@@ -1,0 +1,113 @@
+{
+  "kind": "PYTHON_ONLY_TOPOLOGY_DEVELOPMENT_DIAGNOSTIC",
+  "copied_root": "/tmp/allow-wp-yxa5ltq6",
+  "unit": "allow-wp-700a24b68e724e82bc7d41c8198cb200.scope",
+  "files": [
+    {
+      "path": ".gate/harness_common.py",
+      "sha256": "946ebd87bf7c54b99e75b25bf06322a823509f573f0477bfd7b1055a21bd3673",
+      "size": 5575,
+      "mode": 436
+    },
+    {
+      "path": ".gate/containment.py",
+      "sha256": "16a68e42a45a4c1f1f7809260f9014051931ec17846650a5bbcd823a70b88ec9",
+      "size": 9848,
+      "mode": 436
+    },
+    {
+      "path": ".gate/delegation.py",
+      "sha256": "ec6a4a152c66080b68c601b345e0e5597c0ee42b1638881c85c218d3c9676362",
+      "size": 3687,
+      "mode": 436
+    },
+    {
+      "path": ".gate/scope_launch.py",
+      "sha256": "60155f8e0fe47019d06c01d35494cf5dbf5b55bda6ed62138ed5ad1d9ed8f926",
+      "size": 11706,
+      "mode": 436
+    },
+    {
+      "path": ".gate/topology_diagnostic.py",
+      "sha256": "c01b1e856657ddc1a7aafeee4a4c789e4ad31a93799790591dbab02fab5517db",
+      "size": 6240,
+      "mode": 436
+    }
+  ],
+  "tools": [
+    {
+      "path": "/usr/bin/python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+      "size": 8020928,
+      "mode": 493,
+      "invocation": "/usr/bin/python3"
+    },
+    {
+      "path": "/usr/bin/systemd-run",
+      "sha256": "de28cc5757d3789efa5f6fed5659893410469f68b42175d4531f5b34d3a09e16",
+      "size": 68392,
+      "mode": 493,
+      "invocation": "/usr/bin/systemd-run"
+    },
+    {
+      "path": "/usr/bin/systemctl",
+      "sha256": "37ec607113f55f1b385b4fa75588a43402aec0de57927500763b267713f10f63",
+      "size": 1501304,
+      "mode": 493,
+      "invocation": "/usr/bin/systemctl"
+    },
+    {
+      "path": "/usr/bin/taskset",
+      "sha256": "a431738fadddc2e2326c8ab81843e72f4011658379381aef1502a6ddb1c1115b",
+      "size": 31104,
+      "mode": 493,
+      "invocation": "/usr/bin/taskset"
+    },
+    {
+      "path": "/usr/bin/env",
+      "sha256": "886e5fa8be716b03eeda48856e0f04493f2969fc148fb7812594ffac647fa050",
+      "size": 48072,
+      "mode": 493,
+      "invocation": "/usr/bin/env"
+    },
+    {
+      "path": "/etc/apparmor.d/chatgpt",
+      "sha256": "05be1a8336a80236f4b56798ea7a75accb55f51438afa1e7cb5e94bfa326b1b7",
+      "size": 154,
+      "mode": 420,
+      "invocation": "/etc/apparmor.d/chatgpt"
+    },
+    {
+      "path": "/etc/apparmor.d/unprivileged_userns",
+      "sha256": "3729c1ec82ab5384de6553afab455a236ce90096dac9c0e6cb65c133c10e18b3",
+      "size": 699,
+      "mode": 420,
+      "invocation": "/etc/apparmor.d/unprivileged_userns"
+    }
+  ],
+  "hold_program": "import signal; signal.pause()",
+  "limits": {
+    "cpu.max": "400000 100000",
+    "memory.high": "5368709120",
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "pids.max": "512"
+  },
+  "predicates": [
+    "empty_scope_root",
+    "exact_control_owner",
+    "exact_runtime_config",
+    "all_observed_thread_affinity",
+    "caller_context_preserved",
+    "positive_empty_and_terminal_counters",
+    "owned_incarnations_absent"
+  ],
+  "trusted": [
+    "Linux kernel",
+    "systemd user manager",
+    "Python interpreter and standard library"
+  ],
+  "no_allow_jvm_sql_model_or_performance_execution": true,
+  "acceptance_evidence": false,
+  "input_root_sha256": "75325e0ff882d82c6934e40d695560b5dab478671c0623e38fefc2347b0ecff2"
+}

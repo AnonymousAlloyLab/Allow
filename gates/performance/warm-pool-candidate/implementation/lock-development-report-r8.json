@@ -1,0 +1,104 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Actual private POSIX lock observations via fixed isolated Python metadata observer; no worker JVM/helper, SQL or kernel-cgroup cleanup claim. Pool cleanup and group identity remain explicitly assumed metadata fixtures. No production source edits by this task, active target untouched.",
+  "copied_root": "/tmp/allow-warm-lock-r8-vpnmsxtn",
+  "test": {
+    "path": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+    "sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b"
+  },
+  "production_snapshot": [
+    {
+      "copied_path": "/tmp/allow-warm-lock-r8-vpnmsxtn/backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+      "sha256": "5409dc491e0b5715783e5a279df685b93ee5a6437759e3bc8b80dc4df151a022"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-lock-r8-vpnmsxtn/backend/src/main/java/dev/allow/backend/WarmRuntime.java",
+      "sha256": "38e041b43a7a8b68782bfb236141be1a4d8a8e0a43a066415ab50301d34c2cd4"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-lock-r8-vpnmsxtn/backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "7b1a101d1c03d5cb167898f81703fb6c4977a11d91879badfb3df19e809d8544"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-lock-r8-vpnmsxtn/backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "4a74f45cd3c24ca97424d26c4be8c3465c2176f48a20a6b4666b0ce80c9cc550"
+    }
+  ],
+  "suites": [
+    {
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "tests": 48,
+  "observer": {
+    "executable": "/usr/bin/python3",
+    "resolved": "/usr/bin/python3.12",
+    "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+    "command": "-I -c <fixed test-embedded fcntl.lockf probe> <private lock path>",
+    "outcomes": {
+      "23": "independent process observed conflicting POSIX lock",
+      "0": "independent process acquired released POSIX lock"
+    },
+    "other_exits": "test failure",
+    "wait_seconds": 3,
+    "cleanup": "retained Process destruction/reap and all pipe closes in finally"
+  },
+  "assertions": [
+    "Same-workspace failed duplicate constructor preserves original lock as observed by separate process before and after",
+    "Failed warm cleanup retains OS lock after document bean close",
+    "Completed cleanup plus journal close releases OS lock",
+    "Hardlinked lock rejected before gateway initialization and without modifying aliased content",
+    "Hardlink rejection does not leak local registry entry: later ordinary path reaches gateway then cleans resources"
+  ],
+  "style": "PASS; callable documentation<=30lines/no Java lambdas",
+  "logs": [
+    {
+      "path": "/tmp/allow-warm-lock-r8-vpnmsxtn/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-lock-r8-vpnmsxtn/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-lock-r8-vpnmsxtn/focused-tests.log",
+      "sha256": "bb49c91c469c60de93d307ef422237164cf93847fab9a8ca62537a7b574a5465"
+    },
+    {
+      "path": "/tmp/allow-warm-lock-r8-vpnmsxtn/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    }
+  ]
+}

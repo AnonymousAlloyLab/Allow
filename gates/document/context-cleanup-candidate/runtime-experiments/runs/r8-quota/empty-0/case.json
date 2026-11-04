@@ -1,0 +1,88 @@
+{
+  "claim_id": "CC29",
+  "subcase": "empty-0",
+  "run_id": "r8-quota",
+  "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+  "verifier_id": "CC29-QUOTA-PROBE",
+  "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+  "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+  "status": "PASS",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 289.999144,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/empty-0"
+    ],
+    "fixture_sha256": "d40f3975107bb6b6890028effaca74f895b09be1e5d22c994cb09dd8d541e4de",
+    "stdout_sha256": "2f7b1a278aa009a3b77ba62f3f61c5179f4db32c6bec63d36eac7a692a695ca5",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62693983293812
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62693985372886
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62693989561754
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62693991666178
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 62694191968954
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true,
+  "telemetry": {
+    "history_select_count": 0,
+    "raw_rows_buffered": 0,
+    "raw_column_bytes": 0,
+    "rows_iterated": 0,
+    "decoded_content_bytes": 0,
+    "focus_row_indexes": [],
+    "started_ns": 62693981252708,
+    "rlimit_as": [
+      2147483648,
+      2147483648
+    ],
+    "rlimit_cpu": [
+      20,
+      20
+    ],
+    "history_finished_ns": 62694189281536,
+    "finished_ns": 62694191781803,
+    "kernel_peak_rss_bytes": 890306560,
+    "cpu_seconds": 0.069582,
+    "row_multiset_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

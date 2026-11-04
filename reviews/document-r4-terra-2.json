@@ -1,0 +1,27 @@
+{
+  "reviewer": "Terra council seat 2",
+  "review_type": "FINAL_FROZEN_GAMEPLAN_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "manifest_path": "gates/document/review-candidate-r4/manifest.json",
+  "manifest_sha256": "43998b56dda88c797d2a03b4799a4992c863ef23047c966fe770857e609151f3",
+  "inputs": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "b8fe8a869e93940f0d08c376e5835ae0413a42a6d7d5af2620c70dc38442a87c",
+    "gates/document/draft/types.json": "9071ff7c89a564ee43e94cc63d4cf50b8061ce239fde6026d2345b8d1c1e8815"
+  },
+  "findings_resolution": [
+    "The adapter specifies all 23 expression tags, concrete declaration/command treatment, parser normalization, object-identity scope, independently derived nominal schemas, and parser/SAT4J differential acceptance fixtures. These are required future checks, not completed implementation evidence.",
+    "TEXT_ONLY obtains artifact-bound parser-derived command descriptors without invented IR; trivia now covers declarations and module boundaries and missing source locations are explicit.",
+    "The type registry source hash matches the frozen Lean source; raw intent and checked artifacts are distinguished and the finite oracle scope is explicit. Restores preserve content with fresh current-policy validation, and ID/multiplicity conditions are modeled.",
+    "The private 2 GiB parser startup spike narrows the earlier resource concern but is not a BubblewrapLauncher or performance acceptance; exact launcher and SQL gateway tests remain required after the formal gate."
+  ],
+  "conditions": [
+    "Obtain all six exact-hash council approvals and run both clean registered formal builds before production implementation; failures block progress and require reviewed revision.",
+    "Implement and run the specified complete palette, parser/solver/adapter differential fixtures, resource, persistence, SQLeanParser and accessibility checks, preserving all inherited gates. All PostgreSQL access including migrations, transaction control and tests goes through SQLeanParser. Every authored Java/JavaScript/TypeScript callable is meaningfully documented and no longer than 30 physical lines.",
+    "Keep parser, solver, runtime, database isolation and adapters within the explicitly stated trust and validation boundaries; finite witnesses are not general implementation refinement."
+  ],
+  "scope_limit": "Approval is only for this frozen game plan and finite formal claim set. It is not an assertion that builds or runtime fixtures passed, or approval of G2/G3, deployment, rights, or commercial use. Commercial status remains NO_GO."
+}

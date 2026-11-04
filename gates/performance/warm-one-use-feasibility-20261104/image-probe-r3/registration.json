@@ -1,0 +1,58 @@
+{
+  "unit": "allow-warm-image-b06657afb6794682b9cc71c80e44b912.scope",
+  "description": "allow-warm-image:4e1fb904c1a744659be56593fe66d10a",
+  "argv": [
+    "/usr/bin/systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "--unit=allow-warm-image-b06657afb6794682b9cc71c80e44b912.scope",
+    "--description=allow-warm-image:4e1fb904c1a744659be56593fe66d10a",
+    "--property=Delegate=yes",
+    "--property=CPUQuota=100%",
+    "--property=MemoryMax=1073741824",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=64",
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "/usr/bin/python3",
+    "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r3.py",
+    "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/image-probe-r3",
+    "allow-warm-image-b06657afb6794682b9cc71c80e44b912.scope",
+    "data-final-limit"
+  ],
+  "inputs": [
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/image_probe_r3.py",
+      "sha256": "d12f74a342635aeb4f6958eb97e34fb0b93e1d5707ecb9494519419e045d494c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r3.py",
+      "sha256": "5978493dafeeace84098f04b0aad135d16565c84cf68c6e5fbaaa50580488266"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/delegation_probe.py",
+      "sha256": "5b9ac9d610d3a3985d625546cfdbdf02700067f20f00f719ac7837cc53d1e4d8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/IdentityReadProbe.java",
+      "sha256": "0bd0321305cbe5e6293d5b591c3461d1635b4bee670a17bbfbb23ee0dfda1fbb"
+    },
+    {
+      "path": "/usr/bin/bwrap",
+      "sha256": "e318903862396f96de3df57264e0158682b952fd3fb53ac23d876413e7b30f71"
+    },
+    {
+      "path": "/usr/bin/prlimit",
+      "sha256": "17064f67e650d6152a6902b013aab496b54c87587c8eea6f5023aafee6154069"
+    },
+    {
+      "path": "/usr/bin/sha256sum",
+      "sha256": "4d2db56c867e5324e0084c9e897f6360d37517de77ac96f2bd31494223d69a60"
+    }
+  ],
+  "scope": "Public image/identity/hash probe only; no Alloy model/private input or worker execution. Capture+bwrapsetupFS64MiB then finalexecutableFS8MiB, AS2GiB CPU12s throughout, private scope1GiB/1CPU/64tasks."
+}

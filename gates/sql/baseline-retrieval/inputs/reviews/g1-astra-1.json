@@ -1,0 +1,240 @@
+{
+  "reviewer_id": "astra-1",
+  "phase": "G1_SUPPLEMENT_DATA_RIGHTS_REVIEW",
+  "status": "FINAL_SCOPED_SUPPLEMENT_REVIEW_COMPLETE",
+  "model_identity": {
+    "requested_model": "gpt-6-astra",
+    "actual_runtime_model_independently_observable": false
+  },
+  "reviewed_inventory_sha256": "f05c46662a0d5ecb23c0256cd85e3019ffa85462544f486e67814cd8fdf93ece",
+  "reviewed_supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+  "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+  "scope": [
+    "Read-only inventory of three user-authorized local dataset roots",
+    "Commercial and data-purpose constraints",
+    "Symbol pseudonymization boundary",
+    "Dataset admission and evaluation integrity"
+  ],
+  "findings": [
+    {
+      "id": "G1-ASTRA1-01",
+      "severity": "HIGH",
+      "status": "REQUIRES_SUPPLEMENT_GATE",
+      "finding": "Identifier slots are pseudonymization, not proof of anonymous source or witnesses.",
+      "counterexample": "Replacing signature names leaves comments, filenames, import names, string literals, relational structure and UI name mappings that can reconnect a model to its author.",
+      "required_fix": "Separate backend symbol IDs and typed binding identity from UI display-name maps; keep maps local, preserve lexical scope/capture avoidance and nominal context, and prohibit privacy/anonymity claims from identifier renaming alone. No sharing/training/remote embeddings under current authorization."
+    },
+    {
+      "id": "G1-ASTRA1-02",
+      "severity": "HIGH",
+      "status": "REQUIRES_SUPPLEMENT_GATE",
+      "finding": "Local development authorization does not clear third-party redistribution or derivative-purpose rights. No standalone license-named file was observed in any dataset root.",
+      "counterexample": "A scraped repository model is copied into a distributable test fixture solely because its local collection README is present.",
+      "required_fix": "Original datasets stay read-only and external to git/artifacts; locally derived records retain provenance and purpose restrictions. Use independently authored fixtures for distribution. Unknown sharing/training/remote embedding rights deny those operations; no outbound source content."
+    },
+    {
+      "id": "G1-ASTRA1-03",
+      "severity": "MEDIUM",
+      "status": "REQUIRES_SUPPLEMENT_GATE",
+      "finding": "Historical README counts differ from current local files and version labels do not establish parser validity.",
+      "counterexample": "A report presents 71,584 Alloy6 and 8,435 Alloy5 models as actually tested, although only 70,737 and 3,582 .als files are present.",
+      "required_fix": "Use exact current inventory/manifest identities and explicit admitted/rejected/skipped counts; pin actual parser. Distinguish source claims from measurements and report unsupported syntax without dropping it silently."
+    },
+    {
+      "id": "G1-ASTRA1-04",
+      "severity": "MEDIUM",
+      "status": "REQUIRES_SUPPLEMENT_GATE",
+      "finding": "Large files and duplicate content invalidate naive all-files admission or independent-sample assumptions.",
+      "counterexample": "The importer loads a 46,376,236-byte .als file despite the 262,144-byte cap; an evaluation places identical content in train and test because it came from different roots.",
+      "required_fix": "Enforce file/closure/depth/aggregate caps before allocation; quarantine/report oversized files. Group exact duplicates and related provenance revisions before comparative evaluation; never infer independence from path/hash inequality."
+    },
+    {
+      "id": "G1-ASTRA1-05",
+      "severity": "MEDIUM",
+      "status": "REQUIRES_SUPPLEMENT_GATE",
+      "finding": "No symlinks were present during inventory, but that cannot authorize later unrestricted traversal.",
+      "counterexample": "A file is replaced with a symlink after inventory and the later importer reads outside the authorized root.",
+      "required_fix": "Allowlist canonical roots, reject symlinks/escapes and revalidate containment at open time with appropriate no-follow handling; do not mutate source roots. Inventory is observational, not an atomic immutable snapshot."
+    }
+  ],
+  "evidence": {
+    "inventory_path": "docs/dataset-inventory.json",
+    "primary_local_notices": [
+      "/home/augustus/下载/allloy6/2025-07-10-15-42-08/README.md",
+      "/home/augustus/下载/alloy5/2025-07-08-11-09-55/README.md",
+      "/home/augustus/ACGN/README.md",
+      "/home/augustus/Live_Programming/research/formalise2027/LICENSE-NOTICE.md"
+    ],
+    "source_contents_exported": false,
+    "dataset_roots_modified": false,
+    "parser_or_solver_executed": false,
+    "outbound_dataset_content": false
+  },
+  "pending_review": [
+    "Read and hash proof supplement once available.",
+    "Check slot/name-map formal claims and explicit trust boundary.",
+    "Verify new development phase preserves first-proof-then-production order.",
+    "Review acceptance contract for documented Java/JavaScript/TypeScript methods of at most30 lines and encapsulation; no implementation claim before code exists."
+  ],
+  "commercial_clearance": false,
+  "production_implementation_started_by_reviewer": false,
+  "final_review": {
+    "supplement_revision": 4,
+    "spec_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+    "file_sha256": {
+      "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "docs/dataset-inventory.json": "f05c46662a0d5ecb23c0256cd85e3019ffa85462544f486e67814cd8fdf93ece",
+      "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+      "formal/Allow/Foundation.lean": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7",
+      "formal/Allow.lean": "2c48425a37c470e584dfb0221b729671f82a1aa6e9d588fcc176a9f391883012",
+      "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4"
+    },
+    "findings_disposition": [
+      {
+        "id": "G1-ASTRA1-01",
+        "status": "RESOLVED_IN_SPECIFICATION",
+        "evidence": "anonymization.meaning explicitly calls this identifier pseudonymization, not structural anonymity. Revision2 excludes name-derived tags, scalar values, slots and traversal order; UI maps stay separate. Lean proves projection invariance for fixed resolved payload, not universal source alpha-equivalence or anonymity. Parser/capture avoidance/encoding tests are mandatory."
+      },
+      {
+        "id": "G1-ASTRA1-02",
+        "status": "RESOLVED_IN_SPECIFICATION",
+        "evidence": "Authorization denies publication, commercial release, remote embeddings and dataset training. Dataset admission prohibits corpus copies, uploads, training, embedding and bundling. Synthetic independent fixtures are required for portable tests. No third-party rights clearance is asserted."
+      },
+      {
+        "id": "G1-ASTRA1-03",
+        "status": "RESOLVED_IN_SPECIFICATION",
+        "evidence": "Observed and historical counts remain distinct in the preserved inventory. Revision2 acceptance explicitly requires selected/accepted/rejected/skipped counts and content hashes for any selected corpus evaluation, without bulk source copies. No dataset-wide parse or completeness claim is authorized."
+      },
+      {
+        "id": "G1-ASTRA1-04",
+        "status": "BOUNDED_PHASE_ACCEPTED_EVALUATION_GATE_RETAINED",
+        "evidence": "Foundation caps source at32768 UTF-8 bytes and isolates parser execution. Bulk ingestion, dataset-wide embeddings and training are out of scope. Existing inventory over262144-byte counts are only a lower bound on exclusions under32768 bytes; recount for the selected evaluation. Exact duplicate/provenance grouping remains necessary before independent-sample comparative claims."
+      },
+      {
+        "id": "G1-ASTRA1-05",
+        "status": "RESOLVED_IN_SPECIFICATION_FUTURE_IMPORTER_GATE",
+        "evidence": "Future importer must check containment and reject links at open time. Current worker accepts bounded single-module source without ambient corpus/module resolution. Scan-time absence of links is not treated as ongoing admission authority."
+      }
+    ],
+    "blocking_findings": [],
+    "formal_review": {
+      "slots": "Slots now uses a closed Operator enum. S01/S02/S04 prove projection invariance on a fixed resolved Payload and S03 preserves slot namespace/index identity. Parsed integer constants, adapter allocation, slot-profile grammar correspondence and serialization still require independent implementation tests. Slot-profile contains a broader production grammar than the abstract Lean operator set; no full grammar-to-Lean refinement is asserted.",
+      "foundation": "Revised cancellation theorem proves CANCELLED is produced for a running job and preserved for every later completion. Physical worker permit lifetime and reap guarantees remain implementation obligations; revision4 explicitly holds permits until process exit/reaping. Style theorem remains conditional on truthful metadata."
+    },
+    "checks": [
+      {
+        "command": "lake build",
+        "cwd": "formal",
+        "exit_code": 0,
+        "result": "Build completed successfully (11 jobs); ordinary build, not independent two-clean-build evidence."
+      },
+      {
+        "method": "manual review",
+        "result": "Read full revisions1/2 supplement, Slots and Foundation Lean. Verified current dataset roots exist, inventory unchanged, and publication/remote embedding/training flags remain false."
+      },
+      {
+        "method": "revision4 narrow rereview",
+        "result": "Read complete current supplement,slot-profile,Slots and Foundation sources; all current hashes captured. Two-clean-build33-proposition result is reported by coordinator and not independently attested by this review."
+      }
+    ],
+    "implementation_gate_notes": [
+      "Separately attest two clean proof builds and six council seats before production source.",
+      "Test actual parser alpha-renaming, nested binders, dependent-domain rejection, slot/order preservation and injective encoding using independent fixtures; unsupported nodes fail closed without source fallback.",
+      "Run AST-based documentation/physical-line/encapsulation inventory on all authored Java/JS/TS/TSX and tests. Abstract accepted-style proof is not checker evidence.",
+      "Keep roots read-only and external. A selected local evaluation is not permission for bulk ingestion, dataset embedding or future training.",
+      "Retain original notices and unresolved redistribution records for every dependency; local integration is not commercial or corpus-rights clearance."
+    ],
+    "commercial_assessment": "Appropriately limited to engineering feasibility. Demand, purchase commitments and support economics remain unvalidated; base commercial pilot/rights gates remain in force.",
+    "commercial_clearance": false,
+    "dataset_rights_clearance": false,
+    "production_implementation_reviewed": false,
+    "two_clean_builds_independently_attested_by_this_review": false,
+    "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "narrow_rereview": {
+      "new_blocking_findings": [],
+      "changes_reviewed": [
+        "Normative slot-profile closed grammar and conservative rejection of unsupported semantic attributes.",
+        "Explicit local128-dimensional deterministic feature encoder; feature collisions never establish equality and corpus embedding remains forbidden.",
+        "Stronger cancellation theorem plus physical permit retention through process reap.",
+        "Launch fragment consumption/erasure and restart invalidation.",
+        "Mandatory sandbox unavailable/network/private-filesystem rejection tests.",
+        "Explicit firstG2 candidate transaction and text-only draft semantics; no reverse-projection claim.",
+        "AST checker negative fixtures for function variants,30/31-line boundaries and narrow generated/vendor exclusions."
+      ],
+      "assessment": "Changes strengthen the previously accepted scope without expanding dataset purposes or commercial authority. No new blocker found in narrow rereview."
+    }
+  },
+  "review_history": [
+    {
+      "supplement_revision": 2,
+      "spec_sha256": "d7bf1f8b108ee051f49096e25f5be4cdd46db819358a97373a0a5d85c926b7fe",
+      "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+      "file_sha256": {
+        "spec/implementation-g1.json": "d7bf1f8b108ee051f49096e25f5be4cdd46db819358a97373a0a5d85c926b7fe",
+        "docs/dataset-inventory.json": "f05c46662a0d5ecb23c0256cd85e3019ffa85462544f486e67814cd8fdf93ece",
+        "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+        "formal/Allow/Foundation.lean": "bae5b0c1b72edc34b40d741598e2380ad360d6521876fe4fd5b9b1c8503b21bf",
+        "formal/Allow.lean": "2c48425a37c470e584dfb0221b729671f82a1aa6e9d588fcc176a9f391883012",
+        "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+      },
+      "findings_disposition": [
+        {
+          "id": "G1-ASTRA1-01",
+          "status": "RESOLVED_IN_SPECIFICATION",
+          "evidence": "anonymization.meaning explicitly calls this identifier pseudonymization, not structural anonymity. Revision2 excludes name-derived tags, scalar values, slots and traversal order; UI maps stay separate. Lean proves projection invariance for fixed resolved payload, not universal source alpha-equivalence or anonymity. Parser/capture avoidance/encoding tests are mandatory."
+        },
+        {
+          "id": "G1-ASTRA1-02",
+          "status": "RESOLVED_IN_SPECIFICATION",
+          "evidence": "Authorization denies publication, commercial release, remote embeddings and dataset training. Dataset admission prohibits corpus copies, uploads, training, embedding and bundling. Synthetic independent fixtures are required for portable tests. No third-party rights clearance is asserted."
+        },
+        {
+          "id": "G1-ASTRA1-03",
+          "status": "RESOLVED_IN_SPECIFICATION",
+          "evidence": "Observed and historical counts remain distinct in the preserved inventory. Revision2 acceptance explicitly requires selected/accepted/rejected/skipped counts and content hashes for any selected corpus evaluation, without bulk source copies. No dataset-wide parse or completeness claim is authorized."
+        },
+        {
+          "id": "G1-ASTRA1-04",
+          "status": "BOUNDED_PHASE_ACCEPTED_EVALUATION_GATE_RETAINED",
+          "evidence": "Foundation caps source at32768 UTF-8 bytes and isolates parser execution. Bulk ingestion, dataset-wide embeddings and training are out of scope. Existing inventory over262144-byte counts are only a lower bound on exclusions under32768 bytes; recount for the selected evaluation. Exact duplicate/provenance grouping remains necessary before independent-sample comparative claims."
+        },
+        {
+          "id": "G1-ASTRA1-05",
+          "status": "RESOLVED_IN_SPECIFICATION_FUTURE_IMPORTER_GATE",
+          "evidence": "Future importer must check containment and reject links at open time. Current worker accepts bounded single-module source without ambient corpus/module resolution. Scan-time absence of links is not treated as ongoing admission authority."
+        }
+      ],
+      "blocking_findings": [],
+      "formal_review": {
+        "slots": "S01/S02/S04 are exact projection equalities under fixed resolved Payload; S03 preserves namespace/index constructor identity. Numeric Tree tags do not themselves prevent arbitrary data encodings, so revision2 closed-enum and parsed-constant adapter requirements remain essential tested boundaries. Universal parsing, slot allocation, serialization and Alloy equivalence are not claimed.",
+        "foundation": "Numerical admission, terminal state and cancellation policies are proved abstractly. The style theorem accepts supplied metadata, so it does not prove AST checker completeness, documentation quality, OS isolation or runtime atomicity."
+      },
+      "checks": [
+        {
+          "command": "lake build",
+          "cwd": "formal",
+          "exit_code": 0,
+          "result": "Build completed successfully (11 jobs); ordinary build, not independent two-clean-build evidence."
+        },
+        {
+          "method": "manual review",
+          "result": "Read full revisions1/2 supplement, Slots and Foundation Lean. Verified current dataset roots exist, inventory unchanged, and publication/remote embedding/training flags remain false."
+        }
+      ],
+      "implementation_gate_notes": [
+        "Separately attest two clean proof builds and six council seats before production source.",
+        "Test actual parser alpha-renaming, nested binders, dependent-domain rejection, slot/order preservation and injective encoding using independent fixtures; unsupported nodes fail closed without source fallback.",
+        "Run AST-based documentation/physical-line/encapsulation inventory on all authored Java/JS/TS/TSX and tests. Abstract accepted-style proof is not checker evidence.",
+        "Keep roots read-only and external. A selected local evaluation is not permission for bulk ingestion, dataset embedding or future training.",
+        "Retain original notices and unresolved redistribution records for every dependency; local integration is not commercial or corpus-rights clearance."
+      ],
+      "commercial_assessment": "Appropriately limited to engineering feasibility. Demand, purchase commitments and support economics remain unvalidated; base commercial pilot/rights gates remain in force.",
+      "commercial_clearance": false,
+      "dataset_rights_clearance": false,
+      "production_implementation_reviewed": false,
+      "two_clean_builds_independently_attested_by_this_review": false
+    }
+  ]
+}

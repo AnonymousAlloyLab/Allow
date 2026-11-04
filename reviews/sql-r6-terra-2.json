@@ -1,0 +1,28 @@
+{
+  "reviewer": "terra-2",
+  "seat": "sql-r6-terra-2",
+  "review_type": "INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 6,
+  "spec_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "blocking_design_findings": [],
+  "basis": [
+    "Revision 6 addresses the concrete revision 5 blocker: P/B/D and also C/S are now counted as effect-capable before forwarding, alongside Q/E. Thus a later source-bearing Q/P is held until the matching completed cycle and validated lexical status, even when pre-Execute planning or analysis has side effects.",
+    "Q and Sync define ordered Ready boundaries, non-source progress remains possible and COPY data belongs to its initiating effect; unsolicited Ready is rejected. Native PREPARE classification and connection-local provenance remain within the previously reviewed design.",
+    "The Lean cycle model is unchanged and its generic forwardEffect claims do not establish which messages may have effects. That classification and actual protocol event ordering remain explicitly trusted and tested adapter obligations, rather than a claimed theorem."
+  ],
+  "implementation_acceptance_notes": [
+    "Mark Q/P/B/D/E/C/S before forwarding; record ordered Q/Sync boundaries accurately and never let an older Ready clear newer pending effects. Validate ParameterStatus and refuse unexpected or malformed Ready; keep Bind/Execute/Sync/Close/Describe and COPY completion available as specified.",
+    "Run real cases for P before another P, Bind/Describe before later SQL, error skip-until-Sync, delayed and older Ready, Close/Sync transaction effects, COPY completion and ordinary Parse/Bind/Execute progress. On rejection the connection closes; completion and later successful SQL are tested in a non-rejected session.",
+    "Maintain earlier constraints: full exact-source admission, first real PREPARE/EXECUTE token plus singleton ordered family, full nested policy checks, connection-local shared provenance, and safe 63-byte protocol-name collision handling. Preserve full ACL dump/restore.",
+    "Re-run both clean proof builds against the final revision and model hashes before runtime implementation. This review did not run Lean or edit production code."
+  ],
+  "formal_limits": [
+    "The cycle model assumes correct effect classification, barrier assignment, validated lexical status, and correspondence with ReadyForQuery; it does not prove frontend/backend framing or PostgreSQL runtime behavior.",
+    "Native body spans, name normalization and grammar report classification remain trusted adapter obligations, and admitted requests do not imply backend success."
+  ],
+  "production_edits": false,
+  "approval_scope": "Revision 6 bounded design; final proof, implementation and runtime/recovery acceptance remain separate."
+}

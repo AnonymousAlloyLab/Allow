@@ -1,0 +1,14 @@
+{
+  "reviewer": "terra-2",
+  "package_root_sha256": "245fc5201c5657b049d730daba8b237aa6f4538b71813221bc4d9fc50391a209",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "findings": [],
+  "review_basis": {
+    "integrity": "All 186 unique, sorted manifest entries match the snapshot and current workspace bytes; the SHA-256 of the canonical compact sorted-key JSON array matches the package root. The snapshot contains no additional files.",
+    "scope": "Approval is for the frozen, inactive implementation contract only, subject to its six-seat and two-clean-build prerequisites. The registered verifier and all 36 elaborated type and axiom records were inspected; this review does not assert that the verifier has run or that Lean proves implementation correspondence.",
+    "safety": "The contract replaces cross-request process reuse with one-use generations, retains the shared two-tree accounting and the active permit, and requires generation-owned positive cleanup, fresh CLEAN authority, staged publication and a final build fence. Uncertain cleanup and incomplete restart reconciliation fail closed. Actual OS, adapter, journal, cancellation and descriptor behavior remain runtime obligations.",
+    "feasibility": "The r4 probe is bounded evidence of image byte transport, seals, limits and cleanup, not Alloy initialization, private validation, semantic equivalence or performance. The fixed in-sandbox prlimit step and setup file limit must be tested on the actual implementation. Earlier failed probes remain relevant evidence.",
+    "prior_rejection": "Reviewed the rejected validator-session findings independently. This proposal avoids its shared-JVM reset premise and specifies image transport, process ownership, guarded reachability and full elaborated theorem types. Its safety and performance prerequisites still require actual implementation evidence; the prior rejection is not converted into a runtime approval."
+  },
+  "conditions_and_boundary": "Production preview remains fresh DEFAULT; no live activation follows from this review or model verification. Material contract changes require renewed review and proof as specified. Frozen runtime fixtures, independent finite safety and differential checks, actual owned-cgroup tests, and all preregistered performance gates remain prerequisites to selection. Workstation quotas do not establish actual 4 vCPU / 8 GiB target-host performance. Commercial release remains NO_GO and target-host acceptance OPEN. All Java, JavaScript and TypeScript methods must be documented and at most 30 physical lines; all PostgreSQL access, including observations and administration, remains through SQLeanParser."
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-CC29-STORAGE-QUOTA-R2",
+  "status": "REGISTERED_PROCEDURE_PENDING_FROZEN_IMPLEMENTATION_RUN",
+  "source_ready": "Use an exact root-author receipt and a new copied installation; source/tooling/fixture generator/drivers are manifest-bound before any setup SQL.",
+  "authority": "../runtime-test-plan.json CC29",
+  "fixture": {"revisions": 4096, "accounted_bytes": 268434782, "cap_bytes": 268435456, "requested_ids": 4096, "stored_signature_ids": 4095, "base_revision": 0, "head_observed": 4095, "classification": "STORAGE_SHAPED_NOT_4096_ALLOY_ADMISSIONS"},
+  "cases": ["empty-0", "empty-1", "empty-2", "full-0", "full-1", "full-2", "reference-full", "late-conflict"],
+  "verifier": {"id": "CC29-QUOTA-PROBE", "path": "quota_probe.py", "hash": "Frozen in run manifest before execution", "outputs": "Per-case PASS/BLOCK with exact fixture/verifier/root binding. Whole33-case closure remains BLOCKED even if all eight finite subcases pass."},
+  "valid_predicate": "Original exact nonce-bound context envelope, exact baseartifact/head/inventory, child exit0, no stderr, actual BOUND backendidentity then independent fresh-snapshot absence, nonfailed successful CLEAN phase, externalCLI elapsed<3000ms, all7durable table hashes unchanged.",
+  "instrumented_valid_predicate": "For empty cases:0history SELECT/rows. For full cases:one unchanged actual history SELECT;4096buffered+iteratedrows; exact artifact/rawbyte counts and sorted rowhash multiset; fixed AS2GiB/CPU20s limits. Capture kernel selfCPU/lifetime maxRSS and /proc/self/status entry/final VmPeak,VmSize,VmHWM,VmRSS after CLI publication. Require0<VmHWM<=VmPeak<=2GiB. Do not confuse lifetime getrusage RSS with post-exec VmHWM or physical group memory. Delegate original production decoder/collector; no SQL or parameter changes.",
+  "uninstrumented_reference": "reference-full uses actual python -m allow_documents.cli with production prlimit caps and full expected output/absence/durability comparisons. It independently covers the fullquota normalpath without row-observation wrapper.",
+  "conflict_predicate": "After a separately declared synthetic fixture update, the actual trace reaches the earlier matching and later conflicting definition in that order; CLI returns no success, exact backend absent or activeUNKNOWN lease retained, and before/afterdurable hashes unchanged. SQL insertion/heap order alone is not evidence of the later iteration.",
+  "constants": {"statement_timeout_ms": 1500, "lock_timeout_ms": 250, "idle_timeout_ms": 1000, "context_wall_ms": 3000, "cleanup_budget_ms": 2500, "cli_address_space_bytes": 2147483648, "cli_cpu_seconds": 20, "fixture_setup_seconds": 600, "supervisor_seconds": 1200},
+  "failure_policy": "Stop on first false or missing predicate and preserve complete failure before harness cleanup. No quota reduction, timeout relaxation, SQL bypass, earlyexit or replacement of unknown ownership. Setup/driver inability unrelated to a tested predicate is INFRASTRUCTURE_FAILURE.",
+  "privacy": "Every source/bind/credential/rawwire artifact remains in private0600files. Public reports contain hashes, numeric metrics and bounded classifications only; noBackendKeyData.",
+  "trust": ["Linux process/peer/pidfd/resource/socket/fsync semantics", "PostgreSQL16.15", "psycopg/libpq", "Pinned SQLeanParser", "ManagedPython", "SHA256/filesystem/hardware", "Registered deterministic fixture/driver predicates"],
+  "interpretation": "Three samples perfixture are local deadline feasibility, not p95, throughput or4-vCPU8-GiB production acceptance. Instrumentedtimings include hash/row inspection overhead and are disclosed separately from the unmodifiedreference. No full implementation-refinement or full33-case acceptance claim."
+}

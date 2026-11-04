@@ -1,0 +1,64 @@
+{
+  "reviewer": "Sol council seat 1",
+  "seat": "sql-r6-sol-1",
+  "review_type": "EXACT_HASH_ADVERSARIAL_DESIGN_REVIEW",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 6,
+  "spec_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "formal_path": "formal/Allow/SqlRouting.lean",
+  "formal_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "remaining_design_blockers": [],
+  "scope": "Final revision 6 delta: expanded pre-Execute effect barrier addressing ASTRA2-R5-01; prior native provenance, full backup and conservative-name requirements retained.",
+  "findings": [
+    {
+      "id": "SOL1-R5-01",
+      "topic": "Exact native source and provenance",
+      "assessment": "Whole PREPARE and EXECUTE requests each require exact grammar admission. Sole top-level classification, rejection of nested/multiple forms, immutable portal capture, shared connection-local namespace, and restrictions inside bodies/arguments preserve the intended all-client SQL boundary. Admission does not establish backend preparation success."
+    },
+    {
+      "id": "SOL1-R6-02",
+      "topic": "Pre-Execute and completion effects",
+      "assessment": "Read ASTRA2-R5-01 and revision 6. Revision 5 Q/E-only accounting omitted planning-time Bind effects and related hooks. Revision 6 conservatively marks Q/P/B/D/E/C/S before forwarding, so a later Q/P cannot overtake pending analysis, type input, planning/revalidation, cleanup or transaction completion effects. This resolves the cited design blocker without claiming function-effect analysis."
+    },
+    {
+      "id": "SOL1-R5-03",
+      "topic": "Protocol name aliasing",
+      "assessment": "Native ASCII names are limited to 63 bytes and folded only for lookup. Conservatively reject protocol prepared statement names over 63 bytes in implementation: SQL EXECUTE truncation could otherwise select a backend object under an alias not represented by exact protocol-name lookup. This rejection is permitted by the specification conservative policy; do not normalize forwarded protocol strings."
+    },
+    {
+      "id": "SOL1-R5-04",
+      "topic": "Frozen runtime gap",
+      "assessment": "Read current sql_guard.py and sql_proxy.py. They still reject PrepareStmt/ExecuteStmt and have no pending-effect Q/P lexical barrier. Their present behavior is baseline evidence, not revision 5 compliance. No production source was changed by this review."
+    },
+    {
+      "id": "SOL1-R5-05",
+      "topic": "Full recovery and provenance",
+      "assessment": "Keep the complete native pg_dump/pg_restore path with ACLs and original revision 3 backup failure evidence. No ACL omission or backup-content reduction may be substituted for native preparation support. Unresolved upstream LICENSE/NOTICE provenance remains recorded; local authorized use does not grant redistribution or commercial license clearance."
+    },
+    {
+      "id": "SOL1-R6-06",
+      "topic": "Ordered completion and continued progress",
+      "assessment": "Q/Sync enqueue their current cycle and then advance it. Matching Ready releases only effects at or before that barrier after validated lexical statuses; initial startup Ready is the sole unqueued exception. B/E/C/D/S/H and COPY continue while new source is blocked. COPY data/end remain attributed to the initiating Q/E, preventing orphan next-cycle pending effects. Malformed/unsolicited Ready closes the session; ignored frontend traffic cannot synthesize acknowledgements."
+    }
+  ],
+  "formal_review": {
+    "registered_sql_obligations": 28,
+    "assessment": "The unchanged generic forwardEffect/completeCycle model supports every correctly marked effect, including newly specified pre-Execute messages. Its 28 policy lemmas do not prove message-effect classification, cycle assignment, queue correspondence or backend hooks. Revision 6 explicitly makes these adapter checks, rather than attributing their verification to Lean.",
+    "adapter_trust": "NativePrepare.bodyPart proves nonempty substring decomposition only. Correct top-level grammar classification, body/name extraction, PostgreSQL ASCII name correspondence, ordered unique cycle assignment and association of ReadyForQuery with its Q/Sync barrier remain adapter obligations.",
+    "proof_execution": "This review does not replace the required two clean Lean builds or assert their completion."
+  },
+  "implementation_acceptance_obligations": [
+    "Real unchanged full pg_dump and pg_restore including ACLs through canonical proxy endpoints; per-entry-point counter deltas and endpoint evidence, plus recovery and revocation integrity.",
+    "Native and both cross-protocol preparation paths; fresh-connection cached EXECUTE denial; unknown/cross-connection names; duplicate/failed native or protocol preparations; immutable old portals and state budgets.",
+    "Quoted/Unicode/overlong SQL names and over-63-byte protocol names reject conservatively; mixed-case native ASCII lookup does not rewrite SQL.",
+    "Opaque/nested/multiple statement forms and unsafe set_config/lexical expressions inside native PREPARE/EXECUTE reject before forwarding.",
+    "Delayed and fragmented backend status, E then P before Sync, Q then Q/P, older Ready after newer Execute, and an isolated pg_settings mutation cannot forward newly parsed SQL under stale mode assumptions.",
+    "Barrier progress with Sync/Flush/COPY/cancellation; successful matching safe completion permits later SQL on a session that has not been rejected. A rejected session stays closed.",
+    "Retain existing parser tamper/unavailable, exact bytes, framing, migration partial-recovery, database/RLS, ML-integrity and HTTP checks.",
+    "P followed by P before Sync rejects the second source; delayed Bind or Describe followed by Q/P also rejects before forwarding. Exercise ordinary P/B/D/E/S completion independently.",
+    "Exercise Close and Sync completion effects, multiple pending cycles with an older Ready after a newer marked message, unexpected Ready rejection, and COPY completion without orphan pending state. Audit runtime effect classification against pinned PostgreSQL source."
+  ],
+  "runtime_edits": false,
+  "final_conclusion": "Approve the exact revision 6 contract for implementation. Prior revision 5 approval was incomplete on pre-Execute effects; ASTRA2-R5-01 is now explicitly addressed. No runtime source changes or runtime/proof gate completion are asserted."
+}

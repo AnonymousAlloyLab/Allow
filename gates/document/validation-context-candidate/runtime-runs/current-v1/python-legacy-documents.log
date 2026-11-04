@@ -1,0 +1,49 @@
+test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt (test_documents.DocumentSQLTests.test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt)
+Injected acknowledgement loss after real commit recovers both outcomes. ... ok
+test_competing_revision_and_terminal_stale_receipt (test_documents.DocumentSQLTests.test_competing_revision_and_terminal_stale_receipt)
+Concurrent bases produce one appended revision and immutable stale denial. ... ok
+test_create_capacity_reserves_pending_documents_and_replay (test_documents.DocumentSQLTests.test_create_capacity_reserves_pending_documents_and_replay)
+63 existing plus pending CREATE rejects another slot; replay ignores quotas. ... ok
+test_create_revision_zero_and_exact_replay_at_stale_base (test_documents.DocumentSQLTests.test_create_revision_zero_and_exact_replay_at_stale_base)
+Exact receipt replay neither revalidates nor appends a second revision. ... ok
+test_encoded_route_preserved_and_encoding_change_collides (test_documents.DocumentSQLTests.test_encoded_route_preserved_and_encoding_change_collides)
+Only literal colon or canonical percent3A route is admitted, never normalized. ... ok
+test_failure_after_append_and_receipt_rolls_back_every_row (test_documents.DocumentSQLTests.test_failure_after_append_and_receipt_rolls_back_every_row)
+A database error after all writes cannot leave partial revision/receipt. ... ok
+test_final_rejection_observed_head_is_locked (test_documents.DocumentSQLTests.test_final_rejection_observed_head_is_locked)
+Denial is not receipted with a stale acceptedRevision response. ... ok
+test_forced_fk_rollback_keeps_previous_head (test_documents.DocumentSQLTests.test_forced_fk_rollback_keeps_previous_head)
+Database rejection atomically rolls back appended artifact and head update. ... ok
+test_live_owner_and_verified_dead_takeover (test_documents.DocumentSQLTests.test_live_owner_and_verified_dead_takeover)
+Process start ticks prevent PID-reuse takeover and new nonce fences old frame. ... ok
+test_live_supervisor_recovery_requires_reap_proof (test_documents.DocumentSQLTests.test_live_supervisor_recovery_requires_reap_proof)
+Same live supervisor rotates nonce only after owned worker death proof. ... ok
+test_locked_historical_fresh_id_collision_and_remapping_denial (test_documents.DocumentSQLTests.test_locked_historical_fresh_id_collision_and_remapping_denial)
+Generated IDs cannot alias unsubmitted historical IDs even of the same kind. ... ok
+test_lost_admission_ack_recovers_same_supervisor_before_worker_start (test_documents.DocumentSQLTests.test_lost_admission_ack_recovers_same_supervisor_before_worker_start)
+A committed admission with lost reply is recoverable without process restart. ... ok
+test_owned_ids_bounded_kinds_and_cross_scope_fk (test_documents.DocumentSQLTests.test_owned_ids_bounded_kinds_and_cross_scope_fk)
+Historical ownership returns stable categories; foreign composite FK denies. ... ok
+test_policy_fence_and_history_zero_fresh_artifact (test_documents.DocumentSQLTests.test_policy_fence_and_history_zero_fresh_artifact)
+Policy changes invalidate checked frames; restore zero appends fresh identity. ... ok
+test_reaped_worker_without_captured_start_ticks_requires_absent_pid (test_documents.DocumentSQLTests.test_reaped_worker_without_captured_start_ticks_requires_absent_pid)
+Null start capture accepts only verified reaped/absent PID, never live reuse. ... ok
+test_receipt_replay_ignores_broken_new_checked_frame (test_documents.DocumentSQLTests.test_receipt_replay_ignores_broken_new_checked_frame)
+Existing receipt is returned before new output/checked artifact validation. ... ok
+test_rejected_receipt_and_nonce_fence (test_documents.DocumentSQLTests.test_rejected_receipt_and_nonce_fence)
+Stale owner cannot finalize; deterministic denial is itself replayable. ... ok
+test_scope_and_immutable_sql_grants (test_documents.DocumentSQLTests.test_scope_and_immutable_sql_grants)
+RLS hides foreign documents and app role cannot rewrite receipts/history. ... ok
+test_simultaneous_exact_key_serializes_and_commits_once (test_documents.DocumentSQLTests.test_simultaneous_exact_key_serializes_and_commits_once)
+Parallel duplicate admissions/finalizers yield one revision and one receipt. ... ok
+test_unknown_sqlstates_never_claim_known_rollback (test_documents.DocumentSQLTests.test_unknown_sqlstates_never_claim_known_rollback)
+Actual psycopg unknown-completion error classes retain uncertainty. ... ok
+test_private_identity_restart_modes_and_symlink (test_documents.WireTests.test_private_identity_restart_modes_and_symlink)
+Durable identity survives load and denies unsafe permissions/symlinks. ... ok
+test_strict_duplicate_surrogate_number_and_limit (test_documents.WireTests.test_strict_duplicate_surrogate_number_and_limit)
+Malformed frames fail before database access or large allocation. ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.137s
+
+OK

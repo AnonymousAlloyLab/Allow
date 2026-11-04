@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "mutation": "managed_runtime_files",
+      "rejected": true,
+      "failure": "manifest_root_mismatch"
+    },
+    {
+      "mutation": "managed_runtime_links",
+      "rejected": true,
+      "failure": "manifest_root_mismatch"
+    }
+  ],
+  "boundary": "Copied validator loaded with original controller ROOT identity; no runtime or DB."
+}

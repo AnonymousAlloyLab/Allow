@@ -1,0 +1,72 @@
+{
+  "status": "EXPERIMENT_BINDING_VERIFIED",
+  "experiment_binding": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-experiment-binding.json",
+    "sha256": "fbca2d98930c3714ecaab0629d98704451ecada75e7a460d808847653e50c8f9"
+  },
+  "input_root_sha256": "8b0d92855939045d33d6d115e4003854a6d1e2a4525ef30f15f4ac2f58bbd2e6",
+  "artifact_bindings": 309,
+  "trials": [
+    {
+      "pair": 1,
+      "variant": "F0",
+      "input_root_sha256": "20a1a675d95e2ffd5d3872dc4309382a2261d2556a55b2474e44b376c3976a48",
+      "fresh_installation": "PASS"
+    },
+    {
+      "pair": 1,
+      "variant": "F1",
+      "input_root_sha256": "cae1c5fe4cafabffac6f275ed0867d5ee365866afbe710f44d3870461c9bb845",
+      "fresh_installation": "PASS"
+    },
+    {
+      "pair": 2,
+      "variant": "F0",
+      "input_root_sha256": "34a270e353d089fdc31c5c1594049dc763199762fd7c5ed886a7ca828cf41a07",
+      "fresh_installation": "PASS"
+    },
+    {
+      "pair": 2,
+      "variant": "F1",
+      "input_root_sha256": "d0feb14a57ad886f12ea376f919e5ea3a55918ce645a6fbaedf745176bd547f0",
+      "fresh_installation": "PASS"
+    },
+    {
+      "pair": 3,
+      "variant": "F0",
+      "input_root_sha256": "897bf8fe0114dc52c13835a13018cdd972458380a54b408e7ab89499b4116767",
+      "fresh_installation": "PASS"
+    },
+    {
+      "pair": 3,
+      "variant": "F1",
+      "input_root_sha256": "34a4910cf083f0ae7b476fdf8fc9601ecf93e91087d8f245f831bf1dcdcd36fd",
+      "fresh_installation": "PASS"
+    }
+  ],
+  "common_identities": {
+    "F0": "5bdb1b314d1a36b50f2c4d38f574e6f757b690e16d7884e41f6f693f0d7cb8e0",
+    "F1": "f59ee927f4411f8ed9dd09b8cb9825856d150b625526fbbf83898784c55f3ae7"
+  },
+  "preflight": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-binding-preflight.json",
+    "sha256": "95cea6c0271596680bae77fbe92c3ed81e321b3240097a9848578debec3ae9e8"
+  },
+  "verification_process": "Second independent Python process; same frozen correspondence verifier plus installation verifier replay",
+  "source_ready": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/source-ready-r3.json",
+    "sha256": "d84bf19a042a6484b0fe50e700bbc6beb0376fcb20e1f8563e3fa77e8c870764"
+  },
+  "prerequisites": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/pair-prerequisites-r2.json",
+    "sha256": "98ed191fc1f3d564019012cd5e25f78a1fc0079c2c13e7badbd342b45f36e356"
+  },
+  "scope_preflight": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-preflight-r7/report.json",
+    "sha256": "fd7b4a2b24d7bfe2a685c6f38df5d2ad8d0be833cfd1195f9c3f000dcc2a7c63"
+  },
+  "trial_execution": "NOT_STARTED",
+  "profile_activation": "NOT_PERFORMED",
+  "target_acceptance": "OPEN",
+  "boundary": "Finite input/recipe/prerequisite correspondence and actual installation integrity, not benchmark performance or universal software correctness."
+}

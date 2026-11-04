@@ -1,0 +1,40 @@
+{
+  "reviewer": "astra-1",
+  "seat": "sql-r6-astra-1",
+  "review_type": "FINAL_INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 6,
+  "spec_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "blocking_findings": [],
+  "delta_assessment": [
+    "Read Astra2 revision5 counterexample: a Bind planning-time routine can change lexical settings before Execute. The former Q/E-only barrier was insufficient under the stated routine trust boundary; this supersedes my revision5 assessment of that boundary.",
+    "Revision6 marks Q/P/B/D/E/C/S before forwarding, covering analysis/type-input, planning/revalidation, execution, resource release and transaction completion without assuming pre-Execute steps are effect-free.",
+    "New Q/P remains denied until matching validated Ready. B/E/C/D/S/H and COPY/cancellation progress remain available; consecutive Parse without Sync may be conservatively rejected.",
+    "Q and Sync seal ordered cycles; older Ready retains newer effects. COPY data/end stays under initiating Q/E so completion cannot strand an orphan cycle. Unsolicited later Ready is rejected rather than manufacturing acknowledgement.",
+    "Native PREPARE/EXECUTE accepted provenance and exact-source requirements remain intact."
+  ],
+  "implementation_acceptance_notes": [
+    "Mark each specified effect pending before forwarding it. Capture Q/Sync barrier at current cycle before advancing; never clear newer effects when processing an older Ready.",
+    "Test P then P before Sync; B or D then new SQL; Close and Sync effects; ordinary P/B/D/E/S; older Ready after newer message; COPY completion without orphan pending state; malformed/unsolicited Ready and error-skip behavior.",
+    "Validate unsafe ParameterStatus before releasing any barrier or forwarding further new SQL. Test indirect UPDATE pg_settings and the pre-Execute planning scenario using synthetic peers or an isolated reviewed fixture.",
+    "Keep the agreed conservative63byte protocol prepared-name bound and cross-protocol alias tests; preserve full ACL pg_dump/pg_restore coverage and prior native/classifier/cache/state tests.",
+    "Conservative compatibility failures must close the connection and be reported honestly. Do not weaken admission, remove ACLs or silently bypass the proxy to make tooling pass."
+  ],
+  "formal_review": {
+    "sql_obligations": 28,
+    "generic_cycle_proofs_unchanged": true,
+    "independent_final_build_run": false,
+    "required_gate": "After six final council seats, two clean builds must bind this exact specification and current Lean source before production edits."
+  },
+  "formal_limits": [
+    "Generic forwardEffect proves pending-source exclusion for whichever messages the adapter marks; it does not establish that the selected message classes exhaust PostgreSQL effect paths. Runtime classification and pinned-source review remain explicit obligations.",
+    "Cycle numbering, ordered Ready association, ParameterStatus timing, native body extraction/classification/name handling and Python implementation correspondence remain outside Lean proof scope.",
+    "No backend execution, SQL effect analysis, isolation or commercial-rights assurance is implied."
+  ],
+  "production_edits": false,
+  "supersedes": "reviews/sql-r5-astra-1.json",
+  "additional_evidence": "reviews/sql-r5-astra-2.json",
+  "approval_scope": "Exact revision6 design only; proof-first closure and runtime acceptance remain separate gates."
+}

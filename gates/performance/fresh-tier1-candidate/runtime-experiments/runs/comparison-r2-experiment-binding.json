@@ -1,0 +1,1378 @@
+{
+  "schema_version": "1.0",
+  "status": "FROZEN_EXPERIMENT_BINDING",
+  "order": [
+    [
+      1,
+      "F0"
+    ],
+    [
+      1,
+      "F1"
+    ],
+    [
+      2,
+      "F1"
+    ],
+    [
+      2,
+      "F0"
+    ],
+    [
+      3,
+      "F0"
+    ],
+    [
+      3,
+      "F1"
+    ]
+  ],
+  "source_ready": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/source-ready-r3.json",
+  "prerequisites": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/pair-prerequisites-r2.json",
+  "scope_preflight": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-preflight-r7",
+  "pairs": [
+    {
+      "pair": 1,
+      "f0_manifest": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/manifest.json",
+      "f1_manifest": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/manifest.json",
+      "recipe_receipt": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/recipe-receipt.json"
+    },
+    {
+      "pair": 2,
+      "f0_manifest": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f0/manifest.json",
+      "f1_manifest": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f1/manifest.json",
+      "recipe_receipt": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f1/recipe-receipt.json"
+    },
+    {
+      "pair": 3,
+      "f0_manifest": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f0/manifest.json",
+      "f1_manifest": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f1/manifest.json",
+      "recipe_receipt": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f1/recipe-receipt.json"
+    }
+  ],
+  "common_identities": {
+    "F0": "5bdb1b314d1a36b50f2c4d38f574e6f757b690e16d7884e41f6f693f0d7cb8e0",
+    "F1": "f59ee927f4411f8ed9dd09b8cb9825856d150b625526fbbf83898784c55f3ae7"
+  },
+  "trials": [
+    {
+      "pair": 1,
+      "variant": "F0",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/manifest.json",
+        "sha256": "5e5cacd6ae746f6e94b173e0582f47aea216aa944311d68a948ca8e533ff82de"
+      },
+      "input_root_sha256": "20a1a675d95e2ffd5d3872dc4309382a2261d2556a55b2474e44b376c3976a48",
+      "common_identity": "5bdb1b314d1a36b50f2c4d38f574e6f757b690e16d7884e41f6f693f0d7cb8e0"
+    },
+    {
+      "pair": 1,
+      "variant": "F1",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/manifest.json",
+        "sha256": "628e4861f230bdb9da80c45566d2f65afc811169953a6bd7193711c78b3e3ec5"
+      },
+      "input_root_sha256": "cae1c5fe4cafabffac6f275ed0867d5ee365866afbe710f44d3870461c9bb845",
+      "common_identity": "f59ee927f4411f8ed9dd09b8cb9825856d150b625526fbbf83898784c55f3ae7"
+    },
+    {
+      "pair": 2,
+      "variant": "F0",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f0/manifest.json",
+        "sha256": "24af7959f05bd6a8986c50c0ed7e92092f3d22c29d935dc08ad3b917ee14bd4f"
+      },
+      "input_root_sha256": "34a270e353d089fdc31c5c1594049dc763199762fd7c5ed886a7ca828cf41a07",
+      "common_identity": "5bdb1b314d1a36b50f2c4d38f574e6f757b690e16d7884e41f6f693f0d7cb8e0"
+    },
+    {
+      "pair": 2,
+      "variant": "F1",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f1/manifest.json",
+        "sha256": "e792a727906548c324213ab036dc283ed261e9d2a1c3b56470d336d5e5379e2f"
+      },
+      "input_root_sha256": "d0feb14a57ad886f12ea376f919e5ea3a55918ce645a6fbaedf745176bd547f0",
+      "common_identity": "f59ee927f4411f8ed9dd09b8cb9825856d150b625526fbbf83898784c55f3ae7"
+    },
+    {
+      "pair": 3,
+      "variant": "F0",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f0/manifest.json",
+        "sha256": "12f7b0d4d23b2e3541185fd0c221093a95904c72677478f399b735c5d8f5d8f4"
+      },
+      "input_root_sha256": "897bf8fe0114dc52c13835a13018cdd972458380a54b408e7ab89499b4116767",
+      "common_identity": "5bdb1b314d1a36b50f2c4d38f574e6f757b690e16d7884e41f6f693f0d7cb8e0"
+    },
+    {
+      "pair": 3,
+      "variant": "F1",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f1/manifest.json",
+        "sha256": "573020556723356d315b3760df6bf2b749fe4159dc77ea18dbec55dc1b18d9df"
+      },
+      "input_root_sha256": "34a4910cf083f0ae7b476fdf8fc9601ecf93e91087d8f245f831bf1dcdcd36fd",
+      "common_identity": "f59ee927f4411f8ed9dd09b8cb9825856d150b625526fbbf83898784c55f3ae7"
+    }
+  ],
+  "prerequisite_links": {
+    "semantic_root": "610f3b4eafb27802359bb7b5c339b79bf3ab4341175800bb5c84083066b0f41d",
+    "baseline_build": "a280c31119621daf2d233ebdf292318c0d9bb8814cd2339ae2669d8ed6a8cde4",
+    "containment_only_inputs": {
+      "/usr/bin/taskset": "a431738fadddc2e2326c8ab81843e72f4011658379381aef1502a6ddb1c1115b",
+      "/etc/apparmor.d/chatgpt": "05be1a8336a80236f4b56798ea7a75accb55f51438afa1e7cb5e94bfa326b1b7",
+      "/etc/apparmor.d/unprivileged_userns": "3729c1ec82ab5384de6553afab455a236ce90096dac9c0e6cb65c133c10e18b3"
+    },
+    "containment_projection": "Exactly taskset and two AppArmor policy files use frozen real-worker scope preflight; not part of historical190 semantic coverage.",
+    "scope": "Exact tested production/source inventory links; historical test semantics remain verifier-trusted."
+  },
+  "files": [
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/bootstrap-documents-private.log",
+      "sha256": "db5265310a8947eff5f62249eb59500651be7243617cd63eb06216c8eba78836"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/bootstrap-private.log",
+      "sha256": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/client-coverage.json",
+      "sha256": "faf7d86a3e169e5d1a1d36a34719358b892615fce06c1c3bee96a95eef194e17"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/document-recovery-private.log",
+      "sha256": "14ce9a64536d94a2700dd9c6e5d0870080fa81c65dcda8c58342fcfacc21024a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/document-recovery-report.json",
+      "sha256": "68c49bcef16846950021f1fb3299433e2ab94c892e88726ae37adb66b0b3c1d3"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/http-restart-private.log",
+      "sha256": "feed9f8f5600eb0ad23f35b17273c3b8be31472b6ec81cee24f129b03ee57ae6"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/http-smoke-private.log",
+      "sha256": "b2e8763938dc703ab9509291edce8b137fbe1019f7cc90373875a5e607589295"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/http-smoke.json",
+      "sha256": "16d79c7dac27b483c1bab018956ea4eddde993812d48df6289688c77bfad0662"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/initialize-retrieval-private.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/manifest.json",
+      "sha256": "b6781fdb1d81164c3588d6d98dcd46c1b8f1b9269dda4a9d2826f3c66d70be44"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/migrate-private.log",
+      "sha256": "f61fcfabd3044e28be6bd0b96a0528bc316ac6bf06326f4234c95997074bbe6a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/python-all-private.log",
+      "sha256": "6773417031a6960515fff7cf17835527d75e50289a55375bbc29327b888b0ab0"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/recovery-report.json",
+      "sha256": "b933305998b891a5cba71149d71fbf6edf1d6761a62a070a5580fec154d6db46"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/report.json",
+      "sha256": "9be260c8482045698b48c59f21f38312f8351d804b552adaf29d87df6446d972"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/restart-report.json",
+      "sha256": "2da7340ba50f5fb9d28f6c39289697fef49f39b5023f1ce5a7529bc2cbf9b866"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/sql-clients-and-retrieval-recovery-private.log",
+      "sha256": "e7f27d9e925eace67f9cde8953c460be1f0af334f5016e80e83df171900cb324"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/sql-runtime-private.log",
+      "sha256": "5e653725c2af49fd210c0aa4ed46a62dc9b08a3548b67ed22b1c724a1dc812e8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS01.json",
+      "sha256": "d18c9ad031f56c75c23f5e47916bf7105d1c20f74751415f96f7a97d6964c0f9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS02.json",
+      "sha256": "ca96f7f3eaf43ec403d13f2c9b2d98981704c946acaa0807bae6744080ff5bd7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS03.json",
+      "sha256": "5c938e0e32eb95844a716032ab42eeafc46576d623137823b761dfe27101c8a2"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS04.json",
+      "sha256": "e12d662b2af4bda4e4a46eb7eab8186dd480f8bb03a84f89fc864f4f8d327e97"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS05.json",
+      "sha256": "87a61c7d208f7bcf8aae779f5a343ba3a6e2db14a3f652e922b7491b97f35984"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS06.json",
+      "sha256": "ce5d9082a3e5cafbb5f1c3edfb11646dacf7534091818ad3808e46c657f9a01b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS07.json",
+      "sha256": "67946aee2db61716c8dbf2573586abc1e38d14f024443f11395c08ef5b1ce073"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS08.json",
+      "sha256": "8159226eee7f2b3d4d5dee2b8552a8033d06b309b423f1fd7901bc56c6383f87"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS09.json",
+      "sha256": "e08ce6198f2a4e69f39ecbc0eb5137e9b32fad6e90a228616848c799708c259c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS10.json",
+      "sha256": "58b07ba6a0f169bfc0303d74cf00e18ca3400b47d4985e041f85665c041a7679"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS11.json",
+      "sha256": "5768f482f707af57af8cd2c2440e861cda9fddc0d35835e6abc44dfb9e5b8c3b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/FTS12.json",
+      "sha256": "3ce976a0fbb96a7b7af877b00487164fdef5b2c73b0176a0ad16f272414fb261"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/after.json",
+      "sha256": "d5ae1c1273a4f901750c934dcf0fbbd778ad863678205d8f0f747cd47e33e19f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/before.json",
+      "sha256": "d5ae1c1273a4f901750c934dcf0fbbd778ad863678205d8f0f747cd47e33e19f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/manifest.json",
+      "sha256": "f65d390ecb7601cde05507f92c16b6d3466f35504a15213ce4e7045ecd8617ef"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/report.json",
+      "sha256": "0912921f80ae04bae7bfd8341dc1282f15e9b2624f93b16224816d0751d0a64f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/surefire-reports/TEST-dev.allow.backend.DocumentValidationContextTest.xml",
+      "sha256": "217c739904eb08dba3fa6286faee5e289656f91d4b2f172613ea3bd8c2fd3d66"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/surefire-reports/TEST-dev.allow.backend.DocumentWorkerLifecycleTest.xml",
+      "sha256": "8494ef1f14a33774dff5d43234f9d394d42c961438e7c6cc5c34ca5abe613f8f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/surefire-reports/TEST-dev.allow.backend.FreshTier1DeadlineTest.xml",
+      "sha256": "fc83a0d59dbbb77222de15666c5642e9760e26f3e64acf72c60b47284dffc068"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/surefire-reports/TEST-dev.allow.backend.FreshTier1SafetyTest.xml",
+      "sha256": "5cd666ee32dc4cdfc9602f5beaf87120d44ab750673ae29f465150451a65d9a7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/surefire-reports/TEST-dev.allow.backend.FreshTier1SolverBaselineTest.xml",
+      "sha256": "b68b257ecbd721e70b605c6f211a5e4251665afe4ddd6c1053e5978164d07446"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "sha256": "f1975ec27587d1022ee65b4e2312d73ab17fcaaf30a3a50d703f4feae70dbf0f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/compare_responses.py",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/experiment_binding.py",
+      "sha256": "05b55c80fbff05636c1e10d7be8d7334914b30f2b326829e529fca4f2f9b378a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/pair-prerequisites-r2.json",
+      "sha256": "98ed191fc1f3d564019012cd5e25f78a1fc0079c2c13e7badbd342b45f36e356"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/prepare_f1.py",
+      "sha256": "64accc141e172f6d809b280e61775ccbb67846dd211d9eeace53ef03490390a5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/manifest.json",
+      "sha256": "5e5cacd6ae746f6e94b173e0582f47aea216aa944311d68a948ca8e533ff82de"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/manifest.json",
+      "sha256": "628e4861f230bdb9da80c45566d2f65afc811169953a6bd7193711c78b3e3ec5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/recipe-receipt.json",
+      "sha256": "cc7696287de6e79aceeab9bdaaa8e5f5d1ef0d5421a6d24a6e263cfdd4dad02b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f0/manifest.json",
+      "sha256": "24af7959f05bd6a8986c50c0ed7e92092f3d22c29d935dc08ad3b917ee14bd4f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f1/manifest.json",
+      "sha256": "e792a727906548c324213ab036dc283ed261e9d2a1c3b56470d336d5e5379e2f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f1/recipe-receipt.json",
+      "sha256": "cd90baa9877b5b1589a1198da85dcf55bdb1a6a005ab5013db1bcbb88c338ae4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f0/manifest.json",
+      "sha256": "12f7b0d4d23b2e3541185fd0c221093a95904c72677478f399b735c5d8f5d8f4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f1/manifest.json",
+      "sha256": "573020556723356d315b3760df6bf2b749fe4159dc77ea18dbec55dc1b18d9df"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f1/recipe-receipt.json",
+      "sha256": "8f5f43c144071836f3463271b628ae908020ba1ca135df47a9afc1b310622ad1"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-preflight-r7/manifest.json",
+      "sha256": "b198e6e7f39beec1e61b6626daf5ea6690aa5fd91377b8bbc5f19a3687ed736d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-preflight-r7/report.json",
+      "sha256": "fd7b4a2b24d7bfe2a685c6f38df5d2ad8d0be833cfd1195f9c3f000dcc2a7c63"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0000.input",
+      "sha256": "dacb2f42b54dddc26b185251e8ff963604ddf3ff42fba15ea4c5498f079e52bf"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0001.input",
+      "sha256": "b082181ec6ae331ae93058a84a8bbc07dc6faf9fd940e25de411873cc93c77a5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0002.input",
+      "sha256": "fa7d8f115b54d2b924f0213cadb446a197fe4cb10dd072e2402b02e4875d88b2"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0003.input",
+      "sha256": "c2896c7ff699d5ed2fa22be192ce072cf350a750e2a501b7fc7120cff907e45e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0004.input",
+      "sha256": "ae3f6a23d2f172e83dc7431a729503c9c59d54d3136bca69aa88c3cb48ca75fe"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0005.input",
+      "sha256": "c2896c7ff699d5ed2fa22be192ce072cf350a750e2a501b7fc7120cff907e45e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0006.input",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0007.input",
+      "sha256": "b509bb2b0c3725ad5b16487cf837064468f1907a12b7db1da32ce8e99f334766"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0008.input",
+      "sha256": "204c5f0fb69024d7403ea526d2fd3dd86dd819b9999887f148278cc9a87b02bb"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0009.input",
+      "sha256": "d51dd8e7efdf45106274046dae1cdf7952438a46df54bd7cbfc11f2369a2f3ed"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0010.input",
+      "sha256": "84e4f53adc21bf8f5010b5b808698d6e502206dc6653f1c44081f95b4f0e6f43"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0011.input",
+      "sha256": "88102fffe9f6b10c4736181450e9bd20b33ab633d58bb43083c8f0907f8d6e5b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0012.input",
+      "sha256": "9ef8dc25685a7b1ad4f6478b5f9e0688b2ca37e9f0ba75b87e7e5c92205e71d8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0013.input",
+      "sha256": "7f59f12ad300c7f7f3d1a6a60caf386fee7703b4253553a21e2824703ffd25b7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0014.input",
+      "sha256": "e87c6f5902fe7c81409eb1d66a5e2658bfa44c0a22edaf61f5150f898cf250ed"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0015.input",
+      "sha256": "0a67c2934ac23d35eca2e3e24db3a82912541efe54a2f12ece8ff741f1c8ccf9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0016.input",
+      "sha256": "b92393de330386cb108d77bb5a4ef323ef235f4b03272a2750237af989b84886"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0017.input",
+      "sha256": "faf6d41c4fdb03e68a4593102dccafa1f69c0f46effe9b2a5ddf9cb5f1be7e64"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0018.input",
+      "sha256": "50801627c9406ea8be58aade294af8ecdbcd58517624479991ba0e1340d8505a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0019.input",
+      "sha256": "66855b544a4d2c2264acadc6855b17c9f9c0851bf8db8ffb85208b68516c739f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0020.input",
+      "sha256": "92a54903abc0d739327c50889ffe0dd84918a021afcb8cec4503c78aa4fdbbae"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0021.input",
+      "sha256": "4a2d27417be5bf84b64db95b92813a3207eae99082ea78caeb824c0578f67903"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0022.input",
+      "sha256": "c3a2fe5e11382b52a07f604710e33320c9602ea9f331d8a1b40f9cdf719ab9ab"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0023.input",
+      "sha256": "a1d440485d74075ffd137150cb6f11ebd6646cf031f6c3aac0d0f8dbce1545de"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0024.input",
+      "sha256": "a0a36237e1ac3f5e190f44d517d579e823cff35a130d10e89d490a5e29284cbe"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0025.input",
+      "sha256": "6daee16e57ea839694b044b8805baca585001e1208c09d84c02b2ff057c89d1d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0026.input",
+      "sha256": "7efcff602cc8baeebd74cc1f368307df669c243bbc9b6a84c6c81f27d6130eed"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0027.input",
+      "sha256": "84301aa329a77486e747fc2658f3686e2e4761f8fb757d1405275216fdf33425"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0028.input",
+      "sha256": "b00d97e7c9e2330c7ec00cb526602bb5566649d9d247562b500223579cea4869"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0029.input",
+      "sha256": "4a88db94c72ad5a034998067d26a29b208f1c1d37e95b84f726a5fd95dd7686e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0030.input",
+      "sha256": "8bd9d7560b85e76db34312a789797146d8fd7c218e48cb278d3f49725d6e4151"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0031.input",
+      "sha256": "65503236a136878d43edd955d64cf15602088498271ca9b221011bb9862cc7f5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0032.input",
+      "sha256": "7c2781d6ba1b44666c9654880cd2aac662b9072def75f8bd5a4dcfcb4082b89b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0033.input",
+      "sha256": "06aba94bd4bf48585a58bcdc02e1e235743b330483d9831ed4d8e9394f9bfa23"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0034.input",
+      "sha256": "ee544206b321c5de02e72ac90ddf9ac6c745027c69bae408801662a5c076789d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0035.input",
+      "sha256": "a1c8bed6bebd361ed0f2d75fff65439ec2b72e70882293d48f04e53a7ea5f827"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0036.input",
+      "sha256": "fa04dbbc7bc8a5d192d836661d87e3b8db88b84851e2e0c78fd2e7045f4790a2"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0037.input",
+      "sha256": "08adc9b8305e5711561218c122a4db337a224f550df94acb6c363cb131bb0765"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0038.input",
+      "sha256": "ec9d32980e81382e3352db44c406fd40a6edcb49e12161adc784693b24d0945e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0039.input",
+      "sha256": "a72bdb6bcf8cc33f5b85b1998a1fa53380a551b78c1d8feab70ed6956f060e47"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0040.input",
+      "sha256": "79cf26426112e19d20569885740660102556ca1bc8944549a2afd2eebe08aea4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0041.input",
+      "sha256": "2c34323dd6f21ffe2edaebc277b40cff0f8d82bb6ff0717ceed10baca1c3aa94"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0042.input",
+      "sha256": "d5cbb914d1f604d71db372389f866e3764cadad264aba0c0ae9c1968c26ab860"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0043.input",
+      "sha256": "a75dcad40c5f20509a2f39b180f3004aa5004853e26f326441aff7e25e671b3b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0044.input",
+      "sha256": "6cd7ac9f881b8727cfef9041dd3339ef7931b1304269a20f1425a270e668a0ef"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0045.input",
+      "sha256": "3a54a76f4b33d4e84f25379238927d94a0be2672abadec2d5262e7b5b54f5fcf"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0046.input",
+      "sha256": "52ee5da8c66d963890f13eaf60a7c5f432baf6b51d00e320ee14fffe99e1d640"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0047.input",
+      "sha256": "7c668fc59a268030abc5bd6f49b586c664c9b25702e747856af99b0f83de742e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0048.input",
+      "sha256": "9cf9ab7fdee1ebdc7b80c104b387cb04c0d5c324bcf8cdcc9418c418c47001a0"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0049.input",
+      "sha256": "564a64106061912914a127cec252a010f9241928dcc466576b308cdf8c8b10c0"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0050.input",
+      "sha256": "b040d50683a670802a7d4220b4b1ffe4a592b6c152ce3c94d03b04504fe7bcfc"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0051.input",
+      "sha256": "49ada57ba3f61b3890fc4f995805c683cd05ab7f068077a912d3463c9e574e1c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0052.input",
+      "sha256": "cf23a446f3bbf1f13f4cbecec93d9397ce85bf9abad05abe49e80047d59a807c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0053.input",
+      "sha256": "8688bd3aec685d85476d5a19c3005be1b5d0e4662c929fa017acb5e2a1110613"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0054.input",
+      "sha256": "92aa3e71988ff1ef7d325c01f6aba2bfaba2e6c6db78008e2947c5e149b94639"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0055.input",
+      "sha256": "b9a9e983ad43f182598d18eee4cea0f40a8c0213b212c69618a2694daf502277"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0056.input",
+      "sha256": "b12795dcf69cc74de1a168e2dd7adde96539af81527fd5705a83fc1951e51896"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0057.input",
+      "sha256": "5ac994a1785434f2a5f7ff3cba5cbfd19930fe0a00348397e245820231225a0f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0058.input",
+      "sha256": "5be6e0092232d54d860ca573602c0b887cb37e9500393725d8a9c06cbb27276d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0059.input",
+      "sha256": "321e1bac1e40a59b6ef0a4ebb1266a4baea9f959d003b9d2ffe6625060251318"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0060.input",
+      "sha256": "bfc956d5e64de8bf320c23f46c38c51fb9a23e6f596ffb3d8e6929a40653b0d2"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0061.input",
+      "sha256": "fcea6a382de9ab5c52f08b6a6bb91e5f5f29fbd6906e97a76d5c0aab03bf04fd"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0062.input",
+      "sha256": "94eecf94302e249e5149978cc1cc587f74171ccb82497c85f381f726f2c60c65"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0063.input",
+      "sha256": "21e302f5900d865ce0d357da2c88ca6eab9ab5770f0a6257ac816effba1e42bd"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0064.input",
+      "sha256": "d7863a158b84b957f17a119857b7d3706883f1fc17b61e53c4daeafcf5d227b1"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0065.input",
+      "sha256": "d70c2c4744c8a0f1f073f04b01ea89e664e0efb19db3534179a299c8c538f4ff"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0066.input",
+      "sha256": "e1bc5124c5a7d26168decd62144cc7ecf2c3b93134faf4844ed848374ce88546"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0067.input",
+      "sha256": "040f12e3239357ca610bbb6e6758f2ac6e1b0fdf56aa9b027b3bd7a37dd0e972"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0068.input",
+      "sha256": "1403a24cc9618ec9089f51e8486e71f918fc6bc2ec7c0bb6af11a4f32aca7fff"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0069.input",
+      "sha256": "04fb1d07add3225bcee8c54461c19adc6670250f7d6f50fc6d81fd0b80e5da3e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0070.input",
+      "sha256": "1dc8ab35e44daf7567911bdc7d20d2647612734ca07eb95bc90da0bb1be56a4b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0071.input",
+      "sha256": "7f7aeae4956b21de3d87b590458f463458f9091d425e2f890fb409096856e8a7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0072.input",
+      "sha256": "340297544dac690e7fc2326b3bacede3904b604003f45d3961d65112ae15af31"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0073.input",
+      "sha256": "a469dba1f04447a81e192244cb1315d6a839cb127d447da729e9614a6de62fa6"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0074.input",
+      "sha256": "9cf537744d099f295e1297233e3644e38e864cb8d8093156e7aa4b8aaa5d11a0"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0075.input",
+      "sha256": "dd9418450fa2a1db28db416938934037c9fcfbd19d5a8b747b9e9983f7846f09"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0076.input",
+      "sha256": "f62e02911d89500c67838c43cb5f1bd94f09f0171db16663bb8fd63672913994"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0077.input",
+      "sha256": "d3c840385d27996dbea8e72e26f38845dd8d0df1e2b89394072e46075cca5e68"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0078.input",
+      "sha256": "98ee8780f083789424b3a03eb143ccec8203c84d939070e90c55d01fb749efda"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0079.input",
+      "sha256": "e061e766c8def3fe66ec06ae41ba9598e39a7e1205b9658ab2766157969e933a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0080.input",
+      "sha256": "aca32c0ef3e2c51320435b0f9bd2ec0cf84ec2d24c4e45e024e171efd73626db"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0081.input",
+      "sha256": "7e72b2369335e26c55efa2518716766afb9045938c0c96e94f738fdd04635066"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0082.input",
+      "sha256": "6b6bc179ea1d27d0b838e73b87a637654647a1b1f7ca1b2bd293eefb66fa12a6"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0083.input",
+      "sha256": "181ce51e213bde422da1ffc0ce6c6906b3d31d52ada53e177951dde25cd5e134"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0084.input",
+      "sha256": "6cebbb3bb0aab1aef3add9b277248c947f83e3028503beb66011dbbd43b1f64f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0085.input",
+      "sha256": "ac3189da134f207e5fecd11f7b50c0d8f2e7d8fc535f7567a43b757e4326c177"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0086.input",
+      "sha256": "b98baf53fb2339606849feca16bbe29edc7ed328b82dfef674dca0a86cb5226e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0087.input",
+      "sha256": "45f4bb6e694f387fa82c80114179240c8a38ca0b2808bd045c2e91831af25b06"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0088.input",
+      "sha256": "75ca9376297d2d4e2a78b6859a35db1ade46535766af5f932d901c43df580b61"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0089.input",
+      "sha256": "6cb0cbb663873c354ea367b1651400008ab56e206b22c9c73fd5027e31608e4c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0090.input",
+      "sha256": "37d91f69d8e9756efd0e151e1872eecd3e4596b45f229a4802dae03f50d5cf43"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0091.input",
+      "sha256": "e142720b282648789060afabcbe976c44b715368ce525a61b2799daafc1ab819"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0092.input",
+      "sha256": "81eca40828213895bdf6da34b2b5245c90f0554388f3760d51a82fbe175dd8cc"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0093.input",
+      "sha256": "5f826ff933241912817105bb8add17a7523d54e9bd20b390ac7d81e80683bdbc"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0094.input",
+      "sha256": "b44f70702d86de441152ed6f976b603b81eea2369a12be468270c920fddc3f51"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0095.input",
+      "sha256": "e3826d3db1d12f74c17cc43eb3213cceeb5af3d24ed309c57ed9efdb413ac5f3"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0096.input",
+      "sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0097.input",
+      "sha256": "d067ae684a249ab679bb8c02983c6607055dc7c0ecf66d02479b0c51e2d49e06"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0098.input",
+      "sha256": "88693a721c5e5779c8739bfe51957db8aa73024ad18d3dfe003f347d4ffa603a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0099.input",
+      "sha256": "0b3935fb7adac416a0fe7bb4a0cae3938f9c76fce3d7413860e75d7b841e1614"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0100.input",
+      "sha256": "a42c35cc667911fc73f3e43b1ddafb62d7dd8a167879a329f50c1c0998374bcd"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0101.input",
+      "sha256": "3dbb3826e7f1acc191b28dc25450eab35cace0b62d2c9595745a6a1d5659de15"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0102.input",
+      "sha256": "76f47e138467d03815a325d94fa81cadf7e3828299e6d8a75010f8e41dc6f778"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0103.input",
+      "sha256": "ded2f985b7ba82dce267f76e042a9c4e7e47a867e63ff00024a07a77069264fa"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0104.input",
+      "sha256": "ed5843c10ca605efcb23af879dd04022bdc08227384c3a33f83677ffb722b523"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0105.input",
+      "sha256": "224ee41c46523e97e9a0782db875a5353d829dcf28357465811c159c093bddb5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0106.input",
+      "sha256": "7c167ee8bce58feef409f89e089940b92921c3c20409e376158694eecb4b415e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0107.input",
+      "sha256": "c064b1c7f446118c015b0ebcb277df65fa3311e0e224941edf7014652ae4faf4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0108.input",
+      "sha256": "bd1b800a70087eda786eb7f2fae0c1f4b4e85eab6d8960ade801d9fc611e81ad"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0109.input",
+      "sha256": "daa9914e2debcb922bca18dd87c7e06ca1ee2c3d7669903180ef07b326d066aa"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0110.input",
+      "sha256": "c8d6d39bb1942e5573b2743e417d3009c6bac2fb701500aa8d32831f9912299e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0111.input",
+      "sha256": "6acb057df8c44fa1ae74b5943f7852f59e8481f04274691ea529df1ea49fb5e9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0112.input",
+      "sha256": "5ef566730b8150beba6944a1f70c288b2afabb3b6e00a35a6a39b66dcf2139f8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0113.input",
+      "sha256": "d98fbfbecee87031979427cf739a465c2a0e732c4c0be6b6176b8a5428e80144"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0114.input",
+      "sha256": "bc4e9a2d29566b8e89ffb87304c4e74a868749d93a28c82c299be991b1e9455b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0115.input",
+      "sha256": "6ca5a1cddc203929418ef19385c44c5fbe782e47d35fee4e9cc4f39c77e417da"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0116.input",
+      "sha256": "a9c18ca03451a488504ace595f2249132c20e1fbfb169f1ca0dc314c6b3407e9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0117.input",
+      "sha256": "520e5a74fe384956c46ff193f97a859f20ae563742bc9f2b330aa0c59332ad2a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0118.input",
+      "sha256": "07d9f9e81a6266d3aaac23be667b786df36181d2c8de036d89b53a0e01142346"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0119.input",
+      "sha256": "441a41fdbeeda9e9709c624842180b650ed86ba06bf4d8aeb891e58d68e40169"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0120.input",
+      "sha256": "1cc2466894a49070a3f0ddfd04ca48df2891293c1afb8e46d1501985409f8ecc"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0121.input",
+      "sha256": "047b128677e2a8afa5cab7ef3d917b524bad70f9f3d1fc4e93be1e43513d727c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0122.input",
+      "sha256": "feb112b51667e7c172276a4ce0c93d8625739b7ba0122eb51d8bccaf34c18d5a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0123.input",
+      "sha256": "53a1ae526a2ce748382848fa40854a8cb26faecae800b9f49fdb3cde33e0bc31"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0124.input",
+      "sha256": "a0f771ac5a377a88467be9d8a68be1dc93fee68accb3351a17df466484e05733"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0125.input",
+      "sha256": "70426f2faee00e3ef70c18c979dcbf37d0d934a7a4861584f6590aeb552a6774"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0126.input",
+      "sha256": "d030aafc8554e02e054b712225f9a96b776803554f89f3951546d995fb00168d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0127.input",
+      "sha256": "467cbca0a6d868f38f1be0e3c08b6909add0231af746967db1c28793144c3b6c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0128.input",
+      "sha256": "13aed162fb9078b470e8eb948b7a663f9006766d6e56ed899a05ad988cac638a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0129.input",
+      "sha256": "0052d842c9149cf33c51c63f7cf2144be5859eebd71eb8e7f8b831cbc093955d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0130.input",
+      "sha256": "10463837d52d277ad554f7d2fd56b7efd1e81c66aa2d1a8ce83271345a99f24c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0131.input",
+      "sha256": "df4d656d238f087b872b32070f8cc9d028c032d2fbb471dc83ad67cf29127c1c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0132.input",
+      "sha256": "d81554938606715d2b0134673c05c8aac265c86b6861c159076891875a2c5b2d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0133.input",
+      "sha256": "7300810327e71d6812dbe20c4ee288a188e43b2c67c5c6178acffda8de23444f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0134.input",
+      "sha256": "10e02401a27494ce1615a3eca1f6bd436b96dc1420ca1909b9c9ad48445dd3a6"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0135.input",
+      "sha256": "542e633fc3b74eb21d26b5f3625a989c71cda66207d426cce973957a5f2f942b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0136.input",
+      "sha256": "d9a53bb1849b788f1947d60f58cf7bac5f8d8dffab8c18d6bb18922a63a67b4d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0137.input",
+      "sha256": "507abe310f82b5b38a7ad9b9d62a2f35a8c5324b13f2ed0b471e331fedcb9fdf"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0138.input",
+      "sha256": "0e09562f3802abc6a13197a11cc10c39dda1f79dd8602d5823e91f34d8d2a32a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0139.input",
+      "sha256": "a0a0e6c7b21253c841b045354028f9ac2939b07b8630f427489f7c675ade0cb0"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0140.input",
+      "sha256": "9ce4249f42a939e6c0a53c454477ae0786d68068d86e580027a9891e7c368306"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0141.input",
+      "sha256": "38f3c1929bf3336c92efe57f8746cb3ecda9778db6271e3421998cf0432cc786"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0142.input",
+      "sha256": "71c04f8a329b99eba77f8a097d64d36354cf9519828ac3343a03b29fc2a81e9a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0143.input",
+      "sha256": "e1705be14553a7ca838365dba80bf19fb6de36dabbfc65ba11855f5322d0f89a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0144.input",
+      "sha256": "9d0ae52343e5519bbaedddfc360936e2e598c0fed08039da24ed953b04092f4b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0145.input",
+      "sha256": "bae626822d4b4ffdf5c4717838c46ba16e9fb3e423d4023ebe31d85c248b3193"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0146.input",
+      "sha256": "d26bfadada2a49208eb661cfeecb34c89438b83bba2288483e6b47269073fad1"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0147.input",
+      "sha256": "a62164c04faa8354ebbd85c879e0a822b199df68644523bfe0f6889cc32637b0"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0148.input",
+      "sha256": "9b4e10e828f44981a6bc0ef1e618184145fcec35568714aa714557fc5a062029"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0149.input",
+      "sha256": "3fc42af3c02ca873184df8ea4acb04f6ea3149d508e6d27b43dbec3d1d64b57f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0150.input",
+      "sha256": "638da5ce1178c30639692867e880f48578766ee9dc83789f5d3db9536aae767f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0151.input",
+      "sha256": "d07597662d226fb24dfaa423ca065d620ffe6093f9c4ac22ac658643197ee465"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0152.input",
+      "sha256": "5bccbf485264e9faa508f7f1f241251d47eb5d6ef802472db55714e6c282a2aa"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0153.input",
+      "sha256": "94a6311dc0a498e38877e23c8293f304c1178b62590f128d2c23b39927758a67"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0154.input",
+      "sha256": "171f9f05a7ec3e1322a4762d26440fbbe32a366eb0f944d4171eea7ba69ad0ce"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0155.input",
+      "sha256": "531ec5e18ad05af7a190b872ed2f2144923074a8bcd2ab12281b7dd1b732202a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0156.input",
+      "sha256": "0329d1559f108da0c563b45b86eec0bc11d955acc52286139e25590f89842e80"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0157.input",
+      "sha256": "ebb8e93b321b8b5a9748d07026ef2a65a22a61898fc91006bf69d5c2e59c6997"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0158.input",
+      "sha256": "5c67bb43a3f91a1b2f31202b8b6af947c087aca32043f877ede0a1c3aa241777"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0159.input",
+      "sha256": "0e82838d1a1bd75732b5fb36d5bb6cd81af6a2c562561ebd07ad6aa35639a252"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0160.input",
+      "sha256": "14da56a8a99a980922bb8db30c6ed31336cdc9d12cf923d5004a18ac1b158f4d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0161.input",
+      "sha256": "c7d6c9fb543556e2090149e537570e903a59ef4c6273783d6bb815f7812aaf3f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0162.input",
+      "sha256": "3f2e9ec98e053e093b88ce8e1adf5f9d9fb3c945772b6d13e72614eb81f59d82"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0163.input",
+      "sha256": "6e413e5fbe26a71502ba3155bf5773f4e4711dfea277edad4e8fc8a2aa51e6e2"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0164.input",
+      "sha256": "082ca73581debbf0123d630634c86d10a154391621e17ba0883ac70243b479f8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0165.input",
+      "sha256": "6985e31cc84ef665260529b746a3d08d435748d55e5ae0ff41ad50d2f6e055f3"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0166.input",
+      "sha256": "89c250aa1989ddbecbb0f574f3fdcbe19653c88e37a21e80fd13d43ad38ef30c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0167.input",
+      "sha256": "3d03fa5e7606b88ca46c6539f8e2612f0fd0927f9ee0c7c9daa0f5e9cbf55cb7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0168.input",
+      "sha256": "3d420959290052c58a058a5cd54ae3c24da0b94ee0b77a86899e440c12425c1e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0169.input",
+      "sha256": "af3d664186882f004054e640a407d0c957eb1993eced7328492c34847c9d051d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0170.input",
+      "sha256": "ce4893cc870893bdc942eb5f84a34d4d98655ce0a2d32e302e8dfff15a1061a8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0171.input",
+      "sha256": "dda4da857ca9299d38a08a44f9c73973be44a67e8e308b84a9b4f98b43f959a5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0172.input",
+      "sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0173.input",
+      "sha256": "04e7b7ed9244b8c08ad884b01a0a0547d076e343dd3a61152285f8f4384a585b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0174.input",
+      "sha256": "b1dc8e0a048e0e64d751ad047741da4130f48cb33c31b12a29093f7edb36a14a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0175.input",
+      "sha256": "994f723167205a1d512a88c7840230e407ff8f092f5194042f6524a187bb7c66"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0176.input",
+      "sha256": "00dd6449feb3421b74dae52a2325b5d32a89b96f6ebd074835bb060ed836f885"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0177.input",
+      "sha256": "18ac33cf322c1219faa32dba4d118c728b1c80d22306f75ac728235df7af7506"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0178.input",
+      "sha256": "96875a858e4cfdd92d2457a62499f854890e367067d8dce6d0f22804af0aa948"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0179.input",
+      "sha256": "053744369a324bc93e1c2100d2e997021449a9a36048061dd86f18a847c52448"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0180.input",
+      "sha256": "e9ef2cc2c6d0148ba65e976031802a1d73d917312f71fb3dc76e37f01e87a964"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0181.input",
+      "sha256": "714728c6399841c475a0342c1d18f3d68ce5eac1bf1c9fb2fcabdf88e22ac127"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0182.input",
+      "sha256": "eef856dbfe704be5d36335ce811eb066e27ed2323fa7acf59386fc54b90f5b0f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0183.input",
+      "sha256": "9165b617d491746fa39043e2422ed75ea492905326c179ad3217414b4a933b62"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0184.input",
+      "sha256": "c6de86060e1eab3ee18582db70bf22fb2318c9ce680f4155092b0e7a6be803e8"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0185.input",
+      "sha256": "6f069cc8ffdf8593341f24b6d6054d31c154444d5fab1bb134bfaef9a1214a80"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0186.input",
+      "sha256": "fe1c810b29a1062757407460341eaf14e6813423accfb407994288d2dad3a207"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0187.input",
+      "sha256": "db76f06c0c7b8c2cefc85a3ea815180f9df743139dbaaf388efaf6dfb5fbbc4d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0188.input",
+      "sha256": "00585e0e4c715179eda5c7cce1be6d7b424583044d8c8f2944bf78b4fa70bcc7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0189.input",
+      "sha256": "171b2a6e45afc93da4f519f08c5ea62d7d350a0dc97766e1c35a0e155fe3c82d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0190.input",
+      "sha256": "85d7d57eb69c05168f70d607cee442cbaa84c9118345ef8024fbb1a647d4a05b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0191.input",
+      "sha256": "79c6d7521ef5f3e152e60effa65fdc8e16852e4a6c092a870f0c721c4542598f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0192.input",
+      "sha256": "01cb799d935f829b0b035c9672a4ff4c86c3c45aa946122f10b699364f1b2aeb"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0193.input",
+      "sha256": "1d430a133e980280f498f64d00e968c9c2b6b25bdf7a75636e686a09322062fe"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0194.input",
+      "sha256": "6d76278071fe287ffeb667a759e029bcbc9150ce328b56ce576e9238daf745c7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0195.input",
+      "sha256": "637c35fef3e755442b100ef68855941340ecfd0d8a6fc2c315f92815485c7b36"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0196.input",
+      "sha256": "239392e4c791703c80202aa5d63e63dc50d7de0361f0a410efb21043a267c303"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0197.input",
+      "sha256": "08ed1233c810666778917b7315fe438dd384a2be6ef9971119b7f16fcd626fdf"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0198.input",
+      "sha256": "c497082814ca47b833272944812e91e455a8396cf1cbc27553de66c68d1110c9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0199.input",
+      "sha256": "894070e564cd515f87da0129874158a17a8f29555c4ba195b7681593e8433315"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0200.input",
+      "sha256": "37db2aec26f5e1d466983c74b0d0732fb81986494397fd0a7013887e0d386efc"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0201.input",
+      "sha256": "62794cb8ba4f0898b0b30328c4b0d3243b2d575ab6182f073a3ffcce588a761d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0202.input",
+      "sha256": "caba0ffd28267123dca87b650cb6b03e27ff7b20d29c8a7ef49618f2aa172098"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0203.input",
+      "sha256": "ab3345cae896097c3863c612b47165dc4cabccbfc834f30400d8cb8a3436a031"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0204.input",
+      "sha256": "b6709f6e3f96b5fc6add8e71677ef2abe688141b5f06d209a5f45c5fb1a391ec"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0205.input",
+      "sha256": "c145c9c4ab568fae61a7adc5dc33d51e160c50a5b4933f875e36f71a55d5cf80"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0206.input",
+      "sha256": "3274db8bce2c42baff088d2ed0c34fde37efd6e791a193a3d7654b84bbfd3b34"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0207.input",
+      "sha256": "1cfe4e5bf87b05388911746615adad1c02a4f6236b33021315b97d001e5490fc"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0208.input",
+      "sha256": "a0f47713ddd2f7c56d885dfa24c9da175fbb4937a297a9d835b5dfc5f4303f21"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0209.input",
+      "sha256": "b7ac981f6a84f463f56cfe6457e98b2765b76d77daccb498bb7383f04927cc2e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0210.input",
+      "sha256": "2178ecb524bc3a9740aef5f13bf11ef06730930322634fb10d9e76488a126f10"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0211.input",
+      "sha256": "d20de1c9c38bffd5df4756757b2cfabc11a4cd992a0ca6fe1a3c6703e11071a4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0212.input",
+      "sha256": "941ccf68e5057cfde88d5fc77e07b716550eb59de23ec39af7a48fdc78292da7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0213.input",
+      "sha256": "caaaaed2d3e43f6b8055ac647206531877a1fa6f92cb75fa05aecc14dfd0c634"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0214.input",
+      "sha256": "84cb0a9cff8fb046f60090d2562cae55e23cef3b1ec01242157a18cd61bfe734"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0215.input",
+      "sha256": "9a9f400730186853b472aad69bf597830797af116f46fbf705c2189bfd5955b9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0216.input",
+      "sha256": "79a132671d028692b91db748f45ab8529a166875430dc38b14fb64eb204d3435"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0217.input",
+      "sha256": "c9d957d9f58c7f5ca27ee104ce958fbb20a50d30821c0c98fd290bad6110a061"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0218.input",
+      "sha256": "9252976fae574dc77265baa569b2cedd931a62560dca0c2acf1a28305f33d792"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0219.input",
+      "sha256": "484da2dcddeec7404e177468f0601b756613de358b9c50581e0cceb29e36fe4e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0220.input",
+      "sha256": "b418b601f8495a6f91a28adee2012f571f84f30d593626bc916c46cd58cafe2b"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0221.input",
+      "sha256": "55b2b5766115d475947c5df894cc002186a249a97dc7ec84e481f42698ca2b03"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0222.input",
+      "sha256": "3467504ee7bf3157061af35794c31ad1dcca7f67e65aa4a803843606a3484730"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0223.input",
+      "sha256": "10e9a74fbcd779681023f61b6759360cfd53c56e1047073df7bcac7a425b92a4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0224.input",
+      "sha256": "b2acff1fda832ed6ee619fb79eedab5da963ce445c959211d8b9303d4e2d6bf5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0225.input",
+      "sha256": "eafa264229038e726e87eab3c2ae7212444d9ed4fe1b4e1b689c8bd3579db759"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0226.input",
+      "sha256": "66d5f34626112c4b712e336006e13d1eeb682fde4b5ab5602c0ecb2b2c17b27f"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0227.input",
+      "sha256": "a7ffdd17e61ea525973f3734c53f83990e0113a0b9dea73ddd8bda5068abce99"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0228.input",
+      "sha256": "b02c3eef293d538beb12f4e10595aa46a793719a26ca07bfd0a52b91ec801bed"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0229.input",
+      "sha256": "4021d50359ee041b3fda95fc467874bf63c483b251845c1ce05ae25f8b24ccba"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/0230.input",
+      "sha256": "cbec2ff2cf952b0adcc2bdead9dbf9de532c98883d1410ea1475498e2da0e9d4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/frozen-inputs/manifest.json",
+      "sha256": "24938a42a026e8d1e462fe6ada0883000536652751997b62e7be24c830af2a46"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/inputs.json",
+      "sha256": "80206dd20d9e2f3ec995ede583ddf386bf9813c5ee2db9ebfe927877ed34a7ee"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/report.json",
+      "sha256": "193ba6e88ea23a40bdb0ad8453b77dfa8b628c87803b6dfece16f2c9b96186c2"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-selftests-r2.json",
+      "sha256": "fb99ebbe7838be807bb8ece2cb0c84b0421c82f875dc08a82e8d725a853ce3d5"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-selftests-r2.log",
+      "sha256": "427c693cb08bf3b901b47b360a30db410169fbe521144a6e5052fb492452cc4e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/source-ready-r3.json",
+      "sha256": "d84bf19a042a6484b0fe50e700bbc6beb0376fcb20e1f8563e3fa77e8c870764"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/test_compare_responses.py",
+      "sha256": "4021d50359ee041b3fda95fc467874bf63c483b251845c1ce05ae25f8b24ccba"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/test_experiment_binding.py",
+      "sha256": "9b6626b7d2bc493d30e13ef63e847a49314d0a294ea0c54a00ac1f0049dfe03e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/test_workload_correspondence.py",
+      "sha256": "6f27b49e6c9c63aad7846e3c24495176bfe34050dd0bca34ebce6cd6c22abd1d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/workload_correspondence.py",
+      "sha256": "122c3c9dc3760b92c5bdffed1ccf1780480a5b675ee689362d1dc486d906e252"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/attached_launch.py",
+      "sha256": "feb0999a9be6ab854ac09dbfc21043177c47461180f94cac7aaf532aff23c9bb"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/attached_preflight.py",
+      "sha256": "562a8b0c932b058814b678312e316dbbb5e467893e3520088d5fa7a853d0cd63"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/containment.py",
+      "sha256": "06350c39ebbe10fe682d7fdcc38f4e7488e7e4b87e0cc42be84e0e479c4f461b"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/controller.py",
+      "sha256": "6b628838f279dbf59ee938d7830ca24adbae1f71dd74caf05ba20b1b254816ce"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/frame.json",
+      "sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/harness_common.py",
+      "sha256": "7c999fcb8e38163c36dd95d44367cb168c049950970b39a34b93e62fdba9ec00"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/installation.py",
+      "sha256": "d7c374fea033381d4b431dacacf4ea2ed473f36ff1b02eb6b3de521ff80833b9"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/probe-classes/dev/allow/backend/FreshTier1ProbeMain$Options.class",
+      "sha256": "836b45f5b8809d4f99dc24de38cb04bb34154c913c90025a0020d03778825b35"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/probe-classes/dev/allow/backend/FreshTier1ProbeMain.class",
+      "sha256": "46182bd72702e8ac56f384aaef98a21e9403e35f3e56195352af1af02ef981bc"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/scope_launch.py",
+      "sha256": "53f7be5ba091b03fae7dcdad8852062a5e53a92cab96939e48bc8845445865eb"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/scope_preflight.py",
+      "sha256": "2f1c241d2c56161cf3865f5a35456efa1a87be821bd07f0c726be818f6ad8105"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/test_attached_launch.py",
+      "sha256": "7a50df8605102ba4d2d21eb9836ea3f109997461861af75e248d04ddde0f69b6"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/test_cleanup_capture.py",
+      "sha256": "690d53ef11720e85d725daff50a10c47e8f75cc76cbf5ed997d0538b2a3a1fa7"
+    },
+    {
+      "path": "/tmp/allow-ft1-xnbj5t_c/.gate/test_scope_launch.py",
+      "sha256": "98a0f472d8f952b0bf353fec07c1660508f1e6cdc082482325845045d274fc16"
+    }
+  ],
+  "excluded_controls": [
+    "copied_root",
+    "created_utc",
+    "input_root_sha256",
+    "port",
+    "run_id",
+    "unit"
+  ],
+  "boundary": "Artifact correspondence only; installation.verify must still check actual copied inputs and tooling before/after runtime. No benchmark execution, acceptance or profile activation.",
+  "input_root_sha256": "8b0d92855939045d33d6d115e4003854a6d1e2a4525ef30f15f4ac2f58bbd2e6"
+}

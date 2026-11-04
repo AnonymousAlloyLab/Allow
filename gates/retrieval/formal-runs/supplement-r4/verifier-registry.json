@@ -1,0 +1,726 @@
+{
+  "id": "V-RETRIEVAL-FORMAL",
+  "sha256": "815484d6a9d152ec969274c112435bf0fda287b44a5a30a0198439a790546266",
+  "trusted": [
+    "Lean 4.34.1 kernel/compiler and bundled libraries",
+    "propext, Quot.sound, Classical.choice",
+    "Lake",
+    "Python and this verifier/generator",
+    "SHA-256 collision resistance",
+    "OS/filesystem/process semantics",
+    "hardware",
+    "interpretation of model versus specification prose"
+  ],
+  "exit_codes": {
+    "VERIFIED": 0,
+    "BLOCKED": 1,
+    "INFRASTRUCTURE_FAILURE": 2
+  },
+  "propositions": {
+    "Allow.infer_sound": "∀ {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty}, Allow.inferType Γ e = some t → Allow.HasType Γ e t",
+    "Allow.typed_hole_free": "∀ {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty}, Allow.HasType Γ e t → Allow.HoleFree e",
+    "Allow.checkSlot_sound": "∀ {Γ : List Allow.Ty} {t : Allow.Ty} {e : Allow.Raw}, Allow.checkSlot Γ t e = true → Allow.HasType Γ e t",
+    "Allow.reject_preserves": "∀ (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw), ¬ (base = s.revision ∧ Allow.checkSlot Γ Allow.Ty.formula e = true) → Allow.commit s base Γ e = s",
+    "Allow.commit_preserves": "∀ (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw), s.Valid → (Allow.commit s base Γ e).Valid",
+    "Allow.commit_revision": "∀ (s : Allow.State) (Γ : List Allow.Ty) (e : Allow.Raw), Allow.checkSlot Γ Allow.Ty.formula e = true → (Allow.commit s s.revision Γ e).revision = s.revision + 1",
+    "Allow.visible_is_current": "∀ {p : Allow.Presentation} {e : Allow.Evidence}, Allow.visible p e = true → e.key = p.key ∧ e.epoch = p.epoch ∧ p.draftHash = p.key.sourceHash",
+    "Allow.canonical_eq_iff": "∀ {n : Nat} (a b : Allow.Formula n), Allow.canonical a = Allow.canonical b ↔ ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+    "Allow.certificate_sound": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.Certificate a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+    "Allow.certified_merge_canonical": "∀ {n : Nat} {a b : Allow.ContextualFormula n}, Allow.CertifiedMerge a b → Allow.canonicalKey a = Allow.canonicalKey b",
+    "Allow.no_unbounded_claim": "∀ (k : Allow.CommandKind) (s : Allow.SolverStatus), Allow.report k s ≠ Allow.Conclusion.unboundedValidity",
+    "Allow.unknown_is_not_unsat": "∀ (k : Allow.CommandKind) (s : Allow.SolverStatus), s = Allow.SolverStatus.UNKNOWN ∨ s = Allow.SolverStatus.TIMEOUT ∨ s = Allow.SolverStatus.CANCELLED ∨ s = Allow.SolverStatus.ERROR → ¬ Allow.Absence (Allow.report k s)",
+    "Allow.retrieval_is_authorized": "∀ {s : Allow.RetrievalScope} {rows : List Allow.Row} {r : Allow.Row}, r ∈ Allow.retrieve s rows → r.scope = s ∧ r.deleted = false ∧ r.permitted = true",
+    "Allow.pair_admission_bound": "∀ {target : Allow.TargetContext} {pool : Allow.Polarity} {run : Allow.Run} {w : Allow.Witness}, Allow.admitPair target pool run w = true → run.query.target = target ∧ run.query.polarity = pool ∧ w.ownQuery = run.query ∧ run.status = Allow.SolverStatus.SAT ∧ w.validated = true",
+    "Allow.contract_has_witness": "∃ c : Allow.KernelConfig, c = Allow.generatedKernel ∧ Allow.Coherent c",
+    "Allow.empty_domain_counterexample": "((∃ _ : Empty, True) ∨ True) ∧ ¬ (∃ _ : Empty, True ∨ True)",
+    "Allow.canonical_idempotent": "∀ {n : Nat} (t : Allow.Table n), Allow.tabulate n (Allow.lookup t) = t",
+    "Allow.distinct_inventories_distinct_keys": "∀ {n : Nat} (a b : Allow.ContextualFormula n), a.inventory ≠ b.inventory → Allow.canonicalKey a ≠ Allow.canonicalKey b",
+    "Allow.edit_hides_old": "∀ (p : Allow.Presentation) (e : Allow.Evidence) (draft : String), e.epoch = p.epoch → Allow.visible (Allow.edit p draft) e = false",
+    "Allow.accepted_formula_witness": "Allow.inferType [] (.existsRel 7 (.someRel (.ref 0))) = some .formula",
+    "Allow.rejected_bad_drop_witness": "Allow.inferType [.relation 7 []] (.and (.ref 0) .truth) = none",
+    "Allow.accepted_commit_witness": "(Allow.commit ⟨[], .truth, 0⟩ 0 [] (.not .truth)).revision = 1",
+    "Allow.visible_evidence_witness": "Allow.visible ⟨Allow.sampleKey, 4, \"source\"⟩ ⟨Allow.sampleKey, 4⟩ = true",
+    "Allow.admitted_pools_witness": "Allow.admitPair Allow.sampleTarget .positive ⟨Allow.positiveQuery, .SAT⟩ ⟨Allow.positiveQuery, \"instanceA\", true⟩ = true ∧ Allow.admitPair Allow.sampleTarget .negative ⟨Allow.negativeQuery, .SAT⟩ ⟨Allow.negativeQuery, \"instanceB\", true⟩ = true ∧ Allow.positiveQuery ≠ Allow.negativeQuery",
+    "Allow.nontrivial_canonical_witness": "Allow.canonical (Allow.Formula.truth : Allow.Formula 1) ≠ Allow.canonical Allow.Formula.falsity",
+    "Allow.Slots.names_do_not_affect_payload": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String), Allow.Slots.anonymous {p with names := labels} = Allow.Slots.anonymous p",
+    "Allow.Slots.names_do_not_affect_embedding": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String) (source origin : String), Allow.Slots.embedding {p with names := labels, source := source, origin := origin} = Allow.Slots.embedding p",
+    "Allow.Slots.distinct_slots_remain_distinct": "∀ (a b : Allow.Slots.Slot), a ≠ b → Allow.Slots.Tree.reference a ≠ Allow.Slots.Tree.reference b",
+    "Allow.Slots.embedding_has_no_presentation": "∀ (p : Allow.Slots.Presented), Allow.Slots.embedding p = (⟨1, p.resolved⟩ : Allow.Slots.EmbeddingInput)",
+    "Allow.Foundation.admission_bounded": "∀ {active capacity next : Nat}, Allow.Foundation.admit active capacity = some next → next ≤ capacity",
+    "Allow.Foundation.terminal_is_final": "∀ (prior incoming : Allow.SolverStatus), Allow.Foundation.finish (.terminal prior) incoming = .terminal prior",
+    "Allow.Foundation.cancel_is_not_unsat": "Allow.Foundation.cancel .running = .terminal .CANCELLED ∧ ∀ incoming, Allow.Foundation.finish (Allow.Foundation.cancel .running) incoming = .terminal .CANCELLED",
+    "Allow.Foundation.accepted_style_bounded": "∀ {m : Allow.Foundation.MethodMetadata}, Allow.Foundation.acceptable m = true → m.lines ≤ 30 ∧ m.documented = true ∧ m.encapsulated = true",
+    "Allow.EGraph.rule_sound": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Rule a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+    "Allow.EGraph.derivation_sound": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Derivation a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+    "Allow.EGraph.merge_preserves_key": "∀ {n : Nat} {g : Allow.EGraph.Graph n} {a b : Allow.ContextualFormula n}, Allow.EGraph.Merge g a b → Allow.canonicalKey a = Allow.canonicalKey b",
+    "Allow.EGraph.class_sound": "∀ {n : Nat} {a b : Allow.Formula n} (g : Allow.EGraph.Graph n), g.sameClass a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+    "Allow.EGraph.extraction_sound": "∀ {n : Nat} (g : Allow.EGraph.Graph n) (root extracted : Allow.Formula n), g.sameClass root extracted → ∀ (v : Fin n → Bool), Allow.eval v root = Allow.eval v extracted",
+    "Allow.EGraph.bounded_run_no_false_saturation": "∀ (remaining : Bool) (reason : Allow.EGraph.StopReason), reason ≠ Allow.EGraph.StopReason.saturated → Allow.EGraph.stopReason remaining reason = Allow.EGraph.StopReason.saturated → remaining = false",
+    "Allow.EGraph.rel_rule_sound": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelRule a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b",
+    "Allow.EGraph.rel_derivation_sound": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b",
+    "Allow.EGraph.rel_merge_sound": "∀ {n : Nat} {Tuple : Type} {g : Allow.EGraph.RelGraph n} {a b : Allow.EGraph.ContextualRelation n}, Allow.EGraph.RelMerge g a b → a.context = b.context ∧ a.schema = b.schema ∧ a.inventory = b.inventory ∧ ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a.body = Allow.EGraph.evalRelation v b.body",
+    "Allow.EGraph.rel_extraction_sound": "∀ {n : Nat} {Tuple : Type} (g : Allow.EGraph.RelGraph n) (root extracted : Allow.EGraph.RelExpr n), g.sameClass root extracted → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v root = Allow.EGraph.evalRelation v extracted",
+    "Allow.EGraph.rel_nonempty_congruence": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ∃ x, Allow.EGraph.evalRelation v b x = true",
+    "Allow.EGraph.rel_empty_congruence": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (¬∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ¬∃ x, Allow.EGraph.evalRelation v b x = true",
+    "Allow.EGraph.implication_lowering": "∀ (a b : Bool), (!a || b) = if a = true then b else true",
+    "Allow.EGraph.iff_lowering": "∀ (a b : Bool), ((!a || b) && (!b || a)) = (a == b)",
+    "Allow.EGraph.witness_boolean_absorption": "Allow.EGraph.Derivation ((Allow.Formula.atom (0 : Fin 2)).and ((Allow.Formula.atom (0 : Fin 2)).or (Allow.Formula.atom (1 : Fin 2)))) (Allow.Formula.atom (0 : Fin 2))",
+    "Allow.EGraph.witness_relation_absorption": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).inter ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).union (Allow.EGraph.RelExpr.atom (1 : Fin 2)))) (Allow.EGraph.RelExpr.atom (0 : Fin 2))",
+    "Allow.EGraph.witness_relation_difference": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 1)).diff (Allow.EGraph.RelExpr.atom (0 : Fin 1))) Allow.EGraph.RelExpr.empty",
+    "Allow.EGraph.witness_budget_stop": "Allow.EGraph.stopReason true Allow.EGraph.StopReason.nodeLimit ≠ Allow.EGraph.StopReason.saturated",
+    "Allow.EGraph.eval_substB": "∀ {n bn rn : Nat} {Tuple : Type} (σ : Fin n → Allow.EGraph.MixedFormula bn rn) (a : Allow.Formula n) (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain (Allow.EGraph.substB σ a) = Allow.eval (fun i => Allow.EGraph.evalMixed bv rv domain (σ i)) a",
+    "Allow.EGraph.mixed_sound": "∀ {bn rn : Nat} {Tuple : Type} {a b : Allow.EGraph.MixedFormula bn rn}, Allow.EGraph.MixedDerivation a b → ∀ (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain a = Allow.EGraph.evalMixed bv rv domain b",
+    "Allow.Retrieval.ready_bounds": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → 3 ≤ n ∧ n ≤ 5",
+    "Allow.Retrieval.ready_positive_size": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → pos.length = n",
+    "Allow.Retrieval.ready_negative_size": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → neg.length = n",
+    "Allow.Retrieval.ready_positive_distinct": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → (List.map (fun m => m.witness.fullInstanceHash) pos).Nodup",
+    "Allow.Retrieval.ready_negative_distinct": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → (List.map (fun m => m.witness.fullInstanceHash) neg).Nodup",
+    "Allow.Retrieval.ready_positive_admitted": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member} {m : Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → m ∈ pos → Allow.Retrieval.admitted t Allow.Polarity.positive m",
+    "Allow.Retrieval.ready_negative_admitted": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member} {m : Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → m ∈ neg → Allow.Retrieval.admitted t Allow.Polarity.negative m",
+    "Allow.Retrieval.below_range_not_ready": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, n < 3 → ¬Allow.Retrieval.ready n t pos neg",
+    "Allow.Retrieval.above_range_not_ready": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, 5 < n → ¬Allow.Retrieval.ready n t pos neg",
+    "Allow.Retrieval.partial_not_ready": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, pos.length < n → ¬Allow.Retrieval.ready n t pos neg",
+    "Allow.Retrieval.positive_query": "∀ (f p : Bool), Allow.Retrieval.queryEval Allow.Polarity.positive f p = (f && p)",
+    "Allow.Retrieval.negative_query": "∀ (f p : Bool), Allow.Retrieval.queryEval Allow.Polarity.negative f p = (f && !p)",
+    "Allow.Retrieval.opposite_polarities_disjoint": "∀ (f p : Bool), ¬(Allow.Retrieval.queryEval Allow.Polarity.positive f p = true ∧ Allow.Retrieval.queryEval Allow.Polarity.negative f p = true)",
+    "Allow.Retrieval.finite_samples_incomplete": "(∀ (x : Bool), x ∈ [false] → (fun _x => false) x = (fun x => x) x) ∧ ¬∀ (x : Bool), (fun _x => false) x = (fun x => x) x",
+    "Allow.Retrieval.opposing_witness_refutes_equivalence": "∀ {α : Type} (p q : α → Bool) (x : α), p x = true → q x = false → ¬∀ (y : α), p y = q y",
+    "Allow.Retrieval.pack4_context": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index0 i) = a i",
+    "Allow.Retrieval.pack4_predicate": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index1 i) = b i",
+    "Allow.Retrieval.pack4_positive": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index2 i) = c i",
+    "Allow.Retrieval.pack4_negative": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index3 i) = d i",
+    "Allow.Retrieval.vector_width": "∀ (v : Allow.Retrieval.Embedding), Allow.Retrieval.vectorWidth v = 3072",
+    "Allow.Retrieval.four_blocks_width": "4 * 768 = 3072",
+    "Allow.Retrieval.score_bounded": "∀ (c p n : Nat), c ≤ 1000 → p ≤ 1000 → n ≤ 1000 → Allow.Retrieval.score c p n ≤ 1000",
+    "Allow.Retrieval.score_zero": "Allow.Retrieval.score 0 0 0 = 0",
+    "Allow.Retrieval.score_max": "Allow.Retrieval.score 1000 1000 1000 = 1000",
+    "Allow.Retrieval.incompatible_overlap_zero": "∀ (shared : Nat), Allow.Retrieval.overlap false shared = 0",
+    "Allow.Retrieval.commit_current": "∀ {current result : Allow.Retrieval.Snapshot} {complete : Bool}, Allow.Retrieval.commit current result complete = true → current = result ∧ complete = true",
+    "Allow.Retrieval.stale_cannot_commit": "∀ {current result : Allow.Retrieval.Snapshot} {complete : Bool}, current ≠ result → Allow.Retrieval.commit current result complete = false",
+    "Allow.Retrieval.partial_cannot_commit": "∀ (current result : Allow.Retrieval.Snapshot), Allow.Retrieval.commit current result false = false",
+    "Allow.Retrieval.revoked_invisible": "∀ (committed : Bool), Allow.Retrieval.visible committed true = false",
+    "Allow.Retrieval.admitted_evidence": "∀ {t : Allow.TargetContext} {p : Allow.Polarity} {m : Allow.Retrieval.Member}, Allow.Retrieval.admitted t p m → m.run.query.target = t ∧ m.run.query.polarity = p ∧ m.witness.ownQuery = m.run.query ∧ m.run.status = Allow.SolverStatus.SAT ∧ m.witness.validated = true",
+    "Allow.Retrieval.ready_three_witness": "Allow.Retrieval.ready 3 Allow.sampleTarget [Allow.Retrieval.sampleMember Allow.positiveQuery \"a\", Allow.Retrieval.sampleMember Allow.positiveQuery \"b\", Allow.Retrieval.sampleMember Allow.positiveQuery \"c\"] [Allow.Retrieval.sampleMember Allow.negativeQuery \"d\", Allow.Retrieval.sampleMember Allow.negativeQuery \"e\", Allow.Retrieval.sampleMember Allow.negativeQuery \"f\"]"
+  },
+  "rules": [
+    {
+      "id": "B_AND_COMM",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        "q"
+      ],
+      "right": [
+        "AND",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.andComm"
+    },
+    {
+      "id": "B_AND_ASSOC",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        [
+          "AND",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "AND",
+        "p",
+        [
+          "AND",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.andAssoc"
+    },
+    {
+      "id": "B_AND_IDEM",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Certificate.andIdem"
+    },
+    {
+      "id": "B_OR_COMM",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        "q"
+      ],
+      "right": [
+        "OR",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.orComm"
+    },
+    {
+      "id": "B_OR_ASSOC",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        [
+          "OR",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "OR",
+        "p",
+        [
+          "OR",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.orAssoc"
+    },
+    {
+      "id": "B_OR_IDEM",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Certificate.orIdem"
+    },
+    {
+      "id": "B_NOT_NOT",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "NOT",
+          "p"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Certificate.doubleNot"
+    },
+    {
+      "id": "B_DEMORGAN_AND",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "AND",
+          "p",
+          "q"
+        ]
+      ],
+      "right": [
+        "OR",
+        [
+          "NOT",
+          "p"
+        ],
+        [
+          "NOT",
+          "q"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.deMorgan"
+    },
+    {
+      "id": "B_AND_TRUE",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "TRUE"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.andTrue"
+    },
+    {
+      "id": "B_AND_FALSE",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "FALSE"
+        ]
+      ],
+      "right": [
+        "FALSE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.andFalse"
+    },
+    {
+      "id": "B_OR_FALSE",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "FALSE"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.orFalse"
+    },
+    {
+      "id": "B_OR_TRUE",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "TRUE"
+        ]
+      ],
+      "right": [
+        "TRUE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.orTrue"
+    },
+    {
+      "id": "B_AND_ABSORB",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "OR",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.andAbsorb"
+    },
+    {
+      "id": "B_OR_ABSORB",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "AND",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.orAbsorb"
+    },
+    {
+      "id": "B_AND_DISTRIB",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "OR",
+          "q",
+          "r"
+        ]
+      ],
+      "right": [
+        "OR",
+        [
+          "AND",
+          "p",
+          "q"
+        ],
+        [
+          "AND",
+          "p",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.andDistrib"
+    },
+    {
+      "id": "B_OR_DISTRIB",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "AND",
+          "q",
+          "r"
+        ]
+      ],
+      "right": [
+        "AND",
+        [
+          "OR",
+          "p",
+          "q"
+        ],
+        [
+          "OR",
+          "p",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.orDistrib"
+    },
+    {
+      "id": "B_AND_COMPLEMENT",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "NOT",
+          "p"
+        ]
+      ],
+      "right": [
+        "FALSE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.andComplement"
+    },
+    {
+      "id": "B_OR_COMPLEMENT",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "NOT",
+          "p"
+        ]
+      ],
+      "right": [
+        "TRUE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.orComplement"
+    },
+    {
+      "id": "B_DEMORGAN_OR",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "OR",
+          "p",
+          "q"
+        ]
+      ],
+      "right": [
+        "AND",
+        [
+          "NOT",
+          "p"
+        ],
+        [
+          "NOT",
+          "q"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.deMorganOr"
+    },
+    {
+      "id": "B_NOT_TRUE",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "TRUE"
+        ]
+      ],
+      "right": [
+        "FALSE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.notTrue"
+    },
+    {
+      "id": "B_NOT_FALSE",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "FALSE"
+        ]
+      ],
+      "right": [
+        "TRUE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.notFalse"
+    },
+    {
+      "id": "R_INTER_COMM",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        "q"
+      ],
+      "right": [
+        "INTER",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interComm"
+    },
+    {
+      "id": "R_INTER_ASSOC",
+      "family": "REL",
+      "left": [
+        "INTER",
+        [
+          "INTER",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "INTER",
+        "p",
+        [
+          "INTER",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interAssoc"
+    },
+    {
+      "id": "R_INTER_IDEM",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interIdem"
+    },
+    {
+      "id": "R_UNION_COMM",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        "q"
+      ],
+      "right": [
+        "UNION",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionComm"
+    },
+    {
+      "id": "R_UNION_ASSOC",
+      "family": "REL",
+      "left": [
+        "UNION",
+        [
+          "UNION",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "UNION",
+        "p",
+        [
+          "UNION",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionAssoc"
+    },
+    {
+      "id": "R_UNION_IDEM",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionIdem"
+    },
+    {
+      "id": "R_UNION_EMPTY",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        [
+          "EMPTY"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionEmpty"
+    },
+    {
+      "id": "R_INTER_EMPTY",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        [
+          "EMPTY"
+        ]
+      ],
+      "right": [
+        "EMPTY"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interEmpty"
+    },
+    {
+      "id": "R_INTER_ABSORB",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        [
+          "UNION",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interAbsorb"
+    },
+    {
+      "id": "R_UNION_ABSORB",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        [
+          "INTER",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionAbsorb"
+    },
+    {
+      "id": "R_INTER_DISTRIB",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        [
+          "UNION",
+          "q",
+          "r"
+        ]
+      ],
+      "right": [
+        "UNION",
+        [
+          "INTER",
+          "p",
+          "q"
+        ],
+        [
+          "INTER",
+          "p",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interDistrib"
+    },
+    {
+      "id": "R_DIFF_SELF",
+      "family": "REL",
+      "left": [
+        "DIFF",
+        "p",
+        "p"
+      ],
+      "right": [
+        "EMPTY"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.diffSelf"
+    },
+    {
+      "id": "R_DIFF_EMPTY",
+      "family": "REL",
+      "left": [
+        "DIFF",
+        "p",
+        [
+          "EMPTY"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.diffEmpty"
+    }
+  ],
+  "pass_predicate": "Every exact proposition, generated catalog constructor mapping, finite rule assignment and permitted axiom check passes twice with identical proof artifacts/audit metadata and no changed inputs.",
+  "nondeterministic_fields": [
+    "temporary paths",
+    "build timings",
+    "run ID"
+  ],
+  "excluded": [
+    "Java/TypeScript refinement",
+    "parser correspondence",
+    "union-find correctness",
+    "matcher completeness",
+    "OS security",
+    "commercial or dataset rights",
+    "solver/instance projection faithfulness",
+    "learned retrieval quality",
+    "float/SQL/transaction refinement"
+  ]
+}

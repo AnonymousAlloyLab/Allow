@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "status": "READ_ONLY_DESIGN_REVIEW_FINDINGS",
+  "scope": "One-use advisory prestart feasibility and draft contract/experiment review. No production edits, Allow execution or benchmark performed by this review.",
+  "recommendation": "Proceed with the smaller one-use design after the concrete ambiguities below are frozen. Current EOF-delimited worker execution already permits a child to wait before exactly one request. A dedicated bootstrap/READY entrypoint and one lifetime transport owner are needed for useful audited pre-initialization. No reusable classloader/reset protocol is needed.",
+  "reviewed_inputs": [
+    "gates/performance/warm-pool-candidate/contract.json",
+    "gates/performance/warm-pool-candidate/experiment.json",
+    "gates/document/validator-session-candidate/contract.json",
+    "gates/document/validator-session-candidate/council-disposition.json",
+    "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+    "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+    "backend/src/main/java/dev/allow/backend/DocumentValidationContext.java",
+    "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+    "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+    "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+    "backend/src/main/java/dev/allow/backend/BoundedCapture.java",
+    "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+    "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+    "gates/performance/warm-one-use-feasibility-20261104/delegation-probe-r1/report.json",
+    "gates/performance/warm-one-use-feasibility-20261104/delegation-probe-r1/cleanup-confirmation.json"
+  ],
+  "containment": {
+    "feasible_topology": [
+      "Unique owned user systemd --scope with Delegate=yes; root retains whole-stack CPU400%, MemoryHigh5GiB/Max6GiB, Swap0, Tasks512 and inherited affinity0-3.",
+      "A single-thread trusted bootstrap moves itself to a private control leaf before enabling child controllers. Scope root remains process-free. Spring, PostgreSQL, parser, image/ledger coordinator and ordinary bridges descend from that control leaf.",
+      "Each live worker reservation owns a separate generation-bound child cgroup. The gated fixed helper joins and verifies it before image capture, prlimit, unchanged bubblewrap and JVM execution. Its descendants inherit membership.",
+      "Worker release requires direct-child reap plus positive populated0 and terminal resource counters from the captured group identity. Whole-stack teardown separately requires root populated0 and every owned incarnation absent."
+    ],
+    "observed_capability": "Installed systemd255 and cgroup-v2 support this route. The separately authorized delegation-probe-r1 observed writable cpu/memory/pids subgroups, gated join before a tiny sleep exec, child reap, positive empty and cleanup. That is infrastructure capability only, not an actual worker/image/sandbox or production acceptance result.",
+    "security_context": "Use --scope to inherit the caller's working AppArmor context. Do not return to plain user service launch, relax --unshare-all, or change host policy. New actual helper+bwrap+JVM preflight remains required."
+  },
+  "issues_to_resolve_before_review_freeze": [
+    {
+      "id": "HD01",
+      "surface": "Shared live ledger and fresh launches",
+      "issue": "The draft says DocumentWorker/ProcessRunner acquire shared live-tree tokens but does not explicitly state that every enabled-mode fresh launch gets the same owned child cgroup/join/reap proof. A token without that cleanup adapter cannot satisfy the shared two-tree release predicate.",
+      "action": "State that enabled-mode durable/revalidation/solver launches use fresh DEFAULT workers in owned generation cgroups and the same cleanup receipt, while retaining their request semantics and flags. Alternatively define an equally concrete verified whole-tree cleanup adapter for those launches. Test READY plus fresh solver, fresh failure with lingering descendant, and subsequent advisory admission."
+    },
+    {
+      "id": "HD02",
+      "surface": "CPU budget meaning and helper ordering",
+      "issue": "RLIMIT_CPU12 is per process, not aggregate cgroup CPU. The helper currently appears to capture images before exec(prlimit), and bubblewrap forks the JVM. Thus retaining that flag alone does not prove a 12-second aggregate helper-plus-JVM lifetime CPU ceiling.",
+      "action": "Freeze whether 12s denotes the existing per-process limit or a new aggregate tree budget. For the latter specify the actual cgroup cpu.stat accounting/enforcement adapter and bounded observation overshoot. Apply helper AS/CPU limits before image capture if those are claimed to cover helper execution. Do not equate cpu.max rate control with cumulative CPU-time enforcement."
+    },
+    {
+      "id": "HD03",
+      "surface": "Idle stdout ownership",
+      "issue": "The draft explicitly drains stderr continuously but only says stdout reads READY and retains ownership for the response. Duplicate/late READY or arbitrary stdout while idle must not fill a pipe or remain unchecked until another request.",
+      "action": "Specify one continuous bounded stdout reader from launch through READY, idle, response and EOF, with explicit phase transitions and separate fixed prelude/response budgets. Any bytes after READY before private handoff poison the generation. Do not hand buffered streams to a competing FrameProcess reader."
+    },
+    {
+      "id": "HD04",
+      "surface": "Concrete helper bootstrap and FD ownership",
+      "issue": "PUBLIC bootstrap descriptor is bounded but its exact fields, descriptor/path acquisition and reply/EOF sequence are not yet closed. Java ProcessBuilder does not provide arbitrary inherited-FD transfer as a normal API.",
+      "action": "Freeze the closed bootstrap schema and explicit transport: parent/child PID+start, pool/slot nonce, cgroup identity, target/build identity and allowed path roots. Specify safe descriptor-relative opening, parent capture before release, no private model bytes, no extra reader, FD closure across exec and failure. Freeze the exact class-initialization list and initialization mode rather than the category Alloy parser classes."
+    },
+    {
+      "id": "HD05",
+      "surface": "Cold and sustained timing oracles",
+      "issue": "Pool startup5s, service startup-to-READY10s and first operation after serviceREADY are different clocks; the pool is lazy. The draft does not yet pin these origins or whether a cold cycle is guaranteed to start without a worker. Open-loop sustained latency also needs scheduled-arrival semantics.",
+      "action": "Define service readiness separately from worker READY, require first demand with no standby, measure request from scheduled send/admission through reply without hidden prefill, and record both startup and first-request clocks. For idle cycles observe READY then actual expiry/positive cleanup before demand. Count open-loop lateness and all attempts; no coordinated-omission correction by dropping delayed requests."
+    },
+    {
+      "id": "HD06",
+      "surface": "Semantic row routes",
+      "issue": "The finite family includes REVALIDATE while the warm entrypoint rejects it; blanket W0/W1 equality would conflict if such rows were sent directly to that entrypoint.",
+      "action": "Give every frozen row an exact route and expected class. Compare eligible advisory VALIDATE on fresh versus warm/cold/refill paths; run REVALIDATE and solver through their unchanged fresh routes in both server variants, and test warm-entrypoint REVALIDATE rejection as a separate negative. Preserve explicit input-rejection classification instead of treating any nonzero process exit as a valid boundary result."
+    },
+    {
+      "id": "HD07",
+      "surface": "CLEAN context to Java handoff correspondence",
+      "issue": "DocumentValidationContext currently exposes only artifact/inventory. DocumentGateway creates and validates its own bridge requestId. Java does not directly observe proxyGeneration or successPermitted, so the abstract CleanContext fields cannot be claimed to be checked by existing Java code.",
+      "action": "Freeze a package-private unforgeable one-use context permit created only by successful DocumentValidationContext.read after existing gateway/schema checks. Bind it to the advisory operation nonce, exact request hash, document/base revision, policy/build and pool incarnation; consume that exact object once at handoff. Keep the closed SQL context envelope unchanged. Explicitly trust the source-bound CLI/proxy adapter for proxy-generation/CLEAN/successPermitted validation, and test failure/stale/replayed/mismatched permit paths. Do not describe the Java permit as independent proof of PostgreSQL cleanup."
+    }
+  ],
+  "schedule_recommendation": {
+    "order": [
+      "Frozen actual delegated helper/image/worker preflight and finite safety/fault tests",
+      "Complete source-bound differential and existing regression prerequisites",
+      "Original paired HTTP series: independent stacks,500nodes,100warmups+1000measured, all normal cold misses/refills included",
+      "Only if every short latency gate passes, complete mandatory cold, sustained, burst/saturation and hour/10000-request resource gates"
+    ],
+    "strictness": "Keep all mandatory promotion requirements. Each W1 must have zero errors, unrounded nearest-rank p95<300ms and lower than paired W0, peak<=5GiB, complete identity/resource/cleanup evidence. Stop after the first failed W1, retain later pairs as NOT_EXECUTED, no retry or Tier1 combination. Driver remains outside the aggregate group; refill and image work stay inside. Workstation screening is not 4vCPU/8GiB target-host acceptance."
+  },
+  "previous_reuse_proposal": {
+    "disposition": "The previous validator-session proposal was not approved; six council seats requested changes and22claims remained NOT_CLOSED.",
+    "avoided_by_one_use": "Fresh-loader reset proof, cross-request Alloy/JDK/global-state cleanup, RESET_READY authority, repeated-request sequencing and retained-state retirement policy are unnecessary when every JVM accepts at most one private request then exits.",
+    "still_required": "Concrete sealed image and actual launch, live-tree ownership/capacity, cancellation and late-frame fences, source-bound runtime correspondence and finite performance acceptance remain. One-use does not itself establish these."
+  },
+  "existing_measurement_boundary": {
+    "fresh_default_pair1_p95_ms": 399.671788,
+    "fresh_tier1_pair1_p95_ms": 348.69954,
+    "measured_requests_each": 1000,
+    "errors_each": 0,
+    "selection": "KEEP_F0; pairs2/3 not executed; no profile activation",
+    "interpretation": "These complete whole-stack results reject the fresh Tier1 candidate. They do not decompose startup cost or establish that prestart will reach300ms. Per-use image capture, full identity scans, journal fsync, refill CPU contention and cold misses must remain in the next measurements."
+  },
+  "source_precision": "Current production code scans full BuildIdentity during launcher construction and again before spawn; no post-worker scan was found before validationReply. The candidate's post-reap publication fence is an explicit added requirement and measured cost, not an existing check to claim preserved.",
+  "closure": "This is a read-only feasibility assessment, not formal activation, production acceptance, semantic equivalence proof or benchmark evidence."
+}

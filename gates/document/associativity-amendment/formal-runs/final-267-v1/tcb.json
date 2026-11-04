@@ -1,0 +1,16 @@
+{
+  "trusted": [
+    "Lean4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+    "propext, Quot.sound and Classical.choice only when reported by the axiom audit",
+    "Lake, Python verifier and pinned inherited helper",
+    "SHA256 collision resistance",
+    "Operating system, filesystem, processes and hardware",
+    "Interpretation of the abstract formal model"
+  ],
+  "excluded": [
+    "Java/TypeScript/SQL refinement and implementation correctness",
+    "Alloy parser/printer and concrete source-map correspondence",
+    "Generic weighted-subtree depth, actual JVM stack safety and latency",
+    "Browser/accessibility acceptance, complete G2/G3 and commercial release"
+  ]
+}

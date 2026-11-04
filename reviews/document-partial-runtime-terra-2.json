@@ -1,0 +1,34 @@
+{
+  "reviewer": "terra-2",
+  "decision": "REQUEST_CHANGES",
+  "scope": "Read-only partial implementation audit, while analyzer helpers are still under development. No browser, HTTP, build or tests executed. Hashes are snapshots, not a frozen release.",
+  "input_hashes": {
+    "/home/augustus/Allow/gates/document/partial-types-candidate/contract.json": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216",
+    "/home/augustus/Allow/frontend/src/document/operations.ts": "157bc379dba78d6364f36525d5a5be3fe023f20f49a2939153014bfa1f97de9c",
+    "/home/augustus/Allow/frontend/src/document/obligations.ts": "a3d890d75da0c992ef9bd343756ab604aaebf8267d8278e6eb87e051f801a460",
+    "/home/augustus/Allow/frontend/src/document/state.ts": "5203047bc3fffce119a6c0a2a8025ce53bfa48d905b7745f90b66313fc19759f",
+    "/home/augustus/Allow/frontend/src/document/constraintHistory.ts": "392712ded9993215497ad62deb9071100c6f434bdb3c4afb798b54c133fbb03e",
+    "/home/augustus/Allow/frontend/src/document/controller.ts": "fd0b11f8356b0e1be8800bbbed729c94d52ea6185bbde8f44c0710bedea73a6f",
+    "/home/augustus/Allow/frontend/src/document/checker.ts": "6553b119117e424dd960a43386997574fee85fbaa678ee890167a409642f9813",
+    "/home/augustus/Allow/frontend/src/document/partialAnalysis.ts": "67c293b9f6320ff7826557e125e615e23c6818561be32cd039c690d720c5defe",
+    "/home/augustus/Allow/frontend/src/document/partialRules.ts": "71b5e9b8dcd84715e01099388af04c4c2274f0608945ac86eda9ca7359efd2be",
+    "/home/augustus/Allow/frontend/src/document/partialSupports.ts": "e218148051a7f41b9d60e0b7cc57ad82661a4421bb15313f08d6c34045472fe7",
+    "/home/augustus/Allow/frontend/src/document/partialShapes.ts": "ede1fc9f57434984df90239195c09507ab83cc46b365bf6f61fa900849f0b66c",
+    "/home/augustus/Allow/frontend/src/document/partialDestinations.ts": "339764ee40d2acdb855d1ba15c338fd961c6f492811b368ad0426bef1f2441f4",
+    "/home/augustus/Allow/frontend/src/document/ExpressionEditor.tsx": "38db2ca10723b36b04d1d3c4233bb450edb105f1335fce155ca74dfe944e1d9e",
+    "/home/augustus/Allow/frontend/src/DocumentWorkbench.tsx": "8cc7349e3665e7e0b1fa1d3dff4c0f3b430ae6e74a22a2a68a0d2268feba445c"
+  },
+  "findings": [
+    {
+      "id": "PTR-T2-01",
+      "severity": "high",
+      "location": "frontend/src/document/checker.ts:43",
+      "problem": "finish projects partial violations into public diagnostics only when the legacy diagnostics list is empty. A draft with an unrelated legacy diagnostic and a known partial sort contradiction such as some(not HOLE) suppresses the latter entirely even with fewer than 64 public diagnostics. DocumentWorkbench renders this projection, so the shared analysis does not supply the known contradiction to the user. Private enforcement remains present.",
+      "required_fix": "Merge or otherwise project partial violations into the bounded diagnostic display even when legacy issues exist, with deterministic deduplication and cap behavior. Add a regression with an unrelated legacy diagnostic and an incomplete known-sort violation, checking both public visibility and complete private enforcement."
+    }
+  ],
+  "limitations": [
+    "No assertion that unreviewed behavior or later edits are correct.",
+    "The review is tied to these observed hashes; re-audit changed files and perform planned runtime, browser, and parity validation separately."
+  ]
+}

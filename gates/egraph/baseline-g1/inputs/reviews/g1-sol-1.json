@@ -1,0 +1,210 @@
+{
+  "reviewer_id": "sol-1",
+  "model_identity": {
+    "requested_model": "gpt-6.1-sol",
+    "dispatch_model_reported_by_parent": "gpt-6.1-sol",
+    "actual_runtime_model_independently_observable": false
+  },
+  "reviewed_specification": "spec/implementation-g1.json",
+  "reviewed_revision": 2,
+  "contract_sha256": "d7bf1f8b108ee051f49096e25f5be4cdd46db819358a97373a0a5d85c926b7fe",
+  "verdict": "REQUEST_CHANGES",
+  "scope": [
+    "official Alloy6 Java17 API and dependency provenance",
+    "isolated child JVM protocol",
+    "import rejection",
+    "worker resource lifecycle",
+    "anonymous payload representation"
+  ],
+  "findings": [
+    {
+      "id": "G1-SOL1-01",
+      "severity": "MEDIUM",
+      "paths": [
+        "foundation.protocol",
+        "foundation.limits.output_bytes",
+        "foundation.terminal_policy"
+      ],
+      "title": "Worker frame integrity and diagnostic streams are underspecified",
+      "failure_scenario": "A library writes a log line to stdout before JSON, or fills stderr while the parent only reads stdout. A line-based/unbounded parent can misparse success, allocate without bounds or deadlock. A worker can emit one matching success and trailing contradictory frames; a cleanly framed result followed by crash can be accepted before the process outcome is known. UNKNOWN is absent from the supplement wire status list despite the base status model.",
+      "required_fix": "Freeze a one-shot framing format and byte accounting before implementation. Keep stdout exclusively protocol and drain stderr concurrently under an independent byte cap; exceed any cap => error and kill/reap. Strictly decode UTF-8 JSON, reject duplicate keys/unknown protocol version/multiple or trailing frames, validate exact job/analysis identity and require the declared successful exit code. Document arbitration between received terminal payload, timeout/cancel and process exit. Retain UNKNOWN or explicitly map indeterminate solver outcomes to ERROR; exceptions or missing terminal data never become UNSAT.",
+      "proof_boundary": "S06 proves absorbing abstract terminal states, not actual pipes, framing, process-exit arbitration or decoder correctness."
+    },
+    {
+      "id": "G1-SOL1-02",
+      "severity": "MEDIUM",
+      "paths": [
+        "foundation.worker",
+        "foundation.terminal_policy",
+        "formal_obligations.S05"
+      ],
+      "title": "Admission release must follow physical process exit and reaping",
+      "failure_scenario": "Cancellation marks a job terminal and releases its logical admission before the old JVM has exited. The next job starts while the old solver still consumes memory/CPU, violating the promised single active worker even though an active-counter model remains within cap. Parent death can similarly orphan a sandbox unless its lifetime is tied to a supervisor.",
+      "required_fix": "Specify permit ownership from successful spawn reservation until the full sandbox/process group has exited and been reaped. A terminal UI status alone does not release admission. Define spawn-failure rollback, repeated cancellation idempotence, parent-disconnect/death cleanup, output-limit failure and kill escalation. Use bubblewrap die-with-parent plus process-group/cgroup containment as appropriate; test that timeout/cancel cannot start the next worker while the prior PID/container is alive.",
+      "proof_boundary": "S05 is a pure counter arithmetic theorem; it does not prove atomicity, physical process count, cleanup or native-memory limits."
+    },
+    {
+      "id": "G1-SOL1-03",
+      "severity": "MEDIUM",
+      "paths": [
+        "anonymization.canonical_payload",
+        "anonymization.scope_policy",
+        "anonymization.embedding_boundary",
+        "formal/Allow/Slots.lean:Tree"
+      ],
+      "title": "Versioned anonymous structural profile needs a frozen grammar and serializer",
+      "failure_scenario": "Two mapper methods assign different numeric operator tags or omit different declaration attributes while both call output allow-slot-ast-v1. They emit valid Tree.node values and satisfy all four projection proofs, yet collide across distinct source structures or create vectors that cannot be reproduced. Tree.node operator Nat and number Int do not themselves enforce a registered closed operator grammar.",
+      "required_fix": "Before implementing the mapper, define the supported Alloy AST constructor/operator/type/declaration matrix, slot allocation order including lexical scope and binder-group behavior, integer/Boolean handling, child arities, excluded fields and deterministic serialization/feature-encoder version. Unknown constructors, tags or malformed shapes reject. Pin golden schema/serialization fixtures and positive alpha-renaming plus negative operator/column/order/multiplicity/fact-context controls. Keep the claim explicitly structural; no semantic equivalence or privacy guarantee follows merely from projection.",
+      "proof_boundary": "S01/S02 assume an already resolved fixed Payload. They do not prove that parser-to-payload mapping is alpha-invariant or that a numeric tag catalog/serializer is complete or injective."
+    }
+  ],
+  "api_research": {
+    "java_observed": "OpenJDK 17.0.20.1; javac/jar/javap present; mvn and gradle executables absent; no cached org.alloytools or org.sat4j JARs found in Maven cache.",
+    "preferred_spike_artifact": {
+      "url": "https://github.com/AlloyTools/org.alloytools.alloy/releases/download/v6.2.0/org.alloytools.alloy.dist.jar",
+      "bytes": 21062377,
+      "sha256": "6b8c1cb5bc93bedfc7c61435c4e1ab6e688a242dc702a394628d9a9801edb78d",
+      "manifest_git_sha": "794226dd07b536fe35c5ca44b529417183cd629b",
+      "manifest_bundle_version": "6.2.0.202501090817",
+      "java_class_major": 61,
+      "bundled_sat4j_version": "2.3.1",
+      "restriction": "Local feasibility only; not redistribution clearance."
+    },
+    "maven_alternative": {
+      "coordinate": "org.alloytools:org.alloytools.alloy.dist:6.2.0",
+      "url": "https://repo.maven.apache.org/maven2/org/alloytools/org.alloytools.alloy.dist/6.2.0/org.alloytools.alloy.dist-6.2.0.jar",
+      "bytes": 21064917,
+      "sha256": "6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d",
+      "manifest_git_sha": "fcd83b2758196f5f8f8f8fb9c537322e7bda5e9a",
+      "note": "Different bytes/commit despite same version; choose one complete provenance chain."
+    },
+    "api_facts": [
+      "A4Options.solver has SATFactory type; use SATFactory.get(\"sat4j\"), not old A4Options.SatSolver enum.",
+      "TranslateAlloyToKodkod.execute_command accepts reporter, reachable signatures, Command and A4Options.",
+      "A4Solution exposes satisfiable, next, per-state eval, getTraceLength and getLoopState.",
+      "Pin noOverflow, symmetry, skolemDepth, unrolls and decomposition options; do not silently accept defaults as user policy."
+    ],
+    "import_pitfall": "Official release commit CompUtil.parseEverything_fromString writes a temporary file using model.getBytes(); parseEverything_fromFile checks supplied maps then falls back to host filesystem, .md and bundled libraries. A loaded map is not an import allowlist. Import-free lexical rejection plus post-parse policy and OS filesystem isolation is the correct initial conservative direction.",
+    "license_observations": [
+      "Release manifest Bundle-License MIT; tagged root LICENSE says Apache not yet valid and code currently MIT.",
+      "Maven POM metadata declares Apache-2.0 and snapshot SCM metadata.",
+      "Distribution includes LICENSES/SAT4J.txt LGPL2.1, LICENSES/Kodkod.txt MIT, and other solver notices.",
+      "META-INF/LICENSE.txt is Apache text paired with Commons IO NOTICE; it is not blanket license evidence for the entire fat JAR."
+    ],
+    "official_sources": [
+      "https://github.com/AlloyTools/org.alloytools.alloy/releases/tag/v6.2.0",
+      "https://raw.githubusercontent.com/AlloyTools/org.alloytools.alloy/794226dd07b536fe35c5ca44b529417183cd629b/org.alloytools.alloy.core/src/main/java/edu/mit/csail/sdg/parser/CompUtil.java",
+      "https://repo.maven.apache.org/maven2/org/alloytools/org.alloytools.pardinus.core/6.2.0/org.alloytools.pardinus.core-6.2.0.pom",
+      "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ProcessBuilder.html",
+      "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html",
+      "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ProcessHandle.html"
+    ]
+  },
+  "sandbox_observations": {
+    "namespace_probe": "bwrap --unshare-all and unshare --user --map-root-user --net child probes exited 0.",
+    "java_probe": "Direct /usr/lib/jvm/java-17-openjdk-amd64/bin/java -version succeeded inside bubblewrap with read-only /usr,/lib,/lib64,/etc/java-17-openjdk, private tmpfs /tmp, proc/dev and all namespaces unshared.",
+    "pitfall": "/usr/bin/java failed in that narrow sandbox because /etc/alternatives target was not mounted; resolve and pin the Java executable realpath.",
+    "limitations": "These are namespace/runtime feasibility observations, not a universal sandbox proof or memory/cgroup enforcement claim."
+  },
+  "lean_review": {
+    "files": [
+      "formal/Allow/Slots.lean",
+      "formal/Allow/Foundation.lean"
+    ],
+    "assessment": "The eight stated claims are appropriately restricted abstract projection/policy properties. They do not assert parser mapping, actual code style, process cleanup or Java integration correctness. No new custom axiom or sorry observed in the read sources.",
+    "proof_execution_claimed": false
+  },
+  "actions": {
+    "downloaded_official_artifacts_to": "/tmp/allow-g1-sol1",
+    "reference_sources_modified": false,
+    "product_source_authored": false,
+    "network_source_uploads": false
+  },
+  "final_review": {
+    "reviewed_revision": 4,
+    "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "contract_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "slot_profile_sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "file_sha256": {
+      "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+      "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+      "formal/Allow/Foundation.lean": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7",
+      "formal/Allow.lean": "2c48425a37c470e584dfb0221b729671f82a1aa6e9d588fcc176a9f391883012",
+      "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "formal/lakefile.toml": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6"
+    },
+    "verdict": "ACCEPT_IMPLEMENTATION_PLAN_SUBJECT_TO_PROOFGATE",
+    "summary": "Revision 4 and the normative slot profile resolve all three initial findings at the specification level. The plan is acceptable for the authorized local foundation after the required clean proof builds and six-seat approval gate. No production correctness, distribution license clearance or full G2/G3 completion is established.",
+    "finding_dispositions": [
+      {
+        "finding_id": "G1-SOL1-01",
+        "status": "RESOLVED_SPECIFICATION_AND_REQUIRED_TESTS",
+        "evidence": [
+          "foundation.protocol",
+          "foundation.terminal_policy",
+          "acceptance"
+        ],
+        "assessment": "Stdout is exactly one newline-terminated compact JSON object; unique-key/schema/identity/clean-exit and no-trailing-frame requirements are explicit. Separately drained stderr has an independent 65536-byte cap; overflow stops/reaps. UNKNOWN and conservative exception handling are present. Process-exit/cancel arbitration remains an implementation test obligation."
+      },
+      {
+        "finding_id": "G1-SOL1-02",
+        "status": "RESOLVED_SPECIFICATION_AND_REQUIRED_TESTS",
+        "evidence": [
+          "foundation.terminal_policy",
+          "foundation.worker",
+          "acceptance"
+        ],
+        "assessment": "Admission remains held until sandbox process group exit and reaping, including timeout/cancel; logical terminal state alone cannot free it. Die-with-parent and queued-next-job nonoverlap tests are explicit. S05 remains abstract admission arithmetic, with no proof credit for actual JVM/process cleanup."
+      },
+      {
+        "finding_id": "G1-SOL1-03",
+        "status": "RESOLVED_SPECIFICATION_AND_ADAPTER_GATES",
+        "evidence": [
+          "anonymization.canonical_payload",
+          "anonymization.scope_policy",
+          "anonymization.serialization",
+          "anonymization.grammar",
+          "spec/slot-profile.json",
+          "formal/Allow/Slots.lean:Operator"
+        ],
+        "assessment": "Normative ordered tagged-array grammar, supported/unsupported semantic attributes, operator allowlists, global and bound allocation rules, exact UTF-8 encoding, deterministic feature baseline and negative pairs are specified. Lean replaces numeric operator tags with a closed enum. Exact production grammar/serialization and parser correspondence remain unproved and must pass adapter tests; the Lean enum is a scoped model rather than a generated complete production AST schema."
+      }
+    ],
+    "lean_review": {
+      "files_read": [
+        "formal/Allow/Slots.lean",
+        "formal/Allow/Foundation.lean"
+      ],
+      "obligations_reviewed": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "ordinary_build": {
+        "command": "lake build",
+        "cwd": "formal",
+        "exit_code": 0,
+        "output": "Build completed successfully (11 jobs)."
+      },
+      "projection_check": {
+        "command": "python3 closure/scripts/project_contract.py --check",
+        "exit_code": 0
+      },
+      "scope": "The projection theorems assume fixed resolved payload; distinct slot references stay distinct; terminal completion is absorbing and cancellation remains CANCELLED; accepted method metadata has bounds. These do not prove Java mapper, serializer, feature encoding, authority, process isolation, atomic concurrency or style inventory correctness.",
+      "independent_clean_build_or_transitive_axiom_audit_claimed": false
+    },
+    "remaining_required_specification_fixes": [],
+    "implementation_gates": [
+      "Two clean audited supplement Lean builds and all six requested reviewer approvals before production source.",
+      "Pinned exact dependencies and provenance/license records; no commercial redistribution clearance assumed.",
+      "Adversarial real worker/authority/import/resource/cancel/crash framing tests and AST coding-standard checks."
+    ],
+    "production_source_authored": false
+  }
+}

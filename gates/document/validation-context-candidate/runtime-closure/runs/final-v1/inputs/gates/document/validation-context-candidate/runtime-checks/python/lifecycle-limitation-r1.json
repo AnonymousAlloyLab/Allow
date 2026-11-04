@@ -1,0 +1,117 @@
+{
+  "claim_boundaries": {
+    "VC15": "Successful context read finishes commit/connection close before worker creation. Failed/timeout context raises before worker launch. Do not generalize to all server-side work being gone when an aborted bridge child is reaped.",
+    "VC18": "Exact durable state preservation verified for this timeout; it does not imply automatic PostgreSQL backend cancellation.",
+    "lifecycle_gate": "Immediate backend execution termination on bridge timeout remains unproved and is contradicted by this deliberate sleeping-query fixture until explicit cleanup.",
+    "resource_caps": "20CPU/2GiBAS cap applies to Python child, not PostgreSQL backend query CPU/memory. No claims about backend CPU exhaustion or all possible long queries."
+  },
+  "created_at": "2026-11-03T22:37:41.120473+00:00",
+  "inspected_sources": [
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "relevant_lines": [
+        28,
+        403,
+        415,
+        503
+      ],
+      "sha256": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "relevant_lines": [
+        42,
+        83
+      ],
+      "sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "relevant_lines": [
+        18
+      ],
+      "sha256": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98"
+    },
+    {
+      "path": "retrieval/allow_documents/store.py",
+      "relevant_lines": [
+        333
+      ],
+      "sha256": "f43df582a6d41b07fcc9f434548653b8b6d60c95a05e27138c288df9e961133a"
+    },
+    {
+      "path": "scripts/bootstrap_corpus.py",
+      "relevant_lines": [
+        269
+      ],
+      "sha256": "85aaad35e2eec311e96265bd73b0ac5b9a7df10d3240b078a8097d5fa052c0f1"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+      "relevant_lines": [
+        39,
+        57
+      ],
+      "sha256": "bc94212e0d9049e6de47b405177108a45ae34dff706be474d325c8a0f62fdac8"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "relevant_lines": [
+        26,
+        44
+      ],
+      "sha256": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "relevant_lines": [
+        91,
+        94
+      ],
+      "sha256": "76763b82e67c8378a159345bfee99990c8de703ec4042cadfced97e13d8b90da"
+    },
+    {
+      "path": ".runtime/corpus/postgres/data/postgresql.conf",
+      "relevant_lines": [
+        702
+      ],
+      "sha256": "9197fa29e1c82cf6a930fc3160417c62bb1bf683bc2b64d01a2d3ede38c19b8b"
+    },
+    {
+      "path": ".runtime/corpus/postgres/data/postgresql.auto.conf",
+      "relevant_lines": [
+        1
+      ],
+      "sha256": "0874e665ecf5c0a6135a73158ea1b71a959dafb809574810da5c9cc28c0c63ed"
+    },
+    {
+      "path": ".runtime/corpus/postgres/data/postmaster.opts",
+      "relevant_lines": [
+        1
+      ],
+      "sha256": "59d354d1affca706eb657ed2cc686ca27af08272df74c22475cc3b254527a8ab"
+    }
+  ],
+  "observed": {
+    "backend_absent_after_explicit_cleanup": true,
+    "backend_still_present_after_cli_reap": true,
+    "cancel_timing_interval_from_parent_child_launch_seconds": [
+      20.003273950998846,
+      20.03233083899977
+    ],
+    "entire_timeout_check_seconds_including_before_after_snapshots": 20.03233083899977,
+    "exact_cancel_send_timestamp": "not instrumented; cannot infer a more precise instant",
+    "explicit_owned_backend_cancel_required": true,
+    "interval_caveat": "Lower bound is recorded child reap time. Upper bound conservatively uses full group duration, which starts before child launch and includes final snapshot. Actual pg_sleep start/elapsed duration was not timestamped.",
+    "owned_cli_reaped_seconds_after_launch": 20.003273950998846
+  },
+  "read_only_source_findings": [
+    "Proxy FRAME_SECONDS=30 limits individual protocol reads, not PostgreSQL statement execution.",
+    "Proxy relay cancels Python relay tasks and closes backend transport; close() does not issue an automatic backend CancelRequest.",
+    "Validation-context SQL installs REPEATABLE READ, READ ONLY and scope, with no statement_timeout setting. Canonical DSN helper sets startup options empty.",
+    "Owned postmaster launch options contain no timeout override; postgresql.auto.conf contains no setting; postgresql.conf has commented statement_timeout=0 default only. Actual runtime/role/database setting was not queried in this addendum.",
+    "SQL guard exact SAFE_SET admits timeout values=0; introducing nonzero timeouts is a separate reviewed policy/contract change.",
+    "Java DocumentGateway waits20s and reaps child through FrameProcess; DocumentQueries creates/launches DocumentWorker only after DocumentValidationContext.read returns successfully."
+  ],
+  "status": "LIMITATION_RECORDED"
+}

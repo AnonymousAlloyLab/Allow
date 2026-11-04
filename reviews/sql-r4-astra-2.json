@@ -1,0 +1,88 @@
+{
+  "reviewer": "astra-2",
+  "seat": "sql-r4-astra-2",
+  "review_type": "INCREMENTAL_FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION_AFTER_FORMAL_GATE",
+  "spec_revision": 4,
+  "spec_path": "spec/sql-stage.json",
+  "spec_sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "formal_file_sha256": "648e16bd95be98f8089fe5bbd14290a21efe0c0405422be91c8081c82699f9f8",
+  "types_file_sha256": "156723aa97fe7cffafbec87fa342cea535d9f90bfdb6c7c1884f7fa034e919f0",
+  "timestamp_utc": "2026-11-03T16:58:51.426005+00:00",
+  "incremental_scope": "Native SQL PREPARE/EXECUTE for unchanged complete pinned pg_dump/pg_restore, preserving exact-source parser admission and connection-local provenance.",
+  "blocking_design_findings": [],
+  "findings": [
+    {
+      "id": "R4-ASTRA2-01",
+      "classification": "IMPLEMENTATION_REQUIREMENT",
+      "title": "ExecuteStmt includes CREATE TABLE AS EXECUTE",
+      "evidence": "Read-only real parser probe for CREATE TABLE t AS EXECUTE p returned statementFamilies=[ExecuteStmt], with CREATE as first token. EXPLAIN EXECUTE returned ExplainStmt.",
+      "required_behavior": "Require the expected leading PREPARE/EXECUTE token plus the immediately following admissible native-name token and exact singleton ordered family list. A sole ExecuteStmt family alone does not enforce the specified nested-form exclusion.",
+      "resolution": "Root explicitly accepted this classifier requirement before final review; the frozen spec already requires CREATE AS EXECUTE denial."
+    },
+    {
+      "id": "R4-ASTRA2-02",
+      "classification": "IMPLEMENTATION_REQUIREMENT",
+      "title": "Deduplicated production IDs do not establish one statement",
+      "evidence": "Repeated PREPARE and repeated EXECUTE probes each returned two identical entries in statementFamilies; Report.lean erases duplicate production IDs.",
+      "required_behavior": "Check list cardinality, not set equality. Continue using all production IDs and tokens for nested opaque and lexical-mode policy checks.",
+      "resolution": "Root explicitly accepted ordered singleton-family classification."
+    },
+    {
+      "id": "R4-ASTRA2-03",
+      "classification": "PROOF_SCOPE",
+      "title": "Body extraction and native name resolution are trusted adapter work",
+      "evidence": "bodyPart establishes a nonempty substring relation. nativeExecute takes a supplied target name and an admitted request/report. Neither definition derives syntax, the target name or SQL case folding from source bytes.",
+      "required_behavior": "Do not claim these theorems prove SQL identifier normalization, statement classification or body-span extraction. Use parser token byte offsets against original UTF-8 bytes, retain whole accepted source, and validate boundary/name restrictions in runtime tests.",
+      "resolution": "The model comments and frozen formal_scope retain the adapter boundary; root confirmed body-span extraction remains trusted runtime work."
+    }
+  ],
+  "positive_assessments": [
+    "The observed strict revision 3 failure is preserved as a real failed recovery gate. Supporting parsed static PREPARE/EXECUTE addresses native utility behavior without bypassing the parser or dropping backup ACL content.",
+    "Every native PREPARE and EXECUTE must have its own complete exact-source grammar acceptance. The prepared query is inside the admitted PREPARE source; no arbitrary SQL string execution, placeholder rewriting or parameter-to-SQL promotion is introduced.",
+    "ASCII-only names limited to 63 bytes avoid PostgreSQL quoted-name, Unicode and truncation ambiguity. SQL names are folded only for lookup; original wire SQL remains unchanged and protocol names retain exact bytes.",
+    "A shared connection-local accepted statement namespace supports SQL-to-protocol Bind and protocol-to-SQL EXECUTE while preserving immutable portal provenance. Unknown targets must fail and successful backend execution is not inferred from optimistic state.",
+    "Cache decisions are immutable classification metadata only. A cache hit does not create a prepared statement on a new connection or bypass EXECUTE target lookup.",
+    "All existing opaque-body, mode-change, expression-policy and resource restrictions continue inside PREPARE bodies and EXECUTE arguments. The changed native policy does not authorize DO, function/procedure bodies, nested execution forms, DEALLOCATE, prepared transactions or legacy fast-path calls."
+  ],
+  "formal_assessment": {
+    "obligations": 22,
+    "incremental_obligations": 6,
+    "reviewed_symbols": [
+      "native_execute_provenance",
+      "native_unknown_denied",
+      "native_prepare_bind",
+      "cache_does_not_prepare",
+      "native_prepare_witness",
+      "native_execute_witness"
+    ],
+    "conclusion": "The abstract extensions express own-request and known-target acceptance, shared provenance for Bind, cache nonmutation and nonvacuous native traces. They preserve reachable_wellFormed for the added nativePrepared constructor.",
+    "independent_lean_run": false,
+    "required_before_production_changes": "Complete all six exact-hash seats and the planned two clean formal builds bound to this final revision 4 hash. Prior revision 3 proof evidence is not revision 4 closure."
+  },
+  "verification_performed": [
+    "Read final revision 4 specification, all 22 frozen obligations, SqlRouting.lean and sql-types.json.",
+    "Read preserved baseline-r3 recovery-failure.json and pinned PostgreSQL 16.15 pg_dump.c native getColumnACLs PREPARE construction.",
+    "Read upstream Report.lean and inspected parser metadata behavior with ten local stdin-only probes: ordinary native PREPARE/EXECUTE, repeated native statements, quoted/comment-separated names, nested EXPLAIN and CREATE AS EXECUTE, unsafe prepared body and unsafe EXECUTE argument.",
+    "All ten probes returned exact grammar acceptance, demonstrating which additional policy checks the adapter must perform; no database statements were executed.",
+    "Consulted PostgreSQL 16 primary PREPARE and protocol-flow documentation and verified final specification hash before writing this report."
+  ],
+  "runtime_acceptance_required": [
+    "Real native PREPARE/EXECUTE with folded ASCII names, current-connection and unknown-target behavior, duplicate-name/backend-error traces and both cross-protocol directions.",
+    "Warm cache reused on a different connection must not establish a target; closing a prepared object must remove its lookup authority even if classification is cached.",
+    "Quoted/Unicode/overlong names, repeated same-family statements, EXPLAIN EXECUTE and CREATE TABLE AS EXECUTE must fail before forwarding.",
+    "Unsafe set_config or other forbidden constructs in PREPARE bodies and EXECUTE arguments must fail; harmless SQL-looking literals remain data.",
+    "SQL prepared statements must consume existing per-connection object/metadata limits and preserve portal snapshots across accepted namespace changes.",
+    "Run full native pg_dump/pg_restore with ACLs, distinct client counters and canonical endpoints; retain revision 3 failure evidence and rerun migration/recovery preservation checks."
+  ],
+  "production_edits": false,
+  "prior_reports_preserved": true,
+  "commercial_scope": "Local user-authorized execution only. No additional redistribution or commercial license clearance is conferred.",
+  "sources": [
+    "https://www.postgresql.org/docs/16/sql-prepare.html",
+    "https://www.postgresql.org/docs/16/protocol-flow.html",
+    ".tools/retrieval/src/postgresql-16.15/src/bin/pg_dump/pg_dump.c",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Report.lean"
+  ],
+  "approval_scope": "Exact revision 4 design and abstract obligations only. Implementation, real backup compatibility and finite runtime closure remain separate gates; no broader SQL/Python/protocol/security refinement is claimed."
+}

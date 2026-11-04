@@ -1,0 +1,46 @@
+{
+  "classification": "ADVISORY_REVIEW_NOT_PROOF",
+  "stage_sha256": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+  "rule_sha256": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+  "seats": {
+    "terra-1": {
+      "requested_model": "gpt-6.1-terra",
+      "report": "reviews/egraph-terra-1.json",
+      "report_sha256": "23540878af4e11fc169dd80273136a80ac4fd1801f640419e7ab9213c0eb85d1",
+      "role": "formal author and adversarial model reviewer"
+    },
+    "terra-2": {
+      "requested_model": "gpt-6.1-terra",
+      "report": "reviews/egraph-terra-2.json",
+      "report_sha256": "6be091892e791c94565f82fcef31fcb3373411f8ef328b26e3362ea484f7174c",
+      "role": "adversarial architecture reviewer"
+    },
+    "sol-1": {
+      "requested_model": "gpt-6.1-sol",
+      "report": "reviews/egraph-sol-1.json",
+      "report_sha256": "198bf37bd5e97736ef8ee0dd21373d2886c725f8bd3f4718addd946025a6140e",
+      "role": "adversarial architecture reviewer"
+    },
+    "sol-2": {
+      "requested_model": "gpt-6.1-sol",
+      "report": "reviews/egraph-sol-2.json",
+      "report_sha256": "03e352483be8e5e5245e00e65d676d670287d57db5f775ef525762247888029a",
+      "role": "adversarial architecture reviewer"
+    },
+    "astra-1": {
+      "requested_model": "gpt-6-astra",
+      "report": "reviews/egraph-astra-1.json",
+      "report_sha256": "4346e6bf6ff3acc904812a625b756c7eefe7717200aee6ad54e1f5bf8929d3a0",
+      "role": "adversarial architecture reviewer"
+    },
+    "astra-2": {
+      "requested_model": "gpt-6-astra",
+      "report": "reviews/egraph-astra-2.json",
+      "report_sha256": "bc8b193d49f92fb246e136c171c9081e5c0fd6601a980ffa8c07c6f3ce44cc1e",
+      "role": "adversarial architecture reviewer"
+    }
+  },
+  "sequence": "All six reports completed before production implementation; formal report VERIFIED before production changes",
+  "trust": "Dispatch identities requested as recorded; provider internals not independently attested. Formal author participates as one of the requested six reviewers; other seats reviewed the architecture independently.",
+  "formal_report": "gates/egraph/formal-report.json"
+}

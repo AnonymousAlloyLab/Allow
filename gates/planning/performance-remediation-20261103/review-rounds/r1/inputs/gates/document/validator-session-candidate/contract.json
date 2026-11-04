@@ -1,0 +1,166 @@
+{
+  "id": "ALLOW-ADVISORY-VALIDATOR-SESSION-CANDIDATE-R1",
+  "status": "DESIGN_ONLY_UNRESOLVED_NO_IMPLEMENTATION_OR_ACCEPTANCE",
+  "revision": "r1",
+  "selected_scope": "One private bounded reusable JVM for advisory /documents/{documentId}/validate only, with a new isolated child classloader and complete validation context on every request. Commit, history-copy/revalidation, durable admission/recovery and solver analysis keep their existing one-shot workers and exit-before-recovery evidence. No saved validation decisions, base artifacts, owned-ID authorization or response cache.",
+  "extends": [
+    "spec/document-stage-draft.json",
+    "spec/document-wire-draft.json",
+    "spec/document-ui-draft.json",
+    "spec/document-adapter-draft.json"
+  ],
+  "observed_basis": {
+    "worker": "DocumentWorker.execute constructs a fresh launcher per advisory operation, captures PID/start ticks, accepts only after FrameProcess.exchange observes child exit, and reaps in finally. A reusable advisory transport is a distinct implementation; never weaken FrameProcess or DocumentWorker recovery semantics globally.",
+    "validation": "DocumentWorkerMain handles exactly one bounded frame; DocumentEngine creates request-local validation objects, but this alone proves no process-global isolation. SourceParser uses a new temporary file and deletes it in finally. Pinned Alloy bytecode contains static AST singletons and Type.SMALL_INT; Sig.PrimSig contains a children collection. Their presence establishes an audit need, not observed semantic contamination.",
+    "identity": "BubblewrapLauncher hashes all installed classes/resources/dependencies in its constructor and again at launch, and checks pinned Alloy bytes. The current policy dependency includes frontend static files. This candidate retains a full current-installation BuildIdentity comparison on EVERY advisory admission; no stat-only cache, ignored static resources or late lazy loading from mutable disk.",
+    "capacity": "WorkerCapacity currently enforces one active local-principal operation. A reusable idle JVM creates a new live-process ownership state that requires an explicit global live-slot ledger; existing active-permit release-after-exit wording is amended only for verified clean advisory idleness.",
+    "persistence": "DocumentQueries.validate separately reads exact authorized revision and scans requested server IDs across immutable scoped history. Both calls stay mandatory as currently needed; all SQL continues through SQLeanParser. A combined bridge operation is an independent lower-risk candidate, not bundled into this session change.",
+    "measurements": "Root is completing the frozen 100 warmup/1000 measured HTTP run. Persistence component read and ownedIds measurements are separately recorded. Fresh validator wall-time decomposition, immutable snapshot startup cost, fresh-classloader cost and end-to-end candidate performance are PENDING. No cause or <300 ms improvement is established by this design.",
+    "measured_component_evidence": {
+      "classification": "COMPONENT_MEASUREMENTS_NOT_END_TO_END_ACCEPTANCE",
+      "build_hash_file": "gates/document/component-profiles/build-hash.log",
+      "build_hash_ms": [
+        19.897421,
+        19.894271,
+        19.998102,
+        19.396797,
+        20.061732,
+        21.87908,
+        20.154244,
+        20.065622,
+        20.391356,
+        20.363865
+      ],
+      "persistence_file": "gates/document/persistence-profile-sealed.json",
+      "read_ms": [
+        83.648345,
+        83.676076,
+        83.163339
+      ],
+      "ownedIds_ms": [
+        81.70396,
+        82.140156,
+        80.19402
+      ],
+      "interpretation": "The source executes BuildIdentity twice in current fresh-worker construction/launch; separate timings cannot establish endpoint percentiles. Fresh JVM and fresh-classloader costs remain pending."
+    }
+  },
+  "alternatives": [
+    {
+      "name": "combined read+ownedIds context bridge",
+      "assessment": "Preserves fresh JVM isolation and can remove one Python launch/transaction round trip while retaining exact scoped history semantics; lower risk. Existing component timings alone do not establish p95<300 ms. If profiling shows JVM reuse has insufficient gain, select this under a separate exact contract/review before production changes."
+    },
+    {
+      "name": "same-classloader reusable JVM",
+      "assessment": "Not selected. New DocumentEngine does not reset Alloy/Jackson/JVM static state; static singleton evidence requires an audit. A Boolean reset acknowledgement cannot establish semantic equivalence."
+    },
+    {
+      "name": "cache advisory outcomes or skip authorization/ownedIds",
+      "assessment": "Excluded. Changes candidate coverage/authority and can game repeated-edit measurements."
+    },
+    {
+      "name": "in-process parser in Spring",
+      "assessment": "Excluded. Removes the current failure and resource boundary."
+    },
+    {
+      "name": "change benchmark target or choose warmup to hide retirement",
+      "assessment": "Forbidden. Keep exact workload, 100 warmups, 1000 measurements, target p95<300 ms and count all retirement/startup/failure costs."
+    }
+  ],
+  "private_protocol": {
+    "channel": "Dedicated anonymous parent-child stdin/stdout pipes only; no TCP socket or public worker endpoint. No unframed library stdout. One reader and one writer owner per session; no caller directly reads or writes the pipe.",
+    "identity": [
+      "protocol=2",
+      "server-private principal/workspace/launch binding",
+      "policyVersion",
+      "dependency hash",
+      "immutable-image manifest hash",
+      "session CSPRNG generation nonce",
+      "monotone sequence without wrap",
+      "request CSPRNG nonce",
+      "exact documentId/baseRevision",
+      "draftId/draftEpoch",
+      "SHA256 of retained exact request/base/inventory bytes"
+    ],
+    "frame": "Strict UTF-8 single compact JSON line, closed fields, duplicate keys/trailing tokens rejected. The protocol version is private and does not alter public protocol 1. Parent retains exact byte payloads; hashes bind transported fields under explicit SHA256 trust. No public input may select operation, scope, generation, image, classpath or child class.",
+    "operations": "Only ADVISORY_VALIDATE. The worker cannot accept REVALIDATE, COMMIT, SOLVE, CHECK or externally selected reflection targets. A deterministic candidate denial is INVALID. Resource faults, arbitrary exceptions/errors, reset failure and malformed private transport are UNAVAILABLE and retire the entire session.",
+    "limits": "Retain <2 MiB serialized private validation context, <1 MiB complete result with framing, 32 KiB bounded stderr per session, and all inherited public request/source/graph/diagnostic limits. Maintain bounded buffers while waiting; no read-all-until-EOF in a persistent stream. The external deadline covers blocked write, parse, reset, serialization and response framing.",
+    "sequence": "Parent allows one in-flight request. Child returns exactly one terminal DATA plus matching RESET_READY acknowledgement, both with complete immutable identity. DATA is staged only; publish after both frames, fresh runtime fence, decoder bounds and reset verification. Unexpected bytes, duplicate/extra/wrong-order frames, malformed/missing response, replayed/stale generation/sequence/nonce or EOF retire and reap. No retry within the same ambiguous session.",
+    "ready": "Initial READY must bind the exact sealed image and session generation before any source is sent. No source-bearing warmup or synthetic benchmark preload. Failure to initialize uses existing bounded UNAVAILABLE behavior.",
+    "public_response": "The existing validationReply exact requestHash/draftId/epoch/base/sourceHash binding and browser freshness guards remain. No new acceptance token, durable mutation or canonical CorpusPair is created."
+  },
+  "isolation_and_reset": {
+    "classloader": "A JDK-only protocol supervisor creates a fresh request child classloader for ALL Allow validation/worker policy classes, Alloy, Jackson and their transitive non-JDK dependencies. Application parent delegation is denied; only a fixed audited JDK platform allowlist delegates. The supervisor cannot load the validation engine in its own loader. Pass/return byte arrays only; no Class, Throwable, AST, JsonNode, callback, Method, stream, task or collection owned by the child escapes.",
+    "execution": "New request thread and fresh engine/checker/reader/remapper/policy object graph per request; no overlapping worker threads. Thread context loader is explicitly assigned and restored. No solver invocation, network access, persistent file writes, external modules or parent/application static registry mutation is allowed.",
+    "reset": "Request execution has terminated; no request-created live thread or descendant exists; source temporary files are removed; child-loader references, reflected members, exceptions and intermediate byte/AST/JSON values are discarded; only bounded serialized response bytes may survive to publication. Restore context loader and request-specific temporary state. Inspect actual owned thread/file inventories and compare against a fixed clean baseline. Any uncertainty retires; do not rely on System.gc or class unloading as a proof.",
+    "retained_memory": "Fresh classloader reachability does not prove class unloading, no JDK-global leaks, or bounded RSS. Whole-process limits and finite retirement bounds are enforced independently. Complete dependency/static/global-state audit and sequential fresh-worker differential evidence remain unresolved mandatory obligations.",
+    "semantic_oracle": "Compare each advisory result to a fresh one-shot validator under identical source/base/inventory/policy, after the existing documented alpha/presentation normalization only where fresh generated UUIDs legitimately differ. Compare status, support mode, exact source bytes/hash, nominal schemas, diagnostics after inverse remapping, command order/options, occurrences and trivia. Never normalize away type differences, source order, ownership failure or missing diagnostics.",
+    "faults": "Every unexpected exception, StackOverflowError, OutOfMemoryError, thread interruption, failed cleanup, foreign output or transport failure poisons the session before returning UNAVAILABLE. No partial successful response survives a poison/cancel race.",
+    "parent_json_boundary": "Parent/supervisor must never pass child-loader POJOs to shared Jackson ObjectMapper, reflection/introspection caches or exception loggers. Serialized bytes and JDK primitive/string framing types only. The child performs all JSON/tree work with its own Jackson classes. Audit method handles, thread locals, service/provider caches, classloader context and shutdown hooks explicitly; a byte-array return alone does not establish this invariant."
+  },
+  "immutable_image": {
+    "chosen_mechanism": "A bounded private startup helper copies the exact ordered classes/resource inventory and dependency/Alloy jars into kernel-sealed memfd images before exec of the restricted JVM. Compiled classes/resources are packaged into one deterministic jar; retain a logical entry manifest sufficient to reconstruct the existing BuildIdentity bytes/path ordering exactly. Dependency jars retain exact original bytes. Require WRITE/GROW/SHRINK/SEAL and verify destination content after sealing, not source metadata. Read-only bubblewrap mounts refer to the same sealed file objects through owned inherited descriptors; no mutable-disk classpath fallback.",
+    "bounds": "At most 64 MiB total sealed image payload and 64 image descriptors per session; max 256 MiB total uncompressed jar entries, unique safe relative entries, no symlinks/path traversal/duplicate entries/unbounded zip expansion. Fail closed if exceeded. Startup helper is part of the same owned launch process tree, under 2 GiB AS, a per-process 12 CPU-second hard cap, inherited filesystem restrictions and the first-request 10-second external wall deadline; no unbounded preparatory copy. The 12 CPU cap is cumulative for the reused JVM once started. Per-process limits do not establish an aggregate tree cap: actual helper/bubblewrap/JVM lineage accounting remains U03, not a proved guarantee. Keep startup before READY and close every owned fd/child on all failures.",
+    "identity": "The final logical image digest must equal DocumentRuntime.dependency and the full current BuildIdentity scan. Include every classes file including static assets, ordered dependency jar inventory, exact solver pin and Java runtime-version string. The image manifest additionally binds packaging interpretation and image bytes. Policy/generation changes retire before publication.",
+    "disk_policy": "Unlike the SQL sealed parser live-path policy, this candidate retains current installed-build mutation denial on every advisory admission and before publication. Sealed images prevent late lazy class loading from mutable paths; current-build full hash checks preserve the existing fail-closed dependency fence. Any future removal of those scans is a separate reviewed amendment.",
+    "trust": "Seals/fd inheritance/mount object identity, JDK loading from these mounts, helper implementation, launcher and logical-manifest reconstruction require runtime evidence. JDK binaries/shared libraries retain the inherited OS/runtime TCB; do not claim they are sealed by this proposal.",
+    "unresolved": "No Java-to-helper descriptor transport, deterministic packaging adapter, memory accounting or bootstrap execution correspondence has been implemented or accepted. A private 0700 copy alone is not an immutable-image proof against same-user mutation."
+  },
+  "resources_and_lifetime": {
+    "process": "Retain -Xmx512m, 2 GiB AS, -Xss512k, SerialGC, existing metaspace/code-cache/file/network/filesystem sandbox caps. Heap limit is not an RSS claim.",
+    "cpu": "Retain kernel 12 CPU seconds as a cumulative hard cap for the reused JVM lifetime, not a resettable per-request allowance. Never increase/reset it as sequence advances. With monotone JVM accounting each request consumes at most that JVM lifetime cap. Startup snapshot/helper work is separately bounded by its inherited process limits and the same first-request 10-second external wall deadline. RLIMIT_CPU is per process: it does NOT establish a 12-second aggregate bound over a process tree or prove accounting survives helper/bubblewrap forks. Freeze and test the actual helper/JVM lineage and accounting as U03; do not silently claim or relax aggregate CPU semantics. Later requests have less JVM CPU remaining, so exhaustion is UNAVAILABLE, never INVALID; all retirement/startup costs remain in timings.",
+    "wall": "10-second externally supervised wall deadline for each advisory operation, including first-request launch, writes, work, reset and response. Repeated cancellation never releases live/global ownership until all owned descendants have exited. An interrupted cleanup continues reaping and restores interruption afterward.",
+    "retirement": "Retire after at most 64 completed requests, 120 seconds age, 30 seconds idle, current build/policy/scope change, any unexpected condition or shutdown. The fixed request cap bounds repeated-loader accumulation exposure; it is a conservative policy choice, not a measured heap guarantee. Count may be lowered if memory evidence demands; raising it requires a new reviewed contract. No benchmark-specific recycling schedule.",
+    "capacity": "One reusable session maximum for the private local server identity. Every initializing, idle, busy, resetting or retiring session occupies a global live isolated-worker slot until its whole owned process tree is reaped. All fresh validation/commit/history/solve workers use the same global cap 2. This counts live sandbox/JVM worker ownership, including an idle JVM; bubblewrap/helper descendants must be explicitly inventoried and bounded, not concealed as free additional workers. Per durable principal at most one ACTIVE solve/validate/commit/canonicalization operation; zero advisory queue. Idle session releases only the active-principal permit after verified reset, retaining its live slot. Fresh analyses may use the other slot. Idle-session eviction must reap before releasing/reassigning its live slot. The runtime ledger-to-process-tree mapping remains U04.",
+    "termination": "Mark RETIRING under the session lock before killing; disable publication and reuse immediately. Parent cancellation, JVM failure, server shutdown and image invalidation share idempotent ownership cleanup. Mark DEAD and release global live slot only after exit confirmation and pipe/fd closure. Session generation is never revived.",
+    "scope": "No cross-principal/workspace/launch reuse, no recovery/adoption after server restart, no persisted AST/session/cache files and no browser-visible source logging."
+  },
+  "formal": {
+    "candidate_file": "ValidatorSession.lean",
+    "claim_inventory": "claims.json",
+    "boundary": "Finite abstract admission, exact identity, reset-gated publication, cancellation, capacity accounting, sequence retirement and advisory nonmutation model. Runtime observations are explicit assumptions. The final theorem requires fresh-validator observational correspondence as a premise; it does not prove that premise or encode Alloy semantics.",
+    "preservation": "All active 287 propositions and exact expected types must be preserved unchanged in a future registered two-clean-build closure. This candidate is not imported into active formal/Allow.lean and does not increase the active claim count.",
+    "development_check": "A single local Lean 4.34.1 elaboration of this standalone file may be used for authoring. It is not a frozen two-build closure result or implementation authorization."
+  },
+  "blocking_obligations": [
+    {
+      "id": "VS-U01",
+      "status": "UNRESOLVED",
+      "requirement": "Profile exact current fresh worker (including constructor/build hashing, startup, validation and reaping) after full benchmark. Demonstrate a credible budget for the proposed fresh-loader/persistence/image checks without claiming a target from component sums."
+    },
+    {
+      "id": "VS-U02",
+      "status": "UNRESOLVED",
+      "requirement": "Audit pinned Alloy and complete transitive loaded/global state for fresh-child-loader isolation, thread/JDK registrations and semantic equivalence. Fresh Java object construction and a RESET_READY Boolean are insufficient."
+    },
+    {
+      "id": "VS-U03",
+      "status": "UNRESOLVED",
+      "requirement": "Freeze a workable sealed image/bootstrap/fd-transfer/manifest reconstruction design and demonstrate actual launch under inherited AS/heap/CPU limits. No stat-only or private-file fallback."
+    },
+    {
+      "id": "VS-U04",
+      "status": "UNRESOLVED",
+      "requirement": "Implement/test unified live-process ledger, per-principal permit split, interruption/late-frame fencing and unconditional reap ownership without modifying durable recovery evidence."
+    },
+    {
+      "id": "VS-U05",
+      "status": "UNRESOLVED",
+      "requirement": "Register exact claims/verifier/TCB/provenance and freeze input hashes, obtain independent exact 2 Terra +2 Sol +2 Astra council review, then two isolated clean Lean builds. Author is not a review seat."
+    },
+    {
+      "id": "VS-U06",
+      "status": "UNRESOLVED",
+      "requirement": "After required preimplementation design closure, satisfy finite runtime plan and unchanged full browser/server acceptance with production inputs frozen. No production acceptance while unresolved."
+    }
+  ],
+  "implementation_order": [
+    "Keep current full benchmark inputs fixed; profile read-only after it completes.",
+    "Resolve U01-U03 into a concrete revised contract. Freeze revisions and secure six exact-model council approvals. Do not treat this draft as approval.",
+    "Register and execute two isolated clean Lean builds with all 287 inherited types, candidate types, axiom policy, witnesses and hashed provenance; distinguish model closure from runtime correspondence.",
+    "Only then implement the advisory-specific image/session supervisor and global live-slot ledger behind fail-closed readiness. Keep one-shot code paths separate.",
+    "All Java/JS/TS methods/constructors/callbacks must have meaningful full Javadoc/JSDoc and at most 30 physical lines; classes encapsulate mutable state. Run standing style verifier plus finite runtime tests.",
+    "Freeze candidate build and exact benchmark protocol; execute unmodified 100 warmup/1000 measured 500-node server and relevant browser suites, preserve raw failures and resets/restarts. Target stays strict p95<300 ms server and <50 ms browser."
+  ],
+  "commercialization": "No deployment or commercialization permission follows from this draft, a model proof or a timing improvement. Existing dataset/dependency rights, named manual accessibility/browser acceptance, support/operational economics and full product gate exclusions remain."
+}

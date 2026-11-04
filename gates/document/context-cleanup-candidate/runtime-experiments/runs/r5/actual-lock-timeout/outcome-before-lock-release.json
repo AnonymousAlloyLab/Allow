@@ -1,0 +1,75 @@
+{
+  "claim_id": "CC09",
+  "subcase": "actual-lock-timeout",
+  "status": "BLOCK",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r5",
+  "input_root_sha256": "e913b443cd72b7ef16533673d4c4a0e2515cbf0fcb7665c3b9bcd2eee0a3cc14",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "427951965b3572bf80619d40546dfd9ca38829cf115b38a8ff4696586ab1a14f",
+  "expected_predicate": "Ordinary canonical admin session holds ACCESS EXCLUSIVE document lock. Actual context fails with55P03, no success frame, exact backend absence or retained lease, durable hashes unchanged. Outcome recorded before lock release; lock owner never signaled.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 345.755757,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-x7krdms7/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-x7krdms7/.gate/probe_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r5/actual-lock-timeout"
+    ],
+    "fixture_sha256": "dab9e9bc6cf5dcdf8f2de53da905b826e716efbb288fdfce90c097a77bb7bcfb",
+    "stdout_sha256": "39545c8504bcb7c3311ceaa580ff296bac3a1662f8cb24970cc6a88433645405",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62002244722016
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62002246793916
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62002250965897
+      },
+      {
+        "phase": "RETIRING",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62002504963423
+      },
+      {
+        "phase": "CLEAN",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62002507052134
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": null,
+  "sqlstates": [],
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "no_success_output": true,
+  "mechanism_predicate": false
+}

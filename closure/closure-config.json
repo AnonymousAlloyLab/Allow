@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-spec-2026-11-03-r4-c2",
+  "status_policy": {
+    "unresolved_is_blocking": true,
+    "warning_is_blocking": true,
+    "manual_override_allowed": false
+  },
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "lean_installation": "/home/augustus/.elan/toolchains/leanprover--lean4---v4.34.1",
+  "required_clean_builds": 2,
+  "required_trust": [
+    "T-LEAN",
+    "T-LOGIC",
+    "T-LAKE",
+    "T-PYTHON",
+    "T-SCHEMA",
+    "T-VERIFIER",
+    "T-HASH",
+    "T-OS",
+    "T-HARDWARE",
+    "T-INTERPRETATION"
+  ],
+  "obligation_map": {
+    "F01": "Allow.infer_sound",
+    "F02": "Allow.typed_hole_free",
+    "F03": "Allow.checkSlot_sound",
+    "F04": "Allow.reject_preserves",
+    "F05": "Allow.commit_preserves",
+    "F06": "Allow.commit_revision",
+    "F07": "Allow.visible_is_current",
+    "F08": "Allow.canonical_eq_iff",
+    "F09": "Allow.certificate_sound",
+    "F10": "Allow.certified_merge_canonical",
+    "F11": "Allow.no_unbounded_claim",
+    "F12": "Allow.unknown_is_not_unsat",
+    "F13": "Allow.retrieval_is_authorized",
+    "F14": "Allow.pair_admission_bound",
+    "F15": "Allow.contract_has_witness",
+    "F16": "Allow.empty_domain_counterexample",
+    "F17": "Allow.canonical_idempotent",
+    "F18": "Allow.distinct_inventories_distinct_keys",
+    "F19": "Allow.edit_hides_old"
+  },
+  "witness_symbols": [
+    "Allow.accepted_formula_witness",
+    "Allow.rejected_bad_drop_witness",
+    "Allow.accepted_commit_witness",
+    "Allow.visible_evidence_witness",
+    "Allow.admitted_pools_witness",
+    "Allow.nontrivial_canonical_witness"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "network": {
+    "allowed_during_verification": false,
+    "enforcement": "No external Lean packages or network operations invoked; OS network isolation is not certified."
+  },
+  "llm": {
+    "candidate_generation_only": true,
+    "proof_authority": false,
+    "final_verifier": false
+  },
+  "determinism": {
+    "required": true,
+    "artifacts": [
+      "*.olean",
+      "proof/audit output",
+      "projection",
+      "correspondence",
+      "provenance",
+      "claim_status_set"
+    ],
+    "excluded_nondeterministic_fields": [
+      "temporary build directory",
+      "wall-clock timings in build logs",
+      "report timestamp",
+      "run ID",
+      "trace/cache metadata",
+      ".ilean editor metadata"
+    ]
+  },
+  "manifest_policy": "All source/config/schema/claims/TCB/provenance/registry/review inputs selected by frozen policy.inputs. manifest.json excludes itself; input-root.json is a derived root binding and excluded to avoid self-reference. Reports/runs/build outputs are outputs, not inputs.",
+  "closure_boundary": {
+    "verified_surface": [
+      "19 frozen Lean model propositions and six concrete witnesses",
+      "exact JSON formal_kernel projection",
+      "schema/proof-inventory binding, two clean deterministic builds",
+      "six final council records and specified model dispatches, not subjective approval as proof"
+    ],
+    "trusted_surface": [
+      "T-LEAN",
+      "T-LOGIC",
+      "T-LAKE",
+      "T-PYTHON",
+      "T-SCHEMA",
+      "T-VERIFIER",
+      "T-HASH",
+      "T-OS",
+      "T-HARDWARE",
+      "T-INTERPRETATION"
+    ],
+    "excluded_surface": [
+      "any product implementation or runtime refinement",
+      "full Alloy relational/temporal semantics, parser, printer, SAT4J/Kodkod correctness",
+      "serialization/atom semantic identity, auth and witness validator implementation",
+      "UI, SQL/RLS, performance, process security and deployment",
+      "licensing clearance, market demand and commercial release",
+      "future revisions and unlisted claims"
+    ],
+    "interpretation": "VERIFIED means closure only of the frozen finite specification/model surface under declared trust; not assumption-free correctness or production readiness."
+  }
+}

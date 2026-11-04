@@ -1,0 +1,36 @@
+{
+  "reviewer": "sol-1",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "package_root_sha256": "245fc5201c5657b049d730daba8b237aa6f4538b71813221bc4d9fc50391a209",
+  "classification": "EXACT_INPUT_IMPLEMENTATION_CONTRACT_REVIEW_ONLY_NOT_RUNTIME_APPROVAL_OR_MODEL_CLOSURE",
+  "manifest": {
+    "path": "gates/performance/warm-pool-candidate/review-input-pins.json",
+    "sha256": "c6ad74aa40e35e23fd08ff8ecb8f6fea8ca5a501135cdcfbc64a297d0a13d423",
+    "files": 186,
+    "canonical_root_and_all_live_and_r1_snapshot_hashes": "MATCH"
+  },
+  "scope": "Read-only adversarial review of the complete contract, experiment, 36-proposition reachable transition model, elaborated types/axioms, audit and registered verifier; inherited anchors, source-evidence, old rejected validator-session council findings, and bounded delegation/image feasibility evidence. Only this seat review was written. No Lean builds, application/JVM worker execution, SQL, browser, benchmark, production or live preview changes were performed by this reviewer.",
+  "findings": [],
+  "resolved_draft_findings": [
+    {
+      "id": "WP-S1-01",
+      "surface": "Verifier snapshot binding",
+      "resolution": "The final verifier reads each input once, hashes those bytes, writes the same bytes and checks the snapshot hash. Anchors and the formal twin are checked from the frozen snapshot. Every snapshot row is checked before/after builds; each fresh Lean source copy is checked against the manifest. This resolves the draft hash-then-copy race."
+    },
+    {
+      "id": "WP-S1-02",
+      "surface": "Existential witness inventory",
+      "resolution": "All three public _witness theorems are registered, inventory-checked, elaborated with the other exact types and counted from configuration. This resolves omission of the READY-plus-fresh witness from the draft report count."
+    }
+  ],
+  "formal_assessment": {
+    "coverage": "The guarded LocalStep/Step/Reachable model supports its finite reservation, one-standby, one-assigned, one-use, cleanup/release, publication, poison, generation and shutdown claims. Fresh slots explicitly model only ownership, not fresh results. The old unguarded reuse/reset transition problem is avoided. Two-live is a structural two-slot proposition and does not prove two real process trees.",
+    "inventory_check": "Read-only source_inventory check passed for 36 exact theorem/type/claim entries and all three explicit witness theorems; expected Audit output SHA256 82c53c2add566a6f1d453d0ebfadef0ddf4c64e7ac46167e335c99680b443769.",
+    "pending": "The authorized verifier must still obtain all six exact-root approvals and perform two isolated clean Lean builds with identical allowed-axiom inventories and artifacts. This review is not their execution or a VERIFIED report.",
+    "excluded": "No Java/Python/OS/cgroup/SQL refinement, concrete CLEAN authentication, filesystem durability, restart reconciliation, immutable-image implementation, semantic equivalence, runtime resources, cleanup liveness or latency is proved. Those trusted observations and adapters are explicitly separated from the model."
+  },
+  "implementation_assessment": "The bounded disabled advisory implementation plan is concrete enough to attempt: one private request per JVM, fixed bootstrap classes, public closed helper schema, reservation before spawn, pre-exec cgroup join, exact generation ownership, one continuous stdout reader, fresh unforgeable context permit before private bytes, staged lease, positive owned cleanup and final current-build/deadline/cancellation publication fence. Every enabled fresh worker uses the same shared tree ledger and cleanup adapter. UNKNOWN retains capacity and cannot trigger an uncontained fallback. Runtime fixtures, verifiers, toolchain and source correspondence must be frozen before finite safety/differential execution; all promotion gates remain mandatory.",
+  "image_feasibility_assessment": "Frozen image-probe-r4 reports matching BuildIdentity, 191 mounted-file hashes over 43404937 bytes, kernel seal denials, closed image FDs, positive empty/reaped cleanup and final public executable hard+soft FS8388608/AS2147483648/CPU12/FD1024 with zero capabilities. The FS64MiB trusted capture/bwrap setup then fixed in-sandbox prlimit FS8MiB ordering is an explicit contract amendment. This supports byte-transport feasibility only: the probe uses fixed sha256sum and no private request or Alloy worker; actual helper/READY/JVM/classpath/limits/crash integration remains required. Failed r1-r3 evidence is retained.",
+  "performance_and_compatibility": "No speed claim follows. The unchanged DEFAULT preview and Tier-1 KEEP_F0 result remain intact. Complete finite response equality, constructor/boundary/negative normalization cases, real owned containment and safety precede paired HTTP; cold, sustained, burst/saturation and soak gates remain required. All SQL remains through SQLeanParser. Documented Java/JavaScript/TypeScript methods must retain the user 30-line cap. Workstation quotas do not close actual 4vCPU/8GiB target-host acceptance.",
+  "commercial_boundary": "Commercial release remains NO_GO. Rights/redistribution, security, named browser/accessibility acceptance, customer/operations/support economics and actual target-host acceptance remain independent unresolved gates. This approval permits only the reviewed bounded implementation attempt after the specified council/formal prerequisites; it authorizes no selection, activation, commercialization or claim of universal correctness."
+}

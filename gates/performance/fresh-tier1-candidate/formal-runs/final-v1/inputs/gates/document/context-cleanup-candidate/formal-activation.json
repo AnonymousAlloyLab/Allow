@@ -1,0 +1,49 @@
+{
+  "status": "APPROVED_FOR_SCOPED_IMPLEMENTATION",
+  "package_root_sha256": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+  "reviews": [
+    {
+      "reviewer": "terra-1",
+      "path": "reviews/context-cleanup-terra-1.json",
+      "sha256": "d76cf062f4810923b71b998e4a9d2f0ea74d03863a6f4516740c9e791c59553c"
+    },
+    {
+      "reviewer": "terra-2",
+      "path": "reviews/context-cleanup-terra-2.json",
+      "sha256": "e9f88157c9de52eaea8ba0f6414c8dfc38395f43e076067be8a0ed2ca2f2a154"
+    },
+    {
+      "reviewer": "sol-1",
+      "path": "reviews/context-cleanup-sol-1.json",
+      "sha256": "043b2b80cfb0fe60f0dcef3e38ae44241ab767313cb83fa7a7e22f093c842bba"
+    },
+    {
+      "reviewer": "sol-2",
+      "path": "reviews/context-cleanup-sol-2.json",
+      "sha256": "69543d26e8e77d92552e3a1d5ddab86141e219aba80059e9b0103bfe71855df0"
+    },
+    {
+      "reviewer": "astra-1",
+      "path": "reviews/context-cleanup-astra-1.json",
+      "sha256": "9304fab50bba9387f0472d4bfe0695e12c9fafead8019b9e6101a5ac1cc7996c"
+    },
+    {
+      "reviewer": "astra-2",
+      "path": "reviews/context-cleanup-astra-2.json",
+      "sha256": "fa35b44a17b8395dcf47f8a3ca0a8d1956657df3d6ee838b3269442ea2e1b0da"
+    }
+  ],
+  "formal_report": "gates/document/context-cleanup-candidate/formal-runs/final-v2/report.json",
+  "formal_report_sha256": "f757f73319825c53e2eb073b6738a17c0cfbc6efb36b3217adfffb5c8d845e0c",
+  "installed": [
+    {
+      "path": "formal/Allow/ContextCleanupCandidate.lean",
+      "sha256": "f8f932b756574f91ed98281c17434d843862ca6a6c7fe311c13b4c1d2713cae3"
+    },
+    {
+      "path": "spec/document-context-cleanup.json",
+      "sha256": "761130b8e7bafb4d63960950b928b8faa715cc4df83f49ab117136c1cd3c130b"
+    }
+  ],
+  "boundary": "Active309 aggregate remains unchanged. Separate28-proposition supplement passed2matchingcleanbuilds beforeproductionedits. Runtime refinement and33-case acceptance are not established. Review/source baseline is preserved in formal run inputs; upcoming production edits create a new runtime input root."
+}

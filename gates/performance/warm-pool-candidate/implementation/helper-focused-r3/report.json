@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "classification": "FOCUSED_HELPER_AND_ENTRYPOINT_TESTS_ONLY",
+  "source_sha256": {
+    "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+    "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2",
+    "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java": "301761306d241b62a47c3e30e29bceff44e2015331c4991ba619ba9defe90c63",
+    "backend/src/main/java/dev/allow/worker/WarmDocumentWorkerMain.java": "8ed8337351adf07d3dd83ffb2b883b878e9fdd34eda1aeb6bc2b80e545e42093",
+    "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java": "db9e0eb7fde180226cbb578ed06cd67f7ff5a8275ca69276e8e9dfd6a714d4a1"
+  },
+  "inputs_unchanged": true,
+  "python_tests": 11,
+  "java_entrypoint_tests": 5,
+  "java_failures": 0,
+  "java_checkstyle": "PASS",
+  "isolated_copy": "/tmp/allow-warm-helper-r3",
+  "active_target_mutated": false,
+  "active_services_mutated": false,
+  "runtime_boundaries_not_tested": [
+    "Actual candidate helper cgroup join plus bwrap plus JVM integration",
+    "Parent death, join races and inherited-FD runtime inventory",
+    "Loaded application and resource inventory",
+    "Lifetime transport and pool cleanup/publication",
+    "Whole-stack performance and production acceptance"
+  ],
+  "prior_failures": [
+    "../helper-focused-r1/report.json",
+    "../helper-focused-r2/report.json"
+  ]
+}

@@ -1,0 +1,1981 @@
+{
+  "status": "PASS",
+  "actual_pg_dump_restore": true,
+  "classification": "FINITE_DOCUMENT_STORE_RECOVERY_NOT_FORMAL_REFINEMENT",
+  "timestamp_utc": "2026-11-04T06:49:01.661684+00:00",
+  "input_sha256_before": {
+    "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+    "db/document/interface.json": "4291a9bab7dda66ebbd7f245ce839f61bf714029d4fba3cdbe9bacf9c3067170",
+    "db/document/schema-catalog.sql": "4d5e0e917c97e188921f62d572c33f4fe4b020390c204ccee0d4cc86caccbb8d",
+    "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+    "retrieval/allow_documents/cli.py": "820839b6fc00176fb2cd70b5ed47c4f1ba98e3e994b0ea902d08dafdfd9a950a",
+    "retrieval/allow_documents/context_lease.py": "0e2ee72eccb4e7165d50e73b73c76686563f36fb932fddc43b5b3f9a1ed355f6",
+    "retrieval/allow_documents/identifiers.py": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+    "retrieval/allow_documents/store.py": "30e0e491ce455c6e732baa812fa9bfcee716b5c888511ad07bdeed6f18a5800d",
+    "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+    "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+    "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+    "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+    "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+    "scripts/document_recovery_test.py": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+    "scripts/verify_sql_clients.py": "cc5cab3259b843d865af15d61f7007398ee8d4fcf22cb9009aca575dc2af1a4b",
+    "scripts/verify_sql_runtime.py": "3e8e57e1285790d53fb03df33dee6c212c3df956ac40880dec1e2277dcdb0ed8"
+  },
+  "runtime_identity_before": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 1131489,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "disk_binary_matches_pin": true,
+    "disk_binary_audit_error": null,
+    "disk_identity_scope": "Restart readiness only; live sealed-image identity checked separately"
+  },
+  "live_database_targeted": false,
+  "fixture": "Authored checked-artifact store boundary fixture; no Alloy parser/runtime refinement claim.",
+  "native_tool_sha256": {
+    "pg_dump": "d8486c1e2ee4df27482d5661f2faab0a37a0e410fd94479efc207a1799084468",
+    "pg_restore": "fff823941cb520f460a73b73a71ce2fa63e13709d4c6eb95f37739e8bb9b43a5"
+  },
+  "backup_arguments": [
+    "pg_dump",
+    "-Fc"
+  ],
+  "restore_arguments": [
+    "pg_restore",
+    "--clean",
+    "--if-exists",
+    "--single-transaction"
+  ],
+  "limitations": [
+    "Cluster roles must preexist; pg_dump single database does not export global role definitions.",
+    "No PostgreSQL restart; live database contents and corpus recovery script are untouched.",
+    "Private owner identity metadata is retained independently, not exported by SQL pg_dump."
+  ],
+  "owner_metadata_before": {
+    "sha256": "e4ed6d11147d6f6fd8023da37f33a09abefca18d5837fe360f41f13415c98971",
+    "uid": 1000,
+    "gid": 1000,
+    "file_mode": 384,
+    "directory_mode": 448
+  },
+  "owner_metadata_after": {
+    "sha256": "e4ed6d11147d6f6fd8023da37f33a09abefca18d5837fe360f41f13415c98971",
+    "uid": 1000,
+    "gid": 1000,
+    "file_mode": 384,
+    "directory_mode": 448
+  },
+  "full_acl_entries": 10,
+  "backup_sha256": "778dca0a9259be9d0081c18d8ac180fb6abbe0a9ac16e14b9cda6a38c95943fa",
+  "row_and_acl_snapshot_before": {
+    "tables": {
+      "workspace": {
+        "count": 1,
+        "sha256": "2ea6154fdf5ef5d2509218e47d39113c72f00e092c3f140c90f56bae1f100ba2"
+      },
+      "logical_launch": {
+        "count": 1,
+        "sha256": "d163a1668d2dca6d95b6397f60df63331da46a2345b4d35ea202eeb82795faa8"
+      },
+      "document": {
+        "count": 1,
+        "sha256": "95a8df6bc9444a7f231d0d3f810014831e6e67a3160b77e05ddd19e0385fcf0c"
+      },
+      "artifact": {
+        "count": 2,
+        "sha256": "28484fa1ce6b1760cf53494245292e9408d34f77770b49f123a885eb097ba1a5"
+      },
+      "revision": {
+        "count": 2,
+        "sha256": "34ac00ffceec16faa204282fe32bc01d01455f65b42eae2e2ca015bb251377e1"
+      },
+      "receipt": {
+        "count": 2,
+        "sha256": "17c95a210063d6a32e2cd994d6bf239910829842d6d9d29dbe4ea1127ef0cab6"
+      },
+      "admission": {
+        "count": 2,
+        "sha256": "feeaa445015654a805ab25e5413c6364dc6c1cb991ba09af27e589e8a4f99040"
+      }
+    },
+    "table_owner_rls_acl": [
+      {
+        "nspname": "documents",
+        "relname": "admission",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "admission_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "artifact",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "artifact_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "document",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "document_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "logical_launch",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "logical_launch_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "receipt",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "receipt_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "revision",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "revision_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "workspace",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "workspace_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      }
+    ],
+    "column_acl": [
+      {
+        "relname": "document",
+        "attname": "head_revision",
+        "attacl": "{allow_app=w/allow_owner}"
+      },
+      {
+        "relname": "document",
+        "attname": "title",
+        "attacl": "{allow_app=w/allow_owner}"
+      }
+    ],
+    "schema_owner_acl": [
+      {
+        "nspname": "documents",
+        "rolname": "allow_owner",
+        "nspacl": "{allow_owner=UC/allow_owner,allow_app=U/allow_owner}"
+      },
+      {
+        "nspname": "public",
+        "rolname": "pg_database_owner",
+        "nspacl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}"
+      }
+    ],
+    "preexisting_cluster_roles": [
+      {
+        "rolname": "allow_app",
+        "rolcanlogin": true,
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "allow_owner",
+        "rolcanlogin": false,
+        "rolsuper": false,
+        "rolbypassrls": false
+      }
+    ]
+  },
+  "row_and_acl_snapshot_after": {
+    "tables": {
+      "workspace": {
+        "count": 1,
+        "sha256": "2ea6154fdf5ef5d2509218e47d39113c72f00e092c3f140c90f56bae1f100ba2"
+      },
+      "logical_launch": {
+        "count": 1,
+        "sha256": "d163a1668d2dca6d95b6397f60df63331da46a2345b4d35ea202eeb82795faa8"
+      },
+      "document": {
+        "count": 1,
+        "sha256": "95a8df6bc9444a7f231d0d3f810014831e6e67a3160b77e05ddd19e0385fcf0c"
+      },
+      "artifact": {
+        "count": 2,
+        "sha256": "28484fa1ce6b1760cf53494245292e9408d34f77770b49f123a885eb097ba1a5"
+      },
+      "revision": {
+        "count": 2,
+        "sha256": "34ac00ffceec16faa204282fe32bc01d01455f65b42eae2e2ca015bb251377e1"
+      },
+      "receipt": {
+        "count": 2,
+        "sha256": "17c95a210063d6a32e2cd994d6bf239910829842d6d9d29dbe4ea1127ef0cab6"
+      },
+      "admission": {
+        "count": 2,
+        "sha256": "feeaa445015654a805ab25e5413c6364dc6c1cb991ba09af27e589e8a4f99040"
+      }
+    },
+    "table_owner_rls_acl": [
+      {
+        "nspname": "documents",
+        "relname": "admission",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "admission_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "artifact",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "artifact_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "document",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "document_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "logical_launch",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "logical_launch_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "receipt",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "receipt_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "revision",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "revision_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      },
+      {
+        "nspname": "documents",
+        "relname": "workspace",
+        "relkind": "r",
+        "rolname": "allow_owner",
+        "relrowsecurity": true,
+        "relforcerowsecurity": true,
+        "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}"
+      },
+      {
+        "nspname": "documents",
+        "relname": "workspace_pkey",
+        "relkind": "i",
+        "rolname": "allow_owner",
+        "relrowsecurity": false,
+        "relforcerowsecurity": false,
+        "relacl": null
+      }
+    ],
+    "column_acl": [
+      {
+        "relname": "document",
+        "attname": "head_revision",
+        "attacl": "{allow_app=w/allow_owner}"
+      },
+      {
+        "relname": "document",
+        "attname": "title",
+        "attacl": "{allow_app=w/allow_owner}"
+      }
+    ],
+    "schema_owner_acl": [
+      {
+        "nspname": "documents",
+        "rolname": "allow_owner",
+        "nspacl": "{allow_owner=UC/allow_owner,allow_app=U/allow_owner}"
+      },
+      {
+        "nspname": "public",
+        "rolname": "pg_database_owner",
+        "nspacl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}"
+      }
+    ],
+    "preexisting_cluster_roles": [
+      {
+        "rolname": "allow_app",
+        "rolcanlogin": true,
+        "rolsuper": false,
+        "rolbypassrls": false
+      },
+      {
+        "rolname": "allow_owner",
+        "rolcanlogin": false,
+        "rolsuper": false,
+        "rolbypassrls": false
+      }
+    ]
+  },
+  "restored_rows_owners_rls_and_acls_equal": true,
+  "fresh_process_exact_receipt_recovery": true,
+  "private_metadata_unchanged": true,
+  "restored_immutability_and_scope_denials": true,
+  "canonical_endpoints": {
+    "allow-migration": {
+      "host": "/tmp/allow-cc-alh5blo3/.runtime/corpus/sql-proxy/socket",
+      "port": "54329",
+      "database": "allow_recovery_55070a86003b4730ba121e0689ec15e2",
+      "application_name": "allow-migration"
+    },
+    "allow-recovery": {
+      "host": "/tmp/allow-cc-alh5blo3/.runtime/corpus/sql-proxy/socket",
+      "port": "54329",
+      "database": "allow_recovery_55070a86003b4730ba121e0689ec15e2",
+      "application_name": "allow-recovery"
+    }
+  },
+  "input_sha256_after": {
+    "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+    "db/document/interface.json": "4291a9bab7dda66ebbd7f245ce839f61bf714029d4fba3cdbe9bacf9c3067170",
+    "db/document/schema-catalog.sql": "4d5e0e917c97e188921f62d572c33f4fe4b020390c204ccee0d4cc86caccbb8d",
+    "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+    "retrieval/allow_documents/cli.py": "820839b6fc00176fb2cd70b5ed47c4f1ba98e3e994b0ea902d08dafdfd9a950a",
+    "retrieval/allow_documents/context_lease.py": "0e2ee72eccb4e7165d50e73b73c76686563f36fb932fddc43b5b3f9a1ed355f6",
+    "retrieval/allow_documents/identifiers.py": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+    "retrieval/allow_documents/store.py": "30e0e491ce455c6e732baa812fa9bfcee716b5c888511ad07bdeed6f18a5800d",
+    "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+    "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+    "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+    "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+    "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+    "scripts/document_recovery_test.py": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+    "scripts/verify_sql_clients.py": "cc5cab3259b843d865af15d61f7007398ee8d4fcf22cb9009aca575dc2af1a4b",
+    "scripts/verify_sql_runtime.py": "3e8e57e1285790d53fb03df33dee6c212c3df956ac40880dec1e2277dcdb0ed8"
+  },
+  "source_unchanged": true,
+  "runtime_identity_after": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 1131489,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "disk_binary_matches_pin": true,
+    "disk_binary_audit_error": null,
+    "disk_identity_scope": "Restart readiness only; live sealed-image identity checked separately"
+  },
+  "per_client_counter_deltas": {
+    "allow-migration": {
+      "B": 7,
+      "D": 7,
+      "E": 7,
+      "P": 7,
+      "Q": 53,
+      "S": 7,
+      "X": 1,
+      "accepted": 60,
+      "auth": 2,
+      "connections": 1
+    },
+    "allow-recovery-control": {
+      "Q": 28,
+      "X": 3,
+      "accepted": 28,
+      "auth": 6,
+      "connections": 3
+    },
+    "allow-recovery": {
+      "B": 147,
+      "D": 147,
+      "E": 147,
+      "P": 147,
+      "Q": 65,
+      "S": 147,
+      "X": 26,
+      "accepted": 212,
+      "auth": 52,
+      "connections": 26
+    },
+    "allow-recovery-dump": {
+      "Q": 78,
+      "X": 1,
+      "accepted": 78,
+      "auth": 2,
+      "connections": 1
+    },
+    "allow-recovery-restore": {
+      "Q": 116,
+      "X": 1,
+      "accepted": 116,
+      "auth": 2,
+      "c": 7,
+      "connections": 1,
+      "d": 18
+    }
+  },
+  "inventory": {
+    "status": "PASS",
+    "raw_driver_connections": [
+      {
+        "path": "retrieval/allow_retrieval/sql_connections.py",
+        "line": 125,
+        "call": "psycopg.connect"
+      }
+    ],
+    "sole_raw_driver_in_validated_helper": true,
+    "helper_validates_driver_dsn_ast": true,
+    "scanned_file_sha256": {
+      "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+      "retrieval/allow_documents/cli.py": "820839b6fc00176fb2cd70b5ed47c4f1ba98e3e994b0ea902d08dafdfd9a950a",
+      "retrieval/allow_documents/context_lease.py": "0e2ee72eccb4e7165d50e73b73c76686563f36fb932fddc43b5b3f9a1ed355f6",
+      "retrieval/allow_documents/identifiers.py": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+      "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+      "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+      "retrieval/allow_documents/store.py": "30e0e491ce455c6e732baa812fa9bfcee716b5c888511ad07bdeed6f18a5800d",
+      "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/cli.py": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/corpus.py": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "retrieval/allow_retrieval/database.py": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+      "retrieval/allow_retrieval/embedding.py": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "retrieval/allow_retrieval/evaluation.py": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+      "retrieval/allow_retrieval/importer.py": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+      "retrieval/allow_retrieval/journal.py": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+      "retrieval/allow_retrieval/manage.py": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+      "retrieval/allow_retrieval/migration.py": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+      "retrieval/allow_retrieval/promotion.py": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+      "retrieval/allow_retrieval/rag.py": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24",
+      "retrieval/allow_retrieval/ranking.py": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/allow_retrieval/training.py": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+      "scripts/benchmark_documents.py": "edd10e0737566634587caa49a93fbab1f86303fefd03ac93a00738ea90feb09f",
+      "scripts/bootstrap.py": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+      "scripts/bootstrap_corpus.py": "5dfa285640c96662306f6ae21d07281357ceeac1d32aa4435d299234c10c487d",
+      "scripts/bootstrap_documents.py": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827",
+      "scripts/bootstrap_sqlean.py": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+      "scripts/browser_benchmark_assets.py": "6aebd94d8b8a5db8f185ff8776193a08ed9c9a421d52c92a3081c780b2eeae47",
+      "scripts/build.py": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "scripts/dependency_inventory.py": "c3a46f0b83523d737c1a3809bdac72a7e7a0e674c02e63ac3aa8c5b6468f9196",
+      "scripts/document_recovery_test.py": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+      "scripts/profile_document_persistence.py": "0147145dc2c7eb9c46cbe001b21ed7ac480be0c9f1ac50ae43ad4ca1758c5960",
+      "scripts/record_documents.py": "6c0ca3864287960d09b318f3d150acee91245c1056307b22606c75b42cd66ff3",
+      "scripts/record_egraph.py": "ffa5374bf1aa12a585ac0dccd6146e24fe636c5ff617627194d5394b3d2baf0b",
+      "scripts/record_implementation.py": "76c33f9248538c37aec02d5163b17d5589899e60dbb2e80fe60945b7e7a429c9",
+      "scripts/record_retrieval.py": "4d1eb0f5519c6e882923e11e7d8cd31845e98004ef778db33e170e061a1cff68",
+      "scripts/retrieval_recovery_test.py": "a63a449e195917f129f67d57c6e1024794a74d87f8c6da36bd866e2801fa3f37",
+      "scripts/run_local.py": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896",
+      "scripts/smoke_documents.py": "8f93906d5144b808d4fedd8279696d1dfc1d51d3d7c64d6020f03fa5ea6deec3",
+      "scripts/smoke_egraph.py": "da7bf8bc27654d567fd52b6e96170fd7bee90dcfd6df4a232a9f6388928f373a",
+      "scripts/smoke_local.py": "2031b3d24779f40ee1955b72e38a4bca9c1e64694c5548be9125c6b100dae66e",
+      "scripts/smoke_retrieval.py": "13346d1ffc7d65fcb09d33f2b836d182b20f24bf3ca5064dffc417cade030baf",
+      "scripts/verify_browser_benchmark.py": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+      "scripts/verify_corpus_runtime.py": "da50ad8d89f5358d98f53d404fc64cb037726a4248c82f24310c5c7f4f5205ab",
+      "scripts/verify_document_restart.py": "14b91549b87706a65e9e2df608f5a77d77dca07788e08dfbdeb5170509b49462",
+      "scripts/verify_egraph.py": "fedbf92b944f1ead3bd3c5c99960589ad9e134a529a9493aa987cc84796e224e",
+      "scripts/verify_formal.py": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "scripts/verify_retrieval.py": "815484d6a9d152ec969274c112435bf0fda287b44a5a30a0198439a790546266",
+      "scripts/verify_sql.py": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "scripts/verify_sql_clients.py": "cc5cab3259b843d865af15d61f7007398ee8d4fcf22cb9009aca575dc2af1a4b",
+      "scripts/verify_sql_runtime.py": "3e8e57e1285790d53fb03df33dee6c212c3df956ac40880dec1e2277dcdb0ed8"
+    },
+    "connection_and_sql_sites": [
+      {
+        "path": "retrieval/allow_documents/context_lease.py",
+        "line": 48,
+        "call": "stream.connect"
+      },
+      {
+        "path": "retrieval/allow_documents/context_lease.py",
+        "line": 122,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_documents/identifiers.py",
+        "line": 49,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 56,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 57,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 58,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 70,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 71,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 72,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 76,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 77,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 82,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 60,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 63,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 65,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 66,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 74,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 75,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 61,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 69,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 67,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/migration.py",
+        "line": 83,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 110,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 174,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 175,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 271,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 302,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 303,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 304,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 308,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 310,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 35,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 36,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 37,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 38,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 45,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 49,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 140,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 228,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 301,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 340,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 341,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 342,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 343,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 344,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 345,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 346,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 377,
+        "call": "connection.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 426,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 457,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 60,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 70,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 237,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 314,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 318,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 96,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 121,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 220,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 63,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 252,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 412,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 424,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_documents/store.py",
+        "line": 81,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 39,
+        "call": "sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 42,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 43,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 44,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 60,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 82,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 178,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 52,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 53,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 54,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 55,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 57,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 58,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 113,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 146,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 154,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 156,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 157,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 172,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 190,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 198,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 199,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 228,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 261,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 265,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 294,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 63,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 150,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 161,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 196,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 238,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 259,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 317,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 324,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 102,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 105,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 106,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 108,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 143,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 148,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 168,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 170,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 187,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 212,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 216,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 235,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 250,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 253,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 281,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 287,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 300,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 301,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 312,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 65,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 103,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 104,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 193,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 165,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/database.py",
+        "line": 274,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/importer.py",
+        "line": 139,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/importer.py",
+        "line": 215,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/manage.py",
+        "line": 13,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 94,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 105,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 106,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 107,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 109,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 110,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 126,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 127,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 128,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 138,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 142,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 143,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 144,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 145,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 88,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 108,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 119,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 130,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 131,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 135,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 136,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 141,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 179,
+        "call": "sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 102,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 155,
+        "call": "cursor.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 156,
+        "call": "cursor.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 157,
+        "call": "cursor.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 158,
+        "call": "cursor.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/migration.py",
+        "line": 134,
+        "call": "conn.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/ranking.py",
+        "line": 54,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/ranking.py",
+        "line": 58,
+        "call": "c.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_connections.py",
+        "line": 125,
+        "call": "psycopg.connect"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_control.py",
+        "line": 70,
+        "call": "probe.connect"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 49,
+        "call": "sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 50,
+        "call": "self.connection.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 42,
+        "call": "sql_connections.connect"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 51,
+        "call": "self.connection.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 61,
+        "call": "self.connection.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 68,
+        "call": "self.connection.execute"
+      },
+      {
+        "path": "retrieval/allow_retrieval/sql_context_observer.py",
+        "line": 43,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 318,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 312,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 315,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 317,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 228,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 233,
+        "call": "probe.connect"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 253,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 311,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 313,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/bootstrap_corpus.py",
+        "line": 316,
+        "call": "sql"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 269,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 70,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 137,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 229,
+        "call": "allow_retrieval.sql_connections.tool_environment"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 230,
+        "call": "allow_retrieval.sql_connections.tool_environment"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 238,
+        "call": "pg_tool"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 272,
+        "call": "controls.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 273,
+        "call": "execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 233,
+        "call": "pg_tool"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 277,
+        "call": "controls.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 143,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 144,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 145,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 146,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 184,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/document_recovery_test.py",
+        "line": 140,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 46,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 51,
+        "call": "controls.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 72,
+        "call": "allow_retrieval.sql_connections.tool_environment"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 73,
+        "call": "allow_retrieval.sql_connections.tool_environment"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 93,
+        "call": "pg_tool"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 120,
+        "call": "controls.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 52,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 85,
+        "call": "pg_tool"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 79,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 80,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 71,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 99,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 100,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/retrieval_recovery_test.py",
+        "line": 101,
+        "call": "c.execute"
+      },
+      {
+        "path": "scripts/run_local.py",
+        "line": 40,
+        "call": "os.environ.copy"
+      },
+      {
+        "path": "scripts/verify_egraph.py",
+        "line": 185,
+        "call": "os.environ.copy"
+      },
+      {
+        "path": "scripts/verify_formal.py",
+        "line": 86,
+        "call": "os.environ.copy"
+      },
+      {
+        "path": "scripts/verify_retrieval.py",
+        "line": 187,
+        "call": "os.environ.copy"
+      },
+      {
+        "path": "scripts/verify_sql.py",
+        "line": 192,
+        "call": "os.environ.copy"
+      },
+      {
+        "path": "scripts/verify_sql_clients.py",
+        "line": 114,
+        "call": "bootstrap_corpus.sql"
+      },
+      {
+        "path": "scripts/verify_sql_clients.py",
+        "line": 120,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/verify_sql_clients.py",
+        "line": 118,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_clients.py",
+        "line": 121,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 27,
+        "call": "allow_retrieval.sql_connections.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 66,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 74,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 81,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 91,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 109,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 113,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 135,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 182,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 192,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 197,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 201,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 202,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 218,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 226,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 240,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 245,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 251,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 252,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 149,
+        "call": "test_sql_proxy.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 204,
+        "call": "<dynamic>.copy"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 207,
+        "call": "<dynamic>.copy"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 220,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 222,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 128,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 154,
+        "call": "self.connect"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 243,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 244,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 260,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 69,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 86,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 198,
+        "call": "safe.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 206,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 223,
+        "call": "<dynamic>.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 246,
+        "call": "safe.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 247,
+        "call": "safe.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 253,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 273,
+        "call": "observer.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 77,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 78,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 83,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 166,
+        "call": "test_sql_proxy.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 284,
+        "call": "connection.execute"
+      },
+      {
+        "path": "scripts/verify_sql_runtime.py",
+        "line": 223,
+        "call": "self.connect"
+      }
+    ],
+    "limits": "Finite Python AST inventory; calls and aliases enumerated, not universal dynamic-call analysis. Shell/tool entrypoints are separately registered and exercised."
+  }
+}

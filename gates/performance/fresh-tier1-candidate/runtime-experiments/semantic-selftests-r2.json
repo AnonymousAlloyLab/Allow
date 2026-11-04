@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "tests": 31,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "registration_root": "610f3b4eafb27802359bb7b5c339b79bf3ab4341175800bb5c84083066b0f41d",
+  "files": [
+    {
+      "path": "compare_responses.py",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf"
+    },
+    {
+      "path": "harness_common.py",
+      "sha256": "c497082814ca47b833272944812e91e455a8396cf1cbc27553de66c68d1110c9"
+    },
+    {
+      "path": "installation.py",
+      "sha256": "894070e564cd515f87da0129874158a17a8f29555c4ba195b7681593e8433315"
+    },
+    {
+      "path": "make_fixtures.py",
+      "sha256": "37db2aec26f5e1d466983c74b0d0732fb81986494397fd0a7013887e0d386efc"
+    },
+    {
+      "path": "run_semantic.py",
+      "sha256": "62794cb8ba4f0898b0b30328c4b0d3243b2d575ab6182f073a3ffcce588a761d"
+    },
+    {
+      "path": "test_compare_responses.py",
+      "sha256": "4021d50359ee041b3fda95fc467874bf63c483b251845c1ce05ae25f8b24ccba"
+    },
+    {
+      "path": "test_run_semantic.py",
+      "sha256": "cbec2ff2cf952b0adcc2bdead9dbf9de532c98883d1410ea1475498e2da0e9d4"
+    }
+  ],
+  "log": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-selftests-r2.log",
+  "log_sha256": "427c693cb08bf3b901b47b360a30db410169fbe521144a6e5052fb492452cc4e",
+  "scope": "Pure comparator/runner adversarial tests. Rechecked after registration freeze; exactsame31 tests also passed before firstdifferentialcase. No JVM,SQLorperformancerun."
+}

@@ -1,0 +1,514 @@
+[
+  {
+    "claim_id": "PPM01",
+    "theorem": "Allow.PerformancePlan.step_preserves_invariant",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM02",
+    "theorem": "Allow.PerformancePlan.reachable_invariant",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM03",
+    "theorem": "Allow.PerformancePlan.one_request_per_generation",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM04",
+    "theorem": "Allow.PerformancePlan.staging_requires_consumption",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM05",
+    "theorem": "Allow.PerformancePlan.delivery_requires_staging",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM06",
+    "theorem": "Allow.PerformancePlan.ready_is_unconsumed",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM07",
+    "theorem": "Allow.PerformancePlan.step_preserves_durable",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM08",
+    "theorem": "Allow.PerformancePlan.advisory_never_mutates_durable",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM09",
+    "theorem": "Allow.PerformancePlan.retirement_cannot_resume",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM10",
+    "theorem": "Allow.PerformancePlan.release_requires_reaping",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM11",
+    "theorem": "Allow.PerformancePlan.staging_requires_busy",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM12",
+    "theorem": "Allow.PerformancePlan.delivery_requires_reaped",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM13",
+    "theorem": "Allow.PerformancePlan.poison_sticky_in_generation",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM14",
+    "theorem": "Allow.PerformancePlan.poison_prevents_delivery_in_generation",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM15",
+    "theorem": "Allow.PerformancePlan.step_generation_monotone",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM16",
+    "theorem": "Allow.PerformancePlan.trace_generation_monotone",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM17",
+    "theorem": "Allow.PerformancePlan.poisoned_trace_cannot_deliver",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM18",
+    "theorem": "Allow.PerformancePlan.generation_increases_only_at_boot",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM19",
+    "theorem": "Allow.PerformancePlan.stale_generation_rejected",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM20",
+    "theorem": "Allow.PerformancePlan.staged_reply_is_guarded_step",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM21",
+    "theorem": "Allow.PerformancePlan.cancelled_reply_never_delivered",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM22",
+    "theorem": "Allow.PerformancePlan.delivered_reply_is_guarded_step",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM23",
+    "theorem": "Allow.PerformancePlan.live_pool_bound",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM24",
+    "theorem": "Allow.PerformancePlan.idle_warm_occupies_slot",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM25",
+    "theorem": "Allow.PerformancePlan.timeout_cannot_release",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM26",
+    "theorem": "Allow.PerformancePlan.database_release_requires_observation",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM27",
+    "theorem": "Allow.PerformancePlan.timeout_preserves_durable",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM28",
+    "theorem": "Allow.PerformancePlan.acceptance_requires_three_runs",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM29",
+    "theorem": "Allow.PerformancePlan.every_accepted_run_meets_target",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM30",
+    "theorem": "Allow.PerformancePlan.observed_slow_run_rejects_series",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM31",
+    "theorem": "Allow.PerformancePlan.successful_one_use_witness",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "PPM32",
+    "theorem": "Allow.PerformancePlan.accepted_series_witness",
+    "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract observations and fixed logical slots; adapters remain unproved"
+    ]
+  }
+]

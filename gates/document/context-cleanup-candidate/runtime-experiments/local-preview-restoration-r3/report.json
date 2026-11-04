@@ -1,0 +1,90 @@
+{
+  "status": "RUNNING_BEFORE_LAUNCHER_RETURN",
+  "classification": "TESTED_LOCAL_DEV_DEADLINE_REPAIR",
+  "started_utc": "2026-11-04T07:01:07.644089+00:00",
+  "profile": "DEFAULT",
+  "p1_full33": "BLOCKED",
+  "F1_enabled": false,
+  "postgres_restarted": false,
+  "backup": {
+    "sha256": "e0ac8c410e30a6d9af3a4e4f718e56b07d245bc09de5696c33f4e8656bc79c2d",
+    "bytes": 24362051,
+    "archive_list_sha256": "ffc2da39ef6fd9419a6da203f9808d45bb71293d5e25a8b8d09b0f2def30d0e5",
+    "contains_document_and_receipt_data": true,
+    "sql_route": "canonical_SQLeanParser",
+    "scope": "Full database including ACLs; existing cluster roles and private metadata are separately retained."
+  },
+  "old_spring_exit": {
+    "pid": 1120387,
+    "start": "6561409",
+    "owned_identity_absent": true
+  },
+  "old_proxy_exit": {
+    "pid": 1119652,
+    "start": "6540356",
+    "owned_identity_absent": true
+  },
+  "http": {
+    "document_count": 14,
+    "exact_source_sha256": "7bad7593a36f19358ae973df9ecf9d3658b5ca8a60ec067caf16142a0fe0187b",
+    "document_identity_sha256": "3a54622e7cd0f1446c6e3f3da86acf6377a5117cdd7009c73ee84271ef146df8",
+    "revision": 6,
+    "status": "VALIDATED",
+    "head_and_artifact_unchanged": true
+  },
+  "spring_pid": 1162320,
+  "spring_identity": {
+    "start_ticks": "6820256",
+    "command": [
+      "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+      "-Xms128m",
+      "-Xmx1024m",
+      "-XX:MaxMetaspaceSize=256m",
+      "-XX:ReservedCodeCacheSize=128m",
+      "-XX:ActiveProcessorCount=4",
+      "-cp",
+      "target/classes:target/dependency/*",
+      "dev.allow.backend.AllowApplication",
+      "--server.port=18080",
+      "--server.address=127.0.0.1",
+      "--server.tomcat.threads.max=16",
+      "--server.tomcat.threads.min-spare=2",
+      "--server.tomcat.max-connections=32",
+      "--server.tomcat.accept-count=8",
+      "--debug=false",
+      "--trace=false",
+      "--logging.level.root=WARN",
+      "--logging.level.org.springframework=WARN",
+      "--allow.corpus.root=/home/augustus/Allow"
+    ]
+  },
+  "proxy_pid": 1162291,
+  "postgres_pid": 378655,
+  "postgres_identity": {
+    "start_ticks": "1653643",
+    "command": [
+      "/home/augustus/Allow/.tools/retrieval/postgres/bin/postgres",
+      "-D",
+      "/home/augustus/Allow/.runtime/corpus/postgres/data",
+      "-p",
+      "54329",
+      "-k",
+      "/home/augustus/Allow/.runtime/corpus/postgres/socket",
+      "-h",
+      "-c",
+      "max_connections=20",
+      "-c",
+      "shared_buffers=64MB",
+      "-c",
+      "unix_socket_permissions=0700",
+      "-c",
+      "standard_conforming_strings=on",
+      "-c",
+      "max_prepared_transactions=0"
+    ]
+  },
+  "durable_state_unchanged": true,
+  "private_identity_unchanged": true,
+  "session_id": 1162320,
+  "private_launch_file": "/home/augustus/Allow/.runtime/launch.url"
+}

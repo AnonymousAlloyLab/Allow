@@ -1,0 +1,19 @@
+{
+  "reviewer": "terra-2",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "57d8512a8bd483ff9bfa76d43e66c0963a90c8b3b9eb7751b9ff89d2df48a49c"
+  },
+  "scope": "Independent plan review only; no browser execution, implementation approval, or performance finding.",
+  "findings": [],
+  "assessment": [
+    "The proposed transform can bind the existing workbench controller and a layout-effect marker to the rendered view; anchor uniqueness and fresh post-dispatch generation/identity checks make stale synchronous controller publication insufficient. The actual forest button renders the nominal type, so independent A/B checks are feasible without fabricated labels.",
+    "Same-origin deployment retains the existing authentication and guards and is explicitly conditional on safe serving and exact restoration. Actual route availability, authentication, transform correctness, and restoration remain execution-time checks; inability to satisfy them requires INCOMPLETE.",
+    "The warm series retains all samples, applies the strict unrounded threshold, and separately leaves cold-start and authoritative diagnostics open. Two callbacks support a prior paint opportunity but not physical scanout; direct controller invocation is not user input. The Lean file accurately limits its abstract trace and supplied-percentile claims."
+  ],
+  "execution_notes": [
+    "The forest rejects nodes at depth >= 32; the explicit exact 500-node DOM set and no-alert check must prevail over the fixture's depth <= 32 bound.",
+    "Preserve the raw samples and invalidation evidence, transformed source diff, route and restoration manifests, and the observed advisory activity; do not interpret approval as a benchmark result."
+  ]
+}

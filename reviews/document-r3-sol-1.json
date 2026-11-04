@@ -1,0 +1,62 @@
+{
+  "reviewer": "Sol council seat 1",
+  "review_type": "EXACT_BUNDLE_ADVERSARIAL_DESIGN_REVIEW",
+  "decision": "REQUEST_TARGETED_CHANGES_NO_IMPLEMENTATION_APPROVAL",
+  "spec_revision": 3,
+  "wire_revision": 4,
+  "input_hashes": {
+    "spec/document-stage-draft.json": "2a2c3561b345f2f21c71c96aab760bcf9b8f0698b13ce1968932ff255c7e6282",
+    "spec/document-wire-draft.json": "1eebb58f52a9e19bf50b242f5f274faabaa13d0eec1cee13122c78263321211d",
+    "gates/document/draft/Document.lean": "fdc4dc15e99fa60fd84db10b3debb9e6695de85ccbbbfed63390755129bf9c2e",
+    "gates/document/draft/types.json": "0ca046e8429cb886a01e649cb5d9ffff724c968e4315bcc680d0d11bb60fad8d"
+  },
+  "scope": "Independent full main/wire/isolated Lean/type-inventory review. No production or formal changes; no proof build or gate closure claim.",
+  "resolved": [
+    "Concrete full syntax forest, set-valued parameters, tuple-field set restriction and per-tag wire contract bound the intended v1 surface.",
+    "Scoped exact-byte durable receipts, read-before-quota replay, workspace serialization, nonce fencing, pending CREATE slots and indefinite retention have concrete bounded resolutions.",
+    "Artifact/source map contents, revision envelope, comment-copy mapping and fresh history-copy artifact semantics are now stated.",
+    "Python proxy-only bridge is appropriate for actual repository; no new JDBC dependency or SQL route required."
+  ],
+  "findings": [
+    {
+      "id": "R3-SOL1-01",
+      "severity": "BLOCKING",
+      "topic": "Historical restore does not refine agreed fresh-artifact/revision-zero contract",
+      "evidence": "OperationValid.restore requires target>0 and s.history[target-1]?=some a. HistoricalStep passes the old target artifact unchanged into Step; CandidateValid then demands its old ParserReport policy equal current q.policy. A valid historical source from policy3 cannot be restored at policy4, since changing its report makes it unequal to the stored artifact. Wire allows revision0 and mandates fresh current-policy checked artifact. RevisionConsistent also equates history.length=head revision while wire retains initial revision0.",
+      "resolution": "Model immutable historical selection separately from newly checked artifact, binding exact historical source/IR content via explicit restore-content relation while allowing fresh report/policy/artifact identity. Choose revision-index representation including0 or explicit initial artifact field; permit target0 and bind target lookup exactly. Update HistoricalStep/theorems/types, add inhabited restore-policy-upgrade, restore-revision0 and stale-target denial witnesses. Do not solve by excluding revision0 or requiring old policy forever."
+    },
+    {
+      "id": "R3-SOL1-02",
+      "severity": "BLOCKING",
+      "topic": "Wire decoder conflates raw client payload with generated validation artifact",
+      "evidence": "Payload includes policy and candidate:Artifact including generated server IDs, source/maps/report; DecodedRequest requires deterministic WireDecoder wire=some requestPayload. Public body contains neither current server policy nor trusted Artifact, and draft IDs remap randomly before validation. Same exact wire can legitimately be checked under another current policy or remapping after restart. The same_wire_same_payload theorem presently asserts equality of the entire generated artifact/policy, which is not a strict HTTP decoding property.",
+      "resolution": "Separate RawPayload (expectedRevision, operation/target, source or untrusted module plus presentationCopies) from checked candidate/frame. Decoder determines only RawPayload. Model a separate server transformation/admission relation binding original wire/raw payload, remapping, current policy, scope and checked artifact. Replay only requires raw wire equality and authorization, never reproducing current checked artifact/parser result. Alternatively persist remapping/frame once and model that extra durable input explicitly; do not call a random/current-policy transform a wire-only decoder. Add same-wire/different-current-policy replay witness under admitted layer."
+    },
+    {
+      "id": "R3-SOL1-03",
+      "severity": "MEDIUM",
+      "topic": "Stored response envelope versus replay envelope needs exact placement",
+      "evidence": "receipts.outcome stores immutable response envelope/status and says replay returns original outcome, but also says response labels replay and separately supplies current revision. common API response includes requestId. Updating replay labels/requestId/currentRevision inside that stored envelope contradicts exact original response bytes.",
+      "resolution": "Freeze an immutable outcome object/bytes nested inside a fresh transport envelope carrying current requestId,replayed and optional currentHead, or explicitly return identical original envelope plus replay metadata in headers. Define which bytes are stored, counted and compared; never overwrite original revision/ID remapping. This is a bounded API clarification, not permission to mutate stored outcome."
+    },
+    {
+      "id": "R3-SOL1-04",
+      "severity": "MEDIUM",
+      "topic": "Unknown acknowledgement for durable deterministic rejection is outside model",
+      "evidence": "Wire writes deterministic validation/stale receipts atomically and treats lost transaction acknowledgement as UNKNOWN_COMMIT_OUTCOME. Step.unknown only appends successful revision and committed outcome; unknown_retry concludes committed success. A denial receipt can commit and lose its acknowledgement without appending a revision.",
+      "resolution": "Either add unknown-denial transition and theorem recovering the original denied outcome with unchanged head, or explicitly narrow unknown_retry to successful mutation uncertainty and register durable-denial uncertain-ack recovery as an adapter/runtime obligation. Add forced lost-ack rejection test. Do not tell client terminal denial or unchanged persisted receipt state until database certainty is recovered."
+    }
+  ],
+  "formal_boundary_assessment": {
+    "valid": "CandidateValid now links source bytes/report and checked typed module to accepted transitions; finite Typed witnesses retain distinctions among23 expression tags. types.json candidly limits infer correspondence and runtime adapter claims.",
+    "not_proved": "Field multiplicity/name legality, UUID ownership/global disjointness across expressions/declarations/binders, closed wire parsing, source-to-tree semantics, occurrence nodeID:role correspondence and trivia transfer remain trusted/tested adapters; never cite CheckedModule as proof of those properties. Occurrence paths remain acceptable internal model representation only under explicit UUID-to-forest adapter trust already inventoried.",
+    "formal_run": "No independent Lean execution in this review; exact type inventory and two clean registered builds remain required after changes."
+  },
+  "runtime_acceptance_requirements": [
+    "Enforce full serialized response/artifact ceilings before final transaction and count retained terminal admissions/request duplicates exactly once.",
+    "Real PostgreSQL proxy evidence for every document create/admission/commit/denial/recovery/migration/RLS path; deny cross-scope composite FKs and unscoped direct SQL routes.",
+    "63 existing docs+two pending CREATE, revision0 quota, crash nonce takeover, stale old finalizer, denial receipt lost ack, quota-full replay, policy installation during validation and fresh bearer restart recovery.",
+    "Full constructor/arity/schema/scope and500-node reference-host performance tests; source elaboration before solver expansion; comment-copy/source-replacement/undo mappings and all inherited accessibility/G2/G3 checks."
+  ],
+  "conclusion": "Architecture is concrete enough for targeted final corrections, but the two formal mismatches prevent implementation approval. Resolve above against one frozen four-file bundle, then obtain six exact-hash approvals and clean registered builds."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-order-astra-2",
+  "review_type": "FOCUSED_FIELD_ORDER_AMENDMENT_DESIGN_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "timestamp_utc": "2026-11-03T18:43:54.755445+00:00",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0",
+    "gates/document/order-amendment/types.json": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+  },
+  "blocking_findings": [],
+  "registered_propositions": 14,
+  "source_inventory_matches": true,
+  "imported_document_sha256": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07",
+  "assessment": [
+    "Equality with owner-grouped concatenation is an appropriate conservative acceptance predicate: it preserves within-owner order and rejects interleaved groups instead of silently changing a complete submitted candidate. CheckedModule separately validates owner existence and unique signature IDs.",
+    "Flat expression registry order need not survive source round-trip; ordered roots/child slots/arguments retain syntactic order, so removing registry storage order from presentation equivalence is coherent.",
+    "OrderRequired applies only to fresh accepted and unknown-applied-success artifacts; replay, changed-byte collision and unauthorized denial remain independent of candidate order and parser/decoder availability. The explicit unordered replay/collision witnesses cover that boundary.",
+    "GuardedStep and GuardedAdmittedStep conjoin the presentation requirement to original transitions rather than replacing original type/authorization/CAS requirements. Original237 claims remain unchanged; imported Allow.Document hash equals reviewed r5 source.",
+    "TEXT_ONLY remains exempt from invented field structure. History-copy is a fresh success and therefore must validate ordering; replay of an old receipt remains historical outcome recovery."
+  ],
+  "explicit_model_limit": "The14 propositions establish the acceptance-order guard and retained early outcomes, not a total decision procedure or a new theorem that every order-only failure creates an INVALID_DRAFT receipt. Runtime deterministic denial/receipt plumbing must implement the prose rule under the existing scoped protocol; no broader rejection-completeness claim is approved.",
+  "implementation_requirements": [
+    "Run six exact-three-hash approvals and two clean registered proof builds before activating the new guard.",
+    "Test server/browser interleaved-order rejection, grouped multi-owner and empty acceptance, explicit UI regrouping on owner reassignment and unchanged within-owner ordering.",
+    "Test shuffled nodes registry with identical ordered forest produces equivalent source projection, and old receipt replay/collision/auth-denial remain available for an unordered current candidate.",
+    "Do not silently reorder accepted history or submitted complete candidates; UI changes remain explicit draft transitions."
+  ],
+  "independent_lean_build": false,
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Focused local design amendment approved for formal verification. No runtime proof, G2/G3 closure, canonical semantic expansion or commercial clearance."
+}

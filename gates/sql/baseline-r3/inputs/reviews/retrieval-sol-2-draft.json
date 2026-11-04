@@ -1,0 +1,149 @@
+{
+  "reviewer": "retrieval-sol-2",
+  "status": "DESIGN_REVIEW_ONLY_AWAITING_FROZEN_SPEC_AND_PROOF",
+  "production_edits": false,
+  "inputs": [
+    "spec/allow-contract.json",
+    "spec/slot-profile.json",
+    "reviews/retrieval-astra-1-draft.json",
+    "reviews/retrieval-sol-1-draft.json"
+  ],
+  "limitations": [
+    "spec/current and spec/retrieval-stage.json did not exist at initial inspection. This review evaluates the parent supplied proposed contract, not a frozen artifact.",
+    "No model files downloaded, libraries installed, corpus transmitted, embeddings generated or training executed. Public model metadata fetched only."
+  ],
+  "findings": [
+    {
+      "severity": "required",
+      "issue": "Freeze all transformations, not only 3072 dimensions.",
+      "resolution": "For each of four ordered components, tokenize query-prefixed canonical anonymous content, split into complete token chunks allowing prefix and special tokens inside 512, attention-mask mean pool encoder hidden states, normalize each chunk, combine deterministically with documented token weighting and normalize block. For pool components, aggregate member vectors equally and normalize, preventing member byte length from controlling pool weight. Normalize concatenation. Define zero-norm and missing-block behavior explicitly."
+    },
+    {
+      "severity": "required",
+      "issue": "Bounded chunking must not silently omit content.",
+      "resolution": "Maintain token/chunk coverage counts and input hashes. A configured maximum total token/chunk budget must reject or mark the record partial; never encode only a prefix while claiming full-ready. Token overlap must either be absent or corrected in weighting. Test >512-token context and each large witness."
+    },
+    {
+      "severity": "required",
+      "issue": "Training description needs an actual learnable object and objective.",
+      "resolution": "Interpret shared per-block diagonal as four length768 vectors shared across all records, initialized to identity; pin positivity/bounds, regularization, objective, batch construction, optimizer, seed and checkpoints. Freeze pretrained encoder; fit diagonal on train family groups only. Validation may select adapter checkpoint and weights; final fixed score is .55 normalized vector cosine plus .225 same-context positive intersection/max-size plus .225 same-context negative intersection/max-size. If final weights are contract-fixed do not claim they were learned. Record all chosen values and holdout protocol."
+    },
+    {
+      "severity": "required",
+      "issue": "E5 English prose pretraining does not establish usefulness for anonymous Alloy JSON.",
+      "resolution": "Require heldout pretrained-only versus trained adapter comparison and hash/canonical/pool-only ablations. Include recall@k and nDCG with relevance labels, coverage, intervals over family groups, performance and failure rates. Do not equate learned with improved or promote a degraded adapter."
+    },
+    {
+      "severity": "required",
+      "issue": "Two-stage vector candidates can miss final-score winners.",
+      "resolution": "Exact filtered scoring is reference and default. If ANN or vector topK is enabled, label approximate and measure recall of exact final-score topk under identical authorization/context filters, since overlap components can reorder candidates outside vector topK."
+    },
+    {
+      "severity": "required",
+      "issue": "Overlap empty denominator and partial status are semantic edge cases.",
+      "resolution": "Pool IDs must be set-valued canonical complete witness bytes or collision-checked digests under exact typed context/scope. Reject incompatible comparisons. Define overlap only for admissible nonempty full-ready pools; absent or empty pools have explicit unavailable diagnostics, never perfect agreement. N is per polarity3..5, distinct from solver scope; full-ready requires both counts >=N. Partial diagnostics cannot enter the full-ready ranker silently."
+    },
+    {
+      "severity": "required",
+      "issue": "Leakage includes aliases, split-dependent mining and query self matches.",
+      "resolution": "Union identical/canonical duplicate and origin-alias edges across Alloy4Fun/5/6 before splitting, retain connected-component manifest. Mine adapter examples only within training groups. Freeze holdout queries/candidates and exclude same target, duplicate canonical targets and prohibited source lineage from candidate results. Report counts removed and families too large for meaningful split."
+    },
+    {
+      "severity": "required",
+      "issue": "LangGraph availability is not demonstrated.",
+      "resolution": "Pin optional adapter dependency in isolated environment and exercise a real graph invocation against authenticated exact retrieval, including serialized state/retry idempotency and no corpus blobs. Missing dependency is infrastructure-unavailable, not a passed compatibility claim."
+    }
+  ],
+  "local_inventory": {
+    "python": "3.10.11",
+    "torch": "2.0.1",
+    "torch_compiled_cuda": "11.7",
+    "cuda_available_flag": true,
+    "numpy": "1.24.3",
+    "scikit-learn": "1.2.2",
+    "missing": [
+      "transformers",
+      "tokenizers",
+      "onnxruntime",
+      "onnx",
+      "sentence-transformers",
+      "langgraph"
+    ],
+    "gpu_policy": "Do not infer supported RTX5080 kernels from cuda_available. CPU inference is proposed; GPU execution was not tested."
+  },
+  "proposed_lightweight_runtime": {
+    "model_id": "intfloat/e5-base-v2",
+    "model_revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+    "revision_source": "https://huggingface.co/api/models/intfloat/e5-base-v2",
+    "encoder_file": "onnx/model.onnx",
+    "tokenizer_file": "onnx/tokenizer.json",
+    "execution": "CPUExecutionProvider float32 ONNX; Python tokenizers fast tokenizer; NumPy masked mean/normalization and small diagonal training. Isolate dependencies rather than modifying system torch.",
+    "proposed_dependency_pins": [
+      "onnxruntime==1.20.1",
+      "tokenizers==0.20.3",
+      "numpy==1.26.4"
+    ],
+    "pin_status": "Candidate pins only, installation/import/model-load compatibility unverified; freeze resolved wheel and model/tokenizer SHA256 in implementation lock before use.",
+    "avoid": "model_O4 may require FP16 provider assumptions; AVX512-VNNI quantization is not a portable default. Use full float32 model first.",
+    "prefix": "query: for all symmetric component and candidate encoding",
+    "runtime_files": "All files locally provisioned before serving; offline-only runtime, no trust_remote_code or remote inference. Verify observed model input/output names and dimensions rather than guessing them.",
+    "baseline": "Unadapted identity diagonals, identical preprocessing and aggregation. Learned checkpoint gets a distinct embedding_version and cannot overwrite baseline vectors."
+  },
+  "primary_sources": [
+    {
+      "url": "https://huggingface.co/intfloat/e5-base-v2",
+      "supports": "768 dimensions, 512-token maximum, mean pooling, query prefix for symmetric comparisons, English text limitation"
+    },
+    {
+      "url": "https://huggingface.co/intfloat/e5-base-v2/tree/main/onnx",
+      "supports": "Official float32 ONNX and tokenizer artifacts exist"
+    }
+  ],
+  "acceptance_tests": [
+    "Permutation of pool members leaves vectors unchanged; duplicating an already present pool member is rejected or deduplicated.",
+    "Every canonical input token covered, including >512 content; budget excess returns explicit partial/rejected state.",
+    "Baseline and adapter vectors finite3072 and reproducible within pinned CPU tolerance; wrong version/dimension rejected.",
+    "Train/validation/test family-component disjointness and candidate self/duplicate exclusion mechanically audited.",
+    "Exact final-score topk test includes low-vector/high-overlap candidate; approximate mode must expose omission.",
+    "Overlap symmetry, range[0,1], denominator max cardinality, incompatible context rejection and no empty/empty=1.",
+    "Training objective decreases on train without accessing test; checkpoint comparison and groupwise holdout evidence retained."
+  ],
+  "verdict": "Architecture is viable as a retrieval heuristic with these frozen details. No production implementation or gate pass authorized by this design review; await verified additive proof/spec.",
+  "revision1_review": {
+    "artifact": "spec/retrieval-stage.json",
+    "status": "CHANGES_REQUIRED_BEFORE_FINAL_COUNCIL",
+    "issues": [
+      "Positive pair alpha/rewrite canonicalization can collapse to identical vectors; require distinct input-versus-checked-extracted predicate serializations, and reject identity pairs.",
+      "Stage score uses predicateBlock only; state intentionally whether context/pools encoded blocks affect only candidate search, or change to full3072 cosine.",
+      "Require frozen chunk cap, training hyperparameters, validation grid, minimum family count, and non-regression threshold before training."
+    ],
+    "concrete_recipe": {
+      "max_chunks_per_component": 32,
+      "chunk_tokens_including_prefix_and_special": 512,
+      "chunk_overlap": 0,
+      "pool_budget": "32 chunks total across all members; equal member aggregation; reject over budget",
+      "adapter": "4x768 strictly positive bounded diagonal vectors, shared across records; identity init; freeze backbone",
+      "optimizer": "Adam lr0.001 weight_decay0.0001; batch16 pairs;20epochs;seed20261103; InfoNCE temperature0.07; identity L2 coefficient0.001; choose epoch on validation MRR then earliest epoch",
+      "labels": "Checked original/extracted alternate representations supply structural positives; nonmatches are retrieval distractors, never semantic non-equivalence labels",
+      "families": "At least12 union components globally, >=2 per source when available; target8train2val2test. Insufficient FULL families leaves quality gate open, not a per-file split. Source inclusion in every split is desirable but impossible to guarantee at this bound.",
+      "validation_weight_grid": "wD in {.45,.55,.65}; r in {.25,.5,.75}; wP=(1-wD)*r;wN=(1-wD)*(1-r); maximize validation MRR then lex tuple. Freeze k and family-macro averaging beforehand.",
+      "promotion": "MRR learned >= pretrained -0.01 and all integrity tests pass; otherwise retain pretrained baseline and record learned quality gate open. Report strict improvement independently."
+    },
+    "official_onnx_metadata": {
+      "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+      "model_size_bytes": 435811516,
+      "model_sha256": "157f97ef1957d34f52efa26f8031371bf9043acc45460cec7ebe94631ac0e96b",
+      "download_base": "https://huggingface.co/intfloat/e5-base-v2/resolve/f52bf8ec8c7124536f0efb74aca902b2995e5bcd/onnx/",
+      "allowlisted_files": [
+        "model.onnx",
+        "tokenizer.json",
+        "config.json",
+        "special_tokens_map.json",
+        "tokenizer_config.json",
+        "vocab.txt"
+      ],
+      "inspection": "Official metadata does not expose ONNX opset or operators; runtime compatibility cannot be certified from API alone. After download hash-check, inspect with onnx1.17.0 and instantiate ORT1.20.1 CPUExecutionProvider. Reject unsupported opset/domain and external paths. ORT1.20 supports ONNX opset21/IR10, backwards to opset7; successful inference and observed output[batch,tokens,768] required.",
+      "source": "https://onnxruntime.ai/docs/reference/compatibility.html"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "status": "TEST_ONLY_SECOND_EVIDENCE_REPAIR_NOT_EXECUTED",
+  "sha256": {
+    "frontend/bench/runner.ts": "cfb9d77877ebaea9ac3d0e4a05d4c7a390227911d4c11a6edab5e0005e899a98",
+    "frontend/bench/evidence.ts": "deca4676a8e68d88d7a126c5ad6b476529bb22a6da8e923cd43c73920fc34eaa",
+    "frontend/bench/resources.ts": "3608dfe3cb3f6b3304b29dc755a19b4aef9756b583f78b5b922c05aa3af2180d",
+    "frontend/bench/bridge.ts": "e86e846170b9181c72d282a6881e05361313c1b3ed3bc5f61bd6c544c3d53346",
+    "frontend/bench/vite.config.mjs": "ad06331f328ea4a7014a5f5539af528c1a79bcc3d2195749cf16f24562ade32f",
+    "frontend/bench/capture-host.py": "b0ca4b849ef6ca10a341ba5543e9cf28e916b3df88a58147ebf4850a5b58ccc4",
+    "gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "reviews/browser-capture-repair-terra-2.json": "15422ca51ceaa7752e90b45c0c69920bd4af1558f9b1d3927fce5bc9f26ca611"
+  },
+  "previous_repair": "gates/document/browser-benchmark-candidate/capture-repair-v1",
+  "findings_addressed": {
+    "BCRT2-01": "Bounded PerformanceObserver starts on module initialization with buffered resources; records observer drop count, browser resource buffer overflow, own limit overflow, status API support and status 0 or missing as unknown/error. Any unknown, unsupported or overflow marks resource coverage incomplete and prevents COMPLETE. Uses no fetch monkeypatch; pending observer records drained outside event timing callbacks.",
+    "BCRT2-02": "Final advisory candidate cutoff is final edit dispatch performance.now, retained separately from elapsed timing and observed only after all edits. Matched retained validation request must have exact final document, draft, base, epoch, generation and mount; actual committed notice, validation diagnostics and rejection diagnostics recorded. Unmatched or unobserved outcome times out as INCOMPLETE."
+  },
+  "limits": [
+    "Browser may omit PerformanceObserver dropped-entry metadata or responseStatus; then the run necessarily reports INCOMPLETE.",
+    "Resource Timing does not expose actual request bodies; matching binds browser committed exact retained validation request and final resource timing but is not a server receipt or authoritative diagnostic latency.",
+    "No changes to reviewed protocol, Lean model, production source, backend or active service."
+  ]
+}

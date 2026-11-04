@@ -1,0 +1,34 @@
+{
+  "reviewer": "sol-1",
+  "candidate_revision": "r2",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_root_sha256": "4704a9190a7df708ff7cfb528d94475b173de0d9875e52ee91fd2edea18a798c",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+    "gates/sql/immutable-image-candidate/contract.md": "ad9f4a9fcb4591d17a627c505ccb83e566127dc6f40e848db8a24e0a17d2613d",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "c49a8f53884a28b5ac5d90926ce42feda7895418be658976e6b46cacb3e10b42",
+    "gates/sql/immutable-image-candidate/input-manifest.json": "28434c9d5ef8ee35e4d363d42c98494f6da02f645a8c12f410bd0462936b38f5",
+    "gates/sql/immutable-image-candidate/existing-type-inventory.json": "bd7f8d0b7816f9e2236e5683008d841fc3095c2e05cd5cd3ed0ae17d398cd9ea",
+    "gates/sql/immutable-image-candidate/probe-result.json": "9f921847818c9327b7a328e071385682456326f03798a707faf6413f06500096",
+    "gates/sql/immutable-image-candidate/findings.md": "9c5a5bd70773f369d25e596c7101496cbbcee0d4ff39466635599f482f10b91f"
+  },
+  "previous_review": "gates/sql/immutable-image-candidate/archive-r1/sql-image-sol-1.json",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "id": "SQLIM-S1-01",
+      "resolution": "Miss waiters hold no fd and acquire one of two parser permits before duplication; one lock-scoped transient plus two exclusively owned execution duplicates is explicit. finally/RAII closes/reaps/releases on every exit, close cannot steal numeric reservations, and generation/snapshot is rechecked before cache insert or acceptance. IM41-46 and IM55 cover waits, hits, cancellation, launch errors, shutdown, reuse and stale completion."
+    }
+  ],
+  "assessment": [
+    "Bounded initialization has trusted size rather than source fstat as cap, a 5s supervised helper, regular nonblocking no-follow source, exact copy plus one-byte excess probe, post-seal hash and strict ancillary descriptor transfer. Cleanup/publication failures deny.",
+    "Private deeply immutable ConfigSnapshot covers binary digest, size, profile, commit, ordered mapping/digest, policy and unique generation; exact snapshot identity covers cache, report interpretation and atomic lifecycle status.",
+    "Actual execution remains inherited reserved /proc/self/fd/N through absolute reviewed prlimit with sanitized environment and no pathname/interpreter fallback. Unsupported executable memfd policy denies. All SQL remains subject to SQLeanParser evidence and policy checks.",
+    "Running old sealed pinned bytes after disk replacement/removal is an explicit policy change with restart-only checking, not a live-path integrity claim.",
+    "Nine supplied input hashes independently match review pins. Existing inventory retains expected280 propositions; seven candidate conditional propositions are unchanged."
+  ],
+  "limits": "Gameplan approval only. Seven Lean propositions do not prove OS syscalls, descriptor transfer/lifetime, cache synchronization, bounded initialization or runtime correspondence. Existing280 exact-type preservation, two clean builds/axiom audit, all56 runtime checks and full benchmark/memory evidence remain promotion prerequisites. Historical capability probe is not implementation validation.",
+  "validation": "Read revised contract, test plan, model/inventories, manifests, historical probe and findings; verified nine SHA256 values. No candidate, production or browser edits; no new runtime benchmark or Lean builds performed."
+}

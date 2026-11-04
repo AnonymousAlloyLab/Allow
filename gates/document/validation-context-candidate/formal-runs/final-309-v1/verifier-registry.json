@@ -1,0 +1,15 @@
+{
+  "id": "V-VALIDATION-CONTEXT-LEAN",
+  "implementation_sha256": "222da06dec2833c36f654e3ff3b531661fb7cae931dd13afab643deba8d2f5ac",
+  "executable": "gates/document/validation-context-candidate/verify_model_closure.py",
+  "toolchain": "Lean4.34.1",
+  "tool_executable_sha256": {
+    "lean": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lake": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d"
+  },
+  "exit_codes": {
+    "VERIFIED": 0,
+    "BLOCKED": 1,
+    "INFRASTRUCTURE_FAILURE": 2
+  }
+}

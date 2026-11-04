@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "kind": "CONTAINMENT_PREFLIGHT",
+  "run_id": "containment-v9",
+  "copied_root": "/tmp/allow-ft1-zlxwwoih",
+  "unit": "allow-ft1-c5bf86b372084a1d88b51de9ce10755f.service",
+  "files": [
+    {
+      "path": ".gate/harness_common.py",
+      "sha256": "7c999fcb8e38163c36dd95d44367cb168c049950970b39a34b93e62fdba9ec00",
+      "size": 5014,
+      "mode": 436
+    },
+    {
+      "path": ".gate/containment.py",
+      "sha256": "3b6b7210f0a90c969ec623db46a7d53cb6d60226e87f5f37f05c709bbb6c5741",
+      "size": 10713,
+      "mode": 436
+    },
+    {
+      "path": ".gate/probe_owner.py",
+      "sha256": "f3fd25622dcdf7afede7a3490c6e9bc918306c3ec13c055d88652a7ef3765d8f",
+      "size": 798,
+      "mode": 436
+    },
+    {
+      "path": ".gate/controller.py",
+      "sha256": "540536752be889961a9f469f71a7a649a6dbeed6cdcd986848d37380edbda610",
+      "size": 15442,
+      "mode": 436
+    },
+    {
+      "path": ".gate/installation.py",
+      "sha256": "1e617951547081005915c33aeefa80661409948c0edfb21bfa2b230a56285e60",
+      "size": 20800,
+      "mode": 436
+    },
+    {
+      "path": ".gate/preflight-registration.json",
+      "sha256": "008a4c672771e2636c2795de713446a25fb0845ee6c61dddee942dab68f1bd43",
+      "size": 1922,
+      "mode": 436
+    }
+  ],
+  "tools": [
+    {
+      "path": "/usr/bin/python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+      "size": 8020928,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/systemctl",
+      "sha256": "37ec607113f55f1b385b4fa75588a43402aec0de57927500763b267713f10f63",
+      "size": 1501304,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/systemd-run",
+      "sha256": "de28cc5757d3789efa5f6fed5659893410469f68b42175d4531f5b34d3a09e16",
+      "size": 68392,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/env",
+      "sha256": "886e5fa8be716b03eeda48856e0f04493f2969fc148fb7812594ffac647fa050",
+      "size": 48072,
+      "mode": 493
+    }
+  ],
+  "registration_sha256": "008a4c672771e2636c2795de713446a25fb0845ee6c61dddee942dab68f1bd43",
+  "created_utc": "2026-11-04T06:38:21.973872+00:00",
+  "input_root_sha256": "66b751374cd51c8efb59789ad0ea9347975970d4121c6614eb533e496d037c37"
+}

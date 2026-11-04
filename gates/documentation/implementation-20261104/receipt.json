@@ -1,0 +1,144 @@
+{
+  "id": "ALLOW-IMPLEMENTATION-DOCUMENTATION-20261104",
+  "updated_utc": "2026-11-04T08:04:30.960211+00:00",
+  "status": "DOCUMENTATION_RECONCILED",
+  "scope": "Five documentation files; archived originals and existing reports preserved. No new test or whole-product correctness claim.",
+  "documents": [
+    {
+      "path": "README.md",
+      "sha256": "399dfbc41127ca219c2e4062475f78e281605be42037c9f35a68730c4e6c9ca0"
+    },
+    {
+      "path": "docs/current-status.md",
+      "sha256": "cd63fe32505557608f705bf376c9d78976c69597c93be10554fca6e5b27b6ffb"
+    },
+    {
+      "path": "docs/performance-remediation-plan.md",
+      "sha256": "11c8f6f4f8eae5f4e62e8dd3acdca57359a37ddefdddd1c9714ba47c09301d85"
+    },
+    {
+      "path": "docs/sql-stage.md",
+      "sha256": "9098799da196c86991e1b9943fe9e0e45483ee3dcd99cd9189dc36b97208d42b"
+    },
+    {
+      "path": "docs/document-stage.md",
+      "sha256": "718deb07d3d5b80572ec2ee3f2554b75eb8b40af8b439519805a8b4ab8eba885"
+    }
+  ],
+  "archives": [
+    {
+      "path": "gates/documentation/implementation-20261103/pre-update/manifest.json",
+      "sha256": "de73552c7bb2b83c7f1f0dfb7fabd19c663c446d575ed7c104ec774cbfb392cb",
+      "archived_files": 3,
+      "unchanged": true
+    },
+    {
+      "path": "gates/documentation/implementation-20261104/pre-final-update/manifest.json",
+      "sha256": "5f3cb264696c5f6ce7d202c044bbcae84a895a8833b050406cefeb3c87f48194",
+      "archived_files": 3,
+      "unchanged": true
+    },
+    {
+      "path": "gates/documentation/implementation-20261104/stage-docs-before-update/manifest.json",
+      "sha256": "c372b9373eacd95177341106677d63425aa2e7b09b42d91a36f1686947f9ee54",
+      "archived_files": 2,
+      "unchanged": true
+    }
+  ],
+  "source_projection": {
+    "receipt": {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/source-ready-r3.json",
+      "sha256": "d84bf19a042a6484b0fe50e700bbc6beb0376fcb20e1f8563e3fa77e8c870764"
+    },
+    "source_files": 292,
+    "production_build_files": 191,
+    "all_current_hashes_match": true
+  },
+  "evidence": [
+    {
+      "path": "gates/document/performance-remediation/p0/binder-runs/final-v1/report.json",
+      "sha256": "1724a985834802b09f88976dc19871eaaede13abd426771ca119e7f696fe6888"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/formal-runs/final-v2/report.json",
+      "sha256": "f757f73319825c53e2eb073b6738a17c0cfbc6efb36b3217adfffb5c8d845e0c"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/formal-runs/final-v1/report.json",
+      "sha256": "93f9367e96f8fb11ffc60a274f7df940c2dc4aed726ec43e5b2e67a929517eba"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/deadline-repair-readiness-r1.json",
+      "sha256": "624b4dcb23c20a3ca6c3b4ab3f0f9699396b416620e5f071a952132d411876d2"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/report.json",
+      "sha256": "9be260c8482045698b48c59f21f38312f8351d804b552adaf29d87df6446d972"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/report.json",
+      "sha256": "193ba6e88ea23a40bdb0ad8453b77dfa8b628c87803b6dfece16f2c9b96186c2"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/report.json",
+      "sha256": "0912921f80ae04bae7bfd8341dc1282f15e9b2624f93b16224816d0751d0a64f"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-preflight-r5/report.json",
+      "sha256": "cf210265a2be78d5a3440bd97289a31853c9ba6361c5c6dab8367d81c72cd0bb"
+    },
+    {
+      "path": "gates/documentation/implementation-20261104/browser/repaired-observation.json",
+      "sha256": "c1b6f4281ea380dc6e4548253e964564e81b873b3075844518050a224031c8ac"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-experiment-binding.json",
+      "sha256": "fbca2d98930c3714ecaab0629d98704451ecada75e7a460d808847653e50c8f9"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-binding-verification.json",
+      "sha256": "055618f78447bc85574783a12071150f5c695b40dd7df4be30a99bf6a3ec628c"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/pair-verification.json",
+      "sha256": "b4455fea741e72119d551d284d543183725776fd1d8c2555591ff0f5858e110f"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/pair-verification.json",
+      "sha256": "b2185dca275096bfd368d7ab02d0fc6dcb2899f97a65e34a119c4b438d582ad9"
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-history/selection.json",
+      "sha256": "dc7a3324199220990fa8df7c3103671c9447cde384fd6e8133aa8c54ad7879e7"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/completion.json",
+      "sha256": "8f0dc8ee32fff5c0f6faeee4bd03040c678ca5a0ab1523d212f349cd0fa12f78"
+    },
+    {
+      "path": "gates/documentation/implementation-20261104/browser/final-observation.json",
+      "sha256": "4f1be522f441104a16f97eda1578c66fc3f39f6588e5d2d5a60065c20a7bd552"
+    }
+  ],
+  "local_link_check": {
+    "checked": 106,
+    "broken": []
+  },
+  "profile": "DEFAULT",
+  "comparative_http_measurements": {
+    "decision": "KEEP_F0",
+    "completed_pairs": 1,
+    "remaining_trials": "NOT_EXECUTED",
+    "warmups_per_trial": 100,
+    "measured_per_trial": 1000,
+    "request_errors": 0,
+    "F0_p95_ms": 399.671788,
+    "F1_p95_ms": 348.69954,
+    "strict_target_ms": 300,
+    "F1_latency_gate": "FAIL",
+    "profile_activation": "NOT_PERFORMED",
+    "actual_target_acceptance": "OPEN"
+  },
+  "full33_cleanup_matrix": "BLOCKED",
+  "commercial_release": "NO_GO"
+}

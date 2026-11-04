@@ -1,0 +1,32 @@
+{
+  "classification": "DESIGN_ARTIFACT_PIN_NOT_EXECUTION_INPUT_ROOT",
+  "candidate_id": "ALLOW-FRESH-JVM-SCREEN-20261103-R1",
+  "sha256": "4b54f2ff28d998e90dff4f8b22da4fef28aad91962570ed33e36c940c64a336b",
+  "canonicalization": "UTF-8 json.dumps(sort_keys=True,separators=(comma,colon)); no newline",
+  "manifest": {
+    "schema_version": "1.0",
+    "files": [
+      {
+        "path": "authoring-check.json",
+        "sha256": "9162486203a07534ef1517ad261226bd333d7bf6c8578b53a64d54fff61cc737"
+      },
+      {
+        "path": "capture_environment.py",
+        "sha256": "2db1412debb3b257e5a7478f789aec32621a5d03e720a47f5a4050922693c01b"
+      },
+      {
+        "path": "environment-observation-r1.json",
+        "sha256": "600fcee7a25c1bc5f1b861695f47e0a84c8521512c0bf0afd7c7fc937ce026c4"
+      },
+      {
+        "path": "feasibility-summary.json",
+        "sha256": "d71b68c85d8ee5196e08be48af53cadaaf426b561220a913096282a025b88f7e"
+      },
+      {
+        "path": "protocol-candidate.json",
+        "sha256": "8661b337c4844f1b7410b5c24e2d6a723747bf308e6225c47c296161594baab2"
+      }
+    ]
+  },
+  "remaining_freeze": "Exact runner/fixture/JDK/archive inventories and formal/council inputs are not yet present."
+}

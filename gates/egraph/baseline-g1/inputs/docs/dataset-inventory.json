@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "inventory_date": "2026-11-03",
+  "purpose": "Read-only local dataset inventory for authorized development; no model content copied.",
+  "authorization": {
+    "local_development": true,
+    "sharing": false,
+    "training": false,
+    "remote_embedding": false,
+    "source": "Parent task records user authorization; this is operational scope, not a third-party rights clearance."
+  },
+  "method": {
+    "walk": "os.walk, followlinks=False; lstat separates links/special files",
+    "sizes": "logical regular-file bytes, not allocated disk blocks",
+    "notices": "case-insensitive filename substrings readme/license/licence/copying/copyright/notice",
+    "content_access": "Read small notice files, hash Alloy files locally, inspect at most three deterministic lexical samples per root. No parser, solver or production import executed.",
+    "sampling_limit": "Lexical sample metadata does not establish dataset-wide validity, anonymity, completeness or license clearance.",
+    "fingerprints": "Aggregate content multiset fingerprint hashes sorted .als SHA256 values; filenames and source content not emitted. SHA256 fingerprints are identity evidence, not anonymization."
+  },
+  "datasets": [
+    {
+      "id": "alloy6_local",
+      "root": "/home/augustus/下载/allloy6/2025-07-10-15-42-08",
+      "root_is_symlink": false,
+      "resolved_root": "/home/augustus/下载/allloy6/2025-07-10-15-42-08",
+      "regular_file_count": 70745,
+      "logical_bytes": 353225064,
+      "directories_including_root": 5851,
+      "by_file_kind": [
+        {
+          "extension": ".als",
+          "count": 70737,
+          "bytes": 146914850
+        },
+        {
+          "extension": ".ini",
+          "count": 1,
+          "bytes": 1895
+        },
+        {
+          "extension": ".md",
+          "count": 3,
+          "bytes": 970
+        },
+        {
+          "extension": ".txt",
+          "count": 4,
+          "bytes": 206307349
+        }
+      ],
+      "alloy_files": 70737,
+      "source_documented_alloy_file_count": 71584,
+      "count_difference_observed_minus_documented": -847,
+      "alloy_unique_content_count": 42067,
+      "alloy_duplicate_content_occurrences": 28670,
+      "alloy_content_multiset_sha256": "84832572c40288fee28f426a14ab55ec39af793efbb7646e22e693e7e2ba6538",
+      "file_bytes_min": 0,
+      "file_bytes_max": 197536215,
+      "max_relative_path_components": 9,
+      "top_level_entry_count": 537,
+      "hidden_path_entries": 3,
+      "hardlinked_regular_file_count": 0,
+      "path_character_counts": {
+        "non_ascii_paths": 35
+      },
+      "symlinks": [],
+      "special_files": [],
+      "walk_errors": [],
+      "notice_candidates": [
+        {
+          "relative_path": "README.md",
+          "bytes": 419,
+          "sha256": "4f46d13a292f156023ecb06516a4c86c5234773d52c4f746a8a5a76c297ea490",
+          "license_named": false
+        },
+        {
+          "relative_path": "2021-05-06-10-28-11-watform/README.md",
+          "bytes": 165,
+          "sha256": "fa18229b2e1a6e9c8cdef193cacc1808c392a3b3fcaa0138bcf07edd134b6d60",
+          "license_named": false
+        },
+        {
+          "relative_path": "2021-05-25-13-24-28-jackson/README.md",
+          "bytes": 386,
+          "sha256": "18f753023ed3343e9410c6a6064d43e230aca15500c94d30b9693f5bd43f9539",
+          "license_named": false
+        }
+      ],
+      "standalone_license_named_file_count": 0,
+      "root_file_metadata": [
+        {
+          "name": "README.md",
+          "bytes": 419
+        },
+        {
+          "name": "alloy6_all.txt",
+          "bytes": 4791840
+        },
+        {
+          "name": "alloy6_less_faulty_alloy4fun.txt",
+          "bytes": 277507
+        },
+        {
+          "name": "alloy_6_less_faulty.txt",
+          "bytes": 3701787
+        },
+        {
+          "name": "log.txt",
+          "bytes": 197536215
+        }
+      ],
+      "lexical_sample_metadata": [
+        {
+          "sample_ordinal": 1,
+          "content_sha256": "88a7693c64970c791e1a1d775e31d75450f2f9f36aadc1c67ac0748d6c6d48b1",
+          "bytes": 3692,
+          "line_count": 124,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 1,
+            "sig": 5,
+            "fact": 1,
+            "pred": 13,
+            "fun": 1,
+            "assert": 1,
+            "run": 1,
+            "check": 1
+          },
+          "has_comment_markers": true,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        },
+        {
+          "sample_ordinal": 2,
+          "content_sha256": "963106888a951bd17fa92c41d1ef68eeebbdd52f057d056f4d53721b4e5df721",
+          "bytes": 13907,
+          "line_count": 432,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 3,
+            "sig": 16,
+            "fact": 1,
+            "pred": 27,
+            "fun": 0,
+            "assert": 4,
+            "run": 2,
+            "check": 4
+          },
+          "has_comment_markers": true,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        },
+        {
+          "sample_ordinal": 3,
+          "content_sha256": "a5185cf2aea9d4d3cb18326b99bdcb7a871c41a1af0872b4b403ed80f1e7ee47",
+          "bytes": 24449,
+          "line_count": 620,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 3,
+            "sig": 12,
+            "fact": 4,
+            "pred": 37,
+            "fun": 0,
+            "assert": 0,
+            "run": 2,
+            "check": 0
+          },
+          "has_comment_markers": true,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        }
+      ],
+      "rights_status": "LOCAL_DEVELOPMENT_AUTHORIZED; THIRD_PARTY_REUSE_RIGHTS_UNRESOLVED",
+      "semantic_validity": "NOT_TESTED",
+      "readme_evidence": {
+        "source": "README.md",
+        "claims": "Scraped from 1080 GitHub repositories, filtered duplicates and nonparsing files. README source-repository count line uses -1, so per-file provenance cannot be inferred from that count.",
+        "notice_scope": "README describes collection, not a blanket reuse license.",
+        "nested_notice_summaries": [
+          {
+            "relative_path": "2021-05-25-13-24-28-jackson/README.md",
+            "observation": "Attributes models to Software Abstractions book and an upstream model-index URL; no explicit reuse license in this notice."
+          },
+          {
+            "relative_path": "2021-05-06-10-28-11-watform/README.md",
+            "observation": "Attributes models to WatForm members, including generated models; no explicit reuse license in this notice."
+          }
+        ]
+      },
+      "consistency_note": "Inventory is a live read-only observation, not an atomic filesystem snapshot. Files were not locked; full importer must resnapshot and verify identities before use.",
+      "alloy_size_admission_metadata": {
+        "source_byte_limit_in_existing_contract": 262144,
+        "above_limit_file_count": 18,
+        "empty_file_count": 2,
+        "max_bytes": 46376236,
+        "meaning": "Size counts only; no parser/import admission attempted."
+      }
+    },
+    {
+      "id": "alloy5_local",
+      "root": "/home/augustus/下载/alloy5/2025-07-08-11-09-55",
+      "root_is_symlink": false,
+      "resolved_root": "/home/augustus/下载/alloy5/2025-07-08-11-09-55",
+      "regular_file_count": 3586,
+      "logical_bytes": 111062592,
+      "directories_including_root": 2124,
+      "by_file_kind": [
+        {
+          "extension": ".als",
+          "count": 3582,
+          "bytes": 111059729
+        },
+        {
+          "extension": ".ini",
+          "count": 1,
+          "bytes": 1895
+        },
+        {
+          "extension": ".md",
+          "count": 3,
+          "bytes": 968
+        }
+      ],
+      "alloy_files": 3582,
+      "source_documented_alloy_file_count": 8435,
+      "count_difference_observed_minus_documented": -4853,
+      "alloy_unique_content_count": 3121,
+      "alloy_duplicate_content_occurrences": 461,
+      "alloy_content_multiset_sha256": "f6294b770a685641ca26834ead77612fc1ef8d2d107fb710c5e1bea0a135429c",
+      "file_bytes_min": 9,
+      "file_bytes_max": 46376236,
+      "max_relative_path_components": 8,
+      "top_level_entry_count": 484,
+      "hidden_path_entries": 0,
+      "hardlinked_regular_file_count": 0,
+      "path_character_counts": {
+        "non_ascii_paths": 21
+      },
+      "symlinks": [],
+      "special_files": [],
+      "walk_errors": [],
+      "notice_candidates": [
+        {
+          "relative_path": "README.md",
+          "bytes": 417,
+          "sha256": "a4d7901d7494ac2fc0e577b19c94c86eca48e792513f45be72e3d41f2fb337e6",
+          "license_named": false
+        },
+        {
+          "relative_path": "2021-05-06-10-28-11-watform/README.md",
+          "bytes": 165,
+          "sha256": "fa18229b2e1a6e9c8cdef193cacc1808c392a3b3fcaa0138bcf07edd134b6d60",
+          "license_named": false
+        },
+        {
+          "relative_path": "2021-05-25-13-24-28-jackson/README.md",
+          "bytes": 386,
+          "sha256": "18f753023ed3343e9410c6a6064d43e230aca15500c94d30b9693f5bd43f9539",
+          "license_named": false
+        }
+      ],
+      "standalone_license_named_file_count": 0,
+      "root_file_metadata": [
+        {
+          "name": "README.md",
+          "bytes": 417
+        }
+      ],
+      "lexical_sample_metadata": [
+        {
+          "sample_ordinal": 1,
+          "content_sha256": "88a7693c64970c791e1a1d775e31d75450f2f9f36aadc1c67ac0748d6c6d48b1",
+          "bytes": 3692,
+          "line_count": 124,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 1,
+            "sig": 5,
+            "fact": 1,
+            "pred": 13,
+            "fun": 1,
+            "assert": 1,
+            "run": 1,
+            "check": 1
+          },
+          "has_comment_markers": true,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        },
+        {
+          "sample_ordinal": 2,
+          "content_sha256": "963106888a951bd17fa92c41d1ef68eeebbdd52f057d056f4d53721b4e5df721",
+          "bytes": 13907,
+          "line_count": 432,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 3,
+            "sig": 16,
+            "fact": 1,
+            "pred": 27,
+            "fun": 0,
+            "assert": 4,
+            "run": 2,
+            "check": 4
+          },
+          "has_comment_markers": true,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        },
+        {
+          "sample_ordinal": 3,
+          "content_sha256": "a5185cf2aea9d4d3cb18326b99bdcb7a871c41a1af0872b4b403ed80f1e7ee47",
+          "bytes": 24449,
+          "line_count": 620,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 3,
+            "sig": 12,
+            "fact": 4,
+            "pred": 37,
+            "fun": 0,
+            "assert": 0,
+            "run": 2,
+            "check": 0
+          },
+          "has_comment_markers": true,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        }
+      ],
+      "rights_status": "LOCAL_DEVELOPMENT_AUTHORIZED; THIRD_PARTY_REUSE_RIGHTS_UNRESOLVED",
+      "semantic_validity": "NOT_TESTED",
+      "readme_evidence": {
+        "source": "README.md",
+        "claims": "Scraped from 1080 GitHub repositories, filtered duplicates and nonparsing files. README source-repository count line uses -1, so per-file provenance cannot be inferred from that count.",
+        "notice_scope": "README describes collection, not a blanket reuse license.",
+        "nested_notice_summaries": [
+          {
+            "relative_path": "2021-05-25-13-24-28-jackson/README.md",
+            "observation": "Attributes models to Software Abstractions book and an upstream model-index URL; no explicit reuse license in this notice."
+          },
+          {
+            "relative_path": "2021-05-06-10-28-11-watform/README.md",
+            "observation": "Attributes models to WatForm members, including generated models; no explicit reuse license in this notice."
+          }
+        ]
+      },
+      "consistency_note": "Inventory is a live read-only observation, not an atomic filesystem snapshot. Files were not locked; full importer must resnapshot and verify identities before use.",
+      "alloy_size_admission_metadata": {
+        "source_byte_limit_in_existing_contract": 262144,
+        "above_limit_file_count": 18,
+        "empty_file_count": 0,
+        "max_bytes": 46376236,
+        "meaning": "Size counts only; no parser/import admission attempted."
+      }
+    },
+    {
+      "id": "acgn_classified",
+      "root": "/home/augustus/ACGN/classified-data",
+      "root_is_symlink": false,
+      "resolved_root": "/home/augustus/ACGN/classified-data",
+      "regular_file_count": 66080,
+      "logical_bytes": 30141317,
+      "directories_including_root": 86,
+      "by_file_kind": [
+        {
+          "extension": ".als",
+          "count": 66080,
+          "bytes": 30141317
+        }
+      ],
+      "alloy_files": 66080,
+      "source_documented_alloy_file_count": 66080,
+      "count_difference_observed_minus_documented": 0,
+      "alloy_unique_content_count": 37893,
+      "alloy_duplicate_content_occurrences": 28187,
+      "alloy_content_multiset_sha256": "f9f4624475114191ba08ab9085670250f762bc09687f018f59dfa84574e0306e",
+      "file_bytes_min": 194,
+      "file_bytes_max": 1174,
+      "max_relative_path_components": 3,
+      "top_level_entry_count": 17,
+      "hidden_path_entries": 0,
+      "hardlinked_regular_file_count": 0,
+      "path_character_counts": {},
+      "symlinks": [],
+      "special_files": [],
+      "walk_errors": [],
+      "notice_candidates": [],
+      "standalone_license_named_file_count": 0,
+      "root_file_metadata": [],
+      "lexical_sample_metadata": [
+        {
+          "sample_ordinal": 1,
+          "content_sha256": "6f9a1a5091e91496d907022fdd17f8fc5e43b2eda5068644b9899622f28c407f",
+          "bytes": 452,
+          "line_count": 28,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 0,
+            "sig": 5,
+            "fact": 0,
+            "pred": 4,
+            "fun": 0,
+            "assert": 0,
+            "run": 2,
+            "check": 1
+          },
+          "has_comment_markers": false,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        },
+        {
+          "sample_ordinal": 2,
+          "content_sha256": "921c2c6286401a2d4ec718d80e4f8bbf3a191501a80438f670bfd527ac2c2ae6",
+          "bytes": 441,
+          "line_count": 29,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 0,
+            "sig": 5,
+            "fact": 0,
+            "pred": 4,
+            "fun": 0,
+            "assert": 0,
+            "run": 2,
+            "check": 1
+          },
+          "has_comment_markers": false,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        },
+        {
+          "sample_ordinal": 3,
+          "content_sha256": "66bd3877d291063b99d6fc68a9dceff59731b643a85f59219cd6a94cfc333ed7",
+          "bytes": 502,
+          "line_count": 28,
+          "valid_utf8": true,
+          "contains_nul": false,
+          "lexical_keyword_counts": {
+            "module": 0,
+            "open": 0,
+            "sig": 5,
+            "fact": 0,
+            "pred": 4,
+            "fun": 0,
+            "assert": 0,
+            "run": 2,
+            "check": 1
+          },
+          "has_comment_markers": false,
+          "contains_email_like_text": false,
+          "contains_url_like_text": false,
+          "contents_exported": false
+        }
+      ],
+      "rights_status": "LOCAL_DEVELOPMENT_AUTHORIZED; THIRD_PARTY_REUSE_RIGHTS_UNRESOLVED",
+      "semantic_validity": "NOT_TESTED",
+      "readme_evidence": {
+        "source": "/home/augustus/ACGN/README.md and /home/augustus/Live_Programming/research/formalise2027/LICENSE-NOTICE.md",
+        "claims": "ACGN describes classified student/oracle corpus; research bundle cautions that corpus/history rights must be separately established. ACGN root MIT is application/source evidence, not blanket dataset clearance."
+      },
+      "consistency_note": "Inventory is a live read-only observation, not an atomic filesystem snapshot. Files were not locked; full importer must resnapshot and verify identities before use.",
+      "alloy_size_admission_metadata": {
+        "source_byte_limit_in_existing_contract": 262144,
+        "above_limit_file_count": 0,
+        "empty_file_count": 0,
+        "max_bytes": 1174,
+        "meaning": "Size counts only; no parser/import admission attempted."
+      }
+    }
+  ],
+  "cross_dataset_overlap": [
+    {
+      "left": "alloy6_local",
+      "right": "alloy5_local",
+      "identical_alloy_content_hashes": 2491,
+      "interpretation": "Exact byte overlap only; distinct hashes do not imply independent authorship or semantic independence."
+    },
+    {
+      "left": "alloy6_local",
+      "right": "acgn_classified",
+      "identical_alloy_content_hashes": 35102,
+      "interpretation": "Exact byte overlap only; distinct hashes do not imply independent authorship or semantic independence."
+    },
+    {
+      "left": "alloy5_local",
+      "right": "acgn_classified",
+      "identical_alloy_content_hashes": 0,
+      "interpretation": "Exact byte overlap only; distinct hashes do not imply independent authorship or semantic independence."
+    }
+  ],
+  "privacy_and_rights_gates": [
+    "Keep original roots read-only and outside repository/package/test fixture artifacts; no automatic copy of source into git, reports or telemetry.",
+    "Future local imports must allowlist a root, reject symbolic links/escapes and recheck canonical containment at open time; this scan finding no links is not a future security guarantee.",
+    "User-authorized local development does not grant third-party redistribution, publication, training or remote embedding rights. Default-deny those purposes until separately evidenced and authorized.",
+    "Backend symbol slots are pseudonymization of identifiers, not anonymity of models; comments, filenames, literals, imports, structure and UI name maps can still identify authors or organizations. Keep maps local and separately access-controlled.",
+    "Do not infer Alloy version, parse success, correctness, SAT status or oracle validity from directory names, file extensions or historical labels. Pin actual parser and exact query context during later admission.",
+    "Record source content identity and parser outcomes per admitted local artifact without exporting model contents; independently authored examples should be used for distributable fixtures.",
+    "Group exact duplicates and provenance-related revisions before any evaluation split; byte-distinct or filename-distinct rows do not establish independent samples.",
+    "Dataset-specific purpose grants and derivative restrictions must cover models, witnesses, embeddings and exports. Revocation and deletion must propagate to derived records."
+  ]
+}

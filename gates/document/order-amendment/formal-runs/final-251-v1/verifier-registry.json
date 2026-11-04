@@ -1,0 +1,19 @@
+{
+  "id": "V-LEAN-EXACT",
+  "sha256": "fb8e86cd73cc12bcab4e4ef6320296bfaa50e8eee520a301b116fb9cc91950b0",
+  "helper_sha256": "4a2072a32925ab13ff549c441f3c764074a58166276311dbbbb45d7d8839ddcb",
+  "claim_classes": [
+    "proof_compilation"
+  ],
+  "exit_codes": {
+    "pass": 0,
+    "block": 1,
+    "infrastructure_failure": 2
+  },
+  "nondeterministic_fields": [
+    "timestamp",
+    "temporary paths",
+    "build duration"
+  ],
+  "predicate": "all exact statements, allowed axiom reports and artifacts agree in two isolated builds with unchanged input root"
+}

@@ -1,0 +1,29 @@
+{
+  "unit": "allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+  "description": "allow-warm-infrastructure:592e455978ab4d82b0d28967d26b04d7",
+  "argv": [
+    "/usr/bin/systemd-run",
+    "--user",
+    "--scope",
+    "--quiet",
+    "--unit=allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+    "--description=allow-warm-infrastructure:592e455978ab4d82b0d28967d26b04d7",
+    "--property=Delegate=yes",
+    "--property=CPUQuota=100%",
+    "--property=MemoryMax=268435456",
+    "--property=MemorySwapMax=0",
+    "--property=TasksMax=32",
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "/usr/bin/python3",
+    "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/delegation_probe_child.py",
+    "/home/augustus/Allow/gates/performance/warm-one-use-feasibility-20261104/delegation-probe-r1",
+    "allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope"
+  ],
+  "child_sha256": "5b98193e0cb00994e21077166a6580e5b785d76f26fb3ad8dd4e6bc060fc5986",
+  "driver_sha256": "5b9ac9d610d3a3985d625546cfdbdf02700067f20f00f719ac7837cc53d1e4d8",
+  "scope": "One new private infrastructure scope; no Allow/JVM/model/shared services; bounded30s outer deadline."
+}

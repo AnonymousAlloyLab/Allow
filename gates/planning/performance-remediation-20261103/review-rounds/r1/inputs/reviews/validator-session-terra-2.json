@@ -1,0 +1,39 @@
+{
+  "reviewer": "terra-2",
+  "decision": "REQUEST_CHANGES",
+  "input_root_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "input_hashes": {
+    "/home/augustus/Allow/gates/document/validator-session-candidate/ValidatorSession.lean": "42c49d2cb8c65f31642f2112389047243d9fd4747d58f696c34687c93f61a271",
+    "/home/augustus/Allow/gates/document/validator-session-candidate/claims.json": "3d531f7fdc4031087ba3dff884468d2342c77b3b78647f9cbadb0541faad5952",
+    "/home/augustus/Allow/gates/document/validator-session-candidate/contract.json": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d",
+    "/home/augustus/Allow/gates/document/validator-session-candidate/development-check.json": "b76b0a35e4ec03519564096c9a9f34e968a4307ec01acdbfb460b1dfdd38dbf2",
+    "/home/augustus/Allow/gates/document/validator-session-candidate/runtime-test-plan.json": "eab89c16afbe713648a3b5971da47bedae996031e9d4ced3ff0f945baedb60b0",
+    "/home/augustus/Allow/gates/document/validator-session-candidate/source-evidence.json": "79cd993e64d1275c435ee39455408bd47391e534d9dd4710732f8833aada87a1"
+  },
+  "scope": "Independent design review; not implementation authorization, performance acceptance, or model closure.",
+  "findings": [
+    {
+      "id": "VST2-01",
+      "severity": "high",
+      "location": "contract.json isolation_and_reset and blocking_obligations VS-U02",
+      "problem": "Fresh child loaders isolate loader-owned statics but not JVM-wide state, JDK registries, native state or threads. The actual transitive Alloy/Jackson code, platform delegation and retained globals have not been audited; a reset acknowledgement and finite differential cases cannot establish equivalence to process exit. The proposal correctly labels this unresolved, but cannot yet support an implementation-ready isolation contract.",
+      "required_fix": "Complete the concrete loaded-class/global-registration and native-state audit, specify externally observable cleanup and failure criteria, and revise the design with bounded fresh-worker differential tests. If the invariant cannot be established, retain one-shot workers."
+    },
+    {
+      "id": "VST2-02",
+      "severity": "high",
+      "location": "contract.json immutable_image and blocking_obligations VS-U03/VS-U04",
+      "problem": "Sealed image transport into bubblewrap, deterministic logical BuildIdentity reconstruction, bootstrap classpath correspondence, aggregate process lineage and live-slot ownership remain unspecified or unverified. These are essential to preserve immutable loading, current-build mutation denial and safe recovery, not merely postimplementation performance details.",
+      "required_fix": "Freeze an executable descriptor/mount/bootstrap and manifest plan with explicit lineage/ledger transitions and failure cleanup; demonstrate feasibility in isolation under inherited limits and submit revised hashes for council review before production implementation."
+    },
+    {
+      "id": "VST2-03",
+      "severity": "medium",
+      "location": "contract.json observed_basis and VS-U01",
+      "problem": "The current HTTP p95 fails the target and measured worker and persistence components identify opportunities, but fresh-loader, image, retirement and full fenced-session costs are not established. The selected complexity may not deliver the required improvement.",
+      "required_fix": "Profile the precise current stages and the candidate overhead without changing workload or omitting retirement; retain failures. Independently evaluate a combined scoped read plus owned-ID bridge as a separately reviewed lower-risk option that preserves fresh-process isolation."
+    }
+  ],
+  "formal_and_commercial": "The 22 candidate propositions are abstract and unregistered; fresh-worker observational equivalence is an explicit premise. Existing 287 claims, a model build or finite differential evidence alone do not prove runtime correspondence or authorize deployment. Performance gains would not close separate accessibility, rights, security, support or commercialization obligations.",
+  "alternative": "First investigate a single scoped persistence bridge operation that returns the exact authorized base and complete owned-ID inventory in one transaction while preserving current fresh worker, SQL parser path, history, failure behavior and per-request authorization. Give it its own frozen contract and measure end-to-end before selecting it; do not infer a pass from component sums."
+}

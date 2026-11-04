@@ -1,0 +1,75 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Real controlled-child transport and actual private response-decoder component tests. No production edits, delegated cgroup proof, SQL/context authority, full pool route, registered runtime closure, or activation claim.",
+  "copied_root": "/tmp/allow-warm-transport-r10-jqc_uqdk",
+  "source_ready": [
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "sha256": "1603c24ef6789d860b5cfb792fa464a0867f9bbd8c43af1dbeb5b6c3de6ac73f"
+    }
+  ],
+  "suite": {
+    "name": "dev.allow.backend.WarmTransportTest",
+    "tests": "15",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  "new_test_methods": [
+    "rejectsValidResponseFromNonzeroExit",
+    "rejectsWrongPrivateResponseNonce",
+    "rejectsIdleStderrBeyondLifetimeLimit"
+  ],
+  "assertions": [
+    "Valid closed protocol-1 VALIDATED frame is accepted by the actual decoder as a positive control, but actual child exit 17 prevents transport success.",
+    "A real child exits zero with a complete wrong-nonce frame; captured bytes match exactly, the decoder accepts its own nonce, and rejects the admitted different nonce. Reflection observes the real private decoder without granting context/pool authority.",
+    "After actual awaitReady completion, a public temporary marker triggers 32769 idle stderr bytes before any private handoff; the lifetime bound fails sticky and subsequent exchange is denied.",
+    "Every controlled fixture retains and reaps its exact child, closes transport, verifies task executor termination and absence of its observed pipe identities."
+  ],
+  "command": [
+    "/home/augustus/Allow/.tools/apache-maven-3.9.11/bin/mvn",
+    "-o",
+    "org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test",
+    "-Dtest=WarmTransportTest"
+  ],
+  "style": "PASS; Checkstyle callable documentation and <=30-line cap; no Java lambdas",
+  "evidence": [
+    {
+      "path": "/tmp/allow-warm-transport-r10-jqc_uqdk/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-transport-r10-jqc_uqdk/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-transport-r10-jqc_uqdk/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    },
+    {
+      "path": "/tmp/allow-warm-transport-r10-jqc_uqdk/focused-tests.log",
+      "sha256": "23e047c7d97b7cbd3c14de3696e6a4196b9b7430c7cf879e7e65ffea879439f0"
+    },
+    {
+      "path": "/tmp/allow-warm-transport-r10-jqc_uqdk/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "sha256": "4650ce2195a68b99db8f154c2e57f5478f852405af6063b518b0c48cf03af495"
+    }
+  ],
+  "test_method_inventory": [
+    "permitsExactStdoutCaptureLimit",
+    "interruptionPreventsPrivateHandoff",
+    "rejectsMalformedPrivateResponses",
+    "boundsStartupAndBlockedInput",
+    "rejectsPrematureExit",
+    "interruptionCancelsBlockedExchange",
+    "rejectsLateIdleOutput",
+    "exactReadyAndSingleResponse",
+    "enforcesWholeLifetimeStderrCap",
+    "rejectsWrongPrivateResponseNonce",
+    "rejectsIdleStderrBeyondLifetimeLimit",
+    "rejectsMalformedStartupAndSameChunkIdleBytes",
+    "rejectsEmptyAndExclusiveInputLimit",
+    "closeFailureStillJoinsEveryTransportTask",
+    "rejectsValidResponseFromNonzeroExit"
+  ]
+}

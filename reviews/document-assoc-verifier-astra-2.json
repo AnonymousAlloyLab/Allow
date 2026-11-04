@@ -1,0 +1,26 @@
+{
+  "reviewer": "assoc-astra-2",
+  "decision": "APPROVE_VERIFIER_FOR_COMPLETED_RUN",
+  "verifier_sha256": "1688b1d4ff5623ed36dec4b98d0e226ab1059ad48d88fa13a4eb5b55b46bd65f",
+  "closure_id": "allow-document-associativity-final-267-v1",
+  "input_root_hash": "ef645e3da89e277d5d1b1036614e89739492bcad13e18dbb6d0070da10e0d14f",
+  "observed_run_status": "VERIFIED",
+  "blockers": [],
+  "scope": "Read-only finite audit of verifier implementation and completed retained run; no production or commercial correctness approval.",
+  "checks": [
+    "Counts are 112 inherited + 125 document + 14 field-order + 16 associativity = 267. Prior registries and new source/inventory inputs have explicit pins; new declaration names exactly cover their inventories.",
+    "Two fresh temporary formal trees are copied from the preserved input snapshot, with the candidate explicitly installed as Allow/Associativity.lean and its import appended. No workspace .lake artifacts are copied. Both builds report 15 identical compiled artifact digests, including Associativity.",
+    "Document, field-order and associativity checks require exact pretty-printed registered types. The 112 inherited propositions use kernel-checked examples against the registered statements, preserving proposition inhabitance rather than claiming textual theorem-signature identity. Every theorem receives a strict allowed-axiom audit.",
+    "Independently recomputed the canonical manifest root and checked every retained snapshot/generated input against the manifest: no mismatches. Checked all 267 unique claim/evidence/provenance IDs for complete matching coverage, evidence root/verifier binding, all evidence log paths, and every retained audit log digest.",
+    "Both builds have identical audit digests and artifact inventories. Provenance is deterministically generated one-to-one from the frozen claims; implementation correspondence is explicitly zero and excluded.",
+    "Assertion-based claim/type/axiom/build/determinism/input failures block. Process timeout and unavailable tooling raise infrastructure failures. No override promotes failed checks.",
+    "Formal/source inventory mutations are checked at completion. Accepted result remains explicitly limited to the frozen abstract model and trusted Lean/OS/verifier surface."
+  ],
+  "nonblocking_limitations": [
+    "The verifier does not itself rehash its copied input snapshot before/after compilation. This audit independently checked all retained copies against the frozen manifest for this completed run. Add snapshot hash checks for future verifier runs to close the avoidable copy-time mutation gap; this approval is not a claim of universal mutation-race resistance.",
+    "Compiled artifacts are hashed during each clean build and then temporary directories are removed. Their equality relies on the registered verifier and retained report; this audit checks recorded equality and actual audit logs, not reexecution of builds.",
+    "The report records provenance in its companion file rather than explicit report provenance counts. This audit mechanically checked 267 complete matching bindings.",
+    "Actual Xss512k runtime, parser/IR correspondence, weighted-subtree bounds, maps/comments/history and latency evidence remain required after any implementation. Model closure does not discharge them."
+  ],
+  "production_files_modified": false
+}

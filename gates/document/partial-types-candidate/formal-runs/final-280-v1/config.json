@@ -1,0 +1,11 @@
+{
+  "required_clean_builds": 2,
+  "determinism": true,
+  "manual_override": false,
+  "transformation": "Copy pinned candidate to Allow/PartialTypes.lean and append its import in fresh build only",
+  "nondeterministic": [
+    "timestamp",
+    "temporary paths",
+    "build duration"
+  ]
+}

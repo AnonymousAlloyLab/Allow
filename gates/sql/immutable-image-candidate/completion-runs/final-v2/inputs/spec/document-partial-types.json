@@ -1,0 +1,265 @@
+{
+  "id": "ALLOW-DOCUMENT-PARTIAL-KNOWN-TYPES-CANDIDATE-2",
+  "status": "DRAFT_UNAPPROVED_NO_PRODUCTION_AUTHORIZATION",
+  "extends": [
+    "spec/document-ui-draft.json#block_workspace.slots",
+    "spec/document-stage-draft.json",
+    "formal/Allow/Document.lean"
+  ],
+  "bug": {
+    "evidence": "gates/document/browser-evidence/known-type-insertion-failure.txt/png",
+    "accepted": "some Person",
+    "destination": "signature_ref Person under some_test",
+    "candidate": "some(not HOLE)",
+    "failure": "unary returns null immediately on unresolved operand before fixing not result to formula; outer some_test sees null; newContradiction compares diagnostic sets and admits candidate despite known sort mismatch. Save being disabled does not satisfy rejection contract."
+  },
+  "normative": [
+    "Every non-hole constructor has a known result sort independent of child completion and independently of operand validity. Invalid declaration/scope produces diagnostics; it must not erase structural sort facts.",
+    "Keep completion, known sort, partial/exact schema facts, destination constraints and diagnostics distinct. Never represent every incomplete expression with a single null type.",
+    "Every child edge and declaration root contributes structured destination constraints. Explicit hole.expected conjoins with edge constraints; it cannot override them. A hole remains incomplete even when constrained exactly.",
+    "Check formula/relation contradictions before exact schema is available. Check all independently known operand contradictions even when another operand is unresolved.",
+    "Retain ordered nominal identity equality, width 1..8, transpose input width 2, join endpoints and nonempty output, product concatenation and width. Known width/endpoint facts may reject even when other nominal columns are unresolved. Never choose a nominal schema to fill missing knowledge.",
+    "Resolve equal-schema constraints from either sibling or a required result schema. Propagate only logically entailed constraints to fixed point within existing 512-node/depth32 limits; do not enumerate or guess missing signature columns. Retain unresolved relational equations and bounds for later edits.",
+    "Shared draft analysis supplies diagnostics, partial result facts and structured destination constraints; display labels are derived from this analysis and never serve as enforcement.",
+    "Every candidate insertion, wrapping, keyboard/pointer palette, copy, cut/paste and drag move uses this shared analysis before state mutation. New known contradiction rejects atomically with original module, selection, provenance, clipboard and accepted artifact unchanged except existing rejection notice behavior.",
+    "Continue rejecting new out-of-scope references, unknown declarations, ownership/cycles, descendants, stale payloads, invalid names, dependency cycles and existing bound violations. Preserve existing prior-invalid-draft policy; new diagnostics must not be hidden by incomplete children.",
+    "Complete candidate inferred types and server acceptance behavior are unchanged. Server independently rechecks; no new supported syntax, operator, arity or nominal coercion is introduced.",
+    "Enforcement MUST NOT use the capped 64-item display diagnostics. Maintain a complete private set of structured violations for the analyzed bounded forest, separate from the existing public Diagnostic wire/display projection. If that set cannot be completed within explicit bounds, return resource failure and reject the edit; truncation never means compatible.",
+    "Identify each violation by canonical exact values: constrained owning occurrence/root identity, child edge role or argument position, rule/constraint kind, relevant declaration/binder identities, and normalized expected/actual facts. Text is explanatory only. Independent left/right violations and changed incompatible schemas must have different keys. Unchanged prior errors keep their keys; cloned occurrences create fresh keys; moved internal unchanged edges retain keys but new destination violations have the destination edge key. Never let an arbitrary provenance mapping excuse a new violation.",
+    "Compare the complete before/after structured enforcement sets only after both analyses complete. Admit a prior-invalid draft operation only when no new structured violation exists. If before or after analysis is incomplete/exhausted, reject guarded operation with explicit resource/invalid-analysis notice; do not fall back to display messages, null types, or partial facts.",
+    "Before removing a destination hole, capture its independent explicit expected constraint and all retained destination obligations. Conjoin these with parent/root constraints during replacement and retain unresolved obligations in a draft-only constraint sidecar keyed to the owning slot/root occurrence, remapped atomically with replacement IDs. They survive subsequent filling, copies/moves of their owning constrained subtree, undo/redo and repeated replacement until the slot itself is removed or an explicit authorized constraint edit changes it. Constraint-sidecar state participates in immutable transaction and state comparisons. Do not copy the replaced concrete expression inferred type into a destination constraint; replacing unconstrained Person under some_test with another signature remains allowed.",
+    "Drag dropNode must snapshot state and focus before its first action. Prepare candidate source extraction/clone, clipboard, destination obligations and provenance without select/copy/publish calls. Validate the entire prepared operation, then publish exactly one successful content transition and schedule focus once. On rejection publish only the notice against the pre-gesture snapshot; preserve original selection, clipboard, copies, epoch, generation, draft identity, accepted state, constraint sidecar, undo/redo and active focus. No stale callbacks may later focus a rejected candidate.",
+    "Establish bounded ownership/scope and reject cycles/shared children before schema propagation. Allocate a fixed set of schema variables and canonical equation IDs from the validated graph, edge roles, widths0..8 and at most8 column positions. Propagation may refine facts or activate a pre-existing equation, but must not recursively invent fresh symbolic terms, variables, obligations or display strings. Canonically deduplicate facts/equations and enqueue only changed facts; no enumeration of nominal schema assignments.",
+    "The analysis has explicit versioned counters: at most4096 column-position variables,32768 canonical equations,65536 structured violations,262144 worklist pops and262144 successful fact refinements per whole-module analysis. Arity domains are finite subsets of1..8, nominal domains finite declared IDs or unresolved; domain intersections only shrink. Any graph/allocation/counter bound reached before a completed fixed point yields ANALYSIS_RESOURCE_LIMIT and atomic rejection, never an incomplete compatible result. Deterministic scheduling and resource classification must be independent of declaration/node order for equivalent valid forests; test hooks may lower budgets to force exhaustion without huge fixtures."
+  ],
+  "operator_profile": [
+    {
+      "tag": "signature_ref",
+      "result_sort": "relation",
+      "input_constraints": [],
+      "refinement": "Resolve declaration or lexical binder; exact declared ordered schema; unresolved identity is diagnostic, never a new type."
+    },
+    {
+      "tag": "field_ref",
+      "result_sort": "relation",
+      "input_constraints": [],
+      "refinement": "Resolve declaration or lexical binder; exact declared ordered schema; unresolved identity is diagnostic, never a new type."
+    },
+    {
+      "tag": "variable_ref",
+      "result_sort": "relation",
+      "input_constraints": [],
+      "refinement": "Resolve declaration or lexical binder; exact declared ordered schema; unresolved identity is diagnostic, never a new type."
+    },
+    {
+      "tag": "predicate_call",
+      "result_sort": "formula",
+      "input_constraints": [
+        "parameter_schema*"
+      ],
+      "refinement": "Exact declared argument count and ordered nominal parameter schemas; unknown predicate is diagnostic."
+    },
+    {
+      "tag": "not",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula"
+      ],
+      "refinement": "Result formula survives unresolved operand."
+    },
+    {
+      "tag": "some_test",
+      "result_sort": "formula",
+      "input_constraints": [
+        "relation"
+      ],
+      "refinement": "Operand schema nonempty, declared, width 1..8; result formula survives unresolved operand."
+    },
+    {
+      "tag": "no_test",
+      "result_sort": "formula",
+      "input_constraints": [
+        "relation"
+      ],
+      "refinement": "Operand schema nonempty, declared, width 1..8; result formula survives unresolved operand."
+    },
+    {
+      "tag": "one_test",
+      "result_sort": "formula",
+      "input_constraints": [
+        "relation"
+      ],
+      "refinement": "Operand schema nonempty, declared, width 1..8; result formula survives unresolved operand."
+    },
+    {
+      "tag": "lone_test",
+      "result_sort": "formula",
+      "input_constraints": [
+        "relation"
+      ],
+      "refinement": "Operand schema nonempty, declared, width 1..8; result formula survives unresolved operand."
+    },
+    {
+      "tag": "transpose",
+      "result_sort": "relation",
+      "input_constraints": [
+        "relation"
+      ],
+      "refinement": "Input exactly width 2; output reverse ordered columns, width 2 even when names unresolved."
+    },
+    {
+      "tag": "and",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula",
+        "formula"
+      ],
+      "refinement": "Each operand checked independently, including when sibling unresolved."
+    },
+    {
+      "tag": "or",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula",
+        "formula"
+      ],
+      "refinement": "Each operand checked independently, including when sibling unresolved."
+    },
+    {
+      "tag": "implies",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula",
+        "formula"
+      ],
+      "refinement": "Each operand checked independently, including when sibling unresolved."
+    },
+    {
+      "tag": "iff",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula",
+        "formula"
+      ],
+      "refinement": "Each operand checked independently, including when sibling unresolved."
+    },
+    {
+      "tag": "equal",
+      "result_sort": "formula",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Operands require identical ordered nominal schema; result formula survives either unresolved operand."
+    },
+    {
+      "tag": "subset",
+      "result_sort": "formula",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Operands require identical ordered nominal schema; result formula survives either unresolved operand."
+    },
+    {
+      "tag": "union",
+      "result_sort": "relation",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Operands and result share identical ordered nominal schema; resolved sibling/result refines both unknown operands."
+    },
+    {
+      "tag": "intersection",
+      "result_sort": "relation",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Operands and result share identical ordered nominal schema; resolved sibling/result refines both unknown operands."
+    },
+    {
+      "tag": "difference",
+      "result_sort": "relation",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Operands and result share identical ordered nominal schema; resolved sibling/result refines both unknown operands."
+    },
+    {
+      "tag": "join",
+      "result_sort": "relation",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Left last equals right first; output left prefix ++ right suffix; each input nonempty width<=8; output nonempty width<=8."
+    },
+    {
+      "tag": "product",
+      "result_sort": "relation",
+      "input_constraints": [
+        "relation",
+        "relation"
+      ],
+      "refinement": "Output left ++ right; each input nonempty width<=8; output nonempty width<=8."
+    },
+    {
+      "tag": "all_quant",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula"
+      ],
+      "refinement": "Body formula under one fresh lexical binder of exact unary nominal signature; unknown signature diagnostic."
+    },
+    {
+      "tag": "some_quant",
+      "result_sort": "formula",
+      "input_constraints": [
+        "formula"
+      ],
+      "refinement": "Body formula under one fresh lexical binder of exact unary nominal signature; unknown signature diagnostic."
+    }
+  ],
+  "partial_fact_design": {
+    "result": "unknown only for a hole/missing node; formula; relation with partial schema facts",
+    "schema": "Optional exact ordered columns, known width or width interval, known prefix/suffix/endpoints where entailed, plus pending equality/concat/join/transpose constraints. Facts monotonically refine; contradictory facts produce diagnostics. Do not put fake guessed schema into existing Check.types.",
+    "destination": "Formula or relation sort; optional exact schema/width; relational equations and explicit hole constraint conjunction. Roots formula; references exact only after authorized declaration/lexical resolution.",
+    "minimal_implementation": "Add one shared structured partial analysis to Checker (or factored helpers), retaining existing exact Check.types projection and complete flag; no unresolved relation placeholders or fabricated columns. Return complete private structured enforcement violations separately from public capped diagnostics, plus canonical partial facts and destination obligations. Replace message-based newContradiction with exact violation-set difference. Capture and retain independent hole/destination obligations in immutable draft-only sidecar across candidate transactions; do not alter public wire API. Factor dropNode into pure prepare/shared validate/single apply before publication. Use small documented <=30-line JS/TS functions. Full shared46-case Java/TypeScript complete-checker agreement must pass unchanged.",
+    "enforcement": "Complete private violation set with exact canonical tuples; capped Diagnostic[] remains a presentation/transport adapter only. Same-parent opposite operand and expected/actual schema changes are separate. Any analysis cap or malformed graph that prevents complete enforcement rejects guarded candidate.",
+    "constraint_lifetime": "A pre-replacement hole.expected remains an explicit slot obligation after its hole disappears; private immutable sidecar is transaction state, including copy/move remapping and undo/redo. Parent-owned obligations remain at destination; obligations owned inside source subtree travel with that subtree. Ordinary concrete inferred types never become persistent slot constraints. No wire schema change."
+  },
+  "lean": {
+    "file": "gates/document/partial-types-candidate/PartialTypes.lean",
+    "namespace": "Allow.DocumentPartialTypes",
+    "proved_surface": "Abstract result-sort profile, opposite-sort rejection including holes, exact nominal mismatch, unresolved schema compatibility, conjunctive constraints preserving rejection, concrete product overflow/join endpoint/transpose width rejection.",
+    "limitations": [
+      "No Lean-to-TS runtime correspondence.",
+      "No executable partial solver completeness/soundness proof.",
+      "No proof of propagation implementation, scope/identity adapters, ownership, UI atomicity, persistence, browser behavior or timing.",
+      "Existing Document.Typed theorem registry remains unchanged; these propositions do not extend existing closure status.",
+      "No proof of structured violation collection/identity, capped diagnostic separation, sidecar lifetime or bounded algorithm termination. These new requirements are runtime obligations covered by planned tests, not by the 13 abstract propositions."
+    ],
+    "trust": [
+      "Lean 4.34.1 kernel and Std/toolchain",
+      "Abstract schema identities model exact nominal declaration identities",
+      "Trusted future mapping from runtime tag/schema/constraints to this abstract denotation must be checked separately"
+    ]
+  },
+  "preimplementation_gate": "Freeze exact supplement, Lean proposition inventory, test plan and hashes; obtain six independent approvals (two Terra, two Sol, two Astra), then two isolated clean Lean builds against the same bytes. Author is not a council voter. Preserve previous frozen model registry. Implementation starts only after parent/user gate permits it; runtime correspondence and tests remain separate obligations.",
+  "nonclaims": [
+    "No production changes",
+    "No gate pass or VERIFIED claim",
+    "No browser fix claim",
+    "No benchmark/performance claim"
+  ],
+  "review_resolution": {
+    "T1-01": "Complete stable structured violation keys replace nodeId:message comparison.",
+    "T1-02": "Fixed canonical fact/equation domain, monotone finite domains, explicit counters and fail-closed exhaustion.",
+    "PTS1-01": "dropNode prepare/validate/single apply snapshots before gesture, no select/copy publication before validation.",
+    "PTA1-01": "Complete bounded enforcement set separate from capped64 public diagnostics; exhaustion rejects.",
+    "PTA1-02": "Capture hole constraints before replacement and persist unresolved obligations in draft-only immutable sidecar."
+  }
+}

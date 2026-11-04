@@ -1,0 +1,323 @@
+{
+  "id": "ALLOW-RETRIEVAL-STAGE-0.1",
+  "revision": 4,
+  "date": "2026-11-03",
+  "extends": [
+    "spec/allow-contract.json",
+    "spec/implementation-g1.json",
+    "spec/egraph-stage.json"
+  ],
+  "precedence": "This supplement authorizes local corpus ingestion and local training requested by the user, superseding the earlier stages' no-ingestion and no-training defaults. Existing behavior and evidence remain separately versioned.",
+  "authorization": {
+    "local_dataset_analysis_store_embed_train_retrieve": true,
+    "public_model_downloads_for_local_inference": true,
+    "remote_corpus_or_embedding_requests": false,
+    "distribution_or_commercial_clearance": false,
+    "generation_or_external_messages": false
+  },
+  "sequence": [
+    "Preserve previous implementation evidence and source hashes",
+    "Supplement JSON and Lean, resolve six requested council reviews, and verify exact propositions in two clean builds",
+    "Implement isolated complete predicate pools, anonymous record projection and database transactions",
+    "Ingest bounded representative real models from each supplied dataset with explicit rejection reasons",
+    "Download a pinned pretrained encoder, train an explicit local adapter, and publish only eligible 3072-dimensional records",
+    "Run held-out retrieval comparisons, two GPT-6 Luna adversarial evaluations, LangGraph integration, recovery and UI checks",
+    "Record every original gate as fulfilled or with its concrete unmet obligation; never infer commercial clearance from tests"
+  ],
+  "record": {
+    "hierarchy": [
+      "model_environment_context",
+      "predicate_canonical_egraph_representation",
+      "positive_example_pool",
+      "negative_counterexample_pool"
+    ],
+    "anonymous_boundary": "Only closed structural tags, anonymous declaration/binder/instance slots, semantic integer literals, typed relations and their tuples enter the four hierarchy components. Human names, original source, comments, paths, dataset labels, provenance hashes and rights metadata remain separate. No source-text fallback.",
+    "environment": "Exact anonymous declarations, facts, all other function bodies, target declaration and parameter structure, fixed solver bounds/options, canonical profile and toolchain identity. Replace only the selected predicate body with a structural target marker and exclude unrelated selected run/check formula. Preserve dependencies conservatively; lack of a proof of context equivalence means no pool-overlap credit. If reachable facts or another retained function transitively invokes the selected target, the exact original target body remains part of the comparison context as an additional dependency token, preventing unsound overlap across changed effective facts.",
+    "predicate": "Exact anonymous target root, captured structural body and checked e-graph extracted term, fixed atom inventory, ruleset version, proof identity and termination reason. Budget-limited extraction is explicitly a checked representative, never a complete semantic normal form. Different extracted terms imply no inequivalence. Admission requires certificateStatus CHECKED for the exact selected function-body occurrence, replayed against the trusted capture input, context, inventory and pinned rule catalog. Missing, failed or unrelated certificates reject the record. Source command traversal must not reset the target binder slots.",
+    "provenance": "Separate local-only immutable source-byte hash, root identifier, dataset origin/family, source-relative locator, parser and solver/build identity, request and query identities, bounds, schema, canonical profile, rights purposes/version, content/version hashes and timestamps. No path or source hash is an encoder input.",
+    "identity": "Digest lookup is followed by exact canonical content/context comparison. Record content identity binds all four hierarchy components, witness membership and polarity, statuses, profile and bounds. Embedding identity additionally binds exact pretrained weight/tokenizer bytes, trained adapter and normalization/chunking recipe. Atomic records cannot combine new code with old pools."
+  },
+  "pools": {
+    "N": {
+      "minimum": 3,
+      "maximum": 5,
+      "default": 3,
+      "meaning": "Distinct complete examples per polarity, hence 2N witnesses for a fully populated record"
+    },
+    "target": "Select an explicit parser-resolved nullary predicate by structural function slot. Never reuse the first run/check command as the target formula. Parameterized predicates require an explicit future binding/quantification policy and are rejected by this initial admission slice.",
+    "positive_query": "All reachable facts F AND the selected predicate P under the fixed declaration environment and exact same bounds/options as the negative query.",
+    "negative_query": "F AND NOT P. Negating F AND P is forbidden. Negative examples are satisfying structures for this query, not solver failures or arbitrary mutations.",
+    "bounds": {
+      "overall_scope": 3,
+      "bitwidth": 4,
+      "max_sequence": 3,
+      "no_overflow": true,
+      "temporal": false
+    },
+    "source_slice": "Initially static, self-contained modules accepted by the existing anonymous profile, with no source imports, recursive functions, string atoms or unsupported signature/declaration attributes. Unsupported production predicates remain explicit rejected records, not silently translated. Preserve exact input bytes privately for reproducible local reruns.",
+    "enumeration": "Use SAT4J incremental next solutions for each polarity, independently preserving SAT existence and enumeration termination. Stop at N distinct canonical full instances, exhaustion or registered budget. CAP_REACHED means requested N collected, not exhaustive enumeration. Exhausted, timeout, cancelled, invalid or resource-limited pools never fabricate witnesses. Record existence SAT/UNSAT/UNKNOWN separately from enumeration CAP_REACHED/EXHAUSTED/TIMEOUT/CANCELLED/ERROR/LIMIT. Preserve already validated members on later failure without labeling enumeration complete.",
+    "validation": "Before admission, independently evaluate reachable facts and P in the returned solution and require the expected Boolean truth value; check static trace, full signatures/fields and typed tuple memberships. Solver and Alloy evaluator/translator remain trusted; this is not an independent SAT proof. An omitted or truncated full witness is ineligible even if a display preview is available. Run in a dedicated isolated subprocess with a private mount-namespace /tmp, bounded strict input/output framing and exact identity checks. Evaluate in the exact original parsed world, including target-dependent facts; test whether translator receives F once without dropping or negating it.",
+    "instance_identity": "Canonicalize the entire instance jointly under signature-preserving atom bijections, including all field tuples. Integer atoms retain numeric meaning. Enumerate allowed permutations within bounded signature groups and choose lexicographically least full structural serialization; cap work and reject rather than choose a name-dependent fallback. Witness hashes bind exact canonical bytes and environment/bounds; shared positives/negatives require exact bytes and context, never display labels or unrelated solver atom IDs. Include the complete static universe/signature memberships and every declared field including empty relations. Use one shared bijection across all tuples and memberships. Caps count total ordinary atoms and fully evaluated permutations; a cap failure has no canonical witness key.",
+    "ready": "FULL requires exactly N distinct validated positive witnesses and exactly N distinct validated negative witnesses, all bound to this target and their own polarity queries. Other outcomes are PARTIAL or REJECTED diagnostics. Only FULL and purpose-authorized records may receive a published retrieval vector. Finite pools do not establish equivalence or unrestricted validity.",
+    "limits": {
+      "source_bytes": 262144,
+      "ordinary_atoms": 8,
+      "isomorphism_permutations": 100000,
+      "solutions_per_polarity": 64,
+      "pool_worker_seconds": 30,
+      "heap_mib": 512,
+      "response_bytes": 2097152,
+      "concurrent_workers": 1
+    },
+    "bounds_policy": "Ignore original run/check commands and scopes entirely. Construct one explicit static scope profile and use the identical profile object for both AST queries: overall=3, no explicit per-signature scopes, bitwidth=4, maxseq=3, noOverflow=true, expected=-1, temporal prefixes disabled. Persist effective scope profile, signature multiplicity restrictions and generated command attributes. N is unrelated to scope."
+  },
+  "embedding": {
+    "dimension": 3072,
+    "layout": {
+      "context": [
+        0,
+        768
+      ],
+      "predicate": [
+        768,
+        1536
+      ],
+      "positives": [
+        1536,
+        2304
+      ],
+      "negatives": [
+        2304,
+        3072
+      ]
+    },
+    "pretrained_candidate": "intfloat/e5-base-v2 at revision f52bf8ec8c7124536f0efb74aca902b2995e5bcd; local CPU ONNX model plus pinned tokenizer. Record exact weight/tokenizer bytes, runtime wheels and MIT model notice before inference. No remote-code execution or pickle loading; no fallback hash embedding.",
+    "encoder": "All inference executes locally. Use the model's query prefix for this symmetric task. Serialize typed structured data deterministically with explicit component and polarity markers. Bound each hierarchy component; tokenize and chunk every admitted token without silent truncation, mean-pool masks inside chunks, normalize, then aggregate chunks. Reject over-budget inputs. Pool members are independently encoded and equally aggregated so traversal/order cannot change output. Each pool has at most 32 total chunks across all members; aggregate equally over members, not tokens or chunks, after per-member chunk mean. Prefix and special tokens count toward the model 512-token limit.",
+    "learning": "Freeze pretrained backbone. Learn four positive diagonal adapters, each 768 parameters, identity initialization via exponentiated log-scale. Adam lr=0.001, weight_decay=0.0001, batch=16 pairs, epochs=20, seed=20261103, symmetric in-batch InfoNCE temperature=0.07, identity L2 regularization=0.001. Positive pairs must have distinct serializations linked by checked egraph derivations; create bounded explicit TRUE/AND or double-NOT augmentation certificates when the natural extraction is unchanged. Keep generated variants in their source family split. Nonmatching candidates are structural retrieval distractors, never asserted semantic negatives. Record exact pairs, objective, optimizer, parameters and train-only lineage. No identity/alpha-only pair counts as a nontrivial augmentation. Use final epoch checkpoint, deterministic seeded epoch shuffles, one pair per source record per minibatch, and mask known identical content/checked-equivalent duplicate targets from distractor logits. Every minibatch requires at least two nonduplicate target records or is skipped and reported. No checkpoint/hyperparameter selection using test data.",
+    "composition": "L2 normalize each nonzero finite 768-vector, apply its learned adapter and renormalize, concatenate the four blocks in the declared order and divide by 2. Result is 3072 finite float32 values with approximately unit L2 norm; enforce tolerance and reject zero/NaN/infinite vectors. Never pad, repeat, hash-expand or truncate a smaller vector to claim 3072 learned dimensions.",
+    "versions": "The v1 128-dimensional structural feature remains a separate legacy diagnostic. A new embedding model ID incorporates the pretrained revision, adapter, typed serialization, component/chunk pooling, dimension and normalization. Updating any input invalidates/requeues its derived vector; queries never mix models.",
+    "limits": {
+      "max_content_tokens_per_component": 8192,
+      "max_chunks_per_component": 32,
+      "content_tokens_per_chunk": 480,
+      "pool_members_per_polarity": 5,
+      "cpu_threads": 4
+    }
+  },
+  "retrieval": {
+    "candidate_stage": "PostgreSQL/pgvector stores full float32 vector(3072). Exact filtered candidate search is default. Optional halfvec(3072) HNSW expression index may generate candidates; rerank against full floats and actual witness data. Measure candidate recall against exact filtered search; ANN underfill never broadens authorization filters.",
+    "final_score": "score = w_d * s_canonical + w_p * shared_positive + w_c * shared_negative",
+    "canonical_component": "s_canonical = clamp((1 + cosine(Hq,Hr))/2,0,1), where H is the full 3072-dimensional hierarchical canonical-record embedding. This makes all four learned components affect exact ranking. Also return the isolated predicate-block cosine as a diagnostic. This is higher-is-better similarity; displayed distance d contributes 1-d/2, never a positive distance added to descending rank.",
+    "pool_component": "For exactly compatible environment/bounds/schema, shared_positive = |unique(Pq) intersect unique(Pr)| / max(|Pq|,|Pr|), and similarly for negative pools. Compare canonical instance bytes as well as digests. Incompatible contexts receive zero overlap and an explicit incompatibility label; no implied isomorphism across nominal environments. N normalization prevents larger configured pools from dominating by count alone.",
+    "weights": {
+      "default": [
+        0.55,
+        0.225,
+        0.225
+      ],
+      "constraints": "finite nonnegative, sum one within declared numeric tolerance",
+      "tuning": "Finite predeclared grid wD in {0.45,0.55,0.65}, wP=(1-wD)*r with r in {0.25,0.5,0.75}, wC=1-wD-wP. Optimize validation MRR@10 then lexicographically ascending weight tuple. Freeze before held-out test."
+    },
+    "authorization": "Apply tenant/project/purpose/deletion/quarantine/schema/model filters before candidate search and recheck metadata at output. Local application database role is non-superuser and non-BYPASSRLS. Exact default ranks all eligible rows within the explicit corpus bound; optional ANN returns approximate top-k labeled as such.",
+    "ties": "Descending score, then ascending immutable record content ID. Self-result exclusion is explicit. Retrieval results are untrusted candidate evidence envelopes, never solver/type/equivalence proof.",
+    "api": "Versioned authenticated Spring HTTP retrieval by an existing authorized FULL record identity. The server resolves its exact stored vector, context, pools, model and rights; client-submitted vectors, pool hashes and validation flags cannot create trusted retrieval/admission inputs. Return all score components, scope compatibility, counts/statuses, checked-representative status, model/content identities and permitted provenance. A future new-source query must first pass the same isolated admission path.",
+    "rag": "Provide a Python client and actual LangGraph retrieval-node integration test returning structured documents/envelopes. No LLM generation, external tracing or content upload is enabled. Test against the pinned installed framework rather than claiming compatibility from JSON alone."
+  },
+  "persistence": {
+    "authoritative": "PostgreSQL normalized immutable artifact/run/witness/pair rows; vectors and indexes are derived. Pair plus both pool memberships and embedding outbox are one transaction. Content-hash idempotency validates identical payload and rejects collisions.",
+    "outbox": "Claim jobs with transactional locking, bind exact record/model/version, retry idempotently, and publish vector only if record remains current and all purpose grants remain active. Failed/partial processing leaves no visible half-pair/vector.",
+    "rights": "Record user-authorized local analyze/store/embed/train/retrieve purposes separately from unresolved third-party redistribution/commercial rights. Do not infer redistribution permission or move corpus into tracked source. Tombstone/revoke removes retrieval eligibility immediately and cancels regeneration. Adapter checkpoints record every training record and purpose-grant version. Revoking training consent quarantines every affected checkpoint and ALL vectors derived from it, even vectors of otherwise active records; retraining excludes revoked lineage. Queries and outbox publication require active model lineage. Revocation tests cover model-wide invalidation and restored outbox jobs.",
+    "recovery": "Maintain a durable ordered hash-chained deletion/revocation journal outside database backups. A journaled revocation is deny-first even if DB transaction crashes. Startup/restore enters quarantine until journal continuity and replay succeed; missing/corrupt journal blocks retrieval, embedding and export. Test backups restored after deletion/revocation and outbox retries. Do not imply protection against an administrator rolling back both database and independent journal.",
+    "local_runtime": "Dedicated workspace-owned local PostgreSQL service and data directory with private permissions, authenticated loopback/Unix sockets and explicit start/stop scripts. Do not mutate unrelated system services or databases. Record exact engine/extension versions and licenses."
+  },
+  "datasets_and_evaluation": {
+    "sources": [
+      {
+        "id": "alloy4fun",
+        "root": "/home/augustus/ACGN/classified-data"
+      },
+      {
+        "id": "alloy5",
+        "root": "/home/augustus/下载/alloy5/2025-07-08-11-09-55"
+      },
+      {
+        "id": "alloy6",
+        "root": "/home/augustus/下载/allloy6/2025-07-10-15-42-08"
+      }
+    ],
+    "selection": "Deterministic bounded pilot spanning all three sources and multiple independent model families. Record files/predicates considered, accepted FULL, PARTIAL, parser/canonical/policy failures and source coverage. Collection labels do not establish production quality. No claim all 140k sources were admitted.",
+    "split": "Assign whole family components before fitting. Union provenance family aliases, identical source hashes and identical anonymous module/predicate records across roots so duplicates cannot cross train/validation/test. Keep records and all their synthetic variants/pool-derived copies in the same split. Freeze manifest before training; reserve validation for weights/hyperparameters and test for a single final evaluation.",
+    "metrics": "Report nDCG@k/MRR/recall for explicit checked structural-variant targets, candidate recall for ANN, latency, pool-overlap availability and corpus coverage. Evaluate pretrained-only, trained hierarchy, canonical-only and combined-score baselines, plus wrong-context and opposite-polarity adversarial cases. Metrics must distinguish synthetic known-positive structural retrieval from unvalidated semantic relevance. Full hierarchy similarity is the canonical-score term; report predicate-only cosine as a baseline and all four block cosines. Freeze generated rewrite variants before fitting. Do not count exact duplicate representation retrieval as generalization.",
+    "luna": "Two explicitly requested GPT-6 Luna sub-agents design adversarial test cases and independently review blinded candidate envelopes/results. Freeze their judgments as advisory labels separate from solver-derived ground truth; no LLM judgment discharges formal soundness or changes a held-out metric after inspection.",
+    "acceptance": "Safety/integrity tests must pass; dimension and hierarchy must be exact; real FULL records from all three roots must be present for a three-source claim. Publish measured quality even if it fails to improve. Promotion of learned weights requires a predeclared non-regression rule; retain baseline or mark quality gate open on failure, never choose success thresholds after seeing test results.",
+    "promotion_rule": "Freeze before test: minimum 12 independent source-family components, with at least 2 validation and 2 test components; each source represented among FULL records; no cross-split component overlap; learned held-out MRR@10 >= pretrained-only MRR@10 - 0.01 and every integrity/adversarial test passes. Report counts and confidence limits. An undersized pilot or worse score keeps the quality gate open; never fabricate additional families or relabel duplicates.",
+    "metric_definition": "Each query has one designated checked-equivalent held-out target record (all variants of that record count as one target), excludes the query serialization itself, and ranks against all admitted candidates in the same evaluation split. MRR@10 is mean reciprocal rank with zero beyond10; recall@10 is fraction with target in top10; nDCG@10 uses binary relevance for the designated record. Report candidate count, families, distinct target count and tie rule. Aggregate per source family then macro-average, plus pooled diagnostics; promotion compares family-macro MRR. This measures known structural-variant retrieval only."
+  },
+  "formal_obligations": [
+    {
+      "id": "RG01",
+      "symbol": "Allow.Retrieval.ready_bounds",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → 3 ≤ n ∧ n ≤ 5"
+    },
+    {
+      "id": "RG02",
+      "symbol": "Allow.Retrieval.ready_positive_size",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → pos.length = n"
+    },
+    {
+      "id": "RG03",
+      "symbol": "Allow.Retrieval.ready_negative_size",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → neg.length = n"
+    },
+    {
+      "id": "RG04",
+      "symbol": "Allow.Retrieval.ready_positive_distinct",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → (List.map (fun m => m.witness.fullInstanceHash) pos).Nodup"
+    },
+    {
+      "id": "RG05",
+      "symbol": "Allow.Retrieval.ready_negative_distinct",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → (List.map (fun m => m.witness.fullInstanceHash) neg).Nodup"
+    },
+    {
+      "id": "RG06",
+      "symbol": "Allow.Retrieval.ready_positive_admitted",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member} {m : Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → m ∈ pos → Allow.Retrieval.admitted t Allow.Polarity.positive m"
+    },
+    {
+      "id": "RG07",
+      "symbol": "Allow.Retrieval.ready_negative_admitted",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member} {m : Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → m ∈ neg → Allow.Retrieval.admitted t Allow.Polarity.negative m"
+    },
+    {
+      "id": "RG08",
+      "symbol": "Allow.Retrieval.below_range_not_ready",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, n < 3 → ¬Allow.Retrieval.ready n t pos neg"
+    },
+    {
+      "id": "RG09",
+      "symbol": "Allow.Retrieval.above_range_not_ready",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, 5 < n → ¬Allow.Retrieval.ready n t pos neg"
+    },
+    {
+      "id": "RG10",
+      "symbol": "Allow.Retrieval.partial_not_ready",
+      "statement": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, pos.length < n → ¬Allow.Retrieval.ready n t pos neg"
+    },
+    {
+      "id": "RG11",
+      "symbol": "Allow.Retrieval.positive_query",
+      "statement": "∀ (f p : Bool), Allow.Retrieval.queryEval Allow.Polarity.positive f p = (f && p)"
+    },
+    {
+      "id": "RG12",
+      "symbol": "Allow.Retrieval.negative_query",
+      "statement": "∀ (f p : Bool), Allow.Retrieval.queryEval Allow.Polarity.negative f p = (f && !p)"
+    },
+    {
+      "id": "RG13",
+      "symbol": "Allow.Retrieval.opposite_polarities_disjoint",
+      "statement": "∀ (f p : Bool), ¬(Allow.Retrieval.queryEval Allow.Polarity.positive f p = true ∧ Allow.Retrieval.queryEval Allow.Polarity.negative f p = true)"
+    },
+    {
+      "id": "RG14",
+      "symbol": "Allow.Retrieval.finite_samples_incomplete",
+      "statement": "(∀ (x : Bool), x ∈ [false] → (fun _x => false) x = (fun x => x) x) ∧ ¬∀ (x : Bool), (fun _x => false) x = (fun x => x) x"
+    },
+    {
+      "id": "RG15",
+      "symbol": "Allow.Retrieval.opposing_witness_refutes_equivalence",
+      "statement": "∀ {α : Type} (p q : α → Bool) (x : α), p x = true → q x = false → ¬∀ (y : α), p y = q y"
+    },
+    {
+      "id": "RG16",
+      "symbol": "Allow.Retrieval.pack4_context",
+      "statement": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index0 i) = a i"
+    },
+    {
+      "id": "RG17",
+      "symbol": "Allow.Retrieval.pack4_predicate",
+      "statement": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index1 i) = b i"
+    },
+    {
+      "id": "RG18",
+      "symbol": "Allow.Retrieval.pack4_positive",
+      "statement": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index2 i) = c i"
+    },
+    {
+      "id": "RG19",
+      "symbol": "Allow.Retrieval.pack4_negative",
+      "statement": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index3 i) = d i"
+    },
+    {
+      "id": "RG20",
+      "symbol": "Allow.Retrieval.vector_width",
+      "statement": "∀ (v : Allow.Retrieval.Embedding), Allow.Retrieval.vectorWidth v = 3072"
+    },
+    {
+      "id": "RG21",
+      "symbol": "Allow.Retrieval.four_blocks_width",
+      "statement": "4 * 768 = 3072"
+    },
+    {
+      "id": "RG22",
+      "symbol": "Allow.Retrieval.score_bounded",
+      "statement": "∀ (c p n : Nat), c ≤ 1000 → p ≤ 1000 → n ≤ 1000 → Allow.Retrieval.score c p n ≤ 1000"
+    },
+    {
+      "id": "RG23",
+      "symbol": "Allow.Retrieval.score_zero",
+      "statement": "Allow.Retrieval.score 0 0 0 = 0"
+    },
+    {
+      "id": "RG24",
+      "symbol": "Allow.Retrieval.score_max",
+      "statement": "Allow.Retrieval.score 1000 1000 1000 = 1000"
+    },
+    {
+      "id": "RG25",
+      "symbol": "Allow.Retrieval.incompatible_overlap_zero",
+      "statement": "∀ (shared : Nat), Allow.Retrieval.overlap false shared = 0"
+    },
+    {
+      "id": "RG26",
+      "symbol": "Allow.Retrieval.commit_current",
+      "statement": "∀ {current result : Allow.Retrieval.Snapshot} {complete : Bool}, Allow.Retrieval.commit current result complete = true → current = result ∧ complete = true"
+    },
+    {
+      "id": "RG27",
+      "symbol": "Allow.Retrieval.stale_cannot_commit",
+      "statement": "∀ {current result : Allow.Retrieval.Snapshot} {complete : Bool}, current ≠ result → Allow.Retrieval.commit current result complete = false"
+    },
+    {
+      "id": "RG28",
+      "symbol": "Allow.Retrieval.partial_cannot_commit",
+      "statement": "∀ (current result : Allow.Retrieval.Snapshot), Allow.Retrieval.commit current result false = false"
+    },
+    {
+      "id": "RG29",
+      "symbol": "Allow.Retrieval.revoked_invisible",
+      "statement": "∀ (committed : Bool), Allow.Retrieval.visible committed true = false"
+    },
+    {
+      "id": "RG30",
+      "symbol": "Allow.Retrieval.admitted_evidence",
+      "statement": "∀ {t : Allow.TargetContext} {p : Allow.Polarity} {m : Allow.Retrieval.Member}, Allow.Retrieval.admitted t p m → m.run.query.target = t ∧ m.run.query.polarity = p ∧ m.witness.ownQuery = m.run.query ∧ m.run.status = Allow.SolverStatus.SAT ∧ m.witness.validated = true"
+    },
+    {
+      "id": "RG31",
+      "symbol": "Allow.Retrieval.ready_three_witness",
+      "statement": "Allow.Retrieval.ready 3 Allow.sampleTarget [Allow.Retrieval.sampleMember Allow.positiveQuery \"a\", Allow.Retrieval.sampleMember Allow.positiveQuery \"b\", Allow.Retrieval.sampleMember Allow.positiveQuery \"c\"] [Allow.Retrieval.sampleMember Allow.negativeQuery \"d\", Allow.Retrieval.sampleMember Allow.negativeQuery \"e\", Allow.Retrieval.sampleMember Allow.negativeQuery \"f\"]"
+    }
+  ],
+  "trust_boundary": [
+    "Lean proves the finite abstract admission, dimensions/layout, scoring and transaction policy named by exact propositions",
+    "Alloy parser/translator/evaluator, SAT4J, instance projection, Java/Python/SQL, float arithmetic, database/OS and ML libraries remain trusted implementations with adversarial tests",
+    "No Lean proof asserts retrieval quality, semantic equivalence from samples, production readiness, dataset rights or commercial clearance"
+  ],
+  "references": [
+    "https://huggingface.co/intfloat/e5-base-v2",
+    "https://github.com/pgvector/pgvector",
+    "https://docs.langchain.com/oss/python/langgraph/agentic-rag"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "reviewer": "terra-2",
+  "decision": "NO_FINDINGS_FOCUSED_REVIEW",
+  "scope": "Read-only review of current Java context integration and tests; Python implementation and end-to-end execution were not reviewed in this pass.",
+  "input_hashes": {
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentValidationContext.java": "51495edcf433f85abf7620731c0a9bf22cb2150ed94c4846f7d32ff18fb50f66",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentQueries.java": "76763b82e67c8378a159345bfee99990c8de703ec4042cadfced97e13d8b90da",
+    "/home/augustus/Allow/backend/src/test/java/dev/allow/backend/DocumentValidationContextTest.java": "3804c573ddc3cad1c9c6ea3fcc7bdd7c86882344f7fafaa6d61c2716ce47f047",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentGateway.java": "bc94212e0d9049e6de47b405177108a45ae34dff706be474d325c8a0f62fdac8",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentJson.java": "8495e9177da33ee50eb892f3b6b5994c2493759bca2b843cb3a6d82c481f57a8"
+  },
+  "findings": [],
+  "assessment": [
+    "The context bridge runs for empty/source module and is invoked under the active worker permit before worker construction. Transport or checked-context failure prevents worker launch and finally releases the permit.",
+    "Request IDs are canonicalized, deduplicated, sorted and bounded before the bridge; the response requires the five fields, exact document/base and safe head, ten artifact keys and bounded encoding, and a requested-ID subset with one of eight kinds. Returned state is defensively copied.",
+    "The focused tests cover empty input, identity and shape failures, kinds, ID boundary, oversized artifact, and failed/interrupted context before worker construction. The private gateway independently checks the response nonce and envelope.",
+    "Artifact semantic validity remains the fresh worker responsibility. Runtime SQL isolation, full HTTP/recovery tests, formal-to-runtime correspondence and performance acceptance are separate obligations."
+  ],
+  "validation": "No tests independently run during this review; focused Maven tests reported running by parent."
+}

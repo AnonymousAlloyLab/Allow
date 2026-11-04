@@ -1,0 +1,52 @@
+{
+  "candidate_revision": "r2",
+  "input_root_sha256": "4704a9190a7df708ff7cfb528d94475b173de0d9875e52ee91fd2edea18a798c",
+  "files": [
+    {
+      "path": "gates/sql/immutable-image-candidate/contract.json",
+      "sha256": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/contract.md",
+      "sha256": "ad9f4a9fcb4591d17a627c505ccb83e566127dc6f40e848db8a24e0a17d2613d"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/ImmutableImage.lean",
+      "sha256": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/candidate-type-inventory.json",
+      "sha256": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/runtime-test-plan.json",
+      "sha256": "c49a8f53884a28b5ac5d90926ce42feda7895418be658976e6b46cacb3e10b42"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/input-manifest.json",
+      "sha256": "28434c9d5ef8ee35e4d363d42c98494f6da02f645a8c12f410bd0462936b38f5"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/existing-type-inventory.json",
+      "sha256": "bd7f8d0b7816f9e2236e5683008d841fc3095c2e05cd5cd3ed0ae17d398cd9ea"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/probe-result.json",
+      "sha256": "9f921847818c9327b7a328e071385682456326f03798a707faf6413f06500096"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/findings.md",
+      "sha256": "9c5a5bd70773f369d25e596c7101496cbbcee0d4ff39466635599f482f10b91f"
+    }
+  ],
+  "required_seats": [
+    "terra-1",
+    "terra-2",
+    "sol-1",
+    "sol-2",
+    "astra-1",
+    "astra-2"
+  ],
+  "prior_review_status": "REQUEST_CHANGES preserved verbatim in archive-r1; r2 final seats must review this new root",
+  "execution_status": "draft-only; no production authorization, no additional benchmark"
+}

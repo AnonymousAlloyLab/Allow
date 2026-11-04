@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "id": "ALLOW-WARM-LATENCY-DIAGNOSTIC-R1",
+  "status": "FROZEN_CANDIDATE_PENDING_APPROVAL",
+  "authorization": {
+    "source": "Current user explicitly requests testing warm JVM pooling performance metrics such as latency.",
+    "exception": "This supplement expressly permits ONLY the finite non-promoting worker-component comparison below before the broad safety/differential prerequisites of experiment.json. Merely labeling a run diagnostic would not authorize it.",
+    "original_experiment": {
+      "path": "gates/performance/warm-pool-candidate/experiment.json",
+      "sha256": "be0a0f26e3bd5980068de2d2c1619a9dbee5440c514c5f625a863065acf1ff90"
+    },
+    "original_contract": {
+      "path": "gates/performance/warm-pool-candidate/contract.json",
+      "sha256": "dc055e04071710626617dad03fc8b867be0a57ddd0f37e57f7fc1d551f0c5a83"
+    },
+    "unchanged": [
+      "Original paired HTTP acceptance protocol, stop rule and thresholds",
+      "All safety, full semantic, SQL, selected runtime, cold/sustained/soak and target-host promotion gates",
+      "Production WarmRuntime.ENABLED=false",
+      "Commercialization NO_GO"
+    ],
+    "not_authorized": [
+      "Production activation",
+      "Live runtime reads/mutations or active backend/target rebuild",
+      "Promotion or HTTP latency claims from these results"
+    ]
+  },
+  "scope": {
+    "classification": "EXPLORATORY_INSTRUMENTED_WORKER_COMPONENT_LATENCY_NOT_HTTP_ACCEPTANCE",
+    "fixture": "Exact existing500-node headless module remapped only declared IDs to draft with existing http_setup.draft_module; empty TEXT_ONLY base and empty inventory. Immutable materialized VALIDATE input payload and frame template excluding runtime nonce before runs; candidate/base/inventory/policy and output oracle pinned. Actual DocumentWorker constructs the frame and generates its nonce internally; fixed-field correspondence trusts that pinned production serializer, not an independent pipe capture. This is fresh-ID validation, not accepted-history/SQL work.",
+    "fresh_route": "Actual new DocumentWorker(DEFAULT).validate with current disabled WarmRuntime; constructor/build identity, existing sandbox/FrameProcess/OwnedWorkerRun cleanup and output serialization included. Actual fresh workers execute in outer control leaf; no invented per-worker cgroup or extra final fence added to baseline.",
+    "pool_route": "Actual WarmWorkerPool.validate and WarmResultLease.publish, including binding/one-use assumed CLEAN permit, automatic refill, image checks, staging, cleanup, final fence and output serialization. Shared actual ledger and one pool per serial/READY block. No READY wait in primary serial workload.",
+    "context": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL; no PostgreSQL access. Any later SQL work must use SQLeanParser.",
+    "comparison": "Compares these two actual implemented component policies, including their different isolation costs. Does not identify a causal JVM-prewarming-only effect. Every worker remains single-use."
+  },
+  "plan": {
+    "primary_pairs": [
+      {
+        "id": 1,
+        "order": [
+          "FRESH",
+          "POOL_SERIAL"
+        ]
+      },
+      {
+        "id": 2,
+        "order": [
+          "POOL_SERIAL",
+          "FRESH"
+        ]
+      },
+      {
+        "id": 3,
+        "order": [
+          "FRESH",
+          "POOL_SERIAL"
+        ]
+      }
+    ],
+    "independent_variant_scopes": true,
+    "primary_warmups": 20,
+    "primary_measured": 100,
+    "ready_conditioned": {
+      "runs": 1,
+      "warmups": 20,
+      "measured": 100,
+      "wait": "Explicit await actual READY before each admission, with excluded conditioning duration and full cycle duration retained. Never merge with primary serial distribution."
+    },
+    "empty_pool": {
+      "runs": 1,
+      "measured": 20,
+      "warmups": 0,
+      "method": "New empty pool/ledger incarnation for each request; report initialization, first demand, shutdown, and total separately. Parent JVM and OS caches may be warm. Not server cold-start acceptance."
+    },
+    "total_requests": 860,
+    "serial_schedule": "Concurrency one, immediately admit next operation after minimal in-memory evidence bookkeeping. No artificial sleep, READY wait, corpus warmup, evidence-file write, full comparator, or expensive group observer between primary samples. Record actual end-to-next-admission gaps. Preserve all warmups; only declared first20 excluded from measured distributions.",
+    "bounds": {
+      "variant_deadline_seconds": 180,
+      "suite_max_variants": 8,
+      "max_response_bytes": 1048576,
+      "warm_request_deadline_ms": 10000,
+      "candidate_startup_deadline_ms": 5000,
+      "idle_deadline_ms": 30000
+    },
+    "no_other_agent_workload_during_measurement": true,
+    "no_retry_selection": true
+  },
+  "measurement": {
+    "clock": "System.nanoTime; store integer nanoseconds. Trusted monotonic-clock model only.",
+    "request_start": "Before WorkerCapacity.acquire and all per-request worker construction, binding/permit creation and pool demand; immutable fixture candidate/context payload prepared outside equally for both variants. Pool/ledger initialization is separately timed.",
+    "request_end": "After full success response serialization and required actual production cleanup/publication/lease-close and capacity release. No partial-result timing. Failure duration ends after attempted cleanup; retain outcome and do not count it as successful latency.",
+    "fresh_nonce": "DocumentWorker generates its private operation nonce internally and checks it. Record returned exact nonce and recovery PID/start/reap; independent fixture response comparison substitutes only each independently checked operation nonce. No claim of independent input-pipe nonce capture.",
+    "pool_observation": "Read-only ledger snapshot at admission identifies EMPTY, STARTING or READY. Bind consumed generation by exact request nonce before publication, and require READY-hit identity matches admission snapshot. Count distinct consumed/spare generations, include positive terminal receipts and PID/start absence. No lifecycle mutation or clock injection.",
+    "retention": "Retain bounded complete response byte arrays and small observation records in memory; emit evidence only after all request timings and pool teardown. Include retained-buffer cost in whole-scope peak; no response dropping or unbounded queue.",
+    "phase_resources": "Whole-scope sampler as existing harness; record cpu.stat before/after measured block and after teardown plus final peak/events, so asynchronous refill and cleanup tail are visible. Peak is for entire variant including warmup and evidence, not per-request RSS.",
+    "statistics": "Unrounded nearest-rank p50,p95,p99,max over all100 declared successful measured requests only if every required attempt/response/cleanup passes. Also report attempted/successful counts, all-attempt terminal durations and error counts; any error invalidates performance interpretation. Report each pair separately with paired deltas/ratios. Do not pool runs to hide slow pairs. n100 p99 is descriptive and near the maximum; no confidence interval or production tail claim.",
+    "rate": "Measured serial completed operations divided by measurement-wall interval; label serial completion rate, not sustained load capacity. Conditional READY rate includes its separate cycle waits.",
+    "gap": "Report admission gaps and conditional wait durations; aggregate CPU/peak include refill/helper work. Timing is instrumented component latency, not HTTP or SQL latency."
+  },
+  "safety_and_verification": {
+    "prerequisite": {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/pooling-lifecycle-r1/report.json",
+      "sha256": "fdd22eb5b16637d665f81f5eae74703b165085d131e792e6f8c8a321c9f1daef"
+    },
+    "source_ready": {
+      "path": "gates/performance/warm-pool-candidate/implementation/source-ready-r5.json",
+      "sha256": "d9ff0832ac9847f2b5f4db60beef1b5a603c9dbc49e862fbc55bea523869322b"
+    },
+    "preflight": "Before measured variants, new copied source-bound actual11-case ownership preflight using same production artifacts and full test/program manifest. New fixture compatibility/preflight runs both routes and full response comparator before timing; these preparation samples are not measured.",
+    "resource_profile": {
+      "cpu_max": "400000 100000",
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "memory_high": 5368709120,
+      "memory_max": 6442450944,
+      "memory_swap_max": 0,
+      "pids_max": 512
+    },
+    "isolation": "New privately copied installations and exact delegated user scopes, no live aliases/state/credentials, preserved AppArmor; controller outside scope, all component JVM/helper/refill work inside; no uncontained fallback.",
+    "response_oracle": "Require VALIDATED/BLOCK_SUPPORTED,500 output nodes, exact expected source/hash and closed response schema. Full independent comparator on every retained output against frozen/preflight fresh result with schema-scoped injective generated-ID bijection; independently bind each original nonce before nonce substitution. No status-only oracle. Fresh nonce binding uses the actual production DocumentWorker check plus retained canonical response UUID; pool nonce binding uses the admitted request binding. The fresh input frame is reconstructed for the checker, not independently pipe-captured.",
+    "frozen_inputs": "Before execution bind supplement/Lean/review hashes, exact fixtures, canonical expected source and preflight oracle, Java source/compiled bytes, all Python harness/comparator/verifiers, JDK/tools/default flags, copied runtime inventories, count/order and all scopes. Source changes require new manifest; failed attempts immutable.",
+    "stop": "First operation failure, malformed/mismatched output, timeout, UNKNOWN, resource-limit event, ownership/identity change or cleanup failure stops the variant/suite. Preserve completed and failed rows; mark remaining NOT_EXECUTED. No latency threshold stops this diagnostic and no retries for a favorable result.",
+    "cleanup": "Exact worker recovery/reap receipts plus independent whole-scope positive empty, tracked PID/start absence, direct owner reap, post-input identity and scope removal. Pool generations have their actual ledger terminal group counters. Fresh baseline has no invented per-worker group receipt.",
+    "trust": "Kernel/procfs/cgroup/systemd, pinned JDK/Python/native dependencies, production cleanup adapter receipts, gate observation code, crypto/FS and monotonic clocks trusted. Finite tests do not prove Java/OS refinement."
+  },
+  "formal_boundary": "Lean supplement models only authorization, disabled selection, diagnostic/promotion distinction, profile classification, finite counts and report accounting/rank arithmetic. No theorem establishes measured latency, resource behavior, SQL CLEAN, code correspondence or timer liveness. Compile before any new Java/Python workload code.",
+  "review": {
+    "seats": [
+      "Terra1",
+      "Terra2",
+      "Sol1",
+      "Sol2",
+      "Astra1",
+      "Astra2"
+    ],
+    "require": "All six must approve exact final contract hash before workload implementation; blocking findings require refinement."
+  },
+  "reporting": {
+    "production_selection": "DISABLED",
+    "promotion": "BLOCKED_OPEN_GATES",
+    "commercialization": "NO_GO",
+    "required": "Raw samples, per-run metrics and pair differences, explicit component/assumed-CLEAN/isolation boundaries, all failed attempts, no positive target-host or HTTP inference."
+  }
+}

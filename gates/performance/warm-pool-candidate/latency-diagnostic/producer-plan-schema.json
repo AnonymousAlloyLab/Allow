@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "javaMain": "dev.allow.backend.WarmLatencyMain",
+  "arguments": [
+    "--runtime-root",
+    "ABSOLUTE_COPIED_ROOT",
+    "--plan",
+    "ABSOLUTE_PLAN_JSON",
+    "--report",
+    "ABSOLUTE_REPORT_JSON"
+  ],
+  "workingDirectory": "COPIED_ROOT/backend",
+  "plan": {
+    "schema": 1,
+    "variantId": "pair1-fresh",
+    "profile": "FRESH|POOL_SERIAL|POOL_READY|POOL_EMPTY",
+    "mode": "MEASURED|PREFLIGHT",
+    "warmups": 20,
+    "measured": 100,
+    "contractSha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+    "fixture": "ABSOLUTE_REGISTERED_VALIDATE_FRAME_JSON",
+    "fixtureSha256": "sha256",
+    "cgroupRoot": "ABSOLUTE_DELEGATED_WORKER_GROUP_ROOT",
+    "cpuStat": "ABSOLUTE_COMPONENT_SCOPE_CPU_STAT"
+  },
+  "report": {
+    "schema": 1,
+    "variantId": "copied from plan",
+    "profile": "copied from plan",
+    "mode": "copied from plan",
+    "status": "COMPLETE|FAILED",
+    "contractSha256": "copied from plan",
+    "fixtureSha256": "copied from plan",
+    "buildSha256": "actual BuildIdentity",
+    "contextBoundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL",
+    "expectedWarmups": 20,
+    "expectedMeasured": 100,
+    "rows": [],
+    "generations": [],
+    "notExecuted": [],
+    "timing": {},
+    "cpu": {
+      "beforeMeasured": {
+        "observedNs": 0,
+        "raw": "cpu.stat bytes"
+      },
+      "afterMeasured": {},
+      "afterTeardown": {}
+    },
+    "cleanup": {
+      "poolClosed": true,
+      "ledgerClosed": true,
+      "remainingReservations": 0
+    },
+    "failure": null
+  },
+  "row": {
+    "index": 0,
+    "phase": "WARMUP|MEASURED",
+    "outcome": "SUCCESS|FAILED",
+    "startNs": 0,
+    "endNs": 0,
+    "durationNs": 0,
+    "previousEndToAdmissionGapNs": null,
+    "conditionStartNs": null,
+    "conditionEndNs": null,
+    "conditionDurationNs": null,
+    "cycleStartNs": 0,
+    "cycleDurationNs": 0,
+    "initializationStartNs": null,
+    "initializationEndNs": null,
+    "teardownStartNs": null,
+    "teardownEndNs": null,
+    "capacityAcquiredNs": null,
+    "callStartNs": null,
+    "callEndNs": null,
+    "serializedNs": null,
+    "publicationEndNs": null,
+    "capacityReleasedNs": null,
+    "requestNonce": null,
+    "responseBase64": "complete canonical production response JSON bytes; emitted after teardown",
+    "responseBytes": 0,
+    "freshRecovery": null,
+    "admission": null,
+    "consumed": null,
+    "failure": null,
+    "admissionObservedNs": null
+  },
+  "generationIdentity": {
+    "poolNonce": "uuid",
+    "slot": 0,
+    "generation": 1,
+    "workerNonce": "uuid",
+    "group": "pool-uuid/slot-0-g1",
+    "device": 0,
+    "inode": 0,
+    "actualPhase": "admission only, original RESERVED/STARTING/READY phase"
+  },
+  "consumedAdditional": {
+    "requestNonce": "uuid",
+    "pid": 0,
+    "startTicks": "decimal",
+    "phaseBeforePublish": "CLEAN"
+  },
+  "generationTerminalAdditional": {
+    "pid": 0,
+    "startTicks": "decimal",
+    "phase": "RELEASED",
+    "directChildReaped": true,
+    "pidStartAbsent": true,
+    "exitCode": 0,
+    "terminalCounters": {}
+  },
+  "failure": {
+    "class": "class name",
+    "message": "bounded message",
+    "suppressed": []
+  }
+}

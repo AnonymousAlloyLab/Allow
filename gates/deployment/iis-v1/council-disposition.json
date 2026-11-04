@@ -1,0 +1,45 @@
+{
+  "contract": "spec/iis-deployment.json",
+  "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32",
+  "status": "APPROVED_FOR_PRIVATE_PACKAGE_IMPLEMENTATION",
+  "reviews": [
+    {
+      "agent": "/root/iis_terra_1",
+      "requested_model": "gpt-6.1-terra",
+      "verdict": "APPROVE",
+      "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+    },
+    {
+      "agent": "/root/iis_terra_2",
+      "requested_model": "gpt-6.1-terra",
+      "verdict": "APPROVE",
+      "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+    },
+    {
+      "agent": "/root/iis_sol_1",
+      "requested_model": "gpt-6.1-sol",
+      "verdict": "APPROVE",
+      "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+    },
+    {
+      "agent": "/root/iis_sol_2",
+      "requested_model": "gpt-6.1-sol",
+      "verdict": "APPROVE",
+      "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+    },
+    {
+      "agent": "/root/iis_astra_1",
+      "requested_model": "gpt-6-astra",
+      "verdict": "APPROVE",
+      "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+    },
+    {
+      "agent": "/root/iis_astra_2",
+      "requested_model": "gpt-6-astra",
+      "verdict": "APPROVE",
+      "contract_sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+    }
+  ],
+  "repair": "Initial contract incorrectly said SSH reconnect rotates bearer; corrected before final reviews and implementation. Original preserved.",
+  "boundary": "Advisory council evidence; no implementation/refinement/Windows/security/performance/rights attestation."
+}

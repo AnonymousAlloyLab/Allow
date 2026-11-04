@@ -1,0 +1,4193 @@
+{
+  "classification": "DEVELOPMENT_COPY_NOT_RUNTIME_ACCEPTANCE",
+  "root": "/tmp/allow-warm-full-r6-9kkrgt8y",
+  "inputs": [
+    {
+      "path": "backend/pom.xml",
+      "sha256": "f04a127ac3362e6ffca462e2dcbfadc9f302e7c5fb4ff20c248528c3a2b2f4c4",
+      "size": 3199,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AllowApplication.java",
+      "sha256": "b95538714ddbb2e10f5fd53e6f15bd44c2d64a687abd7f29565cfcfe4b6b0c5c",
+      "size": 521,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ApiController.java",
+      "sha256": "94d768c469a3e5817c25ef25fdf52d804573a247230c370de35da6bcc5a0e516",
+      "size": 3055,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AuthorityFilter.java",
+      "sha256": "2f171027ca2371aefb62e76b47c9e1ceaaedd5f87cc493c4d7396c374f9869ed",
+      "size": 2769,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BoundedCapture.java",
+      "sha256": "d8ce60276d25075d58c26b627b82640b84d9207158f342dc608237fbd43994d9",
+      "size": 1383,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+      "sha256": "18411c0831a79acefd8171a14f134fed37164330ca999bccef60dd19e4f213ca",
+      "size": 6557,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+      "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0",
+      "size": 2474,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusController.java",
+      "sha256": "e38522fdc14aae8fad59226029a5411e7b905b4cf8bcdd3c8b46cf762974bb74",
+      "size": 3488,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusGateway.java",
+      "sha256": "1d0d0575530bf298a76a6b70f927de381518e03a0639a4a770fc178426b41d3c",
+      "size": 5530,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentArtifacts.java",
+      "sha256": "3817ce53426ed0323156d97532df47cbeb44b3cd14ed4a5d748e75122a3f0ee8",
+      "size": 6276,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentAttempt.java",
+      "sha256": "45fabad50010a124e53eb42c93ad3495ed6bdce00300d0899b8864c830eda51f",
+      "size": 2406,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentController.java",
+      "sha256": "ae296d7d774e0e960365acf2535395d4be63c6f20b3c1e2abc0ec5b4f96f64a0",
+      "size": 8936,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+      "sha256": "b4d8c56ebfc21f35513d831fb4585fda28397f04b2917d2efa3dabddffcb3a21",
+      "size": 4700,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentJson.java",
+      "sha256": "8495e9177da33ee50eb892f3b6b5994c2493759bca2b843cb3a6d82c481f57a8",
+      "size": 4766,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationFrames.java",
+      "sha256": "501be905e1de34c29c6af167be870c5e14cb01ff82623c948d131a450077deef",
+      "size": 4414,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationValidation.java",
+      "sha256": "6a6b994d25657b6a217eee39881fdfb9cefd52be9d302d97a1f8cedc28c6d842",
+      "size": 5293,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationWorkers.java",
+      "sha256": "ef8b6972981416e520b6001e3faf1b76869cf0ff1d261a804be43eae25c2cf65",
+      "size": 652,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutations.java",
+      "sha256": "b0911232a92432ba7bcf78c880846a8d302248214be662de579ba075d75f0881",
+      "size": 16329,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "sha256": "3961917709fc6f360325809afaef8de80670c8d165019b163ce0019419293034",
+      "size": 16496,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentReplies.java",
+      "sha256": "740afd59536e89d8f035ab566b48bb6b61fec693650d8aa43a9742ed0c692ede",
+      "size": 2950,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRequest.java",
+      "sha256": "356cc38f20ef9c4f3c73ecb5239260bff01a21ef2a4c6b4052ed41582227f40a",
+      "size": 4997,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+      "sha256": "5409dc491e0b5715783e5a279df685b93ee5a6437759e3bc8b80dc4df151a022",
+      "size": 6591,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentValidationContext.java",
+      "sha256": "2a139d10b36eac8868bbefa69dfc463faf7ea0eeeed0d34df83ce026c859b948",
+      "size": 8971,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "1b4f4c4ae2081ee49296f5aed1014d12e0028b292344af5000edf2eafdfba279",
+      "size": 7808,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "sha256": "4f5efc039f8d5b145044d0d1c021120f95db77c381e24fd7484b2dcc6ce0edf2",
+      "size": 6068,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobControl.java",
+      "sha256": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+      "size": 1436,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRecord.java",
+      "sha256": "bda801932f2df2edd5a72b0fb8a594697d501644c4de740746a417fdfeb74d4d",
+      "size": 2107,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRunner.java",
+      "sha256": "681379f569261d55aa123e31b99cbaa9ccc2cf34da39bbc743f73522c418fc10",
+      "size": 718,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobService.java",
+      "sha256": "5602d7cdd093117831a8d589420168a9a2e74ff40d474d1539d512e3d241ba30",
+      "size": 4368,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LaunchAuthority.java",
+      "sha256": "141a0373295e6413740f6efbfdde5eea8b2dce4379f90ec4464ac80c333d1a53",
+      "size": 2255,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LoopbackBinding.java",
+      "sha256": "137118b3981e0a64cce37043ba1cb2998349da275915600866945c759876edc5",
+      "size": 1063,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/OwnedWorkerRun.java",
+      "sha256": "df581c147c80bf465fe7a643ca9587959cea3dbff8337e8133c077cc0f705f28",
+      "size": 8486,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessIdentity.java",
+      "sha256": "a47e6cb81188237ded7dd7da505868930cfa7040e05ed8ed3585d86e4902aab7",
+      "size": 1476,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+      "sha256": "acf7a1f5e9b72b0667277672b67b851c6ed71bc366d1cadae8a290cd522acfb0",
+      "size": 8425,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/SandboxLauncher.java",
+      "sha256": "3facaad09b518ad0487f99d38b61f50826d05dafe3b0caa49abbea94312a7d8f",
+      "size": 541,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmConfiguration.java",
+      "sha256": "13ff5136286260b827cbb8cb7ed5764afa19e9fa6074ecd5281bd6aaa6748303",
+      "size": 4151,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmContextPermit.java",
+      "sha256": "f7723d6ab36499295eb42fbce9531c38f22dc386c73e9e70c75e5a9c18def706",
+      "size": 2332,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmDeadline.java",
+      "sha256": "57cd8756deb340d2a6d904a0d46e56d7d78efa9fdc45569b31b48a1a60c2013b",
+      "size": 3011,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmImageLauncher.java",
+      "sha256": "ec4188d83cb0ad0955ac2b040c523bdc983c3fca895d87e1c321e6f18a66583b",
+      "size": 6703,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmRequestBinding.java",
+      "sha256": "57897e58af90b1671467ab5f2b593381a2b21a1998fd28bd9b4e701d46179388",
+      "size": 2307,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmResultLease.java",
+      "sha256": "829afbefeda5912cdf79a75cb57a423d298604777861c5207451ab29a418cfa0",
+      "size": 2585,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmRuntime.java",
+      "sha256": "38e041b43a7a8b68782bfb236141be1a4d8a8e0a43a066415ab50301d34c2cd4",
+      "size": 7659,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmStandby.java",
+      "sha256": "71683e83481be1f50dd45235d5970e1d90460c60cb3a6f0f00d61b17760903bb",
+      "size": 12753,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmTransport.java",
+      "sha256": "6ea9931ff24cfe5a75c80b6b894be30f73b5ecf404156c93e5c42547cadc8e80",
+      "size": 12970,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerMode.java",
+      "sha256": "07942aa2a502266652d13944a4d5e734d5c491eb781dbd474a286664788354e9",
+      "size": 592,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerPool.java",
+      "sha256": "b05612f5ea7e125ca8505fe64be40b4c7c2b981e79055455ad460fd9df85c00f",
+      "size": 10860,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+      "sha256": "ffb71612c7a083bfa97201f1244fa338ec4d586b6427f71a70e4e1dc7efe4958",
+      "size": 1019,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "07e992be2b2fec28268994a826e04eecb80af230c41e9e31b6db2ea1101fe095",
+      "size": 12637,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "4a74f45cd3c24ca97424d26c4be8c3465c2176f48a20a6b4666b0ce80c9cc550",
+      "size": 13250,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerLaunchProfile.java",
+      "sha256": "3d3efc15be00587f5000f7763195f2a59d212907bd837e52427344876fe29875",
+      "size": 185,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "3564919f2bb12fb2f35b1ec24f4e9b7e0f03aab6230f2b08c10aff903b06bd22",
+      "size": 23708,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerReservation.java",
+      "sha256": "2ff0c8c89f1eaa66dfa500e413f893348ac4b68266cf489bd8fc1ddde8b00822",
+      "size": 8490,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java",
+      "sha256": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59",
+      "size": 1615,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalDigest.java",
+      "sha256": "1b445d48870cc80f997b5dd5fd92ce1cb8bb89e8c101e15a5de7cf7288341a19",
+      "size": 1169,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalNodes.java",
+      "sha256": "1798334e079e527f7a7e160a8f633f932b000e407c4837b66d5800f6f42aa333",
+      "size": 799,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalView.java",
+      "sha256": "8532a0185434ef0c8be02fdf4f86b77a9707c25cdf8ffa5a8e7dbfc114b85cd1",
+      "size": 1289,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/Canonicalizer.java",
+      "sha256": "3e8afd2d1235803dd483fdd336813241760f351faf4ac8b58fa714c749ea137e",
+      "size": 1781,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CorpusProjection.java",
+      "sha256": "5b4ff646976044d4e18b2d9300915a60e209a16736bb2238726428f7bf614fef",
+      "size": 6113,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EgraphView.java",
+      "sha256": "eae47433e527427a57ed82c5621b3e13562325cc6316a65eb4a5cf499a1f3190",
+      "size": 603,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java",
+      "sha256": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e",
+      "size": 1811,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java",
+      "sha256": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+      "size": 7673,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandAdapter.java",
+      "sha256": "6ba3aa96e05c1b600351e0941e16944343c0fa6a707ecf605a8f324a059a368c",
+      "size": 6289,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandCapture.java",
+      "sha256": "2fb1c2db5e9084fcb351e0da1ec7ba0adf35b077370685fd6c345200ef2160cc",
+      "size": 266,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandLimit.java",
+      "sha256": "ef768255854fd5fd8bbdabe6e7fb0fd3afa899c2aa05d8afd3e347283aea348c",
+      "size": 210,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandLowering.java",
+      "sha256": "4e9b7dc3964027e868636d52afb19439b175226afc33fe9d065dfa2db650f8fa",
+      "size": 7244,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandTypes.java",
+      "sha256": "1338c578a76d21421bb92e665f4d8e655848ffffc7c9feea85b75ca8e9b0e86b",
+      "size": 2268,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java",
+      "sha256": "3c2ba77a741a6b9efd8d7343aa93566fd88677ba40ae59b231612fbe9d575e23",
+      "size": 8100,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/OperatorPolicy.java",
+      "sha256": "b8e65e2bd9ea1271ce2deea563f7f83643fb215fe10901afa1380904191536a4",
+      "size": 2402,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/SlotRegistry.java",
+      "sha256": "e5909f1b865f6f3cac22f6ea62e198dda819ab5128a878b1afae4b41c00642c6",
+      "size": 4292,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/UnsupportedCanonical.java",
+      "sha256": "38e48badbd8cf3cf1408fdba18fd4137d5a5a2b34ae0d3b8fe5a82917fe8d5ae",
+      "size": 352,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusAugmentMain.java",
+      "sha256": "20dc79cc63c3d62227cdbe7f1324f779d4326d06e7ed12a0f37322cf7695365e",
+      "size": 2562,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusEngine.java",
+      "sha256": "e28e61f7376dbf0c1f1057ea7d5250a691d837c67afc1e5d3f31b32218fe1ec0",
+      "size": 6279,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusRequest.java",
+      "sha256": "d139d807db3a1f6bc72b9c26ef3dbc926529d5b7f074d106880352078d3c1015",
+      "size": 541,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusResponse.java",
+      "sha256": "d55ee34d93fca02cc52ba96802f3d06eb168842557a23374c2f01ce456fc941b",
+      "size": 370,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusWorkerMain.java",
+      "sha256": "383a40c9cc20d395f3af5db35315b9b1b2924c2e72a0e9c230ad1c42ecae0340",
+      "size": 1163,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/InstanceCanonicalizer.java",
+      "sha256": "9271ca7d75d75587e01fb7158552a39ddb03969c37c8163295392518a7a3b3e6",
+      "size": 4810,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/PoolBuilder.java",
+      "sha256": "1a5e0d92f587c4c95658f23d65c63331c2a060758cf142f21bab4864abd886bc",
+      "size": 3230,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/TrainingVariant.java",
+      "sha256": "1027f084f7757b9c9c52f6d71fd97bfa3ee80a7b6c05f1c5fa779dbe94b0e21e",
+      "size": 2676,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/AlloyExpressionReader.java",
+      "sha256": "eaccec50e360bdefa570fba2c40a33d1c98bb52100a0829b21d8076cbb07311c",
+      "size": 11374,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/AlloyModuleReader.java",
+      "sha256": "3b3c6874617b653ca2e63d46b8fb5faf71341ffebbf8ef71249011c351192601",
+      "size": 11135,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/AlloySchemaReader.java",
+      "sha256": "47af185bedbe4aca0ad14f6e6e43f01f1e73c8482ad32b847a71c1b26b64adca",
+      "size": 4098,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ArtifactIntegrity.java",
+      "sha256": "d618aedc654847f53c5a68eccd61610415752751fed58c7a7bbdf0bd6426f11a",
+      "size": 11930,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/BlockValidation.java",
+      "sha256": "31e7fd552e51907d963758e7be69d6d3721b027d42c6e16ec9ba055764c135b8",
+      "size": 3160,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/CommandDescriptors.java",
+      "sha256": "3eb8940b86b7078d23383f3f322d2a1a2c77d093f59074dc914b40838be24320",
+      "size": 4654,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/CommandTokenCounter.java",
+      "sha256": "e38e649cf8d6304473b3871de373d6aa4d7d184325da439bb0933cc87e1fe218",
+      "size": 3527,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/CopyValidator.java",
+      "sha256": "af67cac327a34c36d19880c281b44a74c7e0808fc15dbca06e9746b0893ce26b",
+      "size": 2564,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/DocumentEngine.java",
+      "sha256": "ad94dbdecff44f80bf35d71842314ba41df19375a6baa1d28a8d7d570012f04b",
+      "size": 6241,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/DocumentValidationException.java",
+      "sha256": "ddf9bf58e396f9ce2bff14ce9ba74dad33a258a302e7fc72191b9ee1f080c2e5",
+      "size": 970,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/EngineData.java",
+      "sha256": "854a1c74f94554098f0fe4e735558f4f792ea09b9f96ae194ca830648109b30a",
+      "size": 6625,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/HistoryValidation.java",
+      "sha256": "e1d0c7491077c911a8e8225b2c3ba0726cd592174046fdf5de5d51d797201356",
+      "size": 3312,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/IdentityRemapper.java",
+      "sha256": "7540aca33c999083a904cad96df6010a6ac4caf3f7460c94b44a8c4cefa60839",
+      "size": 4757,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ModuleChecker.java",
+      "sha256": "de961cd6d9305120f9f533c94f624a4669b17510d9f98923fe7ca5a629fed5fd",
+      "size": 19369,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ModuleEquivalence.java",
+      "sha256": "346b055b69eea160e2348c5716994a3a336fd888842aa223412dde495be8bf5f",
+      "size": 8792,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ModulePrinter.java",
+      "sha256": "dccd96718caf563168b611a07e80ae0c5470343626f97e89fdf22af07d331612",
+      "size": 12095,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceFragmentGuard.java",
+      "sha256": "be4b24ac70f74884b66a6e554305e954636a1bf7745781244f7130c4c600dd38",
+      "size": 3521,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceLexer.java",
+      "sha256": "3282ec961f0479f27a3826264aaaf1731805d315a2dce80007edf8d8158c89d4",
+      "size": 3503,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceParser.java",
+      "sha256": "458bdf4e9f302f30cc6867d334b3f3298d6d1416c63e9ff5f812ca1a5f187008",
+      "size": 1471,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceReferenceMapper.java",
+      "sha256": "4998a7e1403a829bffa4853a7f9591378fb38c938e09d17cf1416305193dd5cd",
+      "size": 8879,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceTriviaAttacher.java",
+      "sha256": "57a1ff8d3497d2a3ca6149442d0ffc3d55b13dfa648d1a047c55b86e5da9bb9a",
+      "size": 14510,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceValidation.java",
+      "sha256": "9a9b45a5225ed4556cd1363c6be2a981bf0ba684b87e0dd5ba2df3dbbc196282",
+      "size": 3075,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/TextTriviaScanner.java",
+      "sha256": "c2611ecbfbc04a199f4e27c078174b6d318e494d27480321e1c4c105093ee906",
+      "size": 4175,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/TriviaTransport.java",
+      "sha256": "f391d37cf939d46487569a9ec758b0b788c1fd0d7d8a9a7d280d14be3f6a1c08",
+      "size": 10529,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/Utf8Offsets.java",
+      "sha256": "a62ccf0348a324e219902dfdc1008af3312a054211b4778ddd7b861cdd44f272",
+      "size": 1279,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/AtomView.java",
+      "sha256": "ffb00bb4b5ed5685ba1a42c2d6699a16cc122f8dcc10b1907135086d75eb75e5",
+      "size": 371,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/CommandView.java",
+      "sha256": "5c2a574d5980bfb63637cedbbca17bfcfc6fdd44e5a831cc5c2fcd3238c1619e",
+      "size": 157,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/JobRequest.java",
+      "sha256": "1b9783dad26da53f994eaabba4d563a1c39c515f894bc3465a6aa3089e8481a9",
+      "size": 210,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/JobView.java",
+      "sha256": "404e07ed9269580b61ff5daa6db597a4425373314acf0bd40738667bb589b4d7",
+      "size": 985,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/RelationView.java",
+      "sha256": "2c94bc09f8ea41aae251e76a03135bc9fe04425313ed1ee3e911f45cc0f1cf6f",
+      "size": 472,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/StateView.java",
+      "sha256": "49c12328dba331c98a955a21a0a9de47e617ff4766308816a079b55b001ff42d",
+      "size": 434,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WitnessView.java",
+      "sha256": "bc94fbbe7e9d251eb61e84b81e63093be804388dfb085a22ccc694ed76241270",
+      "size": 587,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WorkerRequest.java",
+      "sha256": "8cf5ad993ff2eb278022430617ad97ce1826edffb716787d43b8b239a4efcf87",
+      "size": 332,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WorkerResponse.java",
+      "sha256": "248b10c49b939a0be519e5e2781f27c97fd0ec3036b9d9d24d9482066be6729c",
+      "size": 147,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Certificate.java",
+      "sha256": "42340eb1d795f15d2dd7267555f27339f6689ce59cf2b16c7465758743916d9e",
+      "size": 652,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/CertificateSlice.java",
+      "sha256": "fb1574626f47eff756591d0bae6018336ace7af54eb8df269f09512706009a5a",
+      "size": 2236,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Context.java",
+      "sha256": "88fa2ed6f271db097e7c1a3c7daa7fa2f000648bb8492cd87973f9d23abde3f3",
+      "size": 706,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EGraph.java",
+      "sha256": "f13c691e96dded53eeb4de939d5b5c36dbf4c25df203c242e6cfd68c3e636b0c",
+      "size": 8095,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EGraphEngine.java",
+      "sha256": "813fd94cb4194ff5cd069d8eb80890972e6982df5bfb7c2450c24b3fdb8384bc",
+      "size": 10769,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EngineInput.java",
+      "sha256": "81f1501ba776f2d50ecd8da8f26b8d6c7af8a13355a9c6c7864007ca13baaabd",
+      "size": 229,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Extractor.java",
+      "sha256": "15f158d5daf5e4e94ea57858c058694169c8201f4cfeb60008ff5aef3a033ec4",
+      "size": 2261,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/IslandResult.java",
+      "sha256": "d4ec72902b2101796cb3c026a80f1f1c9ed5d27febca7fb6baa3a0ef8eaf6776",
+      "size": 2520,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Matcher.java",
+      "sha256": "48bbca3e3b1b7ad6234ab083b8a2784d74720b633ddf7f67e51c9280afa270e5",
+      "size": 2394,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofChecker.java",
+      "sha256": "5698db7d4ff9da59ae5f10992bd45985d39c4b8a73e9ede662bee3ab1c1cade7",
+      "size": 10807,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofStep.java",
+      "sha256": "18105cf86f545948e509248ef6e55b7edad8aa1363be1f6b675cd8141457cab3",
+      "size": 636,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofStore.java",
+      "sha256": "cc7323f476ca73f59604d7cf58a8f0285f24d8ff2380a67c8603a0cc8eb10fca",
+      "size": 2809,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/RuleCatalog.java",
+      "sha256": "6b7118b0e2f8e233df142134c632eaaced9493084a720c8b5b143935d6425175",
+      "size": 5638,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/RunBudget.java",
+      "sha256": "39fbd52dc59895d969670b0694bc20c328e6d4d23b9f718d67ee33d36371a6dc",
+      "size": 1493,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Sort.java",
+      "sha256": "97ff7b2b54de88ccdc4f6568f84e370d961e9c40fb011c8173ae562bf3f8dd6f",
+      "size": 1696,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Term.java",
+      "sha256": "c828aaa6bc1670d04b1cac3193c8b848073d669e86099e5c3c9cc1e6f94e25ec",
+      "size": 1251,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Wire.java",
+      "sha256": "309d82f9b4c1e0e35cdf3b5c9fd5667f7eb6709f4c364cc56f71e30e337e0758",
+      "size": 2859,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AlloyEngine.java",
+      "sha256": "3970703e18f5a095a9434e980a0a9d70b34dc00cef4f1d2a9652eb6cfc232a89",
+      "size": 5881,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AstPolicy.java",
+      "sha256": "d0e31913bfe2e3168ac758ddbbc723ec5c2a5158edbb1e4b1945f07c99f9aba4",
+      "size": 5244,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+      "sha256": "7b442e91ddba8ad585febba6be6361a076e3e5f044eef707897f858584344c86",
+      "size": 4883,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/Hashes.java",
+      "sha256": "7eae6abadcfa52333d87bd42b77d67b4163d72a14b2d78ee131916a34ece8b97",
+      "size": 1252,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/JsonWire.java",
+      "sha256": "f2a366a01970e313b21d2db8677eba3cba27c3a093afac3ed38ed2848e1074de",
+      "size": 2410,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/SourcePolicy.java",
+      "sha256": "698cdf38043c02c0b03b2a5188114638734a3e95e474e3b5d71753d7bd58be79",
+      "size": 3792,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WarmDocumentWorkerMain.java",
+      "sha256": "8ed8337351adf07d3dd83ffb2b883b878e9fdd34eda1aeb6bc2b80e545e42093",
+      "size": 2832,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WitnessProjector.java",
+      "sha256": "5cf61aa32ab088870377116d22a9118887eb7ac41e86c67d6921e72c9f1ad3dc",
+      "size": 4346,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerMain.java",
+      "sha256": "31fef728316f6cef61f66d08b926d0e9983b474abb9438c091d228022492b42f",
+      "size": 1324,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerPolicy.java",
+      "sha256": "646b0f933a74485dec816e398147a8002bd2f0fb89ef038db728dcb64049eddc",
+      "size": 614,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/resources/application.properties",
+      "sha256": "f80d506b19054d374f6dac33d08632b18160caf68a77d52d74eefcc2dd8fab82",
+      "size": 396,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/BuildIdentityTest.java",
+      "sha256": "ca46fe7098234282c814c508256a8ecd631ccb5fe48ba3612a748247a918f34d",
+      "size": 2491,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentBoundaryTest.java",
+      "sha256": "a136f227e7c9140dcd31872a15ae312be8d9766b5578450636586a6f2092e04e",
+      "size": 6467,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentContextTransportTest.java",
+      "sha256": "e73c4875ac7a0dba33df887f72f9e31acaf84fb5a3799fe67e71b0304842e63e",
+      "size": 4474,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentMutationCoordinatorTest.java",
+      "sha256": "5a852627fdb5b45caefb1b212c7b0e451defab6e581ec0dd7db6c37fde23ac92",
+      "size": 14157,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentValidationContextTest.java",
+      "sha256": "b8a1f69148460f378aa2c8af32fd1c0224e6b852e4912e9a3d47216bc268b29d",
+      "size": 17213,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentWorkerLifecycleTest.java",
+      "sha256": "a46bf2762e4103dbbc1b058cd9d3047e1b1b730c59fda28c56923e68b51df310",
+      "size": 4250,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FakeChild.java",
+      "sha256": "9a0f33955fbfbae629f1ac62904efad2fccbdf5a0ebb18a2e9dfc610134a4705",
+      "size": 1487,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FixtureLauncher.java",
+      "sha256": "cbdc784c75cff28ddc3c91fc6c99654462360a91c02116b7c84b48fc159ea0cf",
+      "size": 1245,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1DeadlineTest.java",
+      "sha256": "ce0b5c18d85f983e8e2ccc1559228ebeb0a18f0734eafaad5ad707d1f561cea7",
+      "size": 2943,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1ProbeMain.java",
+      "sha256": "dacb2f42b54dddc26b185251e8ff963604ddf3ff42fba15ea4c5498f079e52bf",
+      "size": 8193,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1SafetyTest.java",
+      "sha256": "90c71cb52bf171679e04a319c77d7cef2e6b959939b7353984ad4a0b6afa13de",
+      "size": 8666,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1SolverBaselineTest.java",
+      "sha256": "980b94f2dfb09c461efd36268788acfaec9d09eab80c5678ff5fec597c16320a",
+      "size": 3469,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/HttpBoundaryTest.java",
+      "sha256": "e711c0d54b2a9333c63d3becbfcfa7508932be11371a52fec1d5d67f4af81f5f",
+      "size": 9167,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/JobServiceTest.java",
+      "sha256": "e01aa2559f836f86dd2e5bc614121d198272674e4dd1060051054445988d7fde",
+      "size": 3904,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/OwnedWorkerRecoveryTest.java",
+      "sha256": "ac81b0d1004a77fde5b80e51ff364ce6a49c3b1fa1ccbfb8e884b2203039c22f",
+      "size": 3922,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/ProcessRunnerTest.java",
+      "sha256": "d97f022940938c476a703598aa75ca0a961115b47ba10cd0575cb8edd03efd2d",
+      "size": 4230,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/SandboxBoundaryTest.java",
+      "sha256": "332207285c844ca8dd8316c22ca3fca9db265e837dda454e387d8ca80049efef",
+      "size": 2571,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/SandboxProbe.java",
+      "sha256": "f8cafbe6e0003af83cc002ef3f0d90f25ac3ca137efd18ee596de93b4763c657",
+      "size": 879,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmAdmissionDeadlineTest.java",
+      "sha256": "2e69bb5e449d1131fcf86585a4f3b61eddb43e79b7e6078a81524def9fb1c070",
+      "size": 3553,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "size": 10581,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "size": 14925,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmDeadlineTest.java",
+      "sha256": "e0e18e90555a92e24d7f44acc80b7137533b5b93db821fbc2d58ab41dfcfa996",
+      "size": 2468,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmGatewayDeadlineTest.java",
+      "sha256": "d914bf479e80f6502018abb4267143ff114c7b21a0bc1222656c082e54ddcba8",
+      "size": 4128,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyFresh.java",
+      "sha256": "1350b84b3ce863d0491d19d1e27fd4796983e989b88bd55c41af2e687e55b7d0",
+      "size": 1947,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyMain.java",
+      "sha256": "88858ba8a1c319ae5b260beefc1dbbf27c561eb9e2590aed7907c206013cb01c",
+      "size": 5779,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyPool.java",
+      "sha256": "b762248e8667c62e9c6996c9d23be485bf69b9e40850d5b0735fcf5a3e63add0",
+      "size": 12751,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyRecords.java",
+      "sha256": "8dc9da43a5c8f4f5b107788066288d970dd1aea325f04f08c820fe6b0acacea9",
+      "size": 4955,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyResources.java",
+      "sha256": "ae5860524cdcf2af5e3d650c5e6a05168411be58b6eaba616df24e60d2d6dcae",
+      "size": 1033,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencySeries.java",
+      "sha256": "f5f7030edd9568954448f46a00b6ddacf0b5a805e4921d007323fbb2c7513e20",
+      "size": 9443,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmPoolProbeMain.java",
+      "sha256": "afbcfc5af1713be582d8a406b3ec024c408ec164d5b129938f49057b3e4fbe73",
+      "size": 3769,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmPoolShutdownTest.java",
+      "sha256": "d3d984f9092806d8292f651abbc3973a89fd76c927272a118b862a28d1d5cd67",
+      "size": 8214,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeFailures.java",
+      "sha256": "01103b13972ff861d6116f70054baf6ebe896265372d3f6fe2a21dcd30608ab4",
+      "size": 4187,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeFiles.java",
+      "sha256": "639369235f60bc408f5122100bce973265aaf0ab058c88b8c808c794f1c1c4b7",
+      "size": 3212,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeSequence.java",
+      "sha256": "78e75650ab46ab35565307d7df16f0e36e8bbc738a5ec660393efd8c0b364b54",
+      "size": 16666,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeSession.java",
+      "sha256": "16e6c4ed6363f86a290159d26479b25e660646a594fe63509a07687e497ada5a",
+      "size": 31063,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeWitness.java",
+      "sha256": "8023772c956d677086769d1db7db0cf845a6e5a4bc3670ed9f9ae430e05f7f03",
+      "size": 6368,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "size": 16879,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticCase.java",
+      "sha256": "2a6b4d69f555932787bd853506a0c3b631c9349add127ce0d141db59b9e101e8",
+      "size": 9957,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticOwned.java",
+      "sha256": "f9491e48546b3a404b8b54ad6c097ec02d54255e5f4abfd68479f04a6e84d625",
+      "size": 14539,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticProbeMain.java",
+      "sha256": "98c3db234430527447655148406174c8f776c3f063c328eb099c58097c51095b",
+      "size": 5738,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticProtocol.java",
+      "sha256": "2fc7bb76b775e17d6e4a677755ab2e0fb8df6398363da0c9bd4abba1fb108227",
+      "size": 6901,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticProtocolTest.java",
+      "sha256": "f706c58aa0536e839af8014d66bcbdd7b1d29b0610e6d62301581f2b90b89504",
+      "size": 6396,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSequenceIdle.java",
+      "sha256": "e6f7a5394a8a6f9558f4bd2c8077bffb8a8249939214ab566b8d693cb042ed1b",
+      "size": 7311,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSequenceRecords.java",
+      "sha256": "35da40fd62d59bca611f572f5a767874c768ebc7088397e144fe3b0b8c53015c",
+      "size": 5996,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "sha256": "1603c24ef6789d860b5cfb792fa464a0867f9bbd8c43af1dbeb5b6c3de6ac73f",
+      "size": 24619,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerCreationFailureTest.java",
+      "sha256": "cb35aa02c278e74843008d0baab6e6f16e42e87cf8560bc3e5e82a8883056e6e",
+      "size": 11222,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "size": 4221,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "size": 14076,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "size": 10981,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "size": 3809,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java",
+      "sha256": "7fb8fef4cd50250c1ef214461efd10d988726d4de358cfe60d06d180a534b634",
+      "size": 7920,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/IslandAdapterTest.java",
+      "sha256": "330c942e23954567757f6e1cd09dc0116bb1332d8a35b164b7fb85593e8180fe",
+      "size": 9180,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java",
+      "sha256": "c5cbab76bde38bf1656994905d7501eae66d4d640534086d1d88d683acd13c2f",
+      "size": 7166,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/corpus/CorpusEngineTest.java",
+      "sha256": "93a8dce5c6e4cc317b2c3e0f4b0a8865893f6e908c27627d0506e86b1aa8e08e",
+      "size": 8522,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/AlloySemanticsTest.java",
+      "sha256": "c6546bc9c4274f765981467af21ab5dc6dc31784319f963c0f5d29b62f391083",
+      "size": 3193,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/AssociativityTest.java",
+      "sha256": "ce307854784a54e206814a311f861b51eaae67d7c77945759f26d3a6a4eb405a",
+      "size": 6745,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/DocumentTypeAgreementTest.java",
+      "sha256": "08f452db0d62dc900eff200db31c2870ad6d1368fe088559e76b38d353f6cfc7",
+      "size": 3877,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/ModuleCheckerTest.java",
+      "sha256": "42018db6c688d585dc165bc4f69796a9b38d5f4e563a5b872b7839371b573b1d",
+      "size": 55868,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/CertificateSliceTest.java",
+      "sha256": "778375d1f154b80f9f6d2d2d4bb5810e8e58afa5b5072366a511ada47e2d55e2",
+      "size": 2275,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/EGraphEngineTest.java",
+      "sha256": "8b4a22c2b5195ad82f9327fdf5e5d658cf63dd9099cdcca06661dca1ec96ce04",
+      "size": 8386,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/EGraphMechanicsTest.java",
+      "sha256": "37cbdb0cdb1b13bf7e4460f4082131cf62e45ecd681fc97437ac5d6fa5a51ca0",
+      "size": 5605,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/RuleCatalogTest.java",
+      "sha256": "975674d310e23999dcd0923904bc0b6842d0c6f627a629033559e27016c946e9",
+      "size": 4644,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/JsonWireEGraphTest.java",
+      "sha256": "b0d3a1fefe3453e9896d70cf9b82d85ba6e8c698f8bace48b4dcad37828a2180",
+      "size": 3531,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/JsonWireStrictTest.java",
+      "sha256": "38ea38b316c3f174cbac053a9a76b67e84a7d2ecfd59918d3214a51e4569b030",
+      "size": 1691,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/SourcePolicyTest.java",
+      "sha256": "b7392865ad3a416827da33ac670eca3a236f8f01cade09c36f5c8d27261e23d9",
+      "size": 1844,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "size": 7489,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/resources/document-type-cases.json",
+      "sha256": "b082181ec6ae331ae93058a84a8bbc07dc6faf9fd940e25de411873cc93c77a5",
+      "size": 189358,
+      "mode": 436
+    },
+    {
+      "path": "config/checkstyle.xml",
+      "sha256": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+      "size": 2804,
+      "mode": 436
+    },
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "size": 87752,
+      "mode": 436
+    },
+    {
+      "path": "db/document/interface.json",
+      "sha256": "4291a9bab7dda66ebbd7f245ce839f61bf714029d4fba3cdbe9bacf9c3067170",
+      "size": 5902,
+      "mode": 436
+    },
+    {
+      "path": "db/document/mutation-evidence.json",
+      "sha256": "b2bf19f0bd72fd748392c62679ec6d8563b2f01a8530987d2aa5c0e3eba8c7d8",
+      "size": 964,
+      "mode": 436
+    },
+    {
+      "path": "db/document/runtime-evidence.json",
+      "sha256": "726a8503cf955ce98de968805aebc951412f40f9902322d0674d50db0a17aca2",
+      "size": 5306,
+      "mode": 436
+    },
+    {
+      "path": "db/document/schema-catalog.sql",
+      "sha256": "4d5e0e917c97e188921f62d572c33f4fe4b020390c204ccee0d4cc86caccbb8d",
+      "size": 9317,
+      "mode": 436
+    },
+    {
+      "path": "db/migrations/004_retrieval.sql",
+      "sha256": "b9705a00228910947c9a187424ee8d2befe59b0f7b3ee3e14ec5685d062b2fa2",
+      "size": 10779,
+      "mode": 436
+    },
+    {
+      "path": "db/migrations/005_expected_catalog.json",
+      "sha256": "186e6838be0f8b2eb7f6caccd105eb5e6831ba5d792174deb8d96fd778e8ae36",
+      "size": 53040,
+      "mode": 436
+    },
+    {
+      "path": "db/migrations/005_explicit.json",
+      "sha256": "ce044aa22d9e1be752576db16740f8c35e7b8779ec762cd0f0bb2427a695ccd2",
+      "size": 289,
+      "mode": 436
+    },
+    {
+      "path": "gates/document/headless-preview-fixture.json",
+      "sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+      "size": 260302,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/ML-HANDOFF.md",
+      "sha256": "0e545a382061bbe3dc4fc5c9387ef7fdb1aec75892224809ee46f1c627105677",
+      "size": 5343,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/ML.md",
+      "sha256": "7fdbb3b10993fab28b2d33b728fe08cf42625b0416a5348a25ca93d6bed47ff2",
+      "size": 3811,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/README.md",
+      "sha256": "0e4300c2f61e2efcf5985df8f2b45f3a9a7c96061da70a68aa9f9ca37d45e836",
+      "size": 4357,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/__init__.py",
+      "sha256": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+      "size": 86,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/cli.py",
+      "sha256": "820839b6fc00176fb2cd70b5ed47c4f1ba98e3e994b0ea902d08dafdfd9a950a",
+      "size": 3586,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/context_lease.py",
+      "sha256": "0e2ee72eccb4e7165d50e73b73c76686563f36fb932fddc43b5b3f9a1ed355f6",
+      "size": 5585,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/identifiers.py",
+      "sha256": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+      "size": 3803,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/identity.py",
+      "sha256": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+      "size": 3072,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/migration.py",
+      "sha256": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+      "size": 6444,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/store.py",
+      "sha256": "30e0e491ce455c6e732baa812fa9bfcee716b5c888511ad07bdeed6f18a5800d",
+      "size": 28895,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/wire.py",
+      "sha256": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+      "size": 5546,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/__init__.py",
+      "sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "size": 85,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/cli.py",
+      "sha256": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+      "size": 2723,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/common.py",
+      "sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "size": 1067,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/corpus.py",
+      "sha256": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "size": 8877,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/database.py",
+      "sha256": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+      "size": 25328,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/embedding.py",
+      "sha256": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "size": 8499,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/evaluation.py",
+      "sha256": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+      "size": 22358,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/importer.py",
+      "sha256": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+      "size": 14524,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/journal.py",
+      "sha256": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+      "size": 3431,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/manage.py",
+      "sha256": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+      "size": 3077,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/migration.py",
+      "sha256": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+      "size": 13977,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/promotion.py",
+      "sha256": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+      "size": 1017,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/rag.py",
+      "sha256": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24",
+      "size": 1307,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/ranking.py",
+      "sha256": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+      "size": 5469,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "size": 7096,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_control.py",
+      "sha256": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "size": 5262,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_identity.py",
+      "sha256": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "size": 3791,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_journal.py",
+      "sha256": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "size": 10621,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_lease.py",
+      "sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "size": 20760,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_observer.py",
+      "sha256": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "size": 4611,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_protocol.py",
+      "sha256": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "size": 14487,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "size": 12711,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image.py",
+      "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "size": 14138,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_config.py",
+      "sha256": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "size": 4408,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_init.py",
+      "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "size": 4014,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_inventory.py",
+      "sha256": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "size": 715,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "size": 35709,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/training.py",
+      "sha256": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+      "size": 6449,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/bootstrap_ml.py",
+      "sha256": "daf98fb50c936a73e56049499b9acc3160c2048f23b5b8f93330c18c673f3865",
+      "size": 5292,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/dependency-audit-after.json",
+      "sha256": "ef6b9bf312f9a7ed6838feb9133de77124009ea68024964460e3ff83790ab0d0",
+      "size": 3556,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/dependency-audit-before.json",
+      "sha256": "829f766c9ca9b4677a7dc2a8512d3a44efc0a1e971a317aef314170d758754c8",
+      "size": 283562,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/dependency-security.json",
+      "sha256": "e788a68a7d234b8f9b55029447630de6bf48b529190f4a64450c4d3a5341c55c",
+      "size": 1397,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/history/ml-verification-before-final-repair.json",
+      "sha256": "e4d15f396db5d802606b5e821b9ae135351e85821772264f297a55f11cc82ce1",
+      "size": 2537,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/history/pilot-summary-before-final-repair.json",
+      "sha256": "ce412284ddea0c3783c84834aacc2a24dcf36df49825a3623ced609832df099a",
+      "size": 1210,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/ml-verification.json",
+      "sha256": "b14435164ed1c614137b2e2339c3059be45703f66187e980e6657fb6d2dc44db",
+      "size": 3841,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/model-lock.json",
+      "sha256": "65d87fb3fe650721e0552b79fb70e6bc4192981f8e735a35485bd3dd6946a593",
+      "size": 679,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/model-notice.json",
+      "sha256": "e736b02dfc676f46e6ba8f57eb1433fd9357ba965c04bdaa0ca155b3a513536e",
+      "size": 410,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/pilot-summary.json",
+      "sha256": "5a33191a35373eaa7e053abce2844f799bd6075c3e7e4f987981e083c71ba6ce",
+      "size": 3136,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-audit.txt",
+      "sha256": "3e44a305ffd6b118b08cba88d03f24b8ef2f838bab9106e2445d1c9418fb9720",
+      "size": 1106,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-ml-before.txt",
+      "sha256": "84c9d7bb1e1a21af558576f7df566f8e426c72d7f2c5335aea6b96ced810ebd9",
+      "size": 840,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-ml-resolved.txt",
+      "sha256": "264fb3296004f366ebb4504f711ef699ff2a03e79c8a95a59499e125f8a39843",
+      "size": 1110,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-ml.lock",
+      "sha256": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc",
+      "size": 6092,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_context_lease_client.py",
+      "sha256": "55379bbb69b4e5cb4adce284b717112d34b6b1de97fdf408bebf7b14e745953e",
+      "size": 10456,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_context_leases.py",
+      "sha256": "bbf913c5ef92785174968dbf011c0c8d6d89934f78d3dcd32ec7f00709e0655f",
+      "size": 26986,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_documents.py",
+      "sha256": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f",
+      "size": 23797,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_luna_adversarial.py",
+      "sha256": "033831c2dff77f358d3b89030d8b18c05e938c7d1207c7d1b4eba9b237c7b731",
+      "size": 5334,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_luna_semantic.py",
+      "sha256": "398a9572bed80a55269920817615e12a240ad36b23557ca9ea58c825d9643e8a",
+      "size": 2783,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_ml.py",
+      "sha256": "20a677459164466c2fe1b3de8e39c040c1aaf183c1c1ac51f20d03be91f1d023",
+      "size": 6864,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_repository.py",
+      "sha256": "76360a0b6e3e5cfa347ad1e14a71f8c698d64823614132cd9168c73488e68b9b",
+      "size": 12760,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_connections.py",
+      "sha256": "8f5c368f0c39efcf0aed43d49c281223df115c05ebb403a8095c62907e014a45",
+      "size": 7149,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_context_protocol.py",
+      "sha256": "b8300f4555dd201cc054e8c4a3dd3f937635f7f2dc2676ae333767ca397c253b",
+      "size": 11766,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_guard.py",
+      "sha256": "f68b893b777e6cefd82bd1c9684181c10eb7b150848ed3f34c4264fd2f8bcb05",
+      "size": 6563,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_image.py",
+      "sha256": "c702007e0d381ae9a777e533b8af06454d37dd2f18473af501f62b1d03f2384f",
+      "size": 32636,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_image_consumers.py",
+      "sha256": "a543d2aea7bdae0a4d70398abbc5d76234d2871db2a6def0c8aec9fc09bad9aa",
+      "size": 2908,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "dab759ea22d9c0d3abdc7fe2b703c09d991d9d70e1c4bc7112ecb4934b49603c",
+      "size": 39849,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_validation_context.py",
+      "sha256": "5383292462b399ac421c16c1d88ed19e566c72277844034afc72d34a105d35ec",
+      "size": 24807,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/torch-audit.json",
+      "sha256": "c4a205618dacc9faf957fa0424fcfeec589bc2ca7dea783cb447d061ab164745",
+      "size": 11873,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/training-runtime-lock.json",
+      "sha256": "1a68248d584735ccdf327e76e3befce0982f6a22124f7e6189474832dfda2f45",
+      "size": 486,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/training-runtime-version.txt",
+      "sha256": "405b68d1463b8e6998aeb9346fd69745df83e16ce013bb1c14a7b3fdbda060c5",
+      "size": 13,
+      "mode": 436
+    },
+    {
+      "path": "scripts/benchmark_documents.py",
+      "sha256": "edd10e0737566634587caa49a93fbab1f86303fefd03ac93a00738ea90feb09f",
+      "size": 7946,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap.py",
+      "sha256": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+      "size": 2368,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap_corpus.py",
+      "sha256": "5dfa285640c96662306f6ae21d07281357ceeac1d32aa4435d299234c10c487d",
+      "size": 16403,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap_documents.py",
+      "sha256": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827",
+      "size": 811,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap_sqlean.py",
+      "sha256": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+      "size": 4457,
+      "mode": 436
+    },
+    {
+      "path": "scripts/browser_benchmark_assets.py",
+      "sha256": "6aebd94d8b8a5db8f185ff8776193a08ed9c9a421d52c92a3081c780b2eeae47",
+      "size": 6728,
+      "mode": 436
+    },
+    {
+      "path": "scripts/build.py",
+      "sha256": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "size": 1221,
+      "mode": 436
+    },
+    {
+      "path": "scripts/check-code-style.mjs",
+      "sha256": "4dd407c3134c9ac7a9896f47c230b3ff42ef32c8e280e11b0c37078cec604dbc",
+      "size": 13234,
+      "mode": 436
+    },
+    {
+      "path": "scripts/dependency_inventory.py",
+      "sha256": "c3a46f0b83523d737c1a3809bdac72a7e7a0e674c02e63ac3aa8c5b6468f9196",
+      "size": 3558,
+      "mode": 436
+    },
+    {
+      "path": "scripts/document_recovery_test.py",
+      "sha256": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+      "size": 18244,
+      "mode": 436
+    },
+    {
+      "path": "scripts/profile_document_persistence.py",
+      "sha256": "0147145dc2c7eb9c46cbe001b21ed7ac480be0c9f1ac50ae43ad4ca1758c5960",
+      "size": 4219,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_documents.py",
+      "sha256": "6c0ca3864287960d09b318f3d150acee91245c1056307b22606c75b42cd66ff3",
+      "size": 9150,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_egraph.py",
+      "sha256": "ffa5374bf1aa12a585ac0dccd6146e24fe636c5ff617627194d5394b3d2baf0b",
+      "size": 8729,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_implementation.py",
+      "sha256": "76c33f9248538c37aec02d5163b17d5589899e60dbb2e80fe60945b7e7a429c9",
+      "size": 8823,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_retrieval.py",
+      "sha256": "4d1eb0f5519c6e882923e11e7d8cd31845e98004ef778db33e170e061a1cff68",
+      "size": 7612,
+      "mode": 436
+    },
+    {
+      "path": "scripts/retrieval_recovery_test.py",
+      "sha256": "a63a449e195917f129f67d57c6e1024794a74d87f8c6da36bd866e2801fa3f37",
+      "size": 8762,
+      "mode": 436
+    },
+    {
+      "path": "scripts/run_local.py",
+      "sha256": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896",
+      "size": 2487,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_documents.py",
+      "sha256": "8f93906d5144b808d4fedd8279696d1dfc1d51d3d7c64d6020f03fa5ea6deec3",
+      "size": 12981,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_egraph.py",
+      "sha256": "da7bf8bc27654d567fd52b6e96170fd7bee90dcfd6df4a232a9f6388928f373a",
+      "size": 5336,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_local.py",
+      "sha256": "2031b3d24779f40ee1955b72e38a4bca9c1e64694c5548be9125c6b100dae66e",
+      "size": 6467,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_retrieval.py",
+      "sha256": "13346d1ffc7d65fcb09d33f2b836d182b20f24bf3ca5064dffc417cade030baf",
+      "size": 5901,
+      "mode": 436
+    },
+    {
+      "path": "scripts/test-code-style.mjs",
+      "sha256": "c2733145c51b1230c0df3e82ade2325b28dfe63255360d7dbdfa6612f926ac38",
+      "size": 14130,
+      "mode": 436
+    },
+    {
+      "path": "scripts/tests/test_warm_worker_image.py",
+      "sha256": "b2df6dbe781694fcc5c3674b418371557fde78ea6d577ccc7bbd9ba9a3835a48",
+      "size": 10675,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_browser_benchmark.py",
+      "sha256": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+      "size": 9617,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_corpus_runtime.py",
+      "sha256": "da50ad8d89f5358d98f53d404fc64cb037726a4248c82f24310c5c7f4f5205ab",
+      "size": 3421,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_document_restart.py",
+      "sha256": "14b91549b87706a65e9e2df608f5a77d77dca07788e08dfbdeb5170509b49462",
+      "size": 2525,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_egraph.py",
+      "sha256": "fedbf92b944f1ead3bd3c5c99960589ad9e134a529a9493aa987cc84796e224e",
+      "size": 14177,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_formal.py",
+      "sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "size": 7974,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_retrieval.py",
+      "sha256": "815484d6a9d152ec969274c112435bf0fda287b44a5a30a0198439a790546266",
+      "size": 14453,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_sql.py",
+      "sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "size": 14851,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_sql_clients.py",
+      "sha256": "cc5cab3259b843d865af15d61f7007398ee8d4fcf22cb9009aca575dc2af1a4b",
+      "size": 9633,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_sql_runtime.py",
+      "sha256": "3e8e57e1285790d53fb03df33dee6c212c3df956ac40880dec1e2277dcdb0ed8",
+      "size": 23016,
+      "mode": 436
+    },
+    {
+      "path": "scripts/warm_worker_image.py",
+      "sha256": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+      "size": 17062,
+      "mode": 436
+    },
+    {
+      "path": "spec/allow-contract.json",
+      "sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "size": 42037,
+      "mode": 436
+    },
+    {
+      "path": "spec/allow-contract.schema.json",
+      "sha256": "bbfa286ed585ab71e887eb0bb14c761b733b0d90d52df38f92bf0a5cc73fc571",
+      "size": 29895,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-adapter-draft.json",
+      "sha256": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+      "size": 9673,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-associativity.json",
+      "sha256": "b7a60034b650bb75dc8a1d160d8312ccbc3f8d1449b2554290e0db9748045d1b",
+      "size": 7157,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-context-cleanup.json",
+      "sha256": "761130b8e7bafb4d63960950b928b8faa715cc4df83f49ab117136c1cd3c130b",
+      "size": 31727,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-field-order.json",
+      "sha256": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+      "size": 2075,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-partial-types.json",
+      "sha256": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216",
+      "size": 17857,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-stage-draft.json",
+      "sha256": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+      "size": 22292,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-ui-draft.json",
+      "sha256": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+      "size": 10681,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-validation-context.json",
+      "sha256": "652f1950fb7497df063e58ebd05b54b0363f1bd2358b84b0900055508ab9c806",
+      "size": 18295,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-wire-draft.json",
+      "sha256": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+      "size": 44193,
+      "mode": 436
+    },
+    {
+      "path": "spec/egraph-rules.json",
+      "sha256": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+      "size": 10987,
+      "mode": 436
+    },
+    {
+      "path": "spec/egraph-stage.json",
+      "sha256": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+      "size": 21619,
+      "mode": 436
+    },
+    {
+      "path": "spec/egraph-types.json",
+      "sha256": "229a1d3b92b6713fa4f51291b16c353cf52df1370a41f3d9f860e0c79d01b5ed",
+      "size": 4568,
+      "mode": 436
+    },
+    {
+      "path": "spec/fresh-tier1.json",
+      "sha256": "fa7d8f115b54d2b924f0213cadb446a197fe4cb10dd072e2402b02e4875d88b2",
+      "size": 9024,
+      "mode": 436
+    },
+    {
+      "path": "spec/implementation-g1-types.json",
+      "sha256": "1d2412397e4af7b78f145b884acd39685f4e5b49902b82b4a949b22c8364c753",
+      "size": 1479,
+      "mode": 436
+    },
+    {
+      "path": "spec/implementation-g1.json",
+      "sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "size": 15134,
+      "mode": 436
+    },
+    {
+      "path": "spec/retrieval-stage.json",
+      "sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+      "size": 29121,
+      "mode": 436
+    },
+    {
+      "path": "spec/retrieval-types.json",
+      "sha256": "27ba0b43b311aabc04d21f0ebac4fd2108c8db54056a7009586577613b0d3905",
+      "size": 5407,
+      "mode": 436
+    },
+    {
+      "path": "spec/slot-profile.json",
+      "sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+      "size": 5267,
+      "mode": 436
+    },
+    {
+      "path": "spec/sql-immutable-image.json",
+      "sha256": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+      "size": 8095,
+      "mode": 436
+    },
+    {
+      "path": "spec/sql-stage.json",
+      "sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+      "size": 24849,
+      "mode": 436
+    },
+    {
+      "path": "spec/sql-types.json",
+      "sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac",
+      "size": 6272,
+      "mode": 436
+    },
+    {
+      "path": "spec/warm-pool.json",
+      "sha256": "dc055e04071710626617dad03fc8b867be0a57ddd0f37e57f7fc1d551f0c5a83",
+      "size": 23294,
+      "mode": 436
+    }
+  ],
+  "full_source_snapshot": [
+    {
+      "path": "backend/pom.xml",
+      "sha256": "f04a127ac3362e6ffca462e2dcbfadc9f302e7c5fb4ff20c248528c3a2b2f4c4",
+      "size": 3199,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AllowApplication.java",
+      "sha256": "b95538714ddbb2e10f5fd53e6f15bd44c2d64a687abd7f29565cfcfe4b6b0c5c",
+      "size": 521,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ApiController.java",
+      "sha256": "94d768c469a3e5817c25ef25fdf52d804573a247230c370de35da6bcc5a0e516",
+      "size": 3055,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AuthorityFilter.java",
+      "sha256": "2f171027ca2371aefb62e76b47c9e1ceaaedd5f87cc493c4d7396c374f9869ed",
+      "size": 2769,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BoundedCapture.java",
+      "sha256": "d8ce60276d25075d58c26b627b82640b84d9207158f342dc608237fbd43994d9",
+      "size": 1383,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+      "sha256": "18411c0831a79acefd8171a14f134fed37164330ca999bccef60dd19e4f213ca",
+      "size": 6557,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+      "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0",
+      "size": 2474,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusController.java",
+      "sha256": "e38522fdc14aae8fad59226029a5411e7b905b4cf8bcdd3c8b46cf762974bb74",
+      "size": 3488,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusGateway.java",
+      "sha256": "1d0d0575530bf298a76a6b70f927de381518e03a0639a4a770fc178426b41d3c",
+      "size": 5530,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentArtifacts.java",
+      "sha256": "3817ce53426ed0323156d97532df47cbeb44b3cd14ed4a5d748e75122a3f0ee8",
+      "size": 6276,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentAttempt.java",
+      "sha256": "45fabad50010a124e53eb42c93ad3495ed6bdce00300d0899b8864c830eda51f",
+      "size": 2406,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentController.java",
+      "sha256": "ae296d7d774e0e960365acf2535395d4be63c6f20b3c1e2abc0ec5b4f96f64a0",
+      "size": 8936,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+      "sha256": "b4d8c56ebfc21f35513d831fb4585fda28397f04b2917d2efa3dabddffcb3a21",
+      "size": 4700,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentJson.java",
+      "sha256": "8495e9177da33ee50eb892f3b6b5994c2493759bca2b843cb3a6d82c481f57a8",
+      "size": 4766,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationFrames.java",
+      "sha256": "501be905e1de34c29c6af167be870c5e14cb01ff82623c948d131a450077deef",
+      "size": 4414,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationValidation.java",
+      "sha256": "6a6b994d25657b6a217eee39881fdfb9cefd52be9d302d97a1f8cedc28c6d842",
+      "size": 5293,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationWorkers.java",
+      "sha256": "ef8b6972981416e520b6001e3faf1b76869cf0ff1d261a804be43eae25c2cf65",
+      "size": 652,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutations.java",
+      "sha256": "b0911232a92432ba7bcf78c880846a8d302248214be662de579ba075d75f0881",
+      "size": 16329,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "sha256": "3961917709fc6f360325809afaef8de80670c8d165019b163ce0019419293034",
+      "size": 16496,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentReplies.java",
+      "sha256": "740afd59536e89d8f035ab566b48bb6b61fec693650d8aa43a9742ed0c692ede",
+      "size": 2950,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRequest.java",
+      "sha256": "356cc38f20ef9c4f3c73ecb5239260bff01a21ef2a4c6b4052ed41582227f40a",
+      "size": 4997,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+      "sha256": "5409dc491e0b5715783e5a279df685b93ee5a6437759e3bc8b80dc4df151a022",
+      "size": 6591,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentValidationContext.java",
+      "sha256": "2a139d10b36eac8868bbefa69dfc463faf7ea0eeeed0d34df83ce026c859b948",
+      "size": 8971,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "1b4f4c4ae2081ee49296f5aed1014d12e0028b292344af5000edf2eafdfba279",
+      "size": 7808,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "sha256": "4f5efc039f8d5b145044d0d1c021120f95db77c381e24fd7484b2dcc6ce0edf2",
+      "size": 6068,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobControl.java",
+      "sha256": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+      "size": 1436,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRecord.java",
+      "sha256": "bda801932f2df2edd5a72b0fb8a594697d501644c4de740746a417fdfeb74d4d",
+      "size": 2107,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRunner.java",
+      "sha256": "681379f569261d55aa123e31b99cbaa9ccc2cf34da39bbc743f73522c418fc10",
+      "size": 718,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobService.java",
+      "sha256": "5602d7cdd093117831a8d589420168a9a2e74ff40d474d1539d512e3d241ba30",
+      "size": 4368,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LaunchAuthority.java",
+      "sha256": "141a0373295e6413740f6efbfdde5eea8b2dce4379f90ec4464ac80c333d1a53",
+      "size": 2255,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LoopbackBinding.java",
+      "sha256": "137118b3981e0a64cce37043ba1cb2998349da275915600866945c759876edc5",
+      "size": 1063,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/OwnedWorkerRun.java",
+      "sha256": "df581c147c80bf465fe7a643ca9587959cea3dbff8337e8133c077cc0f705f28",
+      "size": 8486,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessIdentity.java",
+      "sha256": "a47e6cb81188237ded7dd7da505868930cfa7040e05ed8ed3585d86e4902aab7",
+      "size": 1476,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+      "sha256": "acf7a1f5e9b72b0667277672b67b851c6ed71bc366d1cadae8a290cd522acfb0",
+      "size": 8425,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/SandboxLauncher.java",
+      "sha256": "3facaad09b518ad0487f99d38b61f50826d05dafe3b0caa49abbea94312a7d8f",
+      "size": 541,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmConfiguration.java",
+      "sha256": "13ff5136286260b827cbb8cb7ed5764afa19e9fa6074ecd5281bd6aaa6748303",
+      "size": 4151,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmContextPermit.java",
+      "sha256": "f7723d6ab36499295eb42fbce9531c38f22dc386c73e9e70c75e5a9c18def706",
+      "size": 2332,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmDeadline.java",
+      "sha256": "57cd8756deb340d2a6d904a0d46e56d7d78efa9fdc45569b31b48a1a60c2013b",
+      "size": 3011,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmImageLauncher.java",
+      "sha256": "ec4188d83cb0ad0955ac2b040c523bdc983c3fca895d87e1c321e6f18a66583b",
+      "size": 6703,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmRequestBinding.java",
+      "sha256": "57897e58af90b1671467ab5f2b593381a2b21a1998fd28bd9b4e701d46179388",
+      "size": 2307,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmResultLease.java",
+      "sha256": "829afbefeda5912cdf79a75cb57a423d298604777861c5207451ab29a418cfa0",
+      "size": 2585,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmRuntime.java",
+      "sha256": "38e041b43a7a8b68782bfb236141be1a4d8a8e0a43a066415ab50301d34c2cd4",
+      "size": 7659,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmStandby.java",
+      "sha256": "71683e83481be1f50dd45235d5970e1d90460c60cb3a6f0f00d61b17760903bb",
+      "size": 12753,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmTransport.java",
+      "sha256": "6ea9931ff24cfe5a75c80b6b894be30f73b5ecf404156c93e5c42547cadc8e80",
+      "size": 12970,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerMode.java",
+      "sha256": "07942aa2a502266652d13944a4d5e734d5c491eb781dbd474a286664788354e9",
+      "size": 592,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerPool.java",
+      "sha256": "b05612f5ea7e125ca8505fe64be40b4c7c2b981e79055455ad460fd9df85c00f",
+      "size": 10860,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+      "sha256": "ffb71612c7a083bfa97201f1244fa338ec4d586b6427f71a70e4e1dc7efe4958",
+      "size": 1019,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "07e992be2b2fec28268994a826e04eecb80af230c41e9e31b6db2ea1101fe095",
+      "size": 12637,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "4a74f45cd3c24ca97424d26c4be8c3465c2176f48a20a6b4666b0ce80c9cc550",
+      "size": 13250,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerLaunchProfile.java",
+      "sha256": "3d3efc15be00587f5000f7763195f2a59d212907bd837e52427344876fe29875",
+      "size": 185,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "3564919f2bb12fb2f35b1ec24f4e9b7e0f03aab6230f2b08c10aff903b06bd22",
+      "size": 23708,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerReservation.java",
+      "sha256": "2ff0c8c89f1eaa66dfa500e413f893348ac4b68266cf489bd8fc1ddde8b00822",
+      "size": 8490,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java",
+      "sha256": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59",
+      "size": 1615,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalDigest.java",
+      "sha256": "1b445d48870cc80f997b5dd5fd92ce1cb8bb89e8c101e15a5de7cf7288341a19",
+      "size": 1169,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalNodes.java",
+      "sha256": "1798334e079e527f7a7e160a8f633f932b000e407c4837b66d5800f6f42aa333",
+      "size": 799,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalView.java",
+      "sha256": "8532a0185434ef0c8be02fdf4f86b77a9707c25cdf8ffa5a8e7dbfc114b85cd1",
+      "size": 1289,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/Canonicalizer.java",
+      "sha256": "3e8afd2d1235803dd483fdd336813241760f351faf4ac8b58fa714c749ea137e",
+      "size": 1781,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CorpusProjection.java",
+      "sha256": "5b4ff646976044d4e18b2d9300915a60e209a16736bb2238726428f7bf614fef",
+      "size": 6113,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EgraphView.java",
+      "sha256": "eae47433e527427a57ed82c5621b3e13562325cc6316a65eb4a5cf499a1f3190",
+      "size": 603,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java",
+      "sha256": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e",
+      "size": 1811,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java",
+      "sha256": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+      "size": 7673,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandAdapter.java",
+      "sha256": "6ba3aa96e05c1b600351e0941e16944343c0fa6a707ecf605a8f324a059a368c",
+      "size": 6289,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandCapture.java",
+      "sha256": "2fb1c2db5e9084fcb351e0da1ec7ba0adf35b077370685fd6c345200ef2160cc",
+      "size": 266,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandLimit.java",
+      "sha256": "ef768255854fd5fd8bbdabe6e7fb0fd3afa899c2aa05d8afd3e347283aea348c",
+      "size": 210,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandLowering.java",
+      "sha256": "4e9b7dc3964027e868636d52afb19439b175226afc33fe9d065dfa2db650f8fa",
+      "size": 7244,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandTypes.java",
+      "sha256": "1338c578a76d21421bb92e665f4d8e655848ffffc7c9feea85b75ca8e9b0e86b",
+      "size": 2268,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java",
+      "sha256": "3c2ba77a741a6b9efd8d7343aa93566fd88677ba40ae59b231612fbe9d575e23",
+      "size": 8100,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/OperatorPolicy.java",
+      "sha256": "b8e65e2bd9ea1271ce2deea563f7f83643fb215fe10901afa1380904191536a4",
+      "size": 2402,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/SlotRegistry.java",
+      "sha256": "e5909f1b865f6f3cac22f6ea62e198dda819ab5128a878b1afae4b41c00642c6",
+      "size": 4292,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/UnsupportedCanonical.java",
+      "sha256": "38e48badbd8cf3cf1408fdba18fd4137d5a5a2b34ae0d3b8fe5a82917fe8d5ae",
+      "size": 352,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusAugmentMain.java",
+      "sha256": "20dc79cc63c3d62227cdbe7f1324f779d4326d06e7ed12a0f37322cf7695365e",
+      "size": 2562,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusEngine.java",
+      "sha256": "e28e61f7376dbf0c1f1057ea7d5250a691d837c67afc1e5d3f31b32218fe1ec0",
+      "size": 6279,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusRequest.java",
+      "sha256": "d139d807db3a1f6bc72b9c26ef3dbc926529d5b7f074d106880352078d3c1015",
+      "size": 541,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusResponse.java",
+      "sha256": "d55ee34d93fca02cc52ba96802f3d06eb168842557a23374c2f01ce456fc941b",
+      "size": 370,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusWorkerMain.java",
+      "sha256": "383a40c9cc20d395f3af5db35315b9b1b2924c2e72a0e9c230ad1c42ecae0340",
+      "size": 1163,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/InstanceCanonicalizer.java",
+      "sha256": "9271ca7d75d75587e01fb7158552a39ddb03969c37c8163295392518a7a3b3e6",
+      "size": 4810,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/PoolBuilder.java",
+      "sha256": "1a5e0d92f587c4c95658f23d65c63331c2a060758cf142f21bab4864abd886bc",
+      "size": 3230,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/TrainingVariant.java",
+      "sha256": "1027f084f7757b9c9c52f6d71fd97bfa3ee80a7b6c05f1c5fa779dbe94b0e21e",
+      "size": 2676,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/AlloyExpressionReader.java",
+      "sha256": "eaccec50e360bdefa570fba2c40a33d1c98bb52100a0829b21d8076cbb07311c",
+      "size": 11374,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/AlloyModuleReader.java",
+      "sha256": "3b3c6874617b653ca2e63d46b8fb5faf71341ffebbf8ef71249011c351192601",
+      "size": 11135,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/AlloySchemaReader.java",
+      "sha256": "47af185bedbe4aca0ad14f6e6e43f01f1e73c8482ad32b847a71c1b26b64adca",
+      "size": 4098,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ArtifactIntegrity.java",
+      "sha256": "d618aedc654847f53c5a68eccd61610415752751fed58c7a7bbdf0bd6426f11a",
+      "size": 11930,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/BlockValidation.java",
+      "sha256": "31e7fd552e51907d963758e7be69d6d3721b027d42c6e16ec9ba055764c135b8",
+      "size": 3160,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/CommandDescriptors.java",
+      "sha256": "3eb8940b86b7078d23383f3f322d2a1a2c77d093f59074dc914b40838be24320",
+      "size": 4654,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/CommandTokenCounter.java",
+      "sha256": "e38e649cf8d6304473b3871de373d6aa4d7d184325da439bb0933cc87e1fe218",
+      "size": 3527,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/CopyValidator.java",
+      "sha256": "af67cac327a34c36d19880c281b44a74c7e0808fc15dbca06e9746b0893ce26b",
+      "size": 2564,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/DocumentEngine.java",
+      "sha256": "ad94dbdecff44f80bf35d71842314ba41df19375a6baa1d28a8d7d570012f04b",
+      "size": 6241,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/DocumentValidationException.java",
+      "sha256": "ddf9bf58e396f9ce2bff14ce9ba74dad33a258a302e7fc72191b9ee1f080c2e5",
+      "size": 970,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/EngineData.java",
+      "sha256": "854a1c74f94554098f0fe4e735558f4f792ea09b9f96ae194ca830648109b30a",
+      "size": 6625,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/HistoryValidation.java",
+      "sha256": "e1d0c7491077c911a8e8225b2c3ba0726cd592174046fdf5de5d51d797201356",
+      "size": 3312,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/IdentityRemapper.java",
+      "sha256": "7540aca33c999083a904cad96df6010a6ac4caf3f7460c94b44a8c4cefa60839",
+      "size": 4757,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ModuleChecker.java",
+      "sha256": "de961cd6d9305120f9f533c94f624a4669b17510d9f98923fe7ca5a629fed5fd",
+      "size": 19369,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ModuleEquivalence.java",
+      "sha256": "346b055b69eea160e2348c5716994a3a336fd888842aa223412dde495be8bf5f",
+      "size": 8792,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/ModulePrinter.java",
+      "sha256": "dccd96718caf563168b611a07e80ae0c5470343626f97e89fdf22af07d331612",
+      "size": 12095,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceFragmentGuard.java",
+      "sha256": "be4b24ac70f74884b66a6e554305e954636a1bf7745781244f7130c4c600dd38",
+      "size": 3521,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceLexer.java",
+      "sha256": "3282ec961f0479f27a3826264aaaf1731805d315a2dce80007edf8d8158c89d4",
+      "size": 3503,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceParser.java",
+      "sha256": "458bdf4e9f302f30cc6867d334b3f3298d6d1416c63e9ff5f812ca1a5f187008",
+      "size": 1471,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceReferenceMapper.java",
+      "sha256": "4998a7e1403a829bffa4853a7f9591378fb38c938e09d17cf1416305193dd5cd",
+      "size": 8879,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceTriviaAttacher.java",
+      "sha256": "57a1ff8d3497d2a3ca6149442d0ffc3d55b13dfa648d1a047c55b86e5da9bb9a",
+      "size": 14510,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceValidation.java",
+      "sha256": "9a9b45a5225ed4556cd1363c6be2a981bf0ba684b87e0dd5ba2df3dbbc196282",
+      "size": 3075,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/TextTriviaScanner.java",
+      "sha256": "c2611ecbfbc04a199f4e27c078174b6d318e494d27480321e1c4c105093ee906",
+      "size": 4175,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/TriviaTransport.java",
+      "sha256": "f391d37cf939d46487569a9ec758b0b788c1fd0d7d8a9a7d280d14be3f6a1c08",
+      "size": 10529,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/Utf8Offsets.java",
+      "sha256": "a62ccf0348a324e219902dfdc1008af3312a054211b4778ddd7b861cdd44f272",
+      "size": 1279,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/AtomView.java",
+      "sha256": "ffb00bb4b5ed5685ba1a42c2d6699a16cc122f8dcc10b1907135086d75eb75e5",
+      "size": 371,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/CommandView.java",
+      "sha256": "5c2a574d5980bfb63637cedbbca17bfcfc6fdd44e5a831cc5c2fcd3238c1619e",
+      "size": 157,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/JobRequest.java",
+      "sha256": "1b9783dad26da53f994eaabba4d563a1c39c515f894bc3465a6aa3089e8481a9",
+      "size": 210,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/JobView.java",
+      "sha256": "404e07ed9269580b61ff5daa6db597a4425373314acf0bd40738667bb589b4d7",
+      "size": 985,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/RelationView.java",
+      "sha256": "2c94bc09f8ea41aae251e76a03135bc9fe04425313ed1ee3e911f45cc0f1cf6f",
+      "size": 472,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/StateView.java",
+      "sha256": "49c12328dba331c98a955a21a0a9de47e617ff4766308816a079b55b001ff42d",
+      "size": 434,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WitnessView.java",
+      "sha256": "bc94fbbe7e9d251eb61e84b81e63093be804388dfb085a22ccc694ed76241270",
+      "size": 587,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WorkerRequest.java",
+      "sha256": "8cf5ad993ff2eb278022430617ad97ce1826edffb716787d43b8b239a4efcf87",
+      "size": 332,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WorkerResponse.java",
+      "sha256": "248b10c49b939a0be519e5e2781f27c97fd0ec3036b9d9d24d9482066be6729c",
+      "size": 147,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Certificate.java",
+      "sha256": "42340eb1d795f15d2dd7267555f27339f6689ce59cf2b16c7465758743916d9e",
+      "size": 652,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/CertificateSlice.java",
+      "sha256": "fb1574626f47eff756591d0bae6018336ace7af54eb8df269f09512706009a5a",
+      "size": 2236,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Context.java",
+      "sha256": "88fa2ed6f271db097e7c1a3c7daa7fa2f000648bb8492cd87973f9d23abde3f3",
+      "size": 706,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EGraph.java",
+      "sha256": "f13c691e96dded53eeb4de939d5b5c36dbf4c25df203c242e6cfd68c3e636b0c",
+      "size": 8095,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EGraphEngine.java",
+      "sha256": "813fd94cb4194ff5cd069d8eb80890972e6982df5bfb7c2450c24b3fdb8384bc",
+      "size": 10769,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EngineInput.java",
+      "sha256": "81f1501ba776f2d50ecd8da8f26b8d6c7af8a13355a9c6c7864007ca13baaabd",
+      "size": 229,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Extractor.java",
+      "sha256": "15f158d5daf5e4e94ea57858c058694169c8201f4cfeb60008ff5aef3a033ec4",
+      "size": 2261,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/IslandResult.java",
+      "sha256": "d4ec72902b2101796cb3c026a80f1f1c9ed5d27febca7fb6baa3a0ef8eaf6776",
+      "size": 2520,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Matcher.java",
+      "sha256": "48bbca3e3b1b7ad6234ab083b8a2784d74720b633ddf7f67e51c9280afa270e5",
+      "size": 2394,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofChecker.java",
+      "sha256": "5698db7d4ff9da59ae5f10992bd45985d39c4b8a73e9ede662bee3ab1c1cade7",
+      "size": 10807,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofStep.java",
+      "sha256": "18105cf86f545948e509248ef6e55b7edad8aa1363be1f6b675cd8141457cab3",
+      "size": 636,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofStore.java",
+      "sha256": "cc7323f476ca73f59604d7cf58a8f0285f24d8ff2380a67c8603a0cc8eb10fca",
+      "size": 2809,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/RuleCatalog.java",
+      "sha256": "6b7118b0e2f8e233df142134c632eaaced9493084a720c8b5b143935d6425175",
+      "size": 5638,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/RunBudget.java",
+      "sha256": "39fbd52dc59895d969670b0694bc20c328e6d4d23b9f718d67ee33d36371a6dc",
+      "size": 1493,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Sort.java",
+      "sha256": "97ff7b2b54de88ccdc4f6568f84e370d961e9c40fb011c8173ae562bf3f8dd6f",
+      "size": 1696,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Term.java",
+      "sha256": "c828aaa6bc1670d04b1cac3193c8b848073d669e86099e5c3c9cc1e6f94e25ec",
+      "size": 1251,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Wire.java",
+      "sha256": "309d82f9b4c1e0e35cdf3b5c9fd5667f7eb6709f4c364cc56f71e30e337e0758",
+      "size": 2859,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AlloyEngine.java",
+      "sha256": "3970703e18f5a095a9434e980a0a9d70b34dc00cef4f1d2a9652eb6cfc232a89",
+      "size": 5881,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AstPolicy.java",
+      "sha256": "d0e31913bfe2e3168ac758ddbbc723ec5c2a5158edbb1e4b1945f07c99f9aba4",
+      "size": 5244,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+      "sha256": "7b442e91ddba8ad585febba6be6361a076e3e5f044eef707897f858584344c86",
+      "size": 4883,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/Hashes.java",
+      "sha256": "7eae6abadcfa52333d87bd42b77d67b4163d72a14b2d78ee131916a34ece8b97",
+      "size": 1252,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/JsonWire.java",
+      "sha256": "f2a366a01970e313b21d2db8677eba3cba27c3a093afac3ed38ed2848e1074de",
+      "size": 2410,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/SourcePolicy.java",
+      "sha256": "698cdf38043c02c0b03b2a5188114638734a3e95e474e3b5d71753d7bd58be79",
+      "size": 3792,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WarmDocumentWorkerMain.java",
+      "sha256": "8ed8337351adf07d3dd83ffb2b883b878e9fdd34eda1aeb6bc2b80e545e42093",
+      "size": 2832,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WitnessProjector.java",
+      "sha256": "5cf61aa32ab088870377116d22a9118887eb7ac41e86c67d6921e72c9f1ad3dc",
+      "size": 4346,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerMain.java",
+      "sha256": "31fef728316f6cef61f66d08b926d0e9983b474abb9438c091d228022492b42f",
+      "size": 1324,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerPolicy.java",
+      "sha256": "646b0f933a74485dec816e398147a8002bd2f0fb89ef038db728dcb64049eddc",
+      "size": 614,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/main/resources/application.properties",
+      "sha256": "f80d506b19054d374f6dac33d08632b18160caf68a77d52d74eefcc2dd8fab82",
+      "size": 396,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/BuildIdentityTest.java",
+      "sha256": "ca46fe7098234282c814c508256a8ecd631ccb5fe48ba3612a748247a918f34d",
+      "size": 2491,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentBoundaryTest.java",
+      "sha256": "a136f227e7c9140dcd31872a15ae312be8d9766b5578450636586a6f2092e04e",
+      "size": 6467,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentContextTransportTest.java",
+      "sha256": "e73c4875ac7a0dba33df887f72f9e31acaf84fb5a3799fe67e71b0304842e63e",
+      "size": 4474,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentMutationCoordinatorTest.java",
+      "sha256": "5a852627fdb5b45caefb1b212c7b0e451defab6e581ec0dd7db6c37fde23ac92",
+      "size": 14157,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentValidationContextTest.java",
+      "sha256": "b8a1f69148460f378aa2c8af32fd1c0224e6b852e4912e9a3d47216bc268b29d",
+      "size": 17213,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/DocumentWorkerLifecycleTest.java",
+      "sha256": "a46bf2762e4103dbbc1b058cd9d3047e1b1b730c59fda28c56923e68b51df310",
+      "size": 4250,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FakeChild.java",
+      "sha256": "9a0f33955fbfbae629f1ac62904efad2fccbdf5a0ebb18a2e9dfc610134a4705",
+      "size": 1487,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FixtureLauncher.java",
+      "sha256": "cbdc784c75cff28ddc3c91fc6c99654462360a91c02116b7c84b48fc159ea0cf",
+      "size": 1245,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1DeadlineTest.java",
+      "sha256": "ce0b5c18d85f983e8e2ccc1559228ebeb0a18f0734eafaad5ad707d1f561cea7",
+      "size": 2943,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1ProbeMain.java",
+      "sha256": "dacb2f42b54dddc26b185251e8ff963604ddf3ff42fba15ea4c5498f079e52bf",
+      "size": 8193,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1SafetyTest.java",
+      "sha256": "90c71cb52bf171679e04a319c77d7cef2e6b959939b7353984ad4a0b6afa13de",
+      "size": 8666,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FreshTier1SolverBaselineTest.java",
+      "sha256": "980b94f2dfb09c461efd36268788acfaec9d09eab80c5678ff5fec597c16320a",
+      "size": 3469,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/HttpBoundaryTest.java",
+      "sha256": "e711c0d54b2a9333c63d3becbfcfa7508932be11371a52fec1d5d67f4af81f5f",
+      "size": 9167,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/JobServiceTest.java",
+      "sha256": "e01aa2559f836f86dd2e5bc614121d198272674e4dd1060051054445988d7fde",
+      "size": 3904,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/OwnedWorkerRecoveryTest.java",
+      "sha256": "ac81b0d1004a77fde5b80e51ff364ce6a49c3b1fa1ccbfb8e884b2203039c22f",
+      "size": 3922,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/ProcessRunnerTest.java",
+      "sha256": "d97f022940938c476a703598aa75ca0a961115b47ba10cd0575cb8edd03efd2d",
+      "size": 4230,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/SandboxBoundaryTest.java",
+      "sha256": "332207285c844ca8dd8316c22ca3fca9db265e837dda454e387d8ca80049efef",
+      "size": 2571,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/SandboxProbe.java",
+      "sha256": "f8cafbe6e0003af83cc002ef3f0d90f25ac3ca137efd18ee596de93b4763c657",
+      "size": 879,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmAdmissionDeadlineTest.java",
+      "sha256": "2e69bb5e449d1131fcf86585a4f3b61eddb43e79b7e6078a81524def9fb1c070",
+      "size": 3553,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "size": 10581,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "size": 14925,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmDeadlineTest.java",
+      "sha256": "e0e18e90555a92e24d7f44acc80b7137533b5b93db821fbc2d58ab41dfcfa996",
+      "size": 2468,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmGatewayDeadlineTest.java",
+      "sha256": "d914bf479e80f6502018abb4267143ff114c7b21a0bc1222656c082e54ddcba8",
+      "size": 4128,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyFresh.java",
+      "sha256": "1350b84b3ce863d0491d19d1e27fd4796983e989b88bd55c41af2e687e55b7d0",
+      "size": 1947,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyMain.java",
+      "sha256": "88858ba8a1c319ae5b260beefc1dbbf27c561eb9e2590aed7907c206013cb01c",
+      "size": 5779,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyPool.java",
+      "sha256": "b762248e8667c62e9c6996c9d23be485bf69b9e40850d5b0735fcf5a3e63add0",
+      "size": 12751,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyRecords.java",
+      "sha256": "8dc9da43a5c8f4f5b107788066288d970dd1aea325f04f08c820fe6b0acacea9",
+      "size": 4955,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyResources.java",
+      "sha256": "ae5860524cdcf2af5e3d650c5e6a05168411be58b6eaba616df24e60d2d6dcae",
+      "size": 1033,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencySeries.java",
+      "sha256": "f5f7030edd9568954448f46a00b6ddacf0b5a805e4921d007323fbb2c7513e20",
+      "size": 9443,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmPoolProbeMain.java",
+      "sha256": "afbcfc5af1713be582d8a406b3ec024c408ec164d5b129938f49057b3e4fbe73",
+      "size": 3769,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmPoolShutdownTest.java",
+      "sha256": "d3d984f9092806d8292f651abbc3973a89fd76c927272a118b862a28d1d5cd67",
+      "size": 8214,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeFailures.java",
+      "sha256": "01103b13972ff861d6116f70054baf6ebe896265372d3f6fe2a21dcd30608ab4",
+      "size": 4187,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeFiles.java",
+      "sha256": "639369235f60bc408f5122100bce973265aaf0ab058c88b8c808c794f1c1c4b7",
+      "size": 3212,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeSequence.java",
+      "sha256": "78e75650ab46ab35565307d7df16f0e36e8bbc738a5ec660393efd8c0b364b54",
+      "size": 16666,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeSession.java",
+      "sha256": "16e6c4ed6363f86a290159d26479b25e660646a594fe63509a07687e497ada5a",
+      "size": 31063,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmProbeWitness.java",
+      "sha256": "8023772c956d677086769d1db7db0cf845a6e5a4bc3670ed9f9ae430e05f7f03",
+      "size": 6368,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "size": 16879,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticCase.java",
+      "sha256": "2a6b4d69f555932787bd853506a0c3b631c9349add127ce0d141db59b9e101e8",
+      "size": 9957,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticOwned.java",
+      "sha256": "f9491e48546b3a404b8b54ad6c097ec02d54255e5f4abfd68479f04a6e84d625",
+      "size": 14539,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticProbeMain.java",
+      "sha256": "98c3db234430527447655148406174c8f776c3f063c328eb099c58097c51095b",
+      "size": 5738,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticProtocol.java",
+      "sha256": "2fc7bb76b775e17d6e4a677755ab2e0fb8df6398363da0c9bd4abba1fb108227",
+      "size": 6901,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSemanticProtocolTest.java",
+      "sha256": "f706c58aa0536e839af8014d66bcbdd7b1d29b0610e6d62301581f2b90b89504",
+      "size": 6396,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSequenceIdle.java",
+      "sha256": "e6f7a5394a8a6f9558f4bd2c8077bffb8a8249939214ab566b8d693cb042ed1b",
+      "size": 7311,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmSequenceRecords.java",
+      "sha256": "35da40fd62d59bca611f572f5a767874c768ebc7088397e144fe3b0b8c53015c",
+      "size": 5996,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "sha256": "1603c24ef6789d860b5cfb792fa464a0867f9bbd8c43af1dbeb5b6c3de6ac73f",
+      "size": 24619,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerCreationFailureTest.java",
+      "sha256": "cb35aa02c278e74843008d0baab6e6f16e42e87cf8560bc3e5e82a8883056e6e",
+      "size": 11222,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "size": 4221,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "size": 14076,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "size": 10981,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "size": 3809,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java",
+      "sha256": "7fb8fef4cd50250c1ef214461efd10d988726d4de358cfe60d06d180a534b634",
+      "size": 7920,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/IslandAdapterTest.java",
+      "sha256": "330c942e23954567757f6e1cd09dc0116bb1332d8a35b164b7fb85593e8180fe",
+      "size": 9180,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java",
+      "sha256": "c5cbab76bde38bf1656994905d7501eae66d4d640534086d1d88d683acd13c2f",
+      "size": 7166,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/corpus/CorpusEngineTest.java",
+      "sha256": "93a8dce5c6e4cc317b2c3e0f4b0a8865893f6e908c27627d0506e86b1aa8e08e",
+      "size": 8522,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/AlloySemanticsTest.java",
+      "sha256": "c6546bc9c4274f765981467af21ab5dc6dc31784319f963c0f5d29b62f391083",
+      "size": 3193,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/AssociativityTest.java",
+      "sha256": "ce307854784a54e206814a311f861b51eaae67d7c77945759f26d3a6a4eb405a",
+      "size": 6745,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/DocumentTypeAgreementTest.java",
+      "sha256": "08f452db0d62dc900eff200db31c2870ad6d1368fe088559e76b38d353f6cfc7",
+      "size": 3877,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/document/ModuleCheckerTest.java",
+      "sha256": "42018db6c688d585dc165bc4f69796a9b38d5f4e563a5b872b7839371b573b1d",
+      "size": 55868,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/CertificateSliceTest.java",
+      "sha256": "778375d1f154b80f9f6d2d2d4bb5810e8e58afa5b5072366a511ada47e2d55e2",
+      "size": 2275,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/EGraphEngineTest.java",
+      "sha256": "8b4a22c2b5195ad82f9327fdf5e5d658cf63dd9099cdcca06661dca1ec96ce04",
+      "size": 8386,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/EGraphMechanicsTest.java",
+      "sha256": "37cbdb0cdb1b13bf7e4460f4082131cf62e45ecd681fc97437ac5d6fa5a51ca0",
+      "size": 5605,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/RuleCatalogTest.java",
+      "sha256": "975674d310e23999dcd0923904bc0b6842d0c6f627a629033559e27016c946e9",
+      "size": 4644,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/JsonWireEGraphTest.java",
+      "sha256": "b0d3a1fefe3453e9896d70cf9b82d85ba6e8c698f8bace48b4dcad37828a2180",
+      "size": 3531,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/JsonWireStrictTest.java",
+      "sha256": "38ea38b316c3f174cbac053a9a76b67e84a7d2ecfd59918d3214a51e4569b030",
+      "size": 1691,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/SourcePolicyTest.java",
+      "sha256": "b7392865ad3a416827da33ac670eca3a236f8f01cade09c36f5c8d27261e23d9",
+      "size": 1844,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "size": 7489,
+      "mode": 436
+    },
+    {
+      "path": "backend/src/test/resources/document-type-cases.json",
+      "sha256": "b082181ec6ae331ae93058a84a8bbc07dc6faf9fd940e25de411873cc93c77a5",
+      "size": 189358,
+      "mode": 436
+    },
+    {
+      "path": "config/checkstyle.xml",
+      "sha256": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+      "size": 2804,
+      "mode": 436
+    },
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "size": 87752,
+      "mode": 436
+    },
+    {
+      "path": "db/document/interface.json",
+      "sha256": "4291a9bab7dda66ebbd7f245ce839f61bf714029d4fba3cdbe9bacf9c3067170",
+      "size": 5902,
+      "mode": 436
+    },
+    {
+      "path": "db/document/mutation-evidence.json",
+      "sha256": "b2bf19f0bd72fd748392c62679ec6d8563b2f01a8530987d2aa5c0e3eba8c7d8",
+      "size": 964,
+      "mode": 436
+    },
+    {
+      "path": "db/document/runtime-evidence.json",
+      "sha256": "726a8503cf955ce98de968805aebc951412f40f9902322d0674d50db0a17aca2",
+      "size": 5306,
+      "mode": 436
+    },
+    {
+      "path": "db/document/schema-catalog.sql",
+      "sha256": "4d5e0e917c97e188921f62d572c33f4fe4b020390c204ccee0d4cc86caccbb8d",
+      "size": 9317,
+      "mode": 436
+    },
+    {
+      "path": "db/migrations/004_retrieval.sql",
+      "sha256": "b9705a00228910947c9a187424ee8d2befe59b0f7b3ee3e14ec5685d062b2fa2",
+      "size": 10779,
+      "mode": 436
+    },
+    {
+      "path": "db/migrations/005_expected_catalog.json",
+      "sha256": "186e6838be0f8b2eb7f6caccd105eb5e6831ba5d792174deb8d96fd778e8ae36",
+      "size": 53040,
+      "mode": 436
+    },
+    {
+      "path": "db/migrations/005_explicit.json",
+      "sha256": "ce044aa22d9e1be752576db16740f8c35e7b8779ec762cd0f0bb2427a695ccd2",
+      "size": 289,
+      "mode": 436
+    },
+    {
+      "path": "gates/document/headless-preview-fixture.json",
+      "sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+      "size": 260302,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/ML-HANDOFF.md",
+      "sha256": "0e545a382061bbe3dc4fc5c9387ef7fdb1aec75892224809ee46f1c627105677",
+      "size": 5343,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/ML.md",
+      "sha256": "7fdbb3b10993fab28b2d33b728fe08cf42625b0416a5348a25ca93d6bed47ff2",
+      "size": 3811,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/README.md",
+      "sha256": "0e4300c2f61e2efcf5985df8f2b45f3a9a7c96061da70a68aa9f9ca37d45e836",
+      "size": 4357,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/__init__.py",
+      "sha256": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+      "size": 86,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/cli.py",
+      "sha256": "820839b6fc00176fb2cd70b5ed47c4f1ba98e3e994b0ea902d08dafdfd9a950a",
+      "size": 3586,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/context_lease.py",
+      "sha256": "0e2ee72eccb4e7165d50e73b73c76686563f36fb932fddc43b5b3f9a1ed355f6",
+      "size": 5585,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/identifiers.py",
+      "sha256": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+      "size": 3803,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/identity.py",
+      "sha256": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+      "size": 3072,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/migration.py",
+      "sha256": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+      "size": 6444,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/store.py",
+      "sha256": "30e0e491ce455c6e732baa812fa9bfcee716b5c888511ad07bdeed6f18a5800d",
+      "size": 28895,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_documents/wire.py",
+      "sha256": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+      "size": 5546,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/__init__.py",
+      "sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "size": 85,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/cli.py",
+      "sha256": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+      "size": 2723,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/common.py",
+      "sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "size": 1067,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/corpus.py",
+      "sha256": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "size": 8877,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/database.py",
+      "sha256": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+      "size": 25328,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/embedding.py",
+      "sha256": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "size": 8499,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/evaluation.py",
+      "sha256": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+      "size": 22358,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/importer.py",
+      "sha256": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+      "size": 14524,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/journal.py",
+      "sha256": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+      "size": 3431,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/manage.py",
+      "sha256": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+      "size": 3077,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/migration.py",
+      "sha256": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+      "size": 13977,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/promotion.py",
+      "sha256": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+      "size": 1017,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/rag.py",
+      "sha256": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24",
+      "size": 1307,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/ranking.py",
+      "sha256": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+      "size": 5469,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "size": 7096,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_control.py",
+      "sha256": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "size": 5262,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_identity.py",
+      "sha256": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "size": 3791,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_journal.py",
+      "sha256": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "size": 10621,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_lease.py",
+      "sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "size": 20760,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_observer.py",
+      "sha256": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "size": 4611,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_protocol.py",
+      "sha256": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "size": 14487,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "size": 12711,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image.py",
+      "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "size": 14138,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_config.py",
+      "sha256": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "size": 4408,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_init.py",
+      "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "size": 4014,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_inventory.py",
+      "sha256": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "size": 715,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "size": 35709,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/allow_retrieval/training.py",
+      "sha256": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+      "size": 6449,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/bootstrap_ml.py",
+      "sha256": "daf98fb50c936a73e56049499b9acc3160c2048f23b5b8f93330c18c673f3865",
+      "size": 5292,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/dependency-audit-after.json",
+      "sha256": "ef6b9bf312f9a7ed6838feb9133de77124009ea68024964460e3ff83790ab0d0",
+      "size": 3556,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/dependency-audit-before.json",
+      "sha256": "829f766c9ca9b4677a7dc2a8512d3a44efc0a1e971a317aef314170d758754c8",
+      "size": 283562,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/dependency-security.json",
+      "sha256": "e788a68a7d234b8f9b55029447630de6bf48b529190f4a64450c4d3a5341c55c",
+      "size": 1397,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/history/ml-verification-before-final-repair.json",
+      "sha256": "e4d15f396db5d802606b5e821b9ae135351e85821772264f297a55f11cc82ce1",
+      "size": 2537,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/history/pilot-summary-before-final-repair.json",
+      "sha256": "ce412284ddea0c3783c84834aacc2a24dcf36df49825a3623ced609832df099a",
+      "size": 1210,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/ml-verification.json",
+      "sha256": "b14435164ed1c614137b2e2339c3059be45703f66187e980e6657fb6d2dc44db",
+      "size": 3841,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/model-lock.json",
+      "sha256": "65d87fb3fe650721e0552b79fb70e6bc4192981f8e735a35485bd3dd6946a593",
+      "size": 679,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/model-notice.json",
+      "sha256": "e736b02dfc676f46e6ba8f57eb1433fd9357ba965c04bdaa0ca155b3a513536e",
+      "size": 410,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/pilot-summary.json",
+      "sha256": "5a33191a35373eaa7e053abce2844f799bd6075c3e7e4f987981e083c71ba6ce",
+      "size": 3136,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-audit.txt",
+      "sha256": "3e44a305ffd6b118b08cba88d03f24b8ef2f838bab9106e2445d1c9418fb9720",
+      "size": 1106,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-ml-before.txt",
+      "sha256": "84c9d7bb1e1a21af558576f7df566f8e426c72d7f2c5335aea6b96ced810ebd9",
+      "size": 840,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-ml-resolved.txt",
+      "sha256": "264fb3296004f366ebb4504f711ef699ff2a03e79c8a95a59499e125f8a39843",
+      "size": 1110,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/requirements-ml.lock",
+      "sha256": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc",
+      "size": 6092,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_context_lease_client.py",
+      "sha256": "55379bbb69b4e5cb4adce284b717112d34b6b1de97fdf408bebf7b14e745953e",
+      "size": 10456,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_context_leases.py",
+      "sha256": "bbf913c5ef92785174968dbf011c0c8d6d89934f78d3dcd32ec7f00709e0655f",
+      "size": 26986,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_documents.py",
+      "sha256": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f",
+      "size": 23797,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_luna_adversarial.py",
+      "sha256": "033831c2dff77f358d3b89030d8b18c05e938c7d1207c7d1b4eba9b237c7b731",
+      "size": 5334,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_luna_semantic.py",
+      "sha256": "398a9572bed80a55269920817615e12a240ad36b23557ca9ea58c825d9643e8a",
+      "size": 2783,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_ml.py",
+      "sha256": "20a677459164466c2fe1b3de8e39c040c1aaf183c1c1ac51f20d03be91f1d023",
+      "size": 6864,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_repository.py",
+      "sha256": "76360a0b6e3e5cfa347ad1e14a71f8c698d64823614132cd9168c73488e68b9b",
+      "size": 12760,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_connections.py",
+      "sha256": "8f5c368f0c39efcf0aed43d49c281223df115c05ebb403a8095c62907e014a45",
+      "size": 7149,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_context_protocol.py",
+      "sha256": "b8300f4555dd201cc054e8c4a3dd3f937635f7f2dc2676ae333767ca397c253b",
+      "size": 11766,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_guard.py",
+      "sha256": "f68b893b777e6cefd82bd1c9684181c10eb7b150848ed3f34c4264fd2f8bcb05",
+      "size": 6563,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_image.py",
+      "sha256": "c702007e0d381ae9a777e533b8af06454d37dd2f18473af501f62b1d03f2384f",
+      "size": 32636,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_image_consumers.py",
+      "sha256": "a543d2aea7bdae0a4d70398abbc5d76234d2871db2a6def0c8aec9fc09bad9aa",
+      "size": 2908,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "dab759ea22d9c0d3abdc7fe2b703c09d991d9d70e1c4bc7112ecb4934b49603c",
+      "size": 39849,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/tests/test_validation_context.py",
+      "sha256": "5383292462b399ac421c16c1d88ed19e566c72277844034afc72d34a105d35ec",
+      "size": 24807,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/torch-audit.json",
+      "sha256": "c4a205618dacc9faf957fa0424fcfeec589bc2ca7dea783cb447d061ab164745",
+      "size": 11873,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/training-runtime-lock.json",
+      "sha256": "1a68248d584735ccdf327e76e3befce0982f6a22124f7e6189474832dfda2f45",
+      "size": 486,
+      "mode": 436
+    },
+    {
+      "path": "retrieval/training-runtime-version.txt",
+      "sha256": "405b68d1463b8e6998aeb9346fd69745df83e16ce013bb1c14a7b3fdbda060c5",
+      "size": 13,
+      "mode": 436
+    },
+    {
+      "path": "scripts/benchmark_documents.py",
+      "sha256": "edd10e0737566634587caa49a93fbab1f86303fefd03ac93a00738ea90feb09f",
+      "size": 7946,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap.py",
+      "sha256": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+      "size": 2368,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap_corpus.py",
+      "sha256": "5dfa285640c96662306f6ae21d07281357ceeac1d32aa4435d299234c10c487d",
+      "size": 16403,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap_documents.py",
+      "sha256": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827",
+      "size": 811,
+      "mode": 436
+    },
+    {
+      "path": "scripts/bootstrap_sqlean.py",
+      "sha256": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+      "size": 4457,
+      "mode": 436
+    },
+    {
+      "path": "scripts/browser_benchmark_assets.py",
+      "sha256": "6aebd94d8b8a5db8f185ff8776193a08ed9c9a421d52c92a3081c780b2eeae47",
+      "size": 6728,
+      "mode": 436
+    },
+    {
+      "path": "scripts/build.py",
+      "sha256": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "size": 1221,
+      "mode": 436
+    },
+    {
+      "path": "scripts/check-code-style.mjs",
+      "sha256": "4dd407c3134c9ac7a9896f47c230b3ff42ef32c8e280e11b0c37078cec604dbc",
+      "size": 13234,
+      "mode": 436
+    },
+    {
+      "path": "scripts/dependency_inventory.py",
+      "sha256": "c3a46f0b83523d737c1a3809bdac72a7e7a0e674c02e63ac3aa8c5b6468f9196",
+      "size": 3558,
+      "mode": 436
+    },
+    {
+      "path": "scripts/document_recovery_test.py",
+      "sha256": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+      "size": 18244,
+      "mode": 436
+    },
+    {
+      "path": "scripts/profile_document_persistence.py",
+      "sha256": "0147145dc2c7eb9c46cbe001b21ed7ac480be0c9f1ac50ae43ad4ca1758c5960",
+      "size": 4219,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_documents.py",
+      "sha256": "6c0ca3864287960d09b318f3d150acee91245c1056307b22606c75b42cd66ff3",
+      "size": 9150,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_egraph.py",
+      "sha256": "ffa5374bf1aa12a585ac0dccd6146e24fe636c5ff617627194d5394b3d2baf0b",
+      "size": 8729,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_implementation.py",
+      "sha256": "76c33f9248538c37aec02d5163b17d5589899e60dbb2e80fe60945b7e7a429c9",
+      "size": 8823,
+      "mode": 436
+    },
+    {
+      "path": "scripts/record_retrieval.py",
+      "sha256": "4d1eb0f5519c6e882923e11e7d8cd31845e98004ef778db33e170e061a1cff68",
+      "size": 7612,
+      "mode": 436
+    },
+    {
+      "path": "scripts/retrieval_recovery_test.py",
+      "sha256": "a63a449e195917f129f67d57c6e1024794a74d87f8c6da36bd866e2801fa3f37",
+      "size": 8762,
+      "mode": 436
+    },
+    {
+      "path": "scripts/run_local.py",
+      "sha256": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896",
+      "size": 2487,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_documents.py",
+      "sha256": "8f93906d5144b808d4fedd8279696d1dfc1d51d3d7c64d6020f03fa5ea6deec3",
+      "size": 12981,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_egraph.py",
+      "sha256": "da7bf8bc27654d567fd52b6e96170fd7bee90dcfd6df4a232a9f6388928f373a",
+      "size": 5336,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_local.py",
+      "sha256": "2031b3d24779f40ee1955b72e38a4bca9c1e64694c5548be9125c6b100dae66e",
+      "size": 6467,
+      "mode": 436
+    },
+    {
+      "path": "scripts/smoke_retrieval.py",
+      "sha256": "13346d1ffc7d65fcb09d33f2b836d182b20f24bf3ca5064dffc417cade030baf",
+      "size": 5901,
+      "mode": 436
+    },
+    {
+      "path": "scripts/test-code-style.mjs",
+      "sha256": "c2733145c51b1230c0df3e82ade2325b28dfe63255360d7dbdfa6612f926ac38",
+      "size": 14130,
+      "mode": 436
+    },
+    {
+      "path": "scripts/tests/test_warm_worker_image.py",
+      "sha256": "b2df6dbe781694fcc5c3674b418371557fde78ea6d577ccc7bbd9ba9a3835a48",
+      "size": 10675,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_browser_benchmark.py",
+      "sha256": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+      "size": 9617,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_corpus_runtime.py",
+      "sha256": "da50ad8d89f5358d98f53d404fc64cb037726a4248c82f24310c5c7f4f5205ab",
+      "size": 3421,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_document_restart.py",
+      "sha256": "14b91549b87706a65e9e2df608f5a77d77dca07788e08dfbdeb5170509b49462",
+      "size": 2525,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_egraph.py",
+      "sha256": "fedbf92b944f1ead3bd3c5c99960589ad9e134a529a9493aa987cc84796e224e",
+      "size": 14177,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_formal.py",
+      "sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "size": 7974,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_retrieval.py",
+      "sha256": "815484d6a9d152ec969274c112435bf0fda287b44a5a30a0198439a790546266",
+      "size": 14453,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_sql.py",
+      "sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "size": 14851,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_sql_clients.py",
+      "sha256": "cc5cab3259b843d865af15d61f7007398ee8d4fcf22cb9009aca575dc2af1a4b",
+      "size": 9633,
+      "mode": 436
+    },
+    {
+      "path": "scripts/verify_sql_runtime.py",
+      "sha256": "3e8e57e1285790d53fb03df33dee6c212c3df956ac40880dec1e2277dcdb0ed8",
+      "size": 23016,
+      "mode": 436
+    },
+    {
+      "path": "scripts/warm_worker_image.py",
+      "sha256": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+      "size": 17062,
+      "mode": 436
+    },
+    {
+      "path": "spec/allow-contract.json",
+      "sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "size": 42037,
+      "mode": 436
+    },
+    {
+      "path": "spec/allow-contract.schema.json",
+      "sha256": "bbfa286ed585ab71e887eb0bb14c761b733b0d90d52df38f92bf0a5cc73fc571",
+      "size": 29895,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-adapter-draft.json",
+      "sha256": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+      "size": 9673,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-associativity.json",
+      "sha256": "b7a60034b650bb75dc8a1d160d8312ccbc3f8d1449b2554290e0db9748045d1b",
+      "size": 7157,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-context-cleanup.json",
+      "sha256": "761130b8e7bafb4d63960950b928b8faa715cc4df83f49ab117136c1cd3c130b",
+      "size": 31727,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-field-order.json",
+      "sha256": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+      "size": 2075,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-partial-types.json",
+      "sha256": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216",
+      "size": 17857,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-stage-draft.json",
+      "sha256": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+      "size": 22292,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-ui-draft.json",
+      "sha256": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+      "size": 10681,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-validation-context.json",
+      "sha256": "652f1950fb7497df063e58ebd05b54b0363f1bd2358b84b0900055508ab9c806",
+      "size": 18295,
+      "mode": 436
+    },
+    {
+      "path": "spec/document-wire-draft.json",
+      "sha256": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+      "size": 44193,
+      "mode": 436
+    },
+    {
+      "path": "spec/egraph-rules.json",
+      "sha256": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+      "size": 10987,
+      "mode": 436
+    },
+    {
+      "path": "spec/egraph-stage.json",
+      "sha256": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+      "size": 21619,
+      "mode": 436
+    },
+    {
+      "path": "spec/egraph-types.json",
+      "sha256": "229a1d3b92b6713fa4f51291b16c353cf52df1370a41f3d9f860e0c79d01b5ed",
+      "size": 4568,
+      "mode": 436
+    },
+    {
+      "path": "spec/fresh-tier1.json",
+      "sha256": "fa7d8f115b54d2b924f0213cadb446a197fe4cb10dd072e2402b02e4875d88b2",
+      "size": 9024,
+      "mode": 436
+    },
+    {
+      "path": "spec/implementation-g1-types.json",
+      "sha256": "1d2412397e4af7b78f145b884acd39685f4e5b49902b82b4a949b22c8364c753",
+      "size": 1479,
+      "mode": 436
+    },
+    {
+      "path": "spec/implementation-g1.json",
+      "sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "size": 15134,
+      "mode": 436
+    },
+    {
+      "path": "spec/retrieval-stage.json",
+      "sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+      "size": 29121,
+      "mode": 436
+    },
+    {
+      "path": "spec/retrieval-types.json",
+      "sha256": "27ba0b43b311aabc04d21f0ebac4fd2108c8db54056a7009586577613b0d3905",
+      "size": 5407,
+      "mode": 436
+    },
+    {
+      "path": "spec/slot-profile.json",
+      "sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+      "size": 5267,
+      "mode": 436
+    },
+    {
+      "path": "spec/sql-immutable-image.json",
+      "sha256": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+      "size": 8095,
+      "mode": 436
+    },
+    {
+      "path": "spec/sql-stage.json",
+      "sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+      "size": 24849,
+      "mode": 436
+    },
+    {
+      "path": "spec/sql-types.json",
+      "sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac",
+      "size": 6272,
+      "mode": 436
+    },
+    {
+      "path": "spec/warm-pool.json",
+      "sha256": "dc055e04071710626617dad03fc8b867be0a57ddd0f37e57f7fc1d551f0c5a83",
+      "size": 23294,
+      "mode": 436
+    }
+  ],
+  "baseline_source_ready": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/source-ready-r5.json",
+    "sha256": "d9ff0832ac9847f2b5f4db60beef1b5a603c9dbc49e862fbc55bea523869322b",
+    "size": 117005,
+    "mode": 384
+  },
+  "changed_sources": [
+    "backend/src/test/java/dev/allow/backend/WarmLatencyFresh.java",
+    "backend/src/test/java/dev/allow/backend/WarmLatencyMain.java",
+    "backend/src/test/java/dev/allow/backend/WarmLatencyPool.java",
+    "backend/src/test/java/dev/allow/backend/WarmLatencyRecords.java",
+    "backend/src/test/java/dev/allow/backend/WarmLatencyResources.java",
+    "backend/src/test/java/dev/allow/backend/WarmLatencySeries.java"
+  ],
+  "production_sources_unchanged": true,
+  "command": [
+    "/home/augustus/Allow/.tools/apache-maven-3.9.11/bin/mvn",
+    "-B",
+    "-o",
+    "verify"
+  ],
+  "working_directory": "/tmp/allow-warm-full-r6-9kkrgt8y/backend",
+  "java": {
+    "executable": "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+    "home": "/usr/lib/jvm/java-17-openjdk-amd64",
+    "runtime_version": "17.0.20.1+1-1-24.04-Ubuntu",
+    "vendor": "Ubuntu"
+  },
+  "build_tools": [
+    {
+      "path": "/home/augustus/Allow/.tools/apache-maven-3.9.11/bin/mvn",
+      "sha256": "f9381d0cb98abaaf9592dae421eddc497e84ed9bfb723b84c111d1350863c3a2",
+      "size": 6184,
+      "mode": 493
+    },
+    {
+      "path": "/usr/lib/jvm/java-17-openjdk-amd64/bin/java",
+      "sha256": "e363cce82477c5f19cab72d432defe96fa1c69503353c3e5e9660243e2030883",
+      "size": 14464,
+      "mode": 493
+    },
+    {
+      "path": "/usr/lib/jvm/java-17-openjdk-amd64/bin/javac",
+      "sha256": "f2e122ed86c4de8eb368d054de2a15fccf9bba52297cbd5cf7ae6d70eb45e2f3",
+      "size": 14512,
+      "mode": 493
+    }
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "HOME": "/home/augustus",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64"
+  },
+  "timeout_seconds": 600,
+  "runtime_acceptance": false
+}

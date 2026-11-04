@@ -1,0 +1,167 @@
+{
+  "reviewer_id": "sol-2",
+  "review_type": "PRE_IMPLEMENTATION_SCOPED_G1_FIRST_G2_COUNCIL",
+  "model_identity": {
+    "requested_model": "gpt-6.1-sol",
+    "dispatch_model_reported_by_parent": "gpt-6.1-sol",
+    "actual_runtime_model_independently_observable": false,
+    "actual_runtime_model": null
+  },
+  "reviewed_supplement": "spec/implementation-g1.json",
+  "supplement_revision": 2,
+  "supplement_sha256": "d7bf1f8b108ee051f49096e25f5be4cdd46db819358a97373a0a5d85c926b7fe",
+  "reviewed_at_utc": "2026-11-03T13:20:37.855368+00:00",
+  "reviewed_file_hashes": {
+    "spec/allow-contract.json": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "spec/implementation-g1-types.json": "870e59a4b60c6c41f225a9eefa39766aa6bbfc1ff2b1fa22114a1a6925abc5fe",
+    "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+    "formal/Allow/Foundation.lean": "bae5b0c1b72edc34b40d741598e2380ad360d6521876fe4fd5b9b1c8503b21bf",
+    "formal/Allow.lean": "2c48425a37c470e584dfb0221b729671f82a1aa6e9d588fcc176a9f391883012",
+    "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+  "blocking_findings": [],
+  "summary": "The supplement is suitable to begin its explicitly bounded local G1 and first-G2 implementation after the two-clean-proof-build and six-seat gates. Exact base A4 accepted-artifact/freshness duties remain in force because the supplement does not override them. Parser mapping, practical editor integration and the style checker must earn separate evidence; projection/policy proofs do not establish those implementations.",
+  "findings": [
+    {
+      "id": "G1-SOL2-01",
+      "severity": "MEDIUM",
+      "status": "REQUIRED_IMPLEMENTATION_ACCEPTANCE_CASE_NOT_SPECIFICATION_BLOCKER",
+      "paths": [
+        "foundation.first_g2",
+        "foundation.protocol",
+        "acceptance",
+        "spec/allow-contract.json:architecture.A4"
+      ],
+      "title": "Make the reduced workbench demonstrate one coherent accepted source and current-result identity",
+      "failure_scenario": "A block drop validates one composer expression while an editable text pane shows another draft. A response echoes a correct job/source hash but is installed beside the later draft or an old block projection. Echoing identity alone does not ensure the UI compares it to the currently presented source. Alternatively, the composer remains a disconnected snippet builder, so tests of blocks and the text editor pass independently without demonstrating the promised workflow.",
+      "assessment": "The base A4 transaction, tagged artifact, draft and epoch requirements already prohibit these behaviors. supersedes.overrides leaves A4 intact, so this is a focused acceptance obligation for the reduced slice rather than an unresolved contractual contradiction.",
+      "required_acceptance": "Declare the exact first-G2 supported block subset and demonstrate the source-of-truth transition it supports. A successful candidate must bind its accepted expression, rendered source, revision and any current projection atomically. If reverse parsing is deferred, text edits may explicitly invalidate/hide the block projection until rebuilt; text-only mode carries no current invented block graph. Compare full current accepted/source identity and presentation epoch before showing diagnostics/results. Rejected typed drops preserve the accepted expression and readable labels.",
+      "fixtures": [
+        "Keyboard construct a supported formula with readable declared names, reject a relation-in-formula slot, submit, and inspect the exact source analyzed.",
+        "Start analysis, edit to invalid text without a commit, deliver the old response: no current badge or diagnostic location returns.",
+        "Switch a supported artifact to parser-valid unsupported text, then back: old block/source/result projections remain historical or hidden until correctly rebound.",
+        "Undo/redo and out-of-order validation responses obey the same epoch/source checks as typing and drag/drop."
+      ],
+      "proof_boundary": "S01/S02 are fixed-payload invariance; existing visibility proofs assume correctly supplied presentation identity. Neither proves UI state wiring or parser-to-block correspondence."
+    },
+    {
+      "id": "G1-SOL2-02",
+      "severity": "MEDIUM",
+      "status": "REQUIRED_CHECKER_VALIDATION_BEFORE_IMPLEMENTATION_ACCEPTANCE",
+      "paths": [
+        "coding_contract.counting",
+        "coding_contract.documentation",
+        "coding_contract.encapsulation",
+        "coding_contract.check",
+        "formal_obligations.S08",
+        "acceptance"
+      ],
+      "title": "Style acceptance needs adversarial evidence that the AST inventory covers authored code",
+      "failure_scenario": "A checker recognizes ordinary Java methods and named TypeScript declarations but misses compact record constructors, accessors, object/class methods, arrow callbacks or TSX component bodies. It can report every discovered method under 30 lines while omitting an undocumented 40-line callable. A parser failure or broad generated-directory exclusion can similarly create false compliance.",
+      "required_acceptance": "Make checker parse/coverage failures fail the build rather than skip files. Validate the inventory against independently authored positive and negative fixtures covering every shipped callable form in Java, JavaScript, TypeScript and TSX, including callbacks and tests. Define generated/vendor exclusions narrowly and ensure authored wrappers remain scanned. Meaningful documentation and minimal interfaces require manual review in addition to structural checks; no metadata flag may stand in for that review.",
+      "fixtures": [
+        "Exactly 30 physical lines passes and 31 fails; multiline signatures count while preceding Javadoc/JSDoc does not.",
+        "Constructors including explicit record constructors, static/instance methods, getters/setters, named functions, arrow/function-expression callbacks and TSX components appear in inventory or an unsupported syntax error fails the checker.",
+        "A file with a syntax error, unknown extension in the authored source manifest or unsupported parser construct cannot silently disappear from the inventory.",
+        "Missing parameter/result/failure-side-effect documentation is rejected or explicitly flagged for meaningful manual review.",
+        "Public mutable Java collections/arrays, mutable record components without defensive copies and exposed mutable JS/TS state fail the encapsulation review.",
+        "Generated/vendor exclusions cannot be used for authored handwritten helpers or tests; dense-line evasion is checked in review."
+      ],
+      "proof_boundary": "S08 establishes a Boolean conjunction over supplied MethodMetadata. It does not establish the extractor, physical-line accounting, documentation quality, private-state analysis or exclusion manifest."
+    }
+  ],
+  "formal_review": {
+    "Slots": "The closed Operator enumeration and namespace/index Slot constructors exclude direct presentation strings from the payload type. S01/S02/S04 are correct projection equalities under a fixed resolved Payload, and S03 preserves reference identity. Name-derived numbers/order and incorrect parser scope mapping are excluded by the adapter contract and require actual tests; the type alone cannot detect them.",
+    "Foundation": "S05 proves an accepted arithmetic counter increment is within capacity. S06 is an absorbing terminal policy, S07 distinguishes cancellation from UNSAT, and S08 is a metadata acceptance implication. Actual synchronized permits, process cleanup, frame arbitration and style extraction are outside these abstract claims.",
+    "observed_checks": [
+      {
+        "command": "lake build",
+        "cwd": "/home/augustus/Allow/formal",
+        "exit_code": 0,
+        "output": "Build completed successfully (11 jobs).",
+        "limitation": "Ordinary existing local build only; this reviewer does not attest the required two clean builds."
+      }
+    ],
+    "proof_status": "The read modules compile in the existing build; production refinement, solver soundness, privacy against structural reidentification and checker completeness are not proved."
+  },
+  "positive_assessments": [
+    "No arbitrary source/name/comment/path strings are permitted inside embedding payload; visible UI labels and source remain separate.",
+    "Deterministic declaration/lexical slots use parser identity, with explicit conservative rejection for unresolved or unsupported scope constructs.",
+    "The protocol now specifies one compact response, separately capped stderr, exact echoed identity, unique-key schema validation and clean exit.",
+    "Single import-free source and bounded isolated JVMs make the first slice small enough to test without ambient module/corpus access.",
+    "Publication, remote embeddings, dataset training and commercial release remain unauthorized; no dataset source may enter portable fixtures."
+  ],
+  "practical_gate_order": [
+    "Complete the two clean Lean builds and reconcile all six seats before production source.",
+    "Implement the smallest import-free solver worker and authority boundary with synthetic fixtures and pinned dependency bytes.",
+    "Implement one coherent first-G2 supported construction/edit/analysis task under inherited A4 state rules.",
+    "Implement and adversarially validate AST method inventory; apply it to all authored production and test Java/JS/TS/TSX.",
+    "Report tested implementation, remaining limitations and model proofs separately; no full G2/G3, vector-corpus or commercial acceptance follows."
+  ],
+  "actions": {
+    "product_source_authored": false,
+    "files_written": [
+      "reviews/g1-sol-2.json"
+    ],
+    "contacted_anyone": false,
+    "dataset_content_uploaded": false,
+    "dataset_roots_modified": false
+  },
+  "final_review": {
+    "reviewed_at_utc": "2026-11-03T13:23:52.411186+00:00",
+    "supplement_revision": 4,
+    "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+    "blocking_findings": [],
+    "finding_dispositions": [
+      {
+        "id": "G1-SOL2-01",
+        "status": "EXPLICITLY_RESOLVED_IN_SPECIFICATION_IMPLEMENTATION_TESTS_PENDING",
+        "evidence": "foundation.first_g2 now binds composer AST/source as one server-validated transaction, preserves accepted source/revision until validation, moves free text into text-only draft mode, clears block projection/status and checks revision/epoch/exact source hash. Mandatory keyboard construct/submit/invalid-edit/late-result regression is explicit."
+      },
+      {
+        "id": "G1-SOL2-02",
+        "status": "EXPLICITLY_RESOLVED_IN_SPECIFICATION_CHECKER_TESTS_PENDING",
+        "evidence": "acceptance now explicitly requires negative style fixtures for constructors/getters/arrows/functions, parse failure, missing documentation, mutable fields and 30-versus-31 physical lines; generated/vendor exclusions must be narrow and explicit. Original all-authored-source/test AST inventory and meaningful documentation/encapsulation duties remain binding."
+      }
+    ],
+    "additional_review": [
+      "spec/slot-profile.json now freezes structural grammar, supported/rejected semantic flags, operator sets, slot allocation and deterministic feature encoder. This supplies the concrete mapper acceptance target without claiming complete Alloy semantics.",
+      "S07 now establishes cancellation yields CANCELLED and every later abstract completion preserves that status. Existing terminal policy separately keeps worker permits until actual process-group exit/reaping."
+    ],
+    "file_hashes": {
+      "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+      "spec/implementation-g1-types.json": "1d2412397e4af7b78f145b884acd39685f4e5b49902b82b4a949b22c8364c753",
+      "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+      "formal/Allow/Foundation.lean": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7",
+      "formal/Allow.lean": "2c48425a37c470e584dfb0221b729671f82a1aa6e9d588fcc176a9f391883012",
+      "gates/g1/formal-report.json": "8b375bdb7b10c6005f840eb98a20c70dd01989ffbe3562988fdb1de68b83f371"
+    },
+    "checks": [
+      {
+        "command": "lake build",
+        "cwd": "/home/augustus/Allow/formal",
+        "exit_code": 0,
+        "output": "Build completed successfully (11 jobs).",
+        "kind": "Existing local build performed by this reviewer."
+      },
+      {
+        "path": "gates/g1/formal-report.json",
+        "observed_status": "VERIFIED",
+        "observed_propositions": 33,
+        "observed_build_exit_codes": [
+          0,
+          0
+        ],
+        "observed_supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+        "observed_production_sources_at_freeze": 0,
+        "kind": "Read existing finite proof report; this reviewer did not rerun its verifier or independently rebuild both clean directories."
+      }
+    ],
+    "boundary": "Pre-implementation approval of bounded local G1/first-G2 requirements and inspected abstract model. Actual Java/React integration, mapper, style extractor, OS sandbox and UI regressions remain acceptance gates. No full G2/G3, dataset rights, remote embeddings, publication or commercial approval.",
+    "model_identity": "Parent-reported gpt-6.1-sol dispatch; underlying runtime independently unobservable.",
+    "product_source_authored": false
+  }
+}

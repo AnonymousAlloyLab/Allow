@@ -1,0 +1,46 @@
+{
+  "pre_execution_sha256": "b51ae0efd5956e28d68417a5690e038f815bb0bc7f3ee4d03700be1b4d33c1d2",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/java",
+        "-jar",
+        "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar",
+        "-c",
+        "/home/augustus/Allow/config/checkstyle.xml",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/WorkerOwnershipProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "Starting audit...\nAudit done.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/javac",
+        "-cp",
+        "/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "-d",
+        "/tmp/allow-vc-ownership-rx98wlvq/output",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/WorkerOwnershipProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/java",
+        "-cp",
+        "/tmp/allow-vc-ownership-rx98wlvq/output:/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "dev.allow.backend.WorkerOwnershipProbe",
+        "/tmp/allow-vc-ownership-rx98wlvq/target"
+      ],
+      "exit_code": 0,
+      "stdout": "missing status=INVALID worker_reaped=955825\nforeign status=INVALID worker_reaped=955862\nwrong-kind status=INVALID worker_reaped=955882\npositive status=VALIDATED worker_reaped=955901\nPASS four actual private worker inventory cases\n",
+      "stderr": ""
+    }
+  ],
+  "inputs_unchanged": true,
+  "temporary_output_removed": true,
+  "status": "PASS"
+}

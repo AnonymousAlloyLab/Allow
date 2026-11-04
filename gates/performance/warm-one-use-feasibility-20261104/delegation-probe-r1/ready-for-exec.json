@@ -1,0 +1,30 @@
+{
+  "status": "BLOCKED",
+  "probe_identity": {
+    "pid": 1251325,
+    "start_ticks": "7325670"
+  },
+  "group": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+  "scope_uid": 1000,
+  "scope_mode": "0o755",
+  "controllers": "cpu memory pids",
+  "limits": {
+    "cpu.max": "100000 100000",
+    "memory.max": "268435456",
+    "memory.swap.max": "0",
+    "pids.max": "32"
+  },
+  "child_identity": {
+    "pid": 1251328,
+    "start_ticks": "7325673"
+  },
+  "child_group_before_exec": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope/worker",
+  "slot_limits": {
+    "cpu.max": "100000 100000",
+    "memory.max": "67108864",
+    "memory.swap.max": "0",
+    "pids.max": "8"
+  },
+  "slot_uid": 1000,
+  "slot_populated_before_exec": "populated 1\nfrozen 0"
+}

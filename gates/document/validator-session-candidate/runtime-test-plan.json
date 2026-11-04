@@ -1,0 +1,204 @@
+{
+  "id": "ALLOW-ADVISORY-VALIDATOR-SESSION-RUNTIME-PLAN-R1",
+  "status": "FINITE_PLAN_NOT_EXECUTED",
+  "registration": "These are fixed intended pass predicates. Runtime verifier implementations and complete input roots must be registered and frozen before execution; no test is currently PASS. Missing or ambiguous correspondence blocks runtime acceptance.",
+  "tests": [
+    {
+      "id": "VS01",
+      "name": "Exact fresh-worker profile",
+      "pass_condition": "After immutable full baseline, measure constructor/hash, launcher/image startup, exact 500-node private-frame processing and reaping separately; retain exact inputs, commands, CPU/wall/RSS data, failures and host. No inference that component sums establish p95.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS02",
+      "name": "Sealed image positive launch",
+      "pass_condition": "Actual helper/JVM under inherited caps derives same full logical BuildIdentity from final sealed bytes, exact solver pin and Java version; all classes/static/resources/jars inventoried, no missing or additional source files. READY image identity equals parent.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS03",
+      "name": "Image tamper and race negatives",
+      "pass_condition": "Wrong digest/size, source replacement during copy, mutation after seal, missing seal, descriptor substitution/reuse, wrong jar order/duplicate entries and classpath injection all deny or preserve exactly pinned sealed bytes; never use mutable path fallback.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS04",
+      "name": "Image startup resource negatives",
+      "pass_condition": "At 64 MiB payload,64 descriptors,256 MiB expanded entries and inherited AS/CPU/wall boundaries test below/equal/above cases; malformed/zip-bomb/hanging helper cannot publish READY or leak child/fd/permit. Baseline count and complete image accounting recorded.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS05",
+      "name": "Current installation fence",
+      "pass_condition": "Before admission and before publication mutate classes, frontend static, dependency jar, solver jar, inventory membership and runtime binding in isolated fixture; full hash mismatch denies and retires. Stat-only equality cannot authorize. Restore does not revive old generation.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS06",
+      "name": "Closed private framing",
+      "pass_condition": "Reject invalid UTF-8, duplicate/unknown/missing fields, multiple/newline/CR frames, integer overflow, exact byte-limit boundaries, trailing tokens, wrong protocol and blocked stdin/stdout/stderr. Bounds enforced incrementally.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS07",
+      "name": "Identity replay matrix",
+      "pass_condition": "Independently alter principal/workspace/launch/policy/dependency/image/generation/sequence/nonce/document/revision/draft/epoch/request/base/inventory identity; no staged or public result accepted. Include valid old response arriving after retirement and new session start.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS08",
+      "name": "Reset acknowledgement ordering",
+      "pass_condition": "DATA without RESET_READY, reset before data, duplicate reset/data, reset with wrong key, unexpected idle output and EOF after data yield UNAVAILABLE and reap, not a partial valid result. Failed external reset inventory cannot be overridden by a true child flag.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS09",
+      "name": "Cancellation and timeout races",
+      "pass_condition": "Cancel before launch, during write/parse/serialization/reset/publication and while reaping; repeatedly interrupt cleanup. No public response after retirement linearization, no second request while first active, global slot retained until verified exit, each permit released once.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS10",
+      "name": "Child classloader separation",
+      "pass_condition": "For all actually reached validation/Alloy/Jackson/transitive non-JDK classes, record loader identities across consecutive requests; none delegates to supervisor/application loader. No child POJO is serialized by parent mapper. Static snapshot audits and forbidden parent/global registration hooks cover declared trust boundary.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS11",
+      "name": "Differential constructor coverage",
+      "pass_condition": "Run all 46 existing Java/TS constructor fixtures plus all 23 supported tags against fresh one-shot and session in both SOURCE/BLOCK modes with exact context. Compare status, nominal ordered schemas, source/hash, inverse-mapped diagnostics, descriptors, maps and trivia. Normalize only documented generated UUID alpha/presentation differences.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS12",
+      "name": "History-dependent type contamination",
+      "pass_condition": "Alternate two models with same visual names and incompatible nominal types, integer/sequence builtin use, predicate arities, binder shadowing, wrong-kind IDs, foreign IDs, malformed-source and TEXT_ONLY cases; A/B/A and B/A/B sequences at requests1,2,63,64 and after retirement match independent fresh results.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS13",
+      "name": "Reset file/thread isolation",
+      "pass_condition": "Marker-bearing sources and oversized failures leave no temporary file, source-bearing stderr, request thread, descendant, thread-context-loader reference, shutdown hook or reusable request object after reset; unknown cleanup state retires. Exact owned inventory evidence required.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS14",
+      "name": "Retained class and heap bounds",
+      "pass_condition": "Worst permitted512-node/depth32/source32KiB/response1MiB requests for64 consecutive iterations and multiple retirements; collect heap/class/metaspace/RSS/AS/fd/thread counts. No growth beyond configured caps; failed class unloading cannot authorize larger limits or extended retirement. RSS is reported separately from heap.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS15",
+      "name": "CPU and wall budgets",
+      "pass_condition": "Reused-JVM cumulative kernel CPU limit remains12s across all requests, never multiplied by sequence; account helper/bubblewrap/JVM lineage separately and reject unbounded extra descendants. Busy loop and blocked I/O externally killed at10s operation wall. Late requests may fail availability due remaining JVM budget. Poll observations bind PID/start ticks; do not infer aggregate tree CPU from per-process RLIMIT. Retry starts a fresh generation only after whole-tree reap.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS16",
+      "name": "Finite retirement limits",
+      "pass_condition": "64th completed request is last accepted by generation; 65th requires new generation. Age120s,idle30s,policy/build change and shutdown retire. Count/time boundary tests include concurrent arrival and retirement, without workload-dependent thresholds.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS17",
+      "name": "Live versus active capacity",
+      "pass_condition": "Idle reusable JVM continues to count toward global2. A fresh solver can run with idle session under cap while same-principal simultaneous active validation cannot start. Initializing/resetting/retiring children also count; eviction reaps first. Zero advisory queue and durable-admission ordering preserved.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS18",
+      "name": "Scoped persistence unchanged",
+      "pass_condition": "Each advisory request obtains current SQL-backed exact base/history inventory as required; DB unavailable/unauthorized/foreign document/wrong ID kind returns denial or availability. Cached session is never authority. All PostgreSQL including tests traverses pinned SQLeanParser with no direct fallback.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS19",
+      "name": "Advisory durable nonmutation",
+      "pass_condition": "Before/after valid,invalid,timeout,cancel,stale-frame and restart calls compare exact head/history/receipts/quota/admission state through authorized SQL path. No advisory changes or success token capable of bypassing later commit validation.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS20",
+      "name": "One-shot path preservation",
+      "pass_condition": "Commit/history-copy/recovery/solver integration retains fresh PID and exit-before-recovery evidence, exact receipts and CAS semantics. Existing actual HTTP/restart/recovery tests pass with no skips; reusable session never accepted as reaped durable-worker proof.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS21",
+      "name": "Output and UI identity",
+      "pass_condition": "Retain exact original request hash/draft/epoch/base/source hashes in public response; delayed-response browser tests reject stale result. Diagnostic64/32KiB and1MiB full envelope limits hold with new internal framing overhead.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS22",
+      "name": "Failure classification",
+      "pass_condition": "INVALID only for documented deterministic candidate denial. OOM/stack overflow/unexpected Throwable, reset failure, CPU/wall/resource/protocol/image/transport fault yields UNAVAILABLE and retired session; no cached failure or automatic hidden same-request replay.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS23",
+      "name": "Style and encapsulation",
+      "pass_condition": "Existing Java/JS/TS style checker reports0violations: every callable full meaningful Javadoc/JSDoc, <=30physical lines, encapsulated mutable state; no unsupported test-only bypass in production launcher.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS24",
+      "name": "Full unchanged server performance",
+      "pass_condition": "Freeze all sources/compiled resources/config/fixtures/verifiers, run original500-node100warmup+1000measured HTTP benchmark, count failures/initializations/retirements in raw trace and all operation elapsed time. Exactly0failures and strict p95<300ms required; preserve failed report if target missed. Do not add warmups to conceal image/loader costs.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS25",
+      "name": "Browser regression and exclusions",
+      "pass_condition": "Re-run source freshness/known-type rejection/actual React commit benchmark if runtime/frontend assets change; strict p95<50ms under frozen100/1000protocol. Cold and named manual/accessibility scenarios remain separate, never inferred from warm benchmark.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS26",
+      "name": "Two clean model closures",
+      "pass_condition": "Freeze this revision, exact22candidate proposition types and287inherited types, toolchain, verifier, axioms policy, concrete witness and TCB. Two isolated clean builds compare exact inventories/artifact hashes/provenance. No Java/OS/Alloy semantic refinement conclusion inferred.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS27",
+      "name": "Unexpected worker exit and shutdown",
+      "pass_condition": "Idle/active JVM SIGKILL, helper exit, parent server SIGKILL and graceful shutdown cannot leave an adopted process or source artifact; fresh server starts new generation and bearer while durable document identity survives. All owned child/fd cleanup observed.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VS28",
+      "name": "No benchmark-specific behavior",
+      "pass_condition": "Static/dynamic audit confirms no source hash, fixture nodecount,label,eventcount,warmupcount or benchmark endpoint changes validation/retirement path. Compare distinct models and changed-server-ID inputs under same protocol and preserve total first-use costs.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    }
+  ],
+  "non_inference": "Finite differential/inventory tests strengthen evidence but do not prove all Alloy/JDK-global state behavior. Any unresolved requirement in contract.json remains blocking independent of test counts."
+}

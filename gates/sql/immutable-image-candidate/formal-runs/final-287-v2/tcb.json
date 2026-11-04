@@ -1,0 +1,15 @@
+{
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled libraries",
+    "propext, Quot.sound, Classical.choice when reported by the axiom audit",
+    "Lake, Python3, this hashed verifier and SHA256 collision resistance",
+    "OS filesystem/process isolation and hardware",
+    "Interpretation of abstract model definitions"
+  ],
+  "excluded": [
+    "Linux syscall and immutable-image implementation correspondence",
+    "Python SQL/protocol implementation, parser correspondence, PostgreSQL execution",
+    "Revision6 live-path integrity preservation",
+    "Performance/memory and production promotion"
+  ]
+}

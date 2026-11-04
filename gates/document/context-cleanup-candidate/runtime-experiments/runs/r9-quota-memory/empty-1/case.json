@@ -1,0 +1,95 @@
+{
+  "claim_id": "CC29",
+  "subcase": "empty-1",
+  "run_id": "r9-quota-memory",
+  "input_root_sha256": "353340d7549568299c389f3fc185ccc5ab9f87d51f739a307992574b97cad346",
+  "verifier_id": "CC29-QUOTA-PROBE",
+  "verifier_sha256": "759ca83d0df3a2082ba357023c73282162dd5bd1603659ea3ff40cd24d31854a",
+  "fixture_sha256": "65934bc47a5b980e3119e8491de878d7a5805946327458385f8ffce8be5b1bf1",
+  "status": "PASS",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 102.361247,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-uvy_vjpi/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-uvy_vjpi/.gate/quota_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r9-quota-memory/empty-1"
+    ],
+    "fixture_sha256": "7f1dc4b2e075fe37f907f39babc0ba9f3178aec038a9462bb9745f2b542bfd1a",
+    "stdout_sha256": "470278abc171d000bff4b7a84c40b479721baebdc2de25ba389b84b6e4cca028",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 63073278917486
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 63073285169830
+      },
+      {
+        "phase": "RETIRING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 63073293509089
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 63073295603914
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true,
+  "telemetry": {
+    "history_select_count": 0,
+    "raw_rows_buffered": 0,
+    "raw_column_bytes": 0,
+    "rows_iterated": 0,
+    "decoded_content_bytes": 0,
+    "focus_row_indexes": [],
+    "started_ns": 63073275719283,
+    "rlimit_as": [
+      2147483648,
+      2147483648
+    ],
+    "rlimit_cpu": [
+      20,
+      20
+    ],
+    "entry_memory": {
+      "VmPeak_bytes": 79622144,
+      "VmSize_bytes": 79622144,
+      "VmHWM_bytes": 36728832,
+      "VmRSS_bytes": 36728832
+    },
+    "history_finished_ns": 63073291966968,
+    "finished_ns": 63073294279705,
+    "kernel_peak_rss_bytes": 890085376,
+    "cpu_seconds": 0.07458,
+    "final_memory": {
+      "VmPeak_bytes": 82771968,
+      "VmSize_bytes": 79622144,
+      "VmHWM_bytes": 39862272,
+      "VmRSS_bytes": 39862272
+    },
+    "lifetime_rss_interpretation": "getrusage includes pre-exec process lifetime; do not equate with post-exec VmHWM or physical group memory",
+    "row_multiset_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

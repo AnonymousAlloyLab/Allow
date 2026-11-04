@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "egraph-terra-2",
+  "status": "REVISION_2_REVIEWED",
+  "verdict": "ADAPTER_CONTRACT_BLOCKERS_RESOLVED_PENDING_FORMAL_AND_IMPLEMENTATION",
+  "production_files_edited": false,
+  "sources_read": [
+    "spec/slot-profile.json",
+    "backend/src/main/java/dev/allow/canonical/SlotRegistry.java",
+    "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java",
+    "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java",
+    "backend/src/main/java/dev/allow/canonical/Canonicalizer.java",
+    "formal/Allow/EGraph.lean"
+  ],
+  "required_adapter_guards": [
+    "Preserve existing v1 canonical bytes, digest, feature output and unsupported behavior; a parallel side table or single traversal must retain module-wide lexical binder allocation and identity scope, including function parameters. Never reconstruct identity from names.",
+    "Treat command formula, each function body, and each fact as separate named-by-anonymous-path roots in the same entire anonymous module context. No call inlining; preserve whole calls, binders, lets, temporal and unsupported subtrees as opaque atoms and do not rewrite descendants.",
+    "Opaque atom payload is exact anonymous structure and sort, with resolved slot identities and no user names, source text or hashes as sole identity. Preserve a stable complete atom inventory through extraction even if atoms disappear.",
+    "Derive schema from resolved Alloy Type.fold as the complete set of ordered nominal primitive signature tuples, with anonymous registered signature or builtin identities, sorted and deduplicated deterministically; reject unmappable or ambiguous types. Compare full exact operand and result schemas, including empty relations, at every relational operator and rule instance.",
+    "The Lean single-Tuple relation model proves abstract fixed-carrier laws, not Alloy parser correspondence, schema extraction, Java implementation refinement or contextual correctness of plugging roots back into a module. Expose these as trusted assumptions and test obligations."
+  ],
+  "required_tests": [
+    "Byte-for-byte golden tests of v1 structural output, digest and features, including unsupported behavior and multiple roots.",
+    "Alpha-renamed globals and binders yield identical complete typed inputs; shadowed and separate parameter identities remain distinct and no raw labels enter payloads.",
+    "Functions, facts and command roots stay separately identified with the full module context; call bodies and descendants of opaque binder/call nodes never change.",
+    "Same arity distinct nominal signatures, multi-alternative folded types, column permutations, builtin identities and mismatched result types fail relational gating; relation plus/minus never confuse integer or override variants.",
+    "Adversarial opaque subtree, schema, context, root path, inventory and output tampering is rejected by independent proof replay; budget stops never imply saturation or complete normalization."
+  ],
+  "reviewed_sha256": {
+    "spec/egraph-stage.json": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+    "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34"
+  },
+  "confirmed_blockers": [],
+  "integration_plan": [
+    "Extend the existing module/expression traversal with an optional immutable per-occurrence capture sink, recording resolved node, root path, captured canonical subtree and lexical state without changing constructor trees or traversal order.",
+    "Add a separate child-side adapter that lowers each captured function body, fact and command formula using occurrence records and resolved types; stop at opaque nodes, never revisit descendants, and fail closed on unresolved or unsupported schemas.",
+    "Canonicalize each complete Type.fold schema to sorted unique ordered tuples of anonymous nominal slots or builtins. Require exact operand and result schemas for relational lowering; reject unknown identities and ambiguous forms.",
+    "Build a stable exact atom inventory before engine invocation; retain the complete anonymous module and exact occurrence path in every island context. Keep implementation outside the v1 artifact and feature encoding pipeline.",
+    "Run v1 byte/digest/vector golden tests and adversarial shared-AST, shadowing, alpha-renaming, opaque boundary, multi-alternative schema and per-root isolation tests."
+  ],
+  "revision_2_disposition": [
+    "Resolved: occurrence and structural path capture explicitly precludes object-identity cache, identifies the exact root occurrence, and rejects mismatched AST/subtree pairs.",
+    "Resolved: full typed anonymous atom encodings are sorted and deduplicated before rewrites, with checker-enforced ordered membership and trusted original inventory binding.",
+    "Review is limited to adapter contract precision; no formal closure, parser correspondence or implementation correctness is asserted."
+  ]
+}

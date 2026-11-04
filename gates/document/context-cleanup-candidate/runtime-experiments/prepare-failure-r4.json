@@ -1,0 +1,21 @@
+{
+  "status": "BLOCKED",
+  "failure_code": "INPUT_MUTATION",
+  "stage": "prepare_before_copy",
+  "receipt_sha256": "b98490b82ac6b7f7879d2664fee096d2fd1dfed21da9d4443eaf2a902a03bb62",
+  "detected_utc": "2026-11-04T05:17:22.669457+00:00",
+  "mismatches": [
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "expected_sha256": "35ef43532c5b0e94e9c267f51226ff364077522ca58da1c81ec878b7d545eeb7",
+      "actual_sha256": "7e2cbc2495cbf53a91a74868d7ab66e5d075c65636cf197c2b23602ce44a838c"
+    },
+    {
+      "path": "retrieval/tests/test_context_leases.py",
+      "expected_sha256": "15df302915aeeefa50d69b001a0e7cca3cc8930f3737b3ac0e10ac8fdfcfb229",
+      "actual_sha256": "f6725bcd3b88e1652bc18162dd05526fd71d573f447b7dcff44b3939d9424a57"
+    }
+  ],
+  "copied_roots_created": 0,
+  "services_started": 0
+}

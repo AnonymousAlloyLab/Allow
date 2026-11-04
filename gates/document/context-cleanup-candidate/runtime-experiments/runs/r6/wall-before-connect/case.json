@@ -1,0 +1,63 @@
+{
+  "claim_id": "CC11",
+  "subcase": "wall-before-connect",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r6",
+  "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "a378b72748066bc1b391f67d5d927fcb8d1a964f70c4cc0c8cf0a5b682c84bcb",
+  "expected_predicate": "Actual RESERVED reservation ages at least2900ms between observed RESERVED and failed CLEAN, with no CONNECTING/KEYED/BOUND phase/backend. The late real connect is refused, no success frame, backend absent and durable hashes unchanged. This isolates the3000ms wall timer from PG idle timeout; polling/scheduler uncertainty is disclosed, not a universal hardwall bound.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 3388.003284,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-nyhmu1lw/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-nyhmu1lw/.gate/probe_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r6/wall-before-connect",
+      "--registration-stall"
+    ],
+    "fixture_sha256": "d7099141d71a7971f89e2c352d5034f60ff01700495ad36a7c0fe60142bde2e7",
+    "stdout_sha256": "18dd79f530eb0f3da8039b1a832c1e7c058bb287c6a5bee2ce36bc64b40ea455",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": false,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62508596410099
+      },
+      {
+        "phase": "CLEAN",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62511622813838
+      }
+    ],
+    "injected": {
+      "phase": "registered_before_connect",
+      "injection": "wall-register",
+      "monotonic_ns": 62511900922902
+    },
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "sqlstates": [],
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "no_success_output": true,
+  "reserved_to_failed_clean_ms": 3026.403739,
+  "mechanism_predicate": true
+}

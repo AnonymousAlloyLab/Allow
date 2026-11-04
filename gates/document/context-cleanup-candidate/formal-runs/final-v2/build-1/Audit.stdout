@@ -1,0 +1,109 @@
+@Allow.ContextCleanup.step_preserves_invariant : ∀ {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Invariant s → Allow.ContextCleanup.Step s t → Allow.ContextCleanup.Invariant t
+'Allow.ContextCleanup.step_preserves_invariant' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.reachable_invariant : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s → Allow.ContextCleanup.Invariant s
+'Allow.ContextCleanup.reachable_invariant' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.application_sql_requires_bound_prelude : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s → Eq.{1} s.ran true → Allow.ContextCleanup.BoundPrelude s
+'Allow.ContextCleanup.application_sql_requires_bound_prelude' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.new_application_sql_requires_bound_phase : ∀ {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Step s t →
+    Eq.{1} s.ran false →
+      Eq.{1} t.ran true → Eq.{1} s.phase Allow.ContextCleanup.Phase.bound ∧ Allow.ContextCleanup.BoundPrelude s
+'Allow.ContextCleanup.new_application_sql_requires_bound_phase' depends on axioms: [propext]
+@Allow.ContextCleanup.staged_context_requires_application_sql : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s → Eq.{1} s.staged true → Eq.{1} s.ran true
+'Allow.ContextCleanup.staged_context_requires_application_sql' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.receipt_proves_matching_cleanup : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease}
+  {r : Allow.ContextCleanup.Receipt},
+  Allow.ContextCleanup.Reachable durable s →
+    Eq.{1} s.receipt (some.{0} r) →
+      Eq.{1} r.owner s.owner ∧ Allow.ContextCleanup.CleanupSafe s ∧ Eq.{1} r.successPermitted !s.poisoned
+'Allow.ContextCleanup.receipt_proves_matching_cleanup' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.reachable_clean_has_receipt : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s →
+    Eq.{1} s.phase Allow.ContextCleanup.Phase.clean → Exists.{1} fun r => Eq.{1} s.receipt (some.{0} r)
+'Allow.ContextCleanup.reachable_clean_has_receipt' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.reachable_clean_is_safe : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s →
+    Eq.{1} s.phase Allow.ContextCleanup.Phase.clean → Allow.ContextCleanup.CleanupSafe s
+'Allow.ContextCleanup.reachable_clean_is_safe' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.release_requires_clean : ∀ {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Step s t →
+    Eq.{1} t.phase Allow.ContextCleanup.Phase.vacant → Eq.{1} s.phase Allow.ContextCleanup.Phase.clean
+'Allow.ContextCleanup.release_requires_clean' depends on axioms: [propext]
+@Allow.ContextCleanup.release_requires_observed_cleanup : ∀ {durable : Nat} {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s →
+    Allow.ContextCleanup.Step s t →
+      Eq.{1} t.phase Allow.ContextCleanup.Phase.vacant → Allow.ContextCleanup.CleanupSafe s
+'Allow.ContextCleanup.release_requires_observed_cleanup' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.step_preserves_durable : ∀ {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Step s t → Eq.{1} t.durable s.durable
+'Allow.ContextCleanup.step_preserves_durable' does not depend on any axioms
+@Allow.ContextCleanup.advisory_cleanup_preserves_durable : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Reachable durable s → Eq.{1} s.durable durable
+'Allow.ContextCleanup.advisory_cleanup_preserves_durable' does not depend on any axioms
+Allow.ContextCleanup.context_lease_at_most_one : ∀ (s : Allow.ContextCleanup.Lease),
+  LE.le.{0} (Allow.ContextCleanup.occupied s) 1
+'Allow.ContextCleanup.context_lease_at_most_one' depends on axioms: [propext, Quot.sound.{u}]
+Allow.ContextCleanup.unknown_retains_capacity : ∀ (s : Allow.ContextCleanup.Lease),
+  Eq.{1} s.phase Allow.ContextCleanup.Phase.unknown → Eq.{1} (Allow.ContextCleanup.occupied s) 1
+'Allow.ContextCleanup.unknown_retains_capacity' depends on axioms: [propext]
+Allow.ContextCleanup.nonfree_retains_capacity : ∀ (s : Allow.ContextCleanup.Lease),
+  Ne.{1} s.phase Allow.ContextCleanup.Phase.vacant → Eq.{1} (Allow.ContextCleanup.occupied s) 1
+'Allow.ContextCleanup.nonfree_retains_capacity' depends on axioms: [propext]
+@Allow.ContextCleanup.replacement_requires_vacant : ∀ {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Step s t →
+    Eq.{1} t.phase Allow.ContextCleanup.Phase.reserved → Eq.{1} s.phase Allow.ContextCleanup.Phase.vacant
+'Allow.ContextCleanup.replacement_requires_vacant' depends on axioms: [propext]
+@Allow.ContextCleanup.unknown_cannot_be_replaced : ∀ {s t : Allow.ContextCleanup.Lease},
+  Allow.ContextCleanup.Step s t →
+    Eq.{1} s.phase Allow.ContextCleanup.Phase.unknown → Ne.{1} t.phase Allow.ContextCleanup.Phase.reserved
+'Allow.ContextCleanup.unknown_cannot_be_replaced' depends on axioms: [propext]
+Allow.ContextCleanup.unidentified_attempt_cannot_be_clean : ∀ (s : Allow.ContextCleanup.Lease),
+  Eq.{1} s.attempted true → Eq.{1} s.backend none.{0} → ¬Allow.ContextCleanup.CleanupSafe s
+'Allow.ContextCleanup.unidentified_attempt_cannot_be_clean' depends on axioms: [propext, Quot.sound.{u}]
+Allow.ContextCleanup.closed_transport_alone_is_insufficient : ∀ (s : Allow.ContextCleanup.Lease),
+  Eq.{1} s.attempted true → Eq.{1} s.absent none.{0} → ¬Allow.ContextCleanup.CleanupSafe s
+'Allow.ContextCleanup.closed_transport_alone_is_insufficient' depends on axioms: [propext, Quot.sound.{u}]
+Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup : ∀ (s : Allow.ContextCleanup.Lease)
+  (reason : Allow.ContextCleanup.RetirementReason),
+  Allow.ContextCleanup.CleanupSafe (Allow.ContextCleanup.markRetiring s reason) ↔ Allow.ContextCleanup.CleanupSafe s
+'Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup' does not depend on any axioms
+Allow.ContextCleanup.stale_receipt_rejected : ∀ (expected : Allow.ContextCleanup.Owner)
+  (r : Allow.ContextCleanup.Receipt),
+  Ne.{1} r.owner expected → Eq.{1} (Allow.ContextCleanup.acceptReceipt expected r) false
+'Allow.ContextCleanup.stale_receipt_rejected' depends on axioms: [propext]
+@Allow.ContextCleanup.accepted_receipt_exact_owner : ∀ {expected : Allow.ContextCleanup.Owner}
+  {r : Allow.ContextCleanup.Receipt},
+  Eq.{1} (Allow.ContextCleanup.acceptReceipt expected r) true → Eq.{1} r.owner expected
+'Allow.ContextCleanup.accepted_receipt_exact_owner' depends on axioms: [propext]
+Allow.ContextCleanup.stale_lease_generation_rejected : ∀ (expected : Allow.ContextCleanup.Owner)
+  (r : Allow.ContextCleanup.Receipt),
+  Ne.{1} r.owner.leaseGeneration expected.leaseGeneration → Eq.{1} (Allow.ContextCleanup.acceptReceipt expected r) false
+'Allow.ContextCleanup.stale_lease_generation_rejected' depends on axioms: [propext]
+@Allow.ContextCleanup.context_ok_requires_cleanup : ∀ {durable : Nat} {s : Allow.ContextCleanup.Lease}
+  {r : Allow.ContextCleanup.Receipt},
+  Allow.ContextCleanup.Reachable durable s → Allow.ContextCleanup.contextOK s r → Allow.ContextCleanup.CleanupSafe s
+'Allow.ContextCleanup.context_ok_requires_cleanup' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success : ∀ {s : Allow.ContextCleanup.Lease}
+  {r : Allow.ContextCleanup.Receipt},
+  Allow.ContextCleanup.contextOK s r → Eq.{1} s.staged true ∧ Eq.{1} r.successPermitted true ∧ Eq.{1} s.poisoned false
+'Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success' does not depend on any axioms
+Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic : ∀
+  (ordinaryBackends contextBackends observerBackends : Nat),
+  LE.le.{0} ordinaryBackends 15 →
+    LE.le.{0} contextBackends 1 →
+      LE.le.{0} observerBackends 1 →
+        LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} ordinaryBackends contextBackends) observerBackends)
+          (HSub.hSub.{0, 0, 0} 20 3)
+'Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic' depends on axioms: [propext, Quot.sound.{u}]
+Allow.ContextCleanup.normal_cleanup_witness : Allow.ContextCleanup.Reachable 42 Allow.ContextCleanup.w10 ∧
+  Allow.ContextCleanup.contextOK Allow.ContextCleanup.w10
+    { owner := Allow.ContextCleanup.witnessOwner, successPermitted := true }
+'Allow.ContextCleanup.normal_cleanup_witness' depends on axioms: [propext]
+Allow.ContextCleanup.unidentified_crash_witness : Allow.ContextCleanup.Reachable 42 Allow.ContextCleanup.wUnknown ∧
+  Eq.{1} (Allow.ContextCleanup.occupied Allow.ContextCleanup.wUnknown) 1 ∧
+    ¬Allow.ContextCleanup.CleanupSafe Allow.ContextCleanup.wUnknown
+'Allow.ContextCleanup.unidentified_crash_witness' depends on axioms: [propext, Quot.sound.{u}]

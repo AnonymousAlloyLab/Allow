@@ -1,0 +1,268 @@
+{
+  "reviewer_id": "Astra-1",
+  "model_identity": {
+    "requested_model": "GPT-6 Astra",
+    "dispatch_model_reported_by_parent": "gpt-6-astra",
+    "actual_runtime_model_independently_observable": false,
+    "actual_runtime_model": null,
+    "note": "This review does not claim independent attestation of the underlying model identity."
+  },
+  "status": "CONTRACT_REVIEW_COMPLETE_PROOF_DRAFT_PENDING",
+  "scope": [
+    "commercial feasibility",
+    "dependency and corpus licensing",
+    "local security boundary",
+    "formal assurance claims"
+  ],
+  "reviewed_contract_sha256": "004760bfb080d3a02c7d6a392e3fd5c4095bd462da5e4bd001606eca9e55e564",
+  "verdict": "REQUEST_CHANGES",
+  "evidence": [
+    {
+      "id": "E1",
+      "path": "/home/augustus/ACGN/LICENSE",
+      "observation": "MIT text, including notice retention; copyright attribution is 2024 N/A. This is not evidence of rights in all bundled dependencies or data."
+    },
+    {
+      "id": "E2",
+      "path": "/home/augustus/Live_Programming/LICENSE",
+      "observation": "MIT text, including notice retention; copyright attribution is 2024 N/A."
+    },
+    {
+      "id": "E3",
+      "path": "/home/augustus/Live_Programming/research/formalise2027/LICENSE-NOTICE.md",
+      "observation": "Research package explicitly does not claim redistribution clearance. Documents unresolved SQLeanParser, HiGenA resources and corpus/history terms. Its named attribution refers to research bundle source and must not silently replace repository history."
+    },
+    {
+      "id": "E4",
+      "path": "/home/augustus/ACGN/lib/alloy.jar",
+      "sha256": "ac0ee637172ed035a4ca43327d5e09c05990aa0d073887308e30f88c2471370c",
+      "observation": "Embedded Maven pom.properties identifies 6.1.0-SNAPSHOT. No ZIP entries containing license in name. Absence of such entry is not proof of absent license."
+    },
+    {
+      "id": "E5",
+      "path": "/home/augustus/ACGN/README.md",
+      "observation": "Explicitly disclaims general implementation correctness, full Java/parser refinement and end-to-end semantic correctness; canonical zero means equality under implemented rewrite theory."
+    },
+    {
+      "id": "E6",
+      "url": "https://raw.githubusercontent.com/AlloyTools/org.alloytools.alloy/v6.2.0/LICENSE",
+      "observation": "Pinned upstream root starts with a warning that Apache text is not yet valid and current code is MIT. Do not infer whole-binary license from metadata alone."
+    },
+    {
+      "id": "E7",
+      "url": "https://raw.githubusercontent.com/AlloyTools/org.alloytools.alloy/v6.2.0/org.alloytools.alloy.core/src/main/java/edu/mit/csail/sdg/parser/CompUtil.java",
+      "observation": "Pinned parser source has MIT permission notice; parser also computes filesystem module paths, so import isolation must be explicit in Allow adapter."
+    },
+    {
+      "id": "E8",
+      "url": "https://www.sat4j.org/",
+      "observation": "Official project describes dual EPL and GNU LGPL distribution; chosen release and permitted election must be audited."
+    },
+    {
+      "id": "E9",
+      "url": "https://www.sat4j.org/maven234/license.html",
+      "observation": "Version 2.3.4 official license page lists EPL 1.0 and LGPL 2.1. This is not a license-version assertion for every SAT4J version."
+    },
+    {
+      "id": "E10",
+      "url": "https://emina.github.io/kodkod/index.html",
+      "observation": "Original Kodkod project describes MIT license and finite relational model finding. Alloy Pardinus extensions and bundled libraries require their own artifact audit."
+    },
+    {
+      "id": "E11",
+      "url": "https://alloytools.org/spec.html",
+      "observation": "Official semantics distinguishes finite variable scopes and trace-length analysis. Allow SAT4J MVP must bind results to its declared bounds and supported fragment."
+    }
+  ],
+  "proposed_gates": [
+    {
+      "id": "G-LICENSE",
+      "blocks": "redistribution/commercial release of affected artifacts",
+      "requirement": "Inventory exact shipped component and data hashes, source provenance, applicable/elected licenses, notices, source/relink obligations and permissions. Exclude unresolved binaries/corpora; root MIT is not blanket clearance. Reconcile attribution before redistribution."
+    },
+    {
+      "id": "G-SOUND",
+      "blocks": "assurance claims and production result acceptance",
+      "requirement": "Bind result and pool evidence to source/import digests, facts, command, type/declaration environment, signature scopes, integer bitwidth/overflow, trace policy, solver/version and source revision. Timeout/cancel/error/unknown are not UNSAT. Canonical equality and vector proximity cannot authorize semantic equivalence."
+    },
+    {
+      "id": "G-LOCAL",
+      "blocks": "first runnable local backend",
+      "requirement": "Bind literal loopback, exact Host and Origin checks, launch/session authority and CSRF protection; no permissive CORS. Module resolution uses explicit supplied/bundled allowlist without host filesystem/network fallback. Escape untrusted labels/source/errors. Process-level bounded resource work and cancellation."
+    },
+    {
+      "id": "G-PRIVACY",
+      "blocks": "indexing or external AI integration",
+      "requirement": "No outbound source/model/embedding traffic by default; per-workspace pool/index ownership, provenance and deletion/rebuild rules; explicit opt-in and visible data scope before external service use."
+    },
+    {
+      "id": "G-COMMERCIAL",
+      "blocks": "commercial-readiness assertion",
+      "requirement": "Validate task success, onboarding, user willingness to pay, support/maintenance cost and reproducible latency/resource behavior against plain Alloy Analyzer. Record pilot evidence and confidence; targets are proposed decisions rather than market facts."
+    },
+    {
+      "id": "G-PROOF",
+      "blocks": "product implementation per user request",
+      "requirement": "Lean checks must prove concrete transitions/invariants in the scoped abstract contract; audit theorem assumptions and prohibit sorry/axiom shortcuts. Explicitly leave Java/React/Kodkod implementation refinement open. Contract hash and proof coverage inventory must be frozen and adversarially reviewed."
+    }
+  ],
+  "findings": [
+    {
+      "id": "ASTRA1-01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "location": [
+        "canonicalization.identity",
+        "canonicalization.normal_form",
+        "formal_obligations.F08"
+      ],
+      "finding": "Canonical table serialization does not explicitly bind the ordered atom identities. The theorem fixes atom count/order, but that is not an identity check between two independently atomized Alloy predicates.",
+      "counterexample": "In one module with independent signatures A and B, atomize P = some A and Q = some B independently. Both singleton Boolean functions have truth table [false,true] and the same module context/profile. Bare-table canonical bytes collide although an instance with A nonempty and B empty distinguishes P and Q.",
+      "required_fix": "Include the ordered exact typed atom identity inventory in canonical serialized bytes and equality key, or use a single explicitly shared atom inventory. Compare inventory bytes and binding context before claiming semantic equality. Add this negative fixture and state that F08 applies only after inventory identity is established.",
+      "verdict": "BLOCKS_SOUND_CANONICAL_EQUALITY_CONTRACT"
+    },
+    {
+      "id": "ASTRA1-02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "location": [
+        "resource_and_security_contract.local_boundary",
+        "milestones.G1",
+        "api_contract.transport"
+      ],
+      "finding": "Per-launch authority is named but its mandatory enforcement surface and earliest acceptance tests are unspecified. Security evidence is deferred mainly to G4/G6 despite a runnable backend at G1.",
+      "counterexample": "An implementation can create a random launch token yet validate it only on commits, leaving private document/export/SSE routes anonymous; its existence alone meets the literal token requirement. Restarted sessions or WebSocket reconnects can retain invalid authority unless revocation is specified.",
+      "required_fix": "Require current server-held launch/session authority on every private read/write/export/event stream and WebSocket handshake, with authority generation invalidated on restart. Add missing/wrong authority, exact Origin/Host, cross-origin, and expired/restarted reconnect checks to the first runnable backend gate.",
+      "verdict": "TIGHTEN_SECURITY_ACCEPTANCE_BEFORE_IMPLEMENTATION"
+    },
+    {
+      "id": "ASTRA1-03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "location": [
+        "architecture.A5.records",
+        "architecture.A5.admission",
+        "commercialization.release_gates"
+      ],
+      "finding": "Rights fields are opaque and do not define the allowed purpose of consent or derivation permissions. Broad licensing prose is sound, but the acceptance data contract can still conflate consent to local use with redistribution or embedding/training rights.",
+      "counterexample": "A source owner authorizes private local modeling only. A row has licenseOrConsent = consent and rightsStatus = cleared; embeddings and exported witness pools then pass a Boolean cleared filter even though those purposes were not authorized.",
+      "required_fix": "Add rights evidence/version, holder/origin, permitted purposes and scope, withdrawal state and propagation to derivative records. Unknown rights fail closed for the requested operation. Explicitly separate local analysis, indexing, export/redistribution, external processing and training; disabled purposes remain disabled.",
+      "verdict": "TIGHTEN_DATA_RIGHTS_ACCEPTANCE"
+    },
+    {
+      "id": "ASTRA1-04",
+      "severity": "LOW",
+      "status": "RECOMMENDATION",
+      "location": [
+        "commercialization.validation",
+        "milestones.G6"
+      ],
+      "finding": "Pilot measurements are appropriate and no demand is fabricated, but the go/no-go criterion can be chosen after seeing results.",
+      "counterexample": "Completion time worsens but a small improvement on another metric is selected retrospectively as pilot success.",
+      "required_fix": "Before pilot recruitment, record sample/roles, task set, order balancing, primary outcome, proposed decision thresholds and support-cost budget. Label all thresholds as proposed business decisions rather than empirical facts.",
+      "verdict": "COMMERCIALIZATION_HONEST_BUT_DECISION_RULE_CAN_BE_MORE_ACTIONABLE"
+    }
+  ],
+  "commercial_assessment": {
+    "conclusion": "Technically plausible as a narrowly scoped local modeling workbench; commercial desirability and redistribution clearance are unproven.",
+    "market_size_or_revenue_claims": null,
+    "legal_certainty_claimed": false,
+    "contract_assessment": "Commercialization section is appropriately qualified and has actionable dependency, rights, security and customer-validation gates; no legal clearance, market size or revenue is invented."
+  },
+  "local_repository_revisions": {
+    "ACGN": "7c4d66c13820462053f07560a06c785b2b9421ee",
+    "Live_Programming": "d8f1a84f2bac60560db46dea4deb49370eed684e"
+  },
+  "external_actions": {
+    "research_only": true,
+    "contacted_anyone": false,
+    "uploaded_sources": false
+  },
+  "reviewed_contract_revision": 1,
+  "lean_review_status": "NOT_REVIEWED_NO_DRAFT_PRESENT_AT_REVIEW",
+  "positive_findings": [
+    "Implementation is expressly unauthorized in this phase.",
+    "Bounded status, empty pools and vector proximity are separated from proof authority.",
+    "Concrete licensing uncertainty is recorded; opaque reference JARs and uncleared benchmark corpora are excluded.",
+    "Commercial demand and willingness to pay remain hypotheses, and proof results cannot authorize production claims.",
+    "External AI, telemetry, cross-project sharing and training are disabled absent a separately reviewed opt-in contract.",
+    "Process isolation, resource ceilings and output escaping are explicitly specified."
+  ],
+  "final_review": {
+    "reviewed_contract_revision": 4,
+    "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "verdict": "ACCEPT_SCOPED_SPECIFICATION_AND_MODEL",
+    "scope": "Licensing/commercial feasibility, local security contract and specified formal soundness boundaries. Does not accept or attest the pending closure runner, production implementation, artifact redistribution or commercial readiness.",
+    "file_sha256": {
+      "spec/allow-contract.json": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "formal/Allow.lean": "9ee4e8bd139c0385729d4c22ecea1e887737f4bd3f995215e78082140994727b",
+      "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+      "formal/Allow/Contract.lean": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10",
+      "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045",
+      "formal/Allow/Generated.lean": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+      "formal/Allow/Kernel.lean": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503",
+      "formal/Allow/Typing.lean": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8",
+      "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "formal/lakefile.toml": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6",
+      "formal/lake-manifest.json": "58c14e76084b8514765deb185e47743bf95339f17023336e73ce8ee0fe357fa4",
+      "closure/scripts/project_contract.py": "3b0606ec04c0029f033a4ad3579f121032cfd35a973148e392ed9432e2393aee"
+    },
+    "findings_disposition": [
+      {
+        "id": "ASTRA1-01",
+        "status": "RESOLVED",
+        "evidence": "canonicalization.identity and normal_form require context plus exact ordered typed inventory plus complete table. Canonical.lean canonicalKey includes context/inventory/table; certified_merge_canonical requires identical inventory; distinct_inventories_distinct_keys and explicit some A/some B example reject the counterexample. Actual typed-atom extraction and injective serialization remain stated trusted/implementation boundaries."
+      },
+      {
+        "id": "ASTRA1-02",
+        "status": "RESOLVED",
+        "evidence": "resource_and_security_contract.local_boundary mandates per-launch server authority for all private APIs, streams, WebSockets and exports, with negative tests including reconnect after restart at G1. G1 lists authority/Host/Origin tests. This is an acceptance requirement, not proven Spring behavior."
+      },
+      {
+        "id": "ASTRA1-03",
+        "status": "RESOLVED",
+        "evidence": "architecture.A5.rights defines purpose-specific permissions, evidence/version/principal/scope/revocation, denies unknown/withdrawn uses and propagates restrictions to derivatives and backups. Retention adds restore quarantine and revocation-journal continuity checks. Rights data model and SQL enforcement remain future G5/G6 evidence."
+      },
+      {
+        "id": "ASTRA1-04",
+        "status": "RESOLVED",
+        "evidence": "commercialization.pilot_decision_rule requires predeclared roles/count/tasks/comparator/order/metrics/purchase threshold/support-cost limits and forbids post-hoc thresholds. It labels these proposed business criteria rather than market facts."
+      }
+    ],
+    "new_blocking_findings": [],
+    "formal_observations": [
+      "Lean typing proves consistency with its explicit conservative HasType judgment; no claim of full Alloy typing, registry validation or JVM refinement is made.",
+      "Boolean canonical proof quantifies over all valuations for fixed atom inventory. Contextual-key theorem prevents equality across different ordered inventories; production serialization correctness is not proved.",
+      "Report policy never yields unboundedValidity and never maps UNKNOWN/TIMEOUT/CANCELLED/ERROR to bounded absence. This is policy correctness conditional on trusted solver classification.",
+      "Pool admission now distinguishes common target context from per-polarity query identity. Immutable SAT existence observations are explicitly separate from later enumeration termination. Validation flags and query formula fidelity remain trusted.",
+      "RetrievalScope contains tenant, project, model and schema. Abstract filter proves exact scope and live/permitted rows; authentication, purpose-right computation, SQL RLS and ANN behavior are unproved future gates.",
+      "Generated configuration coherence witness is limited to the projected formal_kernel, not automatic proof of all JSON prose. This limitation is stated in formal_boundaries.correspondence."
+    ],
+    "checks_performed": [
+      {
+        "command": "python3 closure/scripts/project_contract.py --check",
+        "exit_code": 0,
+        "result": "Generated Lean projection equals formal_kernel rendering."
+      },
+      {
+        "command": "lake build",
+        "cwd": "formal",
+        "exit_code": 0,
+        "result": "Build completed successfully (9 jobs); this ordinary build is not independent two-build closure evidence."
+      },
+      {
+        "method": "manual source review",
+        "result": "Read all seven Lean source files and relevant contract sections; no new blocking issue within stated review scope."
+      }
+    ],
+    "remaining_gates": [
+      "Exact dependency and corpus redistribution clearance remains open at G1/G6.",
+      "Commercial demand, willingness to pay, usability and support costs remain unvalidated.",
+      "Implementation refinement, session enforcement, process/resource isolation and database rights enforcement require future acceptance evidence.",
+      "Finite closure runner and its hash binding/two-build reports are outside this verdict and must pass separately."
+    ],
+    "implementation_authorized": false,
+    "commercial_release_cleared": false,
+    "legal_certainty_claimed": false
+  }
+}

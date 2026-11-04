@@ -1,0 +1,15 @@
+{
+  "id": "V-SQL-IMAGE-LEAN",
+  "executable": "gates/sql/immutable-image-candidate/verify_model_closure.py",
+  "implementation_sha256": "b298785787e17e3820d60a009afe04ae8b36062f77adcd5ddfda6fb90869f4f8",
+  "exit_codes": {
+    "VERIFIED": 0,
+    "BLOCKED": 1,
+    "INFRASTRUCTURE_FAILURE": 2
+  },
+  "toolchain": "Lean4.34.1",
+  "tool_executable_sha256": {
+    "lean": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lake": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d"
+  }
+}

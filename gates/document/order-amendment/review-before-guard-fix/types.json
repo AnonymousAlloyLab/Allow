@@ -1,0 +1,16 @@
+{
+  "status": "DRAFT_BLOCKED_REVIEW_NOT_REGISTERED",
+  "source": "gates/document/order-amendment/FieldOrder.lean",
+  "source_sha256": "a99ce19599454b43e1b754600aefdd95bc06b867a672c3d6e58536297f35932f",
+  "compiler": "leanprover/lean4:v4.34.1",
+  "theorem_types": {
+    "accepts_exact": "Allow.DocumentOrder.accepts_exact (owners : List Allow.DocumentDraft.Id) (fields : List Allow.DocumentDraft.Field) :\n  Allow.DocumentOrder.accepts owners fields = true \u2194 Allow.DocumentOrder.groupedFields owners fields = fields",
+    "accepted_ids_preserved": "Allow.DocumentOrder.accepted_ids_preserved {owners : List Allow.DocumentDraft.Id}\n  {fields : List Allow.DocumentDraft.Field} (h : Allow.DocumentOrder.accepts owners fields = true) :\n  List.map Allow.DocumentDraft.Field.id (Allow.DocumentOrder.groupedFields owners fields) =\n    List.map Allow.DocumentDraft.Field.id fields",
+    "guarded_success_checked": "Allow.DocumentOrder.guarded_success_checked {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat}\n  {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentOrder.GuardedStep auth s k q a (Allow.DocumentDraft.Result.accepted n) out) :\n  Allow.DocumentDraft.CandidateValid a q.policy",
+    "guarded_success_ordered": "Allow.DocumentOrder.guarded_success_ordered {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat}\n  {out : Allow.DocumentDraft.State} {m : Allow.DocumentDraft.Module}\n  (h : Allow.DocumentOrder.GuardedStep auth s k q a (Allow.DocumentDraft.Result.accepted n) out)\n  (block : a.moduleIR = some m) : Allow.DocumentOrder.groupedFields m.sigs m.fields = m.fields",
+    "empty_order_accepts": "Allow.DocumentOrder.empty_order_accepts : Allow.DocumentOrder.accepts [] [] = true",
+    "grouped_order_accepts": "Allow.DocumentOrder.grouped_order_accepts :\n  Allow.DocumentOrder.accepts [1, 2]\n      [{ id := 7, owner := 1, range := [1], multiplicity := Allow.DocumentDraft.Multiplicity.set },\n        { id := 9, owner := 1, range := [1], multiplicity := Allow.DocumentDraft.Multiplicity.set },\n        { id := 8, owner := 2, range := [1], multiplicity := Allow.DocumentDraft.Multiplicity.set }] =\n    true",
+    "interleaved_order_denied": "Allow.DocumentOrder.interleaved_order_denied :\n  Allow.DocumentOrder.accepts [1, 2]\n      [{ id := 7, owner := 1, range := [1], multiplicity := Allow.DocumentDraft.Multiplicity.set },\n        { id := 8, owner := 2, range := [1], multiplicity := Allow.DocumentDraft.Multiplicity.set },\n        { id := 9, owner := 1, range := [1], multiplicity := Allow.DocumentDraft.Multiplicity.set }] =\n    false"
+  },
+  "boundary": "These exact judgments express an all-result guard; the r5 replay/collision conflict remains blocking and must be resolved before freeze."
+}

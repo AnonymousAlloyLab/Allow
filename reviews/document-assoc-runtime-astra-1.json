@@ -1,0 +1,40 @@
+{
+  "reviewer": "assoc-astra-1",
+  "decision": "APPROVE_FINITE_IMPLEMENTATION_REVIEW",
+  "scope": "Finite read-only code review of the associativity implementation against the approved gameplan; no runtime readiness, formal refinement or commercial claim.",
+  "input_hashes": {
+    "spec/document-associativity.json": "b7a60034b650bb75dc8a1d160d8312ccbc3f8d1449b2554290e0db9748045d1b",
+    "backend/src/main/java/dev/allow/document/AlloyExpressionReader.java": "eaccec50e360bdefa570fba2c40a33d1c98bb52100a0829b21d8076cbb07311c",
+    "backend/src/main/java/dev/allow/document/AlloyModuleReader.java": "3b3c6874617b653ca2e63d46b8fb5faf71341ffebbf8ef71249011c351192601",
+    "backend/src/main/java/dev/allow/document/ModuleChecker.java": "de961cd6d9305120f9f533c94f624a4669b17510d9f98923fe7ca5a629fed5fd",
+    "backend/src/main/java/dev/allow/document/EngineData.java": "854a1c74f94554098f0fe4e735558f4f792ea09b9f96ae194ca830648109b30a",
+    "backend/src/main/java/dev/allow/document/HistoryValidation.java": "e1d0c7491077c911a8e8225b2c3ba0726cd592174046fdf5de5d51d797201356",
+    "backend/src/main/java/dev/allow/document/SourceValidation.java": "9a9b45a5225ed4556cd1363c6be2a981bf0ba684b87e0dd5ba2df3dbbc196282",
+    "backend/src/main/java/dev/allow/document/BlockValidation.java": "31e7fd552e51907d963758e7be69d6d3721b027d42c6e16ec9ba055764c135b8",
+    "backend/src/main/java/dev/allow/document/ModuleEquivalence.java": "346b055b69eea160e2348c5716994a3a336fd888842aa223412dde495be8bf5f",
+    "backend/src/main/java/dev/allow/document/SourceReferenceMapper.java": "4998a7e1403a829bffa4853a7f9591378fb38c938e09d17cf1416305193dd5cd",
+    "backend/src/main/java/dev/allow/document/DocumentEngine.java": "ad94dbdecff44f80bf35d71842314ba41df19375a6baa1d28a8d7d570012f04b",
+    "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java": "f79d5bc24568ca1616f4054b3d3db199e292821ff1a3fe920ee3ac8619ae4986",
+    "backend/src/test/java/dev/allow/document/AssociativityTest.java": "ce307854784a54e206814a311f861b51eaae67d7c77945759f26d3a6a4eb405a"
+  },
+  "blocking_findings": [],
+  "findings": [
+    "The reader group method recursively splits at floor(length/2) and preserves left-to-right operand occurrences without commuting, dropping or duplicating operands. Empty lists reject and singletons return the existing operand elaboration. Other operators follow their existing typed traversal.",
+    "Every constructed expression passes through node(), which rejects construction beyond 512 across the shared module expression reader. Weighted operand subtrees and synthetic grouping nodes consume the same budget.",
+    "Transient profile use is confined to EngineData.roundTrip and HistoryValidation.checkBlock. Both discard reconstructed modules after ModuleEquivalence; EngineData returns the parser module for descriptors, and HistoryValidation emits the original checked artifact module/source/maps/trivia. SOURCE uses the default AlloyModuleReader constructor, enforcing depth 32. BLOCK checks both initial and remapped final public modules at depth 32, and ArtifactIntegrity retains the public checker.",
+    "The internal depth profile changes only the depth threshold. Nominal schemas, ownership, unique names, references, lexical environment membership, command options, node limits and forest reachability remain checked. ModuleEquivalence compares ordered same-tag operand lists and preserves mixed-operator boundaries; its name resolution remains supported by independent globally unique-name checks on both inputs.",
+    "Only the list root receives the original ExprList parser origin. Synthetic internal grouping nodes have no fabricated origins; SourceReferenceMapper omits unavailable roles and independently checks exact token/coordinate boundaries for available roles.",
+    "The generated owner-wrapper recognition requires DOMAIN, the exact Sig.Field, and object identity of its owner. JOIN remains an ordinary binary relational operation; this delta does not erase joins.",
+    "SOURCE converts deterministic reader IllegalArgumentException failures, including public shape/budget rejection, to TEXT_ONLY. StackOverflowError is not caught by that branch; the worker catches it as unavailable. The delta does not introduce timeout-to-unsupported conversion."
+  ],
+  "residual_requirements": [
+    "Actual HTTP and 1000-request latency evidence remain outside this review and must pass the inherited gates.",
+    "AssociativityTest exercises the registered witness, source Unicode/CRLF, changed operands/operators, public limits and immutable history. Its transientDepthIsStackSafe method directly exercises ModuleChecker only: it does not alone prove parser, expression-reader, comparator or full worker stack safety. Keep the actual Xss512k gate independent.",
+    "No successful finite test or source inspection establishes general Java-to-Lean refinement, complete parser correspondence, G2/G3 readiness or commercial readiness."
+  ],
+  "validation_performed": [
+    "Inspected the implementation files and test source listed in input_hashes.",
+    "Inspected worker stack-error classification and the configured Xss512k launch profile.",
+    "Did not run Maven/npm or modify production/test files; reported full build and runtime work were not independently reproduced."
+  ]
+}

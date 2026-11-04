@@ -1,0 +1,134 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Restart-root compatibility and managed unkeyed-spawn recovery regressions plus prior ownership/coordinator unit checks. No actual cgroup/runtime/SQL/performance closure claim. Active target untouched.",
+  "copied_root": "/tmp/allow-warm-restart-r6-u6xzjh3a",
+  "sources": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "7b1a101d1c03d5cb167898f81703fb6c4977a11d91879badfb3df19e809d8544"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerReservation.java",
+      "sha256": "2ff0c8c89f1eaa66dfa500e413f893348ac4b68266cf489bd8fc1ddde8b00822"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "3c2a8df2e6a889ab3cb005a0b878015dc10f1cb996c7069f37de23bb8d6671ba"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "4a74f45cd3c24ca97424d26c4be8c3465c2176f48a20a6b4666b0ce80c9cc550"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmStandby.java",
+      "sha256": "71683e83481be1f50dd45235d5970e1d90460c60cb3a6f0f00d61b17760903bb"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerPool.java",
+      "sha256": "ff39912b321c73485736096a4b15ac1b6c97acce3e5811142649e7774f0a1918"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmResultLease.java",
+      "sha256": "829afbefeda5912cdf79a75cb57a423d298604777861c5207451ab29a418cfa0"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/OwnedWorkerRecoveryTest.java",
+      "sha256": "ac81b0d1004a77fde5b80e51ff364ce6a49c3b1fa1ccbfb8e884b2203039c22f"
+    }
+  ],
+  "integration_snapshot": [
+    {
+      "copied_path": "/tmp/allow-warm-restart-r6-u6xzjh3a/backend/src/main/java/dev/allow/backend/OwnedWorkerRun.java",
+      "sha256": "e82d9b0ee7a894d5164e0cb248c47cddea1c843ca3cfc2684ffaa35af46fd383"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-restart-r6-u6xzjh3a/backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "1b4f4c4ae2081ee49296f5aed1014d12e0028b292344af5000edf2eafdfba279"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-restart-r6-u6xzjh3a/backend/src/main/java/dev/allow/backend/WarmRuntime.java",
+      "sha256": "5897d14e78764429c9f3da8c062fd4936b7c4f5316e4fc90593006db8b978c01"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-restart-r6-u6xzjh3a/backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "sha256": "4f5efc039f8d5b145044d0d1c021120f95db77c381e24fd7484b2dcc6ce0edf2"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-restart-r6-u6xzjh3a/backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+      "sha256": "acf7a1f5e9b72b0667277672b67b851c6ed71bc366d1cadae8a290cd522acfb0"
+    }
+  ],
+  "suites": [
+    {
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "tests": 40,
+  "style": "PASS; documented callables<=30lines, no Java lambdas",
+  "changes": [
+    "Strict parsed empty journal permits new delegated root and preserves both monotone generation counters",
+    "Any non-null slot, including CLEAN-before-release and UNKNOWN, rejects root substitution",
+    "Malformed empty record cannot bypass strict schema",
+    "Managed attempted spawn without Process cannot emit noWorkerStarted receipt"
+  ],
+  "audit_findings_sent_to_root": [
+    "Managed attempted/no-child recovery gap: root fixed,3 focused regressions PASS",
+    "Fresh pre-attempt image mismatch must permanently disable incarnation",
+    "Failed warm @PreDestroy does not by itself retain DocumentRuntime lock; explicit positive shutdown guard needed; verified Spring6.2.19 destroy continuation from local bytecode"
+  ],
+  "logs": [
+    {
+      "path": "/tmp/allow-warm-restart-r6-u6xzjh3a/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-restart-r6-u6xzjh3a/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-restart-r6-u6xzjh3a/focused-tests.log",
+      "sha256": "1291c018ea7b0c04fccb3c86a7bc15c9cc9052410e43a8312f5e6f4a87ec0325"
+    },
+    {
+      "path": "/tmp/allow-warm-restart-r6-u6xzjh3a/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    }
+  ]
+}

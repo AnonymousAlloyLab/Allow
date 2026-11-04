@@ -1,0 +1,12 @@
+{
+  "reviewer": "terra-1",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "package_root_sha256": "f81a88a0c030c5fa441fec4b89c8fd2c46cd4659c3aad16759cba6e5420eed35",
+  "findings": [
+    "The previous actual PostgreSQL capacity claim was narrowed: ordinary live-handler limits do not bound disconnected backend tails. A persistent observer is established before readiness, and slot exhaustion fails closed with uncertain ownership retained. Runtime case CC32 must exercise this.",
+    "The startup pre-key ownership gap remains a deliberate persistent UNKNOWN/DEGRADED availability limitation, not proof of prompt automatic cleanup or full P1 availability closure.",
+    "The model is an abstract guarded lifecycle; kernel, PostgreSQL, journaling, credentials, parser and implementation correspondence remain trusted or runtime obligations. The 33-case plan is not executed evidence.",
+    "This approves the scoped implementation contract only. Production or commercial acceptance requires the prescribed exact-root approvals, clean model builds, implemented and registered runtime verification, regression/privacy/quota tests and separate target-hardware performance assessment."
+  ],
+  "verification": "Independently recomputed the canonical manifest root and all 137 file SHA-256 hashes; all matched. Reviewed candidate contract, model and planned runtime boundaries, with particular attention to ownership, observation, cancellation, privacy and capacity."
+}

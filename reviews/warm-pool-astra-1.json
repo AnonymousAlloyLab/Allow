@@ -1,0 +1,69 @@
+{
+  "reviewer": "astra-1",
+  "package_root_sha256": "245fc5201c5657b049d730daba8b237aa6f4538b71813221bc4d9fc50391a209",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "classification": "DESIGN_REVIEW_ONLY_NOT_MODEL_CLOSURE_RUNTIME_ACCEPTANCE_OR_ACTIVATION",
+  "scope": "Approval covers the frozen inactive one-use advisory implementation contract only. All six exact-root approvals and the registered two matching clean Lean builds remain prerequisites to dependent implementation. Production selection, runtime evidence and performance acceptance remain separate.",
+  "blocking_findings": [],
+  "findings": [
+    {
+      "id": "WPA1-01",
+      "severity": "informational",
+      "location": "contract.json ownership, protocol.publication; WarmPool.lean LocalStep/Step/Reachable",
+      "finding": "The new guarded transition relation addresses the earlier unguarded finish/release and revival objection. Reservation precedes attempt; attempted is sticky within a generation; noSpawn is unavailable after attempt; release requires reaped cleanup and exact owner; cancellation stays sticky; publication requires staged result, cleanup, current image, time and nonpoisoned state. The shared fresh-worker slot explicitly uses the same enabled-mode cgroup cleanup adapter. The staged-result lease retains admission through public-envelope construction and final publication checks. These are adequate implementation obligations, not evidence that an existing Java semaphore or kernel process tree refines the model."
+    },
+    {
+      "id": "WPA1-02",
+      "severity": "informational",
+      "location": "WarmPool.lean CleanContext/Cleanup/Owner; model-closure-config.json excluded",
+      "finding": "The model deliberately abstracts process identity, SQL CLEAN authentication, context-permit replay protection, descriptor ownership, durable journal fsync, restart recovery, OS observations and scheduler atomicity. In particular, CleanContext has no consumed-permit history, and the two-live-reservations theorem follows from the two-field Pool representation. Neither theorem establishes an actual bound on spawned trees or fresh context authority. The contract correctly assigns these to trusted adapters and finite runtime checks. Fresh semantic results are outside this model and durable nonmutation is a structural abstract fact."
+    },
+    {
+      "id": "WPA1-03",
+      "severity": "informational",
+      "location": "verify_warm_model.py; types.json; claims.json; model-closure-config.json",
+      "finding": "The frozen verifier checks canonical sorted inputs, required sources and twins, every snapshot hash, six exact-root review decisions, all 36 theorem/type/claim names, exact generated Audit commands, allowed axiom records and three witness names. Its clean-build path compares actual complete elaborated output against the frozen expected output and compares both deterministic artifact records, with end-of-run input/review mutation checks. This fixes the prior source-fragment truncation issue. Lean kernel/Std, Python, SHA256 and observation correspondence remain declared trust. No registered clean-build execution was performed during this review."
+    },
+    {
+      "id": "WPA1-04",
+      "severity": "informational",
+      "location": "image-probe-r4/report.json and image_probe_child_r4.py; contract.json immutable_image",
+      "finding": "Pinned r4 evidence reports 191 files and 43404937 bytes, matching sealed and Java BuildIdentity values, denied write/grow/shrink attempts, 191 equal mounted hashes, final AS2GiB/CPU12s/FS8MiB hard and soft limits, closed image descriptors and positive whole-scope cleanup. The final executable was sha256sum, not the warm JVM. The earlier failed data/fd/final-limit probes remain preserved. The trusted FS64MiB setup followed by fixed in-sandbox prlimit FS8MiB has a concrete transport witness; actual Java classpath initialization, READY, private input, inherited FD inventory, join/parent-death/restart races and worker-specific cleanup still require the registered runtime evidence."
+    },
+    {
+      "id": "WPA1-05",
+      "severity": "informational",
+      "location": "experiment.json promotion and fault_matrix; contract.json scheduling",
+      "finding": "No pinned evidence establishes a warm validation or HTTP speedup. One-use prestart avoids the rejected reusable-loader reset obligation, but each consumption still incurs replacement image capture, scans, fsync and JVM/bootstrap CPU; a single standby can miss under sequential or sustained demand. The unchanged 500-node paired HTTP gate includes refill/cold costs and stops on the first failed W1, followed only on success by mandatory cold/sustained/soak gates. This is an acceptable bounded experiment, not a positive performance prediction. Workstation quotas do not establish actual 4vCPU/8GiB target-host performance."
+    }
+  ],
+  "implementation_obligations_retained": [
+    "Complete the registered model verifier before dependent Java/Python integration; keep the active 309 claims unchanged and do not call inherited anchor checks a reproof.",
+    "Freeze actual runtime source, fixtures, toolchain, comparators and per-claim evidence before execution; exercise real helper/bwrap/cgroup paths and both warm and fresh worker kinds.",
+    "Keep CLEAN before private bytes, one transport reader, exact one-use permits, staged cleanup and publication fences, UNKNOWN slot retention, and no enabled-mode uncontained fallback.",
+    "Preserve fully documented Java/JavaScript/TypeScript methods no longer than 30 physical lines and all PostgreSQL access, including administration and observations, through SQLeanParser.",
+    "Keep live preview on fresh DEFAULT until every promotion requirement passes; preserve all failed attempts and prohibit retries chosen for favorable results."
+  ],
+  "prior_rejection_reconciliation": "Reviewed all six pinned validator-session reviews. One-use process exit removes cross-request classloader reset and shared-global-state reuse from this proposal. Exact elaborated types replace truncated theorem text; guarded reachability replaces unrestricted lifecycle helper functions; concrete sealed transport and delegation probes replace the earlier missing mechanism. Performance and full runtime safety remain unproved, with explicit preselection gates.",
+  "validation": {
+    "manifest_files": 186,
+    "snapshot_hashes": "PASS_ALL_186",
+    "working_input_hashes": "PASS_ALL_186",
+    "canonical_root": "PASS",
+    "canonical_order_and_unique_paths": "PASS",
+    "registered_source_inventory": "PASS_36_TYPES_36_CLAIMS_EXACT_AUDIT_AND_3_WITNESS_NAMES",
+    "read": "Frozen contract, experiment, WarmPool model, exact types/claims/config, verifier, inherited/source anchors, prior six rejection reviews, feasibility design and all image/delegation reports; inspected r4 probe implementation and relevant current query/capacity/build identity source.",
+    "not_run": [
+      "registered Lean closure",
+      "Java or Python worker runtime",
+      "database",
+      "HTTP",
+      "browser",
+      "benchmark"
+    ],
+    "writes": [
+      "reviews/warm-pool-astra-1.json"
+    ]
+  },
+  "commercial_boundary": "NO_GO remains. This approval provides no redistribution or data rights, security/accessibility/customer acceptance, operations/support economics, universal semantic equivalence, target-host performance or production release authorization. Finite model and runtime evidence must retain their separate PROVED/CHECKED/TESTED/TRUSTED/OUT_OF_SCOPE boundaries."
+}

@@ -1,0 +1,74 @@
+{
+  "classification": "STRUCTURAL_TEST_ONLY",
+  "pre_execution_sha256": "ae9e588e5e2d50f228208b7de1c17ee5c19a9dcb451a826911876a5d46f3b425",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/java",
+        "-jar",
+        "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar",
+        "-c",
+        "/home/augustus/Allow/config/checkstyle.xml",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/WorkerFrameBoundaryProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "Starting audit...\nAudit done.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/javac",
+        "-cp",
+        "/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "-d",
+        "/tmp/allow-vc12-y288p8wj",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/FrameProcess.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/SandboxLauncher.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/ProcessIdentity.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentJson.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/WorkerFrameBoundaryProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Note: /home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java uses or overrides a deprecated API.\nNote: Recompile with -Xlint:deprecation for details.\n"
+    },
+    {
+      "command": [
+        "/usr/bin/java",
+        "-cp",
+        "/tmp/allow-vc12-y288p8wj:/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "dev.allow.backend.WorkerFrameBoundaryProbe",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/worker-frame-child.py"
+      ],
+      "exit_code": 0,
+      "stdout": "frame_bytes=2097151 launches=1 expected=child\nframe_bytes=2097152 launches=0 expected=denied\nframe_bytes=2097153 launches=0 expected=denied\nPASS structural private worker frame boundaries\n",
+      "stderr": ""
+    }
+  ],
+  "inputs_unchanged": true,
+  "post_sha256": {
+    "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/WorkerFrameBoundaryProbe.java": "ef9e20ea9779a26d0818a590c3ad8bbf665f21f0940e767fd374cc91161128b0",
+    "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/worker-frame-child.py": "57c3545c6b544c0bdcf5188b602d080a7a5b68cb9e865cc31a78bac3bc15926f",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentWorker.java": "4502e4da14b8002b309c597a9709b93505c5ed35458b4aeef436ca7e06e657ab",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/FrameProcess.java": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/SandboxLauncher.java": "3facaad09b518ad0487f99d38b61f50826d05dafe3b0caa49abbea94312a7d8f",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/ProcessIdentity.java": "a47e6cb81188237ded7dd7da505868930cfa7040e05ed8ed3585d86e4902aab7",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentJson.java": "8495e9177da33ee50eb892f3b6b5994c2493759bca2b843cb3a6d82c481f57a8",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java": "f2a366a01970e313b21d2db8677eba3cba27c3a093afac3ed38ed2848e1074de",
+    "/home/augustus/Allow/config/checkstyle.xml": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+    "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar": "afcba25e869016442972ec4513a8c06c812edf68f511c88ef497de00c3383917",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/DocumentWorker.class": "97891c32518350dc869dddba5916afa8212dc80cb184f1fd37c344da973cde92",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/FrameProcess.class": "4ab4a57a507491a4b2bbf6b816713eb8a10aa6821eb1cc536a8186d35c370fa5",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/ProcessIdentity.class": "6ff32b0949fe8233ac0d38413eff7cc3edd429c35dad09a002c9348e28843d46",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/SandboxLauncher.class": "812014707865ec106bafc90e03991e8d7f1bd95e06d63202ec7541ab0816460e",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/DocumentJson.class": "c439e35a65996b176b2e91fa511f04e99cf8f29126a7d6f67ae954bfcb5f4f26",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/worker/JsonWire.class": "081a7daa68f6cdc1ee6189f2d926738144e871281a48b26e47dcb53dea97f97f",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar": "4b40a06396f239f8de2da57419adde6e94e5edc18a2171d471ea05eeed4e5c2d",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar": "3888e9e69ab66fbacaacc9aea0e9ffbf15368288e4aca468b024dba11c09fbf9"
+  },
+  "temporary_output_removed": true,
+  "status": "PASS"
+}

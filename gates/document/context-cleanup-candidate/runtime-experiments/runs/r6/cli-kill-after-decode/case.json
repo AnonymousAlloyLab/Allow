@@ -1,0 +1,74 @@
+{
+  "claim_id": "CC12",
+  "subcase": "cli-kill-after-decode",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r6",
+  "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "a378b72748066bc1b391f67d5d927fcb8d1a964f70c4cc0c8cf0a5b682c84bcb",
+  "expected_predicate": "Child exact process identity checked before/after pidfd acquisition, actual exit bySIGKILL, no success frame, backend absent or lease retained, durable hashes unchanged. Only1 of8 owner/phase matrix cases.",
+  "observed": {
+    "exit_code": -9,
+    "elapsed_ms": 85.084883,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-nyhmu1lw/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-nyhmu1lw/.gate/probe_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r6/cli-kill-after-decode",
+      "--barrier"
+    ],
+    "fixture_sha256": "4fa1245ba8b5749c6dcf32d5453fe509b7c816f27b94910b8558e2a798bc21ca",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62518757500896
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62518761698363
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62518763796987
+      },
+      {
+        "phase": "RETIRING",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62518773466860
+      }
+    ],
+    "injected": {
+      "phase": "history_decoded",
+      "injection": "kill-decode",
+      "monotonic_ns": 62518771427617
+    },
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "sqlstates": [],
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "no_success_output": true,
+  "mechanism_predicate": true
+}

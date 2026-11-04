@@ -1,0 +1,736 @@
+{
+  "$schema": "./allow-contract.schema.json",
+  "contract_id": "ALLOW-CONTRACT-0.1.0",
+  "revision": 4,
+  "date": "2026-11-03",
+  "status": "SPECIFICATION_BASELINE_NOT_IMPLEMENTED",
+  "product": {
+    "name": "Allow",
+    "purpose": "Local-first low-code Alloy modeling with typed blocks, editable Alloy text, bounded solver evidence, and a future retrieval corpus.",
+    "current_deliverables": [
+      "JSON development contract",
+      "Lean 4 specification and proofs",
+      "six-member adversarial council",
+      "reproducible finite verification report"
+    ],
+    "implementation_authorized_in_this_phase": false
+  },
+  "interpretation": {
+    "shall": "Mandatory acceptance requirement; a future implementation is not accepted until its gate has evidence.",
+    "proof_scope": "The Lean model and explicit JSON formal-kernel projection only. No theorem asserts correctness of a not-yet-built website, JVM integration, parser, SQL implementation, or commercial business.",
+    "assurance_levels": [
+      "PROVED_MODEL",
+      "MECHANICALLY_CHECKED",
+      "SPECIFIED_ACCEPTANCE_GATE",
+      "TRUSTED",
+      "OUT_OF_SCOPE"
+    ],
+    "proof_status_source": "closure/reports/closure-report.json",
+    "no_inherited_assurance": "ACGN and AlloyStudio supply design ideas and evidence to inspect, not transferred proofs. No implementation-to-model refinement is claimed."
+  },
+  "user_invariants": [
+    {
+      "id": "U0",
+      "requirement": "Spring backend and React frontend",
+      "design": "A0",
+      "assurance": "SPECIFIED_ACCEPTANCE_GATE",
+      "gate": "G1"
+    },
+    {
+      "id": "U1",
+      "requirement": "Local Java, Kodkod and SAT4J compatibility",
+      "design": "A1",
+      "assurance": "SPECIFIED_ACCEPTANCE_GATE",
+      "gate": "G1"
+    },
+    {
+      "id": "U2",
+      "requirement": "Drag logical gates and fill declared-variable blocks",
+      "design": "A2",
+      "assurance": "SPECIFIED_ACCEPTANCE_GATE",
+      "gate": "G2"
+    },
+    {
+      "id": "U3",
+      "requirement": "Real-time typed slots reject unsound drops",
+      "design": "A3",
+      "assurance": "PROVED_MODEL",
+      "gate": "G2",
+      "boundary": "Lean proves the restricted elaborated typing kernel; Java/TypeScript behavior requires independent refinement and differential tests."
+    },
+    {
+      "id": "U4",
+      "requirement": "Logical blocks beside editable live Alloy code",
+      "design": "A4",
+      "assurance": "SPECIFIED_ACCEPTANCE_GATE",
+      "gate": "G3"
+    },
+    {
+      "id": "U5",
+      "requirement": "Vector database pairing canonical code with example/counterexample pools for future RAG",
+      "design": "A5",
+      "assurance": "SPECIFIED_ACCEPTANCE_GATE",
+      "gate": "G5"
+    }
+  ],
+  "architecture": {
+    "A0": {
+      "backend": "Spring Boot with Spring MVC, Spring Security and JDBC transactions; this selects the user's Spring alternative rather than adding a second SSM stack.",
+      "frontend": "React with TypeScript, an accessible block canvas and a code editor; generated DTO schema shared across the HTTP boundary.",
+      "deployment": "Single-user local installation first, with a browser website served by Spring. PostgreSQL plus pgvector is a required local data service for the corpus milestone. No cloud service is necessary.",
+      "local_java_observed": "OpenJDK 17.0.20.1; existing installation, no product dependencies installed in this phase.",
+      "dependency_policy": "Use Java 17 bytecode baseline, a maintained Spring Boot release documented for Java 17, React, an official pinned Alloy 6 distribution with its Kodkod/Pardinus and SAT4J. Pin exact versions, source coordinates, hashes and licenses at G1; never substitute opaque reference-project JARs.",
+      "version_candidates": {
+        "spring_boot": "4.1.2 as observed in official requirements page; compatibility spike still required",
+        "alloy": "6.2.0 official release candidate for integration",
+        "react": "Select supported release at G1",
+        "postgres_pgvector": "Select supported mutually compatible releases at G1"
+      },
+      "components": [
+        "React editor",
+        "Spring document/transaction service",
+        "authoritative Java type/elaboration adapter",
+        "isolated solver/canonicalization JVM worker",
+        "evidence and corpus service",
+        "PostgreSQL/pgvector",
+        "future disabled RAG adapter"
+      ],
+      "ownership": "Browser owns ephemeral draft and interaction previews; Spring owns revisions, authorization, persistence and acceptance; worker owns bounded computations; database owns committed evidence records."
+    },
+    "A1": {
+      "adapter": "Parse/type-check with pinned Alloy Java API and execute commands through its Alloy-to-Kodkod translation using explicitly selected SAT4J. Do not translate editor strings directly to ad hoc SAT clauses.",
+      "worker_protocol": "Length-bounded JSON request/response with protocol version, exact analysis key, job ID and declared status; new JVM process or reset-isolated worker per job, no parser globals across users.",
+      "required_smoke_cases": [
+        "SAT run produces a well-formed complete instance",
+        "UNSAT run distinguished from check",
+        "SAT check produces assertion counterexample",
+        "UNSAT check labeled within bounds",
+        "parser/type error",
+        "forced timeout",
+        "forced cancellation",
+        "out-of-memory/worker crash",
+        "bounded instance enumeration exhaustion versus truncation"
+      ],
+      "no_solver_axiom": "Lean proves status interpretation policy, not SAT4J soundness, Alloy translation correctness, witness enumeration completeness, or JVM behavior. Those components remain explicitly trusted and tested at G1/G4.",
+      "reproducibility": "Persist source/import closure hashes, command, exact scopes, bitwidth and overflow setting, sequence bound, solver options, solver/library/JDK versions, seed where supported, bounds, statuses and complete witness hashes."
+    },
+    "A2": {
+      "workspace": "Three coordinated panes: declaration/logic palette, typed block graph, and Alloy text; analysis panel exposes instances, counterexamples and bounded status.",
+      "v1_blocks": [
+        "signature and field declarations",
+        "declared variable references",
+        "predicate parameters",
+        "and/or/not/implies/iff",
+        "some/no/one/lone relation tests",
+        "relation equality/subset",
+        "union/intersection/difference",
+        "join/product/transpose",
+        "all/some quantification",
+        "facts/predicates/assertions/run/check"
+      ],
+      "first_proved_kernel": "Nominal relation schemas, references, Boolean gates, same-schema union, relation nonemptiness, and an existential binder. Additional v1 blocks cannot ship until their model/adapter acceptance obligations are added; the roadmap is additive, not a claim of current proof coverage.",
+      "declarations": "Stable symbol IDs, lexical scope IDs, display names, declared signature/field types and multiplicity. Duplicate names, escaped identifiers and shadowing handled by parser/elaborator. Display names never identify bindings.",
+      "interaction": "Typed slots show expected schema and in-scope symbols before a drop; incompatible drops give a specific reason without mutating the document. Include keyboard create/connect/move/delete and undo/redo with the same transaction contract.",
+      "holes": "Incomplete blocks are explicit holes and may be saved as drafts. Never silently substitute true, false, none, a fabricated name or a default domain to make a draft runnable.",
+      "accessibility": "G2 targets WCAG 2.2 AA: named blocks/slots, programmatic expected types and in-scope symbols, keyboard equivalents for every essential operation, visible focus, predictable focus after commit/reject, live-region diagnostics and no color-only cues. Manual keyboard plus named screen-reader/browser combinations and automated checks are required; no Lean accessibility claim."
+    },
+    "A3": {
+      "types": "Formula, Integer and relation column products are distinct. Production relation types include alternatives and authenticated signature ancestry. The first Lean kernel conservatively accepts only exact nominal column schemas of positive arity, omitting integers and subtyping.",
+      "rules": [
+        "Boolean gates take formulas only",
+        "relation operators preserve column order and arity",
+        "join checks compatible endpoint signature types and supported output arity",
+        "unknown is never compatible",
+        "polymorphic none/univ require expected-type elaboration",
+        "bound references must resolve in the destination lexical context",
+        "cycles and unbound references are rejected",
+        "multiplicity and declaration dependencies are rechecked on the whole resulting module"
+      ],
+      "acceptance": "Browser checks are advisory. Server re-elaborates the complete candidate under current declaration environment and parser semantics before atomic commit. Relation arity alone is insufficient.",
+      "move_semantics": "Move, copy, declaration edit and import are whole-document transactions. Capture-avoiding remapping uses stable symbol identity; an escaping bound reference blocks commit. De Bruijn indices in the model are already elaborated after this remapping, not transported raw between contexts.",
+      "realtime_target": {
+        "classification": "PROPOSED_ACCEPTANCE_TARGET_NOT_MEASUREMENT",
+        "browser_preview_p95_ms": 50,
+        "authoritative_diagnostics_p95_ms": 300,
+        "fixture_nodes": 500,
+        "benchmark": "Specified reference laptop, warm local server, 1000 edit events, recorded p50/p95/p99; solver latency measured separately. Failure revises budget or launch scope, not soundness policy."
+      },
+      "binder_model": "Kernel existsRel(s,body) represents one atom bound over the nominal signature s, extending the lexical context by unary relation(s); reference 0 is that singleton atom as an Alloy relation. This is only a syntactic typing judgment. No model proof of quantifier evaluation or parser correspondence is claimed. Dependent domains, relation-valued quantifier multiplicities, comprehension and shadowing elaboration are outside this kernel."
+    },
+    "A4": {
+      "single_source_of_truth": "One immutable tagged accepted artifact per committed revision: BLOCK_SUPPORTED holds typed IR plus exact source; TEXT_ONLY holds parser-accepted, solver-policy-supported exact source/imports and no invented block IR. Raw draft and presentation epoch are separate. Invalid raw text never becomes an accepted artifact; retain it visibly with any prior block view explicitly labeled historical.",
+      "round_trip": "For the declared supported fragment, parse(print(IR)) must equal IR modulo a named alpha-equivalence and presentation normalization. Preserve comments in a separate concrete-syntax/trivia layer; do not promise exact text round-trip from canonical IR.",
+      "unsupported_syntax": "Parser-accepted solver-policy-supported syntax outside the block fragment commits as TEXT_ONLY with no block graph or canonical CorpusPair. It may produce correctly keyed bounded solver evidence. Canonicalization-unsupported block artifacts likewise stay out of canonical pairs. Parser-invalid or analysis-policy-unsupported drafts remain uncommitted. Switching modes is atomic and invalidates prior projections/results.",
+      "atomic_transition": "Validate base revision; elaborate full candidate; render and source-map; commit IR/text/maps/new revision together or preserve accepted state exactly. Invalid raw drafts remain editable separately.",
+      "stale_results": "Every raw edit, tentative block edit, undo/redo, document switch and selection/bounds change increments a monotone presentation epoch. Draft diagnostics bind draft ID + epoch + exact draft UTF-8 hash. Solver evidence is displayable as current only when full accepted analysis key AND presentation epoch match and the current draft equals the analyzed accepted source. Invalid uncommitted drafts cannot reinstall an old badge. Historical evidence is a separately labeled view, never current success. Cancellation is only an optimization.",
+      "source_map": "Accept strict UTF-8 source, reject malformed UTF-8 and unpaired UTF-16 surrogates, preserve exact newline characters with no silent normalization, hash exact UTF-8 bytes. Positions count zero-based UTF-16 code units in that exact decoded text, half-open ranges, bound to revision and presentation epoch. Convert byte/parser offsets explicitly; test non-BMP, combining characters, CRLF/LF and repeated occurrences. Shared node IDs do not identify source occurrences; ambiguity is explicit.",
+      "analysis_key_fields": [
+        "workspaceId",
+        "documentId",
+        "revision",
+        "sourceHash",
+        "importClosureHash",
+        "declarationContextHash",
+        "commandHash",
+        "scopeAndExactScopes",
+        "bitwidth",
+        "overflowPolicy",
+        "maxSequence",
+        "temporalBoundsAndLoopPolicy",
+        "alloyKodkodSat4jVersions",
+        "canonicalizerVersion",
+        "rewriteTheoryVersion",
+        "workerOptionsHash",
+        "protocolVersion"
+      ],
+      "presentation_key_fields": [
+        "acceptedAnalysisKey",
+        "draftId",
+        "draftEpoch",
+        "exactDraftUtf8Hash",
+        "matchesAcceptedSource"
+      ]
+    },
+    "A5": {
+      "database": "PostgreSQL plus pgvector; normalized evidence rows are authoritative and vector indexes are rebuildable derived data.",
+      "records": {
+        "CanonicalArtifact": [
+          "id",
+          "tenantId",
+          "projectId",
+          "moduleEnvironmentHash",
+          "sourceRevisionHash",
+          "typedAstHash",
+          "canonicalBytes",
+          "canonicalHash",
+          "fragmentId",
+          "bindingContextHash",
+          "schemaVersion",
+          "rewriteTheoryVersion",
+          "canonicalizerHash",
+          "origin",
+          "licenseOrConsent",
+          "deletedAt",
+          "orderedAtomInventory",
+          "canonicalProfileId"
+        ],
+        "AnalysisRun": [
+          "id",
+          "artifactId",
+          "fullAnalysisKey",
+          "runOrCheck",
+          "targetPredicateOrAssertion",
+          "factsAndImportsHash",
+          "bounds",
+          "solverOptions",
+          "solverAndJdkHashes",
+          "status",
+          "finishedAt",
+          "completeness",
+          "failureCode",
+          "sharedTargetContextKey",
+          "queryPolarity",
+          "queryFormulaHash",
+          "existenceStatus",
+          "enumerationStatus"
+        ],
+        "Witness": [
+          "id",
+          "analysisRunId",
+          "fullInstanceHash",
+          "typedAtomAndRelationTuples",
+          "traceStatesIfEnabled",
+          "label",
+          "labelDefinition",
+          "validationVersion",
+          "displayTruncated",
+          "enumerationTruncated",
+          "provenance",
+          "licenseOrConsent",
+          "ownQueryKey",
+          "sharedTargetContextKey",
+          "queryPolarity",
+          "purposeRights"
+        ],
+        "CorpusPair": [
+          "id",
+          "canonicalArtifactId",
+          "positiveWitnessIds",
+          "negativeWitnessIds",
+          "labelingContextHash",
+          "poolVersion",
+          "poolLimit",
+          "dedupPolicy",
+          "origin",
+          "rightsStatus",
+          "sharedTargetContextKey",
+          "positiveRunIds",
+          "negativeRunIds"
+        ],
+        "Embedding": [
+          "id",
+          "corpusPairId",
+          "modelId",
+          "modelHash",
+          "dimension",
+          "normalization",
+          "distanceMetric",
+          "inputContentHash",
+          "schemaVersion",
+          "vector",
+          "state",
+          "createdAt"
+        ]
+      },
+      "label_semantics": "An example for predicate P satisfies reachable facts F and P. A negative example satisfies F and not P. For assertion A, a check counterexample satisfies F and not A; a run witness alone is not an assertion counterexample. An oracle comparison, if later enabled, uses four explicit F-and-oracle-and-candidate polarities under a shared environment. Empty pools are not evidence of UNSAT or equivalence.",
+      "admission": "Only committed typed artifacts and complete validated witness objects with exact analysis provenance enter trusted pools. Imported or retrieved tuples remain untrusted until revalidated. TIMEOUT/UNKNOWN/CANCELLED/ERROR cannot create UNSAT evidence; a prior valid SAT witness can be retained with incomplete-enumeration status. Separate immutable SAT existence observations (the Run.status used by the Lean admission model) from enumeration terminal status. A later TIMEOUT/CANCELLED records incomplete enumeration without overwriting the valid earlier SAT observation; a witness with no such validated SAT observation cannot be admitted.",
+      "pair_transaction": "Each witness references its own immutable run/query identity and checked polarity. CorpusPair binds a common canonical target/environment/bounds/toolchain identity, with independent positive and negative run ID lists. Positive F-and-P and negative F-and-not-P queries share target context, NOT query identity. Validate every witness against its own query and expected pool polarity before a transaction links the pair. Outbox embeddings are idempotent on complete content hash plus model/version/dimension; never mix new code with old labels.",
+      "vectors": "At G5 provide a locally executing, versioned deterministic embedding baseline with declared dimensions; no external model download or call at runtime by default. Learned embeddings are optional later. Vector similarity retrieves candidates only and never supplies type, equivalence, correctness or solver evidence.",
+      "retrieval": "Authenticate and constrain tenant/project/rights/deletion/schema/model before ranking; validate returned metadata after ranking. PostgreSQL row-level security uses a non-bypass application role. ANN underfill may return fewer results or trigger scoped exact search; never broaden authorization to fill k.",
+      "retention": "User deletion tombstones canonical rows and prevents retrieval immediately; delete dependent vectors/pools and rebuild indexes as needed. Document backup retention and eventual physical removal. Rights withdrawal also blocks retrieval and regeneration. Maintain an append-only deletion/rights-revocation journal outside ordinary point-in-time restores. Restore enters deny-first quarantine: replay all post-backup revocations/tombstones before retrieval, exports or embedding outbox jobs resume. Unknown journal continuity blocks service. Never resurrect revoked work by restoring a prior snapshot; test restore-after-revocation and restarted outbox jobs.",
+      "rag": "Reserve a versioned read API and evidence envelopes. LLM generation, remote embeddings, cross-project sharing, telemetry and training are disabled until explicit user opt-in and a separately reviewed contract.",
+      "rights": "Purpose-specific permissions for store/analyze/embed/retrieve/export/share/train include evidence source, rights version, licensor/consenting principal, tenant scope and revocation state; unknown or withdrawn denies that purpose. Derived witnesses, vectors, backups and export inherit restrictions; a generic license string or consent flag is insufficient."
+    }
+  },
+  "canonicalization": {
+    "basis": "Borrow typed slotted e-graph, explicit binding context, ordered/AC/ACI operator distinctions, occurrence provenance and certificate-trace ideas from ACGN.",
+    "identity": "Canonical identity includes fragment/profile/version, full module/declaration/binding context, injectively encoded ordered exact atom inventory AND complete Shannon table. Inventories contain typed syntax and binding IDs, not display names or per-island integer labels. Compare all bytes and context before equality; a hash is only an index. P and Q with singleton inventories remain distinct even though each table is [false,true]. No cross-inventory equivalence claim without separately proved common-inventory alignment.",
+    "first_proved_domain": "Finite Boolean formulas over an ordered list of opaque, already typed relational atoms. Atom identity includes exact typed syntax, lexical binding and module context. Boolean valuations intentionally overapproximate correlated relational atoms; equality of Boolean truth tables is sound but incomplete for Alloy equivalence.",
+    "normal_form": "For at most formal_kernel.canonical_atom_limit atoms, the equality-bearing artifact is the fixed atom inventory plus complete ordered Shannon truth table. This is lossless for its Boolean truth function, not for original source syntax. Original Alloy/typed source and trivia remain attached. Lean proves fixed-inventory truth-table equality iff Boolean equivalence and proves differing inventories give different contextual keys.",
+    "large_inputs": "Above the cap, return canonicalization UNAVAILABLE_BUDGET for this profile; preserve typed source and solver functionality. Never label a partial saturation or arbitrary extracted representative as the complete canonical normal form. A future structural normal form must carry a distinct profile and proof.",
+    "egraph": "Use only same-context/same-type e-class merges with a checked derivation built from the finite Boolean rewrite catalog, reflexivity/symmetry/transitivity and congruence. Unchecked union/find operations have no semantic authority. Extraction minimizes a deterministic cost plus lexicographic tie break within a resource budget and retains the derivation. Extracted expressions, budgets and certificates are presentation/evidence records only; only the complete inventory/table artifact identifies this profile.",
+    "excluded_rewrites": [
+      "unproved quantifier hoisting, particularly across empty domains",
+      "temporal movement",
+      "reordering join/product/comprehension columns",
+      "deduplicating integer addition",
+      "unproved relation/subtyping identities",
+      "merging by vector similarity or finite witness agreement"
+    ],
+    "future_expansion": "Alloy relational/temporal normal forms require explicit semantics, proof obligations, rule side conditions and Java refinement per profile before acceptance."
+  },
+  "formal_kernel": {
+    "version": "allow-kernel-v1",
+    "type_policy": "exact_nominal_nonempty_relation_schema",
+    "raw_nodes": [
+      "hole",
+      "truth",
+      "ref",
+      "not",
+      "and",
+      "or",
+      "implies",
+      "union",
+      "some",
+      "exists"
+    ],
+    "canonical_atom_limit": 8,
+    "rewrite_rules": [
+      "and_comm",
+      "and_assoc",
+      "and_idem",
+      "or_comm",
+      "or_assoc",
+      "or_idem",
+      "double_not",
+      "de_morgan"
+    ],
+    "solver_statuses": [
+      "SAT",
+      "UNSAT",
+      "UNKNOWN",
+      "TIMEOUT",
+      "CANCELLED",
+      "ERROR"
+    ],
+    "trusted_analysis_label": "BOUNDED_ONLY",
+    "rag_enabled": false,
+    "production_release_enabled": false,
+    "lean_toolchain": "leanprover/lean4:v4.34.1"
+  },
+  "formal_obligations": [
+    {
+      "id": "F01",
+      "symbol": "Allow.infer_sound",
+      "statement": "Every successful raw-expression inference has a derivation in the declared typing judgment."
+    },
+    {
+      "id": "F02",
+      "symbol": "Allow.typed_hole_free",
+      "statement": "Every derivably typed expression is free of holes."
+    },
+    {
+      "id": "F03",
+      "symbol": "Allow.checkSlot_sound",
+      "statement": "An accepted typed slot has the exact expected type under the supplied elaborated context."
+    },
+    {
+      "id": "F04",
+      "symbol": "Allow.reject_preserves",
+      "statement": "A failed or stale accepted-state transaction returns the previous accepted state exactly."
+    },
+    {
+      "id": "F05",
+      "symbol": "Allow.commit_preserves",
+      "statement": "Every accepted model-state transition preserves the well-typed committed expression invariant."
+    },
+    {
+      "id": "F06",
+      "symbol": "Allow.commit_revision",
+      "statement": "A successful candidate transaction increments the accepted revision exactly once."
+    },
+    {
+      "id": "F07",
+      "symbol": "Allow.visible_is_current",
+      "statement": "Visible current evidence has the exact accepted analysis key and presentation epoch, and the draft matches the accepted source."
+    },
+    {
+      "id": "F08",
+      "symbol": "Allow.canonical_eq_iff",
+      "statement": "Truth-table canonical equality iff all Boolean valuations agree, for a fixed atom count and ordering."
+    },
+    {
+      "id": "F09",
+      "symbol": "Allow.certificate_sound",
+      "statement": "Every derivation in the registered Boolean certificate calculus preserves evaluation."
+    },
+    {
+      "id": "F10",
+      "symbol": "Allow.certified_merge_canonical",
+      "statement": "Certified same-context Boolean merges preserve canonical table identity."
+    },
+    {
+      "id": "F11",
+      "symbol": "Allow.no_unbounded_claim",
+      "statement": "No solver status in the reporting policy returns an unbounded-validity claim."
+    },
+    {
+      "id": "F12",
+      "symbol": "Allow.unknown_is_not_unsat",
+      "statement": "UNKNOWN/TIMEOUT/CANCELLED/ERROR do not yield bounded absence evidence."
+    },
+    {
+      "id": "F13",
+      "symbol": "Allow.retrieval_is_authorized",
+      "statement": "The abstract retrieval filter returns only same-tenant, live, permitted rows in the selected model/schema."
+    },
+    {
+      "id": "F14",
+      "symbol": "Allow.pair_admission_bound",
+      "statement": "Admitted witness-pool membership binds a common target context, own query identity, validation and expected query polarity; positive and negative queries need not share their query IDs."
+    },
+    {
+      "id": "F15",
+      "symbol": "Allow.contract_has_witness",
+      "statement": "The frozen formal-kernel configuration has an explicit coherent, non-release, RAG-disabled witness."
+    },
+    {
+      "id": "F16",
+      "symbol": "Allow.empty_domain_counterexample",
+      "statement": "Unrestricted existential hoisting across disjunction has a concrete empty-domain counterexample."
+    },
+    {
+      "id": "F17",
+      "symbol": "Allow.canonical_idempotent",
+      "statement": "Tabulating evaluation of a canonical table returns the identical table."
+    },
+    {
+      "id": "F18",
+      "symbol": "Allow.distinct_inventories_distinct_keys",
+      "statement": "Different ordered exact atom inventories cannot have equal contextual canonical keys, even if truth tables coincide."
+    },
+    {
+      "id": "F19",
+      "symbol": "Allow.edit_hides_old",
+      "statement": "A presentation edit invalidates prior current evidence even if the accepted analysis key is unchanged."
+    }
+  ],
+  "formal_boundaries": {
+    "model_mechanics": "Raw AST, type inference and holes; model commit protocol; exact-key visibility; Boolean canonical semantics and certificate derivations; abstract evidence status, row filtering and pair admission; coherent configuration witness.",
+    "trusted_abstractions": [
+      "Nominal signature IDs and source-to-IR elaboration correspond to Alloy declarations; the supplied lexical context already excludes illegal declarations and reflects capture-avoiding moves. The kernel does not validate a global signature registry.",
+      "An analysis key faithfully represents every context field; hash collision resistance",
+      "Opaque Boolean atom identity/valuation faithfully links to the typed Alloy predicate",
+      "A validated witness flag means an external validator actually checked the full instance",
+      "Authorization context is supplied by authenticated server state"
+    ],
+    "not_proved": [
+      "complete Alloy semantics, integers, relational/temporal algebra or subtyping",
+      "parser/printer/AST/Java/TypeScript refinement",
+      "SAT4J or Kodkod correctness",
+      "database transactions, SQL RLS and ANN behavior",
+      "wall-clock latency or process memory bounds",
+      "source-map correctness, browser UX, accessibility",
+      "license clearance, market demand, revenue or production readiness"
+    ],
+    "correspondence": "A deterministic generator translates formal_kernel fields into formal/Allow/Generated.lean. A verifier requires byte equality on regeneration. The remaining JSON prose is a requirements contract, not automatically translated natural-language semantics. Each formal_obligation maps uniquely to a Lean theorem; its meaning still has the stated trusted abstraction boundary."
+  },
+  "resource_and_security_contract": {
+    "local_boundary": "Literal loopback binding; exact allowed Host and Origin; random per-launch authority; CSRF protection for writes; no wildcard CORS; no ambient filesystem or network module imports. Local service is not implicitly safe because it is local. Every private read/write API, event stream, WebSocket and export requires per-launch authority derived from server session; test absent/wrong authority, forged Host, cross-origin read/write and reconnect after restart at G1 before first runnable backend.",
+    "input_limits": {
+      "classification": "PROPOSED_DEFAULTS_TO_BENCHMARK",
+      "source_bytes": 262144,
+      "ast_nodes": 10000,
+      "ast_depth": 128,
+      "worker_heap_mib": 512,
+      "job_deadline_seconds": 10,
+      "max_concurrent_jobs_per_user": 1,
+      "max_queue_jobs": 4,
+      "response_bytes": 2097152,
+      "max_witnesses_per_polarity": 100,
+      "egraph_nodes": 10000,
+      "rewrite_steps": 10000,
+      "import_files": 128,
+      "import_closure_bytes": 2097152,
+      "import_depth": 16,
+      "queued_request_bytes": 8388608,
+      "project_storage_bytes": 268435456
+    },
+    "enforcement": "Reject before allocation where possible; isolate worker memory/CPU and imports; enforce wall deadline externally and kill/reap process trees. Heap caps alone do not bound native memory; capped output readers and process/container limits are required. Apply aggregate closure file/byte/depth and queued-byte quotas before parsing, including duplicate/cyclic import handling. Validation, commit elaboration and canonicalization use the same isolated bounded worker policy as solving. Limit project storage and reject oversize multipart/decompressed payloads before persistence.",
+    "content": "Escape code, graph labels and diagnostics; sanitize SVG/export; bounded decompression and path normalization; no eval or shell interpolation of models. Imports resolve only explicit uploaded project files and allowlisted bundled Alloy libraries.",
+    "hosting": "Multi-tenant SaaS excluded from initial release. It requires identity, tenant isolation, quotas, secrets, encrypted transport/storage policy, backup/restore, deletion, incident response and independent adversarial tests.",
+    "observability": "Log job/status/resource metrics and opaque IDs; model source, complete witnesses and embeddings absent from telemetry by default."
+  },
+  "api_contract": {
+    "transport": "Versioned JSON HTTP plus SSE or WebSocket for derived events; use content hashes and expectedRevision, never browser-submitted authority flags.",
+    "operations": [
+      {
+        "name": "validateDraft",
+        "input": "documentId, draftId, baseRevision, text or block edits, monotone draftEpoch, exactDraftUtf8Hash",
+        "output": "same identity, diagnostics, supported/unsupported state; no commit or solver badge"
+      },
+      {
+        "name": "commit",
+        "input": "documentId, expectedRevision, idempotencyKey, full candidate or edit transaction",
+        "output": "new revision and tagged accepted artifact (BLOCK_SUPPORTED or TEXT_ONLY), maps when supported, or stale/invalid with unchanged accepted revision"
+      },
+      {
+        "name": "analyze",
+        "input": "documentId, acceptedRevision, commandId, explicit bounds/options",
+        "output": "jobId and full analysis key; terminal status binds the same key"
+      },
+      {
+        "name": "cancel",
+        "input": "authorized jobId",
+        "output": "cancel acknowledgement; no synthetic UNSAT"
+      },
+      {
+        "name": "corpusQuery",
+        "input": "authorized project, schema/model filters and query",
+        "output": "ranked untrusted candidate pairs with provenance and no proof badge"
+      }
+    ],
+    "errors": [
+      "INVALID_DRAFT",
+      "TYPE_MISMATCH",
+      "UNBOUND_SYMBOL",
+      "UNSUPPORTED_FRAGMENT",
+      "STALE_REVISION",
+      "RESOURCE_LIMIT",
+      "TIMEOUT",
+      "CANCELLED",
+      "WORKER_ERROR",
+      "RIGHTS_NOT_CLEARED"
+    ],
+    "idempotency": "Scope idempotency records by authenticated principal, launch/workspace/document and key. Atomically persist request content hash and original commit outcome with document mutation. Identical retry returns the original outcome without another revision; changed payload under the same key rejects. Retain records at least 24 hours and through active retry window; after expiry a client must refresh accepted revision and choose a new key, never blindly replay. Test lost response, concurrent retry, changed-payload collision and restart recovery."
+  },
+  "milestones": [
+    {
+      "id": "G0",
+      "name": "Specification and formal model",
+      "deliverables": [
+        "this contract",
+        "Lean proofs with no sorry or custom axioms",
+        "explicit non-vacuous witnesses",
+        "two isolated proof builds",
+        "six requested reviewer identities and reconciled findings"
+      ],
+      "exit": "Finite model verification passes; no product implementation in this phase."
+    },
+    {
+      "id": "G1",
+      "name": "Dependency and solver feasibility",
+      "depends_on": [
+        "G0"
+      ],
+      "deliverables": [
+        "exact dependency/BOM/SBOM and licenses",
+        "Java 17/Spring worker spike",
+        "official Alloy/Kodkod/SAT4J smoke matrix",
+        "SAT/UNSAT/error/timeout/cancel evidence",
+        "local authority/Host/Origin security boundary negative tests"
+      ],
+      "exit": "Reproducible local integration on existing Java; no unresolved shipped license/provenance entries."
+    },
+    {
+      "id": "G2",
+      "name": "Typed document and accessible blocks",
+      "depends_on": [
+        "G1"
+      ],
+      "deliverables": [
+        "Java/TypeScript checker correspondence strategy",
+        "all shipped block type rules and scope tests",
+        "negative malformed graphs",
+        "keyboard and drag-drop workflows",
+        "atomic declaration/move/undo tests",
+        "idempotency lost-response/collision/restart cases",
+        "WCAG 2.2 AA and manual assistive-technology scenarios"
+      ],
+      "exit": "Server rejects all registered unsound drops; supported-fragment round-trip and expected revision behavior pass."
+    },
+    {
+      "id": "G3",
+      "name": "Live code and canonical profile",
+      "depends_on": [
+        "G2"
+      ],
+      "deliverables": [
+        "text-only unsupported mode",
+        "UTF-16 occurrence maps",
+        "out-of-order response tests",
+        "canonical proof checker",
+        "Java truth-table/certificate differential checks against Lean oracle",
+        "resource budget tests",
+        "transitions between BLOCK_SUPPORTED and TEXT_ONLY; invalid draft late-response regression; separate current/historical evidence"
+      ],
+      "exit": "No stale status/source locations; complete canonical profiles distinguished from budget-limited results."
+    },
+    {
+      "id": "G4",
+      "name": "Solver evidence and pools",
+      "depends_on": [
+        "G3"
+      ],
+      "deliverables": [
+        "complete analysis keys",
+        "fact-respecting positive/negative queries",
+        "full witness validation and separate truncation",
+        "worker isolation/load tests",
+        "aggregate import/queue quota negative tests and bounded validation/commit workers"
+      ],
+      "exit": "Every displayed/exported evidence item has exact provenance; bounded labels and failure distinctions pass."
+    },
+    {
+      "id": "G5",
+      "name": "Vector corpus foundation",
+      "depends_on": [
+        "G4"
+      ],
+      "deliverables": [
+        "PostgreSQL/pgvector schema and migrations",
+        "code/pool transaction and outbox",
+        "versioned local embedding baseline",
+        "tenant/model/schema/deletion filters",
+        "rebuild/recovery/export tests",
+        "restore-after-delete/revocation quarantine and durable journal replay tests"
+      ],
+      "exit": "Canonical code/pool pairing and vector regeneration survive crash/replay/deletion tests. RAG generation remains disabled."
+    },
+    {
+      "id": "G6",
+      "name": "Commercial pilot decision",
+      "depends_on": [
+        "G5"
+      ],
+      "deliverables": [
+        "license/corpus-rights clearance",
+        "security/accessibility/performance acceptance",
+        "reproducible local installer",
+        "customer task pilot and support economics"
+      ],
+      "exit": "Explicit go/no-go evidence; technical proof results alone cannot authorize a production or commercial claim."
+    }
+  ],
+  "commercialization": {
+    "assessment": "Plausible hypothesis for Alloy education and teams modeling requirements; demand and willingness to pay are unvalidated.",
+    "initial_offer": "Local or customer-managed paid tool/support offering: typed visual modeling, audit-ready bounded evidence, reproducible exports and teaching workflows. Avoid paid redistribution of unclear benchmark datasets.",
+    "differentiation_hypotheses": [
+      "Lower first-model completion time than text-only Alloy tools",
+      "Fewer type/scope mistakes through constrained construction",
+      "Inspectable evidence provenance and reversible code/block editing",
+      "Private reusable example pools with optional future retrieval"
+    ],
+    "validation": "Recruit consenting Alloy educators and specification teams; compare identical tasks with existing Alloy Analyzer and Allow, counterbalance order, measure completion/error rate/time/support effort, and ask about real purchase commitments. No market size or conversion estimates asserted.",
+    "economics": "Estimate contribution margin from measured solver CPU/RAM, storage+backup, embedding regeneration, support hours and license obligations. Start with a user-provided JDK and local compute; review redistribution terms before bundling a JRE.",
+    "release_gates": [
+      "Reconcile ACGN/AlloyStudio copyright attribution and preserve required notices",
+      "Audit exact Alloy/Kodkod/Pardinus/SAT4J and transitive artifacts; elect and satisfy applicable license path",
+      "Do not import SQLeanParser, benchmark binaries, Alloy4Fun histories or research corpora until rights cleared",
+      "Clear consent/license for model content, embeddings, examples/counterexamples and cross-tenant reuse separately",
+      "Check Allow name/trademark/domain availability before branding investment",
+      "Document support/upgrade policy, backups, export and deletion",
+      "No marketing claim of complete Alloy correctness or unbounded verification"
+    ],
+    "status": "NOT_CLEARED_FOR_COMMERCIAL_RELEASE",
+    "pilot_decision_rule": "Before recruitment, freeze participant roles/count, task set, comparator/order, completion/type-error metrics, willingness-to-pay evidence threshold and maximum support cost. These are proposed business acceptance criteria, not validated market facts. Fail/no-go or revise if measured evidence misses them; do not select success thresholds after results."
+  },
+  "review_council": {
+    "required_members": [
+      "terra-1",
+      "terra-2",
+      "sol-1",
+      "sol-2",
+      "astra-1",
+      "astra-2"
+    ],
+    "requested_models": {
+      "terra-1": "gpt-6.1-terra",
+      "terra-2": "gpt-6.1-terra",
+      "sol-1": "gpt-6.1-sol",
+      "sol-2": "gpt-6.1-sol",
+      "astra-1": "gpt-6-astra",
+      "astra-2": "gpt-6-astra"
+    },
+    "method": "Independent adversarial reports, then reconcile concrete objections. Council opinions are design inputs, never Lean proof evidence. Six seats run in waves due to concurrency limit."
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "path": "/home/augustus/ACGN",
+      "commit": "7c4d66c13820462053f07560a06c785b2b9421ee",
+      "relevant": [
+        "README.md",
+        "documentation/REWRITE_SYSTEM.md",
+        "egraph_ablation/semantic_soundness.md",
+        "docs/java-lean-refinement/README.md",
+        "LICENSE"
+      ],
+      "use": "Design ideas only; no source or corpus copied."
+    },
+    {
+      "id": "S2",
+      "path": "/home/augustus/Live_Programming",
+      "commit": "d8f1a84f2bac60560db46dea4deb49370eed684e",
+      "relevant": [
+        "docs/alloy-editor-spec.md",
+        "docs/structural-guidance-rag.md",
+        "docs/private-exercises.md",
+        "docs/implementation-bridges.md",
+        "engine/src/live/BehaviorFeedback.java",
+        "web/app.js",
+        "LICENSE",
+        "research/formalise2027/LICENSE-NOTICE.md"
+      ],
+      "use": "Live editing, freshness, provenance and bounded witness design ideas only."
+    },
+    {
+      "id": "S3",
+      "url": "https://docs.spring.io/spring-boot/system-requirements.html",
+      "observed_on": "2026-11-03",
+      "supports": "Documented Spring Boot baseline includes Java 17; transitive compatibility still needs G1."
+    },
+    {
+      "id": "S4",
+      "url": "https://github.com/AlloyTools/org.alloytools.alloy/releases/tag/v6.2.0",
+      "observed_on": "2026-11-03",
+      "supports": "Official Alloy release candidate selection, not tested integration or blanket licensing."
+    },
+    {
+      "id": "S5",
+      "url": "https://github.com/pgvector/pgvector",
+      "observed_on": "2026-11-03",
+      "supports": "PostgreSQL vector storage/search option; filtering/ANN and exact dependency version need acceptance tests."
+    }
+  ]
+}

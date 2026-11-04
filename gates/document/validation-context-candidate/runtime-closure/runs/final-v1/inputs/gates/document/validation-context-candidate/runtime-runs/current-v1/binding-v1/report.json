@@ -1,0 +1,126 @@
+{
+  "status": "PASS",
+  "classification": "CURRENT_STAGE_FINITE_RUNTIME_EVIDENCE_NOT_FULL_VC_CLOSURE",
+  "timestamp_utc": "2026-11-03T22:17:51.970933+00:00",
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "out_of_scope": [
+    "VC19 large-history memory/wall profile",
+    "HTTP/browser/restart and candidate full server latency benchmark",
+    "Universal implementation refinement or complete product gate closure"
+  ],
+  "input_root_sha256": "550eb58bc580f153df5b0ae0db10501c0c582094d17406e2af76c7988812f734",
+  "python_tests": 186,
+  "new_validation_context_tests": 22,
+  "existing_document_tests": 22,
+  "sql_tests": 52,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "formal_model_propositions": 309,
+  "formal_scope": "Exact installed model-definition projection; no Java/Python implementation refinement",
+  "context_test_symbols": [
+    "test_validation_context.ValidationContextWireTests.test_context_arguments_reject_before_connection",
+    "test_validation_context.ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries",
+    "test_validation_context.ValidationContextWireTests.test_closed_cli_shape_and_strict_json",
+    "test_validation_context.ValidationContextWireTests.test_cli_dispatch_has_one_context_call",
+    "test_validation_context.ValidationContextWireTests.test_full_cli_output_boundary_and_nonce",
+    "test_validation_context.ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty",
+    "test_validation_context.ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context",
+    "test_validation_context.ValidationContextWireTests.test_legacy_mutation_uncertainty_remains",
+    "test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+    "test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+    "test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+    "test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+    "test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+    "test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory",
+    "test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history",
+    "test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only",
+    "test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail",
+    "test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+    "test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+    "test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots",
+    "test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request",
+    "test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned"
+  ],
+  "document_test_symbols": [
+    "test_documents.WireTests.test_strict_duplicate_surrogate_number_and_limit",
+    "test_documents.WireTests.test_private_identity_restart_modes_and_symlink",
+    "test_documents.DocumentSQLTests.test_encoded_route_preserved_and_encoding_change_collides",
+    "test_documents.DocumentSQLTests.test_create_revision_zero_and_exact_replay_at_stale_base",
+    "test_documents.DocumentSQLTests.test_rejected_receipt_and_nonce_fence",
+    "test_documents.DocumentSQLTests.test_competing_revision_and_terminal_stale_receipt",
+    "test_documents.DocumentSQLTests.test_scope_and_immutable_sql_grants",
+    "test_documents.DocumentSQLTests.test_policy_fence_and_history_zero_fresh_artifact",
+    "test_documents.DocumentSQLTests.test_live_owner_and_verified_dead_takeover",
+    "test_documents.DocumentSQLTests.test_simultaneous_exact_key_serializes_and_commits_once",
+    "test_documents.DocumentSQLTests.test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt",
+    "test_documents.DocumentSQLTests.test_reaped_worker_without_captured_start_ticks_requires_absent_pid",
+    "test_documents.DocumentSQLTests.test_lost_admission_ack_recovers_same_supervisor_before_worker_start",
+    "test_documents.DocumentSQLTests.test_unknown_sqlstates_never_claim_known_rollback",
+    "test_documents.DocumentSQLTests.test_live_supervisor_recovery_requires_reap_proof",
+    "test_documents.DocumentSQLTests.test_final_rejection_observed_head_is_locked",
+    "test_documents.DocumentSQLTests.test_receipt_replay_ignores_broken_new_checked_frame",
+    "test_documents.DocumentSQLTests.test_locked_historical_fresh_id_collision_and_remapping_denial",
+    "test_documents.DocumentSQLTests.test_owned_ids_bounded_kinds_and_cross_scope_fk",
+    "test_documents.DocumentSQLTests.test_create_capacity_reserves_pending_documents_and_replay",
+    "test_documents.DocumentSQLTests.test_failure_after_append_and_receipt_rolls_back_every_row",
+    "test_documents.DocumentSQLTests.test_forced_fk_rollback_keeps_previous_head"
+  ],
+  "complete_current_inventories": {
+    "python": "b1713bf55cf09216f87b7107ab9b7a06880a5d46334e347f59e44189be8858ac",
+    "sql": "1f11568e7bba378543ec6bf580554015ee3e8fa97b443b4d1c45593e8f7ae279",
+    "clients": true,
+    "static_ast": true,
+    "document_recovery": true,
+    "build_inputs": 229
+  },
+  "runtime": {
+    "pid": 826907,
+    "generation": 1,
+    "policy": "sql-routing-v7-sealed-image"
+  },
+  "roles": {
+    "python": {
+      "path": "gates/document/inherited-runtime-tests.json",
+      "sha256": "fcb347af30df2de6c6cc91b2fd6f57caefd94805270bb9e0c2a61b2a2932dcce",
+      "status": "PASS"
+    },
+    "sql": {
+      "path": "gates/sql/runtime-tests.json",
+      "sha256": "6b38b766a37357e95c73a019fbd893beebf0a1ce4db878dfce3650b3a2f178f0",
+      "status": "PASS"
+    },
+    "clients": {
+      "path": "gates/sql/client-coverage.json",
+      "sha256": "fd5aa91bd4fa6762d93ab0068841db77452fd76e39d1c9331b7c47d0944c0321",
+      "status": "PASS"
+    },
+    "retrieval_recovery": {
+      "path": "gates/sql/recovery-report.json",
+      "sha256": "baa739d12536953ae379c958ab8dc6e34ca82f40d5f47208ee42a8b99428c052",
+      "status": "PASS"
+    },
+    "document_recovery": {
+      "path": "gates/document/document-recovery-report.json",
+      "sha256": "865cfe3cf3b50deb3f66f5651f4f474fa54cf81fe8120e3f9af520b7f092cb25",
+      "status": "PASS"
+    },
+    "inventory": {
+      "path": "gates/document/sql-client-inventory.json",
+      "sha256": "f0c1fee58d0cd7e410f7395479d4ca50182757c329c46aec27e6d8d787503638",
+      "status": "PASS"
+    },
+    "document_tests": {
+      "path": "db/document/runtime-evidence.json",
+      "sha256": "726a8503cf955ce98de968805aebc951412f40f9902322d0674d50db0a17aca2",
+      "status": "PASS"
+    },
+    "null_start": {
+      "path": "gates/document/store-null-start-recovery-report.json",
+      "sha256": "fd59b11579aa0c1da79986fabfb050acffbbc61c07b05d7752688bc94bf02ef8",
+      "status": "PASS"
+    }
+  },
+  "interpretation": "Finite currently bound runtime/recovery checks and309-model source projection passed. VC19 profiling, HTTP/browser and final latency gate remain separately registered obligations."
+}

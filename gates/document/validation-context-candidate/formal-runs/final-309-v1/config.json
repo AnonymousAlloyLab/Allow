@@ -1,0 +1,23 @@
+{
+  "closure_id": "allow-validation-context-final-309-v1",
+  "required_clean_builds": 2,
+  "warning_is_blocking": true,
+  "unresolved_is_blocking": true,
+  "manual_override_allowed": false,
+  "network_allowed_during_verification": false,
+  "llm_as_verifier": false,
+  "transformation": "Copy only candidate Lean file into fresh formal tree and append its import; retain all inherited definitions",
+  "determinism_required": [
+    "artifact_sha256",
+    "audit_sha256",
+    "proof_inventory",
+    "claim_status",
+    "correspondence",
+    "provenance_claim_ids"
+  ],
+  "nondeterministic_fields": [
+    "timestamps",
+    "temporary paths",
+    "build durations"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "pre_execution_sha256": "fb79b6ec3a4b2f64f46bca648118720c7e0616f59277832872d68d40395fce9c",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/java",
+        "-jar",
+        "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar",
+        "-c",
+        "/home/augustus/Allow/config/checkstyle.xml",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ContextHeadBoundaryProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "Starting audit...\nAudit done.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/javac",
+        "-cp",
+        "/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "-d",
+        "/tmp/allow-vc11-o2c4ihfd",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentValidationContext.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentJson.java",
+        "/home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ContextHeadBoundaryProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Note: Some input files use or override a deprecated API.\nNote: Recompile with -Xlint:deprecation for details.\n"
+    },
+    {
+      "command": [
+        "/usr/bin/java",
+        "-cp",
+        "/tmp/allow-vc11-o2c4ihfd:/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "dev.allow.backend.ContextHeadBoundaryProbe"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS baseRevision=1 headObserved=0 denied as unavailable\n",
+      "stderr": ""
+    }
+  ],
+  "inputs_unchanged": true,
+  "temporary_output_removed": true,
+  "status": "PASS"
+}

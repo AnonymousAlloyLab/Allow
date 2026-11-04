@@ -1,0 +1,22 @@
+'Allow.IisDeployment.route_exact' does not depend on any axioms
+'Allow.IisDeployment.api_requires_exact_capability' does not depend on any axioms
+'Allow.IisDeployment.hostile_or_duplicate_host_rejected' depends on axioms: [propext]
+'Allow.IisDeployment.hostile_or_duplicate_origin_rejected' depends on axioms: [propext]
+'Allow.IisDeployment.absent_invalid_duplicate_capability_rejected' depends on axioms: [propext]
+'Allow.IisDeployment.forwarded_authority_irrelevant' does not depend on any axioms
+'Allow.IisDeployment.forwarded_authority_cannot_bypass' does not depend on any axioms
+'Allow.IisDeployment.browser_admissible' does not depend on any axioms
+'Allow.IisDeployment.capability_client_admissible' does not depend on any axioms
+'Allow.IisDeployment.unknown_config_rejected' does not depend on any axioms
+'Allow.IisDeployment.closed_config_values' does not depend on any axioms
+'Allow.IisDeployment.advisory_tier1_selected' does not depend on any axioms
+'Allow.IisDeployment.local_default_preserved' depends on axioms: [propext]
+'Allow.IisDeployment.durable_default' depends on axioms: [propext]
+'Allow.IisDeployment.solver_default' depends on axioms: [propext]
+'Allow.IisDeployment.tier1_only_advisory' depends on axioms: [propext]
+'Allow.IisDeployment.pool_disabled' does not depend on any axioms
+'Allow.IisDeployment.profile_selection_does_not_accept' does not depend on any axioms
+'Allow.IisDeployment.acceptance_requires_evidence' does not depend on any axioms
+'Allow.IisDeployment.private_payload_excluded' depends on axioms: [propext]
+'Allow.IisDeployment.eligible_contains_no_private_payload' depends on axioms: [propext]
+'Allow.IisDeployment.package_positive_witness' depends on axioms: [propext, Quot.sound]

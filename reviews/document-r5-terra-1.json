@@ -1,0 +1,27 @@
+{
+  "reviewer": "Terra council seat 1",
+  "review_type": "FINAL_FROZEN_GAMEPLAN_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "candidate_manifest": "gates/document/review-candidate-r5/manifest.json",
+  "manifest_sha256": "acda03535d825386234c3b8ce634159a4aaf700f7517ca7faf8163b4414baec2",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07",
+    "gates/document/draft/types.json": "fd0a31b549a8c20d079b960f68b306603b66aaed3facfd2e4a4bc302ea336109"
+  },
+  "finding_resolution": [
+    "R4 blocker is resolved: admitted collision needs only current authorization, an existing scoped receipt and changed exact wire identity; it is independent of decoder, parser, frame and policy. Its unchanged-state theorem and same-digest witness with unavailable adapters are registered.",
+    "Admitted authorization denial is explicit and does not require receipt lookup or decoding. The previously reviewed raw-intent/checked-frame split, revision-zero history and fresh-report restoration, parser-report trust, field multiplicity, globally distinct declaration/binder IDs and TEXT_ONLY no-block/no-corpus conditions remain in the frozen candidate.",
+    "The other four contracts are byte-identical to the reviewed r4 inputs; all six listed hashes match their current files, and the exact theorem inventory contains 125 declarations and a 23-tag witness matrix."
+  ],
+  "conditions": [
+    "Obtain six exact-hash gameplan approvals, then run two clean registered formal builds against the preserved SQL/runtime baseline before production edits.",
+    "Complete the specified finite parser, printer, nominal type, receipt/concurrency, SQL proxy, worker isolation, UI, accessibility and performance tests; retain all inherited G2/G3 requirements and report failures independently.",
+    "Lean models serialized state transitions and explicitly trusted decoder, parser report and checked-frame interfaces; it proves no concrete Java/TypeScript/PostgreSQL/Alloy adapter refinement or universal infer completeness."
+  ],
+  "verification": "Reviewed the r4-to-r5 Lean diff, admitted transition cases and registered collision claims; verified all six exact frozen SHA-256 values and registry counts. No clean builds or runtime tests were performed in this review.",
+  "scope_limit": "Gameplan approval only. No G2/G3 closure, deployment, commercial, rights or implementation approval is implied."
+}

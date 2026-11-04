@@ -1,0 +1,42 @@
+{
+  "id": "ALLOW-VC19-RETAINED-HISTORY-RESOURCE-PROFILE-R1",
+  "classification": "PREREGISTERED_FINITE_STORAGE_SHAPED_RESOURCE_PROFILE_NOT_ALLOY_OR_HTTP_ACCEPTANCE",
+  "status_at_registration": "NOT_EXECUTED",
+  "cases": [
+    {"revisions": 64, "accounted_budget_bytes": 4194304},
+    {"revisions": 512, "accounted_budget_bytes": 33554432},
+    {"revisions": 2048, "accounted_budget_bytes": 134217728},
+    {"revisions": 4096, "accounted_budget_bytes": 268435456}
+  ],
+  "samples_per_case": 2,
+  "warmups": 0,
+  "maximum_case_empty_id_control": true,
+  "setup_wall_seconds": 600,
+  "fixture": {
+    "type": "Storage-shaped direct insertion into a newly migrated owned temporary database. Each case has a separate private principal/workspace/logical launch/document; revision0 has an empty artifact, remaining revisions have one signature and deterministic ASCII comment payload. Full artifacts, revision rows, receipt original requests/outcomes and TERMINAL admission original requests are actually stored. All IDs/contents are authored fixtures.",
+    "accounting": "Exact Store.persist formula summed per revision: 2*original_request_bytes + stored_outcome_bytes + stored_artifact_bytes +8192. Set recorded workspace accounting to this recomputed total and independently query actual table lengths/counts. This is accounted logical payload including metadata reserve, not physical PostgreSQL size or artifact scan bytes alone.",
+    "sizing": "For N rows calculate exact zero-padding charges, then use floor((target_accounted_bytes-base_charge)/(2*N)) ASCII comment bytes. The padding adds twice per artifact/outcome and twice to revision1's SOURCE request. Remaining budget below2*N bytes is reported, not hidden. Source stays<=32768 bytes, artifact/outcome each<=1MiB, private request IDs<=4096 and args<=256KiB.",
+    "semantics_exclusion": "No claim that these4096 rows were admitted by the Java/Alloy validator or represent a reachable sequence of accepted UI edits. Direct fixture insertion bypasses admission/identifier/trivia correspondence. This profile measures the actual store/CLI resource behavior under structurally valid database rows and exact accounting; maximum semantically accepted history construction remains outside this finite resource claim.",
+    "permissions": "Migration/control and every fixture/read/cleanup statement go through existing sql_connections and pinned SQLeanParser. No production source/schema/routing policy change and no live corpus data mutation. Only generated allow_sql_test_<32hex> database may be created/dropped; cleanup confirms absence through the same proxy."
+  },
+  "execution": {
+    "entry": "Gate-local test harness calls actual allow_documents.cli.main, dispatch and Store.validation_context; only Store factory/private test scope and existing connection alias choose the registered temporary database. Actual canonical proxy/allow_app role and production read-only snapshot/JSON checks remain.",
+    "command_limits": ["/usr/bin/prlimit", "--as=2147483648", "--cpu=20"],
+    "external_wall_seconds": 20,
+    "output_bounds": {"stdout_including_newline":1572865,"stderr":32768},
+    "supervision": "One newly owned process session per sample; writer and bounded pipe readers run concurrently with deadline monitoring. Kill only this session on timeout/overflow; os.wait4 reaps it and yields per-child kernel peak RSS/CPU. Repeated samples never reuse a CLI process. No HTTP/browser benchmark overlaps this phase.",
+    "instrumentation": "Connection wrapper returns the unchanged psycopg cursor. Immediately after the complete history SELECT returns and before production iteration, record pgresult.ntuples, column format, exact sum of raw field lengths, /proc memory high water and inspection time. Computing raw length scans each already-resident value once without retaining a list; this adds disclosed CPU/transient-copy overhead. The harness/unittest.mock/control metadata adds memory versus bare production. Results are conservative instrumented component observations, not latency acceptance.",
+    "retained_buffer_claim": "For successful nonempty samples, all N rows must already reside in libpq pgresult before iteration. With text bytea format, exact raw value bytes must equal2*actual_artifact_bytes+2*N. This measures raw payload only, not libpq allocator overhead. Cursor is explicitly client-buffered, never described as streaming.",
+    "metrics": ["actual row counts and stored byte totals","accounted payload and unused target","input/output byte counts","kernel per-child peak RSS","/proc VmPeak address-space high water","user+system CPU","wall time","full-result buffered rows/raw bytes","closed connection","response identity/content/inventory correctness","resource limits","cleanup and source/proxy identity"]
+  },
+  "pass_conditions": [
+    "Frozen input root remains unchanged before/after each case and at final cleanup; live proxy identity remains the same valid pinned sealed-image generation.",
+    "Each successful sample has exact nonce/document/base/head/artifact/inventory and bounded framing, exact unchanged AS/CPU limits, closed connection and required buffer/resource metrics.",
+    "A resource-limited sample may be classified RESOURCE_LIMIT_FAIL_CLOSED only for the external wall deadline, kernel resource termination or observed MemoryError returned as bounded UNAVAILABLE. It cannot return partial OK context. Such a sample does not establish full-quota availability or success latency.",
+    "Every case is reported, including failure and measured sizes. Missing metrics, unexpected non-resource errors, overflow, wrong data, source mutation, missed case or failed cleanup blocks this finite profile.",
+    "Drop and confirm absence of only the newly owned temporary database; retain raw output/telemetry/kernel records and hashes. No valid-corpus or benchmark success follows from this profile."
+  ],
+  "trusted": ["Linux prlimit/procfs/wait4 accounting","Python/psycopg/libpq instrumentation and test route","PostgreSQL and current SQLeanParser proxy","SHA256 and local filesystem/process semantics"],
+  "nondeterministic_fields": ["timestamps","generated fixture database/scope/UUIDs","process identifiers","measured CPU/memory/wall values"],
+  "prior_evidence": "Existing22 focused context tests plus22 legacy tests establish logical-full-quota readability/nonmutation separately. This profile supplements resource scaling and does not replace those tests."
+}

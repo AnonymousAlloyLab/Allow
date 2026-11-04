@@ -1,0 +1,35 @@
+{
+  "reviewer": "astra-2",
+  "package_root_sha256": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "review_scope": "Independent adversarial review of R2 exact pre-implementation contract, inactive model/verifier and runtime acceptance design; no production edits or runtime closure execution.",
+  "findings": [],
+  "evidence_checked": {
+    "manifest": "Recomputed canonical JSON files-array SHA256 matches requested root; all 137 individual file hashes match.",
+    "model": "Inspected ContextCleanup.lean, claims/types/audit inventory and registered verifier. Ran source_inventory static checks successfully: 28 exact theorem/type/claim entries, audit commands, allowed axiom declarations and two witness names. Did not run clean builds before council authorization.",
+    "verifier": "Checks six exact-root reviews, frozen snapshots, active309 anchor report without claiming reproof, two isolated Lean compilations with exact type/axiom output and matching artifacts, then final input/review mutation checks. TCB and excluded implementation surfaces are explicit.",
+    "runtime_plan": "Inspected all 33 case predicates and key fault/observer/protocol/full-quota subcases. Plan declares no executable runtime verifier or executed cases; runners and fixture hashes must be frozen before execution.",
+    "baseline": "Inspected actual proxy admission/relay/cancellation/finally paths, sql_connections canonical routing, SQL guard timeout policy, Store validation snapshot/history path, CLI request identity, bootstrap interpreter/source identity and readiness paths, Java gateway budget and WorkerCapacity ownership."
+  },
+  "contract_assessment": [
+    "Exclusive proxy lease persists across CLI/Java death; never-connected RESERVED is distinct from attempted CONNECTING. Backend EOF, CancelRequest EOF, timeout and absent incomplete metadata are not cleanup certificates.",
+    "Context CLEAN requires established exact backend identity, independent fresh absence and closed transport. Sticky failure plus complete legal COMMIT/Ready(I)/Terminate gate prevents successful publication after failed cleanup work. CLI additionally requires staged result and exact owner/nonce/generations.",
+    "Observer reservation has an independent durable entry; current-proxy SO_PEERCRED gate restricts reserved admission. Recorded Linux boot/PID/start identity permits read-only absence checks; pre-key observer uncertainty prevents replacement. Restart ordering does not erase unresolved context ownership to open an observer.",
+    "R2 closes implementation-environment and journal-ordering gaps explicitly: managed psycopg interpreter, bounded ordinary canonical SELECT 1 readiness before observer reservation, and a single event-loop owner serializing complete-state journal mutations.",
+    "Execution fence is defined on actual completed SQL protocol cycles rather than Parse acceptance. Ordinary SQL semantics and mutation uncertainty remain separate from the new context lane."
+  ],
+  "limitations": [
+    "Approval is permission to implement this contract, not evidence that production implements it or that the 28 model obligations have passed the required clean builds.",
+    "Lean models guarded observations and a single abstract lease. It does not prove COMMIT/protocol adapter correspondence, parent liveness, observer ownership, SQL/backend/kernel behavior, fsync durability or runtime deadlines. Those remain explicit TCB/runtime obligations.",
+    "Pre-key context or observer crash can permanently degrade context availability. No operator override or elapsed-time inference may convert UNKNOWN to CLEAN; prompt automatic restart availability remains open.",
+    "15 ordinary live handlers is not a bound on actual ordinary PostgreSQL backend tails. Slot exhaustion can fail context startup and retain UNKNOWN; nominal capacity arithmetic does not guarantee a slot.",
+    "All 33 runtime cases are unexecuted. Passing fail-closed safety cases cannot be reported as the full P1 availability exit criterion or universal semantic implementation correspondence.",
+    "Synchronous serialized fsync and finite scheduler/OS behavior can delay event-loop timers. Deadline thresholds are policy constants, not universal hard-wall cleanup bounds; ownership must survive delayed cleanup."
+  ],
+  "commercial_scope": {
+    "assessment": "Implementable safety-first contract with material unresolved availability and performance acceptance; no production/commercial readiness endorsement.",
+    "performance": "Three-second work budget includes registration, initialization and full permitted history decoding. CC29 must succeed on all six valid near-256MiB/4096-revision fixtures without quota reduction, early exit or timeout increases before promotion. Three samples establish feasibility only, not p95 or throughput.",
+    "availability": "Single context lease plus persistent UNKNOWN may disable advisory work after crash/slot exhaustion; this is operationally significant and must remain visible in product/deployment claims.",
+    "excluded": "4-vCPU/8-GiB target acceptance, warm JVM reuse, end-to-end latency improvement and full P1 completion are not established."
+  }
+}

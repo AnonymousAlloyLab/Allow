@@ -1,0 +1,23 @@
+---
+description: Allow proof-first development and documented, encapsulated Java/JS/TS
+alwaysApply: true
+---
+
+- Before changing production behavior, supplement the JSON and Lean contract and
+  compile its new obligations. Preserve previous verification evidence.
+- For every authored Java/JS/TS method, constructor, function and callback:
+  provide meaningful Javadoc/JSDoc and keep its declaration/body within 30
+  physical lines. Do not evade the limit with dense one-line statements.
+- Document parameters, return values, side effects and relevant errors. Use named
+  documented helpers instead of undocumented inline callback logic.
+- Java classes encapsulate fields: private final by default, immutable records
+  only for deliberate value DTOs, defensive copies for mutable values.
+  JS/TS classes use private state; exports expose minimal typed interfaces.
+- Follow single responsibility, explicit dependency injection, clear names,
+  bounded inputs and precise failures. Never swallow exceptions.
+- Canonical and embedding data contain resolved anonymous slots and structural
+  values only. Display names, source, comments, paths and name maps belong to
+  a separate presentation/provenance boundary.
+- Reject unsupported canonical constructs; never fall back to raw source text.
+- Treat local corpus access as permission for local development only. Keep
+  rights, redistribution, training and remote embeddings separately gated.

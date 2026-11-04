@@ -1,0 +1,85 @@
+{
+  "reviewer": "astra-1",
+  "requested_model": "gpt-6-astra",
+  "actual_model": "Not independently observable; seat assignment is parent-reported.",
+  "scope": "Adversarial final static review of canonical semantic retention, formal/implementation boundary and acceptance evidence. No production edits or Maven execution.",
+  "verdict": "REVIEWED_NO_OPEN_BLOCKER_IN_SCOPE",
+  "files_sha256": {
+    "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "gates/g1/formal-report.json": "8b375bdb7b10c6005f840eb98a20c70dd01989ffbe3562988fdb1de68b83f371",
+    "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+    "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java": "6d10d93ebc4e20b87e170f3b3c50b9d0a40f129c88c73a65ca9ad1f7fb66903f",
+    "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+    "backend/src/main/java/dev/allow/canonical/SlotRegistry.java": "5d591907ff79825421fa01acc5114c505d4b6abfdebdb75ba74cf87d1fa864ef",
+    "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59",
+    "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e",
+    "backend/src/main/java/dev/allow/canonical/Canonicalizer.java": "2554b1751395be866ef533f5ba6526d0787c48b4021abcd3bbb34ddc98db6a27",
+    "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java": "7fb8fef4cd50250c1ef214461efd10d988726d4de358cfe60d06d180a534b634"
+  },
+  "findings": [
+    {
+      "id": "G1-IMPL-A1-01",
+      "severity": "MEDIUM",
+      "status": "OPEN_AT_REVIEW",
+      "title": "Required canonical adapter acceptance fixtures are missing from reviewed tests",
+      "evidence": [
+        "spec/implementation-g1.json acceptance requires dependent-domain rejection/unbound references and injective namespace/order/arity fixtures plus exact embedding bytes.",
+        "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java covers signature/field/predicate/binder renaming, shadowing, multiplicity, operand order, facts/scope and unsupported syntax, but has no dependent-domain fixture, unbound ExprVar fixture, direct namespace/arity encoding check or independent exact feature vector oracle.",
+        "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java:153 processes domains before allocating current binders and therefore appears to support preceding-scope dependency; this behavior needs a regression rather than reliance on the fixed-payload theorem."
+      ],
+      "disposition": "Before claiming all canonical acceptance gates passed, add focused fixtures and run them, or list these gates as pending. Let-scope testing is additionally recommended."
+    },
+    {
+      "id": "G1-IMPL-A1-02",
+      "severity": "INFORMATIONAL",
+      "status": "BOUNDARY_DOCUMENTED",
+      "title": "Lean model proofs do not certify Java structural grammar or parser correspondence",
+      "evidence": [
+        "formal/Allow/Slots.lean:33-61 defines anonymous as the fixed resolved payload projection; name/source invariance follows without parsing or JSON serialization.",
+        "formal/Allow/Slots.lean:14-31 uses a smaller abstract tree/operator vocabulary than spec/slot-profile.json; no refinement mapping to Java positional JSON is checked.",
+        "gates/g1/formal-report.json labels theorem rows PROVED_MODEL; spec/implementation-g1.json proof_boundary and README.md explicitly exclude Java/React refinement and parser correspondence."
+      ],
+      "disposition": "Preserve these scope statements. VERIFIED in the formal report is model verification only; neither feature similarity nor structural equality is a universal semantic-equivalence certificate."
+    }
+  ],
+  "observations": [
+    "SlotRegistry uses IdentityHashMap and source traversal counters, not spelling or name hashes; bound counters are globally fresh and lexical visibility is restored.",
+    "ModuleEncoder rejects unsupported signature and declaration attributes, imports, macros and temporal/incremental command fields; includes facts, function bodies, signature/field domains and selected command scope. No confirmed semantic-loss pair found in this static review.",
+    "AnonymizedArtifact construction is package restricted; production encoder call sites construct tags from fixed literals and checked operator names. This is Java package discipline, not a formally verified closed algebraic datatype.",
+    "EmbeddingEncoder matches the documented chunk hashing/count/L2 algorithm on inspection; feature collisions are expected and cannot justify equality.",
+    "Canonicalizer catches UnsupportedCanonical into empty payload/hash/features; no source-text fallback is present."
+  ],
+  "trust_limits": [
+    "Static review of the hashed files only; no new Java tests, parser experiments, Lean builds or Maven builds were executed by this seat.",
+    "Tests or code added concurrently after these hashes require separate final test evidence.",
+    "No assertion of universal canonical injectivity, semantic preservation, security, anonymization against structural identification, or completion of all G1/G2 acceptance gates.",
+    "JSON scalar coercion and untrusted UI reference-drop issues were assigned elsewhere and are not duplicated here."
+  ],
+  "final_disposition": {
+    "finding": "G1-IMPL-A1-01",
+    "status": "RESOLVED_BY_DURABLE_TESTS_AND_RECORDED_RUN",
+    "evidence": [
+      "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java adds six tests covering dependent-domain renaming and semantic distinction, let shadowing, unbound identity rejection, scope restoration/nonreuse, signature versus bound namespaces, field arity, tags/order/null framing, and exact byte/hash/feature oracle.",
+      "/tmp/allow-g1-final-build.log reports SlotBoundaryTest six passed and CanonicalizerTest eleven passed; overall backend 37 passed, frontend 16 passed, 0 Checkstyle violations, 49 JS/TS and 13 Java checker fixture cases passed.",
+      "This seat independently recomputed the golden fixture using Python hashlib and collections: 70 bytes, SHA-256 500bb93067f18d12e464d2f37cdec657925ebb43b4a981c7acea0ad8786ad3bf, occupied bins 5/12/30/31/36/41/53/72/77/81/90/91/95/119/120/126 with counts two at 36 and 77, squared norm 22. Matches the checked-in test."
+    ],
+    "interpretation": "Initial finding retained above as review history. Focused fixtures now discharge this evidence gap for tested cases. No universal parser refinement, structural injectivity or security proof follows. Other G1/G2 acceptance gates remain outside this disposition.",
+    "current_files_sha256": {
+      "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+      "gates/g1/formal-report.json": "8b375bdb7b10c6005f840eb98a20c70dd01989ffbe3562988fdb1de68b83f371",
+      "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+      "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java": "6d10d93ebc4e20b87e170f3b3c50b9d0a40f129c88c73a65ca9ad1f7fb66903f",
+      "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+      "backend/src/main/java/dev/allow/canonical/SlotRegistry.java": "5d591907ff79825421fa01acc5114c505d4b6abfdebdb75ba74cf87d1fa864ef",
+      "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59",
+      "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e",
+      "backend/src/main/java/dev/allow/canonical/Canonicalizer.java": "2554b1751395be866ef533f5ba6526d0787c48b4021abcd3bbb34ddc98db6a27",
+      "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java": "7fb8fef4cd50250c1ef214461efd10d988726d4de358cfe60d06d180a534b634",
+      "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java": "c5cbab76bde38bf1656994905d7501eae66d4d640534086d1d88d683acd13c2f",
+      "/tmp/allow-g1-final-build.log": "19a7ba47d80e04501b1dd92286e8bed5232b753bc17b67d732ccb802ddd7efde"
+    },
+    "execution_boundary": "Read test source and build log; independently recomputed Python oracle. Did not invoke Maven or rerun Java/TypeScript tests."
+  }
+}

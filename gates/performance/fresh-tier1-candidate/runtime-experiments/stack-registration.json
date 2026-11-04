@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-FRESH-TIER1-STACK-HARNESS-V1",
+  "status": "AUTHORING_ONLY_CONCRETE_RUNTIME_REGISTRATION_REQUIRED",
+  "operations": {"prepare": "No service or SQL; complete exact source and target inventories required", "stack-readiness": "Fresh copied root and explicit schedule release; no comparative driver", "stack": "Separate frozen fixtures, semantic/comparator/P1 prerequisites and bound root scheduling release"},
+  "whole_stack": ["supervisor", "PostgreSQL", "SQLeanParser proxy/context control", "Spring", "every helper", "every worker"],
+  "outside_group": ["load driver", "observation controller"],
+  "pass_predicates": ["Exact input and tool inventories unchanged", "All preregistered cgroup limits effective", "Every observed owner and thread in expected group with affinity 0..3", "Proxy loaded input hashes and context READY", "Spring document POSIX owner lock and authorized HTTP document read READY", "No OOM or pids exhaustion", "No registered driver error", "Explicit populated=0 and absent observed identities at cleanup"],
+  "original_http_protocol": {"fixture": "gates/document/headless-preview-fixture.json", "nodes": 500, "warmups": 100, "measured": 1000, "serial_distinct_edits": true, "retain_every_result": true, "p95_nearest_rank_strict_less_ms": 300, "errors_required": 0, "peak_memory_max_bytes": 5368709120},
+  "postgres": {"max_connections": 20, "shared_buffers": "128MB", "work_mem": "4MB", "maintenance_work_mem": "64MB", "max_parallel_workers": 0},
+  "spring": ["-Xms128m", "-Xmx1024m", "-XX:MaxMetaspaceSize=256m", "-XX:ReservedCodeCacheSize=128m", "-XX:ActiveProcessorCount=4", "server.tomcat.threads.max=16", "server.tomcat.threads.min-spare=2", "server.tomcat.max-connections=32", "server.tomcat.accept-count=8"],
+  "sql": "All SQL including bootstrap and readiness through copied SQLeanParser proxy; initdb/pg_ctl are non-SQL administrative binaries. No live data, credentials or sockets admitted.",
+  "cleanup": "Unknown is blocking. No cleanup inference from parent exit, timeout, EOF or path disappearance.",
+  "limits": {"cpu_max": "400000 100000", "memory_high": 5368709120, "memory_max": 6442450944, "swap_max": 0, "pids_max": 512, "affinity": [0,1,2,3]},
+  "target_acceptance": "OPEN: actual pinned 4vCPU/8GiB host still required",
+  "trust": ["Linux/kernel and hardware", "systemd user manager", "pinned Python/JDK/tool bytes", "SHA-256", "unlisted system runtime behavior"],
+  "boundary": "Finite observed screen; this authoring registration alone discharges no runtime claim. Parent runtime closure must bind every fixture, comparator, verifier, source/compiled delta and result."
+}

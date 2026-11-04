@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+<!-- Applied to production and test Java by the pinned Maven Checkstyle plugin. -->
+<module name="Checker">
+  <property name="charset" value="UTF-8"/>
+  <property name="severity" value="error"/>
+  <module name="TreeWalker">
+    <module name="MissingJavadocMethod">
+      <property name="scope" value="private"/>
+      <property name="allowedAnnotations" value=""/>
+      <property name="allowMissingPropertyJavadoc" value="false"/>
+      <property name="tokens" value="METHOD_DEF,CTOR_DEF,COMPACT_CTOR_DEF"/>
+    </module>
+    <module name="JavadocMethod">
+      <property name="accessModifiers" value="public,protected,package,private"/>
+      <property name="allowedAnnotations" value=""/>
+      <property name="allowMissingParamTags" value="false"/>
+      <property name="allowMissingReturnTag" value="false"/>
+      <property name="validateThrows" value="true"/>
+      <property name="tokens" value="METHOD_DEF,CTOR_DEF,COMPACT_CTOR_DEF"/>
+    </module>
+    <module name="NonEmptyAtclauseDescription"/>
+    <module name="SummaryJavadoc"/>
+    <!-- Checkstyle's method-tag association requires a separate signature line. -->
+    <module name="RegexpSinglelineJava">
+      <property name="format" value="\*/[ \t]+(?:[\w$&lt;&gt;?,.\[\]@]+[ \t]+)*[\w$]+[ \t]*\("/>
+      <property name="ignoreComments" value="false"/>
+      <property name="message" value="Place callable signatures on the line after the Javadoc closing delimiter."/>
+    </module>
+    <module name="MethodLength">
+      <property name="max" value="30"/>
+      <property name="countEmpty" value="true"/>
+      <property name="tokens" value="METHOD_DEF,CTOR_DEF,COMPACT_CTOR_DEF"/>
+    </module>
+    <module name="VisibilityModifier">
+      <property name="protectedAllowed" value="false"/>
+      <property name="packageAllowed" value="false"/>
+      <property name="allowPublicFinalFields" value="false"/>
+      <property name="allowPublicImmutableFields" value="false"/>
+      <property name="publicMemberPattern" value="^$"/>
+      <property name="ignoreAnnotationCanonicalNames" value=""/>
+    </module>
+    <module name="MatchXpath">
+      <property name="query" value="//LAMBDA[not(parent::SWITCH_RULE)]"/>
+      <message key="matchxpath.match" value="Use a named documented callback method and method reference."/>
+    </module>
+    <module name="MatchXpath">
+      <property name="query" value="//VARIABLE_DEF[./MODIFIERS/LITERAL_STATIC and ./MODIFIERS/FINAL and not(./MODIFIERS/LITERAL_PRIVATE)]"/>
+      <message key="matchxpath.match" value="Keep static final class fields private; a final reference can expose mutable state."/>
+    </module>
+  </module>
+</module>

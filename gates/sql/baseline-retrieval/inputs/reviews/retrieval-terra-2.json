@@ -1,0 +1,39 @@
+{
+  "reviewer": "retrieval-terra-2",
+  "reviewed_spec": "spec/retrieval-stage.json",
+  "revision": 4,
+  "spec_sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "verdict": "APPROVE_DESIGN_CONDITIONAL_ON_FORMAL_GATE",
+  "scope": "Adversarial review of G4/G5 pool semantics, anonymous full-instance canonicalization and isolated Java worker architecture. No claim that Lean builds, Java implementation, dataset coverage or retrieval quality have passed.",
+  "blocker_resolution": [
+    "Requires replayed CHECKED proof for the exact selected body occurrence and pinned trusted context, input, inventory and rules; missing or unrelated proof rejects admission.",
+    "Constructs both polarities under the same explicitly frozen scope profile and ignores original command scopes; provenance retains effective scope and attributes.",
+    "Captures the exact complete static universe, signature membership and all fields, including empty ones, using a single shared permutation, with numeric integers fixed and bounded failures producing no key.",
+    "Separates existence from enumeration termination and retains prior validated witnesses without inventing completeness after failures.",
+    "Includes a dependency token when retained facts or functions transitively invoke the target and evaluates in the exact original parsed world.",
+    "Uses dedicated subprocess isolation, private /tmp, strict framing and exact identity binding, while preserving captured binder slots."
+  ],
+  "implementation_file_plan": {
+    "new": [
+      "backend/src/main/java/dev/allow/corpus/CorpusWorkerMain.java — strictly bounded, one-request framed child entry point; isolate protocol stdout and avoid Spring registration.",
+      "backend/src/main/java/dev/allow/corpus/CorpusRequest.java and CorpusResponse.java — immutable versioned request/response records, exact source and build identity, complete bounds, target occurrence, independent polarity statuses and immutable provenance.",
+      "backend/src/main/java/dev/allow/corpus/CorpusEngine.java — parse/admit static single module, construct both semantic queries with one profile, validate solutions in original world, and invoke incremental enumeration with hard limits.",
+      "backend/src/main/java/dev/allow/corpus/InstanceCanonicalizer.java — complete full-instance schema and globally shared atom bijection, lexicographic canonical encoding, safe budget outcomes; hashes only index exact bytes.",
+      "backend/src/main/java/dev/allow/corpus/PoolBuilder.java — distinct canonical members, witness validation and per-polarity evidence/status lifecycle, bounded and immutable.",
+      "backend/src/main/java/dev/allow/canonical/RetrievalContextEncoder.java and narrowly scoped capture facade — target-body marker, whole selected-command exclusion, retained dependency token, and proof binding from the same traversal while leaving v1 bytes unchanged.",
+      "backend/src/test/java/dev/allow/corpus/ — end-to-end worker, query polarity, proof binding, renaming/isomorphism, resource boundaries, frame validation and concurrent isolation fixtures."
+    ],
+    "existing_changes": "Only minimal additive canonical capture and sandbox launch/build wiring necessary for this worker. Preserve preexisting public request/results, egraph semantics, v1 bytes and ordinary solver behavior. Coordinate shared build/launcher edits with other owners.",
+    "implementation_guard": "Do not begin production edits until root announces the formal gate VERIFIED. Existing two clean builds must complete and exact propositions plus input hashes and review resolution must be audited independently; this review is not a formal gate verdict."
+  },
+  "implementation_checks": [
+    "Verify facts are conjoined exactly once in generated Alloy command semantics, including target-dependent facts and an inconsistent-facts fixture. Differentiate next() exhaustion from cutoff and preserve valid prior witnesses.",
+    "Test globally renamed instances and equal-degree nonisomorphic structures, integer semantics, empty fields, tuple ordering, atom and permutation limits, hash collisions by exact-byte comparison, and polarity/context mismatch rejection.",
+    "Use a target-free context traversal independent of original command content while retaining original-world target proof capture; reject if exact trusted occurrence cannot be replayed. Verify other bodies, facts and dependency changes affect compatibility.",
+    "Validate that timeout/kill or output overflow cannot become UNSAT, full completion or publishable evidence. Require both pools of N distinct complete validated members before vector eligibility."
+  ],
+  "limitations": [
+    "The formal obligations describe an abstract policy; Alloy parser, translator, evaluator, instance projection, proof-binding adapter and solver remain trusted implementation components and require adversarial integration tests.",
+    "The reviewed spec does not prove corpus feasibility, embedding quality, or database readiness; these remain evidence-dependent later gates."
+  ]
+}

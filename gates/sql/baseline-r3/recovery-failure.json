@@ -1,0 +1,8 @@
+{
+  "status": "BLOCKED",
+  "reason": "Pinned PostgreSQL16.15 pg_dump uses SQL PREPARE getColumnACLs after68acceptedqueries; revision3 deliberately forbids PREPARE/EXECUTE",
+  "evidence": "private bounded diagnostic retained under .runtime/corpus/sql-client-failures; source query not published",
+  "source": "pinned PostgreSQL src/bin/pg_dump/pg_dump.c:15373",
+  "no_fallback": true,
+  "live_corpus_preserved": true
+}

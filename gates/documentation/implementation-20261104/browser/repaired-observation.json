@@ -1,0 +1,27 @@
+{
+  "id": "ALLOW-REPAIRED-PREVIEW-BROWSER-SMOKE-20261104",
+  "created_utc": "2026-11-04T07:04:45.678387+00:00",
+  "classification": "OBSERVED_MANUAL_SMOKE_ONLY",
+  "url": "http://127.0.0.1:18080/",
+  "actions": [
+    "Open saved Browser acceptance \u2013 typed gates model, version 4 in fresh authenticated tab",
+    "Click Check model"
+  ],
+  "observed_result": "Draft checked. Your saved version is unchanged.",
+  "persistent_mutations": "No Save version action",
+  "active_profile": "DEFAULT",
+  "original_unsaved_draft_tab": "Untouched",
+  "older_agent_smoke_tab": "Closed after checking it remained unchanged",
+  "runtime_evidence": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/local-preview-restoration-r3/post-launch-survival.json",
+  "screenshot": {
+    "path": "repaired-preview.jpg",
+    "sha256": "2938135b293eafa642689760df35d0f5b5ad53fb49a298929cf9e9a0863793d4",
+    "mime_type": "image/jpeg"
+  },
+  "excluded": [
+    "latency acceptance",
+    "pointer/keyboard acceptance",
+    "Firefox ESR/Orca",
+    "full browser acceptance"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "status": "READ_ONLY_RETENTION_AUDIT",
+  "deleted_bytes": 0,
+  "rows": [
+    {
+      "run": "r11-regressions",
+      "root": "/tmp/allow-cc-3ygujdha",
+      "status": "PASS",
+      "allocated_bytes": {
+        "frozen_models": 436793344,
+        "frozen_target": 43827200,
+        "runtime_all": 66224128,
+        "all_copy": 757264384
+      },
+      "matching_live_cmdline_pids": [],
+      "report_owned_cleanup_pass": true,
+      "retention": "Only generated .runtime eligible for archive+hash+verified decompression before removal, after evidence binding; all registered inputs remain required or need complete restorable archive. No deletion authorized/executed."
+    },
+    {
+      "run": "r12-regressions",
+      "root": "/tmp/allow-cc-alh5blo3",
+      "status": "PASS",
+      "allocated_bytes": {
+        "frozen_models": 436801536,
+        "frozen_target": 43819008,
+        "runtime_all": 66207744,
+        "all_copy": 757514240
+      },
+      "matching_live_cmdline_pids": [],
+      "report_owned_cleanup_pass": true,
+      "retention": "Only generated .runtime eligible for archive+hash+verified decompression before removal, after evidence binding; all registered inputs remain required or need complete restorable archive. No deletion authorized/executed."
+    },
+    {
+      "run": "r13-regressions",
+      "root": "/tmp/allow-cc-0gm3s7l_",
+      "status": "INFRASTRUCTURE_FAILURE",
+      "allocated_bytes": {
+        "frozen_models": 436801536,
+        "frozen_target": 43843584,
+        "runtime_all": 0,
+        "all_copy": 696721408
+      },
+      "matching_live_cmdline_pids": [],
+      "report_owned_cleanup_pass": false,
+      "retention": "Only generated .runtime eligible for archive+hash+verified decompression before removal, after evidence binding; all registered inputs remain required or need complete restorable archive. No deletion authorized/executed."
+    },
+    {
+      "run": "r14-regressions",
+      "root": "/tmp/allow-cc-xgmbaoxk",
+      "status": "PASS",
+      "allocated_bytes": {
+        "frozen_models": 436797440,
+        "frozen_target": 43819008,
+        "runtime_all": 66224128,
+        "all_copy": 763310080
+      },
+      "matching_live_cmdline_pids": [],
+      "report_owned_cleanup_pass": true,
+      "retention": "Only generated .runtime eligible for archive+hash+verified decompression before removal, after evidence binding; all registered inputs remain required or need complete restorable archive. No deletion authorized/executed."
+    },
+    {
+      "run": "r15-regressions",
+      "root": "/tmp/allow-cc-it9i61qi",
+      "status": "PREPARED_NOT_EXECUTED",
+      "allocated_bytes": {
+        "frozen_models": 436789248,
+        "frozen_target": 43819008,
+        "runtime_all": 0,
+        "all_copy": 696692736
+      },
+      "matching_live_cmdline_pids": [],
+      "report_owned_cleanup_pass": false,
+      "retention": "KEEP r15 untouched pending execution"
+    }
+  ],
+  "largest_avoidable_duplication": "~416.6MiB frozen model per copy; cannot delete registered inputs without hash-bound restorable archive. All5copies~3.42GiB; runtime-only3completedcopies~189.5MiB potential archive saving."
+}

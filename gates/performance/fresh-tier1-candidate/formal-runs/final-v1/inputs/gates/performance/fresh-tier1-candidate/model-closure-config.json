@@ -1,0 +1,44 @@
+{
+  "closure_id": "ALLOW-FRESH-TIER1-MODEL-R1",
+  "candidate_claim_count": 22,
+  "required_clean_builds": 2,
+  "lean_binary": "/home/augustus/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+  "lean_binary_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+    "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+    "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+    "Interpretation/extraction of required launcher arguments, successful identity checks, process identity/reap and measured selection fields; all implementation adapters remain unproved."
+  ],
+  "excluded": [
+    "Production activation and re-proving inherited309 or separate approved supplements",
+    "JVM/JIT semantics, Java/Lean semantic refinement and universal response equivalence",
+    "Actual sandbox/OS/process reaping, resource quotas, SQL cleanup or deadline enforcement",
+    "Actual performance, clock accuracy, solver throughput and4vCPU/8GiBtarget-host acceptance",
+    "Warm JVM/prestart/reuse, AppCDS, caches, schema changes and commercialization"
+  ],
+  "nondeterministic_fields": [
+    "run directory identifier",
+    "timestamp",
+    "temporary build directory path",
+    "platform version metadata"
+  ],
+  "decision": {
+    "valid_states": [
+      "VERIFIED",
+      "BLOCKED",
+      "INFRASTRUCTURE_FAILURE"
+    ],
+    "manual_override_allowed": false
+  },
+  "witness_theorems": [
+    "Allow.FreshTier1.successful_fresh_worker_witness",
+    "Allow.FreshTier1.abstract_selection_witness"
+  ]
+}

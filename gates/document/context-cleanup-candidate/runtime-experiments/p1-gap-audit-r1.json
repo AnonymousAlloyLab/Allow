@@ -1,0 +1,100 @@
+{
+  "id": "ALLOW-P1-GAP-AUDIT-R1",
+  "status": "BLOCKED",
+  "preview_read_only_check": {
+    "same_spring_pid_start_argv": true,
+    "proxy_loaded_identity": "PASS",
+    "context": "READY_UNOCCUPIED",
+    "http_documents": "200_OK_14",
+    "browser_touched": false
+  },
+  "complete_reference": "case-readiness-r2.json",
+  "high_priority_remaining": [
+    {
+      "cases": [
+        "CC08",
+        "CC10",
+        "CC11",
+        "CC17"
+      ],
+      "work": "Actual statement/idle/wall/observation cutoff boundaries, late-success suppression and independently observed resource absence.",
+      "production_change": "CC17 source control flow needs strict remaining-time clamp/post-await recheck if small frozen reproduction confirms late CLEAN; constants unchanged."
+    },
+    {
+      "cases": [
+        "CC04",
+        "CC12",
+        "CC13",
+        "CC14",
+        "CC18",
+        "CC19",
+        "CC20",
+        "CC21",
+        "CC22",
+        "CC24",
+        "CC25"
+      ],
+      "work": "Durability barriers, CLI/Java/proxy/observer death, parser loss, EOF/cancel and restart reconciliation. Exact declared phase variants remain unexecuted, except CLI-after-decode and idle final graceful stop.",
+      "production_change": "No architecture change known necessary for finite safety fixtures. Gate-only deterministic barrier wrappers and ownership traces needed; fix production only when bound failures demand it."
+    },
+    {
+      "cases": [
+        "CC23",
+        "CC26",
+        "CC27",
+        "CC28",
+        "CC32"
+      ],
+      "work": "Full handler/observer limits,65receipt/60sTTL/concurrent awaits, actual7logging configurations, private marker audit,20ordinary-tail attempts and PG-slot exhaustion.",
+      "production_change": "Evidence-first. Current implementation intentionally fails closed on uncertain ownership; no promised aggregate17backend cap or guaranteed context slot."
+    },
+    {
+      "cases": [
+        "CC01",
+        "CC02",
+        "CC03",
+        "CC05",
+        "CC06",
+        "CC07",
+        "CC09",
+        "CC15",
+        "CC16",
+        "CC29",
+        "CC30",
+        "CC31",
+        "CC33"
+      ],
+      "work": "Bind existing source/normal/quota/regression evidence, execute still-missing control/peer/protocol/identity variants and delayedCLEAN Java-spawn fence, then complete final inventory/two-build binder.",
+      "production_change": "Mostly executable verifier and evidence assembly; no claim that partial coverage closes these entire IDs."
+    }
+  ],
+  "smallest_verifier_architecture": [
+    "One frozen copied-install supervisor using current canonical bootstrap, pidfd ownership and immutable per-attempt reports.",
+    "One parameterized case table enumerating every subvariant from the33-case plan; explicit NOT_EXECUTED/BLOCKED statuses, no inferred PASS.",
+    "Three gate-only hook packs: durable/state transition barriers; real wire/control peer and owned process faults; independent PG metadata/resource/durable snapshots and private marker audit. No SQL-template overrides.",
+    "One final binder that checks exact source/tool/driver/fixture hashes, actual case/subcase completeness, allowed nondeterminism and two clean implementation builds; preserve existing failed runs and r6 selector-hash caveat."
+  ],
+  "next_slice": {
+    "first": "Freeze and run one real-async delayed metadata fixture against exact current observe_cleanup bytes;4live results then late absence at~2.85s, each delay<0.75s. Record whether CLEAN is accepted after2.5s. Simulated metadata, not actual PG ownership evidence.",
+    "then": "If confirmed, strict clamp and post-await check under existing contract; focused boundary tests before/at/after deadline, reconcile\u2192identity remaining budget, and observer kernel-absence check. New source-ready hashes invalidate performance comparisons until retested.",
+    "following": "Fresh isolated actual CC08/10/17 deadline and two crash/recovery anchors (BOUNDcontext, BOUNDobserver) before expanding all phases."
+  },
+  "urgent_blockers": [
+    {
+      "kind": "SOURCE_LEVEL_BUDGET_CONCERN",
+      "path": "retrieval/allow_retrieval/sql_context_lease.py",
+      "lines": "277-301",
+      "detail": "observe_cleanup checks deadline only at loop entry, then fixed0.75s awaits can accept late absence. Exact ownership still observed; concern is contract cutoff and late CLEAN, not confirmed wrong-process release."
+    },
+    {
+      "kind": "EXPLICIT_DESIGN_AVAILABILITY_GAP",
+      "detail": "Pre-key crash may retain UNKNOWN indefinitely. Finite fail-closed safety tests cannot close prompt automatic restart availability; a stronger mechanism requires separate reviewed contract/Lean/council if that gate must be fulfilled."
+    },
+    {
+      "kind": "CONSERVATIVE_AVAILABILITY_LIMIT",
+      "detail": "Observer loss or UNKNOWN makes readiness DEGRADED; observer_attempted prevents same-manager automatic replacement. Restart can reconcile complete identity. Do not market automatic recovery as implemented."
+    }
+  ],
+  "source_sha256": "11bf9c712bc84a8509490682d1652363e831d1d094b9ff1e2d1e47abeaa561c1",
+  "no_heavy_tests_or_frozen_source_edits_in_this_audit": true
+}

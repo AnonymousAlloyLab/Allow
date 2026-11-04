@@ -1,0 +1,115 @@
+{
+  "alternatives": [
+    {
+      "effect": "Preserves live-path detection but retains131MiB per-hit read/hash cost.",
+      "name": "keep revision6 full hash"
+    },
+    {
+      "effect": "Rejected: metadata equality does not prove bytes immutable.",
+      "name": "stat-only memoization"
+    },
+    {
+      "effect": "Requires separate filesystem support/provisioning and contract; outside minimum candidate.",
+      "name": "fs-verity"
+    },
+    {
+      "effect": "Changes framing state/timeouts and trusted surface; outside scope.",
+      "name": "persistent parser worker"
+    }
+  ],
+  "disk_policy": {
+    "restart": "New gate snapshots disk then seals and hashes destination; changed disk digest denies.",
+    "revision6_difference": "Existing per-admission disk mutation denial is intentionally removed and requires six-seat review as a contract change.",
+    "running": "Continue initialized exact pinned sealed image despite disk replacement/removal; do not claim current-path tamper detection."
+  },
+  "extends": "spec/sql-stage.json@revision6",
+  "failure_categories": {
+    "infrastructureFailure": "Snapshot/hash/seal/fd/procfs/launch/resource failure denies and marks gate unavailable if image validity is uncertain.",
+    "parserFailure": "Parser exit/timeout/framing/report failure denies; never accept cached failure.",
+    "policyDenied": "SQL syntax/policy/evidence mismatch denies session; never database fallback."
+  },
+  "formal": {
+    "file": "ImmutableImage.lean",
+    "not_proved": [
+      "OS syscalls",
+      "wire parser implementation",
+      "end-to-end database execution",
+      "original live-path policy preservation"
+    ],
+    "preservation": "Existing Lean models/types remain unchanged; additional theorem audit binds frozen expected types. All280 propositions sourced from authoritative partial-types verifier registries; hash/coverage checks and preliminary exact-type audit required.",
+    "trusted": [
+      "Linux sealing and fd object semantics",
+      "private fd ownership and lock discipline",
+      "SHA256 pin collision assumption",
+      "procfs and prlimit exec correspondence",
+      "dynamic loader/shared libraries",
+      "Python binding correctness"
+    ]
+  },
+  "id": "ALLOW-SQL-IMMUTABLE-IMAGE-CANDIDATE",
+  "identity": {
+    "admission": "Private lifetime lock, duplicate original object under lock, fstat object+size and fcntl seals before every acceptance including cache hit.",
+    "cache_key": [
+      "exact SQL bytes",
+      "binary digest",
+      "profile",
+      "PostgreSQL commit",
+      "policy",
+      "gate generation"
+    ],
+    "execute": "Reserved inherited duplicate through reviewed absolute prlimit; execute same object by /proc/self/fd/N; never disk fallback.",
+    "init": "Copy once, seal WRITE GROW SHRINK SEAL, verify size+seals, then hash sealed destination against immutable lock snapshot."
+  },
+  "normative_text": "contract.md",
+  "performance_evidence": {
+    "interpretation": "One20.0ms process-identity witness invocation establishes local capability only; full baseline running separately, no comparative result or production validation.",
+    "probe": "probe-result.json"
+  },
+  "policy": "sql-routing-v7-sealed-image",
+  "promotion": {
+    "prerequisites": [
+      "resolve findings and freeze candidate hashes",
+      "preserve all280 authoritative claims unchanged",
+      "two clean Lean builds plus expected proposition and axiom checks",
+      "runtime-test-plan.json all pass",
+      "complete full benchmark baseline report including failures",
+      "candidate benchmark and memory report",
+      "explicit production authorization after required reviews"
+    ],
+    "review_seats": [
+      "Terra1",
+      "Terra2",
+      "Sol1",
+      "Sol2",
+      "Astra1",
+      "Astra2"
+    ]
+  },
+  "revision": 7,
+  "scope": "Replace repeated executable-byte hashing only; no advisory acceptance cache, persistent parser worker, database bypass or production change.",
+  "sources": [
+    "https://man7.org/linux/man-pages/man2/memfd_create.2.html",
+    "https://man7.org/linux/man-pages/man2/F_ADD_SEALS.2const.html",
+    "https://man7.org/linux/man-pages/man3/fexecve.3.html"
+  ],
+  "status": "DRAFT_NOT_AUTHORIZED",
+  "status_introspection": {
+    "allowed": [
+      "identity mode sealed-image",
+      "policy",
+      "gate generation",
+      "pinned SHA256",
+      "sealed byte count",
+      "required seal mask",
+      "ready or stopped or failed",
+      "aggregate reason counts"
+    ],
+    "disk_status": "No current-disk integrity claim; report disk_policy=restart-check-only, not disk_verified.",
+    "excluded": [
+      "SQL",
+      "credentials",
+      "parameter values",
+      "parser tokens"
+    ]
+  }
+}

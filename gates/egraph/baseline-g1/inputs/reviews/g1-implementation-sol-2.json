@@ -1,0 +1,126 @@
+{
+  "reviewer_id": "sol-2",
+  "phase": "G1_FIRST_G2_IMPLEMENTATION_FRONTEND_REVIEW",
+  "model_identity": {
+    "requested_model": "gpt-6.1-sol",
+    "dispatch_model_reported_by_parent": "gpt-6.1-sol",
+    "actual_runtime_model_independently_observable": false
+  },
+  "reviewed_at_utc": "2026-11-03T13:51:22.324306+00:00",
+  "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+  "verdict": "ACCEPT_REMEDIATED_FRONTEND_PENDING_ASSEMBLED_AND_BROWSER_GATES",
+  "blocking_findings": [],
+  "independence": "Initial frontend source inspection was independent of this reviewer's earlier style-tooling work. After reporting concrete defects, the parent explicitly authorized this reviewer to implement frontend remediations and regressions. Those remediations are therefore self-reviewed here, not independently approved changes.",
+  "scope": [
+    "typed composer/drop rejection",
+    "accepted source and draft presentation freshness",
+    "cancellation outcome races",
+    "launch token fragment consumption",
+    "bounded run/check result labels",
+    "source documentation and functional-state encapsulation"
+  ],
+  "findings": [
+    {
+      "id": "G1-IMPL-SOL2-01",
+      "severity": "MEDIUM",
+      "status": "FIXED_WITH_REGRESSION",
+      "title": "Untrusted drop identifiers could invent undeclared references and inject generated source",
+      "original_evidence": "Workbench insert accepted every text/plain value beginning ref: and called reference(item.slice(4)) without validating identifier spelling or membership in state.names. renderExpr inserted the name directly into Alloy source.",
+      "counterexample": "ref:Person) }\\nassert injected { no Person }\\ncheck injected for 3\\n//  generated an extra assertion/check before the intended run command when inserted under some. Even ref:univ passed the UI despite not being a declared palette symbol.",
+      "impact": "An external drag payload could bypass the declared-symbol palette and change the generated candidate's structure. Server parsing of the resulting text cannot by itself establish correspondence with the advertised composer tree.",
+      "remediation": "model.paletteNode now resolves only closed known palette operators or exact declared names that also satisfy validName. Workbench rejects undefined resolutions before invalidation/tree mutation. The generated-source path no longer accepts raw untrusted reference text.",
+      "fixed_evidence": [
+        "frontend/src/model.ts:23",
+        "frontend/src/Workbench.tsx:38",
+        "frontend/src/model.test.ts:27"
+      ],
+      "regression": "Tests reject the source-injection string, univ, missing symbols, malformed declared names and unknown operators while preserving legitimate palette/reference construction.",
+      "limitations": "The synthetic generated-source counterexample was inspected as exact text; this reviewer did not run that original payload through the Alloy parser or a real browser drag operation."
+    },
+    {
+      "id": "G1-IMPL-SOL2-02",
+      "severity": "MEDIUM",
+      "status": "FIXED_WITH_DEFERRED_RESPONSE_REGRESSIONS",
+      "title": "Cancellation failures could overwrite a newer draft notice; successful cancellation lacked full source/job identity checks",
+      "original_evidence": "Workbench cancel catch unconditionally called setNotice. Its successful path checked revision and epoch only, omitting jobId and sourceHash. A pending cancellation failure arriving after a text edit could replace the new draft notice.",
+      "remediation": "api.sameIdentity compares all four jobId/sourceHash/revision/epoch fields. api.cancelSnapshot captures the requested identity and suppresses stale success and failure outcomes. Workbench maintains the active job source hash, passes a current-identity reader, and rechecks identity before applying either result or error notice. Invalidation clears the active identity synchronously.",
+      "fixed_evidence": [
+        "frontend/src/api.ts:16",
+        "frontend/src/api.ts:35",
+        "frontend/src/Workbench.tsx:123",
+        "frontend/src/api.test.ts:38",
+        "frontend/src/api.test.ts:54"
+      ],
+      "regression": "Real API cancellation orchestration is exercised with deferred mocked fetch promises: matching current cancellation, successful response after raw edit, failed response after raw edit, failed response after active job change, wrong-source/wrong-job response, and a still-current failure. Tests make no real HTTP requests."
+    }
+  ],
+  "additional_hardening": {
+    "change": "waitJob now compares full active identity on each intermediate poll and terminal response.",
+    "assessment": "Before remediation, sourceHash was checked before initial display and again before terminal display, so intermediate hash omission did not by itself demonstrate a wrongly displayed terminal result. The added check rejects a mismatched intermediate response earlier and keeps polling bound to the original active source.",
+    "evidence": [
+      "frontend/src/Workbench.tsx:76",
+      "frontend/src/api.test.ts:83"
+    ]
+  },
+  "positive_assessments": [
+    "Type mismatches leave the candidate tree unchanged, explicit holes block application, and formula/relation constructors use a closed palette. Authoritative Alloy validation remains the server boundary.",
+    "Composer validation commits source/revision only on a current VALIDATED result. Free text edits clear results, advance the synchronous epoch and hide the prior block projection in explicit text-only mode.",
+    "execute hashes exact TextEncoder UTF-8 bytes, validates the first returned source hash and revision/epoch, and verifies a source-bound terminal identity before committing or displaying a result.",
+    "consumeToken extracts authority from the fragment and immediately replaces browser history with pathname/search, retaining the token in module/component memory. The unit test checks replaceState; real browser history/referrer behavior was not exercised here.",
+    "Results distinguishes SAT run instances from SAT check counterexamples and labels UNSAT absence within bounds. UNKNOWN and TIMEOUT remain inconclusive outcomes; the persistent disclaimer rejects unbounded-proof interpretation.",
+    "Authored frontend callable documentation and <=30-line checks pass. Immutable node shapes, copied child arrays and hook-local state keep mutable UI state behind module/component interfaces. These are coding checks and inspection, not a universal alias/dataflow proof."
+  ],
+  "checks": [
+    {
+      "command": "npm test",
+      "cwd": "/home/augustus/Allow/frontend",
+      "exit_code": 0,
+      "test_files": 3,
+      "tests_passed": 16,
+      "result": "Vitest unit tests passed, including actual deferred cancellation orchestration and forged palette reference rejection."
+    },
+    {
+      "command": "node scripts/check-code-style.mjs",
+      "cwd": "/home/augustus/Allow",
+      "exit_code": 0,
+      "files": 11,
+      "callables": 116,
+      "violations": 0,
+      "result": "Full authored JS/TS/TSX and test inventory passed after remediation."
+    }
+  ],
+  "limitations": [
+    "No browser or accessibility/screen-reader QA was performed by this reviewer. Browser keyboard construction, real drag/drop, invalid-edit/late-result and fragment-removal workflows remain assembled acceptance evidence.",
+    "No concurrent full build, bundled artifact rebuild, Java integration test or real server/solver job was run during this frontend review; the parent owns the final assembled build.",
+    "The added deferred tests exercise the exported cancellation orchestration rather than mounting React. Wiring and synchronous identity invalidation were inspected directly.",
+    "The reduced composer exposes formula versus relation slots over the declared unary subset; it does not demonstrate full Alloy nominal/subtyping/arity block coverage or the later G2/G3 round-trip gate."
+  ],
+  "final_source_hashes": {
+    "frontend/src/Results.test.ts": "12319f0ba6616f8d2acc3236d25056bde8e13491ea4bc4eff7afa21068ee2112",
+    "frontend/src/Results.tsx": "f81693ec9573eda5bf30082aed1339b0ef61eeac1340ae7b9c37bce796dfea28",
+    "frontend/src/TreeView.tsx": "cd0401b13a5e616aa48aa7d7e804ef3fc8d4d3b22a6b6e622f06b1ac3e1684a1",
+    "frontend/src/Workbench.tsx": "a23753c0e060d7e6e7bca54493f68a8681f48145d0bc0ddd1ae80d128ab11f76",
+    "frontend/src/api.test.ts": "bf3eeb44f1032a9b304b1a1544e8f49624cdf8d28e37a7064a9253cb36ad22ed",
+    "frontend/src/api.ts": "e6d07f0f26c8aa6dcf7c1cf55e8c930c64eff89517645079576dd0a9fb066073",
+    "frontend/src/main.tsx": "12e5b9f52da8b89f6b6ebab9a35eedf094be07b7fd66d89d72f09746931164f6",
+    "frontend/src/model.test.ts": "268d97b95a79b78aef0ef0797369a225cf93ad2564048d4ba3ecaab45e139652",
+    "frontend/src/model.ts": "cb8a74005ee3bb818504f3499aff82ff0804da56bccbc2666bc06e5eecc40beb",
+    "frontend/src/style.css": "ca0b3b2c6dd3278c3a16b1031054e6030cdc535ea1edca044b5d12073dd59b92"
+  },
+  "actions": {
+    "production_files_modified_after_explicit_parent_authorization": [
+      "frontend/src/model.ts",
+      "frontend/src/api.ts",
+      "frontend/src/Workbench.tsx"
+    ],
+    "test_files_modified_or_created": [
+      "frontend/src/model.test.ts",
+      "frontend/src/api.test.ts"
+    ],
+    "report_written": "reviews/g1-implementation-sol-2.json",
+    "contacted_anyone_externally": false,
+    "dataset_content_used": false,
+    "browser_tested": false,
+    "full_build_run": false
+  }
+}

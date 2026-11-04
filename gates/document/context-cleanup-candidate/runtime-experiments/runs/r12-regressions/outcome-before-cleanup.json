@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "run_id": "r12-regressions",
+  "input_root_sha256": "8428c6b3222ad2da2a82bfcb9d91c2bfe5b62a484f7bfca2923c012fb5e78f4d",
+  "steps": [
+    {
+      "name": "bootstrap",
+      "exit_code": 0,
+      "elapsed_seconds": 2.0165506359917345,
+      "log_sha256": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e",
+      "status": "PASS"
+    },
+    {
+      "name": "migrate",
+      "exit_code": 0,
+      "elapsed_seconds": 4.2194407990027685,
+      "log_sha256": "f61fcfabd3044e28be6bd0b96a0528bc316ac6bf06326f4234c95997074bbe6a",
+      "status": "PASS"
+    },
+    {
+      "name": "initialize-retrieval",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3139865309931338,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "bootstrap-documents",
+      "exit_code": 0,
+      "elapsed_seconds": 1.86626578499272,
+      "log_sha256": "db5265310a8947eff5f62249eb59500651be7243617cd63eb06216c8eba78836",
+      "status": "PASS"
+    },
+    {
+      "name": "python-all",
+      "exit_code": 0,
+      "elapsed_seconds": 40.97267337999074,
+      "log_sha256": "6773417031a6960515fff7cf17835527d75e50289a55375bbc29327b888b0ab0",
+      "status": "PASS"
+    },
+    {
+      "name": "sql-runtime",
+      "exit_code": 0,
+      "elapsed_seconds": 21.844702993999817,
+      "log_sha256": "63faa5c9bfd84b8174c5d646c1f862278ae4c1b52bbe3486280d5897e12a232d",
+      "status": "PASS"
+    },
+    {
+      "name": "sql-clients-and-retrieval-recovery",
+      "exit_code": 0,
+      "elapsed_seconds": 19.79149188399606,
+      "log_sha256": "ef044be043aa114b100cf5fe37158d09fcf9ffd97dd404ea9c8519e2eaad9521",
+      "status": "PASS"
+    },
+    {
+      "name": "document-recovery",
+      "exit_code": 0,
+      "elapsed_seconds": 9.977785651004524,
+      "log_sha256": "d621bd11889e25b04a6127aff0ca6c5c55d030e4938a30b9832c0ba538818293",
+      "status": "PASS"
+    },
+    {
+      "name": "http-smoke",
+      "exit_code": 0,
+      "elapsed_seconds": 8.926402701996267,
+      "log_sha256": "b2e8763938dc703ab9509291edce8b137fbe1019f7cc90373875a5e607589295",
+      "status": "PASS"
+    },
+    {
+      "name": "http-restart",
+      "exit_code": 0,
+      "elapsed_seconds": 0.6143949600082124,
+      "log_sha256": "feed9f8f5600eb0ad23f35b17273c3b8be31472b6ec81cee24f129b03ee57ae6",
+      "status": "PASS"
+    }
+  ],
+  "p1_33_case_acceptance": "BLOCKED",
+  "shared_runtime_modified": false,
+  "spring_crash": {
+    "owned_identity_absent": true,
+    "exit_code": -9,
+    "intentional_crash": true,
+    "emergency_escalation": false
+  }
+}

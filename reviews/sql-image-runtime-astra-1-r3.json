@@ -1,0 +1,33 @@
+{
+  "reviewer": "astra-1",
+  "decision": "APPROVE_RECHECK",
+  "scope": "Focused resolution review of SQLIRA1-02 against exact consumer bytes and unchanged core runtime. No full promotion approval or new aggregate-root assertion.",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+    "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/verify_sql_runtime.py": "fb6342d80a6588d057190a6502ab36d52fa705f938c9c34daadaff1a88ddd870",
+    "gates/sql/immutable-image-candidate/implementation/tests/test_consumer_identity.py": "dda20f5fdc9b8d0df6ffb103e497966c30765586a0b4574442388165abd3054f"
+  },
+  "findings": [],
+  "resolved": [
+    {
+      "id": "SQLIRA1-02",
+      "resolution": "Required live sealed snapshot validation executes independently of optional current-disk binary hashing. OSError from disk audit records an error type and unknown disk match without invalidating valid live identity. Invalid live policy remains STALE_RUNTIME even when disk is missing."
+    },
+    {
+      "id": "SQLIRA1-01",
+      "resolution": "All core module hashes remain identical to previously rechecked v4; prior independently passing repeated-cancellation check remains applicable."
+    }
+  ],
+  "validation": {
+    "offline_consumer_tests": "Independently ran test_consumer_identity.py:3PASS, zero failures/errors. Cases: missing binary/valid live snapshot, changed disk bytes/valid live snapshot, missing binary/invalid live policy.",
+    "resources": "Tests initialized and closed a staged sealed image plus temporary-file fixtures; no actual DB, HTTP or active proxy operations.",
+    "source_check": "Optional disk audit catches OSError independently; same handling covers unreadable-path errors. No fallback to disk for execution introduced.",
+    "core_hashes": "All six allow_retrieval Python files, including package initializer, match prior v4 pinned hashes."
+  },
+  "remaining_obligations": "New aggregate release root and any broader promotion evidence belong to author/root. External real PostgreSQL and full CLI obligations remain separate; this focused approval does not close them."
+}

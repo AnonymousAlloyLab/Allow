@@ -1,0 +1,43 @@
+{
+  "reviewer": "astra-1",
+  "seat": "sql-r4-astra-1",
+  "review_type": "INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "REVISE_BEFORE_FINAL_HASH_APPROVAL",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 4,
+  "spec_sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "formal_file_sha256": "648e16bd95be98f8089fe5bbd14290a21efe0c0405422be91c8081c82699f9f8",
+  "native_prepared_assessment": "APPROVABLE: exact whole-source acceptance, sole top-level grammar classification, shared connection-local namespace, conservative ASCII name folding, restrictions within bodies/parameter expressions, immutable portal provenance and cache/state separation close the pg_dump compatibility gap without bypass.",
+  "blocking_findings": [
+    {
+      "id": "ASTRA1-R4-01",
+      "severity": "high",
+      "title": "Indirect settings mutation can violate lexical assumptions before later pipelined SQL",
+      "evidence": [
+        "Current r3 ParserGate.validate accepted UPDATE pg_catalog.pg_settings SET setting = off WHERE name = standard_conforming_strings (quoted values in executed probe). No SQL was sent to a database.",
+        "PostgreSQL16 documentation defines UPDATE pg_settings as equivalent to SET.",
+        "Spec encoding promises the invariant before forwarding later pipelined queries, while current implementation only denies known SET/set_config forms and monitors later ParameterStatus."
+      ],
+      "required_change": "Choose an explicit enforceable remedy before final hash approval. Recommended conservative policy rejects new Q/P after forwarding Q/E until the corresponding ReadyForQuery and intervening ParameterStatus are processed. Mark busy before forwarding and identify matching cycle so an earlier Ready cannot release it; allow Sync/Flush/COPY/cancellation progress. A pg_settings-only name blacklist is incomplete if writable aliases/rules are admitted.",
+      "scope": "Existing revision3 omission discovered during incremental review; still material because the all-client lexical precondition is stronger than fixed-template coverage."
+    }
+  ],
+  "implementation_acceptance_notes": [
+    "Exercise real pg_dump ACL paths unchanged, native PREPARE/EXECUTE plus both cross-protocol directions, unknown names, mixed-case names, quoted/Unicode/overlong rejection, same-name server failure and stale objects.",
+    "Use grammar metadata and exact token spans for classification/name extraction; comments and string contents cannot impersonate names or statement families.",
+    "Native PREPARE received through extended Parse is not server-created until executed; optimistic bookkeeping may overapproximate only accepted provenance and must not claim backend object existence or execution success.",
+    "Test cached EXECUTE on a fresh connection and failed PREPARE followed by Execute; cache acceptance must never manufacture a local target.",
+    "If lexical synchronization is added, test a fragmented delayed ParameterStatus, stale prior ReadyForQuery, E followed by P before Sync, and unsafe pg_settings mutation followed by SQL; denied subsequent bytes must never reach backend."
+  ],
+  "formal_limits": [
+    "Six new obligations establish abstract admitted provenance, native unknown-target denial, Bind reachability and cache state purity.",
+    "bodyPart is only nonempty substring existence; it does not prove PREPARE body extraction, body grammar derivation, query classification, prepared-name folding or runtime correspondence. These remain trusted adapter obligations.",
+    "Read final Lean source but did not run final two-clean-build proof gate or execute database queries."
+  ],
+  "sources": [
+    "https://www.postgresql.org/docs/16/config-setting.html",
+    "https://www.postgresql.org/docs/16/protocol-flow.html"
+  ],
+  "production_edits": false,
+  "current_disk_hash_at_write": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733"
+}

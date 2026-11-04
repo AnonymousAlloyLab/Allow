@@ -1,0 +1,293 @@
+{
+  "reviewer_id": "astra-2",
+  "model_identity": {
+    "requested_by_user": "GPT-6 Astra",
+    "dispatch_model_reported_by_parent": "gpt-6-astra",
+    "actual_runtime_model_independently_observable": false,
+    "actual_runtime_model": null,
+    "note": "Dispatch requested identity is recorded; this review does not attest the actual serving model."
+  },
+  "reviewed_contract_revision": 4,
+  "reviewed_files": [
+    {
+      "path": "spec/allow-contract.json",
+      "sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b"
+    },
+    {
+      "path": "closure/scripts/project_contract.py",
+      "sha256": "3b0606ec04c0029f033a4ad3579f121032cfd35a973148e392ed9432e2393aee"
+    },
+    {
+      "path": "formal/lakefile.toml",
+      "sha256": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6"
+    },
+    {
+      "path": "formal/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "formal/Allow/Canonical.lean",
+      "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+    },
+    {
+      "path": "formal/Allow/Contract.lean",
+      "sha256": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10"
+    },
+    {
+      "path": "formal/Allow/Evidence.lean",
+      "sha256": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+    },
+    {
+      "path": "formal/Allow/Generated.lean",
+      "sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925"
+    },
+    {
+      "path": "formal/Allow/Kernel.lean",
+      "sha256": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503"
+    },
+    {
+      "path": "formal/Allow/Typing.lean",
+      "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    {
+      "path": "formal/Allow.lean",
+      "sha256": "9ee4e8bd139c0385729d4c22ecea1e887737f4bd3f995215e78082140994727b"
+    }
+  ],
+  "status": "FINAL_SCOPED_REVIEW_COMPLETE",
+  "verdict": "ACCEPT_SCOPED_SPECIFICATION_AND_FORMAL_MODEL",
+  "scope": [
+    "end-to-end architectural coherence",
+    "proof claim and trust boundaries",
+    "canonical/code/typed-block identity",
+    "RAG and witness evidence semantics",
+    "commercialization realism"
+  ],
+  "findings": [
+    {
+      "id": "ASTRA2-01",
+      "severity": "HIGH",
+      "status": "RESOLVED_DURING_REVIEW",
+      "location": [
+        "formal/Allow/Canonical.lean:ContextualFormula",
+        "formal/Allow/Canonical.lean:CertifiedMerge",
+        "canonicalization.identity",
+        "formal_obligations.F18"
+      ],
+      "finding": "The initial Canonical.lean snapshot omitted the ordered atom inventory from both contextual formulas and certified merges despite the revised contract requiring it. Equal fixed-index formulas alone did not distinguish independently atomized Alloy atoms.",
+      "initial_affected_sha256": "c5a9361ba34b45b2ad8c5e41ff0ac4adc646817e51d9e9b20810d77b839427c8",
+      "concrete_failure_scenario": "Within one module, P=some A and Q=some B can each become Formula.atom 0 with n=1. Their Boolean tables agree although an Alloy instance with A nonempty and B empty distinguishes them. A certificate refl over the independently numbered bodies must not authorize a merge.",
+      "remediation": "Require explicit ordered inventory identity in canonicalKey and CertifiedMerge, with an F18 theorem and distinct some A/some B negative fixture.",
+      "resolution_evidence": "Reviewed patched source includes inventory : Fin n -> String, equality of inventory in CertifiedMerge, inventory in canonicalKey, distinct_inventories_distinct_keys, and a some A/some B negative example. Clean independent build passed.",
+      "resolved_sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+    },
+    {
+      "id": "ASTRA2-02",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_IN_FINAL_REVIEW",
+      "location": [
+        "formal/Allow/Generated.lean",
+        "formal_obligations.F15",
+        "formal_boundaries.correspondence",
+        "milestones.G0"
+      ],
+      "finding": "Generated.lean, contract_has_witness and the regeneration/finite-closure artifacts were not yet available in the reviewed snapshot. This is an unfinished delivery check, not a failed theorem. A passing aggregate build currently covers only the modules actually imported.",
+      "concrete_failure_scenario": "A final report could cite a successful lake build while omitting a registered theorem or while the generated kernel differs from the frozen JSON configuration. This would overstate G0 completion even when every imported theorem is correct.",
+      "remediation": "Generate the exact formal-kernel projection, import it in the aggregate, check F15 and its axioms, verify regeneration byte equality and theorem coverage, then run the required isolated final builds against the frozen hashes.",
+      "blocks": "No unresolved model-source blocker. Final closure evidence must independently satisfy its registered checks.",
+      "resolution_evidence": "Final snapshot contains Generated.lean, Kernel.lean, Contract.lean and aggregate import. F15 compiles and #print axioms reports no axioms. All 19 registered obligation symbols resolve and compile. Deterministic generation --check passes against the final frozen snapshot. Final closure runner/report remains separate from this reviewer validation."
+    },
+    {
+      "id": "ASTRA2-03",
+      "severity": "LOW",
+      "status": "DOCUMENTED_TRUST_BOUNDARY",
+      "location": [
+        "formal_boundaries.trusted_abstractions",
+        "formal/Allow/Canonical.lean:canonicalKey",
+        "formal/Allow/Evidence.lean:admitPair",
+        "architecture.A5.pair_transaction"
+      ],
+      "finding": "The proofs establish structural identities and policy implications over supplied tokens/flags. They do not establish that atom inventory strings encode Alloy syntax injectively, that polarity/formulaHash corresponds to F-and-P or F-and-not-P, or that a validated witness flag follows actual validation. The contract correctly identifies these semantic links as trusted and leaves implementation refinement to later gates.",
+      "concrete_failure_scenario": "A future adapter can attach negative polarity to F-and-P or mark arbitrary tuples validated; admitPair can then return true while all Lean policy theorems remain true. Similarly an adapter that erases binding identity before constructing an inventory can pass structural key equality.",
+      "remediation": "Keep these limitations in every assurance report. At G3/G4 require adversarial adapter checks for exact atom/binding identity, authenticated facts/context, generated query polarity and full-instance validation. No model theorem alone authorizes a product correctness badge.",
+      "blocks": "Nothing in the present specification/proof-only phase; these are existing G3/G4 obligations."
+    }
+  ],
+  "checks": [
+    {
+      "kind": "independent_clean_snapshot_build",
+      "snapshot_path": "/tmp/allow-astra2-audit-uycktq6h",
+      "command": "lake build",
+      "result": "PASS; 6 jobs; Typing, Canonical, Evidence and aggregate compiled under pinned leanprover/lean4:v4.34.1; Generated absent at snapshot."
+    },
+    {
+      "kind": "theorem_axiom_audit",
+      "command": "lake env lean Audit.lean; #print axioms for all 18 available registered obligation symbols",
+      "result": "PASS; only standard propext, Quot.sound and Classical.choice dependencies; no custom axioms or sorryAx among audited theorem dependencies. F15 not audited because unavailable."
+    },
+    {
+      "kind": "negative_controls",
+      "result": "Compiled fixtures cover wrong relation/formula slots, unequal nominal union, unbound reference, hole rejection, distinct canonical atom inventories, cross-tenant retrieval, stale evidence after draft edit and wrong query-pool polarity."
+    },
+    {
+      "kind": "final_independent_clean_snapshot_build",
+      "snapshot_path": "/tmp/allow-astra2-final-7swcdst4",
+      "command": "lake build",
+      "result": "PASS; 9 jobs including Kernel, Generated, Contract and aggregate; pinned leanprover/lean4:v4.34.1."
+    },
+    {
+      "kind": "final_generated_projection_check",
+      "command": "python3 closure/scripts/project_contract.py --root /tmp/allow-astra2-final-7swcdst4 --check",
+      "result": "PASS; generated file equals deterministic projection of final JSON formal_kernel."
+    },
+    {
+      "kind": "final_theorem_axiom_audit",
+      "command": "lake env lean Audit.lean; #print axioms for every formal_obligations symbol from the final JSON",
+      "result": "PASS; 19 of 19 symbols. F15 and F16 have no axioms. Other dependencies are only standard propext, Quot.sound and Classical.choice; no custom axiom or sorryAx."
+    },
+    {
+      "kind": "final_revision_delta_review",
+      "result": "Reviewed revision 3 delta: elaborated signature/scope assumptions made explicit, aggregate import/queue/storage limits added, bounded validation/commit workers required, deny-first restore quarantine with external deletion/revocation journal required, and corresponding G4/G5 negative tests specified."
+    },
+    {
+      "kind": "revision4_delta_and_bound_snapshot",
+      "snapshot_path": "/tmp/allow-astra2-rev4-xfhpx256",
+      "result": "Reviewed immutable SAT existenceStatus versus enumerationStatus distinction and Run.status documentation. This makes retention of an earlier validated SAT witness after enumeration timeout coherent. Fresh 9-job model build, all 19 theorem axiom audits and generation --check pass on revision4 snapshot. No theorem proposition changed."
+    }
+  ],
+  "positive_findings": [
+    "The contract preserves the explicit prohibition on product implementation in this phase.",
+    "No proof is inherited from ACGN or AlloyStudio and no Java, React, parser, solver or SQL refinement is claimed.",
+    "Accepted source/artifact revisions are separated from invalid drafts and monotone presentation epochs, preventing old accepted-state badges from silently endorsing an edited draft in the model.",
+    "Canonical table completeness is explicitly fixed-inventory Boolean completeness, with relational valuations and the 8-atom profile separated from general Alloy equivalence.",
+    "Positive and negative pools share target context while keeping separate query identities and checked polarity; empty pools, vector similarity and inconclusive statuses confer no solver authority.",
+    "Purpose-specific rights, withdrawal, deletion, tenant filtering and disabled remote/RAG/training features address the principal semantic risks of a future corpus.",
+    "Commercial status is explicitly uncleared; demand is a hypothesis, pilot thresholds must precede recruitment, and licenses/support economics remain measured release gates."
+  ],
+  "commercial_assessment": {
+    "conclusion": "Plausible narrowly scoped local/customer-managed Alloy workbench; no evidence yet establishes paid demand, installer feasibility, support economics or redistribution clearance. Requiring PostgreSQL/pgvector and limiting complete canonical profiles to 8 opaque atoms are concrete adoption/scope assumptions to validate in G5/G6.",
+    "claims_of_market_size_revenue_or_legal_clearance": false,
+    "recommendation": "Use the predeclared pilot rule and measured installation/support cost before any commercial readiness claim."
+  },
+  "external_actions": {
+    "contacted_anyone": false,
+    "uploaded_source": false,
+    "research": "Local contract and source review only; no uncertain external factual claim was introduced."
+  },
+  "limitations": [
+    "No product implementation exists or was reviewed.",
+    "A successful model build is not a semantic Alloy or production correctness proof.",
+    "Final snapshot may change; this report applies to listed hashes.",
+    "The candidate verifier was source-reviewed before its configs/claims/registry/manifest were available. No finite closure state is asserted by this review; concrete verifier suggestions require mechanical validation."
+  ],
+  "initial_review": {
+    "contract_revision": 2,
+    "files": [
+      {
+        "path": "spec/allow-contract.json",
+        "sha256": "d97781f33756b6fcdb77acf59a8ea27f6b0a93ffb57970710be53a863c63b425"
+      },
+      {
+        "path": "formal/Allow.lean",
+        "sha256": "340b3b09f545c8bf432f3a14e4f3dfa4b5bf30d7f9e9f94ca768f00509ad3581"
+      },
+      {
+        "path": "formal/lakefile.toml",
+        "sha256": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6"
+      },
+      {
+        "path": "formal/lean-toolchain",
+        "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+      },
+      {
+        "path": "formal/Allow/Typing.lean",
+        "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+      },
+      {
+        "path": "formal/Allow/Canonical.lean",
+        "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+      },
+      {
+        "path": "formal/Allow/Evidence.lean",
+        "sha256": "439cf04a2ccf9fc3e3613ca037953451cd6061a5a272d85e8dae1d3f73c5763a"
+      }
+    ],
+    "status": "SCOPED_REVIEW_COMPLETE_GENERATED_MODULE_PENDING"
+  },
+  "final_review": {
+    "contract_revision": 4,
+    "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "verdict": "ACCEPT_SCOPED_SPECIFICATION_AND_FORMAL_MODEL",
+    "snapshot_path": "/tmp/allow-astra2-rev4-xfhpx256",
+    "all_registered_obligations_compiled": 19,
+    "all_registered_obligation_axioms_audited": 19,
+    "generated_projection_check": "PASS",
+    "finite_closure_runner_reviewed": "CANDIDATE_SOURCE_REVIEW_ONLY",
+    "note": "Specification/model validation remains accepted. Candidate verifier source was separately inspected before configuration/claim/manifest freeze; suggestions are not closure evidence or a closure state."
+  },
+  "previous_final_review_revision3": {
+    "contract_revision": 3,
+    "contract_sha256": "bc1a186c0048e874e83e17aec61edbd6d8119f26901b9da4e265ada323c73fd2",
+    "verdict": "ACCEPT_SCOPED_SPECIFICATION_AND_FORMAL_MODEL",
+    "snapshot_path": "/tmp/allow-astra2-final-7swcdst4",
+    "all_registered_obligations_compiled": 19,
+    "all_registered_obligation_axioms_audited": 19,
+    "generated_projection_check": "PASS",
+    "finite_closure_runner_reviewed": false,
+    "note": "The closure runner/report is a separate final delivery artifact; this review claims source/model validation and deterministic kernel projection only."
+  },
+  "verifier_candidate_review": {
+    "path": "closure/scripts/verify.py",
+    "reviewed_sha256": "957df3590ab7b1b0a4eec09231f4903bfd771a4e2adb43041d0b98267ddccff3",
+    "classification": "LLM_CANDIDATE_GENERATION_NOT_PROOF_OR_CLOSURE_EVIDENCE",
+    "configuration_claims_registry_manifest_available_at_review": false,
+    "review_step": {
+      "affected_claim_ids": [
+        "F01-F19",
+        "C20",
+        "C21",
+        "C22",
+        "C23",
+        "C24",
+        "C25"
+      ],
+      "possible_state_transition": {
+        "from": "PASS",
+        "to": "BLOCK"
+      },
+      "novel_evidence_type": "Concrete source-level counterexamples to verifier binding predicates; parent should turn these into mechanical negative controls before freeze."
+    },
+    "suggestions": [
+      {
+        "id": "A2-V01",
+        "severity": "HIGH",
+        "finding": "Duplicate claim IDs collapse in set comparison; a duplicated claim can reach VERIFIED while total exceeds passed. Claim statement/verifier/predicate semantics are not bound to actual dispatched checks.",
+        "remediation": "Reject duplicate IDs; require exact expected claim inventory and per-claim semantic/verifier binding."
+      },
+      {
+        "id": "A2-V02",
+        "severity": "HIGH",
+        "finding": "Provenance subset checks allow empty inputs and trust sets and ignore public_claim/evidence fields. A missing public target or nonexistent evidence path can pass.",
+        "remediation": "Validate exact evidence paths, public target binding, mandatory input/trust dependencies and unique complete public-claim coverage."
+      },
+      {
+        "id": "A2-V03",
+        "severity": "HIGH",
+        "finding": "The manifest only checks listed files. It does not require coverage of every consumed authoritative input; omitted claims, config, registry, provenance, reviews or verifier inputs can change without root mutation.",
+        "remediation": "Define and enforce exhaustive normalized manifest coverage, explicitly resolving config input_root_hash self-reference; reject paths outside the root and any unmanifested verification inputs."
+      },
+      {
+        "id": "A2-V04",
+        "severity": "MEDIUM",
+        "finding": "C25 tests whether current contract hash appears anywhere in the report JSON, rather than binding to an exact final review field and seat identity.",
+        "remediation": "Check exact final_review.contract_sha256 and unique matching reviewer identity; preserve actual model runtime identity as unattested."
+      },
+      {
+        "id": "A2-V05",
+        "severity": "HIGH",
+        "finding": "Theorem audits #check and #print axioms verify symbol existence but do not bind required proposition types. An unrelated Nat-valued def with the same name can pass these checks.",
+        "remediation": "Freeze expected Lean proposition types and compile proof applications of every obligation/witness against its expected type, or use a trusted structural declaration/type extractor."
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+Allow.DocumentAssociativity.accepted_public_limits_preserved {auth : Prop} {s : Allow.DocumentDraft.State}
+  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat}
+  {out : Allow.DocumentDraft.State} {m : Allow.DocumentDraft.Module}
+  (step : Allow.DocumentOrder.GuardedStep auth s k q a (Allow.DocumentDraft.Result.accepted n) out)
+  (block : a.moduleIR = some m) :
+  Allow.DocumentDraft.moduleNodeCount m ≤ 512 ∧
+    (∀ (e : Allow.DocumentDraft.Expr),
+        e ∈ Allow.DocumentDraft.moduleExpressions m → Allow.DocumentDraft.exprDepth e ≤ 32) ∧
+      Allow.DocumentOrder.groupedFields m.sigs m.fields = m.fields
+Allow.DocumentAssociativity.balanced_leaves {α : Type} (fuel : Nat) (xs : List α) :
+  Allow.DocumentAssociativity.leaves (Allow.DocumentAssociativity.balanced fuel xs) = xs
+Allow.DocumentAssociativity.balanced_semantics {α : Type} (op : Allow.DocumentAssociativity.Op) (value : α → Bool)
+  (fuel : Nat) (xs : List α) :
+  Allow.DocumentAssociativity.eval op value (Allow.DocumentAssociativity.balanced fuel xs) =
+    Allow.DocumentAssociativity.fold op (List.map value xs)
+Allow.DocumentAssociativity.chain_leaves {α : Type} (xs : List α) :
+  Allow.DocumentAssociativity.leaves (Allow.DocumentAssociativity.chain xs) = xs
+Allow.DocumentAssociativity.combine_assoc (op : Allow.DocumentAssociativity.Op) (a b c : Bool) :
+  Allow.DocumentAssociativity.combine op (Allow.DocumentAssociativity.combine op a b) c =
+    Allow.DocumentAssociativity.combine op a (Allow.DocumentAssociativity.combine op b c)
+Allow.DocumentAssociativity.depth_le_nodes {α : Type} (t : Allow.DocumentAssociativity.Tree α) :
+  Allow.DocumentAssociativity.depth t ≤ Allow.DocumentAssociativity.nodes t
+Allow.DocumentAssociativity.eval_leaves {α : Type} (op : Allow.DocumentAssociativity.Op) (value : α → Bool)
+  (t : Allow.DocumentAssociativity.Tree α) :
+  Allow.DocumentAssociativity.eval op value t =
+    Allow.DocumentAssociativity.fold op (List.map value (Allow.DocumentAssociativity.leaves t))
+Allow.DocumentAssociativity.fixture_balanced_witness :
+  Allow.DocumentAssociativity.nodes Allow.DocumentAssociativity.fixtureBalanced = 500 ∧
+    Allow.DocumentAssociativity.depth Allow.DocumentAssociativity.fixtureBalanced = 10
+Allow.DocumentAssociativity.fixture_left_witness :
+  Allow.DocumentAssociativity.nodes Allow.DocumentAssociativity.fixtureLeftDeep = 500 ∧
+    Allow.DocumentAssociativity.depth Allow.DocumentAssociativity.fixtureLeftDeep = 168
+Allow.DocumentAssociativity.fixture_public_vs_transient :
+  Allow.DocumentAssociativity.PublicBounded Allow.DocumentAssociativity.fixtureBalanced ∧
+    Allow.DocumentAssociativity.IntermediateBounded Allow.DocumentAssociativity.fixtureLeftDeep ∧
+      ¬Allow.DocumentAssociativity.PublicBounded Allow.DocumentAssociativity.fixtureLeftDeep
+Allow.DocumentAssociativity.fold_append (op : Allow.DocumentAssociativity.Op) (xs ys : List Bool) :
+  Allow.DocumentAssociativity.fold op (xs ++ ys) =
+    Allow.DocumentAssociativity.combine op (Allow.DocumentAssociativity.fold op xs)
+      (Allow.DocumentAssociativity.fold op ys)
+Allow.DocumentAssociativity.leftAcc_leaves {α : Type} (initial : Allow.DocumentAssociativity.Tree α) (xs : List α) :
+  Allow.DocumentAssociativity.leaves (Allow.DocumentAssociativity.leftAcc initial xs) =
+    Allow.DocumentAssociativity.leaves initial ++ xs
+Allow.DocumentAssociativity.leftChain_leaves {α : Type} (xs : List α) :
+  Allow.DocumentAssociativity.leaves (Allow.DocumentAssociativity.leftChain xs) = xs
+Allow.DocumentAssociativity.node_bound_implies_intermediate {α : Type} {t : Allow.DocumentAssociativity.Tree α}
+  (h : Allow.DocumentAssociativity.nodes t ≤ 512) : Allow.DocumentAssociativity.IntermediateBounded t
+Allow.DocumentAssociativity.public_implies_intermediate {α : Type} {t : Allow.DocumentAssociativity.Tree α}
+  (h : Allow.DocumentAssociativity.PublicBounded t) : Allow.DocumentAssociativity.IntermediateBounded t
+Allow.DocumentAssociativity.regroup_semantics {α : Type} (op : Allow.DocumentAssociativity.Op) (value : α → Bool)
+  (original : Allow.DocumentAssociativity.Tree α) (fuel : Nat) :
+  Allow.DocumentAssociativity.eval op value
+      (Allow.DocumentAssociativity.balanced fuel (Allow.DocumentAssociativity.leaves original)) =
+    Allow.DocumentAssociativity.eval op value original

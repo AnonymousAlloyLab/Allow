@@ -1,0 +1,49 @@
+test_actual_cli_context_and_database_error_envelopes (test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes)
+VC14/22: real SQL success/failure uses the closed nonce-bound CLI codec. ... ok
+test_actual_snapshot_mode_read_only_and_legacy_mode (test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode)
+VC02/18: actual snapshot isolation/read-only reject writes; legacy stays RC. ... ok
+test_commit_after_snapshot_is_excluded_from_head_and_inventory (test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory)
+VC06: snapshot setup freezes both head and history before a concurrent append. ... ok
+test_commit_between_base_and_inventory_cannot_mix_snapshots (test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots)
+VC07: a commit between the two logical reads cannot introduce future IDs. ... ok
+test_complete_history_collision_and_malformed_artifact_fail (test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail)
+VC10: a later conflict or malformed row cannot be hidden by an early match. ... ok
+test_connection_closes_before_context_is_returned (test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned)
+VC15: the actual successful connection is closed at publication. ... ok
+test_context_matches_legacy_at_quiescence_and_exact_source (test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source)
+VC04/08: current and historical base content agree with existing reads. ... ok
+test_empty_ids_authorize_base_and_skip_scan (test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan)
+VC03/05: no requested IDs skips only history, never the mandatory base read. ... ok
+test_future_base_committed_after_snapshot_requires_new_request (test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request)
+VC07: a missing revision cannot become visible inside the older snapshot. ... ok
+test_logical_launch_does_not_partition_document_history (test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history)
+VC05: another private launch in the same owner/workspace sees the same base. ... ok
+test_missing_and_foreign_context_never_reaches_inventory (test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory)
+VC05: absent bases/documents and both RLS dimensions deny before inventory. ... ok
+test_proxy_connection_failure_has_no_fallback (test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback)
+VC14/22: a failed canonical connection cannot route around the proxy. ... ok
+test_reads_do_not_mutate_and_full_quota_remains_readable (test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable)
+VC18/19: repeated context reads preserve all counters/history at full quota. ... ok
+test_requested_kind_inventory_and_text_only (test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only)
+VC09: all8categories,duplicates and references retain exact legacy projection. ... ok
+test_cli_dispatch_has_one_context_call (test_validation_context.ValidationContextWireTests.test_cli_dispatch_has_one_context_call)
+VC03: empty-ID requests dispatch the mandatory context operation once. ... ok
+test_closed_cli_shape_and_strict_json (test_validation_context.ValidationContextWireTests.test_closed_cli_shape_and_strict_json)
+VC01: malformed framing and extra private fields fail before Store. ... ok
+test_context_accepts_safe_integer_and_id_count_boundaries (test_validation_context.ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries)
+VC13: the private safe-integer and4096-identity boundaries are inclusive. ... ok
+test_context_arguments_reject_before_connection (test_validation_context.ValidationContextWireTests.test_context_arguments_reject_before_connection)
+VC01/13: invalid identity/revision/set/shape never reaches SQL. ... ok
+test_full_cli_output_boundary_and_nonce (test_validation_context.ValidationContextWireTests.test_full_cli_output_boundary_and_nonce)
+VC12: size the whole transport envelope, including combined data fields. ... ok
+test_legacy_mutation_uncertainty_remains (test_validation_context.ValidationContextWireTests.test_legacy_mutation_uncertainty_remains)
+VC21: the new path does not relabel existing mutator uncertainty. ... ok
+test_read_failure_never_invents_mutation_uncertainty (test_validation_context.ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty)
+VC14: corrupt/dead read paths cannot produce mutation outcome claims. ... ok
+test_transaction_exit_failure_discards_complete_context (test_validation_context.ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context)
+VC14/15: a result formed before failed transaction exit is not published. ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.582s
+
+OK

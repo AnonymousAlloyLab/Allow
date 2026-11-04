@@ -1,0 +1,84 @@
+{
+  "reviewer": "astra-2",
+  "requested_model": "gpt-6-astra",
+  "actual_model": "Not independently observable; parent assigned requested reviewer seat.",
+  "date": "2026-11-03",
+  "scope": "Final implementation review: commercial feasibility, license/data evidence, local deployment assumptions and claim boundaries.",
+  "verdict": "NO_NEW_LOCAL_DEVELOPMENT_BLOCKER; COMMERCIAL_RELEASE_REMAINS_UNCLEARED",
+  "files_sha256": {
+    "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "gates/g1/dependencies.json": "ef00e6b9bd4eaf367f717cb904d4ae5a0eecdd7b9ccada25f58849d9fe47df16",
+    "docs/dataset-inventory.json": "f05c46662a0d5ecb23c0256cd85e3019ffa85462544f486e67814cd8fdf93ece",
+    "README.md": "d77947176907f66ee76a6273f843c1270a788c315901d7d52a11734339f8e235",
+    "scripts/dependency_inventory.py": "c3a46f0b83523d737c1a3809bdac72a7e7a0e674c02e63ac3aa8c5b6468f9196",
+    "scripts/run_local.py": "bdf10df23cf93b3721c3a3478b1a2be6771ae321694ae1d7895577a090579d66",
+    "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java": "a7a10560941b4619068b15f0455237c509f734fad6f21f35ff0e22525eabffe0",
+    "backend/src/main/java/dev/allow/backend/LoopbackBinding.java": "6a86b1ca70b1235ed18217b8d7c8789beb07eb831d95d237202cf5fc12b6f874",
+    "backend/src/main/java/dev/allow/backend/AuthorityFilter.java": "f68575141b6d955aee42fd713a5bc4c290a0e1cddb93581d0cd4d1fd3be7a82c",
+    "backend/src/main/java/dev/allow/backend/LaunchAuthority.java": "6542f7065d8cf4268f1811dfeb63f1ff80694cb9967694b2152c7f4bde12bbea",
+    "backend/src/main/java/dev/allow/backend/BuildIdentity.java": "d0153ce4e0e262e684994b8f82d1ad7b13f27f2bb429a85028511d04ae8e9042",
+    "backend/src/main/java/dev/allow/backend/ProcessRunner.java": "3580fff28237aa8baa9f2a1666a718e7a9da4c30034b6c37adb15eb3d250b079",
+    "backend/src/test/java/dev/allow/backend/SandboxBoundaryTest.java": "c7b347e11046c4f2ef7822d6d608a0a1bcebbf57ac9d965b490bbd013c180240"
+  },
+  "findings": [
+    {
+      "id": "G1-IMPL-A2-01",
+      "severity": "LOW",
+      "status": "DOCUMENT_OPERATIONAL_REQUIREMENT",
+      "title": "Supported Linux layout is narrower than generic Java 17 prerequisites",
+      "evidence": [
+        "BubblewrapLauncher.command uses absolute /usr/bin/prlimit and /usr/bin/bwrap, requires /lib64 and /etc/java-17-openjdk, and mounts java.home read-only.",
+        "run_local.py checks tools with shutil.which, while the production launcher uses fixed absolute paths.",
+        "README lists Linux, Java/Javac 17, bwrap and prlimit without specifying these filesystem requirements."
+      ],
+      "impact": "A different Linux distribution or Java layout can pass preliminary prerequisites and fail all worker launches. Failure is closed, not a sandbox bypass.",
+      "recommendation": "Document the currently required runtime paths and host namespace support; do not imply arbitrary Linux/JDK installations or hosted multiuser deployments are supported."
+    },
+    {
+      "id": "G1-IMPL-A2-02",
+      "severity": "LOW",
+      "status": "HISTORICAL_METADATA_BOUNDARY",
+      "title": "Dataset admission-size counts belong to the older contract",
+      "evidence": [
+        "docs/dataset-inventory.json records source_byte_limit_in_existing_contract = 262144 for all three roots.",
+        "spec/implementation-g1.json foundation.limits.source_utf8_bytes = 32768.",
+        "Inventory expressly says size counts only and no parser/import admission attempted."
+      ],
+      "impact": "The counts cannot be used to estimate how many models G1 accepts. The field is labeled as historical, so this is a qualification rather than a demonstrated incorrect admission.",
+      "recommendation": "Keep the historical label explicit in final reporting; a later selected evaluation must apply current size, parser and import gates anew."
+    },
+    {
+      "id": "G1-IMPL-A2-03",
+      "severity": "INFO",
+      "status": "EXISTING_COMMERCIAL_GATE_CONFIRMED",
+      "title": "Artifact hashes and notice inventory do not close redistribution or corpus rights",
+      "evidence": [
+        "dependencies.json purpose explicitly disclaims redistribution clearance and commercial_release_cleared is false.",
+        "dependency_inventory.py collects embedded pom.properties and notice hashes; it does not produce a full nested-component license/obligation resolution or frontend transitive notice report.",
+        "dataset-inventory.json distinguishes operational local authorization from third-party reuse rights and records unresolved rights for all roots.",
+        "implementation-g1.json explicitly forbids publication, commercial release, remote embeddings and dataset training in current authorization."
+      ],
+      "impact": "Current evidence supports bounded local development accounting only. Commercial packaging, dataset derivatives and remote services require separately authorized purpose-specific rights evidence and complete shipping-component analysis.",
+      "recommendation": "Retain these release gates; do not describe the inventory as legal clearance or a complete distribution compliance report."
+    }
+  ],
+  "confirmed_boundaries": [
+    "LoopbackBinding enforces 127.0.0.1 independently of ordinary Spring address settings. AuthorityFilter checks exact Host and supplied Origin and requires bearer authority for /api/.",
+    "Production worker launcher clears its environment, uses namespace isolation with die-with-parent, read-only runtime mounts and private tmpfs; no unsandboxed fallback was found in reviewed code.",
+    "The trusted host, JDK, system libraries, build outputs and launcher account remain part of the operational trust boundary; namespace flags and a canary test are not universal OS isolation assurance.",
+    "BuildIdentity records compiled/dependency bytes but only java.runtime.version for the JDK. It must not be represented as complete byte-level JDK/OS provenance.",
+    "README separates structural pseudonymization, deterministic features, model proofs and implementation assurance, and expressly says production platform and commercial clearance are incomplete.",
+    "Inventory exposes aggregate counts, hashes and notice attribution metadata, not exported model contents; those hashes and preserved structure are not guarantees of anonymity."
+  ],
+  "validation": {
+    "performed": "Read-only source/document inspection and report JSON serialization.",
+    "not_performed": [
+      "No Maven/build invocation or production modifications.",
+      "No new corpus access, import, remote embedding, publication or external research.",
+      "No independent comprehensive repository content scan to substantiate the historical no-source-copy assertion.",
+      "No fresh sandbox execution or frontend browser acceptance test.",
+      "No legal determination or verification of upstream license conflict beyond recorded local evidence."
+    ]
+  },
+  "limits": "This advisory review concerns the recorded hashes at inspection time, not later edits. No commercial demand, price, support cost or revenue evidence was collected; technical local feasibility does not establish commercial viability."
+}

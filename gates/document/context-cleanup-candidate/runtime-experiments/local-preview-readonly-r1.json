@@ -1,0 +1,149 @@
+{
+  "services": {
+    "spring": {
+      "pid": 921163,
+      "identity": {
+        "start_ticks": "3659423",
+        "command": [
+          "java",
+          "-cp",
+          "target/classes:target/dependency/*",
+          "dev.allow.backend.AllowApplication",
+          "--server.port=18080",
+          "--server.address=127.0.0.1",
+          "--debug=false",
+          "--trace=false",
+          "--logging.level.root=WARN",
+          "--logging.level.org.springframework=WARN",
+          "--allow.corpus.root=/home/augustus/Allow"
+        ]
+      },
+      "cwd": "/home/augustus/Allow/backend",
+      "parent_pid": 921162,
+      "exe": "/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
+    },
+    "proxy": {
+      "pid": 826907,
+      "owner_identity_matches": true,
+      "identity": {
+        "start_ticks": "3288589",
+        "command": [
+          "/usr/bin/python3",
+          "-m",
+          "allow_retrieval.sql_proxy",
+          "--backend",
+          "/home/augustus/Allow/.runtime/corpus/postgres/socket/.s.PGSQL.54329",
+          "--listen",
+          "/home/augustus/Allow/.runtime/corpus/sql-proxy/socket/.s.PGSQL.54329",
+          "--status",
+          "/home/augustus/Allow/.runtime/corpus/sql-proxy/status.json",
+          "--ready",
+          "/home/augustus/Allow/.runtime/corpus/sql-proxy/ready.json"
+        ]
+      },
+      "policy": "sql-routing-v7-sealed-image",
+      "context_control_exists": false,
+      "context_journal_exists": false
+    },
+    "postgres": {
+      "pid": 378655,
+      "identity": {
+        "start_ticks": "1653643",
+        "command": [
+          "/home/augustus/Allow/.tools/retrieval/postgres/bin/postgres",
+          "-D",
+          "/home/augustus/Allow/.runtime/corpus/postgres/data",
+          "-p",
+          "54329",
+          "-k",
+          "/home/augustus/Allow/.runtime/corpus/postgres/socket",
+          "-h",
+          "-c",
+          "max_connections=20",
+          "-c",
+          "shared_buffers=64MB",
+          "-c",
+          "unix_socket_permissions=0700",
+          "-c",
+          "standard_conforming_strings=on",
+          "-c",
+          "max_prepared_transactions=0"
+        ]
+      }
+    }
+  },
+  ".runtime/documents/identity.json": {
+    "exists": true,
+    "mode": "0o600",
+    "sha256": "0d4c7db65462855e58cf66682139438a73cdfad565d9976c4bb064ce75e43a51"
+  },
+  ".runtime/corpus/journal/revocations.jsonl": {
+    "exists": true,
+    "mode": "0o600",
+    "sha256": "bdc39aa8c1190851f8cbe9c125c1272290b62b120995a78127d563022a3ec3c4"
+  },
+  ".runtime/corpus/database.json": {
+    "exists": true,
+    "mode": "0o600",
+    "sha256": "b16e09f36b701ba2da4b7c5b9f05770166dea19e0a8bae92da6fe2c8846d01f0"
+  },
+  "postgres_settings": {
+    "max_connections": "20",
+    "superuser_reserved_connections": "3",
+    "reserved_connections": "0",
+    "log_statement": "none",
+    "log_duration": "off",
+    "log_min_duration_statement": "-1",
+    "log_min_duration_sample": "-1",
+    "log_statement_sample_rate": "1",
+    "log_parameter_max_length": "-1",
+    "log_parameter_max_length_on_error": "0"
+  },
+  "document_table_counts": {
+    "workspace": 121,
+    "document": 252,
+    "artifact": 412,
+    "revision": 382,
+    "receipt": 431,
+    "admission": 467
+  },
+  "document_head_summary": [
+    252,
+    0,
+    6
+  ],
+  "db_backends_by_type": [
+    [
+      "autovacuum launcher",
+      1
+    ],
+    [
+      "background writer",
+      1
+    ],
+    [
+      "checkpointer",
+      1
+    ],
+    [
+      "client backend",
+      1
+    ],
+    [
+      "logical replication launcher",
+      1
+    ],
+    [
+      "walwriter",
+      1
+    ]
+  ],
+  "documents_http": {
+    "http": 200,
+    "status": "OK",
+    "data_keys": [
+      "documents"
+    ],
+    "body_sha256": "a3a0a9c6a3b301ca5000338701d66c163bdb88946a99faf2ba8aba8db3290b71"
+  }
+}

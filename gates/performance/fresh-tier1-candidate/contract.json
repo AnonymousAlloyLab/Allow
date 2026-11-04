@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-FRESH-TIER1-CONTRACT-R1",
+  "status": "INACTIVE_IMPLEMENTATION_CONTRACT_CANDIDATE",
+  "purpose": "Compare only the current fresh JVM with one fixed TieredStopAtLevel=1 option, and retain baseline unless the finite output, isolation, cleanup and whole-stack measurements justify the advisory-only variant.",
+  "scope": {
+    "production_baseline": {
+      "vcpus": 4,
+      "memory_bytes": 8589934592
+    },
+    "prototype": "Gate-local copied installation only, after exact six-seat approval and two clean model builds. No shared daemon restarts or production edits under this package authoring task.",
+    "excluded": [
+      "Warm/prestarted/reused JVMs",
+      "AppCDS or packaging/classpath changes",
+      "Reply compression or schema changes",
+      "BuildIdentity caching/removal",
+      "SQL/context-cache changes",
+      "Durable mutation or solver optimization",
+      "Commercial or target-host acceptance claims"
+    ]
+  },
+  "authorization_order": [
+    "Freeze this contract, experiment.json, exact model/types/audit/verifier, inherited anchors and source evidence.",
+    "Obtain reviews/fresh-tier1-{terra,sol,astra}-{1,2}.json, all APPROVE_IMPLEMENTATION_CONTRACT for the exact package root.",
+    "Run registered verify_fresh_model.py twice-isolated-build closure; no model activation or prototype before VERIFIED.",
+    "After root explicitly schedules the experiment, author only the copied prototype/fixtures/verifiers under a unique gate run.",
+    "Freeze concrete fixture bytes, comparator, harness, source delta, JDK/toolchain, compiled inventories and effective containment before any comparative workload. Missing finite fixtures or verifier bindings BLOCK execution.",
+    "Execute finite differential and safety matrix first; run performance only if it passes.",
+    "The exact approved contract and two matching model builds authorize authoring this bounded prototype and file-by-file implementation. Before activating F1, freeze actual patch/source/build inputs, mechanically check complete argv delta and advisory-only callsites, run the finite regression/runtime manifest and require every selection gate. No duplicate council is required for an implementation conforming to this contract; any deviation in authority, semantics, scope or budgets requires a revised contract/proof/council before dependent edits."
+  ],
+  "variants": {
+    "F0": "Exact existing fresh launch and full constructor/launch fences; no compiler option added.",
+    "F1": "F0 with exactly one -XX:TieredStopAtLevel=1 argument before -Djava.awt.headless=true when the fixed trusted profile is DOCUMENT_ADVISORY_TIER1. No argument from request JSON, browser, source or environment.",
+    "prototype_regression": "A separately named gate-only launcher fixture may select the document entrypoint for VALIDATE and REVALIDATE under F1 to expose compiler effects. This is not promotion of durable paths. WorkerMain/solver commands remain F0 in every deployable variant."
+  },
+  "implementation": {
+    "backend/src/main/java/dev/allow/backend/WorkerLaunchProfile.java": "New package-private enum DEFAULT and DOCUMENT_ADVISORY_TIER1. Only package-owned constructors accept it. Do not accept a string/flag list, system property, environment variable or public request field. Enum has no mutable fields.",
+    "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java": "Existing constructors delegate to DEFAULT. Add package-private constructor (Path target, boolean document, WorkerLaunchProfile profile). Reject DOCUMENT_ADVISORY_TIER1 with document=false. Capture immutable profile field. In command(), append exactly one fixed tier1 argument at the reviewed boundary immediately before current -Djava.awt.headless=true. Extract documented helper(s) as necessary to retain <=30 lines per method. All existing argv bytes/order, mounts, entrypoint, working directory, environment.clear(), constructor BuildIdentity and per-launch BuildIdentity+Alloy checks remain.",
+    "backend/src/main/java/dev/allow/backend/DocumentWorker.java": "Default constructor remains DEFAULT for mutation factories. Add package-private constructor taking WorkerLaunchProfile and delegate to the same BubblewrapLauncher(target,true,profile), ProcessIdentity reader and unchanged execute/response/recovery. No process reuse, retained result or alternative FrameProcess path. Retain the selected profile in a private final field and reject revalidate() for a non-DEFAULT profile before launch; test-only gate regression uses its separately named probe launcher, never weakens this production guard.",
+    "backend/src/main/java/dev/allow/backend/DocumentQueries.java": "Only advisory validate() construction site may use a compile-time selected package-private profile constant. Baseline candidate constant DEFAULT; selected production patch constant DOCUMENT_ADVISORY_TIER1 only after all selection gates pass. Fresh authorized DocumentValidationContext and WorkerCapacity ordering remain unchanged.",
+    "backend/src/main/java/dev/allow/backend/DocumentMutations.java": "No production edit: existing DocumentWorker::new remains DEFAULT, including commit VALIDATE and history REVALIDATE.",
+    "backend/src/main/java/dev/allow/backend/DocumentMutationWorkers.java": "No production edit; factory interfaces remain unchanged.",
+    "tests": "Add exact argv-delta, default/solver/durable callsite, full constructor+launch fence, identity corruption, output/timeout/reap and Clean Code checks; author gate-only probe methods with Javadoc and <=30 lines. No test bypass that replaces launch() with command()+ProcessBuilder."
+  },
+  "fixed_boundaries": {
+    "prlimit": [
+      "--as=2147483648",
+      "--cpu=12",
+      "--fsize=8388608"
+    ],
+    "sandbox": [
+      "/usr/bin/bwrap",
+      "--unshare-all",
+      "--new-session",
+      "--die-with-parent",
+      "--cap-drop",
+      "ALL",
+      "all existing --ro-bind pairs",
+      "--tmpfs /tmp",
+      "--proc /proc",
+      "--dev /dev",
+      "--chdir /tmp"
+    ],
+    "jvm": [
+      "-Xmx512m",
+      "-Xss512k",
+      "-XX:+UseSerialGC",
+      "-XX:ActiveProcessorCount=2",
+      "-XX:MaxMetaspaceSize=128m",
+      "-XX:CompressedClassSpaceSize=64m",
+      "-XX:ReservedCodeCacheSize=48m",
+      "-Djava.awt.headless=true",
+      "-Dfile.encoding=UTF-8",
+      "-Djava.io.tmpdir=/tmp",
+      "-cp",
+      "/app/classes:/app/solver.jar:/app/dependency/*"
+    ],
+    "identity": "Actual BubblewrapLauncher constructor BuildIdentity.read and launch Alloy hash plus full BuildIdentity.read execute on every measured fresh invocation. Preserve launch identity in each variant and report exactly which launcher classes differ; no jar-only or cached substitute.",
+    "alloy_sha256": "6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d",
+    "transport": "Existing private protocol, nonce equality, input<2097152 bytes, stdout capture1048577, stderr32768, FrameProcess 10000ms exchange, exact framing and exitCode0, ProcessIdentity capture, unconditional child reap before result. Existing outer deadlines and actual resource ownership remain independent.",
+    "side_effects": "No new SQL route, no dropped full-history context checks, no reduced validation, no mutation/recovery/receipt change. All copied SQL goes through the copied canonical SQLeanParser endpoint."
+  },
+  "formal": {
+    "file": "FreshTier1.lean",
+    "meaning": "Syntactic insertion of exactly one fixed compiler flag while retaining the same required argv lists; nonadvisory commands unchanged; guarded reachable fresh-process single launch/request, checks before running, staging before delivery, reap before delivery, sticky poison, immutable identity/durable value; measured-selection predicate.",
+    "trust": "RequiredArgs is a frozen extraction placeholder, not a proved Java correspondence; runtime verifier must extract the complete command arrays and check exact delta/order. Build/solver checks, observed process identity/reap and measured run fields are trusted abstract observations.",
+    "excluded": "No JVM/JIT semantic, Lean-to-Java semantic refinement, SQL cleanup, OS confinement, output equivalence, latency or commercialization theorem. The old309 and separately approved supplements are pinned, not re-proved by this standalone model."
+  },
+  "selection": "Only select F1 if every finite semantic/security/cleanup obligation passes, all3 paired F1 whole-stack HTTP runs meet the original strict target and memory objective, and F1 p95 is strictly lower than its paired F0 p95 in all3 runs. No averaging of failures, no threshold adjustment. Otherwise keep F0 and preserve failed evidence. <=240ms is an engineering headroom objective, not a different acceptance gate.",
+  "commercialization": "Performance optimization changes neither Alloy/dependency redistribution rights nor customer/browser/security gates. Commercial release remains NO_GO until separately tracked blockers close.",
+  "runtime_status": "NOT_IMPLEMENTED_NOT_EXECUTED"
+}

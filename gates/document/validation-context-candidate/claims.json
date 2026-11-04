@@ -1,0 +1,221 @@
+{
+  "id": "ALLOW-VALIDATION-CONTEXT-MODEL-CLAIMS-R1",
+  "classification": "CANDIDATE_ABSTRACT_MODEL_ONLY",
+  "candidate_count": 22,
+  "required_preserved_inherited_count": 287,
+  "candidate_source_sha256": "b489b52ea9edd291afca8ce15dce746c05f079f8ed00913a61948ec4c37d1cb4",
+  "exact_type_inventory": "candidate-type-inventory.json",
+  "claims": [
+    {
+      "id": "VCM01",
+      "symbol": "Allow.ValidationContextCandidate.inventory_membership",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.inventory_membership",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM02",
+      "symbol": "Allow.ValidationContextCandidate.inventory_requested",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.inventory_requested",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM03",
+      "symbol": "Allow.ValidationContextCandidate.inventory_historical",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.inventory_historical",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM04",
+      "symbol": "Allow.ValidationContextCandidate.inventory_complete",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.inventory_complete",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM05",
+      "symbol": "Allow.ValidationContextCandidate.empty_requested_empty",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.empty_requested_empty",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM06",
+      "symbol": "Allow.ValidationContextCandidate.foreign_definition_excluded",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.foreign_definition_excluded",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM07",
+      "symbol": "Allow.ValidationContextCandidate.collision_detected",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.collision_detected",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM08",
+      "symbol": "Allow.ValidationContextCandidate.no_collision_unique_kind",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.no_collision_unique_kind",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM09",
+      "symbol": "Allow.ValidationContextCandidate.context_exact",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.context_exact",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM10",
+      "symbol": "Allow.ValidationContextCandidate.wrong_scope_denied",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.wrong_scope_denied",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM11",
+      "symbol": "Allow.ValidationContextCandidate.wrong_document_denied",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.wrong_document_denied",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM12",
+      "symbol": "Allow.ValidationContextCandidate.future_base_denied",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.future_base_denied",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM13",
+      "symbol": "Allow.ValidationContextCandidate.missing_base_denied",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.missing_base_denied",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM14",
+      "symbol": "Allow.ValidationContextCandidate.conflicting_inventory_denied",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.conflicting_inventory_denied",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM15",
+      "symbol": "Allow.ValidationContextCandidate.returned_base_exact",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.returned_base_exact",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM16",
+      "symbol": "Allow.ValidationContextCandidate.observed_head_is_snapshot_head",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.observed_head_is_snapshot_head",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM17",
+      "symbol": "Allow.ValidationContextCandidate.returned_inventory_requested",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.returned_inventory_requested",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM18",
+      "symbol": "Allow.ValidationContextCandidate.returned_inventory_unique",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.returned_inventory_unique",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM19",
+      "symbol": "Allow.ValidationContextCandidate.read_preserves_durable",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.read_preserves_durable",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM20",
+      "symbol": "Allow.ValidationContextCandidate.concurrent_commit_does_not_mix",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.concurrent_commit_does_not_mix",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM21",
+      "symbol": "Allow.ValidationContextCandidate.existing_base_survives_append",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.existing_base_survives_append",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "VCM22",
+      "symbol": "Allow.ValidationContextCandidate.nonvacuous_context",
+      "type_authority": "candidate-type-inventory.json/theorem_types/Allow.ValidationContextCandidate.nonvacuous_context",
+      "verifier": "verify_model_closure.py",
+      "pass_condition": "Exact frozen #check type and allowed axioms compile identically in two isolated clean builds under registered Lean4.34.1/toolchain/input root.",
+      "runtime_correspondence": "NOT_CLAIMED; requires corresponding finite runtime tests and explicit trusted semantic interpretation.",
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "witness": "Allow.ValidationContextCandidate.nonvacuous_context uses actual revision0,requested signature definition and exact CRLF source.",
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer/Std and allowed foundational axioms",
+    "SHA256/manifest/verifier/OS/hardware",
+    "Interpretation of snapshot/list/opaque identifiers as scoped immutable database rows",
+    "PostgreSQL16 MVCC/RLS/transaction and SQL proxy correctness for runtime correspondence; specified/tested,not proved here"
+  ],
+  "excluded": [
+    "End-to-end implementation semantic refinement",
+    "Alloy soundness/completeness",
+    "Performance guarantees",
+    "Commercial rights/deployment/accessibility completion"
+  ]
+}

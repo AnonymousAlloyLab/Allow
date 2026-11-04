@@ -1,0 +1,69 @@
+{
+  "claim_id": "CC05",
+  "subcase": "normal-owned",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r3",
+  "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+  "expected_predicate": "Original exact context with one owned signature, exit0, independently observed backend absence, durable hashes unchanged.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 92.610868,
+    "command": [
+      "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+      "-m",
+      "allow_documents.cli"
+    ],
+    "fixture_sha256": "fc46683f4a7ac7b7d92c697d8fe1b78eb4e8e71bc815d0d25432f4f0fb2ae60b",
+    "stdout_sha256": "958883351a22035a41c7b83d28976cbd923e5324df255d93c5719543b92fda4b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562663680061
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562665759194
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562669889261
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562671952763
+      },
+      {
+        "phase": "RETIRING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562678152883
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 61562680218956
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true,
+  "mechanism_predicate": true
+}

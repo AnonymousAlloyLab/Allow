@@ -1,0 +1,562 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-RUNTIME-PLAN-R1",
+  "status": "DESIGN_NOT_EXECUTED",
+  "date": "2026-11-03",
+  "contract": "contract.json",
+  "planned_case_count": 33,
+  "scope": "Finite runtime acceptance of the reviewed context lease implementation. This file is a preregistration design, not evidence or an executable verifier. Production is not modified by authoring it.",
+  "run_prerequisites": [
+    "All6 exact-root implementation-contract approvals and2isolated clean Lean builds beforeproductionedits.",
+    "Freeze finalimplementation, exacttestdrivers, faultbarrier sites, fixtures,verifierhashes, commands, inputroot andTCB beforeeachrun; no executableacceptance verifier exists inthisplan yet.",
+    "Use copied isolatedworkspace/proxy and ownedtemporaryDB/PGcluster for fault tests. Never stop sharedproductionproxy or modifysharedPGconfiguration. AllSQLincludingfixture/control/cleanup traversesSQLeanParser.",
+    "Record source hashes and environment; networkoffduringverification; exactPG16.15 andLinuxkernel/libpq/psycopg/JDK/Leanversions identified. No credentials/private source inpublicartifact.",
+    "Freeze exact final contract and its observer journal/kernel identity mechanism before execution; source-evidence is baseline inspection, not a production implementation certificate."
+  ],
+  "boundaries": {
+    "safety": "Required finite safetycases maypasswhileUNKNOWN legitimatelypersists. Report exactobservedcases, never universalimplementationrefinement.",
+    "availability": "Pre-keycontext/observercrash promptautomaticrecovery remainsopen whenidentitycannotbeestablished. A fail-closedtestPASS isnot completionof thefullP1availabilityexit criterion.",
+    "timing": "1500/250/1000/3000/2500ms are fixedmechanismconstants; trace scheduled deadlines and actual outcomes. Host scheduling/syscallreap mayexceedbudgetwhile ownershipretained. No universalhardwallguarantee.",
+    "target": "Localfeasibility doesnotclose4-vCPU/8-GiBserverperformance acceptance. Thefullhistoryvalidfixturesmuststillpassbeforepromotion.",
+    "correspondence": "Lean lifecycleclaims and runtimeobservations remainseparately classified; noLLM-only mapping provessemanticimplementationcorrespondence.",
+    "ordinary_capacity": "15 is a live-handler limit, not an aggregate backend-count bound. Disconnected ordinary backend tails can exhaust PostgreSQL; context startup can fail and retain UNKNOWN. The existing ordinary cleanup path is out of scope.",
+    "credential_scope": "Actual same-UID cross-process isolation, deterministic wrong-UID policy denial and real0700/0600 owner/mode checks are required. Kernel SO_PEERCRED delivery is trusted. Different-UID process execution is outside the mandatory finite claim unless separately preregistered; no universal OS-authentication proof is claimed."
+  },
+  "instrumentation": {
+    "events": "Private structured lifecycleevents include monotonic_ns, operationnonce, proxygeneration, connectiongeneration,phase,SQLtemplateID,ownedPID/start andboundedreason only. Never source,scope,documentIDs,DSN,queryparameters orBackendKeyDatasecret. Publicartifacts replaceprivateidentifiers withstable run-local labels.",
+    "observation": "Use real pg_stat_activity metadataqueries throughcanonicalproxy in freshautocommit transactions; noquerytextfield. Use LinuxPID/start/boot identities for declaredOSterminationchecks; pid-onlyps output isnotownership.",
+    "barriers": "ExternalOSsignals and registeredtest-only copied-runtime barriers are allowedonlywith exactdiff/hash provenance. Barrierinstrumentedbehavior cannotbyitselfcertify uninstrumentedproduction: retainunmodifiednormalpath tests andmechanicallycheck injectionseamsareabsent/disabled inproduction. Every OS signal in probes uses pidfd plus validated process identity; no raw PID SIGSTOP/SIGCONT/SIGKILL. Missing pidfd support blocks the affected subcase.",
+    "failure_cleanup": "Recordcaseoutcome beforeanyharness emergencycleanup. Emergencycleanup isboundedowned-resource recovery, performedthroughparser orapprovedkernelownershipmechanism; it cannotturn a failedautomaticcleanupcaseintoPASS. Never killunowned/sharedprocesses.",
+    "fixtures": "Every named matrix variant is a requiredsubcase. If hardware/capabilities preventexecution classifythatcase BLOCKED or INFRASTRUCTURE_FAILURE accordingto whether anassertionwasassessed; do notrelabelinjectionsasactualPG behavior."
+  },
+  "runner_registration": {
+    "required_before_execution": true,
+    "verifiers": [],
+    "result_contract": "Each claim/subcase recordsrunID,inputroot,verifierID/hash,fixturehash,command,exitcode,actualeventsequence,expectedpredicate,observedpredicate andPASS/BLOCK; overallstatus exactlyVERIFIED/BLOCKED/INFRASTRUCTURE_FAILURE. Model-onlybuildsuccess cannotpopulate runtimePASS.",
+    "allowed_nondeterminism": [
+      "timestamps",
+      "freshnonces",
+      "processIDs andstartticks",
+      "PGbackend_start",
+      "temporaryfixtureDBname",
+      "measureddurations andresourcecounts withinpredicates"
+    ],
+    "determinism_required": [
+      "case/subcase inventory",
+      "sourceandverifierhashes",
+      "policy/contractconstants",
+      "proofinventory",
+      "resultclassifications",
+      "durablezero-difference predicates"
+    ]
+  },
+  "trusted_components": [
+    "Linux kernel process identity, peer credentials, socket, signal andfsync semantics",
+    "PostgreSQL16.15 behavior andcurrent-query statistics",
+    "psycopg/libpq protocol implementation",
+    "Pinned SQLeanParser grammar executable andruntime",
+    "Java17 process andIO runtime",
+    "Python interpreter andstandardlibraries",
+    "SHA-256 collisionresistance, filesystem andhardware",
+    "Registered deterministic testdrivers andcheckedbarrier instrumentation"
+  ],
+  "cases": [
+    {
+      "id": "CC01",
+      "name": "Loaded source and routing identity",
+      "claim_class": "source_binding",
+      "status": "NOT_EXECUTED",
+      "setup": "Fresh isolated installed checkout; canonical private proxy, PostgreSQL16.15 and pinned SQLeanParser; production source immutable during each run.",
+      "stimulus": "Capture installed and loaded hashes, actual executable/library versions, proxy policy/generation, PG settings, endpoints and Linux peer support.",
+      "pass_predicate": "Exact registered input hashes and v8 interpretation match loaded processes; all data/control SQL reaches the canonical proxy before PG; no direct psycopg.connect outside sql_connections.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Manifest, process identity records, source scanner output, parser counters and metadata-only route trace."
+    },
+    {
+      "id": "CC02",
+      "name": "Control frame byte and schema boundaries",
+      "claim_class": "protocol",
+      "status": "NOT_EXECUTED",
+      "setup": "Owned copied runtime; real Unix control listener; valid UUID and real same-UID peer.",
+      "stimulus": "Exercise8191/8192/8193 byte complete frames, invalidUTF8/BOM/duplicates/nonfinite, omitted/extra fields, bad UUID, two frames, truncated frame and2s stalled read. Padding may be JSON whitespace, never invented accepted fields.",
+      "pass_predicate": "At-limit well-formed frame is admitted only when its operation schema and credential rules pass;8193 and every malformed variant denied before lease/backend creation; incomplete frames consume bounded handler then expire.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Raw private fixtures and lengths, bounded code-only responses, counter/process deltas, kernel peer identity."
+    },
+    {
+      "id": "CC03",
+      "name": "Peer authority and control identity",
+      "claim_class": "protocol",
+      "status": "NOT_EXECUTED",
+      "setup": "Real control socket with actual0600 mode inside actual0700 owned directory and two distinct same-UID child processes. Deterministic credential-policy fixture supplies a nonmatching UID to the denial branch. Kernel SO_PEERCRED identity delivery is an explicitly trusted dependency.",
+      "stimulus": "Register fromA; attempt await fromB; wrong nonce, old generation, caller-supplied PID, arbitrarySQL, route orkill fields; status and matching await fromA. Independently exercise wrong-UID denial with a deterministic credential-policy fixture and inspect real socket/directory owner and modes.",
+      "pass_predicate": "Actual same-UID cross-process test admits only matching peer PID/start plus nonce/generation to its CLEAN receipt; unrelated peer cannot acquire its result. Wrong-UID policy fixture is denied. Real socket/directory modes are0600/0700 and owned as required. Status exposes bounded aggregates only. This finite claim tests application credential policy under trusted kernel peer credentials; it does not prove universal OS authentication.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Actual SO_PEERCRED PID/UID observations, real cross-process responses, deterministic wrong-UID fixture result, actual lstat owner/mode checks, and zero backend/secret/source fields in status.",
+      "excluded_surface": "Executing a separate different-UID OS process is outside this required finite surface on a nonprivileged workstation. If capability is available and the integration is separately preregistered, report it only as additional explicitly scoped evidence; its absence is not a missing required subcase."
+    },
+    {
+      "id": "CC04",
+      "name": "Registration persistence precedes backend open",
+      "claim_class": "ordering",
+      "status": "NOT_EXECUTED",
+      "setup": "Fsync/replace event tracing on an isolated proxy; journal directory initially empty.",
+      "stimulus": "Register once; interrupt at each ordering barrier: initial empty journal fsync+directory fsync, initialized marker fsync, RESERVED durability, CONNECTING durability, backend socket open, KEYED durability, BOUND durability.",
+      "pass_predicate": "No backend-open attempt before durable RESERVED/CONNECTING; no context SQL/readiness before durable KEYED and BOUND; persistence error admits no unregistered work. Never-connected RESERVED is distinct from CONNECTING.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Ordered syscall and application lifecycle events with timestamps and connection generation; private journal snapshots."
+    },
+    {
+      "id": "CC05",
+      "name": "Normal complete snapshot and CLEAN fence",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Real initialized document with exact base and nonempty inventory; run actual CLI and Java context-to-fresh-worker path.",
+      "stimulus": "Validate empty IDs, one owned ID,4096 canonical IDs, and SOURCE candidate; delay observer absence receipt at a deterministic barrier.",
+      "pass_predicate": "Exact original5-field context and validated output; BEGIN/isolation/threeLOCAL/three scope/head/base/optionalhistory/COMMIT order; first scope SELECT is snapshot; CLI success and actual worker spawn occur strictly after bound CLEAN and backend absence. Receipt must also carry successPermitted=true, matching owner/nonce/proxy and connection generations; CLEAN alone is insufficient. Complete legal transaction and client Terminate must precede success eligibility.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Real PG/proxy SQL-template trace, CLI frames, Java process chronology, nonce/generation correlation, durable before/after snapshots."
+    },
+    {
+      "id": "CC06",
+      "name": "Snapshot race and complete history",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Two separately scoped documents, stored base and concurrent valid writer.",
+      "stimulus": "Commit new head/artifact after first tenant scope SELECT barrier; scan history containing early wanted ID and later conflicting kind; repeat later malformed artifact.",
+      "pass_predicate": "Context observes one repeatable-read snapshot; missing/foreign base rejected before inventory; full scan detects late conflict/malformed artifact; no early-exit when all wanted IDs found; no public success for failed scan.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Transaction/barrier trace, exact expected context bytes or bounded failure, worker launch count, state snapshots."
+    },
+    {
+      "id": "CC07",
+      "name": "Narrow SQL settings and protocol",
+      "claim_class": "protocol",
+      "status": "NOT_EXECUTED",
+      "setup": "Real parser and context/observer/ordinary sessions with complete authentication.",
+      "stimulus": "Accept exact3 context LOCAL constants and observer SET500 only in owning preludes; try changes in value/order/case-sensitive template as specified by implementation, timeout0, genericset_config, application_name changes, native/named PREPARE, COPY, pipelining, extraSELECT and omitted isolation. Exercise the exact allowed Q or P/B/optionalD/E0/S cycle; attempt repeated Bind, repeated Execute, rebind after Parse, early next template, nonzero Execute row limit and pipelining.",
+      "pass_predicate": "Required exact templates pass grammar/source-preservation and session sequence; every unlisted form is denied before backend write. Ordinary clients cannot invoke new deadline forms through a generic ParserGate allowance; preexisting reviewed SQL behavior retained. SQL template cursor advances only after actual matching CommandComplete and ReadyForQuery, never Parse admission alone; failed commands cannot advance or confer successPermitted.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Exact input SQL private fixtures, parser decision and backend-forward event counts, protocol state transitions."
+    },
+    {
+      "id": "CC08",
+      "name": "Statement deadline on actual allowed SELECT",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Near-quota history fixture, real context exact history SELECT; identify owned backend PID/start using parser-routed metadata.",
+      "stimulus": "Open pidfd for the observed active history backend, verify PID/start against the bound identity before and after pidfd acquisition, then pidfd-send SIGSTOP; wait fixed1700ms and pidfd-send SIGCONT. Never signal a numeric PID alone. No SQL-template override or pg_sleep admission. If the active phase or pidfd identity cannot be captured, this case is BLOCKED.",
+      "pass_predicate": "Actual PG statement cancellation57014 occurs with1500ms setting confirmed from registered traces; no successful receipt/output; backend eventually independently absent or UNKNOWN retained, never premature lease release.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Bounded raw SQLSTATE, signal identity evidence, monotonic events, PG activity observations and cleanup outcome. This injected scheduling test does not prove normal throughput."
+    },
+    {
+      "id": "CC09",
+      "name": "Lock deadline",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Separate owned ordinary session through proxy holds ACCESS EXCLUSIVE lock on documents.document inside a transaction.",
+      "stimulus": "Run exact context head read; release test lock only after timeout outcome recorded.",
+      "pass_predicate": "Context receives actual55P03 from250mslock timeout before normal statement timeout; no success/Alloy; owned context backend cleanup verified; unrelated lock-owner session not signaled.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Parser-routed lock SQL and release, timestamps, SQLSTATE, context and foreign backend identity observations."
+    },
+    {
+      "id": "CC10",
+      "name": "Idle transaction deadline",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Actual CLI paused at barrier after timeout prelude before nextscope/data statement.",
+      "stimulus": "Pause only owned CLI for1200ms while PG is confirmed idle in transaction.",
+      "pass_predicate": "PG terminates context session with actual idle-in-transaction timeout; no CLEAN-based success after deadline/failure; exact backend absence observed; no mutable tables changed.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "PG status and SQLSTATE/error category captured privately, proxy/CLI lifecycle and snapshots."
+    },
+    {
+      "id": "CC11",
+      "name": "Total context wall budget",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Actual context with staged/history decode barrier; backend query completed but client remains inside context.",
+      "stimulus": "Pause owned CLI after row receipt/decode barrier beyond3000ms from registration.",
+      "pass_predicate": "Retirement triggered by registration deadline, not renewed per SQL/frame; later input rejected; any late result suppressed; CLEAN only follows independent absence; timeout is not reported as a proof of instantaneous OS cleanup.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Registration/deadline/retirement/late-send timestamps, response and backend/lease states."
+    },
+    {
+      "id": "CC12",
+      "name": "CLI death and Java death",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Actual fresh bridge and owned backend with source unchanged; separate fixed fixture per death point.",
+      "stimulus": "Using pidfd plus verified process start identity, SIGKILL CLI or Java parent at BOUND, scope, active history and decoding phases;4 phases times2 owners.",
+      "pass_predicate": "Each old context suppresses output; proxy cancels owned session or uses deadlines, independently observes absence or retains UNKNOWN; replacement context cannot bypass pending lease; no manual PG cancellation used to obtain a passing result.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Actual OS PID/start exits, cancel events without keys, backend metadata observations, replacement denial and durable snapshots."
+    },
+    {
+      "id": "CC13",
+      "name": "Client EOF, cancellation and protocol failure",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Real context at active read and idle transaction, plus unrelated ordinary session.",
+      "stimulus": "Close client transport, send owned CancelRequest, send malformed frontend frame, and interrupt caller;4 faults at2 phases.",
+      "pass_predicate": "RETIRING precedes publication suppression; cancellation only on owned key; client/cancel socket EOF alone never CLEAN; no foreign session signaled; bridge reap and DB lease outcomes separately recorded.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Actual packet categories, state sequence, target/foreign backend observations and Java/CLI process traces."
+    },
+    {
+      "id": "CC14",
+      "name": "Literal parser shutdown",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Isolated owned proxy and its actual sealed parser children/helpers; never shared listener.",
+      "stimulus": "Stop actual parser service/owned execution child during context prelude and during cleanup observer query; restart only under registered recovery branch.",
+      "pass_predicate": "No unparsed SQL forwarded; failed cleanup observation leaves UNKNOWN; no successful context or worker; restored parser may reconcile only owned complete identity.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Owned process stop/exit trace, parser generation evidence, SQL-forward counters, pending journal and replacement denial."
+    },
+    {
+      "id": "CC15",
+      "name": "Secret cancellation and PID reuse defenses",
+      "claim_class": "ownership",
+      "status": "NOT_EXECUTED",
+      "setup": "Actual two PG sessions plus deterministic protocol unit fixtures for otherwise impractical PID reuse.",
+      "stimulus": "Send foreign/wrong/stale cancellation keys; mutate metadata predicate PID/start/database/role/appname one at a time; simulate samePID differentstart; never intentionally hit a reused real foreign PID.",
+      "pass_predicate": "No signal for unmatched key; no pg_cancel_backend or pg_terminate_backend SQL emitted; mismatch cannot authorize CLEAN or ownership substitution; reused identity modeled fixtures labeled simulated. All test signals use pidfd acquired and identity-checked while the owned process exists; inability to establish ownership is BLOCKED, never permission to signal by raw PID.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Real foreign-session continued query evidence, protocol rejection traces, deterministic identity fixture assertions and source SQL scan."
+    },
+    {
+      "id": "CC16",
+      "name": "Fresh observation and absence",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Known BOUND backend with live then terminated session; actual autocommit observer.",
+      "stimulus": "Observe while live; terminate owned transport; observe again; inject stale cached result and missing/multiple metadata identities in separate narrow fixtures.",
+      "pass_predicate": "Live identity never CLEAN; exact current absence after identity established permits CLEAN; each query has fresh transaction; stale/ambiguous/unavailable results retain UNKNOWN.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "PG transaction status trace, ordered metadata results, receipt state and explicitly labeled fault fixtures."
+    },
+    {
+      "id": "CC17",
+      "name": "Observation budget and uncertainty",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "BOUND context; artificially block metadata response or stop observer transport after cancellation.",
+      "stimulus": "Hold observation beyond2500ms; issue replacement registration and expired receipt lookup; repeat fixed3times.",
+      "pass_predicate": "Bounded caller outcome UNAVAILABLE; journal UNKNOWN retains lease across all3attempts; expired receipts do not release lease; no growing observer/query/session count.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Monotonic budget trace, persisted state, resource counts and rejected replacement frames."
+    },
+    {
+      "id": "CC18",
+      "name": "Proxy graceful stop",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Actual copied proxy with context at each KEYED/BOUND/history/COMMIT/transport-close/observation/receipt barrier.",
+      "stimulus": "Send SIGTERM, then a second SIGTERM during bounded cleanup, one fixture per7phases.",
+      "pass_predicate": "No new context admission; cleanup cancellation-resistant within declared ownership logic; completed exactabsence becomes CLEAN, unfinished becomes durable UNKNOWN; no swallowed uncertainty or stale success.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Signals, process exits, journal fsync sequence, backend states, output/receipt decisions."
+    },
+    {
+      "id": "CC19",
+      "name": "Proxy SIGKILL and restart after complete binding",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "BOUND context identity journaled before each tested phase; ordinary SQL startup must remain available.",
+      "stimulus": "SIGKILL proxy at BOUND/history/COMMIT/transport-close/observation/receipt-before-send; restart exact approved bytes.",
+      "pass_predicate": "Old generation cannot issue success to in-flight CLI; startup reconciles exact old session before context readiness; cancellation uses retained ownedsecret; absence permits eventual new generation; UNKNOWN blocks safely.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Pre/post journal, process identities, old/new generations, PG observations, receipt rejection and resource census."
+    },
+    {
+      "id": "CC20",
+      "name": "Pre-key startup UNKNOWN is a safety case",
+      "claim_class": "safety_not_availability",
+      "status": "NOT_EXECUTED",
+      "setup": "Persist CONNECTING and open real backend connection; deterministic barrier before BackendKeyData durability.",
+      "stimulus": "SIGKILL proxy; restart; obtain empty activity lookup while auth incomplete; attempt3registrations, wait beyond receiptTTL60s, restart again.",
+      "pass_predicate": "Persist UNKNOWN and reject all replacement contexts; empty snapshot, elapsedtime, clientEOF and restart do not certify cleanup. Ordinary SQL may operate. This case passing proves fail-closed behavior only; prompt automatic pre-key recovery remains explicitly OPEN.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Actual pre-key event barrier, retained journal across2restarts, empty observation evidence,3denials plusTTLdenial, separate availabilityOpen flag."
+    },
+    {
+      "id": "CC21",
+      "name": "KEYED without complete metadata",
+      "claim_class": "safety_not_availability",
+      "status": "NOT_EXECUTED",
+      "setup": "BackendKeyData persisted but backend_start not BOUND.",
+      "stimulus": "Crash before metadata bind; repeat presentmatching, absent, duplicate-name and mismatched-role/db outcomes using actual session where feasible and tagged fixtures otherwise.",
+      "pass_predicate": "Only positively established exact matching identity can progress to independently observed absence/CLEAN; absent or ambiguous incomplete identity stays UNKNOWN; noPID-only recovery.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Journal phases, actual or labeled simulated observations, generation/cancel checks and replacement outcomes."
+    },
+    {
+      "id": "CC22",
+      "name": "Journal corruption and durability failures",
+      "claim_class": "filesystem",
+      "status": "NOT_EXECUTED",
+      "setup": "Private owned fixture runtime; preserve production metadata.",
+      "stimulus": "Try truncated/duplicate/unknownfield/impossiblephase/over65536byte JSON, symlink, wrongowner/mode, initialized marker with missingjournal, write/fsync/replace/dirfsync injected failure; each independently. Also test valid journal without marker: validate conservatively and never overwrite retained reservations; initial empty journal must be durable before marker creation.",
+      "pass_predicate": "Every unsafe state degrades context readiness; no unsafe follow/read/write target and no forgotten active reservation; failure beforeconnect admits no backend; no manual UNKNOWN-to-CLEAN override.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Private fixture hashes/modes, syscall outcomes, journal/backend/open counts and status responses."
+    },
+    {
+      "id": "CC23",
+      "name": "Live-handler limits and persistent observer availability",
+      "claim_class": "concurrency",
+      "status": "NOT_EXECUTED",
+      "setup": "Actual PG max20,reserved3 confirmed; persistent observer owns1 identified backend before context READY. Begin with no disconnected tails.",
+      "stimulus": "Hold15 ordinary live handlers, admit1 context, attempt16th ordinary and2nd context; fill4 extra incomplete-handshake/cancel handlers and try5th; retire context while ordinary handlers remain full.",
+      "pass_predicate": "Ordinary live handlers<=15, context live/retiring/UNKNOWN leases<=1, observer live/unknown reservations<=1; extra handshake slots grant no ordinary backend admission. In this no-tail fixture the preexisting observer remains usable for cleanup. This case does not assert an aggregate17-backend limit or guaranteed context startup under tails/external contention.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Simultaneous kernel/proxy/pg_stat_activity census, handler/task counters, acceptance/rejection results and cleanup timeline."
+    },
+    {
+      "id": "CC24",
+      "name": "Observer lane authority and single ownership",
+      "claim_class": "ownership",
+      "status": "NOT_EXECUTED",
+      "setup": "Real reserved observer connection and external sameUIDprocess.",
+      "stimulus": "Externalprocess spoofs observer tag; fail observer query/transport; trigger3requests/restarts while observer cleanup uncertain.",
+      "pass_predicate": "Own-process peer gate rejects spoof; at most1live/unknown observer reservation and1owned thread; no automaticreplacement until priorownedidentity exit established; contexts remainDEGRADED if unknown.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "SO_PEERCRED identities, PG/kernel session census, thread/FD counts and reservation journal."
+    },
+    {
+      "id": "CC25",
+      "name": "Observer crash restart reconciliation",
+      "claim_class": "safety_not_availability",
+      "status": "NOT_EXECUTED",
+      "setup": "Final reviewed observer journal amendment: unique proxy-generation startup tag, separate durable reservation, recorded BackendKeyData and Linux boot/PID/start identity, observed around metadata binding.",
+      "stimulus": "SIGKILL proxy at observer CONNECTING/pre-key, KEYED, BOUND, activeobservation andretiring; restart exactbytes.",
+      "pass_predicate": "No replacement observer before recorded Linux identity absence is established; pre-key ambiguity remains durable UNKNOWN/DEGRADED. Complete identity uses only secret-bound CancelRequest and read-only kernel identity observation; ENOENT, changed start_ticks or changed boot establish old identity absence as contracted; unreadable metadata is UNKNOWN. Ordinary SQL startup stays usable. Old observer reservation must clear before new observer can produce context absence evidence; old context is never forgotten to unblock this dependency.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Observer journal before/after, exact kernelPID/start/boot checks, PGcensus, cancellationcategory and admission decisions. Contract must freeze this mechanism before execution."
+    },
+    {
+      "id": "CC26",
+      "name": "Receipt bounds and replay",
+      "claim_class": "protocol",
+      "status": "NOT_EXECUTED",
+      "setup": "Real control server plus completedownedleases, simulated monotonicclock only in separately labeled unitfixture.",
+      "stimulus": "Generate65sequentialcleanreceipts,65th boundary; wait60sTTL; fourconcurrentawaits and5th; wronggeneration/replayednonce/latearrivalafterretirement. After each PG/parser/protocol/deadline failure, arrange successful cleanup and then attempt late success publication.",
+      "pass_predicate": "Receiptretention<=64, handlers<=4, await<=6s; expiry/replay cannotcertify currentcontext orclearactivelease; onlymatchingliveowner/generation receives successfulCLEAN. CLEAN after any failure has successPermitted=false permanently for that generation; later successful cleanup never re-enables publication.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Counts, boundedresponses, timestamp/clockprovenance, journal and successfulCLIoutputevents."
+    },
+    {
+      "id": "CC27",
+      "name": "Logging privacy preflight",
+      "claim_class": "integration",
+      "status": "NOT_EXECUTED",
+      "setup": "Copied PG settings readthroughparser; allchanges confined ownedtestcluster, no globalsharedconfiguration edits.",
+      "stimulus": "Test safe defaults; log_parameter_max_length=0; unsafe on_error>0; unsafe statement/duration/sample logging withparameterloggingenabled; at least7fixedconfigurationrows registeredbeforeexecution.",
+      "pass_predicate": "READY onlywhen actualsettings satisfy exactprivacy predicate; unsafe settings resultDEGRADED; no newrolegrants/globaltimeouts; actualsettingvalues boundtoevidence.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Parser-routed current_setting results, readinessdecision and unchangedsharedPGconfigurationhashes."
+    },
+    {
+      "id": "CC28",
+      "name": "No private markers in observable logs",
+      "claim_class": "privacy",
+      "status": "NOT_EXECUTED",
+      "setup": "Random private marker in boundscope/source fixture and secretmarker in cancelkeyfixture; actual timeout andmalformed-query paths.",
+      "stimulus": "ExecuteCC08-CC14 failurevariants with markers, collect ownedPG/proxy/CLI/Java/stdout/stderr/control/status logs using privateverifier.",
+      "pass_predicate": "No source/bind/credential/backendsecret marker appears in publicevidence/logs/status; observer SELECT neverreadsquerytext; onlyconstantSQL mayappear in privatePGerrorstatement logs.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Private rawlogs retained0600 withhashonlypublic; mechanical marker scan count0, SQLfieldscan and boundederrorresponse checks."
+    },
+    {
+      "id": "CC29",
+      "name": "Full permitted history/quota viability",
+      "claim_class": "performance_not_target_acceptance",
+      "status": "NOT_EXECUTED",
+      "setup": "Storage-shaped fixture4096revisions,268434782accountedbytes; recordactualartifact/rawrowbytes and distinguishfrom4096Alloyadmissions.",
+      "stimulus": "Run3empty-ID contexts and3nonempty4096-ID fullinventorycontexts withfixedcandidateconstants; additional lateconflict fixture.",
+      "pass_predicate": "All6validcontexts succeedwithincontextworkdeadline, independentlycleanup andemitreceipt; conflictfixturefailswithoutsuccess; no earlyexit or quota/timeoutraise. Any permittedvalidfixturetimeout blockspromotion ratherthanloweringworkload.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Allrawdurations/querycounts/rowsbytes/RSS/AS/CPU, constants, outputs and fullscandigest;3samples is feasibilityonly, notp95claim."
+    },
+    {
+      "id": "CC30",
+      "name": "Read-only durable invariance",
+      "claim_class": "state",
+      "status": "NOT_EXECUTED",
+      "setup": "For every integrationcase capture canonicalordered private snapshots of all documents/retrievaldurabletables throughparser beforefault/aftercleanup.",
+      "stimulus": "Run success,error,cancel,parentdeath,proxyrestart andUNKNOWNcases againstownedfixtures.",
+      "pass_predicate": "For read-onlyoperation all durabletable bytes/hashes and receipts/admissions/reservationcounters equal before/after except declaredfixturewriter inCC06; comparison covers same frozen table inventory.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Registeredtableinventory, ordered snapshot hashes, writer exception record and exactzero difference result."
+    },
+    {
+      "id": "CC31",
+      "name": "Durable, backup and SQL regressions",
+      "claim_class": "regression",
+      "status": "NOT_EXECUTED",
+      "setup": "Full current suites againstapprovednewpolicy; freshownedtemporaryDB/recovery paths.",
+      "stimulus": "Run Java/frontend/Python/SQL regressions, HTTPsmoke,restart,backup/recovery andclientrouting; preservecurrentbaseline189/164/186/52 anddo notcountgateprobesasexistingtests.",
+      "pass_predicate": "Allregisteredcurrenttests pass; mutatorUNKNOWN_COMMIT_OUTCOME/receipt/CAS unchanged; ordinarymigration/dumpSQLsettings retained; no newblankettimeout; loadedsourceidentityincludes everynewproxymodule.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Rawcommands/exitcodes/testinventories, old/newpolicy sourcehashes, backuprestore comparison androuting manifest."
+    },
+    {
+      "id": "CC32",
+      "name": "Ordinary backend-tail churn and PG slot exhaustion",
+      "claim_class": "safety_not_availability",
+      "status": "NOT_EXECUTED",
+      "setup": "Owned isolated PG/proxy with persistent identified observer; ordinary clients may run allowed long queries through SQLeanParser. Their existing disconnect behavior is not upgraded by this context-only change.",
+      "stimulus": "Perform20 sequential ordinary connection/query/disconnect attempts while their owned backend tails remain active, recording actual PG slot rejection; then attempt3 context registrations and observer cleanup. Freeze exact query/barrier driver before run. Repeat observer loss during exhaustion as a separate fixture.",
+      "pass_predicate": "Live-handler caps remain respected but actual backend count is measured rather than inferred. PG slot exhaustion yields bounded context UNAVAILABLE and retained CONNECTING/UNKNOWN whenever backend identity is uncertain. Persistent observer is not silently replaced; no extra observer reservation, broad kill or manual state deletion. No advertised guarantee of17 aggregate backends or always-available context slot.",
+      "block_conditions": [
+        "Exhaustion is reported as successful context or ignored",
+        "An ambiguous connection is dropped from ownership accounting",
+        "No real backend-tail/exhaustion state reached",
+        "Any SQL bypass or foreign signal"
+      ],
+      "required_evidence": "Actual PG and proxy counts over time, actual observed rejection SQLSTATE/category, backend identities, lease journal,3 registration outcomes, observer ownership and no-replacement trace."
+    },
+    {
+      "id": "CC33",
+      "name": "Final finite runtime binding",
+      "claim_class": "closure",
+      "status": "NOT_EXECUTED",
+      "setup": "All prior cases have registeredrunner/source/fixture hashes and immutable per-case evidence.",
+      "stimulus": "Run binder againstexact currentroot, verify case/subcase completeness, cleanbuildA/B metadata anddeclarednondeterministicfields.",
+      "pass_predicate": "No missing/duplicate/unboundcase, unexplainedbuild/typeinventory divergence or evidence reuse; everyrequiredsafetycase PASS. Known pre-keystartupavailability separately remainsOPEN/BLOCKED andtargethardwareperformance isNOT_ASSESSED.",
+      "block_conditions": [
+        "Any listed predicate false, missing or unbound",
+        "Instrumentation failed to reach the declared phase",
+        "Unexpected SQL bypass, manual cleanup before success assessment, or private data in public evidence"
+      ],
+      "required_evidence": "Machine-readable finite report withinputroot,verifierhash,casecounts,builds,TCB,failedcases,availabilitylimitations andpublicclaim bindings."
+    }
+  ],
+  "current_evidence": "No runtimecaseexecuted for thiscandidate; historicalvalidation-context evidence establishesbaseline limitations only."
+}

@@ -1,0 +1,67 @@
+import PerformancePlan
+set_option format.width 1000000
+set_option pp.universes true
+#check @Allow.PerformancePlan.step_preserves_invariant
+#print axioms Allow.PerformancePlan.step_preserves_invariant
+#check @Allow.PerformancePlan.reachable_invariant
+#print axioms Allow.PerformancePlan.reachable_invariant
+#check @Allow.PerformancePlan.one_request_per_generation
+#print axioms Allow.PerformancePlan.one_request_per_generation
+#check @Allow.PerformancePlan.staging_requires_consumption
+#print axioms Allow.PerformancePlan.staging_requires_consumption
+#check @Allow.PerformancePlan.delivery_requires_staging
+#print axioms Allow.PerformancePlan.delivery_requires_staging
+#check @Allow.PerformancePlan.ready_is_unconsumed
+#print axioms Allow.PerformancePlan.ready_is_unconsumed
+#check @Allow.PerformancePlan.step_preserves_durable
+#print axioms Allow.PerformancePlan.step_preserves_durable
+#check @Allow.PerformancePlan.advisory_never_mutates_durable
+#print axioms Allow.PerformancePlan.advisory_never_mutates_durable
+#check @Allow.PerformancePlan.retirement_cannot_resume
+#print axioms Allow.PerformancePlan.retirement_cannot_resume
+#check @Allow.PerformancePlan.release_requires_reaping
+#print axioms Allow.PerformancePlan.release_requires_reaping
+#check @Allow.PerformancePlan.staging_requires_busy
+#print axioms Allow.PerformancePlan.staging_requires_busy
+#check @Allow.PerformancePlan.delivery_requires_reaped
+#print axioms Allow.PerformancePlan.delivery_requires_reaped
+#check @Allow.PerformancePlan.poison_sticky_in_generation
+#print axioms Allow.PerformancePlan.poison_sticky_in_generation
+#check @Allow.PerformancePlan.poison_prevents_delivery_in_generation
+#print axioms Allow.PerformancePlan.poison_prevents_delivery_in_generation
+#check @Allow.PerformancePlan.step_generation_monotone
+#print axioms Allow.PerformancePlan.step_generation_monotone
+#check @Allow.PerformancePlan.trace_generation_monotone
+#print axioms Allow.PerformancePlan.trace_generation_monotone
+#check @Allow.PerformancePlan.poisoned_trace_cannot_deliver
+#print axioms Allow.PerformancePlan.poisoned_trace_cannot_deliver
+#check @Allow.PerformancePlan.generation_increases_only_at_boot
+#print axioms Allow.PerformancePlan.generation_increases_only_at_boot
+#check @Allow.PerformancePlan.stale_generation_rejected
+#print axioms Allow.PerformancePlan.stale_generation_rejected
+#check @Allow.PerformancePlan.staged_reply_is_guarded_step
+#print axioms Allow.PerformancePlan.staged_reply_is_guarded_step
+#check @Allow.PerformancePlan.cancelled_reply_never_delivered
+#print axioms Allow.PerformancePlan.cancelled_reply_never_delivered
+#check @Allow.PerformancePlan.delivered_reply_is_guarded_step
+#print axioms Allow.PerformancePlan.delivered_reply_is_guarded_step
+#check @Allow.PerformancePlan.live_pool_bound
+#print axioms Allow.PerformancePlan.live_pool_bound
+#check @Allow.PerformancePlan.idle_warm_occupies_slot
+#print axioms Allow.PerformancePlan.idle_warm_occupies_slot
+#check @Allow.PerformancePlan.timeout_cannot_release
+#print axioms Allow.PerformancePlan.timeout_cannot_release
+#check @Allow.PerformancePlan.database_release_requires_observation
+#print axioms Allow.PerformancePlan.database_release_requires_observation
+#check @Allow.PerformancePlan.timeout_preserves_durable
+#print axioms Allow.PerformancePlan.timeout_preserves_durable
+#check @Allow.PerformancePlan.acceptance_requires_three_runs
+#print axioms Allow.PerformancePlan.acceptance_requires_three_runs
+#check @Allow.PerformancePlan.every_accepted_run_meets_target
+#print axioms Allow.PerformancePlan.every_accepted_run_meets_target
+#check @Allow.PerformancePlan.observed_slow_run_rejects_series
+#print axioms Allow.PerformancePlan.observed_slow_run_rejects_series
+#check @Allow.PerformancePlan.successful_one_use_witness
+#print axioms Allow.PerformancePlan.successful_one_use_witness
+#check @Allow.PerformancePlan.accepted_series_witness
+#print axioms Allow.PerformancePlan.accepted_series_witness

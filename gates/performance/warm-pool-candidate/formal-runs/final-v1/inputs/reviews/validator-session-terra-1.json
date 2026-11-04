@@ -1,0 +1,35 @@
+{
+  "reviewer": "terra-1",
+  "decision": "REQUEST_CHANGES",
+  "package_inventory_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "contract_sha256": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d",
+  "scope": "Adversarial design-only review. This is not approval to implement, a two-build proof closure, runtime correspondence, performance acceptance or commercial clearance.",
+  "findings": [
+    {
+      "id": "VST1-01",
+      "severity": "high",
+      "location": "isolation_and_reset; VS-U02; VS10-VS14",
+      "problem": "Fresh child classloaders do not isolate JDK-global state, native state, static registrations, surviving threads or references held by supervisor/platform code. The contract correctly recognizes this but does not yet identify the actual transitive classes, mutable global registration paths, or a workable independent reset observation. Acknowledgements and finite differential tests cannot themselves establish universal fresh-worker equivalence.",
+      "required_fix": "Complete and freeze the actual dependency/global-state audit and an implementable parent-observed cleanup/fail-closed design, including native/JDK registries, threads, hooks, files, classloader delegation and loader escape. State residual trusted assumptions and demonstrate the proposed separation and differential cases before requesting an implementation-ready design review. Retire on uncertainty and keep fresh-worker correspondence an explicit premise."
+    },
+    {
+      "id": "VST1-02",
+      "severity": "high",
+      "location": "immutable_image; resources_and_lifetime; VS-U03 and VS-U04",
+      "problem": "The sealed classpath helper, descriptor transfer, mount-to-object correspondence and deterministic BuildIdentity reconstruction are not yet specified or demonstrated, and the global live-slot ledger has no frozen mapping to actual process lineage. Per-process 12-second CPU limits do not bound aggregate helper/bubblewrap/JVM consumption; a 64-request lifetime cap does not prove memory or process-tree containment.",
+      "required_fix": "Freeze concrete process/descriptor ownership, bounded startup and failure teardown, image manifest reconstruction, PID/start-tick lineage and ledger transitions. Establish a workable aggregate CPU/resource policy or explicitly justify and enforce a bounded per-descendant budget without weakening inherited limits; test actual inherited limits, cancellation, parent death, late frames and whole-tree reaping before any production authorization."
+    },
+    {
+      "id": "VST1-03",
+      "severity": "medium",
+      "location": "observed_basis.measurements; VS-U01 and VS-U05",
+      "problem": "The measured fresh-worker and persistence components do not establish that a reusable isolated loader can recover the 468 ms HTTP p95 to below 300 ms, and the candidate model has only a local development check. Existing abstract claims assume correspondence rather than prove the implementation or resource isolation.",
+      "required_fix": "Complete the frozen baseline and source-bound decomposition, then assess a credible full-path budget including image startup, full installation checks, fresh loader, scoped SQL calls, retirement and failures. Register exact candidate and inherited claims, TCB and verifier, secure the specified independent reviews, and run two clean model builds before implementation. Preserve the unchanged target and report failures."
+    }
+  ],
+  "positive_design_boundaries": [
+    "Advisory-only scope retains separate one-shot durable and solver paths; all scoped SQL authorization remains mandatory.",
+    "Staged response, exact identities, reset-gated publication, cumulative JVM CPU and live-slot accounting express necessary fail-closed intentions but remain unimplemented obligations.",
+    "Commercial rights, manual accessibility and operational economics remain separate from model and latency evidence."
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "classification": "TESTED_HTTP_INTEGRATION_NOT_FORMAL_REFINEMENT",
+  "checks": [
+    "Built React assets served",
+    "Missing/wrong bearer and hostile Host/Origin rejected",
+    "Real SAT4J outcome coexists with cheaper checked Boolean extraction",
+    "Relation idempotence lifts through SOME with a checked certificate",
+    "Certificate endpoints/module/path/ruleset match authenticated result",
+    "Alpha-renaming preserves exact structural bytes/features and complete egraph output",
+    "Readable witness names remain separate from anonymous optimization data",
+    "Validation computes egraphs without inventing SAT evidence",
+    "Unsupported canonical syntax preserves solver result and has no raw egraph fallback"
+  ],
+  "boolean_example": {
+    "solver_status": "SAT",
+    "islands": [
+      {
+        "rootPath": [
+          3,
+          0,
+          5
+        ],
+        "certificateStatus": "CHECKED",
+        "stopReason": "PROOF_LIMIT",
+        "inputCost": 8,
+        "extractedCost": 2,
+        "stats": {
+          "rounds": 3,
+          "nodes": 73,
+          "matches": 2768,
+          "classes": 14,
+          "unions": 59,
+          "rebuilds": 3
+        }
+      },
+      {
+        "rootPath": [
+          5,
+          6
+        ],
+        "certificateStatus": "CHECKED",
+        "stopReason": "PROOF_LIMIT",
+        "inputCost": 8,
+        "extractedCost": 2,
+        "stats": {
+          "rounds": 3,
+          "nodes": 73,
+          "matches": 2768,
+          "classes": 14,
+          "unions": 59,
+          "rebuilds": 3
+        }
+      }
+    ]
+  },
+  "relation_example": {
+    "solver_status": "SAT",
+    "islands": [
+      {
+        "rootPath": [
+          3,
+          0,
+          5
+        ],
+        "certificateStatus": "CHECKED",
+        "stopReason": "SATURATED",
+        "inputCost": 4,
+        "extractedCost": 2,
+        "stats": {
+          "rounds": 3,
+          "nodes": 6,
+          "matches": 200,
+          "classes": 2,
+          "unions": 4,
+          "rebuilds": 4
+        }
+      },
+      {
+        "rootPath": [
+          5,
+          6
+        ],
+        "certificateStatus": "CHECKED",
+        "stopReason": "SATURATED",
+        "inputCost": 4,
+        "extractedCost": 2,
+        "stats": {
+          "rounds": 3,
+          "nodes": 6,
+          "matches": 200,
+          "classes": 2,
+          "unions": 4,
+          "rebuilds": 4
+        }
+      }
+    ]
+  },
+  "browser_qa": "NOT_RUN: extension inventory empty; Chrome creation returned Browser is not available",
+  "dataset_sources_used": false,
+  "launch_capability_recorded": false
+}

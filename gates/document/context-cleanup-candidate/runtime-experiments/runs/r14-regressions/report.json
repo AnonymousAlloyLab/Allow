@@ -1,0 +1,130 @@
+{
+  "status": "PASS",
+  "run_id": "r14-regressions",
+  "input_root_sha256": "004d5d10426cb0dfc21b778ad9f322d9530be4af54006ddc84d549bae8fefdba",
+  "steps": [
+    {
+      "name": "bootstrap",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7660238399985246,
+      "log_sha256": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e",
+      "status": "PASS"
+    },
+    {
+      "name": "migrate",
+      "exit_code": 0,
+      "elapsed_seconds": 4.269493626008625,
+      "log_sha256": "f61fcfabd3044e28be6bd0b96a0528bc316ac6bf06326f4234c95997074bbe6a",
+      "status": "PASS"
+    },
+    {
+      "name": "initialize-retrieval",
+      "exit_code": 0,
+      "elapsed_seconds": 0.3139617709966842,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "bootstrap-documents",
+      "exit_code": 0,
+      "elapsed_seconds": 1.9161440230091102,
+      "log_sha256": "db5265310a8947eff5f62249eb59500651be7243617cd63eb06216c8eba78836",
+      "status": "PASS"
+    },
+    {
+      "name": "python-all",
+      "exit_code": 0,
+      "elapsed_seconds": 40.41928834600549,
+      "log_sha256": "6773417031a6960515fff7cf17835527d75e50289a55375bbc29327b888b0ab0",
+      "status": "PASS"
+    },
+    {
+      "name": "sql-runtime",
+      "exit_code": 0,
+      "elapsed_seconds": 21.74576761201024,
+      "log_sha256": "6c3ac14ba6c079d00cea01880fa2b084ec55442cdb403ccd440ff106e18dddf6",
+      "status": "PASS"
+    },
+    {
+      "name": "sql-clients-and-retrieval-recovery",
+      "exit_code": 0,
+      "elapsed_seconds": 19.792020758002764,
+      "log_sha256": "b967407333d3c4befc5104d32fedd118ca23f587720d7e5e8356dc6f024b7f19",
+      "status": "PASS"
+    },
+    {
+      "name": "document-recovery",
+      "exit_code": 0,
+      "elapsed_seconds": 9.878662967006676,
+      "log_sha256": "cd0d098630e59b889f0cb7e63b2adb8ba5933cc45f9c3893e7fc49403b5c1b20",
+      "status": "PASS"
+    },
+    {
+      "name": "http-smoke",
+      "exit_code": 0,
+      "elapsed_seconds": 8.825971752987243,
+      "log_sha256": "b2e8763938dc703ab9509291edce8b137fbe1019f7cc90373875a5e607589295",
+      "status": "PASS"
+    },
+    {
+      "name": "http-restart",
+      "exit_code": 0,
+      "elapsed_seconds": 0.4140976080088876,
+      "log_sha256": "feed9f8f5600eb0ad23f35b17273c3b8be31472b6ec81cee24f129b03ee57ae6",
+      "status": "PASS"
+    }
+  ],
+  "p1_33_case_acceptance": "BLOCKED",
+  "shared_runtime_modified": false,
+  "spring_crash": {
+    "owned_identity_absent": true,
+    "exit_code": -9,
+    "intentional_crash": true,
+    "emergency_escalation": false
+  },
+  "spring_cleanup": {
+    "owned_identity_absent": true,
+    "exit_code": 143,
+    "intentional_crash": false,
+    "emergency_escalation": false
+  },
+  "service_cleanup": [
+    {
+      "service": "proxy",
+      "emergency_escalation": false,
+      "owned_identity_absent": true
+    },
+    {
+      "service": "postgres",
+      "emergency_escalation": false,
+      "owned_identity_absent": true
+    }
+  ],
+  "source_mutation": [],
+  "tooling_mutation": [],
+  "managed_runtime_inventory_unchanged": true,
+  "managed_runtime_links_unchanged": true,
+  "copied_artifacts": [
+    {
+      "path": "client-coverage.json",
+      "sha256": "f77cd9a9f77d91f649f0946302fe06e052889eeefaf289ec8585967b7b6755fd"
+    },
+    {
+      "path": "recovery-report.json",
+      "sha256": "99327fc24c5ebc6b4fcbdfbaf08506dd79e8fe2a48941ce8ef13e75c26b68153"
+    },
+    {
+      "path": "document-recovery-report.json",
+      "sha256": "6d76af91c0212d03f896a768de99e50f5fe88a7fbf59b5d379062fb644602118"
+    },
+    {
+      "path": "http-smoke.json",
+      "sha256": "5e26f7a265a2d9b168bae38e26b56be7c6e00875ce9633a0c9d189f5389d1cde"
+    },
+    {
+      "path": "restart-report.json",
+      "sha256": "e6aece6d0e111b763cbd7bef693e783be06c14ba5de5995bb805a3100781e9f4"
+    }
+  ],
+  "boundary": "Finite current regressions; default profile, no timing selection, no all33 closure or shared service promotion."
+}

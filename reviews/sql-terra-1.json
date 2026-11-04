@@ -1,0 +1,26 @@
+{
+  "seat": "terra-1",
+  "status": "APPROVE",
+  "scope": "Revision 3 routing design and abstract Lean obligations; approval is conditional on the remaining council, clean formal gate and runtime evidence.",
+  "supplement": "spec/sql-stage.json",
+  "supplement_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "formal_file": "formal/Allow/SqlRouting.lean",
+  "formal_sha256": "228d56de2998e31554d577356ff953ca506fafb40390288175559871bcbd56ad",
+  "types_file": "spec/sql-types.json",
+  "types_sha256": "6ec9e5effed49ec557214d7271ac589737bf1768ed141b06c320a13a638571ac",
+  "findings": [
+    "Admission binds the exact SQL, binary, profile and policy, successful derivation and preservation, and exclusion of opaque SQL. Cache reuse binds the complete request and accepted report.",
+    "The reachable-state invariant admits Parse only after successful admission, and Bind captures its accepted statement payload in a portal; Execute resolves that portal even if the statement is replaced. The model proves acceptance for Execute in a reachable state.",
+    "Revision 2 addresses mode changes before pipelined queries, indirect nested forbidden constructs, private endpoint configuration, bounded resources and transaction portal lifecycle. These are implementation obligations, not consequences of the Lean model.",
+    "Implicit transaction controls, PostgreSQL utility clients and dump/restore all remain subject to the same parser gate. Parser coverage gaps must fail closed and remain visible as unmet gates.",
+    "Revision 3 reserves cancellation capacity under session saturation, requires per-client counter deltas, independently repairs migration constraints, and records the missing root license notice without asserting redistribution rights."
+  ],
+  "limitations": [
+    "The abstract strings and report flags assume faithful byte decoding, binary identity checks, parser output interpretation and forbidden production classification; no proof connects the Python implementation to Lean or the parser derivation.",
+    "The reachability model excludes Close, Simple Query invalidation, backend errors, ReadyForQuery and resource limits; tests must cover those transitions and conservative rejection.",
+    "Correctness of startup framing, concurrent pipelining, opaque-production completeness, DSN enforcement, socket isolation, shutdown and migration recovery remains unproved and demands adversarial end-to-end tests.",
+    "The clean formal gate and other council seats must complete against the final frozen specification before production changes.",
+    "Reserved cancellation capacity, per-entry-point coverage and partially applied migration repair still require runtime verification."
+  ],
+  "blockers": []
+}

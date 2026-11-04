@@ -1,0 +1,85 @@
+{
+  "classification": "READ_ONLY_FEASIBILITY_AUDIT_NOT_APPROVAL_OR_PERFORMANCE_RESULT",
+  "scope": "Lower-risk candidates retain one-shot process isolation, full validation, full current BuildIdentity and exit-before-result/recovery semantics. No new experiment executed.",
+  "baseline": {
+    "http_p95_ms": 468.348787,
+    "fresh_worker_total_range_ms": [
+      272.581176,
+      295.169906
+    ],
+    "fresh_exchange_range_ms": [
+      220.689576,
+      240.112775
+    ],
+    "tier1_exploratory_exchange_range_ms": [
+      178.502252,
+      181.822732
+    ],
+    "tier1_caveat": "Probe constructs BubblewrapLauncher but invokes command() then ProcessBuilder directly, bypassing launch() solver hash and second BuildIdentity scan. Its201..203ms total is not a full fenced-worker total; constructor scan is present. Output check only verifies VALIDATED substring, not semantic equality."
+  },
+  "options": [
+    {
+      "priority": 1,
+      "candidate": "Advisory-only TieredStopAtLevel=1 with existing launcher path intact",
+      "feasibility": "One extra JVM flag preserves fresh process/classloader/static isolation. Existing isolated exchange observations justify a separately frozen measurement candidate; no target claim.",
+      "risks": "Compilation tradeoff can hurt larger SOURCE/BLOCK/invalid cases; do not apply solver-wide without separate evidence. Current exploratory total omits launch fences.",
+      "required_tests": [
+        "Use actual BubblewrapLauncher.launch with both full scans and solver pin; add flag only for fixed document advisory entry point.",
+        "Compare complete normalized outputs, classifications and limits across46constructor cases, max512nodes/depth32/source32KiB, malformed and TEXT_ONLY inputs.",
+        "Preserve crash/cancel/reap/durable tests; report CPU/RSS/AS and raw original100warmup/1000HTTP measurements."
+      ]
+    },
+    {
+      "priority": 2,
+      "candidate": "Read-only CDS verification, then separately pinned AppCDS jar packaging if worthwhile",
+      "feasibility": "Local Ubuntu JDK17.0.20.1 provides default classes.jsa and classes_nocoops.jsa. Installed java(1) documents -Xshare:auto default; current command does not disable it, so default CDS may already apply. Observe archive use before claiming any gain. AppCDS needs a packaged application jar: current /app/classes nonempty directory conflicts with documented CDS classpath restrictions.",
+      "risks": "Archive is executable runtime input. Current BuildIdentity only hashes dependency *.jar and classes files; a new external .jsa must be explicitly pinned/bound, not silently excluded. Archive loading depends on JDK/flags/classpath; packaging may change resource/service lookup or wildcard jar order. Default archive mapping under2GiBAS not yet verified. No reusable user AST or prior result may enter an archive.",
+      "required_tests": [
+        "Freeze exact JDK, flags, deterministic jar entry/resource manifest, ordered explicit classpath and archive digest; preserve full original logical classes/static/dependency identity scans plus archive binding.",
+        "Generate only from synthetic nonprivate training input in isolated build tooling; runtime never dumps archives or writes into installation.",
+        "Verify actual shared-object class-load evidence under existing sandbox/caps; compare missing/mutated/incompatible archive policy and fresh-process outputs. Do not treat CRC32 VerifySharedSpaces as a security hash.",
+        "Installed manual warns -Xshare:on is test-only; contract must choose explicit production compatibility/fallback behavior without bypassing validation or full identity checks.",
+        "Measure package/archive creation separately and actual full fenced one-shot HTTP runtime before selecting."
+      ]
+    },
+    {
+      "priority": 3,
+      "candidate": "Advisory-only compact worker reply after unchanged full validation",
+      "feasibility": "Observed worker response is257511bytes. DocumentEngine.bounded encodes full result then deepCopies it; DocumentWorkerMain encodes envelope again; parent decodes full artifact, but validationReply only uses diagnostics, idRemapping for inverse mapping, mode, source and sourceHash. Full artifact/module/occurrences/trivia/command transfer may be unnecessary for advisory after independent checks complete.",
+      "risks": "Public/durable wire semantics must remain unchanged; do not remove base integrity, roundtrip, copy/remap or ownership validation. Keep original full-result size rejection policy if preserving accepted-domain semantics. Projection must retain inverse-remapped diagnostics and exact source/hash.",
+      "required_tests": [
+        "Freeze a distinct private advisory opcode/schema while commit/history keep existing full worker result and one-shot reaping.",
+        "Compare exact public advisory responses across all modes/invalidations/identity cases and1MiB/diagnostic bounds.",
+        "Measure isolated encode/decode/copy and pipe time before claiming savings;257KiB alone does not establish large latency cost."
+      ]
+    },
+    {
+      "priority": 4,
+      "candidate": "Eliminate duplicate serialization/copies only where request-local ownership is proved",
+      "feasibility": "Parent copies candidate/base/inventory into frame; worker decodes fresh tree, DocumentEngine deepCopies candidate/base/inventory, bounds via serialization and copies result before outer serialization. A separately reviewed ownership contract could allow private request-owned nodes and bounded single-pass output encoding.",
+      "risks": "Removing copies without mutation audit can change original draft/base/inventory and diagnostic provenance. A single bounded outer stream may change the exact full-result versus envelope size boundary.",
+      "required_tests": [
+        "Audit mutating ObjectNode/ArrayNode operations and prove ownership at each removed copy; retain immutability tests.",
+        "Freeze exact framing/size/error behavior and inject serialization/overflow/transport failures.",
+        "Retain full integrity/ModuleChecker/Alloy roundtrip validation and all BuildIdentity scans; profile allocations and CPU first."
+      ]
+    }
+  ],
+  "recommendation": "Prioritize the separately reviewed combined authorized context operation and advisory-only Tier1 using the full launcher; both preserve one-shot semantic isolation. CDS is an incremental packaging/runtime-input candidate after verifying current default sharing. Compact reply/copy work requires phase evidence and is unlikely to justify target claims from size alone. No combination is proven below300ms; current components cannot be subtracted as percentile guarantees.",
+  "local_sources": [
+    "/usr/lib/jvm/java-17-openjdk-amd64/release",
+    "/usr/lib/jvm/java-17-openjdk-amd64/man/man1/java.1.gz:Using CDS Archives; Restrictions on Class Path and Module Path; VerifySharedSpaces; Xshare",
+    "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+    "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+    "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+    "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+    "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+    "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+    "backend/src/main/java/dev/allow/document/DocumentEngine.java",
+    "backend/src/main/java/dev/allow/document/BlockValidation.java",
+    "gates/document/component-profiles/fresh-worker.log",
+    "gates/document/component-profiles/tier-one-worker.jsh",
+    "gates/document/component-profiles/tier-one-worker.log"
+  ],
+  "limitations": "Static/local-doc audit only. No Java/probe/HTTP/browser/build execution; no active source, benchmark or policy edits."
+}

@@ -1,0 +1,80 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< dev.allow:allow-backend >-----------------------
+[INFO] Building allow-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (default) @ allow-backend ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ allow-backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from ../spec to target/classes/profiles
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ allow-backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 122 source files with javac [debug parameters release 17] to target/classes
+[INFO] /tmp/allow-warm-helper-r2/backend/src/main/java/dev/allow/backend/DocumentQueries.java: Some input files use or override a deprecated API.
+[INFO] /tmp/allow-warm-helper-r2/backend/src/main/java/dev/allow/backend/DocumentQueries.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ allow-backend ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ allow-backend ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 35 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- dependency:3.8.1:copy-dependencies (runtime) @ allow-backend ---
+[INFO] 
+[INFO] --- dependency:3.8.1:copy (isolated-alloy) @ allow-backend ---
+[INFO] Configured Artifact: org.alloytools:org.alloytools.alloy.dist:6.2.0:jar
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ allow-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.allow.worker.WarmDocumentWorkerMainTest
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.887 s <<< FAILURE! -- in dev.allow.worker.WarmDocumentWorkerMainTest
+[ERROR] dev.allow.worker.WarmDocumentWorkerMainTest.agreesWithFreshValidation -- Time elapsed: 0.334 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[{"protocol":1,"requestId":"a3fd8aa2-9632-417b-944f-9029e725d92e","status":"VALIDATED","data":{"mode":"BLOCK_SUPPORTED","source":"sig Person {}","sourceHash":"1cab2e07ef19a0472d4c246b389f575b44add4095cb7b382a7f2543617fa9a2b","module":{"version":1,"signatures":[{"tag":"signature","id":"server:ed8a2a69-1d35-4fa1-9f77-3136fb06b092","name":"Person","multiplicity":"set"}],"fields":[],"predicates":[],"facts":[],"assertions":[],"commands":[],"nodes":[]},"occurrences":[],"trivia":[],"analysisDescriptors":[],"diagnostics":[],"idRemapping":{}}}]> but was: <[{"protocol":1,"requestId":"a3fd8aa2-9632-417b-944f-9029e725d92e","status":"VALIDATED","data":{"mode":"BLOCK_SUPPORTED","source":"sig Person {}","sourceHash":"1cab2e07ef19a0472d4c246b389f575b44add4095cb7b382a7f2543617fa9a2b","module":{"version":1,"signatures":[{"tag":"signature","id":"server:a838e841-54ef-4fc7-9e27-f42bb34f0447","name":"Person","multiplicity":"set"}],"fields":[],"predicates":[],"facts":[],"assertions":[],"commands":[],"nodes":[]},"occurrences":[],"trivia":[],"analysisDescriptors":[],"diagnostics":[],"idRemapping":{}}}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at dev.allow.worker.WarmDocumentWorkerMainTest.agreesWithFreshValidation(WarmDocumentWorkerMainTest.java:36)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   WarmDocumentWorkerMainTest.agreesWithFreshValidation:36 expected: <[{"protocol":1,"requestId":"a3fd8aa2-9632-417b-944f-9029e725d92e","status":"VALIDATED","data":{"mode":"BLOCK_SUPPORTED","source":"sig Person {}","sourceHash":"1cab2e07ef19a0472d4c246b389f575b44add4095cb7b382a7f2543617fa9a2b","module":{"version":1,"signatures":[{"tag":"signature","id":"server:ed8a2a69-1d35-4fa1-9f77-3136fb06b092","name":"Person","multiplicity":"set"}],"fields":[],"predicates":[],"facts":[],"assertions":[],"commands":[],"nodes":[]},"occurrences":[],"trivia":[],"analysisDescriptors":[],"diagnostics":[],"idRemapping":{}}}]> but was: <[{"protocol":1,"requestId":"a3fd8aa2-9632-417b-944f-9029e725d92e","status":"VALIDATED","data":{"mode":"BLOCK_SUPPORTED","source":"sig Person {}","sourceHash":"1cab2e07ef19a0472d4c246b389f575b44add4095cb7b382a7f2543617fa9a2b","module":{"version":1,"signatures":[{"tag":"signature","id":"server:a838e841-54ef-4fc7-9e27-f42bb34f0447","name":"Person","multiplicity":"set"}],"fields":[],"predicates":[],"facts":[],"assertions":[],"commands":[],"nodes":[]},"occurrences":[],"trivia":[],"analysisDescriptors":[],"diagnostics":[],"idRemapping":{}}}]>
+[INFO] 
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.490 s
+[INFO] Finished at: 2026-11-04T03:05:05-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project allow-backend: There are test failures.
+[ERROR] 
+[ERROR] See /tmp/allow-warm-helper-r2/backend/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

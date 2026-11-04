@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/tmp/allow-cc-3bhtcaoz/.gate/probe_runtime.py", line 354, in <module>
+    main()
+  File "/tmp/allow-cc-3bhtcaoz/.gate/probe_runtime.py", line 328, in main
+    value = fixture(root)
+            ^^^^^^^^^^^^^
+  File "/tmp/allow-cc-3bhtcaoz/.gate/probe_runtime.py", line 95, in fixture
+    document, _, _ = helpers.commit(store, label='CleanupFixture')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/allow-cc-3bhtcaoz/scripts/document_recovery_test.py", line 118, in commit
+    assert store.finalize(frame)['responseBase64']==wire.b64(outcome)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/allow-cc-3bhtcaoz/retrieval/allow_documents/store.py", line 192, in finalize
+    result = self.finish(c,args,req,outcome,encoded)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/allow-cc-3bhtcaoz/retrieval/allow_documents/store.py", line 246, in finish
+    return self.persist(c,args,req,outcome,encoded,row)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/allow-cc-3bhtcaoz/retrieval/allow_documents/store.py", line 266, in persist
+    self.append(c,args,row,revision,encoded)
+  File "/tmp/allow-cc-3bhtcaoz/retrieval/allow_documents/store.py", line 294, in append
+    raise ValueError('create_not_empty')
+ValueError: create_not_empty

@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol council seat 2",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0",
+    "gates/document/order-amendment/types.json": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+  },
+  "findings": [],
+  "resolved": "DOCUMENT-ORDER-SOL2-01 resolved: OrderRequired applies only to accepted and unknown-success outcomes. Explicit admitted replay/collision/auth-denial propositions preserve receipt-first and authorization behavior independently of candidate order/decoder/parser availability. Concrete unordered-candidate replay and collision witnesses cover the former gap.",
+  "assessment": "Grouping global fields by signature owner order while preserving per-owner order is necessary for reversible Alloy nested field syntax. Submitted invalid complete order rejects rather than silently normalizing; UI insertion/reassignment may explicitly regroup only the draft with notice. Flat node registry order is correctly separated from ordered owned trees. Exact acceptance equivalence and field-ID preservation are bounded presentation claims; full declaration validity still comes from existing checked-module premises. No new semantic/type or SQL changes are inferred.",
+  "scope": "Exact amendment gameplan approval only. Guard implementation still awaits all six approvals and two clean registered formal checks/release. No runtime/browser/performance/G2/G3 or commercial acceptance. Existing independently approved frontend work may proceed.",
+  "verification": "Read-only inspection of corrected source and SHA256 verification of all three inputs; only this review artifact written. No additional field-order production guard implemented before release."
+}

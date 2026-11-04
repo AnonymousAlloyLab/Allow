@@ -1,0 +1,21 @@
+Allow.ImmutableImageCandidate.checked_preserves_pin {p : Allow.ImmutableImageCandidate.Pin}
+  {i : Allow.ImmutableImageCandidate.Image} {o : Allow.ImmutableImageCandidate.Observation}
+  (hi : Allow.ImmutableImageCandidate.initialized p i) (ho : Allow.ImmutableImageCandidate.checked i o) :
+  o.image.bytes = p.bytes ∧ o.image.size = p.size
+Allow.ImmutableImageCandidate.closed_denied {i : Allow.ImmutableImageCandidate.Image}
+  {o : Allow.ImmutableImageCandidate.Observation} (h : o.live = false) : ¬Allow.ImmutableImageCandidate.checked i o
+Allow.ImmutableImageCandidate.different_object_denied {i : Allow.ImmutableImageCandidate.Image}
+  {o : Allow.ImmutableImageCandidate.Observation} (h : o.image.object ≠ i.object) :
+  ¬Allow.ImmutableImageCandidate.checked i o
+Allow.ImmutableImageCandidate.reuse_exact {g : Nat} {i : Allow.ImmutableImageCandidate.Image}
+  {o : Allow.ImmutableImageCandidate.Observation} {q : Allow.SqlRouting.Request}
+  {e : Allow.ImmutableImageCandidate.CacheEntry} (h : Allow.ImmutableImageCandidate.reuse g i o q e) :
+  q = e.entry.request ∧ Allow.SqlRouting.admitted q e.entry.report
+Allow.ImmutableImageCandidate.stale_generation_denied {g : Nat} {i : Allow.ImmutableImageCandidate.Image}
+  {o : Allow.ImmutableImageCandidate.Observation} {q : Allow.SqlRouting.Request}
+  {e : Allow.ImmutableImageCandidate.CacheEntry} (h : e.generation ≠ g) : ¬Allow.ImmutableImageCandidate.reuse g i o q e
+Allow.ImmutableImageCandidate.stable_image {p : Allow.ImmutableImageCandidate.Pin}
+  {before after : Allow.ImmutableImageCandidate.Image} (h : Allow.ImmutableImageCandidate.initialized p before)
+  (kernelPreserves : after = before) : Allow.ImmutableImageCandidate.initialized p after
+Allow.ImmutableImageCandidate.stopped_not_ready {s : Allow.ImmutableImageCandidate.Status} (h : s.live = false) :
+  ¬Allow.ImmutableImageCandidate.ready s

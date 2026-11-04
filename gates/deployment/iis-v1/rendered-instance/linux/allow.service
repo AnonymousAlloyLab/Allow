@@ -1,0 +1,23 @@
+[Unit]
+Description=Allow private workspace behind IIS
+After=network.target
+
+[Service]
+Type=simple
+User=allow
+Group=allow
+WorkingDirectory=/opt/allow
+UMask=0077
+ExecStart=/usr/bin/python3 /opt/allow/deploy/linux/service.py --config /opt/allow/deploy/instance.json
+KillMode=control-group
+TimeoutStopSec=60
+Restart=on-failure
+RestartSec=5
+CPUQuota=400%
+MemoryHigh=5G
+MemoryMax=6G
+MemorySwapMax=0
+TasksMax=512
+
+[Install]
+WantedBy=multi-user.target

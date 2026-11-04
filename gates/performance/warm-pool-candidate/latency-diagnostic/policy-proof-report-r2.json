@@ -1,0 +1,72 @@
+{
+  "id": "ALLOW-WARM-LATENCY-DIAGNOSTIC-POLICY-PROOF-R2",
+  "status": "FINITE_LEAN_COMPILATION_PASSED_NOT_IMPLEMENTATION_CLOSURE",
+  "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+  "source_sha256": "cdb912ebdacf67e828da721b601c070cfa201e9e376b4bfb6f2a99fbcb6d543a",
+  "mirror_identical": true,
+  "theorems": [
+    "selection_unchanged",
+    "production_selection_disabled",
+    "diagnostic_pass_cannot_promote",
+    "attempt_requires_authorization",
+    "no_attempt_before_explicit_authorization",
+    "all_attempt_accounting",
+    "failure_blocks_interpretation",
+    "ready_conditioned_never_serial",
+    "nearest_rank_bounded",
+    "measured100_exact_ranks",
+    "empty20_exact_ranks",
+    "planned_request_count",
+    "diagnosticpass_requires_complete_valid_accounting",
+    "authorized_success_witness"
+  ],
+  "clean_builds": 2,
+  "olean_deterministic": true,
+  "axiom_inventories_identical": true,
+  "proved_surface": [
+    "Explicit authorization required before modeled attempt",
+    "Selection and promotion remain disabled in every reachable model state, including diagnostic pass",
+    "Append-only attempt accounting includes failures",
+    "Any recorded unsuccessful or unclean attempt prevents model interpretation",
+    "READY-conditioned profile differs from primary serial",
+    "Nearest-rank p50/p95/p99 bounded for nonempty population; exact n100/n20 indices",
+    "860 declared planned requests arithmetic",
+    "Reachable diagnostic pass with disabled selection and no promotion witness",
+    "Diagnostic-pass transition requires exactly860 attempts and every attempt successful+clean"
+  ],
+  "trusted": [
+    "Lean 4.34.1 elaborator/kernel and standard logical axioms reported in inventory",
+    "Host filesystem and compilation process",
+    "Review interpretation of contract policy into this model"
+  ],
+  "not_proved": [
+    "Java/Python implementation correspondence",
+    "Actual attempt retention and output correctness",
+    "Truth of cleanup/context receipts",
+    "Monotonic clock/runtime/cgroup/OS behavior",
+    "Latency or resource measurements",
+    "Promotion safety or whole-program correctness"
+  ],
+  "original_36_theorem_model_changed": false,
+  "council_sol2": {
+    "disposition": "APPROVE_FINITE_NON_PROMOTING_DIAGNOSTIC",
+    "scope": "Concrete contract hash above only; no production activation or HTTP/SQL/target acceptance inference",
+    "blocking_findings": [],
+    "review_notes": [
+      "All failures invalidate interpretation and remaining requests become NOT_EXECUTED",
+      "Actual fresh/pool isolation costs explicitly disclosed; no causal prewarming-only claim",
+      "READY conditioning separated; primary serial admits without wait",
+      "Full response comparator and independent nonce binding required",
+      "No success-only favorable percentile population permitted on failed variants"
+    ]
+  },
+  "clean_build_evidence": [
+    "lean-clean-r2-1.json",
+    "lean-clean-r2-2.json"
+  ],
+  "supersedes": "historical-r1-policy-proof-report.json",
+  "r1_defect": "Modeled diagnosticPass required authorization only; zero-attempt witness and pass after failed attempt were possible. R1 cannot discharge contract complete-valid-accounting policy.",
+  "repair": "Step.pass requires exactly 860 recorded attempts and Interpretable (every record successful and clean). Reachable witness contains 860 successful clean records, proved by induction.",
+  "witness": "authorized_success_witness: reachable860 successful-clean records then diagnosticPass; completed_reachable proved by induction",
+  "all_builds_passed": true
+}

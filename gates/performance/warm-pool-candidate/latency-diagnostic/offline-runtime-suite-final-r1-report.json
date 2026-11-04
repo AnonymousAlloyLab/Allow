@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "classification": "OFFLINE_RUNTIME_HARNESS_UNITTESTS_ONLY",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "working_directory": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments",
+  "tests_run": 156,
+  "expected_tests": 156,
+  "exit_code": 0,
+  "failure_class": null,
+  "test_duration_seconds": 2.278,
+  "wall_duration_ns": 2373779326,
+  "source_hash_manifest": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/latency-diagnostic/offline-runtime-suite-final-r1-inputs.json",
+    "sha256": "cbd29d904715a8a2b19c11ae11ef5cb954ab448a19c9ff42e7890e48f9216b36",
+    "size": 65990,
+    "mode": 384
+  },
+  "input_root_sha256": "7c798787d4f2a20e9bda4ca262a3d1d2294960a74032c3f440c886fb8c7aa007",
+  "source_files": 236,
+  "post_source_identity": "PASS",
+  "full_output": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/latency-diagnostic/offline-runtime-suite-final-r1.log",
+    "sha256": "20d470d6d84b3541dc7cfeb671a57bf0716195be512299862eb29cf04fadc790",
+    "size": 29002,
+    "mode": 384
+  },
+  "runtime_measurement_executed": false,
+  "production_or_preview_changed": false
+}

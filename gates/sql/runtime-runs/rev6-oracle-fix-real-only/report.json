@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "tests": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "classification": "TARGETED_REAL_POSTGRESQL_TESTS_NOT_FINAL_FULL_GATE",
+  "command": "PYTHONPATH=retrieval:scripts .tools/retrieval-venv/bin/python -m unittest verify_sql_runtime.RealProxyTests -v",
+  "seconds": 57.948,
+  "verifier_sha256": "7c7293b65b8c8f5ac8be41b806ccea74c04ebbd687db5127e9022bc08a70a7d7",
+  "log_sha256": "a6cc33677736dd1611d4de6c64a395412098251effd868fadef5021dc3060512",
+  "changes": "Test oracles only: fail-closed libpq EOF handling, strict raw-wire error proof plus denial counters, explicit COPY text typing, required protocol Flush. No production changes.",
+  "full_gate_required": true
+}

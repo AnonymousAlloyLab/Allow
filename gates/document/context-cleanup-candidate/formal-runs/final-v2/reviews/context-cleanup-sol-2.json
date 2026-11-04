@@ -1,0 +1,58 @@
+{
+  "reviewer": "sol-2",
+  "package_root_sha256": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "review_scope": "Independent adversarial pre-implementation contract review; no other reviewer reports used and no production edits.",
+  "findings": [],
+  "evidence": {
+    "input_binding": {
+      "files_verified": 137,
+      "mismatches": 0,
+      "canonical_manifest_root_verified": true
+    },
+    "inventory": {
+      "claims": 28,
+      "types": 28,
+      "runtime_cases": 33,
+      "source_inventory_function": "PASS"
+    },
+    "inspected": [
+      "contract.json",
+      "ContextCleanup.lean",
+      "Audit.lean",
+      "claims.json",
+      "types.json",
+      "verify_context_model.py",
+      "runtime-test-plan.json",
+      "retrieval/allow_retrieval/sql_proxy.py",
+      "retrieval/allow_retrieval/sql_connections.py",
+      "retrieval/allow_documents/store.py",
+      "retrieval/allow_documents/cli.py",
+      "backend/src/main/java/dev/allow/backend/DocumentGateway.java"
+    ],
+    "assessment": [
+      "Closed control schemas and duplicate-free bounded private journal explicitly fail closed; durable RESERVED/CONNECTING distinguish no-attempt from uncertain backend ownership.",
+      "SO_PEERCRED, process start identity, recorded parent liveness, nonce, proxy generation and monotone connection generation bind admission and receipt; same-UID different-process replay is a required runtime subcase.",
+      "Success additionally requires staged result, complete legal COMMIT and Ready(I), normal Terminate, no sticky failure, deadline/liveness checks, closed transport and independently observed exact backend absence. Cleanup alone cannot authorize output.",
+      "Exact SQL and execution-level protocol cursor fence require one complete Q or unnamed P/B/optional D/E0/S cycle; Parse admission, repeated Bind/Execute, incomplete Sync, pipelines and other raw control paths cannot advance success. Existing ParserGate remains mandatory.",
+      "Baseline Store has a read-only repeatable-read snapshot and complete requested-ID history scan, CLI already validates private requestId, and Java supplies nonce-bound bridge response checks with a 20s cap. Proposed changes explicitly preserve this data contract while adding the cleanup fence.",
+      "Runner binds all six exact-root approvals, pinned inputs, exact elaborated types/axioms, inherited anchors and two isolated builds; it does not claim runtime correspondence or reprove the active 309 anchors."
+    ],
+    "delta_review": [
+      "Reverified every one of 137 pinned files and exact canonical R2 root; no mismatches. Rechecked unchanged 28-claim/type/model source inventory.",
+      "Managed retrieval virtualenv and pinned psycopg/libpq dependency verification explicitly replace the unsuitable system proxy interpreter; sealed parser helper remains separately pinned.",
+      "Ordinary canonical SELECT 1 readiness probe precedes first observer reservation; bounded serialized retry does not create observer uncertainty merely because bootstrap role/database is not yet present. This probe does not masquerade as cleanup evidence.",
+      "Single event-loop owner serializes complete-state non-awaiting journal mutations and rejects wrong-thread updates; worker thread supplies immutable observations only. Persistence failure retains both reservations and disables success/replacement. CC22 explicitly exercises interleaving and crash cuts.",
+      "CC01 includes actual interpreter/dependency identity and empty-cluster bootstrap instrumentation. No production implementation or runtime claim is introduced by this delta."
+    ]
+  },
+  "limitations": [
+    "Runtime lease/control implementation is absent and all 33 runtime cases remain unexecuted; approval is permission to implement the frozen contract, not a runtime acceptance certificate.",
+    "No independent clean Lean build was run during this review; two matching isolated builds remain required after all six approvals. Static source/type/claim inventory validation passed.",
+    "The Lean model guards trusted observations and abstracts time, parent liveness, journal/fsync, protocol execution and observer mechanics. Its single Lease occupancy theorem is not a proof that production contains only one lease; the durable Nat invariant is not proof of database byte invariance. Runtime binding remains required.",
+    "Pre-key context or observer crashes may retain UNKNOWN/DEGRADED indefinitely. Ordinary disconnected backend tails or external sessions may exhaust PostgreSQL slots. These are explicitly disclosed fail-closed availability limitations, not blockers to this implementation contract.",
+    "Full permitted history/quota success, parser routing, logging privacy, crash barriers and no stale publication require actual isolated integration evidence; target 4-vCPU/8-GiB acceptance remains separate."
+  ],
+  "commercial_scope": "Approve only the read-only validationContext cleanup contract. No warm JVM, outcome cache, mutation/receipt/CAS change, direct database route, elevated observer privilege, PID-only signal, aggregate backend capacity guarantee, automatic pre-key recovery guarantee, universal implementation refinement, or deployment performance claim is approved.",
+  "revision": "r2"
+}

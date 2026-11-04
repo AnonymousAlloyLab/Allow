@@ -1,0 +1,73 @@
+{
+  "reviewer": "astra-1",
+  "seat": "document-r5-astra-1",
+  "review_type": "FINAL_FROZEN_BUNDLE_GAMEPLAN_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "timestamp_utc": "2026-11-03T18:25:45.818554+00:00",
+  "manifest": "gates/document/review-candidate-r5/manifest.json",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07",
+    "gates/document/draft/types.json": "fd0a31b549a8c20d079b960f68b306603b66aaed3facfd2e4a4bc302ea336109"
+  },
+  "spec_revision": 4,
+  "wire_revision": 5,
+  "ui_revision": 2,
+  "adapter_revision": 1,
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "R3-A1-01",
+      "resolution": "Wire5 validation binds exact whole-request identity, base/draft/epoch, returns bounded proposedSource/hash, and maps diagnostics back to submitted IDs. UI2 requires matching retained request/candidate before adopting preview. SOURCE adds exact-source checks. No advisory preview is acceptance authority."
+    },
+    {
+      "id": "DA1-01-through-DA1-08",
+      "resolution": "Closed schemas, exact set-valued parameters, unique ownership forest, explicit scope/call validation, named structural equivalence, stable occurrence roles/comment-copy transport, scalar-aligned source mapping and separate artifact/revision/presentation envelopes resolve prior design ambiguity. Canonical context association stays separate from anonymous Boolean proof and presentation IDs."
+    },
+    {
+      "id": "CROSS-REVIEW-FORMAL",
+      "resolution": "Inspected source separates raw decoded intent from checked policy-dependent artifact, allows direct revision0 lookup with fresh report/content preservation, models lost denial acknowledgements, and exposes replay/collision/auth-denial without requiring new parser work. Matching theorem inventory binds the frozen source."
+    },
+    {
+      "id": "CROSS-REVIEW-API",
+      "resolution": "TEXT_ONLY commands use stored opaque descriptor keys rather than nonexistent block IDs; immutable replay returns exact original envelope with optional separate transport header and a separate current-head read."
+    }
+  ],
+  "design_assessment": {
+    "scope": "Bounded static exact-nominal fragment is sufficiently explicit to implement. Forest ownership removes DAG lexical-environment ambiguity; all incoming declaration dependencies and predicate ranks are rechecked. Full tag distinctions are retained.",
+    "projection": "Adapter specifies pinned AST forms, authored-command token recovery before solver expansion, limited normalization, exact source bytes, optional unavailable locations and source-supported elaboration. Ambiguous adapters cannot fabricate BLOCK_SUPPORTED authority. Trivia transfer is explicit and independently validated.",
+    "canonical": "Presentation UUIDs/names do not leak into retrieval embeddings. Existing anonymous profile must be bound to checked artifact/source/policy and exact context/atoms; TEXT_ONLY, unsupported association and unavailable-budget results cannot create document-authoritative pairs.",
+    "freshness": "Draft/accepted separation, request-bound previews, inverse diagnostic mapping and content-generation versus presentation epoch form an implementable UI reducer contract. Late results cannot replace newer drafts or badge mismatched evidence.",
+    "security_and_persistence": "Nonce-fenced admissions, workspace-first locks, policy fencing, exact-byte receipts before stale/quota, indefinite bounded retention and proxy-only persistence are coherent specified adapter obligations."
+  },
+  "formal_assessment": {
+    "independent_lean_run": false,
+    "source_hash_matches_inventory": true,
+    "claim": "Approval of exact bounded propositions and their declared trust/gameplan, not an independent proof-build result. Two clean registered builds remain required before production edits.",
+    "boundaries": [
+      "Finite23-tag witnesses are not universal Java/TypeScript checker refinement.",
+      "Parser/lexer/printer/source-location, UUID/forest adapter and field cardinality remain tested trusted components.",
+      "Serialized Lean transitions do not prove database linearizability, RLS, nonce recovery, physical capacity or browser correctness.",
+      "Unknown branches model successful or denial receipt acknowledgement loss; clients must still treat unknown as uncertain, not infer a durable outcome."
+    ]
+  },
+  "required_execution_order": [
+    "Collect six exact-six-input council approvals.",
+    "Register frozen propositions and complete two clean isolated proof builds against preserved baseline before production edits.",
+    "Implement and execute the specified finite server/SQL/receipt/recovery/policy tests, then full source/palette/projection/UI/accessibility and performance acceptance.",
+    "Report each inherited G2/G3 and G0-G6 gate independently, retaining failures and unmet requirements."
+  ],
+  "commercial_assessment": "Engineering gameplan approval only. No release, commercial deployment, dataset rights, upstream redistribution, accessibility conformance, performance or market-demand claim. Existing SQL/retrieval evidence remains preserved and cannot substitute for document runtime evidence.",
+  "verification_performed": [
+    "Verified SHA256 of all six files against frozen manifest.",
+    "Rechecked wire5/UI2 fix for R3-A1-01 and command/replay corrections.",
+    "Read adapter constructor/declaration normalization, source tokens, occurrence/history and finite acceptance requirements.",
+    "Inspected current admitted state transitions and matching source-bound theorem inventory; no Lean execution or production tests in this review."
+  ],
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "APPROVE_GAMEPLAN for the exact six input hashes only, contingent on the already required council and two clean formal-build sequence before production. No runtime, G2/G3 or commercial closure."
+}

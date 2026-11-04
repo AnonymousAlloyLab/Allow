@@ -1,0 +1,93 @@
+Allow.FreshTier1.advisory_inserts_only_fixed_flag : ∀ (required : Allow.FreshTier1.RequiredArgs),
+  Eq.{1} (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.advisory Allow.FreshTier1.Variant.tier1)
+      (HAppend.hAppend.{0, 0, 0}
+        (HAppend.hAppend.{0, 0, 0} required.beforeOption (List.cons.{0} Allow.FreshTier1.tier1Flag List.nil.{0}))
+        required.afterOption) ∧
+    Eq.{1} (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.advisory Allow.FreshTier1.Variant.baseline)
+      (HAppend.hAppend.{0, 0, 0} required.beforeOption required.afterOption)
+'Allow.FreshTier1.advisory_inserts_only_fixed_flag' depends on axioms: [propext]
+Allow.FreshTier1.durable_arguments_unchanged : ∀ (required : Allow.FreshTier1.RequiredArgs)
+  (variant : Allow.FreshTier1.Variant),
+  Eq.{1} (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.durable variant)
+    (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.durable Allow.FreshTier1.Variant.baseline)
+'Allow.FreshTier1.durable_arguments_unchanged' depends on axioms: [propext]
+Allow.FreshTier1.solver_arguments_unchanged : ∀ (required : Allow.FreshTier1.RequiredArgs)
+  (variant : Allow.FreshTier1.Variant),
+  Eq.{1} (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.solver variant)
+    (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.solver Allow.FreshTier1.Variant.baseline)
+'Allow.FreshTier1.solver_arguments_unchanged' depends on axioms: [propext]
+Allow.FreshTier1.argument_delta_exactly_one : ∀ (required : Allow.FreshTier1.RequiredArgs),
+  Eq.{1}
+    (List.length.{0}
+      (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.advisory Allow.FreshTier1.Variant.tier1))
+    (HAdd.hAdd.{0, 0, 0}
+      (List.length.{0}
+        (Allow.FreshTier1.arguments required Allow.FreshTier1.Operation.advisory Allow.FreshTier1.Variant.baseline))
+      1)
+'Allow.FreshTier1.argument_delta_exactly_one' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.FreshTier1.step_preserves_invariant : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Invariant s → Allow.FreshTier1.Step s t → Allow.FreshTier1.Invariant t
+'Allow.FreshTier1.step_preserves_invariant' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.FreshTier1.reachable_invariant : ∀ {identity durable : Nat} {s : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Reachable identity durable s → Allow.FreshTier1.Invariant s
+'Allow.FreshTier1.reachable_invariant' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.FreshTier1.at_most_one_launch_and_request : ∀ {identity durable : Nat} {s : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Reachable identity durable s → LE.le.{0} s.launches 1 ∧ LE.le.{0} s.consumed 1
+'Allow.FreshTier1.at_most_one_launch_and_request' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.FreshTier1.delivery_staging_consumption_order : ∀ {identity durable : Nat} {s : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Reachable identity durable s → LE.le.{0} s.delivered s.staged ∧ LE.le.{0} s.staged s.consumed
+'Allow.FreshTier1.delivery_staging_consumption_order' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.FreshTier1.running_requires_both_identity_checks : ∀ {identity durable : Nat} {s : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Reachable identity durable s →
+    Eq.{1} s.phase Allow.FreshTier1.Phase.running → Eq.{1} s.buildChecked true ∧ Eq.{1} s.solverChecked true
+'Allow.FreshTier1.running_requires_both_identity_checks' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@Allow.FreshTier1.delivery_requires_owned_reap : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Step s t → LT.lt.{0} s.delivered t.delivered → Eq.{1} s.phase Allow.FreshTier1.Phase.reaped
+'Allow.FreshTier1.delivery_requires_owned_reap' depends on axioms: [propext]
+@Allow.FreshTier1.no_return_to_fresh : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Step s t → Ne.{1} t.phase Allow.FreshTier1.Phase.fresh
+'Allow.FreshTier1.no_return_to_fresh' depends on axioms: [propext]
+@Allow.FreshTier1.retirement_cannot_resume : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Step s t →
+    Eq.{1} s.phase Allow.FreshTier1.Phase.retiring ∨ Eq.{1} s.phase Allow.FreshTier1.Phase.reaped →
+      Eq.{1} t.phase Allow.FreshTier1.Phase.retiring ∨ Eq.{1} t.phase Allow.FreshTier1.Phase.reaped
+'Allow.FreshTier1.retirement_cannot_resume' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.FreshTier1.step_preserves_identity_and_durable : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Step s t → Eq.{1} t.identity s.identity ∧ Eq.{1} t.durable s.durable
+'Allow.FreshTier1.step_preserves_identity_and_durable' does not depend on any axioms
+@Allow.FreshTier1.reachable_preserves_identity_and_durable : ∀ {identity durable : Nat} {s : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Reachable identity durable s → Eq.{1} s.identity identity ∧ Eq.{1} s.durable durable
+'Allow.FreshTier1.reachable_preserves_identity_and_durable' does not depend on any axioms
+@Allow.FreshTier1.step_poison_sticky : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Step s t → Eq.{1} s.poisoned true → Eq.{1} t.poisoned true
+'Allow.FreshTier1.step_poison_sticky' depends on axioms: [propext]
+@Allow.FreshTier1.poisoned_trace_cannot_deliver : ∀ {s t : Allow.FreshTier1.Worker},
+  Allow.FreshTier1.Trace s t → Eq.{1} s.poisoned true → Eq.{1} t.poisoned true ∧ Eq.{1} t.delivered s.delivered
+'Allow.FreshTier1.poisoned_trace_cannot_deliver' depends on axioms: [propext]
+@Allow.FreshTier1.selection_requires_complete_comparison : ∀ {same contained : Bool}
+  {runs : List.{0} Allow.FreshTier1.Run},
+  Allow.FreshTier1.SelectTier1 same contained runs → Eq.{1} same true ∧ Eq.{1} contained true
+'Allow.FreshTier1.selection_requires_complete_comparison' does not depend on any axioms
+@Allow.FreshTier1.selection_requires_three_runs : ∀ {same contained : Bool} {runs : List.{0} Allow.FreshTier1.Run},
+  Allow.FreshTier1.SelectTier1 same contained runs → Eq.{1} (List.length.{0} runs) 3
+'Allow.FreshTier1.selection_requires_three_runs' does not depend on any axioms
+@Allow.FreshTier1.selection_requires_every_run_target : ∀ {same contained : Bool} {runs : List.{0} Allow.FreshTier1.Run}
+  {run : Allow.FreshTier1.Run},
+  Allow.FreshTier1.SelectTier1 same contained runs →
+    Membership.mem.{0, 0} runs run → Eq.{1} run.failures 0 ∧ LT.lt.{0} run.p95Micros 300000
+'Allow.FreshTier1.selection_requires_every_run_target' does not depend on any axioms
+@Allow.FreshTier1.failed_or_slow_run_blocks_selection : ∀ {same contained : Bool} {runs : List.{0} Allow.FreshTier1.Run}
+  {run : Allow.FreshTier1.Run},
+  Membership.mem.{0, 0} runs run →
+    Ne.{1} run.failures 0 ∨ LE.le.{0} 300000 run.p95Micros → ¬Allow.FreshTier1.SelectTier1 same contained runs
+'Allow.FreshTier1.failed_or_slow_run_blocks_selection' depends on axioms: [propext, Quot.sound.{u}]
+Allow.FreshTier1.successful_fresh_worker_witness : Allow.FreshTier1.Reachable 7 42 Allow.FreshTier1.witnessDelivered ∧
+  Eq.{1} Allow.FreshTier1.witnessDelivered.delivered 1 ∧ Eq.{1} Allow.FreshTier1.witnessDelivered.consumed 1
+'Allow.FreshTier1.successful_fresh_worker_witness' does not depend on any axioms
+Allow.FreshTier1.abstract_selection_witness : Allow.FreshTier1.SelectTier1 true true
+  (List.replicate.{0} 3
+    { nodes := 500, warmups := 100, measured := 1000, failures := 0, p95Micros := 240000, profileMatches := true,
+      peakBytes := 4000000000, pairedBaselineP95Micros := 400000 })
+'Allow.FreshTier1.abstract_selection_witness' depends on axioms: [propext, Quot.sound.{u}]

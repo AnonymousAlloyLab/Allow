@@ -1,0 +1,93 @@
+{
+  "review": {
+    "id": "retrieval-luna-2-production-results",
+    "plan": "reviews/retrieval-luna-2-plan.json",
+    "spec_revision": 3,
+    "reviewer": "GPT-6 Luna evaluator 2",
+    "status": "SYNTHETIC_PRODUCTION_FIXTURES_PASS_PARTIAL_PLAN_COVERAGE",
+    "scope": "Self-authored toy Alloy fixtures through the isolated production worker, local pinned pretrained E5 encoder, and production exact score function. No corpus records were read or modified.",
+    "non_claims": [
+      "This does not measure general semantic retrieval quality.",
+      "A finite sample or high similarity is not an equivalence proof.",
+      "These fixtures are not held-out dataset evaluation or promotion evidence."
+    ]
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "worker": "production isolated namespace worker via allow_retrieval.corpus.worker; each fixture returned FULL with three validated members per polarity",
+    "encoder": "pinned local intfloat/e5-base-v2 ONNX encoder, pretrained-only identity adapter; no network calls",
+    "model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+    "ranking": "production allow_retrieval.ranking.score; frozen default weights [0.55, 0.225, 0.225]"
+  },
+  "checks": [
+    {
+      "id": "worker-full-pools-and-sat-polarities",
+      "result": "PASS",
+      "details": "All four hand-authored fixtures returned FULL; positive and negative existence were SAT, enumeration CAP_REACHED at 3, and each polarity had 3 members. The fixtures include a fact-constrained model, exercising SAT for F AND NOT P."
+    },
+    {
+      "id": "equivalent-simplification-vs-opposite",
+      "result": "PASS",
+      "details": "The checked structural simplification candidate ranked ahead of the opposite-polarity candidate under frozen default weights. Their compatible contexts and canonical witness pools were equal in this fixture, so both pool-overlap terms were 1."
+    },
+    {
+      "id": "wrong-context-overlap-gate",
+      "result": "PASS",
+      "details": "The added-signature/fact candidate was marked INCOMPATIBLE_CONTEXT and received zero positive and negative overlap despite full pools."
+    }
+  ],
+  "score_components": {
+    "weights": [0.55, 0.225, 0.225],
+    "equivalent": {
+      "canonical_similarity": 0.9988849279736237,
+      "predicate_block_cosine_diagnostic": 0.9910794243441324,
+      "shared_positive": 1.0,
+      "shared_negative": 1.0,
+      "context": "EXACT_CONTEXT",
+      "score": 0.9993867103854931,
+      "rank": 1
+    },
+    "opposite": {
+      "canonical_similarity": 0.9980989238364357,
+      "predicate_block_cosine_diagnostic": 0.9981239339921832,
+      "shared_positive": 0.0,
+      "shared_negative": 0.0,
+      "context": "EXACT_CONTEXT",
+      "score": 0.5489544081100397,
+      "rank": 3
+    },
+    "wrong_context": {
+      "canonical_similarity": 0.9982917753597604,
+      "predicate_block_cosine_diagnostic": 1.0,
+      "shared_positive": 0.0,
+      "shared_negative": 0.0,
+      "context": "INCOMPATIBLE_CONTEXT",
+      "score": 0.5490604764478683,
+      "rank": 2
+    },
+    "interpretation": "In this tiny fixture the E5 canonical similarities are all close to 1; the observed ranking separation comes from exact pool overlap and context gating. This is not evidence of broad semantic discrimination."
+  },
+  "plan_coverage": {
+    "exercised": [
+      "wrong-polarity distinction with a worker-generated opposite predicate",
+      "SAT positive and negative pools, including a fact-constrained source",
+      "full finite-pool admission at N=3 without treating that status as an equivalence proof",
+      "incompatible-context zero-overlap behavior",
+      "actual local pretrained embedding, frozen weighted score, and ranking"
+    ],
+    "not_exercised": [
+      "explicit translator instrumentation proving F is passed exactly once, plus an inconsistent-facts UNSAT case",
+      "constructed unsampled counterexample demonstrating finite-pool incompleteness",
+      "three-root family alias union and split-manifest rejection",
+      "checked-rewrite versus semantic-judgment label separation and bad-certificate rejection",
+      "zero-overlap sampling-bias rate across a corpus",
+      "ANN candidate omission compared with exact top-k",
+      "model-wide training-lineage revocation and outbox recovery",
+      "blinded human ranking judgments and held-out metric suite"
+    ]
+  },
+  "commands": [
+    "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python -m unittest retrieval/tests/test_luna_semantic.py -v"
+  ],
+  "test_result": "2 tests passed in 2.890 seconds"
+}

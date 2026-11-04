@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/http_driver.py", line 201, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/http_driver.py", line 185, in main
+    route, module = bootstrap(client, root, evidence)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/http_driver.py", line 56, in bootstrap
+    accepted = bootstrap_call(client, path + '/commit', {'idempotencyKey': identifier('commit'),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/http_driver.py", line 38, in bootstrap_call
+    data, raw = client.call(route, body, expected)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/allow-ft1-hpkhx6dm/scripts/smoke_documents.py", line 69, in call
+    assert status == 200, (path, status, result)
+           ^^^^^^^^^^^^^
+AssertionError: ('/api/v1/documents/server:a17d82a3-da7e-4a47-97c8-2376224ea560/commit', 503, {'protocol': 1, 'requestId': '4d702d38-e5a9-4a43-9b1f-ac1d3c317af1', 'status': 'UNAVAILABLE', 'data': {}})
+{"status": "BLOCKED", "failure_class": "RuntimeError", "reason": "operation_failed"}

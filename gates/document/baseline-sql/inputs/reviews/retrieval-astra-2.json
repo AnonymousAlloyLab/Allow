@@ -1,0 +1,77 @@
+{
+  "reviewer": "retrieval-astra-2",
+  "requested_model": "gpt-6-astra",
+  "provider_attestation": "Council seat name supplied by parent; no independent model-provider attestation performed.",
+  "phase": "Final revision 4 specification and abstract proof review",
+  "stage_revision": 4,
+  "verdict": "ACCEPTED_FOR_IMPLEMENTATION_AFTER_FORMAL_GATE",
+  "production_files_edited": false,
+  "files_sha256": {
+    "spec/retrieval-stage.json": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+    "spec/retrieval-types.json": "27ba0b43b311aabc04d21f0ebac4fd2108c8db54056a7009586577613b0d3905",
+    "formal/Allow/Retrieval.lean": "b4e348c95d346cec441b04b85713df0c81150f5199062c513d9c76a684a60965",
+    "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+  },
+  "previous_report": "reviews/retrieval-astra-2-r1.json",
+  "open_design_blockers": [],
+  "resolutions": [
+    {
+      "id": "RET-A2-01",
+      "status": "RESOLVED_IN_REVISION_4",
+      "resolution": "Training-purpose revocation quarantines every affected checkpoint and all its derived vectors; serving/outbox require active model lineage and restore tests include revoked model jobs."
+    },
+    {
+      "id": "RET-A2-02",
+      "status": "RESOLVED_IN_REVISION_4",
+      "resolution": "API accepts only existing authorized FULL record identities, resolving stored trusted pools/context/vector server-side. Client vector/hash/flag claims cannot introduce trusted evidence."
+    },
+    {
+      "id": "RET-A2-03",
+      "status": "RESOLVED_IN_REVISION_4_SUBJECT_TO_FORMAL_GATE",
+      "resolution": "31 exact obligations match retrieval-types.json. Member now contains Run/Witness and admitted delegates to admitPair; admitted_evidence bridges own query, target, polarity, SAT and validation. pack4 plus four lookup lemmas proves component placement. Fixed-score theorem remains explicitly the default fixed-point abstraction; tuned float arithmetic is a trusted implementation/test obligation."
+    },
+    {
+      "id": "RET-A2-04",
+      "status": "ACCEPTED_WITH_OPTIONAL_ANN_TEST_OBLIGATION",
+      "resolution": "Exact mode ranks all eligible rows by the full final score, so candidate truncation cannot break default ranking. If optional ANN is implemented, its candidate recall acceptance must use exact final-score top-k under identical filters, not merely full-vector neighbors."
+    },
+    {
+      "id": "RET-A2-05",
+      "status": "SUFFICIENT_FOR_DESIGN_ACCEPTANCE_IMPLEMENTATION_MANIFEST_PENDING",
+      "resolution": "Revision4 pins pretrained revision, token/chunk budgets, adapter parameterization/objective/optimizer/batches/epochs/seed, metric definitions, family split and promotion rule. Exact weight/tokenizer/runtime bytes, numeric tolerance and chunk recipe are required versioned runtime artifacts before fitting/serving, not assumed already verified."
+    }
+  ],
+  "additional_findings": [
+    "Target-dependent retained facts/functions preserve the target body in comparison context, avoiding false context compatibility after removing the selected body.",
+    "The full 3072-dimensional hierarchy now drives final canonical similarity, while predicate-only similarity is explicitly diagnostic.",
+    "Checked selected-occurrence certificates, complete instance serialization and faithful trusted identities remain explicit boundaries.",
+    "Training masks known duplicate/equivalent distractors; empirical structural retrieval supervision does not claim semantic nonequivalence."
+  ],
+  "independent_checks": {
+    "spec_sha_matches_parent": true,
+    "formal_obligation_count": 31,
+    "registry_exact_dictionary_equality": true,
+    "lean_source_read": true,
+    "lean_build_executed_by_this_reviewer": false
+  },
+  "implementation_acceptance_obligations": [
+    "Two clean exact-proposition builds must pass before the authorized production implementation sequence.",
+    "Exercise model-lineage revocation, restore quarantine and outbox races; authorized query identity must be checked as rigorously as candidate identity.",
+    "Verify actual four-block float32 assembly, finite normalization, complete token coverage, order-invariant pool aggregation and exact model versions.",
+    "Test target-dependent facts, wrong polarity/query/bounds, nonisomorphic instances, truncated projection and canonicalization cap failures.",
+    "If ANN is added, evaluate recall of exact FINAL-score top-k, including low-vector/high-overlap winners, and label approximate results.",
+    "Freeze actual model/tokenizer/runtime hashes and deterministic chunk recipe/numeric tolerance before training; publish coverage and held-out family-macro metrics even when promotion fails."
+  ],
+  "commercialization": {
+    "local_development": "AUTHORIZED_WITH_RECORDED_LOCAL_PURPOSES",
+    "redistribution": "UNRESOLVED_AND_NOT_AUTHORIZED_BY_THIS_REVIEW",
+    "clarification": "Unresolved corpus redistribution/commercial rights do not automatically block the user-authorized local ingestion, training and retrieval work. Anonymous structural serialization is not evidence that content may be uploaded or redistributed.",
+    "production_evidence": "Measure corpus acceptance/coverage, exact final-score retrieval quality, end-to-end cost/latency and operational recovery before claims. No market, legal or commercial clearance opinion is made."
+  },
+  "review_limits": [
+    "Design acceptance is not runtime correctness, retrieval quality, production readiness or commercial clearance.",
+    "No production files changed, corpus uploaded, dependency installed, model downloaded or training run by this reviewer.",
+    "No independent external license/model claim verification or completed clean Lean build observation in this review."
+  ],
+  "final_scope": "Accept revision4 for local implementation after the formal gate. User-authorized local corpus ingestion/training/retrieval may proceed under its purpose policy; redistribution/commercial clearance remains unresolved and separate."
+}

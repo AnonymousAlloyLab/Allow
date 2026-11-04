@@ -1,0 +1,50 @@
+{
+  "reviewer": "terra-2",
+  "package_root_sha256": "f81a88a0c030c5fa441fec4b89c8fd2c46cd4659c3aad16759cba6e5420eed35",
+  "decision": "REQUEST_CHANGES",
+  "scope": "Independent pre-implementation review of the contract, inactive model and runtime plan; no production changes.",
+  "input_verification": {
+    "files_checked": 137,
+    "hash_mismatches": 0,
+    "root_recomputed_from": "SHA256 of canonical compact sorted-key files array",
+    "model_claims": 28,
+    "planned_runtime_cases": 33
+  },
+  "findings": [
+    {
+      "severity": "blocking",
+      "title": "The proxy runtime cannot import the required observer client",
+      "evidence": [
+        "scripts/bootstrap_corpus.py:234 starts the proxy using /usr/bin/python3",
+        "retrieval/allow_retrieval/sql_connections.py:94 imports psycopg inside connect",
+        "/usr/bin/python3 is Python 3.12.3 and import psycopg fails with ModuleNotFoundError in the reviewed environment",
+        "contract.json control_transport.observer and observer_details.peer_gate require an in-process psycopg observer through canonical connect"
+      ],
+      "impact": "The specified observer and readiness path cannot run with the current bootstrap interpreter. The contract identifies new module hashes but does not specify a dependency-provisioned proxy interpreter, its identity, or bootstrap changes needed to use it.",
+      "required_change": "Specify and bind a supported proxy Python interpreter and psycopg/libpq dependency installation and version identity, update bootstrap and daemon loaded-identity verification accordingly, and require clean bootstrap plus observer lifecycle tests under that exact interpreter. Preserve ordinary bootstrap before the lazy observer, including on a fresh cluster before the role and configured database exist."
+    },
+    {
+      "severity": "blocking",
+      "title": "Atomic replacement does not serialize shared journal updates",
+      "evidence": [
+        "contract.json journal_details defines one file with separate context and observer entries and atomic replace/fsync",
+        "control_transport.observer uses an owned thread while the proxy runs concurrent lifecycle, admission and cleanup operations",
+        "contract does not prescribe serialization or transactional merge for full-state updates"
+      ],
+      "impact": "Two overlapping read-modify-write operations can each atomically replace the file with a stale snapshot, losing the other durable RESERVED, CONNECTING, KEYED or BOUND entry. After a crash, recovery may wrongly see an empty reservation and admit a replacement while the prior backend remains owned. Atomic rename guarantees individual file integrity, not preservation of concurrent updates.",
+      "required_change": "Specify a single serialized journal authority or equivalent cross-thread synchronization and linearization of each full-state update; no backend-open attempt or authority exposure may occur before its exact mutation is durable. Require concurrent observer/context update interleavings, crash barriers and restart tests proving neither entry can be lost."
+    }
+  ],
+  "assessment": [
+    "The current bootstrap starts the ordinary proxy and executes role/database creation before the proposed lazy observer; the contract explicitly preserves that ordering, but executable clean-cluster verification is still required.",
+    "Pre-key context and observer uncertainty and PostgreSQL exhaustion from ordinary disconnected backend tails are explicitly fail-closed availability limitations; they are not treated as blockers to this safety-oriented contract.",
+    "Protocol execution fencing, exact identity observation and secret-bound cancellation are stipulated, but the model does not prove their implementation correspondence.",
+    "Full-quota history processing within the fixed deadline and the target 4-vCPU/8-GiB deployment remain measured acceptance obligations, not established performance or commercial readiness."
+  ],
+  "limitations": [
+    "No production implementation or runtime acceptance was executed.",
+    "The 28 claims and 33 plan entries were counted and reviewed as finite design obligations; this review does not assert independent Lean builds or runtime proofs.",
+    "Pre-key UNKNOWN may persist, and ordinary backend tails can exhaust PostgreSQL slots; neither prompt recovery nor guaranteed availability is claimed.",
+    "All six exact-root approvals and two isolated matching clean model builds remain activation prerequisites."
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "status": "BLOCKED",
+  "input_root_sha256": "212d3e21ef930f667b1bab891f99fa7328d7d829d42bfee29819e4b0fd19fc50",
+  "classification": "ATTACHMENT_WORKER_PREFLIGHT_ONLY",
+  "benchmark_executed": false,
+  "snapshots": [],
+  "verifier_sha256": "f7de2ded3bd8c3db7189f0013e9e029f37b481f1b7fc3aebc4d7d7fb698a14a4",
+  "failure_class": "ValueError",
+  "blocking_reason": "attach_method_failed",
+  "cleanup": {
+    "status": "UNKNOWN",
+    "reason": "no_owned_unit_incarnation"
+  },
+  "host_after": {
+    "kernel": "7.0.0-38-generic",
+    "machine": "x86_64",
+    "logical_cpus": 32,
+    "controller_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "loadavg": [
+      1.0185546875,
+      0.97119140625,
+      1.08154296875
+    ],
+    "pressure": {
+      "cpu": "some avg10=0.00 avg60=0.00 avg300=0.00 total=77002752\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+      "memory": "some avg10=0.00 avg60=0.05 avg300=0.15 total=7436406\nfull avg10=0.00 avg60=0.05 avg300=0.14 total=7336094",
+      "io": "some avg10=1.56 avg60=1.63 avg300=0.89 total=148209401\nfull avg10=1.56 avg60=1.63 avg300=0.89 total=146637480"
+    },
+    "root_storage_device": {
+      "major": 259,
+      "minor": 7
+    },
+    "cpu_model_lines": [
+      "cpu family\t: 26",
+      "model\t\t: 68",
+      "model name\t: AMD Ryzen 9 9950X3D 16-Core Processor"
+    ],
+    "interpretation": "Workstation screen only; actual 4vCPU/8GiB target acceptance remains OPEN"
+  },
+  "boundary": "Finite sampled containment/ownership evidence; not universal escape prevention or target acceptance."
+}

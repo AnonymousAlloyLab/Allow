@@ -1,0 +1,28 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< dev.allow:allow-backend >-----------------------
+[INFO] Building allow-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (default) @ allow-backend ---
+[INFO] Starting audit...
+[ERROR] /tmp/allow-warm-probe-compile-864oplv_/backend/src/test/java/dev/allow/backend/WarmProbeSession.java:103:34: Expected @throws tag for 'IOException'. [JavadocMethod]
+[ERROR] /tmp/allow-warm-probe-compile-864oplv_/backend/src/test/java/dev/allow/backend/WarmProbeSession.java:195:19: Expected @throws tag for 'IOException'. [JavadocMethod]
+Audit done.
+[INFO] There are 2 errors reported by Checkstyle 10.21.2 with /tmp/allow-warm-probe-compile-864oplv_/backend/../config/checkstyle.xml ruleset.
+[ERROR] src/test/java/dev/allow/backend/WarmProbeSession.java:[103,34] (javadoc) JavadocMethod: Expected @throws tag for 'IOException'.
+[ERROR] src/test/java/dev/allow/backend/WarmProbeSession.java:[195,19] (javadoc) JavadocMethod: Expected @throws tag for 'IOException'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.068 s
+[INFO] Finished at: 2026-11-04T03:39:57-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0:check (default) on project allow-backend: You have 2 Checkstyle violations. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

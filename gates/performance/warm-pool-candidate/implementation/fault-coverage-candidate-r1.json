@@ -1,0 +1,1892 @@
+{
+  "schema": 1,
+  "status": "CANDIDATE_MAPPING_NOT_CLOSURE",
+  "classification": "LLM_PROPOSED_COVERAGE_WITH_MECHANICALLY_CHECKED_TEST_IDENTITIES_ONLY",
+  "scope": "Maps all67 frozen category labels. This does not convert any category to PASS or prove semantic implementation correspondence. Actual kernel/SQL obligations cannot be replaced by mocks.",
+  "frozen_experiment": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/experiment.json",
+    "sha256": "be0a0f26e3bd5980068de2d2c1619a9dbee5440c514c5f625a863065acf1ff90"
+  },
+  "source_ready": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/source-ready-r2.json",
+    "sha256": "ff64b5d379f47b13a7b3c7810b9708da651eea2382e15b4daea6ed6ee2f5bfa6"
+  },
+  "actual_preflight": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/ownership-r2/report.json",
+    "sha256": "f4dfaffe17a72f5a5bc18dc116167d5c4c23580b2edd7db0e9b3a2b9aa78a2ac",
+    "status": "PASS",
+    "cases": 8,
+    "classification": "DIAGNOSTIC",
+    "context": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL"
+  },
+  "mechanical_checks": {
+    "frozen_category_count": 67,
+    "exact_junit_methods_located": 91,
+    "all_referenced_junit_results_passed": true,
+    "referenced_source_hashes_equal_source_ready": true,
+    "python_helper_projection_identical": true
+  },
+  "test_catalog": {
+    "WarmTransportTest.permitsExactStdoutCaptureLimit": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "permitsExactStdoutCaptureLimit",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.interruptionPreventsPrivateHandoff": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "interruptionPreventsPrivateHandoff",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.rejectsMalformedPrivateResponses": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "rejectsMalformedPrivateResponses",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.boundsStartupAndBlockedInput": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "boundsStartupAndBlockedInput",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.rejectsPrematureExit": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "rejectsPrematureExit",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.interruptionCancelsBlockedExchange": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "interruptionCancelsBlockedExchange",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.rejectsLateIdleOutput": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "rejectsLateIdleOutput",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.exactReadyAndSingleResponse": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "exactReadyAndSingleResponse",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.enforcesWholeLifetimeStderrCap": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "enforcesWholeLifetimeStderrCap",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.rejectsMalformedStartupAndSameChunkIdleBytes": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "rejectsMalformedStartupAndSameChunkIdleBytes",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.rejectsEmptyAndExclusiveInputLimit": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "rejectsEmptyAndExclusiveInputLimit",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmTransportTest.closeFailureStillJoinsEveryTransportTask": {
+      "junit_class": "dev.allow.backend.WarmTransportTest",
+      "test": "closeFailureStillJoinsEveryTransportTask",
+      "source": "backend/src/test/java/dev/allow/backend/WarmTransportTest.java",
+      "source_sha256": "e0f94879c11d0e142bb01a5dd43af0430372416c90d9376378d4b918b75dcb81",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "xml_sha256": "98cf70c26cd375c7a608429461e815f828461e5ad4bf3ca968e5f3cd27091cdb",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmContextPermitTest.rejectsMalformedBindingAtConstruction": {
+      "junit_class": "dev.allow.backend.WarmContextPermitTest",
+      "test": "rejectsMalformedBindingAtConstruction",
+      "source": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "source_sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "xml_sha256": "4a3153f3ad50421d5d6932ea13b8126a2858bb86f6314403f7961db8b28a0bc2",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmContextPermitTest.readsAndConsumesExactContextOnce": {
+      "junit_class": "dev.allow.backend.WarmContextPermitTest",
+      "test": "readsAndConsumesExactContextOnce",
+      "source": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "source_sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "xml_sha256": "4a3153f3ad50421d5d6932ea13b8126a2858bb86f6314403f7961db8b28a0bc2",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmContextPermitTest.rejectsFailedAndSubstitutedContext": {
+      "junit_class": "dev.allow.backend.WarmContextPermitTest",
+      "test": "rejectsFailedAndSubstitutedContext",
+      "source": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "source_sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "xml_sha256": "4a3153f3ad50421d5d6932ea13b8126a2858bb86f6314403f7961db8b28a0bc2",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmContextPermitTest.rejectsContextReturnedAfterDeadline": {
+      "junit_class": "dev.allow.backend.WarmContextPermitTest",
+      "test": "rejectsContextReturnedAfterDeadline",
+      "source": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "source_sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "xml_sha256": "4a3153f3ad50421d5d6932ea13b8126a2858bb86f6314403f7961db8b28a0bc2",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmContextPermitTest.rejectsEverySubstitutedBindingComponent": {
+      "junit_class": "dev.allow.backend.WarmContextPermitTest",
+      "test": "rejectsEverySubstitutedBindingComponent",
+      "source": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "source_sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "xml_sha256": "4a3153f3ad50421d5d6932ea13b8126a2858bb86f6314403f7961db8b28a0bc2",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmContextPermitTest.interruptionPreventsContextRead": {
+      "junit_class": "dev.allow.backend.WarmContextPermitTest",
+      "test": "interruptionPreventsContextRead",
+      "source": "backend/src/test/java/dev/allow/backend/WarmContextPermitTest.java",
+      "source_sha256": "6a97421cde0995704ec756435a5c0c82a2a544cea3e030d48a31534b42522556",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "xml_sha256": "4a3153f3ad50421d5d6932ea13b8126a2858bb86f6314403f7961db8b28a0bc2",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmDeadlineTest.rejectsInvalidBudgets": {
+      "junit_class": "dev.allow.backend.WarmDeadlineTest",
+      "test": "rejectsInvalidBudgets",
+      "source": "backend/src/test/java/dev/allow/backend/WarmDeadlineTest.java",
+      "source_sha256": "e0e18e90555a92e24d7f44acc80b7137533b5b93db821fbc2d58ab41dfcfa996",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmDeadlineTest.xml",
+      "xml_sha256": "9bd42188157cc032282d8661cc268565e8a7eacc054aef3412a6cb4b2ec75206",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmDeadlineTest.rejectsAfterExpiration": {
+      "junit_class": "dev.allow.backend.WarmDeadlineTest",
+      "test": "rejectsAfterExpiration",
+      "source": "backend/src/test/java/dev/allow/backend/WarmDeadlineTest.java",
+      "source_sha256": "e0e18e90555a92e24d7f44acc80b7137533b5b93db821fbc2d58ab41dfcfa996",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmDeadlineTest.xml",
+      "xml_sha256": "9bd42188157cc032282d8661cc268565e8a7eacc054aef3412a6cb4b2ec75206",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmDeadlineTest.retainsOriginalAdmissionAndExpiry": {
+      "junit_class": "dev.allow.backend.WarmDeadlineTest",
+      "test": "retainsOriginalAdmissionAndExpiry",
+      "source": "backend/src/test/java/dev/allow/backend/WarmDeadlineTest.java",
+      "source_sha256": "e0e18e90555a92e24d7f44acc80b7137533b5b93db821fbc2d58ab41dfcfa996",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmDeadlineTest.xml",
+      "xml_sha256": "9bd42188157cc032282d8661cc268565e8a7eacc054aef3412a6cb4b2ec75206",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmDeadlineTest.rejectsCallerCancellation": {
+      "junit_class": "dev.allow.backend.WarmDeadlineTest",
+      "test": "rejectsCallerCancellation",
+      "source": "backend/src/test/java/dev/allow/backend/WarmDeadlineTest.java",
+      "source_sha256": "e0e18e90555a92e24d7f44acc80b7137533b5b93db821fbc2d58ab41dfcfa996",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmDeadlineTest.xml",
+      "xml_sha256": "9bd42188157cc032282d8661cc268565e8a7eacc054aef3412a6cb4b2ec75206",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmGatewayDeadlineTest.preservesOrdinaryGatewayWait": {
+      "junit_class": "dev.allow.backend.WarmGatewayDeadlineTest",
+      "test": "preservesOrdinaryGatewayWait",
+      "source": "backend/src/test/java/dev/allow/backend/WarmGatewayDeadlineTest.java",
+      "source_sha256": "d914bf479e80f6502018abb4267143ff114c7b21a0bc1222656c082e54ddcba8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmGatewayDeadlineTest.xml",
+      "xml_sha256": "a47c813cef344ab64cede2cc05f195ce82b3ef5f0824e389085c5a16d071ea69",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmGatewayDeadlineTest.clampsCandidateWaitAndReapsChild": {
+      "junit_class": "dev.allow.backend.WarmGatewayDeadlineTest",
+      "test": "clampsCandidateWaitAndReapsChild",
+      "source": "backend/src/test/java/dev/allow/backend/WarmGatewayDeadlineTest.java",
+      "source_sha256": "d914bf479e80f6502018abb4267143ff114c7b21a0bc1222656c082e54ddcba8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmGatewayDeadlineTest.xml",
+      "xml_sha256": "a47c813cef344ab64cede2cc05f195ce82b3ef5f0824e389085c5a16d071ea69",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmGatewayDeadlineTest.acceptsTimelyCandidateEnvelope": {
+      "junit_class": "dev.allow.backend.WarmGatewayDeadlineTest",
+      "test": "acceptsTimelyCandidateEnvelope",
+      "source": "backend/src/test/java/dev/allow/backend/WarmGatewayDeadlineTest.java",
+      "source_sha256": "d914bf479e80f6502018abb4267143ff114c7b21a0bc1222656c082e54ddcba8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmGatewayDeadlineTest.xml",
+      "xml_sha256": "a47c813cef344ab64cede2cc05f195ce82b3ef5f0824e389085c5a16d071ea69",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmCoordinatorTest.waitingCancellationRetiresUnassignedGeneration": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "waitingCancellationRetiresUnassignedGeneration",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.contextHandoffCannotBeRepeated": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "contextHandoffCannotBeRepeated",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.lateFailureSuppressesPublication": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "lateFailureSuppressesPublication",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.interruptAfterJournalSuppressesReplyAndDetaches": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "interruptAfterJournalSuppressesReplyAndDetaches",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.unpublishedLeaseCloseIsIdempotentAndDropsResult": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "unpublishedLeaseCloseIsIdempotentAndDropsResult",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.failureAfterJournalSuppressesReplyAndDetaches": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "failureAfterJournalSuppressesReplyAndDetaches",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.failureSinkOnlySignalsAtomicFailure": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "failureSinkOnlySignalsAtomicFailure",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.watcherAndCallerRetirementCannotDoubleRelease": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "watcherAndCallerRetirementCannotDoubleRelease",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.finalImageFailurePreventsSuccess": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "finalImageFailurePreventsSuccess",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.expiredAdmissionCannotConsumePermit": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "expiredAdmissionCannotConsumePermit",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.leasePublishesExactBytesAndCannotBeReadAgain": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "leasePublishesExactBytesAndCannotBeReadAgain",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.unknownCleanupIsNotRetriedByWatcher": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "unknownCleanupIsNotRetriedByWatcher",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.stalePermitDoesNotConsumeGeneration": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "stalePermitDoesNotConsumeGeneration",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.finalFenceAndPublicationShareExactMonitor": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "finalFenceAndPublicationShareExactMonitor",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.stagePrecedesCleanupAndCleanTokenRemainsReserved": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "stagePrecedesCleanupAndCleanTokenRemainsReserved",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmCoordinatorTest.differentOperationCannotCancelAssignedGeneration": {
+      "junit_class": "dev.allow.backend.WarmCoordinatorTest",
+      "test": "differentOperationCannotCancelAssignedGeneration",
+      "source": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "source_sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "xml_sha256": "fa454a9539672b7379e34b33b4a845313ab00448cba304f49612770345572151",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.symbolicJournalAliasesAreRejected": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "symbolicJournalAliasesAreRejected",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.insecureDirectoryCannotOwnPool": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "insecureDirectoryCannotOwnPool",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.privatePayloadAndUnknownFieldsAreRejectedBeforeReplacement": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "privatePayloadAndUnknownFieldsAreRejectedBeforeReplacement",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.malformedEmptyJournalCannotAuthorizeRootChange": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "malformedEmptyJournalCannotAuthorizeRootChange",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.ambiguousJsonCannotBecomeOperationalAuthority": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "ambiguousJsonCannotBecomeOperationalAuthority",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.foreignGroupOrCounterCannotBeReconciled": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "foreignGroupOrCounterCannotBeReconciled",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.hardlinkedJournalIsRejected": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "hardlinkedJournalIsRejected",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.durableMetadataHasFiniteByteBound": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "durableMetadataHasFiniteByteBound",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.numericAndNonceTypesAreClosed": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "numericAndNonceTypesAreClosed",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.contradictoryChildIdentityIsRejected": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "contradictoryChildIdentityIsRejected",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.outstandingReservationsRejectRootChanges": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "outstandingReservationsRejectRootChanges",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.exclusiveOwnershipRejectsSecondWriter": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "exclusiveOwnershipRejectsSecondWriter",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.completePrivateRecordsRoundTripAndReplace": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "completePrivateRecordsRoundTripAndReplace",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.ordinaryDirectoryCannotLaunchContainedWorkers": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "ordinaryDirectoryCannotLaunchContainedWorkers",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerJournalTest.releasedJournalAllowsNewRootAndPreservesCounters": {
+      "junit_class": "dev.allow.backend.WorkerJournalTest",
+      "test": "releasedJournalAllowsNewRootAndPreservesCounters",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "source_sha256": "227b2a07e79b4ba9afb3963ee1dbe0c517ec9a93ac8ac837dd0ae88831babbd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "xml_sha256": "aed9a6300c8f4bdc8f104cb625fd4be8cbc8615bea41484264c74fc47b5e5177",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerReservationTest.cancelledCleanResultCannotPublish": {
+      "junit_class": "dev.allow.backend.WorkerReservationTest",
+      "test": "cancelledCleanResultCannotPublish",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "source_sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "xml_sha256": "7b602fa24fa23f30028708a39fb364a69e36169d67e746fdfc0eea490ac4c0e7",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerReservationTest.freshReservationUsesActiveCapacity": {
+      "junit_class": "dev.allow.backend.WorkerReservationTest",
+      "test": "freshReservationUsesActiveCapacity",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "source_sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "xml_sha256": "7b602fa24fa23f30028708a39fb364a69e36169d67e746fdfc0eea490ac4c0e7",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerReservationTest.capacityCountsIncludeRetirementAndUnknown": {
+      "junit_class": "dev.allow.backend.WorkerReservationTest",
+      "test": "capacityCountsIncludeRetirementAndUnknown",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "source_sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "xml_sha256": "7b602fa24fa23f30028708a39fb364a69e36169d67e746fdfc0eea490ac4c0e7",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerReservationTest.unknownCancellationDoesNotRestoreCleanup": {
+      "junit_class": "dev.allow.backend.WorkerReservationTest",
+      "test": "unknownCancellationDoesNotRestoreCleanup",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "source_sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "xml_sha256": "7b602fa24fa23f30028708a39fb364a69e36169d67e746fdfc0eea490ac4c0e7",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerReservationTest.exactLinuxIncarnationIsRequired": {
+      "junit_class": "dev.allow.backend.WorkerReservationTest",
+      "test": "exactLinuxIncarnationIsRequired",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "source_sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "xml_sha256": "7b602fa24fa23f30028708a39fb364a69e36169d67e746fdfc0eea490ac4c0e7",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerReservationTest.publicationRejectsWrongNonceDeadlineAndRepeat": {
+      "junit_class": "dev.allow.backend.WorkerReservationTest",
+      "test": "publicationRejectsWrongNonceDeadlineAndRepeat",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "source_sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "xml_sha256": "7b602fa24fa23f30028708a39fb364a69e36169d67e746fdfc0eea490ac4c0e7",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.failedWarmCleanupThenDocumentCloseRetainsLock": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "failedWarmCleanupThenDocumentCloseRetainsLock",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.hardlinkedLockIsRejectedWithoutRegistryLeak": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "hardlinkedLockIsRejectedWithoutRegistryLeak",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.unrelatedFailedDocumentConstructorClosesOwnResources": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "unrelatedFailedDocumentConstructorClosesOwnResources",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.failedBuildObservationPoisonsExistingIncarnation": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "failedBuildObservationPoisonsExistingIncarnation",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.sameWorkspaceDuplicatePreservesObservedOsLock": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "sameWorkspaceDuplicatePreservesObservedOsLock",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.observedMismatchRemainsStickyAfterMatchingObservation": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "observedMismatchRemainsStickyAfterMatchingObservation",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.completedWarmAndLedgerClosePermitsWorkspaceRelease": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "completedWarmAndLedgerClosePermitsWorkspaceRelease",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WarmRuntimeOwnershipTest.ledgerCloseFailureRetainsWorkspaceOwner": {
+      "junit_class": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "test": "ledgerCloseFailureRetainsWorkspaceOwner",
+      "source": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+      "source_sha256": "a0225e4892d3ca41dde62b1bf9668a403e14e0d2d2f18f83e6e416863907cb8b",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "xml_sha256": "38a303d7a71c2230c5bd3ba234976503e313d4af9b621e429a11a046b3023d33",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.launchStillChecksAllBuildInputs": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "launchStillChecksAllBuildInputs",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.solverProfileCannotChange": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "solverProfileCannotChange",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.launchStillRejectsChangedAlloy": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "launchStillRejectsChangedAlloy",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.constructorStillRequiresCompleteInstallation": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "constructorStillRequiresCompleteInstallation",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.tier1HistoryIsDeniedBeforeLaunch": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "tier1HistoryIsDeniedBeforeLaunch",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.bothProfilesValidateAndReapFreshWorkers": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "bothProfilesValidateAndReapFreshWorkers",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.advisoryTier1AddsExactlyOneArgument": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "advisoryTier1AddsExactlyOneArgument",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerLaunchProfileTest.defaultArgumentsMatchFrozenCommand": {
+      "junit_class": "dev.allow.backend.WorkerLaunchProfileTest",
+      "test": "defaultArgumentsMatchFrozenCommand",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerLaunchProfileTest.java",
+      "source_sha256": "933e1927ce21f87f28a6b205ebb87c25b566cd1c899f94baefb92b9b20067512",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "xml_sha256": "92588a0146ef61be124881452c2bdc20d852ee9ad3161381aaac69444bdd0a01",
+      "observed_result": "PASS",
+      "boundary": "UNIT_OR_MOCKED_BOUNDARY"
+    },
+    "WorkerIntegrationTest.invalidSource": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "invalidSource",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WorkerIntegrationTest.satRun": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "satRun",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WorkerIntegrationTest.unsatCheck": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "unsatCheck",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WorkerIntegrationTest.unsatRun": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "unsatRun",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WorkerIntegrationTest.importRejectedInChild": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "importRejectedInChild",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WorkerIntegrationTest.validateOnly": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "validateOnly",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WorkerIntegrationTest.satCheck": {
+      "junit_class": "dev.allow.backend.WorkerIntegrationTest",
+      "test": "satCheck",
+      "source": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "source_sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "xml_sha256": "36a9f756653e226b4c96823ce4659a5d4710e65d0464d1db23a3fd7a4acb9dda",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmDocumentWorkerMainTest.rejectsSecondPrivateFrame": {
+      "junit_class": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "test": "rejectsSecondPrivateFrame",
+      "source": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "source_sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "xml_sha256": "59d71f435e197f4830647a239824936da855fe7d1f65c940a78509855036bca7",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmDocumentWorkerMainTest.rejectsMalformedIdentityBeforeReady": {
+      "junit_class": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "test": "rejectsMalformedIdentityBeforeReady",
+      "source": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "source_sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "xml_sha256": "59d71f435e197f4830647a239824936da855fe7d1f65c940a78509855036bca7",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmDocumentWorkerMainTest.rejectsRevalidationOnlyInWarmMode": {
+      "junit_class": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "test": "rejectsRevalidationOnlyInWarmMode",
+      "source": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "source_sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "xml_sha256": "59d71f435e197f4830647a239824936da855fe7d1f65c940a78509855036bca7",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmDocumentWorkerMainTest.agreesAtPayloadAndFramingBoundary": {
+      "junit_class": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "test": "agreesAtPayloadAndFramingBoundary",
+      "source": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "source_sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "xml_sha256": "59d71f435e197f4830647a239824936da855fe7d1f65c940a78509855036bca7",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmDocumentWorkerMainTest.agreesWithFreshValidation": {
+      "junit_class": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "test": "agreesWithFreshValidation",
+      "source": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "source_sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "xml_sha256": "59d71f435e197f4830647a239824936da855fe7d1f65c940a78509855036bca7",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmDocumentWorkerMainTest.emitsReadyForPublicBootstrapOnly": {
+      "junit_class": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "test": "emitsReadyForPublicBootstrapOnly",
+      "source": "backend/src/test/java/dev/allow/worker/WarmDocumentWorkerMainTest.java",
+      "source_sha256": "53140617546fc4a9c3fc90459cb831599a13c80c0d61c9c234326bb0186bb94c",
+      "xml": "/tmp/allow-warm-full-r2-vkoj9ca6/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "xml_sha256": "59d71f435e197f4830647a239824936da855fe7d1f65c940a78509855036bca7",
+      "observed_result": "PASS",
+      "boundary": "ACTUAL_CONTROLLED_PROCESS"
+    },
+    "WarmImageTest.test_bootstrap_no_read_ahead": {
+      "python_test": "test_bootstrap_no_read_ahead",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_malformed_lines": {
+      "python_test": "test_malformed_lines",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_deadline": {
+      "python_test": "test_deadline",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_schema_and_identity_rejection": {
+      "python_test": "test_schema_and_identity_rejection",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_inventory_order_and_unexpected_files": {
+      "python_test": "test_inventory_order_and_unexpected_files",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_symlinks_and_special_members": {
+      "python_test": "test_symlinks_and_special_members",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_image_caps": {
+      "python_test": "test_image_caps",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_source_component_symlink_rejected": {
+      "python_test": "test_source_component_symlink_rejected",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_actual_seals_and_logical_identity": {
+      "python_test": "test_actual_seals_and_logical_identity",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_size_mutation_rejected_without_fd_leak": {
+      "python_test": "test_size_mutation_rejected_without_fd_leak",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    },
+    "WarmImageTest.test_fixed_modes_and_final_limit": {
+      "python_test": "test_fixed_modes_and_final_limit",
+      "source_sha256": {
+        "scripts/warm_worker_image.py": "85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0",
+        "scripts/tests/test_warm_worker_image.py": "c07d75412ccb26d0e4a4212b04d9a346fc3593bd28de3df59ca793782e5319c2"
+      },
+      "report": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/helper-focused-r3/report.json",
+      "report_sha256": "ec97b1177deaf1079c645f7b317c78baa277f39668eed0cca232b4489b7c9159",
+      "observed_result": "PASS",
+      "boundary": "REAL_MEMFD_FOR_SEALS_OTHERWISE_UNIT_OR_CONTROLLED_FILESYSTEM",
+      "inheritance": "Only exact helper+test projection; old Java entrypoint source in same historical report is not inherited"
+    }
+  },
+  "category_mapping": [
+    {
+      "id": "WP-I01.01",
+      "frozen_case_text": "exactlogicalmanifestandmountedbytes",
+      "family": "WP-I01",
+      "component_tests": [
+        "WarmImageTest.test_actual_seals_and_logical_identity"
+      ],
+      "actual_preflight_subcases": [
+        "normal-cold",
+        "normal-ready-hit"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.02",
+      "frozen_case_text": "class/resource/dependency/Alloymutationbeforecapture",
+      "family": "WP-I01",
+      "component_tests": [
+        "WorkerLaunchProfileTest.launchStillChecksAllBuildInputs",
+        "WorkerLaunchProfileTest.launchStillRejectsChangedAlloy"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.03",
+      "frozen_case_text": "mutationduringcapture",
+      "family": "WP-I01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.04",
+      "frozen_case_text": "mutationwhileREADY",
+      "family": "WP-I01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.05",
+      "frozen_case_text": "mutationbeforepublish",
+      "family": "WP-I01",
+      "component_tests": [
+        "WarmCoordinatorTest.finalImageFailurePreventsSuccess"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.06",
+      "frozen_case_text": "symlink/pathescape/duplicatefile",
+      "family": "WP-I01",
+      "component_tests": [
+        "WarmImageTest.test_symlinks_and_special_members",
+        "WarmImageTest.test_source_component_symlink_rejected",
+        "WarmImageTest.test_inventory_order_and_unexpected_files"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.07",
+      "frozen_case_text": "cap64MiB+1or513files",
+      "family": "WP-I01",
+      "component_tests": [
+        "WarmImageTest.test_image_caps"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Existing unit shrinks constants; it does not execute the real 64MiB+1/513-file boundaries.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.08",
+      "frozen_case_text": "memfdsealwrite/grow/shrinkrejected",
+      "family": "WP-I01",
+      "component_tests": [
+        "WarmImageTest.test_actual_seals_and_logical_identity"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Actual memfd denial checks cover write and growth in current helper test; explicit shrink is from historical infrastructure probe, not current production helper integration.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-I01.09",
+      "frozen_case_text": "capturefailureclosesallfds",
+      "family": "WP-I01",
+      "component_tests": [
+        "WarmImageTest.test_size_mutation_rejected_without_fd_leak"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "IMAGE_AND_FINAL_FENCE"
+    },
+    {
+      "id": "WP-L01.01",
+      "frozen_case_text": "reservebeforestart",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [
+        "normal-cold"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.02",
+      "frozen_case_text": "two concurrentrefills",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.03",
+      "frozen_case_text": "threeworkertreerequests",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.04",
+      "frozen_case_text": "oneREADYplusfreshsolver",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.05",
+      "frozen_case_text": "cancelbeforestart",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmCoordinatorTest.waitingCancellationRetiresUnassignedGeneration"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.06",
+      "frozen_case_text": "cancelSTARTING",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmCoordinatorTest.waitingCancellationRetiresUnassignedGeneration"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.07",
+      "frozen_case_text": "cancelREADY",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [
+        "shutdown-ready"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Pool shutdown READY exercises cancellation cleanup, but independent admitted-operation cancellation must retain its own oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.08",
+      "frozen_case_text": "cancelBUSY",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.09",
+      "frozen_case_text": "cancelafterstaging",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmCoordinatorTest.lateFailureSuppressesPublication"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.10",
+      "frozen_case_text": "cancelafterreapbeforepublish",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmCoordinatorTest.lateFailureSuppressesPublication",
+        "WorkerReservationTest.cancelledCleanResultCannotPublish"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.11",
+      "frozen_case_text": "startup5s",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmDeadlineTest.rejectsAfterExpiration"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.12",
+      "frozen_case_text": "idle30s",
+      "family": "WP-L01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.13",
+      "frozen_case_text": "request10s",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmDeadlineTest.retainsOriginalAdmissionAndExpiry",
+        "WarmCoordinatorTest.expiredAdmissionCannotConsumePermit"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.14",
+      "frozen_case_text": "doubleconsume",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmCoordinatorTest.contextHandoffCannotBeRepeated",
+        "WarmContextPermitTest.readsAndConsumesExactContextOnce"
+      ],
+      "actual_preflight_subcases": [
+        "double-consume"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Actual replay test rejects a consumed context on replacement worker; same-generation second assignment/release and stale receipts remain separate.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.15",
+      "frozen_case_text": "doublerelease",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmCoordinatorTest.watcherAndCallerRetirementCannotDoubleRelease"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-L01.16",
+      "frozen_case_text": "stalegenerationreceipt",
+      "family": "WP-L01",
+      "component_tests": [
+        "WarmContextPermitTest.rejectsEverySubstitutedBindingComponent",
+        "WorkerReservationTest.publicationRejectsWrongNonceDeadlineAndRepeat"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "LIFECYCLE_AND_CAPACITY"
+    },
+    {
+      "id": "WP-P01.01",
+      "frozen_case_text": "helperdeathbeforejoin",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [
+        "preattach-failure"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Preattach preflight performs controlled owner cleanup; asynchronous helper death and parent-death race are not equivalent.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.02",
+      "frozen_case_text": "helperdeathafterjoin",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.03",
+      "frozen_case_text": "parentSIGKILLbeforebootstrap",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.04",
+      "frozen_case_text": "parentSIGKILLatREADY",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.05",
+      "frozen_case_text": "parentSIGKILLduringinput",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.06",
+      "frozen_case_text": "parentSIGKILLafterresponse",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.07",
+      "frozen_case_text": "JVMdeath",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [
+        "startup-failure"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Malformed bootstrap exits trusted helper before JVM starts; actual JVM death remains required.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.08",
+      "frozen_case_text": "descendantoutlivesleader",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.09",
+      "frozen_case_text": "pidreuseidentitymismatch",
+      "family": "WP-P01",
+      "component_tests": [
+        "WorkerReservationTest.exactLinuxIncarnationIsRequired"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.10",
+      "frozen_case_text": "missinggroup",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.11",
+      "frozen_case_text": "unreadablegroup",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.12",
+      "frozen_case_text": "groupinodechange",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.13",
+      "frozen_case_text": "restartwithprekeyjournal",
+      "family": "WP-P01",
+      "component_tests": [
+        "WorkerJournalTest.contradictoryChildIdentityIsRejected",
+        "WorkerJournalTest.foreignGroupOrCounterCannotBeReconciled"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.14",
+      "frozen_case_text": "restartwithBUSYjournal",
+      "family": "WP-P01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.15",
+      "frozen_case_text": "journalfsyncfailure",
+      "family": "WP-P01",
+      "component_tests": [
+        "WorkerJournalTest.completePrivateRecordsRoundTripAndReplace",
+        "WarmRuntimeOwnershipTest.ledgerCloseFailureRetainsWorkspaceOwner"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-P01.16",
+      "frozen_case_text": "shutdownwhileSTARTINGorBUSY",
+      "family": "WP-P01",
+      "component_tests": [
+        "WarmRuntimeOwnershipTest.failedWarmCleanupThenDocumentCloseRetainsLock"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "CRASH_RESTART_AND_CONTAINMENT"
+    },
+    {
+      "id": "WP-T01.01",
+      "frozen_case_text": "missingREADY",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.boundsStartupAndBlockedInput",
+        "WarmTransportTest.rejectsPrematureExit"
+      ],
+      "actual_preflight_subcases": [
+        "startup-failure"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.02",
+      "frozen_case_text": "wrongnonce/imageREADY",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsMalformedStartupAndSameChunkIdleBytes"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.03",
+      "frozen_case_text": "duplicatelateREADY",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsMalformedStartupAndSameChunkIdleBytes",
+        "WarmTransportTest.rejectsLateIdleOutput"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.04",
+      "frozen_case_text": "READY257bytes",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsMalformedStartupAndSameChunkIdleBytes"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.05",
+      "frozen_case_text": "stderr32769byteswhileidle",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.enforcesWholeLifetimeStderrCap"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Current test crosses 32768 over startup+request; explicit overflow while IDLE remains unexecuted.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.06",
+      "frozen_case_text": "privateinput2097152bytes",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsEmptyAndExclusiveInputLimit",
+        "WarmDocumentWorkerMainTest.agreesAtPayloadAndFramingBoundary"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.07",
+      "frozen_case_text": "blockedstdin",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.boundsStartupAndBlockedInput",
+        "WarmTransportTest.interruptionCancelsBlockedExchange"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.08",
+      "frozen_case_text": "stdout1048578bytes",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsMalformedPrivateResponses",
+        "WarmTransportTest.permitsExactStdoutCaptureLimit"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.09",
+      "frozen_case_text": "extraframe",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsMalformedPrivateResponses",
+        "WarmDocumentWorkerMainTest.rejectsSecondPrivateFrame"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.10",
+      "frozen_case_text": "truncatedframe",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmTransportTest.rejectsMalformedPrivateResponses"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.11",
+      "frozen_case_text": "nonzeroexit",
+      "family": "WP-T01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.12",
+      "frozen_case_text": "wrongrequestnonce",
+      "family": "WP-T01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.13",
+      "frozen_case_text": "REVALIDATErejection",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmDocumentWorkerMainTest.rejectsRevalidationOnlyInWarmMode"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.14",
+      "frozen_case_text": "completeprivateframeonlyafterCLEAN",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmContextPermitTest.readsAndConsumesExactContextOnce",
+        "WarmCoordinatorTest.stalePermitDoesNotConsumeGeneration"
+      ],
+      "actual_preflight_subcases": [
+        "normal-cold",
+        "normal-ready-hit"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Ownership preflight assumes CLEAN. It is not SQL CLEAN/no-private-byte runtime evidence.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.15",
+      "frozen_case_text": "CLEANsuccessPermittedfalse",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmContextPermitTest.rejectsFailedAndSubstitutedContext"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.16",
+      "frozen_case_text": "contextUNKNOWN",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmContextPermitTest.rejectsFailedAndSubstitutedContext"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-T01.17",
+      "frozen_case_text": "stalecontextgeneration",
+      "family": "WP-T01",
+      "component_tests": [
+        "WarmContextPermitTest.rejectsEverySubstitutedBindingComponent",
+        "WarmCoordinatorTest.stalePermitDoesNotConsumeGeneration"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "TRANSPORT_AND_REAL_CONTEXT"
+    },
+    {
+      "id": "WP-R01.01",
+      "frozen_case_text": "memorymax",
+      "family": "WP-R01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.02",
+      "frozen_case_text": "pidsmax",
+      "family": "WP-R01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.03",
+      "frozen_case_text": "CPU12s",
+      "family": "WP-R01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.04",
+      "frozen_case_text": "allDEFAULTsolverSATUNSAT",
+      "family": "WP-R01",
+      "component_tests": [
+        "WorkerIntegrationTest.satRun",
+        "WorkerIntegrationTest.unsatRun",
+        "WorkerIntegrationTest.satCheck",
+        "WorkerIntegrationTest.unsatCheck"
+      ],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Current DEFAULT solver tests are fresh without enabled ledger; require managed warm-standby + fresh solver coexistence.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.05",
+      "frozen_case_text": "durablecommit/historyrevalidation",
+      "family": "WP-R01",
+      "component_tests": [
+        "WarmDocumentWorkerMainTest.rejectsRevalidationOnlyInWarmMode"
+      ],
+      "actual_preflight_subcases": [
+        "revalidate-fresh"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "One managed fresh REVALIDATE fixture passes; actual durable commit/history/SQL regression and full37 rows remain.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.06",
+      "frozen_case_text": "image/resourceclasspathorder",
+      "family": "WP-R01",
+      "component_tests": [
+        "WarmImageTest.test_fixed_modes_and_final_limit"
+      ],
+      "actual_preflight_subcases": [
+        "normal-cold",
+        "normal-ready-hit",
+        "revalidate-fresh"
+      ],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.07",
+      "frozen_case_text": "maximumhistorycontext",
+      "family": "WP-R01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.08",
+      "frozen_case_text": "Python/Java/TSstyle",
+      "family": "WP-R01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    },
+    {
+      "id": "WP-R01.09",
+      "frozen_case_text": "allcurrentregressions",
+      "family": "WP-R01",
+      "component_tests": [],
+      "actual_preflight_subcases": [],
+      "disposition": "REMAINS_REQUIRED_CATEGORY_NOT_DISCHARGED_BY_THIS_MAPPING",
+      "note": "Reuse exact component evidence only for its explicit unit/protocol predicate; retain required actual ownership/kernel/SQL oracle.",
+      "next_bundle": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS"
+    }
+  ],
+  "minimal_next_bundles": [
+    {
+      "id": "SOURCE_BOUND_REUSE",
+      "work": "Register exact test method/XML/source projections for already executed pure protocol, schema, context-binding and one-use guards; no rerun merely for reassurance. Add targeted missing valid-response/nonzero-exit, wrong private response nonce, idle stderr32769 and true512/513,64MiB/64MiB+1 boundary fixtures."
+    },
+    {
+      "id": "IMAGE_AND_FINAL_FENCE",
+      "work": "Actual helper+sealed mounts+JVM loaded resources/final RLIMIT/caps/FD inventory; class/resource/dependency/Alloy mutation at before/during capture,READY and final-publication fences; validate no private handoff/publication and cleanup; preserve all failures."
+    },
+    {
+      "id": "LIFECYCLE_AND_CAPACITY",
+      "work": "One frozen session tests two competing refill calls, third-tree denial, READY+fresh solver, generation replay/double release; real cancellations at RESERVED/STARTING/READY/BUSY/STAGED/reaped-before-publish and actual5s/30s/10s expiry boundaries."
+    },
+    {
+      "id": "CRASH_RESTART_AND_CONTAINMENT",
+      "work": "Separate per-case owner JVMs for four parentSIGKILL barriers, helper before/afterjoin death, JVM death, lingering descendants, PID/start mismatch, missing/unreadable/replaced group, prekey/BUSY restart, forced fsync error and shutdown STARTING/BUSY; exact retained Process/pidfd and captured group descriptors; UNKNOWN never releases."
+    },
+    {
+      "id": "TRANSPORT_AND_REAL_CONTEXT",
+      "work": "Reuse finite parser/cap guards; add actual production pipeline fault injection and real isolated SQLeanParser context CLEAN/false/UNKNOWN/stale generation with an independent no-private-byte-before-CLEAN observer. Initial eight-case assumed context is excluded from this obligation."
+    },
+    {
+      "id": "RESOURCE_COMPATIBILITY_AND_REGRESSIONS",
+      "work": "Actual final JVM limits and bounded resource-failure cleanup, managed fresh solver SAT/UNSAT alongside standby, current durable/history/max-history SQLeanParser path, source-projected complete current regression receipts, strict190 W0/W1 complete-response differential plus negative comparator fixtures."
+    }
+  ],
+  "promotion": "BLOCKED_PENDING_COMPLETE_FROZEN_SAFETY_DIFFERENTIAL_AND_ALL_ORIGINAL_PERFORMANCE_GATES"
+}

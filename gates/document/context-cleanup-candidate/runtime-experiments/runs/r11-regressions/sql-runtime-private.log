@@ -1,0 +1,66 @@
+test_idle_before_first_byte_outlasts_frame_deadline (test_sql_proxy.FrameDeadlineTests.test_idle_before_first_byte_outlasts_frame_deadline) ... ok
+test_partial_body_stall_receives_frame_deadline (test_sql_proxy.FrameDeadlineTests.test_partial_body_stall_receives_frame_deadline) ... ok
+test_partial_header_stall_receives_frame_deadline (test_sql_proxy.FrameDeadlineTests.test_partial_header_stall_receives_frame_deadline) ... ok
+test_backend_not_ready_cannot_outlast_overall_deadline (test_sql_proxy.HandshakeDeadlineTests.test_backend_not_ready_cannot_outlast_overall_deadline) ... ok
+test_fragmented_startup_cannot_renew_overall_deadline (test_sql_proxy.HandshakeDeadlineTests.test_fragmented_startup_cannot_renew_overall_deadline) ... ok
+test_ready_session_remains_usable_beyond_handshake_deadline (test_sql_proxy.HandshakeDeadlineTests.test_ready_session_remains_usable_beyond_handshake_deadline) ... ok
+test_backend_parse_error_cannot_execute_failed_pipeline (test_sql_proxy.WireProxyTests.test_backend_parse_error_cannot_execute_failed_pipeline) ... ok
+test_backend_unsafe_initial_mode_never_allows_ready_query (test_sql_proxy.WireProxyTests.test_backend_unsafe_initial_mode_never_allows_ready_query) ... ok
+test_bind_preserves_sql_looking_text_and_binary (test_sql_proxy.WireProxyTests.test_bind_preserves_sql_looking_text_and_binary) ... ok
+test_cancel_packet_routes_without_sql_admission (test_sql_proxy.WireProxyTests.test_cancel_packet_routes_without_sql_admission) ... ok
+test_close_statement_invalidates_dependent_portal (test_sql_proxy.WireProxyTests.test_close_statement_invalidates_dependent_portal) ... ok
+test_copy_data_preserved_only_during_server_copy_stage (test_sql_proxy.WireProxyTests.test_copy_data_preserved_only_during_server_copy_stage) ... ok
+test_each_effect_blocks_both_new_source_message_kinds (test_sql_proxy.WireProxyTests.test_each_effect_blocks_both_new_source_message_kinds) ... ok
+test_execute_requires_connection_local_portal (test_sql_proxy.WireProxyTests.test_execute_requires_connection_local_portal) ... ok
+test_fifteen_live_handlers_reject_overflow_and_preserve_cancel_capacity (test_sql_proxy.WireProxyTests.test_fifteen_live_handlers_reject_overflow_and_preserve_cancel_capacity) ... ok
+test_fragmented_query_preserved (test_sql_proxy.WireProxyTests.test_fragmented_query_preserved) ... ok
+test_idle_transaction_end_invalidates_named_portal (test_sql_proxy.WireProxyTests.test_idle_transaction_end_invalidates_named_portal) ... ok
+test_implicit_transaction_control_admitted (test_sql_proxy.WireProxyTests.test_implicit_transaction_control_admitted) ... ok
+test_injected_parser_failure_has_no_direct_backend_fallback (test_sql_proxy.WireProxyTests.test_injected_parser_failure_has_no_direct_backend_fallback) ... ok
+test_invalid_parse_never_reaches_backend (test_sql_proxy.WireProxyTests.test_invalid_parse_never_reaches_backend) ... ok
+test_invalid_query_never_reaches_backend (test_sql_proxy.WireProxyTests.test_invalid_query_never_reaches_backend) ... ok
+test_invalid_wire_frames_fail_closed (test_sql_proxy.WireProxyTests.test_invalid_wire_frames_fail_closed) ... ok
+test_matching_ready_releases_completed_effect_and_copy_has_no_orphan (test_sql_proxy.WireProxyTests.test_matching_ready_releases_completed_effect_and_copy_has_no_orphan) ... ok
+test_native_and_protocol_share_accepted_namespace_both_directions (test_sql_proxy.WireProxyTests.test_native_and_protocol_share_accepted_namespace_both_directions) ... ok
+test_native_classifier_and_names_are_conservative (test_sql_proxy.WireProxyTests.test_native_classifier_and_names_are_conservative) ... ok
+test_native_prepare_counts_toward_shared_object_capacity (test_sql_proxy.WireProxyTests.test_native_prepare_counts_toward_shared_object_capacity) ... ok
+test_native_prepare_execute_and_cache_cannot_prepare_another_session (test_sql_proxy.WireProxyTests.test_native_prepare_execute_and_cache_cannot_prepare_another_session) ... ok
+test_native_unknown_target_denied (test_sql_proxy.WireProxyTests.test_native_unknown_target_denied) ... ok
+test_old_ready_does_not_release_newer_execute_effect (test_sql_proxy.WireProxyTests.test_old_ready_does_not_release_newer_execute_effect) ... ok
+test_opaque_and_nested_execute_denied (test_sql_proxy.WireProxyTests.test_opaque_and_nested_execute_denied) ... ok
+test_portal_snapshots_unnamed_statement_before_replacement (test_sql_proxy.WireProxyTests.test_portal_snapshots_unnamed_statement_before_replacement) ... ok
+test_prepared_object_capacity_fails_before_forwarding_overflow (test_sql_proxy.WireProxyTests.test_prepared_object_capacity_fails_before_forwarding_overflow) ... ok
+test_protocol_name_lengths_and_prefix_collisions_fail_closed (test_sql_proxy.WireProxyTests.test_protocol_name_lengths_and_prefix_collisions_fail_closed) ... ok
+test_query_and_numbered_parse_admission (test_sql_proxy.WireProxyTests.test_query_and_numbered_parse_admission) ... ok
+test_simple_query_invalidates_unnamed_statement (test_sql_proxy.WireProxyTests.test_simple_query_invalidates_unnamed_statement) ... ok
+test_startup_unsafe_encoding_denied (test_sql_proxy.WireProxyTests.test_startup_unsafe_encoding_denied) ... ok
+test_unsafe_fragmented_status_precedes_barrier_release (test_sql_proxy.WireProxyTests.test_unsafe_fragmented_status_precedes_barrier_release) ... ok
+test_unsafe_mode_change_stops_pipeline_before_forwarding (test_sql_proxy.WireProxyTests.test_unsafe_mode_change_stops_pipeline_before_forwarding) ... ok
+test_unsolicited_ready_after_startup_fails_closed (test_sql_proxy.WireProxyTests.test_unsolicited_ready_after_startup_fails_closed) ... ok
+test_bound_text_binary_and_implicit_transaction (__main__.RealProxyTests.test_bound_text_binary_and_implicit_transaction) ... ok
+test_failed_native_prepare_never_becomes_successful_execution (__main__.RealProxyTests.test_failed_native_prepare_never_becomes_successful_execution) ... ok
+test_indirect_pg_settings_change_closes_isolated_session (__main__.RealProxyTests.test_indirect_pg_settings_change_closes_isolated_session) ... ok
+test_invalid_grammar_fails_and_safe_new_session_works (__main__.RealProxyTests.test_invalid_grammar_fails_and_safe_new_session_works) ... ok
+test_mode_change_pipeline_fails_before_following_query (__main__.RealProxyTests.test_mode_change_pipeline_fails_before_following_query) ... ok
+test_native_cache_cannot_create_target_in_new_connection (__main__.RealProxyTests.test_native_cache_cannot_create_target_in_new_connection) ... ok
+test_native_capacity_256_accepts_then_denies_257 (__main__.RealProxyTests.test_native_capacity_256_accepts_then_denies_257) ... ok
+test_native_invalid_names_wrappers_and_expressions_denied (__main__.RealProxyTests.test_native_invalid_names_wrappers_and_expressions_denied) ... ok
+test_native_prepare_execute_crosses_protocol_namespace_both_directions (__main__.RealProxyTests.test_native_prepare_execute_crosses_protocol_namespace_both_directions) ... ok
+test_real_cancellation_interrupts_pg_sleep (__main__.RealProxyTests.test_real_cancellation_interrupts_pg_sleep) ... ok
+test_real_copy_roundtrip (__main__.RealProxyTests.test_real_copy_roundtrip) ... ok
+test_real_prepared_statement_repeated_bindings (__main__.RealProxyTests.test_real_prepared_statement_repeated_bindings) ... ok
+test_real_protocol_statement_portal_63_byte_boundaries (__main__.RealProxyTests.test_real_protocol_statement_portal_63_byte_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 21.567s
+
+OK
+
+{
+  "status": "PASS",
+  "tests": 52,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_unchanged": true
+}

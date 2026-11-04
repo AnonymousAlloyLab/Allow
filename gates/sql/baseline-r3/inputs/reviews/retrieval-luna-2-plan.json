@@ -1,0 +1,86 @@
+{
+  "review": {
+    "id": "retrieval-luna-2-independent-plan",
+    "spec_revision": 3,
+    "reviewer": "GPT-6 Luna evaluator 2",
+    "status": "DESIGN_ONLY",
+    "scope": "Independent frozen adversarial evaluation design for local 3072-dimensional hierarchical retrieval. No corpus content or retrieval results were inspected.",
+    "non_claims": [
+      "Finite witness pools do not prove equivalence or unrestricted validity.",
+      "Checked rewrite pairs are structural retrieval proxies, not general semantic relevance labels.",
+      "Advisory blinded judgments cannot replace solver/evaluator truth or integrity checks.",
+      "Passing fixtures does not establish dataset rights, commercial clearance, or production quality."
+    ]
+  },
+  "frozen_protocol": {
+    "freeze_before": ["adapter training", "validation tuning", "held-out test scoring", "reviewer unblinding"],
+    "splits": "Connected source-family components, aliases, equal source-byte hashes, identical anonymous module/predicate records, and all synthetic descendants remain in one split. Freeze the split manifest and record its digest before fitting.",
+    "test_access": "One final test run after freezing model ID, tokenizer/weights, adapter, chunking, all four block layout, normalization, score weights, candidate settings, eligibility filters, and fixtures. No test-driven threshold, fixture, or label changes.",
+    "blinding": "For each query, give reviewers only randomized opaque candidate IDs and the permitted anonymous structural envelopes; remove source names, paths, dataset labels, family IDs, split names, scores, model identity, and gold relevance labels. Randomize candidate order and repeat a blinded subset to measure reviewer consistency. Keep answer key with a separate evaluator until judgments are locked.",
+    "ranking_runs": ["pretrained-only", "trained four-block hierarchy", "canonical-only", "combined score with default weights", "predicate-block cosine diagnostic", "exact filtered search", "optional ANN candidate generation plus full-float rerank"],
+    "report": "Report each run separately with nDCG@k, MRR, recall, candidate recall against exact filtered top-k, eligible corpus coverage, pool-overlap availability, and latency. Separate checked rewrite proxy metrics from any independently established semantic relevance metrics; disclose counts and uncertainty."
+  },
+  "fixtures": [
+    {
+      "id": "polarity-flip-must-not-share-positive-evidence",
+      "category": "wrong_polarity",
+      "input": "Use an otherwise identical compatible environment and predicate pair where P is replaced by NOT P. Query and candidate each carry complete polarity-specific pools; a positive witness of P is not an accepted positive witness of NOT P.",
+      "expected": "Opposite-polarity witness memberships cannot be credited as same-polarity overlap. A validated structure satisfying P and falsifying NOT P is decisive counterevidence against equivalence; the retrieval envelope must preserve its polarity and may not describe the records as equivalent.",
+      "failure_if": "Positive evidence is matched against a negative pool, polarity is dropped from identity, or similarity/overlap is presented as proof."
+    },
+    {
+      "id": "facts-negation-translator-boundary",
+      "category": "facts_negation",
+      "input": "For fixed facts F and target P, exercise both AST queries at the same bounds: F AND P and F AND NOT P. Include a case where F is restrictive and a case where F itself is inconsistent.",
+      "expected": "The positive query is exactly F AND P; the negative query exactly F AND NOT P. Inconsistent F yields no fabricated witnesses on either side. Facts occur once and are never dropped, negated, or moved outside the fixed environment.",
+      "failure_if": "Implementation computes NOT(F AND P), omits/doubles F, or converts UNSAT/UNKNOWN into a counterexample."
+    },
+    {
+      "id": "finite-pool-is-not-semantic-proof",
+      "category": "finite_pool_limit",
+      "input": "Construct two predicates agreeing on every member of the finite sampled positive and negative pools but differing on an unsampled bounded structure; separately construct an observed opposing witness.",
+      "expected": "Agreement on sampled pools is labeled sampled evidence only, never equivalence. A validated opposing witness blocks an equivalence claim. An unsampled counterexample demonstrates why pool agreement has no proof status.",
+      "failure_if": "Pool equality or high score produces an equivalence/validity claim, or an observed opposing witness is ignored."
+    },
+    {
+      "id": "family-alias-union-across-three-sources",
+      "category": "source_family_split",
+      "input": "Create synthetic manifest metadata only: alias links connect one family across Alloy4Fun, Alloy5, and Alloy6; add a duplicate anonymous record and a shared source hash under different aliases, then propose conflicting train/validation/test assignments.",
+      "expected": "Connected components are formed across all roots before assignment; all linked/duplicate records and their augmentations occupy one split, or the manifest is rejected. No dataset label itself is used as a family boundary.",
+      "failure_if": "Any linked family, equal hash, identical anonymous record, or derived augmentation crosses splits."
+    },
+    {
+      "id": "checked-rewrite-proxy-vs-semantic-ground-truth",
+      "category": "ground_truth_labels",
+      "input": "Keep separate (a) exact solver/evaluator polarity truth for stored witnesses, (b) checked nontrivial e-graph rewrite pair labels for structural retrieval, and (c) any blinded semantic relevance judgments. Include identity/alpha-only pairs and a rewrite pair with certificate input mismatch.",
+      "expected": "Only exact solver/evaluator outcomes label witness truth. Only eligible checked derivations label synthetic structural positives; identity/alpha-only and misbound certificates are excluded. Semantic judgments remain advisory, separately reported, and never retroactively alter gold labels or held-out metrics.",
+      "failure_if": "A rewrite proxy is called a semantic equivalence proof, a reviewer label overrides solver truth, or a bad certificate enters training/evaluation."
+    },
+    {
+      "id": "zero-overlap-reveals-pool-sampling-bias",
+      "category": "pool_sampling_bias",
+      "input": "Use compatible records whose finite pools are disjoint but whose checked structural relation is positive; include another compatible record with one exact shared witness and otherwise unrelated samples. Add an incompatible-context duplicate witness case.",
+      "expected": "Disjoint pools yield zero overlap without implying semantic dissimilarity; one shared item uses unique-byte intersection divided by max pool size. Incompatible contexts always receive zero overlap and an explicit incompatibility reason even if witness bytes coincide. Report overlap availability and zero-overlap rate so sampling bias is visible.",
+      "failure_if": "Zero overlap is treated as a semantic negative, partial sample overlap is over-weighted, or incompatible contexts earn credit."
+    },
+    {
+      "id": "ann-omits-full-score-winner",
+      "category": "candidate_recall_counterexample",
+      "input": "Create a finite eligible corpus where candidate A is absent from ANN candidates but has the highest exact full-float weighted score due to canonical plus pool evidence; ANN returns lower-ranked B and C. Compare ANN candidate set and final rerank with exact filtered search.",
+      "expected": "Candidate recall against exact filtered top-k reports the miss. Reranking scores only returned candidates and must not claim exact top-k; output is marked approximate. ANN underfill does not broaden tenant, project, purpose, deletion, quarantine, schema, or model filters.",
+      "failure_if": "The omitted exact winner is silently represented as retrieved, approximate output is labeled exact, or authorization filters are relaxed to fill k."
+    },
+    {
+      "id": "adapter-training-family-leakage-and-lineage-revocation",
+      "category": "model_leakage_revocation",
+      "input": "Place a family alias and a checked rewrite augmentation in one train component and its near-duplicate in proposed test; separately revoke training consent for one record after adapter M is trained while an otherwise active record and retryable outbox job use M.",
+      "expected": "Split manifest rejects train/test component overlap before fitting. Revocation quarantines M and every vector derived from M, prevents retrieval and outbox publication, and requires retraining without revoked lineage before reactivation.",
+      "failure_if": "Near-duplicate family leakage reaches test, or active records remain retrievable through a model whose training lineage includes revoked consent."
+    }
+  ],
+  "judgment_freeze": {
+    "before_unblinding": "Store fixture outcomes, candidate ranking outputs, reviewer judgments, disagreements, and exact artifact identities in an immutable run manifest. Keep reviewer labels separate from solver-derived and checked-derivation labels.",
+    "after_unblinding": "Explain failures and mark gates open; do not alter frozen labels, test fixtures, metrics, or promotion rule. Any correction requires a new version and fresh held-out components.",
+    "promotion_reference": "Apply the spec's predeclared minimum of 12 independent family components, at least 2 validation and 2 test components, all three source roots represented among FULL records, zero component overlap, and trained MRR@10 no worse than pretrained-only by more than 0.01, with every integrity/adversarial test passing. Undersized or failing runs leave the quality gate open."
+  }
+}

@@ -1,0 +1,202 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.xtend</groupId>
+	<artifactId>org.eclipse.xtend.relocated.parent</artifactId>
+	<version>2.40.0.M0</version>
+	<packaging>pom</packaging>
+	<name>Xtend Relocated Parent</name>
+	<description>Xtend Parent for relocated artifacts using the old org.eclipse.xtend groupId, relocated to groupId org.eclipse.xtext</description>
+
+	<url>https://www.eclipse.org/Xtext/</url>
+	<licenses>
+		<license>
+			<name>Eclipse Public License, Version 2.0</name>
+			<url>http://www.eclipse.org/legal/epl-2.0</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Sven Efftinge</name>
+			<email>sven.efftinge@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Sebastian Benz</name>
+		</developer>
+		<developer>
+			<name>Lorenzo Bettini</name>
+			<email>lorenzo.bettini@gmail.com</email>
+			<organization>DISIA, University Firenze</organization>
+		</developer>
+		<developer>
+			<name>Michael Clay</name>
+		</developer>
+		<developer>
+			<name>Arne Deutsch</name>
+			<email>arne.deutsch@itemis.de</email>
+			<organization>itemis</organization>
+			<organizationUrl>http://www.itemis.com</organizationUrl>
+		</developer>
+		<developer>
+			<name>Christian Dietrich</name>
+			<email>christian.dietrich.dietrich.opensource@gmail.com</email>
+			<organization>everest systems</organization>
+		</developer>
+		<developer>
+			<name>Moritz Eysholdt</name>
+			<email>moritz.eysholdt@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Dennis Hübner</name>
+			<email>dennis.huebner@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Jan Köhnlein</name>
+			<email>jan.koehnlein@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Anton Kosyakov</name>
+			<email>anton.kosyakov@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Tamas Miklossy</name>
+			<email>miklossy@itemis.de</email>
+			<organization>itemis</organization>
+			<organizationUrl>http://www.itemis.com</organizationUrl>
+		</developer>
+		<developer>
+			<name>Stefan Oehme</name>
+		</developer>
+		<developer>
+			<name>Holger Schill</name>
+			<email>holger.schill@itemis.de</email>
+			<organization>itemis</organization>
+			<organizationUrl>http://www.itemis.com</organizationUrl>
+		</developer>
+		<developer>
+			<name>Christian Schneider</name>
+			<email>christian.schneider@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Miro Spönemann</name>
+			<email>miro.spoenemann@typefox.io</email>
+			<organization>TypeFox</organization>
+			<organizationUrl>http://typefox.io</organizationUrl>
+		</developer>
+		<developer>
+			<name>Karsten Thoms</name>
+			<email>karsten.thoms@itemis.de</email>
+			<organization>itemis</organization>
+			<organizationUrl>http://www.itemis.com</organizationUrl>
+		</developer>
+		<developer>
+			<name>Knut Wannheden</name>
+		</developer>
+		<developer>
+			<name>Sebastian Zarnekow</name>
+			<email>sebastian.zarnekow@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Titouan Vervack</name>
+			<email>titouan.vervack@sigasi.com</email>
+			<organization>Sigasi</organization>
+			<organizationUrl>https://www.sigasi.com</organizationUrl>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:https://github.com/eclipse-xtext/xtext.git</connection>
+		<developerConnection>scm:git:https://github.com/eclipse-xtext/xtext.git</developerConnection>
+		<url>git@github.com:eclipse-xtext/xtext.git</url>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+
+		<build-helper-maven-plugin-version>3.3.0</build-helper-maven-plugin-version>
+	</properties>
+
+	<modules>
+		<module>org.eclipse.xtend.maven.plugin.relocated</module>
+		<module>org.eclipse.xtend.maven.archetype.relocated</module>
+		<module>org.eclipse.xtend.ide.common.relocated</module>
+		<module>org.eclipse.xtend.lib.gwt.relocated</module>
+		<module>org.eclipse.xtend.core.relocated</module>
+		<module>org.eclipse.xtend.lib.relocated</module>
+		<module>org.eclipse.xtend.lib.macro.relocated</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${build-helper-maven-plugin-version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>2.14.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>sonatype-oss-release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+						<version>0.8.0</version>
+						<extensions>true</extensions>
+						<configuration>
+							<publishingServerId>central</publishingServerId>
+							<outputFilename>central-xtend-relocated-bundle.zip</outputFilename>
+							<!-- Currently, deployments to release are only visibile to the userid uploading
+								the zip bundle, i.e., Jenkins. Thus, for the moment, we have to manually upload
+								the zip bundle manually. -->
+							<skipPublishing>true</skipPublishing>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<configuration>
+									<gpgArguments>
+										<arg>--pinentry-mode</arg>
+										<arg>loopback</arg>
+									</gpgArguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

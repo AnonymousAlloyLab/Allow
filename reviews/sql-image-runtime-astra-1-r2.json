@@ -1,0 +1,49 @@
+{
+  "reviewer": "astra-1",
+  "decision": "REQUEST_CHANGES",
+  "staged_root_sha256": "836cf521efade9e6325f90269c232c65bbf86d854c7a25e015571f1c4dc833e2",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+    "gates/sql/immutable-image-candidate/implementation/integration-obligations.json": "822d224f12b0e14c0cdd686b3c956b411ad73094c89178bb46bbc9125cf91871",
+    "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/bootstrap_corpus.py": "85aaad35e2eec311e96265bd73b0ac5b9a7df10d3240b078a8097d5fa052c0f1",
+    "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/document_recovery_test.py": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+    "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/verify_sql_runtime.py": "a8d0bf871b89c9628e72b125feb641ea1b20de07ae5f73ccff7d6c7e86b92c9e",
+    "gates/sql/immutable-image-candidate/implementation/run_staged_tests.py": "cc4bb764507844a1171cc37203a6777ca72cbe3b67bebfbdfc6a7216e6d1a686",
+    "gates/sql/immutable-image-candidate/implementation/tests/test_sql_guard_regressions.py": "751426b3a363b87537c2088255b9ca9fddb05c6feeff105c9359a59611f485c7",
+    "gates/sql/immutable-image-candidate/implementation/tests/test_sql_image.py": "62f319d055e6350f9f2472e2918e01fe85141380d5446050d3e1a74cdd977fed",
+    "gates/sql/immutable-image-candidate/implementation/tests/test_sql_proxy.py": "884f7be1174c5090dc965e83c0a159debbe951098b4ebc127890b6106f5521fe"
+  },
+  "status": "FOCUSED_RECHECK_OF_V4_OBSERVED_BEFORE_AUTHOR_FOLLOWUP",
+  "changed_since_initial_pin_verification": [
+    "gates/sql/immutable-image-candidate/implementation/run_staged_tests.py",
+    "gates/sql/immutable-image-candidate/implementation/tests/test_sql_image.py"
+  ],
+  "resolved": [
+    {
+      "id": "SQLIRA1-01",
+      "resolution": "Private executor Future and repeated cancellation shield loop retain slot until worker finishes. Independent isolated double-cancel rerun passed: slot1/task unfinished through both cancels, slot2 only after worker completion."
+    }
+  ],
+  "findings": [
+    {
+      "id": "SQLIRA1-02",
+      "severity": "medium",
+      "location": "promotion-proposals/scripts/verify_sql_runtime.py runtime_identity",
+      "problem": "V4 optional disk binary read occurs inside mandatory live identity try. Removed/unreadable binary raises OSError, adds runtime_identity_input_unavailable and skips live snapshot checks, contradicting restart-readiness-only disk scope and permitted running-after-removal policy.",
+      "required_fix": "Separate optional disk read failures from required live snapshot validation and report disk unavailable independently. Isolated missing/unreadable disk tests must continue validating live snapshot; wrong live snapshot still fails.",
+      "coordination": "Root independently confirmed same finding; author fixing and preparing new root. Current report evaluates original v4 pins, not newer changed bytes."
+    }
+  ],
+  "validation": {
+    "initial_pins": "All14 matched when review began. Changed files listed separately above; no approval extends to them.",
+    "isolated_cancellation": "DOUBLE_CANCEL_FIX_PASS; no actual parser, DB, HTTP or proxy service.",
+    "stage_v4_report": "104PASS zero failures/errors; overall BLOCKED for external IM31/IM32. No full-suite rerun by reviewer.",
+    "consumer_paths": "Runtime resolves repository ancestor and hashes actual staged sibling modules. Promotion scripts retain installed-target ROOT conventions; they are not standalone staged command entrypoints."
+  },
+  "scope": "Read-only focused review plus isolated fake-worker reproduction. No production edits, active service operations, or formal/runtime universal correctness claim."
+}

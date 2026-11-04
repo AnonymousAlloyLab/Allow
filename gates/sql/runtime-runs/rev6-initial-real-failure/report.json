@@ -1,0 +1,268 @@
+{
+  "status": "FAIL",
+  "classification": "FINITE_RUNTIME_CHECKS_NOT_FORMAL_REFINEMENT",
+  "timestamp_utc": "2026-11-03T17:24:36.428190+00:00",
+  "tests": 52,
+  "failures": 12,
+  "errors": 5,
+  "skipped": 0,
+  "source_unchanged": true,
+  "input_root_sha256": "c7932a9d5477e89e9d3f4186978b38f8e9f6298c5196e714a016cd37ad8b740f",
+  "files": [
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f"
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "c7b2366ec96333baf37f910b8764a633d8ddd9d9bfa636185231e777cb26a410"
+    },
+    {
+      "path": "scripts/verify_sql_runtime.py",
+      "sha256": "f6235b2057eb0a56bf79b008448dfb41c9bb48e20291a1028193d660ba4a1a45"
+    },
+    {
+      "path": "spec/sql-stage.json",
+      "sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4"
+    }
+  ],
+  "proxy_status_before": {
+    "active": 2,
+    "clients": {
+      "allow-app": {
+        "Q": 3,
+        "X": 1,
+        "accepted": 3,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-bootstrap": {
+        "Q": 5,
+        "X": 5,
+        "accepted": 5,
+        "auth": 10,
+        "connections": 5
+      },
+      "allow-migration": {
+        "B": 3,
+        "D": 3,
+        "E": 3,
+        "P": 3,
+        "Q": 29,
+        "S": 3,
+        "accepted": 32,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-pg-dump": {},
+      "allow-pg-restore": {},
+      "allow-proxy-readiness": {
+        "Q": 1,
+        "X": 1,
+        "accepted": 1,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-recovery": {},
+      "allow-recovery-control": {
+        "Q": 4,
+        "X": 1,
+        "accepted": 4,
+        "auth": 4,
+        "connections": 2
+      },
+      "allow-recovery-dump": {},
+      "allow-recovery-restore": {},
+      "allow-tests": {},
+      "other": {}
+    },
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "policy": "sql-routing-v6",
+      "profile": "postgresql-16.15-grammar-v0.1"
+    },
+    "pid": 426438,
+    "started": 1793726261.7204766
+  },
+  "proxy_status_after": {
+    "active": 5,
+    "clients": {
+      "allow-app": {
+        "Q": 3,
+        "X": 1,
+        "accepted": 3,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-bootstrap": {
+        "Q": 5,
+        "X": 5,
+        "accepted": 5,
+        "auth": 10,
+        "connections": 5
+      },
+      "allow-migration": {
+        "B": 34,
+        "D": 34,
+        "E": 34,
+        "P": 34,
+        "Q": 126,
+        "S": 34,
+        "X": 1,
+        "accepted": 160,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-pg-dump": {},
+      "allow-pg-restore": {},
+      "allow-proxy-readiness": {
+        "Q": 1,
+        "X": 1,
+        "accepted": 1,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-recovery": {
+        "B": 208,
+        "D": 208,
+        "E": 208,
+        "P": 208,
+        "Q": 69,
+        "S": 208,
+        "X": 18,
+        "accepted": 277,
+        "auth": 36,
+        "connections": 18
+      },
+      "allow-recovery-control": {
+        "Q": 14,
+        "X": 5,
+        "accepted": 14,
+        "auth": 10,
+        "connections": 5
+      },
+      "allow-recovery-dump": {
+        "Q": 88,
+        "X": 1,
+        "accepted": 88,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-recovery-restore": {
+        "Q": 262,
+        "X": 1,
+        "accepted": 262,
+        "auth": 2,
+        "c": 14,
+        "connections": 1,
+        "d": 51
+      },
+      "allow-tests": {
+        "B": 7,
+        "D": 7,
+        "E": 7,
+        "P": 12,
+        "Q": 293,
+        "S": 8,
+        "X": 10,
+        "accepted": 307,
+        "auth": 56,
+        "c": 1,
+        "connections": 28,
+        "d": 1,
+        "parser_reason_invalid_native_statement_name": 2,
+        "parser_reason_native_statement_is_not_sole_top-level_statement": 4,
+        "parser_reason_parser_rejected": 1,
+        "parser_reason_unreviewed_set_config": 2,
+        "parser_reason_unreviewed_setting": 1,
+        "protocol_error": 13,
+        "rejected": 10
+      },
+      "other": {
+        "cancel": 1
+      }
+    },
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "policy": "sql-routing-v6",
+      "profile": "postgresql-16.15-grammar-v0.1"
+    },
+    "pid": 426438,
+    "started": 1793726261.7204766
+  },
+  "runtime_identity_before": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 426438,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+      "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7"
+  },
+  "runtime_identity_after": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 426438,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+      "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7"
+  },
+  "daemon_pid_stable": true,
+  "allow_tests_counter_deltas": {
+    "S": 8,
+    "parser_reason_unreviewed_setting": 1,
+    "parser_reason_unreviewed_set_config": 2,
+    "parser_reason_native_statement_is_not_sole_top-level_statement": 4,
+    "protocol_error": 13,
+    "Q": 293,
+    "parser_reason_parser_rejected": 1,
+    "connections": 28,
+    "B": 7,
+    "auth": 56,
+    "rejected": 10,
+    "D": 7,
+    "P": 12,
+    "d": 1,
+    "accepted": 307,
+    "parser_reason_invalid_native_statement_name": 2,
+    "X": 10,
+    "E": 7,
+    "c": 1
+  },
+  "cancel_counter_delta": 1,
+  "real_proxy_coverage": true,
+  "log_sha256": "e54b25f00fa86768aa88de423263079d5296ef4978e6a5ee5d2cab65c5cfe1a0",
+  "limits": [
+    "Finite authored fixtures; no universal SQL/Python/protocol refinement",
+    "Per-client application/bootstrap/migration/dump/restore coverage requires separate evidence"
+  ]
+}

@@ -1,0 +1,1008 @@
+{
+  "status": "PASS",
+  "classification": "EXECUTED_IMPLEMENTATION_TESTS_NOT_FORMAL_REFINEMENT",
+  "timestamp_utc": "2026-11-03T17:27:47.471547+00:00",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "tests": 81,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_unchanged": true,
+  "input_root_sha256": "f20e73a0b2e230474ed1952d5bdc4cee211cb4bc08430529362d79a037162abc",
+  "files": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AllowApplication.java",
+      "sha256": "b95538714ddbb2e10f5fd53e6f15bd44c2d64a687abd7f29565cfcfe4b6b0c5c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ApiController.java",
+      "sha256": "94d768c469a3e5817c25ef25fdf52d804573a247230c370de35da6bcc5a0e516"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AuthorityFilter.java",
+      "sha256": "2f171027ca2371aefb62e76b47c9e1ceaaedd5f87cc493c4d7396c374f9869ed"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BoundedCapture.java",
+      "sha256": "d8ce60276d25075d58c26b627b82640b84d9207158f342dc608237fbd43994d9"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+      "sha256": "fec9b35af0d3413796bf2df135900b8c958aacd9d02bb9018b3d83118927acef"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+      "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusController.java",
+      "sha256": "e38522fdc14aae8fad59226029a5411e7b905b4cf8bcdd3c8b46cf762974bb74"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusGateway.java",
+      "sha256": "1d0d0575530bf298a76a6b70f927de381518e03a0639a4a770fc178426b41d3c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobControl.java",
+      "sha256": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRecord.java",
+      "sha256": "bda801932f2df2edd5a72b0fb8a594697d501644c4de740746a417fdfeb74d4d"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRunner.java",
+      "sha256": "681379f569261d55aa123e31b99cbaa9ccc2cf34da39bbc743f73522c418fc10"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobService.java",
+      "sha256": "5602d7cdd093117831a8d589420168a9a2e74ff40d474d1539d512e3d241ba30"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LaunchAuthority.java",
+      "sha256": "141a0373295e6413740f6efbfdde5eea8b2dce4379f90ec4464ac80c333d1a53"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LoopbackBinding.java",
+      "sha256": "137118b3981e0a64cce37043ba1cb2998349da275915600866945c759876edc5"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+      "sha256": "0b09a9f608fcc4fa80402c33b8c2305fe2afa3771ba9d865488fea0402f31646"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/SandboxLauncher.java",
+      "sha256": "3facaad09b518ad0487f99d38b61f50826d05dafe3b0caa49abbea94312a7d8f"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java",
+      "sha256": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalDigest.java",
+      "sha256": "1b445d48870cc80f997b5dd5fd92ce1cb8bb89e8c101e15a5de7cf7288341a19"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalNodes.java",
+      "sha256": "1798334e079e527f7a7e160a8f633f932b000e407c4837b66d5800f6f42aa333"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CanonicalView.java",
+      "sha256": "8532a0185434ef0c8be02fdf4f86b77a9707c25cdf8ffa5a8e7dbfc114b85cd1"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/Canonicalizer.java",
+      "sha256": "3e8afd2d1235803dd483fdd336813241760f351faf4ac8b58fa714c749ea137e"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/CorpusProjection.java",
+      "sha256": "5b4ff646976044d4e18b2d9300915a60e209a16736bb2238726428f7bf614fef"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EgraphView.java",
+      "sha256": "eae47433e527427a57ed82c5621b3e13562325cc6316a65eb4a5cf499a1f3190"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java",
+      "sha256": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java",
+      "sha256": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandAdapter.java",
+      "sha256": "6ba3aa96e05c1b600351e0941e16944343c0fa6a707ecf605a8f324a059a368c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandCapture.java",
+      "sha256": "2fb1c2db5e9084fcb351e0da1ec7ba0adf35b077370685fd6c345200ef2160cc"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandLimit.java",
+      "sha256": "ef768255854fd5fd8bbdabe6e7fb0fd3afa899c2aa05d8afd3e347283aea348c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandLowering.java",
+      "sha256": "4e9b7dc3964027e868636d52afb19439b175226afc33fe9d065dfa2db650f8fa"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/IslandTypes.java",
+      "sha256": "1338c578a76d21421bb92e665f4d8e655848ffffc7c9feea85b75ca8e9b0e86b"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java",
+      "sha256": "3c2ba77a741a6b9efd8d7343aa93566fd88677ba40ae59b231612fbe9d575e23"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/OperatorPolicy.java",
+      "sha256": "b8e65e2bd9ea1271ce2deea563f7f83643fb215fe10901afa1380904191536a4"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/SlotRegistry.java",
+      "sha256": "e5909f1b865f6f3cac22f6ea62e198dda819ab5128a878b1afae4b41c00642c6"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/UnsupportedCanonical.java",
+      "sha256": "38e48badbd8cf3cf1408fdba18fd4137d5a5a2b34ae0d3b8fe5a82917fe8d5ae"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusAugmentMain.java",
+      "sha256": "20dc79cc63c3d62227cdbe7f1324f779d4326d06e7ed12a0f37322cf7695365e"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusEngine.java",
+      "sha256": "e28e61f7376dbf0c1f1057ea7d5250a691d837c67afc1e5d3f31b32218fe1ec0"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusRequest.java",
+      "sha256": "d139d807db3a1f6bc72b9c26ef3dbc926529d5b7f074d106880352078d3c1015"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusResponse.java",
+      "sha256": "d55ee34d93fca02cc52ba96802f3d06eb168842557a23374c2f01ce456fc941b"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/CorpusWorkerMain.java",
+      "sha256": "383a40c9cc20d395f3af5db35315b9b1b2924c2e72a0e9c230ad1c42ecae0340"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/InstanceCanonicalizer.java",
+      "sha256": "9271ca7d75d75587e01fb7158552a39ddb03969c37c8163295392518a7a3b3e6"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/PoolBuilder.java",
+      "sha256": "1a5e0d92f587c4c95658f23d65c63331c2a060758cf142f21bab4864abd886bc"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/corpus/TrainingVariant.java",
+      "sha256": "1027f084f7757b9c9c52f6d71fd97bfa3ee80a7b6c05f1c5fa779dbe94b0e21e"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/AtomView.java",
+      "sha256": "ffb00bb4b5ed5685ba1a42c2d6699a16cc122f8dcc10b1907135086d75eb75e5"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/CommandView.java",
+      "sha256": "5c2a574d5980bfb63637cedbbca17bfcfc6fdd44e5a831cc5c2fcd3238c1619e"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/JobRequest.java",
+      "sha256": "1b9783dad26da53f994eaabba4d563a1c39c515f894bc3465a6aa3089e8481a9"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/JobView.java",
+      "sha256": "404e07ed9269580b61ff5daa6db597a4425373314acf0bd40738667bb589b4d7"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/RelationView.java",
+      "sha256": "2c94bc09f8ea41aae251e76a03135bc9fe04425313ed1ee3e911f45cc0f1cf6f"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/StateView.java",
+      "sha256": "49c12328dba331c98a955a21a0a9de47e617ff4766308816a079b55b001ff42d"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WitnessView.java",
+      "sha256": "bc94fbbe7e9d251eb61e84b81e63093be804388dfb085a22ccc694ed76241270"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WorkerRequest.java",
+      "sha256": "8cf5ad993ff2eb278022430617ad97ce1826edffb716787d43b8b239a4efcf87"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/dto/WorkerResponse.java",
+      "sha256": "248b10c49b939a0be519e5e2781f27c97fd0ec3036b9d9d24d9482066be6729c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Certificate.java",
+      "sha256": "42340eb1d795f15d2dd7267555f27339f6689ce59cf2b16c7465758743916d9e"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/CertificateSlice.java",
+      "sha256": "fb1574626f47eff756591d0bae6018336ace7af54eb8df269f09512706009a5a"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Context.java",
+      "sha256": "88fa2ed6f271db097e7c1a3c7daa7fa2f000648bb8492cd87973f9d23abde3f3"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EGraph.java",
+      "sha256": "f13c691e96dded53eeb4de939d5b5c36dbf4c25df203c242e6cfd68c3e636b0c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EGraphEngine.java",
+      "sha256": "813fd94cb4194ff5cd069d8eb80890972e6982df5bfb7c2450c24b3fdb8384bc"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/EngineInput.java",
+      "sha256": "81f1501ba776f2d50ecd8da8f26b8d6c7af8a13355a9c6c7864007ca13baaabd"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Extractor.java",
+      "sha256": "15f158d5daf5e4e94ea57858c058694169c8201f4cfeb60008ff5aef3a033ec4"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/IslandResult.java",
+      "sha256": "d4ec72902b2101796cb3c026a80f1f1c9ed5d27febca7fb6baa3a0ef8eaf6776"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Matcher.java",
+      "sha256": "48bbca3e3b1b7ad6234ab083b8a2784d74720b633ddf7f67e51c9280afa270e5"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofChecker.java",
+      "sha256": "5698db7d4ff9da59ae5f10992bd45985d39c4b8a73e9ede662bee3ab1c1cade7"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofStep.java",
+      "sha256": "18105cf86f545948e509248ef6e55b7edad8aa1363be1f6b675cd8141457cab3"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/ProofStore.java",
+      "sha256": "cc7323f476ca73f59604d7cf58a8f0285f24d8ff2380a67c8603a0cc8eb10fca"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/RuleCatalog.java",
+      "sha256": "6b7118b0e2f8e233df142134c632eaaced9493084a720c8b5b143935d6425175"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/RunBudget.java",
+      "sha256": "39fbd52dc59895d969670b0694bc20c328e6d4d23b9f718d67ee33d36371a6dc"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Sort.java",
+      "sha256": "97ff7b2b54de88ccdc4f6568f84e370d961e9c40fb011c8173ae562bf3f8dd6f"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Term.java",
+      "sha256": "c828aaa6bc1670d04b1cac3193c8b848073d669e86099e5c3c9cc1e6f94e25ec"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/egraph/Wire.java",
+      "sha256": "309d82f9b4c1e0e35cdf3b5c9fd5667f7eb6709f4c364cc56f71e30e337e0758"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AlloyEngine.java",
+      "sha256": "3970703e18f5a095a9434e980a0a9d70b34dc00cef4f1d2a9652eb6cfc232a89"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AstPolicy.java",
+      "sha256": "97a388b0309c27f8adbee285fedfb4878607eb9746a02d90dfb2d3452e1c72ae"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/Hashes.java",
+      "sha256": "7eae6abadcfa52333d87bd42b77d67b4163d72a14b2d78ee131916a34ece8b97"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/JsonWire.java",
+      "sha256": "f2a366a01970e313b21d2db8677eba3cba27c3a093afac3ed38ed2848e1074de"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/SourcePolicy.java",
+      "sha256": "f329285548bc2f32d0f086ca3d4e000c55d4483099844bf95a5a09124dd4da2a"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WitnessProjector.java",
+      "sha256": "5cf61aa32ab088870377116d22a9118887eb7ac41e86c67d6921e72c9f1ad3dc"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerMain.java",
+      "sha256": "31fef728316f6cef61f66d08b926d0e9983b474abb9438c091d228022492b42f"
+    },
+    {
+      "path": "backend/src/main/resources/application.properties",
+      "sha256": "f80d506b19054d374f6dac33d08632b18160caf68a77d52d74eefcc2dd8fab82"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/BuildIdentityTest.java",
+      "sha256": "ca46fe7098234282c814c508256a8ecd631ccb5fe48ba3612a748247a918f34d"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FakeChild.java",
+      "sha256": "9a0f33955fbfbae629f1ac62904efad2fccbdf5a0ebb18a2e9dfc610134a4705"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/FixtureLauncher.java",
+      "sha256": "cbdc784c75cff28ddc3c91fc6c99654462360a91c02116b7c84b48fc159ea0cf"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/HttpBoundaryTest.java",
+      "sha256": "e711c0d54b2a9333c63d3becbfcfa7508932be11371a52fec1d5d67f4af81f5f"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/JobServiceTest.java",
+      "sha256": "e01aa2559f836f86dd2e5bc614121d198272674e4dd1060051054445988d7fde"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/ProcessRunnerTest.java",
+      "sha256": "d97f022940938c476a703598aa75ca0a961115b47ba10cd0575cb8edd03efd2d"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/SandboxBoundaryTest.java",
+      "sha256": "332207285c844ca8dd8316c22ca3fca9db265e837dda454e387d8ca80049efef"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/SandboxProbe.java",
+      "sha256": "f8cafbe6e0003af83cc002ef3f0d90f25ac3ca137efd18ee596de93b4763c657"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerIntegrationTest.java",
+      "sha256": "7a8e485908ff49363aae217373cf3c32913601f471bf6210248d28765a3c08e3"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java",
+      "sha256": "7fb8fef4cd50250c1ef214461efd10d988726d4de358cfe60d06d180a534b634"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/IslandAdapterTest.java",
+      "sha256": "330c942e23954567757f6e1cd09dc0116bb1332d8a35b164b7fb85593e8180fe"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java",
+      "sha256": "c5cbab76bde38bf1656994905d7501eae66d4d640534086d1d88d683acd13c2f"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/corpus/CorpusEngineTest.java",
+      "sha256": "93a8dce5c6e4cc317b2c3e0f4b0a8865893f6e908c27627d0506e86b1aa8e08e"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/CertificateSliceTest.java",
+      "sha256": "778375d1f154b80f9f6d2d2d4bb5810e8e58afa5b5072366a511ada47e2d55e2"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/EGraphEngineTest.java",
+      "sha256": "8b4a22c2b5195ad82f9327fdf5e5d658cf63dd9099cdcca06661dca1ec96ce04"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/EGraphMechanicsTest.java",
+      "sha256": "37cbdb0cdb1b13bf7e4460f4082131cf62e45ecd681fc97437ac5d6fa5a51ca0"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/egraph/RuleCatalogTest.java",
+      "sha256": "975674d310e23999dcd0923904bc0b6842d0c6f627a629033559e27016c946e9"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/JsonWireEGraphTest.java",
+      "sha256": "b0d3a1fefe3453e9896d70cf9b82d85ba6e8c698f8bace48b4dcad37828a2180"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/worker/JsonWireStrictTest.java",
+      "sha256": "38ea38b316c3f174cbac053a9a76b67e84a7d2ecfd59918d3214a51e4569b030"
+    },
+    {
+      "path": "backend/target/classes/application.properties",
+      "sha256": "f80d506b19054d374f6dac33d08632b18160caf68a77d52d74eefcc2dd8fab82"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/AllowApplication.class",
+      "sha256": "5ea146749d6cc8ff532d154e5c253c5fce4b6e1f8a9212bd2f05209dbb486a4f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/ApiController.class",
+      "sha256": "bb3a0946f23dc6a7d81e99f57ec0d5269734c50e914768badca6425feb17839b"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/AuthorityFilter.class",
+      "sha256": "03e4316e1d7dfaad97e50f3c6073225aa63c53562797bdbef81c56ba74c1bc4f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/BoundedCapture.class",
+      "sha256": "68648e407c630f830f6d738c5517f804f5a8a7a75d9923a04038c48487cdef1d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/BubblewrapLauncher.class",
+      "sha256": "504108d01a4ae7f08bf5fdb06021100c0a331c3e7c72d5452eda22ae52d7e9bf"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/BuildIdentity.class",
+      "sha256": "854feb6a4a55e762450267b61bcfd87fa6f62ed5f188e35edccb74a334d62f57"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/CorpusController$Search.class",
+      "sha256": "e419a7d6810cb7576124709811d3991cd6090173f0100175faed807f355581fc"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/CorpusController.class",
+      "sha256": "3ddab3187fc4afffaf8ea6347730faa44e1174126e514938a0ddb2066e6ca2cd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/CorpusGateway.class",
+      "sha256": "abb75381f35592d906c1acd23e2454917d866c46d03d086ea0403ca400995d25"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobControl.class",
+      "sha256": "fa6b56479829f9284a126d4b0c5ed96658d16302f9ae6cde8c8f09e2302f0057"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobRecord.class",
+      "sha256": "9930ad31f30205126ac61c90be0140352284e2472d153cf4d8ecf2797a03a402"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobRunner.class",
+      "sha256": "fa93f06db392b421de12f47d9dd13e9bd7212df92d2628b1055f0c2e93b387ec"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobService$JobTask.class",
+      "sha256": "6a2748011b12ae02e31fb1bfbc295f2eceb17c96120f34fe22bbc5aac8723907"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobService.class",
+      "sha256": "65b5b6c8736315c65613e596ca8423d940f4248c0f7a4d83936d918d9e29a613"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/LaunchAuthority.class",
+      "sha256": "605435bab069d41d3daa4001258a0aa2b2abf61afd1329ef99cb009e304e8b89"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/LoopbackBinding.class",
+      "sha256": "6b1924afa09ada4cb885006f28a020205b3511bc8ca14ac1524d415cd42c5cbd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/ProcessRunner$FrameWriter.class",
+      "sha256": "cbc2b7581dcc0c2bcd8454490c9d3f5946f4ae719c4c7a0274996846df88926d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/ProcessRunner.class",
+      "sha256": "8dda56a0045cf5c414e659d1f7ce61752878837261d6fabc07d09e8f2750cbf7"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/SandboxLauncher.class",
+      "sha256": "812014707865ec106bafc90e03991e8d7f1bd95e06d63202ec7541ab0816460e"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/AnonymizedArtifact.class",
+      "sha256": "04c1bb6b0b0e0354f1125c16add0fa632aef7c3c3f58c6dd9591757b83d4cd59"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CanonicalDigest.class",
+      "sha256": "1e58fcc51fbab1df1131d19cafeff3925a4a19955caa29995d4b3bf7a9159381"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CanonicalNodes.class",
+      "sha256": "d57fa18db19533297be4e5b07b21a200bcd19909799096543e99460f3f99168f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CanonicalView.class",
+      "sha256": "4714a6c6456495a12ee7513b95adce6c75f748dc26de0bd3588f06b26a173a48"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/Canonicalizer.class",
+      "sha256": "89952762078c7da3502d30047472e32a4d8a3d0a77a9f4b67af70ffe003c6ea1"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CorpusProjection$Rejected.class",
+      "sha256": "2e5e1dda265d8198a652a8aba1018813a7015c3e15930f83fd130183d5391202"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CorpusProjection$Result.class",
+      "sha256": "dccd50fdd8071d3464a5b41823090021b2a482af69a38ba6719eeb6bf7fe0ef7"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CorpusProjection.class",
+      "sha256": "f79b1f32651bac7bb38e26470f0ac4c136dd57f64e0f8df49418039e1ab8d384"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/EgraphView.class",
+      "sha256": "e90f55e5e0276d7d80d1427cc07dbca3f7bb7fe1d8e3f441cf747a681760fd03"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/EmbeddingEncoder.class",
+      "sha256": "538f80c5ec81f250e303cdcae3361032ab8b32cebcf2a66e05040147ab626122"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/ExpressionEncoder.class",
+      "sha256": "9137be9c02c444adfa0190c6968a4cd54413a3610b703ef3a38e49f3541bb854"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/IslandAdapter$CappedOutput.class",
+      "sha256": "144e0722e60e741e1ae9589d07b3a737de04a2b824bc9285564caceef6834202"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/IslandAdapter.class",
+      "sha256": "8c126cbeac26c1f7fe64f626e763631af85f57c68be25fd3e42b3f7072cbaaa4"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/IslandCapture.class",
+      "sha256": "5f51137d9ebd3b4c7b79f4d8b96fd4fe7162bdcd733b6d651020defb197d1879"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/IslandLimit.class",
+      "sha256": "1b432d8e83593430a09e89509245da228baa595b0aacee7fa4900949737ec67b"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/IslandLowering.class",
+      "sha256": "6c2ebaf485d79ffe9d9414145dc896d6e8be8d60719268d56727325c703c131e"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/IslandTypes.class",
+      "sha256": "9e37ad0e895967fbffcf7b18352b2263f03695509f22107a6ba40ac383d65370"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/ModuleEncoder.class",
+      "sha256": "7a23d81f42007f7e1b268fa22aff30f12e347b0f6fb854bebf64ff8ed02b9a4b"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/OperatorPolicy.class",
+      "sha256": "73d5099f64ce08763ec28cb660f0e6afb1d77daa46547370e82a9912fab8126d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/SlotRegistry.class",
+      "sha256": "51bf1409b79d9bed7324d40ed1d71f4b72b27990c62320d1a7f839ac2a6baedd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/UnsupportedCanonical.class",
+      "sha256": "16360f120102a603b16dc71ca2c572e78ff4505514c15488723481efb717c473"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/CorpusAugmentMain$Request.class",
+      "sha256": "afbb7d806ad1120442bd266c7f80ee98e5afa375770c036506c75fc80fa54d42"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/CorpusAugmentMain.class",
+      "sha256": "5a30255d42c3ed2a4ebed5242fc808c8ea04c3e61795f02cdee5d727fb3682df"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/CorpusEngine.class",
+      "sha256": "f3e753182dbc4b7447d02d0d8de34e67df783886570d63c3e4f3534fbe93fb4f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/CorpusRequest.class",
+      "sha256": "c79169cd27b2738f357569a0ee2ae28a890b804eb7fc021732e37604a09d2e19"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/CorpusResponse.class",
+      "sha256": "af201508fe41f51a1374969b07bed7c3d1fadd4a5d3504e5c500d98bdcb41fc5"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/CorpusWorkerMain.class",
+      "sha256": "752ae4246418d6749b17553cecec6ae22d1d25dfc4ee1c6960f5eb6b4a41177d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/InstanceCanonicalizer.class",
+      "sha256": "a88b5271bc8de83c1a3844956d9e5dcb5674d65d3cafacd9395df0c31d36136e"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/PoolBuilder$Pool.class",
+      "sha256": "7ba42a821e512b7738f5fa4e6c4a690a6a1b9f54513c10b9a383831dcbfe5ae9"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/PoolBuilder.class",
+      "sha256": "d75fd74a2c3fb216885cc8bae31c1e3f46c88602dac5276dfa928c626a6447bd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/TrainingVariant$Variant.class",
+      "sha256": "0468f29e29c9a0797b51057ce330443a08ddc3bc8cc40c659fef1d36888b4dcd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/corpus/TrainingVariant.class",
+      "sha256": "92ebbd1d39becdbbd3d0cc27770cf191b6b9e9aee7ab0342fae29895a35ea801"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/AtomView.class",
+      "sha256": "11e996224d80195efc8e3055092c334dee6d6385d231c683739108b8cd6f3e0a"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/CommandView.class",
+      "sha256": "9cc8d19287a094b1929dcf7094873c67a7ccc98804cd9eb61cbb6ccda31eb45e"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/JobRequest.class",
+      "sha256": "6430499db0a9761d1b32b4d6389319a00b942a006c7c814ff5e163c01432d04d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/JobView.class",
+      "sha256": "a11ec540d9545b2c7ade70343971f8bbabc0f5ea332f06b066bd8e6f3e54a9b4"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/RelationView.class",
+      "sha256": "5dd3017c61d6ffa4244573ef98665066c70051bc4d960453ebc012cf9f439c5a"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/StateView.class",
+      "sha256": "9d8b262eb6e71cd64fc897b503a734be08b9910931275c7be7e7b7bbbb4713a2"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/WitnessView.class",
+      "sha256": "ccbf996117b6a4251de3f3b7fdfed494f070a64adb72b65f592604c2e1968c82"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/WorkerRequest.class",
+      "sha256": "b1284c1a057fcead75fe34b9eff4626a86b256c33c4bd5a4c19faa6c16312ae9"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/WorkerResponse.class",
+      "sha256": "997bd24b63e747cc049663b3ec9efcf38eca245946bdfb6aa9ca749a759af889"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Certificate.class",
+      "sha256": "58e90d4dc120b8acbc7e0f8d8b1f874d1066462de7fdb04494be250aeb21f3f4"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/CertificateSlice.class",
+      "sha256": "d7af710b8ed94fe5393eba9ee2390b3d5771fbf376784dbc974c5c130faf5038"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Context.class",
+      "sha256": "d3348dcb48b042c4a9dd41de8d78e9b35d39e12e665a32efdd4a2ef666e1afbe"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraph$Edge.class",
+      "sha256": "3d07e16000c9001b405e5e7b1fd3222e8e7bf149a2deb4e64e4b2d43afaa7151"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraph$Key.class",
+      "sha256": "08c774e14205a89b76ef644ce7fe0a7f60209e707df1d6e61d5937f2509f29b4"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraph$Path.class",
+      "sha256": "f08aae8d219725bee1527c8d060e8b8eb29e282fb987d3443e3802ee0a772f8c"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraph.class",
+      "sha256": "42ad03b3f839db684184a3dafe534802014ab0b4cf1ac54f619105a3160489ab"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraphEngine$Application.class",
+      "sha256": "152b04f17efbdf11a0618da5d4a2f6aedf5a85cb817de0cad31ce790ab3dda16"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraphEngine$Run.class",
+      "sha256": "a6d966bc2be53e30771b29b8939cc60f9049934657da7fcfdc58fabf4eb7b69d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EGraphEngine.class",
+      "sha256": "c5fa16c86535949a5eb932499c8eb9067ccca644e802079b8a649e59cb288f34"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/EngineInput.class",
+      "sha256": "53db27b552a4c476656d09fb229d099075d31088c159f9483755690b40fcc167"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Extractor.class",
+      "sha256": "f008bf090e51af236f941f3b98f70e070ba79e3152842bcd3593828ac763f10b"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/IslandResult.class",
+      "sha256": "839658ef9af9b7ed2a91f23ff3f9aee2429a1cd5b54f575eb66dfe4641615ced"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Matcher.class",
+      "sha256": "45d79197bfc4ed1ffa5a74a0de2a74f69e0d51672b2fc963c72117e097c27f12"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/ProofChecker$Visit.class",
+      "sha256": "b50fb8506f92a01200832c10cd7e7422e16c59e261ab57aa1b627d9dc2e5fc10"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/ProofChecker.class",
+      "sha256": "c935b9b5f932cb242faade3d06f6e912d04ab62b71cc5e2603ba3a7e1b93deab"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/ProofStep.class",
+      "sha256": "764abc12b8087e52848f282b5b1abe798619b096f909348637deebfb4c702112"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/ProofStore.class",
+      "sha256": "83e03a1016a165e1347403de88673f6c8cf306fcf2c5f916d3491384a57f0ba2"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/RuleCatalog$Rewrite.class",
+      "sha256": "74a469824f21942725cadcbebd5a6cf926f1438e602f781d525098cd72974560"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/RuleCatalog.class",
+      "sha256": "a45ba983c0d54f02da7cb3906a0857ee28a00239cc89e74831414476a0485334"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/RunBudget$Limit.class",
+      "sha256": "6c44281bb894b129b6d7f28203badb717915d1b98653f77f2686bd04366b962c"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/RunBudget.class",
+      "sha256": "ad779c31987b8d8e2afdaace2e30d264c0fa23a5b0e8d69625306120b6512bb8"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Sort.class",
+      "sha256": "b175dbdc723fa11ba726865e97484fff6130b957e9a9383e3f03e51778ac7efe"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Term.class",
+      "sha256": "c1a6eb45d87ca2268715692d4fda30533f8045588d0f0298bf32c1766b30c634"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Wire$Counter.class",
+      "sha256": "5d8480cfe59a5fae58f6134f6ef0a2f7f675b940836f38d942b47c3d66af65d2"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/egraph/Wire.class",
+      "sha256": "1d99d519e00e157c2e8019c9754305cc492a1186e1c36d4d038a7b3db36f548a"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/AlloyEngine.class",
+      "sha256": "9b9e0deca38ed59024998553036f5bbd45ae240cb7c37d52193fe24ab125df60"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/AstPolicy$Entry.class",
+      "sha256": "4f57d66534843e7ee905eda3fe5e9177cd54eafc9568b318457607db87171713"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/AstPolicy.class",
+      "sha256": "fc272ed10da6efc98ce587908aedb4cffc5e0c220b7508dc13818814766241bc"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/Hashes.class",
+      "sha256": "5456433efbc8d546f9ffd2353f409872017c43e8d3ee5c63210972af5078b365"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/JsonWire.class",
+      "sha256": "081a7daa68f6cdc1ee6189f2d926738144e871281a48b26e47dcb53dea97f97f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/SourcePolicy.class",
+      "sha256": "2ce0e4c143ab0234ec35e392c561dd961f804a850f3939cbb250b9cf5eb37dbd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/WitnessProjector.class",
+      "sha256": "0fdb0fa226f4d8acf62fa2d8212a35d427f7d26e5ca0340429e0d6abdc27a987"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/WorkerMain.class",
+      "sha256": "85efb23d77fe500280a889adac8080132c08bacb4e48dd3db94528264fe91110"
+    },
+    {
+      "path": "backend/target/classes/profiles/egraph-rules.json",
+      "sha256": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34"
+    },
+    {
+      "path": "backend/target/classes/static/assets/index-BJ1EWnF1.js",
+      "sha256": "e37d160b7ec6bc44a578b08f9af80aa4ffb28ab5cdd3f68658f0d423835c4780"
+    },
+    {
+      "path": "backend/target/classes/static/assets/index-Db9BTw8-.css",
+      "sha256": "321b305596c154790f4d93bbd09d1002d3a969f1c9d66ec1d7a7eb79658baf52"
+    },
+    {
+      "path": "backend/target/classes/static/index.html",
+      "sha256": "f40fe5d95316510c97598cafad46fa1cbe91e723d38d43a22a27041e7f4ce28c"
+    },
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    {
+      "path": "db/migrations/004_retrieval.sql",
+      "sha256": "b9705a00228910947c9a187424ee8d2befe59b0f7b3ee3e14ec5685d062b2fa2"
+    },
+    {
+      "path": "db/migrations/005_expected_catalog.json",
+      "sha256": "186e6838be0f8b2eb7f6caccd105eb5e6831ba5d792174deb8d96fd778e8ae36"
+    },
+    {
+      "path": "db/migrations/005_explicit.json",
+      "sha256": "ce044aa22d9e1be752576db16740f8c35e7b8779ec762cd0f0bb2427a695ccd2"
+    },
+    {
+      "path": "frontend/src/CorpusPanel.test.tsx",
+      "sha256": "2e50e74e39257cfd7a092f5e9b8a1fdf27e7f1ddacc1c7f1fa691dd20d913e65"
+    },
+    {
+      "path": "frontend/src/CorpusPanel.tsx",
+      "sha256": "8c8f18c18696aab2d00a8caded5dbdadec973a93ea4d76b4d637424e9b43b9df"
+    },
+    {
+      "path": "frontend/src/EGraphPanel.test.tsx",
+      "sha256": "b3b648ed2a4e7698801b39c585755252de25eebc1976055e372a551039bb5a28"
+    },
+    {
+      "path": "frontend/src/EGraphPanel.tsx",
+      "sha256": "00beeefdbab2ede034445c012923e9c83dcc181320ceeb674be00ad96fb9ecbf"
+    },
+    {
+      "path": "frontend/src/Results.test.ts",
+      "sha256": "12319f0ba6616f8d2acc3236d25056bde8e13491ea4bc4eff7afa21068ee2112"
+    },
+    {
+      "path": "frontend/src/Results.tsx",
+      "sha256": "3e51b93e19355f28a015dfda8d68539555f8c9eb773dbc9efc3fe5955fba5154"
+    },
+    {
+      "path": "frontend/src/TreeView.tsx",
+      "sha256": "cd0401b13a5e616aa48aa7d7e804ef3fc8d4d3b22a6b6e622f06b1ac3e1684a1"
+    },
+    {
+      "path": "frontend/src/Workbench.tsx",
+      "sha256": "1e6c1e0d17eac1cd19943314de64c025799879cfe3dc7a032e5dc77656f6eb41"
+    },
+    {
+      "path": "frontend/src/api.test.ts",
+      "sha256": "bf3eeb44f1032a9b304b1a1544e8f49624cdf8d28e37a7064a9253cb36ad22ed"
+    },
+    {
+      "path": "frontend/src/api.ts",
+      "sha256": "e6d07f0f26c8aa6dcf7c1cf55e8c930c64eff89517645079576dd0a9fb066073"
+    },
+    {
+      "path": "frontend/src/corpus.ts",
+      "sha256": "19bb65ee43c78665707b279685965419bafbdda446859301282e9eb511010b65"
+    },
+    {
+      "path": "frontend/src/egraph.ts",
+      "sha256": "d9ba35bced0afc0f4a706ba801592bd197307dc29b3a3df2b1074822bce2e798"
+    },
+    {
+      "path": "frontend/src/egraphLabels.ts",
+      "sha256": "8afe8866a58e356a43d54a71d275e468f5d40c093e67a54a72cb583a26a8938f"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "sha256": "12e5b9f52da8b89f6b6ebab9a35eedf094be07b7fd66d89d72f09746931164f6"
+    },
+    {
+      "path": "frontend/src/model.test.ts",
+      "sha256": "268d97b95a79b78aef0ef0797369a225cf93ad2564048d4ba3ecaab45e139652"
+    },
+    {
+      "path": "frontend/src/model.ts",
+      "sha256": "cb8a74005ee3bb818504f3499aff82ff0804da56bccbc2666bc06e5eecc40beb"
+    },
+    {
+      "path": "frontend/src/style.css",
+      "sha256": "f12fd1dca044b2d38f2546a92cac32d900d629e6bbbfec8f61ee27650287ce77"
+    },
+    {
+      "path": "retrieval/allow_retrieval/__init__.py",
+      "sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77"
+    },
+    {
+      "path": "retrieval/allow_retrieval/cli.py",
+      "sha256": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e"
+    },
+    {
+      "path": "retrieval/allow_retrieval/common.py",
+      "sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c"
+    },
+    {
+      "path": "retrieval/allow_retrieval/corpus.py",
+      "sha256": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f"
+    },
+    {
+      "path": "retrieval/allow_retrieval/database.py",
+      "sha256": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce"
+    },
+    {
+      "path": "retrieval/allow_retrieval/embedding.py",
+      "sha256": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b"
+    },
+    {
+      "path": "retrieval/allow_retrieval/evaluation.py",
+      "sha256": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1"
+    },
+    {
+      "path": "retrieval/allow_retrieval/importer.py",
+      "sha256": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886"
+    },
+    {
+      "path": "retrieval/allow_retrieval/journal.py",
+      "sha256": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6"
+    },
+    {
+      "path": "retrieval/allow_retrieval/manage.py",
+      "sha256": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9"
+    },
+    {
+      "path": "retrieval/allow_retrieval/migration.py",
+      "sha256": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556"
+    },
+    {
+      "path": "retrieval/allow_retrieval/promotion.py",
+      "sha256": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033"
+    },
+    {
+      "path": "retrieval/allow_retrieval/rag.py",
+      "sha256": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24"
+    },
+    {
+      "path": "retrieval/allow_retrieval/ranking.py",
+      "sha256": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f"
+    },
+    {
+      "path": "retrieval/allow_retrieval/training.py",
+      "sha256": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc"
+    },
+    {
+      "path": "retrieval/bootstrap_ml.py",
+      "sha256": "daf98fb50c936a73e56049499b9acc3160c2048f23b5b8f93330c18c673f3865"
+    },
+    {
+      "path": "retrieval/model-lock.json",
+      "sha256": "65d87fb3fe650721e0552b79fb70e6bc4192981f8e735a35485bd3dd6946a593"
+    },
+    {
+      "path": "retrieval/requirements-ml.lock",
+      "sha256": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    {
+      "path": "retrieval/tests/test_luna_adversarial.py",
+      "sha256": "033831c2dff77f358d3b89030d8b18c05e938c7d1207c7d1b4eba9b237c7b731"
+    },
+    {
+      "path": "retrieval/tests/test_luna_semantic.py",
+      "sha256": "398a9572bed80a55269920817615e12a240ad36b23557ca9ea58c825d9643e8a"
+    },
+    {
+      "path": "retrieval/tests/test_ml.py",
+      "sha256": "20a677459164466c2fe1b3de8e39c040c1aaf183c1c1ac51f20d03be91f1d023"
+    },
+    {
+      "path": "retrieval/tests/test_repository.py",
+      "sha256": "76360a0b6e3e5cfa347ad1e14a71f8c698d64823614132cd9168c73488e68b9b"
+    },
+    {
+      "path": "retrieval/tests/test_sql_connections.py",
+      "sha256": "9dbc942f6abfaf3ea4e7a07d5f7a1bc258f8ee07583de8702cff7ac0dd2ad4bb"
+    },
+    {
+      "path": "retrieval/tests/test_sql_guard.py",
+      "sha256": "3686c3eebc2389671e182373da64d659b216a22a41409a90e59ef46cb4144352"
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "c7b2366ec96333baf37f910b8764a633d8ddd9d9bfa636185231e777cb26a410"
+    },
+    {
+      "path": "retrieval/training-runtime-lock.json",
+      "sha256": "1a68248d584735ccdf327e76e3befce0982f6a22124f7e6189474832dfda2f45"
+    },
+    {
+      "path": "scripts/bootstrap_corpus.py",
+      "sha256": "bd8c442653e1584f43a4a4a7f6ac9be0ddc6f2b2961f6c69bff15b8a317a192c"
+    },
+    {
+      "path": "scripts/bootstrap_sqlean.py",
+      "sha256": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd"
+    },
+    {
+      "path": "scripts/verify_corpus_runtime.py",
+      "sha256": "811b3971d1ae08ae1fb633764ec868f9e40d991b41a6e412fb92d3122a0a3209"
+    }
+  ],
+  "log_sha256": "40f170e6c984e3809c68916bc66ca4a507206a92d9d89e74cdba95db2d177ae7",
+  "limitations": [
+    "Tests exercise finite fixtures, not universal Java/Python/SQL refinement",
+    "Synthetic test models/vectors are isolated under unique RLS tenant IDs",
+    "Corpus quality is measured separately on the frozen family split"
+  ]
+}

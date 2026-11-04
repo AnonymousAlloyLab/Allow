@@ -1,0 +1,28 @@
+{
+  "status": "PARTIAL_PARSER_CONTRACT_SPIKE_NOT_FREEZE_APPROVAL",
+  "draft_sha256": "296991c934341ea168586aba6c1e090d0712836771ace0480573ccdbeb33102a",
+  "environment": "OpenJDK 17.0.20.1; backend pom pins org.alloytools.alloy.dist 6.2.0",
+  "compile_command": "javac -cp backend/target/solver/alloy.jar -d .runtime/document-spike .runtime/document-spike/Probe.java",
+  "run_command": "prlimit --as=8589934592 --cpu=20 -- java -XX:ActiveProcessorCount=2 -XX:+UseSerialGC -Xms16m -Xmx256m -cp .runtime/document-spike:backend/target/solver/alloy.jar Probe",
+  "run_command_sha256": "d3002b4316c1936d0ac92197a8ce933523fc2b02fb3ef0f51684160059d1cdfb",
+  "run_exit": 0,
+  "artifact_sha256": {
+    ".runtime/document-spike/Probe.java": "3390d53871aa816d19bfff47504a5fb61940359efceb72dcd20bb42fdfb578b8",
+    ".runtime/document-spike/Probe.class": "bad2037eb5378e856ad53be20f1e48305a98e3708361061b601a7ec7f4ba5c18",
+    ".runtime/document-spike/results.txt": "0a58143bd91b1292c212c5c2e3140a75adcfd1a0a09aee61ec40a923ddad04c2",
+    "backend/target/solver/alloy.jar": "6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d"
+  },
+  "results": {
+    "fields": "set (B -> C), set B -> C, B -> C all parse with field.type {A->B->C}; one/lone/some (B -> C) rejected as requiring unary set. one/lone/some/set B parse; inspect results for printed declaration forms. Proposed n-ary v1 supports set only; unary can expose set/one/lone/some. Owner is separate from range and included in field reference schema. Do not extrapolate unrestricted arrow multiplicities.",
+    "parameters": "A, set A, one A, set (A -> B), A -> B parse; variable types expose unary or binary schema. Explicit set (A -> B) supports a set-valued binary tuple parameter; cardinality semantics and call mismatch still require differential solver fixtures.",
+    "expressions": "All 19 authored expression examples parse: boolean connectives, multiplicity tests, equality/subset, set operations, join/product/transpose, quantifiers, call. Output includes ExprUnary wrapper, AND/OR list normalization, and qualified field X <: r. This is parser acceptance and AST observation, not parse(print(IR)) equivalence.",
+    "module": "Signature multiplicity flags observed; named fact/assertion are listed; resolved command formula includes facts, expands predicate call to existential quantifier and negates assertion for check. Preserve authored target via syntax-aware adapter, not command formula reconstruction.",
+    "positions": "For label A position (x,y,x2,y2)=(5,2,5,2), toStartEnd=[13,14]; Target=(14,3,19,3), toStartEnd=[32,38]. These match zero-based UTF-16 indices 13 and 32, not UTF-8 offsets 16 and 37; sample includes supplementary Unicode, accented scalar and CRLF. Labels show 1-based line/column and inclusive end in this sample. Do not generalize to tabs, EOF, AST spans or file-reader normalization without fixtures."
+  },
+  "limitations": [
+    "No printer or elaborator exists in this spike, so full tag round-trip is not established. Several reference tags are exercised within expressions; standalone declaration identity, calls with binary-valued actuals and all negative type cases remain untested.",
+    "The probe uses parseEverything_fromString; the production worker uses parseEverything_fromFile. Coordinate semantics in that path, comment/trivia attribution, lexer behavior with tabs and supplementary characters in identifiers need independent testing.",
+    "Resource attempts under 1 GiB and 2 GiB address-space limits failed JVM startup; final bounded run used 8 GiB address-space, 256 MiB heap, two visible CPUs and 20 CPU seconds. This is not a reference-laptop budget validation.",
+    "No solve, SQL, production mutation, corpus access or network upload. SourcePolicy currently enforces 32768 UTF-8 bytes; applying a no-import policy to all modes is a proposed contract decision, not established by this probe."
+  ]
+}

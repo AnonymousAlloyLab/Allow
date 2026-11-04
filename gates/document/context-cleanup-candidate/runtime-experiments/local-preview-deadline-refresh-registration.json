@@ -1,0 +1,25 @@
+{
+  "id": "ALLOW-LOCAL-DEV-DEADLINE-REFRESH-R1",
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "driver": {
+    "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/refresh_local_preview_deadline.py",
+    "sha256": "fb05597718f34153937002b0da23910433291ad59d39dd1fc49d02d76fab66b7"
+  },
+  "required_regression_report": "runs/r15-regressions/report.json",
+  "preexecution_manifest_receipt": "runs/r15-regressions/preexecution-external-manifest-receipt.json",
+  "authorization": "Parent explicit localdev startup/shutdown restoration authority; existing strict2.5s contract. No new permission required.",
+  "intended_mutations": [
+    "Stop/reap exactowned Spring/proxy via pidfd",
+    "Install only tested sql_context_lease.py and test_context_leases.py",
+    "Restart detachedDEFAULT Spring/proxy with fresh privatebearer"
+  ],
+  "preserved": [
+    "PostgreSQL incarnation",
+    "All documents/retrieval table rows and workspacepolicy",
+    "Privateworkspaceidentity and revocationjournal",
+    "Existingbackend191-fileDEFAULT target",
+    "Originalbrowserdrafttab"
+  ],
+  "failure_policy": "Stop on unexpected ownership/source/regression/readiness/durablechange; preserve backup/preimages and failed outcome; no deletion, automaticDBrestore, emergency escalation or sourceconstantrelaxation.",
+  "boundary": "Localdevelopmentrefresh only; full33/production4vCPU8GiB/F1 acceptance not claimed."
+}

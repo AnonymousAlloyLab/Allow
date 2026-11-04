@@ -1,0 +1,170 @@
+{
+  "alternatives": [
+    {
+      "effect": "Preserves live-path detection but retains131MiB per-hit read/hash cost.",
+      "name": "keep revision6 full hash"
+    },
+    {
+      "effect": "Rejected: metadata equality does not prove bytes immutable.",
+      "name": "stat-only memoization"
+    },
+    {
+      "effect": "Requires separate filesystem support/provisioning and contract; outside minimum candidate.",
+      "name": "fs-verity"
+    },
+    {
+      "effect": "Changes framing state/timeouts and trusted surface; outside scope.",
+      "name": "persistent parser worker"
+    }
+  ],
+  "candidate_revision": "r2",
+  "config_snapshot": {
+    "fields": [
+      "binary_sha256",
+      "trusted_expected_size",
+      "profile",
+      "postgresql_commit",
+      "ordered production_lhs tuple",
+      "production_mapping_sha256",
+      "policy",
+      "unique gate generation"
+    ],
+    "mapping_encoding": "UTF8 JSON ensure_ascii=false separators comma/colon",
+    "mutation": "no late reload; new interpretation requires reviewed new snapshot fresh generation empty cache",
+    "production_mapping_count": 3285,
+    "production_mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+    "uses": [
+      "initialization",
+      "report evidence checks",
+      "production classification",
+      "native decisions",
+      "cache key/check",
+      "atomic lifecycle status"
+    ],
+    "visibility": "private deeply immutable defensive copy without mutable aliases or setters"
+  },
+  "descriptor_lifetime": {
+    "completion": "under lock recheck same live generation/snapshot before cache insert or acceptance",
+    "finally": "kill/reap unfinished child; close own duplicate; release own slot exactly once on every outcome",
+    "max_reserved_execution_duplicates": 2,
+    "max_transient_check_duplicates": 1,
+    "owner": "slot owner exclusively retains duplicate through inheritance and child completion; close never steals reservation",
+    "shutdown": "mark stopped clear cache under lock, release lock then cancel/reap via owners and wake waiters; wait for cleanup before shutdown-complete",
+    "waiters": "hold no fd; obtain parser slot before lifetime lock duplicate and recheck"
+  },
+  "disk_policy": {
+    "restart": "New gate snapshots disk then seals and hashes destination; changed disk digest denies.",
+    "revision6_difference": "Existing per-admission disk mutation denial is intentionally removed and requires six-seat review as a contract change.",
+    "running": "Continue initialized exact pinned sealed image despite disk replacement/removal; do not claim current-path tamper detection."
+  },
+  "extends": "spec/sql-stage.json@revision6",
+  "failure_categories": {
+    "infrastructureFailure": "Snapshot/hash/seal/fd/procfs/launch/resource failure denies and marks gate unavailable if image validity is uncertain.",
+    "parserFailure": "Parser exit/timeout/framing/report failure denies; never accept cached failure.",
+    "policyDenied": "SQL syntax/policy/evidence mismatch denies session; never database fallback."
+  },
+  "formal": {
+    "file": "ImmutableImage.lean",
+    "not_proved": [
+      "OS syscalls",
+      "wire parser implementation",
+      "end-to-end database execution",
+      "original live-path policy preservation"
+    ],
+    "preservation": "Existing Lean models/types remain unchanged; additional theorem audit binds frozen expected types. All280 propositions sourced from authoritative partial-types verifier registries; hash/coverage checks and preliminary exact-type audit required.",
+    "trusted": [
+      "Linux sealing and fd object semantics",
+      "private fd ownership and lock discipline",
+      "SHA256 pin collision assumption",
+      "procfs and prlimit exec correspondence",
+      "dynamic loader/shared libraries",
+      "Python binding correctness",
+      "bounded supervised one-shot initializer and strict SCM_RIGHTS transfer validation"
+    ]
+  },
+  "id": "ALLOW-SQL-IMMUTABLE-IMAGE-CANDIDATE",
+  "identity": {
+    "admission": "All admissions use same private immutable ConfigSnapshot; under lifetime lock transient dup/fstat/object/size/seals and snapshot/generation live checks; cache hits release transient before return.",
+    "cache_key": [
+      "exact SQL bytes",
+      "entire immutable ConfigSnapshot equality or canonical digest",
+      "unique gate generation"
+    ],
+    "execute": "Reserved inherited duplicate through reviewed absolute prlimit; execute same object by /proc/self/fd/N; never disk fallback.",
+    "init": "Trusted-size regular-file bounded copy in supervised one-shot initializer, then seal WRITE/GROW/SHRINK/SEAL, hash final sealed destination and validate private single-fd transfer; see initialization and contract.md r2."
+  },
+  "initialization": {
+    "deadline": "one supervised short-lived initializer; parent wall5s; CPU6s AS256MiB core0; no gate publication before success",
+    "excess_probe_bytes": 1,
+    "final_identity": "hash sealed destination AFTER all required seals, require trusted digest/size; strict one-fd transfer and parent metadata/seal validation",
+    "max_copy_bytes": 136492600,
+    "ownership": "exactly one source/image/private SCM_RIGHTS transfer set; close all own/unexpected received descriptors on every path; kill/reap deadline helper",
+    "read_chunk_max": 1048576,
+    "source": "O_RDONLY|O_CLOEXEC|O_NONBLOCK|O_NOFOLLOW and regular-file only; reject early EOF/excess, fstat not a bound",
+    "tcb": "initializer code, SCM_RIGHTS validation and OS supervision; not proved by Lean",
+    "trusted_expected_size": 136492600
+  },
+  "normative_precedence": "Review amendment r2 paragraphs in contract.md supersede earlier shorthand for initialization, config and descriptor ownership.",
+  "normative_text": "contract.md",
+  "performance_evidence": {
+    "interpretation": "One20.0ms process-identity witness invocation establishes local capability only; full baseline running separately, no comparative result or production validation.",
+    "probe": "probe-result.json"
+  },
+  "policy": "sql-routing-v7-sealed-image",
+  "promotion": {
+    "prerequisites": [
+      "resolve findings and freeze candidate hashes",
+      "preserve all280 authoritative claims unchanged",
+      "two clean Lean builds plus expected proposition and axiom checks",
+      "runtime-test-plan.json all pass",
+      "complete full benchmark baseline report including failures",
+      "candidate benchmark and memory report",
+      "explicit production authorization after required reviews"
+    ],
+    "review_seats": [
+      "Terra1",
+      "Terra2",
+      "Sol1",
+      "Sol2",
+      "Astra1",
+      "Astra2"
+    ]
+  },
+  "review_resolution": {
+    "SQLIM-A1-01": "contract.md r2 immutable snapshot all interpretation and status/cache identity",
+    "SQLIM-S1-01": "contract.md r2 bounded descriptors, ownership, wait/launch/cancel/shutdown",
+    "T1-01": "contract.md r2 bounded source/copy/deadline/cleanup"
+  },
+  "revision": 7,
+  "scope": "Replace repeated executable-byte hashing only; no advisory acceptance cache, persistent parser worker, database bypass or production change.",
+  "sources": [
+    "https://man7.org/linux/man-pages/man2/memfd_create.2.html",
+    "https://man7.org/linux/man-pages/man2/F_ADD_SEALS.2const.html",
+    "https://man7.org/linux/man-pages/man3/fexecve.3.html",
+    "https://docs.kernel.org/userspace-api/mfd_noexec.html"
+  ],
+  "status": "DRAFT_NOT_AUTHORIZED",
+  "status_introspection": {
+    "allowed": [
+      "identity mode sealed-image",
+      "policy",
+      "gate generation",
+      "pinned SHA256",
+      "sealed byte count",
+      "required seal mask",
+      "ready or stopped or failed",
+      "aggregate reason counts",
+      "snapshot digest",
+      "production mapping digest",
+      "config_policy frozen-until-new-generation",
+      "shutdown-incomplete when cleanup pending"
+    ],
+    "disk_status": "No current-disk integrity claim; report disk_policy=restart-check-only, not disk_verified.",
+    "excluded": [
+      "SQL",
+      "credentials",
+      "parameter values",
+      "parser tokens"
+    ]
+  }
+}

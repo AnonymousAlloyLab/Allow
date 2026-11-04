@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "status": "JAVA_SOURCE_COMPILED_CHECKSTYLE_PASS",
+  "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+  "sources": [
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyFresh.java",
+      "sha256": "1350b84b3ce863d0491d19d1e27fd4796983e989b88bd55c41af2e687e55b7d0"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyMain.java",
+      "sha256": "88858ba8a1c319ae5b260beefc1dbbf27c561eb9e2590aed7907c206013cb01c"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyPool.java",
+      "sha256": "b762248e8667c62e9c6996c9d23be485bf69b9e40850d5b0735fcf5a3e63add0"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyRecords.java",
+      "sha256": "8dc9da43a5c8f4f5b107788066288d970dd1aea325f04f08c820fe6b0acacea9"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencyResources.java",
+      "sha256": "ae5860524cdcf2af5e3d650c5e6a05168411be58b6eaba616df24e60d2d6dcae"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmLatencySeries.java",
+      "sha256": "653721ddae3925f43e76fae2f0973778059e7df7fb97c473479b96179cc5ab1d"
+    }
+  ],
+  "copied_compile": {
+    "root": "/tmp/allow-latency-compile-ggap3poc",
+    "log": "/tmp/allow-latency-compile-ggap3poc/compile.log",
+    "log_sha256": "3eb47077c23320f6478802ec9f5350cec91be1952b739d22013804ddc274d537",
+    "command": [
+      "/home/augustus/Allow/.tools/apache-maven-3.9.11/bin/mvn",
+      "-B",
+      "-o",
+      "-DskipTests",
+      "verify"
+    ],
+    "java_home": "/usr/lib/jvm/java-17-openjdk-amd64",
+    "checkstyle_violations": 0,
+    "tests": "SKIPPED",
+    "actual_workloads_run": false
+  },
+  "prior_compile_attempts": [
+    {
+      "root": "/tmp/allow-latency-compile-1_7bwiff",
+      "status": "FAILED_EXPLICIT_JAVADOC_THROWS_TAGS_CORRECTED"
+    },
+    {
+      "root": "/tmp/allow-latency-compile-6atr2ynm",
+      "status": "PASS_SUPERSEDED_BY_FINAL_SOURCE"
+    },
+    {
+      "root": "/tmp/allow-latency-compile-igqfotcf",
+      "status": "PASS_SUPERSEDED_CYCLE_DEFINITION"
+    }
+  ],
+  "production_selection": "DISABLED",
+  "commercialization": "NO_GO",
+  "revision": 2,
+  "supersedes": "producer-source-ready-r1.json",
+  "change": "cycleEndNs and cycleDurationNs derive exactly from request end or empty-profile teardown end; fallback nanoTime only for incomplete failed attempt."
+}

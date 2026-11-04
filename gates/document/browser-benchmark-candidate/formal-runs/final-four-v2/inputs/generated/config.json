@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-browser-benchmark-four-v2",
+  "unresolved_is_blocking": true,
+  "warning_is_blocking": true,
+  "manual_override_allowed": false,
+  "required_clean_builds": 2,
+  "determinism_required": true,
+  "network_allowed": false,
+  "llm_final_verifier": false,
+  "nondeterministic_fields": [
+    "timestamp",
+    "temporary paths"
+  ],
+  "standalone_build": "Candidate imports no project modules; exact toolchain files are pinned but project formal tree is not built."
+}

@@ -1,0 +1,78 @@
+{
+  "reviewer": "astra-1",
+  "seat": "document-r3-astra-1",
+  "review_type": "TARGETED_SCOPE_PROJECTION_CANONICAL_UX_DESIGN_REVIEW",
+  "decision": "REQUEST_ONE_BOUNDED_PROTOCOL_CLARIFICATION",
+  "timestamp_utc": "2026-11-03T18:19:50.563977+00:00",
+  "spec_revision": 3,
+  "wire_revision": 4,
+  "ui_revision": 1,
+  "input_hashes": {
+    "spec/document-stage-draft.json": "2a2c3561b345f2f21c71c96aab760bcf9b8f0698b13ce1968932ff255c7e6282",
+    "spec/document-wire-draft.json": "1eebb58f52a9e19bf50b242f5f274faabaa13d0eec1cee13122c78263321211d",
+    "spec/document-ui-draft.json": "be47cf6adefdcfe4e3600e36be2fba2d038f55f29ede7b1950dc91570710b121",
+    "gates/document/draft/Document.lean": "b8fe8a869e93940f0d08c376e5835ae0413a42a6d7d5af2620c70dc38442a87c",
+    "gates/document/draft/types.json": "9071ff7c89a564ee43e94cc63d4cf50b8061ce239fde6026d2345b8d1c1e8815"
+  },
+  "blocking_findings": [
+    {
+      "id": "R3-A1-01",
+      "severity": "BLOCKER",
+      "location": "wire.api.validateDraft and ui.state.freshness",
+      "finding": "BLOCK_SUPPORTED validation submits a module and presentationCopies, but returns only exactSourceHash without proposed source or diagnostic ID remapping. UI requires current source-hash equality before applying diagnostics. Server produces source with authoritative trivia and fresh server IDs, while the browser holds a structural draft with draft IDs. The authoritative projection/hash and node locations are not necessarily knowable by the browser, so this guard cannot be implemented unambiguously for block drafts.",
+      "bounded_resolution": "Bind every block-validation response to an exact candidate request digest plus baseRevision/document/draftId/epoch, and define diagnostic IDs in original draft-ID space or return a temporary inverse mapping. Return bounded proposed source/hash when source locations are offered. Apply the projection only when the originating complete candidate identity still matches; thereafter source navigation checks the returned exact source/hash envelope. SOURCE diagnostics may retain direct exact-source-hash matching. Malformed/incomplete block drafts may return structural diagnostics without invented source positions. These are advisory previews, never committed IDs or checked authority.",
+      "finite_acceptance_conditions": [
+        "Changed block candidate at same accepted revision rejects an old projection even if old and new pretty text coincide.",
+        "Fresh remapped node diagnostics locate the originating draft node, not an unrelated accepted server node.",
+        "A block copied with authoritative comments receives a source preview whose hash matches exact returned bytes.",
+        "A source edit or selection epoch change prevents delayed preview/focus application."
+      ]
+    }
+  ],
+  "resolved_previous_findings": [
+    "Closed per-tag schema, field owner/range separation and set-valued ordered parameters resolve DA1-01.",
+    "Unique ownership forest, ancestor-scoped variables and all-edge predicate rank resolve DA1-02 design ambiguity.",
+    "Explicit structural ID bijection, operator preservation and limited ordered AND/OR normalization resolve DA1-03 at contract level; parser correspondence remains a finite implementation acceptance obligation.",
+    "Node/role anchors and explicit bounded presentationCopies resolve path-reuse and copy-lineage issues in DA1-04.",
+    "Scalar-aligned UTF16 policy and exact parser-position adapter obligations correctly bound DA1-05; no numeric-bounds proof is presented as concrete parser refinement.",
+    "Anonymous context/atom encodings remain separate from source UUIDs/names and abstract truth tables; document pair admission requires verified association.",
+    "Immutable source maps, revision envelopes and presentation envelopes resolve persisted-epoch ambiguity; late commits preserve newer drafts."
+  ],
+  "formal_assessment": {
+    "scope": "Inspected current decoder/admitted-transition/history/source occurrence portions, not a complete independent proof build. File is actively changing; this report is not final formal approval.",
+    "observed_fixes": "Current source separates raw client Payload from checked Artifact, replay does not require parsing, restore looks up revision0 directly and SameContent excludes policy report, and unknownDenial is explicit. These address known conceptual contradictions.",
+    "remaining_boundary": "Checked-frame binding, parser semantics, UUID-to-forest mapping, trivia and occurrence/source correspondence remain explicitly trusted adapters. Exact final types inventory and two clean builds still required."
+  },
+  "nonblocking_implementation_clarifications": [
+    {
+      "topic": "Copy within uncommitted drafts",
+      "requirement": "Compose comment lineage back to exact accepted base when copying an already copied draft node; fresh draft nodes without accepted-base lineage carry no inherited server comments. presentationCopies cannot name a draft source."
+    },
+    {
+      "topic": "Receipt recovery UI",
+      "requirement": "If browser restart loses exact pending body/key, show that recovery identity is unavailable and refresh accepted head; do not promise querying an undefined receipt endpoint or fabricate a request. If keyed receipt lookup is desired, specify its authorized bounded API before implementing it."
+    },
+    {
+      "topic": "Projection unavailable",
+      "requirement": "A candidate cannot be labeled BLOCK_SUPPORTED with a fabricated graph. Deterministically choose rejection or an explicit unavailable-location result permitted by contract; source positions may be unavailable while the correctly elaborated typed graph remains valid. Never silently classify parser-invalid text as TEXT_ONLY."
+    }
+  ],
+  "known_cross_review_items": [
+    "TEXT_ONLY analyze command addressing is being resolved by root; wire observed here still requires Id(command). No duplicate new finding raised.",
+    "Sol1 immutable outcome versus replay transport-envelope placement remains a targeted API clarification.",
+    "Final proof inventory/hash reconciliation follows ongoing model corrections."
+  ],
+  "commercial_gameplan": {
+    "assessment": "The bounded local v1 plan is implementable after targeted protocol corrections. It preserves commercial and release restrictions without demanding production runtime evidence as a prerequisite to contract approval.",
+    "sequence": [
+      "Freeze main/wire/UI and exact Lean/type inventory after concrete review fixes; obtain final council reviews and two clean isolated builds.",
+      "Implement server-owned validation/persistence first, with proxy-only SQL and exact request/nonce/policy/receipt invariants.",
+      "Implement full palette/source elaboration/projection and accessible UI, then execute the specified finite constructor, scope, source, race, restart and accessibility matrices.",
+      "Report inherited G2/G3 and G0-G6 gates independently; source rights, SQLean/upstream redistribution, manual accessibility, latency and market validation remain separate release gates."
+    ],
+    "claims": "No commercial deployment, production readiness, complete Alloy semantics, or cross-context equivalence follows from document formal success."
+  },
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Targeted design review only; one new finite protocol clarification plus known cross-review fixes. Runtime fixtures are required after implementation, not before contract approval."
+}

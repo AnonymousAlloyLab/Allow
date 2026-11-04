@@ -1,0 +1,51 @@
+{
+  "id": "ALLOW-CC17-REAL-ASYNC-SIMULATED-METADATA-R1",
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "inputs": [
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/__init__.py",
+      "sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/common.py",
+      "sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_connections.py",
+      "sha256": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_context_control.py",
+      "sha256": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_context_identity.py",
+      "sha256": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_context_journal.py",
+      "sha256": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_context_lease.py",
+      "sha256": "11bf9c712bc84a8509490682d1652363e831d1d094b9ff1e2d1e47abeaa561c1"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_context_observer.py",
+      "sha256": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs/allow_retrieval/sql_context_protocol.py",
+      "sha256": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation_deadline_fixture.py",
+      "sha256": "b4d1db95a6f0c991935871c010d65b66d126f25474c2e27cde4a7b49de713918"
+    }
+  ],
+  "import_root": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/inputs",
+  "output": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/report.json",
+  "schedule": "Five550ms real asyncio delays; first4live identities then absent; observer seam honors every suppliedtimeout. Expected noCLEAN beyond2.5s, UNKNOWN retained.",
+  "production_change_authority": "Existing approved2.5s contract; no constants relaxed.",
+  "scope": "No PostgreSQL connection, no kernel identity proof, no production/sharedruntime mutation."
+}

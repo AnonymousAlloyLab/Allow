@@ -1,0 +1,29 @@
+{
+  "status": "BLOCKED",
+  "run_id": "verifier-r4-blocker-smoke",
+  "builds": [],
+  "blocking_reasons": [
+    "Council seat has not approved: reviews/document-r4-terra-1.json"
+  ],
+  "infrastructure_errors": [],
+  "trusted": [
+    "Lean 4.34.1 kernel, elaborator, pretty printer and bundled libraries",
+    "propext, Quot.sound, Classical.choice when reported",
+    "Lake",
+    "Python and this verifier",
+    "SHA-256 collision resistance",
+    "OS, filesystem, process isolation and hardware",
+    "interpretation of model propositions and trusted adapter contracts"
+  ],
+  "boundary": [
+    "No Alloy parser, printer, JSON decoder or source-position refinement",
+    "No Java, Python or TypeScript implementation refinement",
+    "No PostgreSQL transaction, RLS, workspace quota or linearizability proof",
+    "No browser accessibility, screen-reader, deployment or G2/G3 closure",
+    "Baseline guard cannot establish prior state of files absent from its manifest and discovery roots",
+    "No claim that experimental infer is complete for all operators",
+    "No proof that registered model propositions entail the full prose specification",
+    "Parser-report admission and deterministic wire decoder are abstract trust boundaries"
+  ],
+  "scope": "Formal model audit only; council approval and original gates remain independent."
+}

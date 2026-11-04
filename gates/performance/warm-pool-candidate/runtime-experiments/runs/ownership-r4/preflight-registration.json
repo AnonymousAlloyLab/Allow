@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "classification": "DIAGNOSTIC",
+  "operation": "probe",
+  "installation_manifest": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/ownership-r4/manifest.json",
+    "sha256": "2800b5e0fe3dee80dcd929df6cdd5015d408c3b554eda04a122b91c4c335d9ef",
+    "size": 13312265,
+    "mode": 384
+  },
+  "installation_root": "4c05f9f9bfa6fc7d742279bf75a71bf52a797ed0c7696aa9ef23c6b479addef7",
+  "claims": {
+    "schema": 1,
+    "status": "FROZEN_FINITE_RUNTIME_CLAIMS",
+    "claims": [
+      {
+        "id": "WP-H01",
+        "kind": "CHECKED",
+        "predicate": "scope Delegate=yes; exact aggregate kernel limits; caller security preserved; root empty; supervisor control leaf; every observed live thread affinity0-3"
+      },
+      {
+        "id": "WP-H02",
+        "kind": "CHECKED",
+        "predicate": "copied immutable source/build/tool/probe inputs equal before and after; config root dev/inode matches actual scope"
+      },
+      {
+        "id": "WP-H03",
+        "kind": "TESTED",
+        "predicate": "every registered concrete probe case returns exact expected classification and cleanup receipt, with independently checked raw hashes and observed incarnation absence"
+      },
+      {
+        "id": "WP-H04",
+        "kind": "CHECKED",
+        "predicate": "whole-scope positive empty, all tracked identities absent, terminal counters complete, zero OOM/pids exhaustion and peak<=5GiB"
+      }
+    ],
+    "trusted": [
+      "Linux cgroup/procfs/PID identity and syscall semantics",
+      "systemd255 user scope manager",
+      "pinned JDK/Python/native runtime",
+      "hash and filesystem implementation",
+      "registered Java probe as finite evidence generator, not universal proof"
+    ],
+    "excluded": [
+      "comparative performance",
+      "target4vCPU8GiB acceptance",
+      "SQL CLEAN proof from synthetic frames",
+      "full contract fault coverage",
+      "semantic equivalence before190 row differential",
+      "commercial release"
+    ]
+  },
+  "case_ids": [
+    "normal-cold",
+    "normal-ready-hit",
+    "revalidate-fresh",
+    "double-consume",
+    "startup-failure",
+    "preattach-failure",
+    "postattach-unknown",
+    "shutdown-ready"
+  ],
+  "verifier": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/controller.py",
+    "sha256": "816abbd41b206999fae90dfb4d9e2a227a2c0a1853aba4babb9afd06294cd353",
+    "size": 11433,
+    "mode": 436
+  },
+  "programs": [
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/compare_responses.py",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf",
+      "size": 16321,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/containment.py",
+      "sha256": "d977c2616249d1362868409b7fd2397ad352deebbfbe206049b941592342caa7",
+      "size": 11770,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/controller.py",
+      "sha256": "816abbd41b206999fae90dfb4d9e2a227a2c0a1853aba4babb9afd06294cd353",
+      "size": 11433,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/delegation.py",
+      "sha256": "ec6a4a152c66080b68c601b345e0e5597c0ee42b1638881c85c218d3c9676362",
+      "size": 3687,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/harness_common.py",
+      "sha256": "946ebd87bf7c54b99e75b25bf06322a823509f573f0477bfd7b1055a21bd3673",
+      "size": 5575,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/http_driver.py",
+      "sha256": "c4494dc21472d5de98092cb803b38cb8be9ac3dbadadad806a7eaa540c864882",
+      "size": 13385,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/http_setup.py",
+      "sha256": "9efb77cb74d35c05071659f952dd06e35195f514506af9df900b198d77eda2cd",
+      "size": 9232,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/installation.py",
+      "sha256": "34d9d72bb8b030d6eedc21de131d4daeed679060087a2e2fd09b4165a84b19ca",
+      "size": 25258,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/make_fixtures.py",
+      "sha256": "37db2aec26f5e1d466983c74b0d0732fb81986494397fd0a7013887e0d386efc",
+      "size": 14406,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/probe_owner.py",
+      "sha256": "fb87063b257908a8358fbf6e436740b5f9cb760db2d7e102e3d77cb088bada04",
+      "size": 4253,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/probe_results.py",
+      "sha256": "958334e5eda76f390290b71dadbe7cb7f3b0991b5361f2a99bb5ff85a8bc73a1",
+      "size": 8027,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/scope_launch.py",
+      "sha256": "60155f8e0fe47019d06c01d35494cf5dbf5b55bda6ed62138ed5ad1d9ed8f926",
+      "size": 11706,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_owner.py",
+      "sha256": "fe8c975099e3ea3af91c4f0fa42adab3ccfad5538fa4baf60f361d2657b97897",
+      "size": 3329,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_plan.py",
+      "sha256": "31ee17d6d09c7c765ce98b6cf2e1211a80231b0ff130d29107fe66d7bec1298c",
+      "size": 2243,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_results.py",
+      "sha256": "4a69a6f2f76af36f6d09877cb7387a035de913775fdbc073523254f543288539",
+      "size": 14247,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_runner.py",
+      "sha256": "cf60e7add20269c63e5a186db5a06fca4cc0216c9692b52c7d22c87b1262dc2d",
+      "size": 16556,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/stack_owner.py",
+      "sha256": "72ffe5f19aa8a7793d4f1dc4f845aaf79f7a68bdc90011cb934518594c328046",
+      "size": 8060,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_compare_responses.py",
+      "sha256": "4021d50359ee041b3fda95fc467874bf63c483b251845c1ce05ae25f8b24ccba",
+      "size": 11866,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_delegated_harness.py",
+      "sha256": "9fe98582913a9974670ede3bb84134a59ae91129b87342a3c18dbe7b3c85036d",
+      "size": 13778,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_http_setup.py",
+      "sha256": "b57de094fafd4b5b67ee49c4dfceff403b08bb53e99e551e795bce5cef472835",
+      "size": 9419,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_semantic_results.py",
+      "sha256": "ae6a84c2f353a24b9fa4a2af3c232306cde99b12e67d9f4892f9bcd732868c7e",
+      "size": 31658,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_workload_correspondence.py",
+      "sha256": "6f27b49e6c9c63aad7846e3c24495176bfe34050dd0bca34ebce6cd6c22abd1d",
+      "size": 7898,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/topology_diagnostic.py",
+      "sha256": "c01b1e856657ddc1a7aafeee4a4c789e4ad31a93799790591dbab02fab5517db",
+      "size": 6240,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/workload_correspondence.py",
+      "sha256": "122c3c9dc3760b92c5bdffed1ccf1780480a5b675ee689362d1dc486d906e252",
+      "size": 4062,
+      "mode": 436
+    }
+  ],
+  "benchmark_authorized": false,
+  "target_host_acceptance": "OPEN",
+  "input_root_sha256": "8c04dbca9febe10893bb66eaaebfe26e259a26609d4ce335d1b1fbaa62a9b6e9"
+}

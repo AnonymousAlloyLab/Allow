@@ -1,0 +1,22 @@
+{
+  "assertions": [
+    "For empty and nonempty canonical ID requests, unchanged CLI returns bounded UNAVAILABLE after real proxy login fails.",
+    "OperationalError specifically contains password authentication failed; only verified boolean and safe class emitted.",
+    "Wrong password exists only in ephemeral connection DSN; no stored credentials or PostgreSQL role changed.",
+    "All SQL uses canonical SQLeanParser helper; generated owned temporary database only; durable state unchanged, database cleanup confirmed, proxy identity unchanged."
+  ],
+  "gates": [
+    "VC14",
+    "VC18"
+  ],
+  "id": "validation-context-auth-diagnostic-addendum-r1",
+  "limits": [
+    "Not literal parser shutdown or generic network-failure coverage.",
+    "Two supplemental scenarios separate from186 original tests and40 prior gate scenarios.",
+    "Fixture is authored storage-shaped, not an Alloy runtime correctness claim."
+  ],
+  "purpose": "Strengthen the actual negative-authentication evidence with explicit password authentication failed diagnostic classification, without publishing raw error text. Existing r2 report remains unchanged.",
+  "registered_at": "2026-11-03T22:35:55.985600+00:00",
+  "scenarios": 2,
+  "status": "PREREGISTERED_BEFORE_EXECUTION"
+}

@@ -1,0 +1,88 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-store-runtime-r2-astra-2",
+  "review_type": "READ_ONLY_FINAL_STORE_AND_COORDINATOR_FIX_REVIEW",
+  "decision": "STORE_BLOCKER_RESOLVED_COORDINATOR_RECOVERY_EDGE_REQUIRES_FIX",
+  "timestamp_utc": "2026-11-03T19:09:16.406401+00:00",
+  "input_hashes": {
+    "backend/src/main/java/dev/allow/backend/DocumentAttempt.java": "45fabad50010a124e53eb42c93ad3495ed6bdce00300d0899b8864c830eda51f",
+    "backend/src/main/java/dev/allow/backend/DocumentController.java": "ae296d7d774e0e960365acf2535395d4be63c6f20b3c1e2abc0ec5b4f96f64a0",
+    "backend/src/main/java/dev/allow/backend/DocumentGateway.java": "bc94212e0d9049e6de47b405177108a45ae34dff706be474d325c8a0f62fdac8",
+    "backend/src/main/java/dev/allow/backend/DocumentMutationFrames.java": "501be905e1de34c29c6af167be870c5e14cb01ff82623c948d131a450077deef",
+    "backend/src/main/java/dev/allow/backend/DocumentMutationValidation.java": "6a6b994d25657b6a217eee39881fdfb9cefd52be9d302d97a1f8cedc28c6d842",
+    "backend/src/main/java/dev/allow/backend/DocumentMutationWorkers.java": "ef8b6972981416e520b6001e3faf1b76869cf0ff1d261a804be43eae25c2cf65",
+    "backend/src/main/java/dev/allow/backend/DocumentMutations.java": "b0911232a92432ba7bcf78c880846a8d302248214be662de579ba075d75f0881",
+    "backend/src/main/java/dev/allow/backend/DocumentRequest.java": "1bd62950f8e7c9b19bc56138bfd337d60ebc423ceedba97a4451f640cffb4e68",
+    "backend/src/main/java/dev/allow/backend/DocumentRuntime.java": "cd0d3b5478bf8522bb52438104bdb4d66152ce24e85c6137b681748ae2ee0b40",
+    "backend/src/main/java/dev/allow/backend/DocumentWorker.java": "e82a9738ae35951f8b5e2531943f5f06e427321978980fd1f5c3ba56ecf8671b",
+    "backend/src/main/java/dev/allow/backend/FrameProcess.java": "79c03efbdac7a20f386d2c191f0d2b6e204ac3b2bee3295b744a6ce97ecb2d75",
+    "backend/src/main/java/dev/allow/backend/ProcessIdentity.java": "c0eaaf908de4201087c68a88cbee8114b2dfdbeeef8a196a98112b3e00be6f1d",
+    "backend/src/main/java/dev/allow/backend/WorkerCapacity.java": "984d42f9ab6aba4e308636ae966fdb3ef0d7f00b825cbc18233c6f1a139b2498",
+    "backend/src/test/java/dev/allow/backend/DocumentMutationCoordinatorTest.java": "5a852627fdb5b45caefb1b212c7b0e451defab6e581ec0dd7db6c37fde23ac92",
+    "db/document/mutation-evidence.json": "b2bf19f0bd72fd748392c62679ec6d8563b2f01a8530987d2aa5c0e3eba8c7d8",
+    "db/document/runtime-evidence.json": "e22e3e17f9f6d6f57f08db5dd1b74d6603a0571f66b243dd9ad260a0aeed7b44",
+    "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+    "retrieval/allow_documents/cli.py": "03689eb0278cf79563c5c0a28a316ea656b35e5b8651bd7ca8b80f505852c5fe",
+    "retrieval/allow_documents/identifiers.py": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+    "retrieval/allow_documents/store.py": "2f1ac421d2c421fb28b3fdfe9cc101b9e8bc9b8e4b15b000bf96851cd8d713b0",
+    "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+    "retrieval/tests/test_documents.py": "d610c3c9604e67fed4087d89eeb31c9b0c82377c30502fa47c9d2aba9303069e",
+    "scripts/bootstrap_documents.py": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827"
+  },
+  "resolved_findings": [
+    {
+      "id": "STORE-A2-01",
+      "resolution": "Store.known_rollback now uses explicit transaction-rejection classes22/23/25/42 and codes40001/40P01. Unknown08007/40003, connection08006, shutdown57P01 and no SQLSTATE remain uncertain. A side-effect-free direct classification check confirms this; current21-test suite includes actual psycopg exception regressions."
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "COORD-A2-01",
+      "severity": "MEDIUM",
+      "location": "backend/src/main/java/dev/allow/backend/DocumentWorker.java execute process-start identity catch and recovery",
+      "finding": "After launcher.launch succeeds, pid is assigned before ProcessIdentity.startTicks. If the child exits immediately and /proc disappears before that read, the IOException catch kills/waits and throws outside the subsequent finally that sets reaped. Thus reaped remains false and startTicks null. DocumentAttempt is marked finished, but every same-process retry invokes recovery(), which permanently throws Reaping is not established. The durable reservation/nonce remains unavailable until whole server restart. If waitFor itself is interrupted in that catch, unconditional reaping is additionally not guaranteed.",
+      "trigger": "Immediate sandbox/startup failure or injected ProcessIdentity.startTicks IOException after child creation. No parser-validity assumption is needed. Existing worker constructor/prelaunch failure tests do not cover this interval.",
+      "resolution": "Put every successfully created child under unconditional uninterruptible-reap cleanup immediately. Preserve a trusted, explicit confirmed-exit-before-start-identity recovery state supported by the narrow bridge, or obtain stable process identity atomically enough that all started-child failures have usable recovery evidence. Do not label an actually started process noWorkerStarted. Add a focused startup-identity-failure and interrupted-cleanup regression proving subsequent same-key retry can rotate/recover and the child cannot survive permit release.",
+      "scope": "Availability/resource-ownership edge; no wrong accepted artifact or unauthorized SQL write demonstrated. A full server restart currently provides recovery, but ordinary retry remains stuck."
+    }
+  ],
+  "fresh_identity_guard_assessment": [
+    "Finalization invokes identifiers.check while workspace/document locks are held, before append. Fresh remapping values cannot collide with any retained same-document definition, even same kind; mapping keys exactly equal submitted draft definitions and outputs are injective.",
+    "Existing server definitions must be present in authorized history with unchanged identity kind; final artifact definitions exactly equal remapped submitted definitions. SOURCE elaboration must use fresh definitions and empty remapping. CREATE has explicit empty-module validation; HISTORY_COPY separately checks unchanged historical content.",
+    "Semantic references, complete typing and parser correspondence remain the worker TCB; the new persistence guard correctly narrows identity authority without inventing parser assurance."
+  ],
+  "raw_route_and_receipts": [
+    "DocumentController retains getRequestURI and rejects mutation queries. DocumentRequest stores original bytes/base64, and Python preserves literal colon versus canonical percent3A route identity. A changed encoding under same key conflicts rather than silently normalizing.",
+    "Authorized stored replay occurs before request.validate, WorkerCapacity and worker identity construction. Exact original envelope bytes/requestId are returned; malformed new checked frames do not block replay.",
+    "Unknown/malformed/lost final bridge acknowledgement maps conservatively to UNKNOWN_COMMIT_OUTCOME. Terminal receipt data parse failures also retain uncertainty. Bounded stale-CAS retries build a rejection using locked current head; deterministic denial replay remains separate from validation availability.",
+    "Lost admission acknowledgement has explicit trusted no-start provenance and recoverUnstarted rather than guessing a nonce. That fix is distinct from the started-child /proc failure above."
+  ],
+  "sql_assessment": "All inspected store/identifier SQL executes on existing sql_connections.connect transaction connections; migration/bootstrap still use the mandatory SQLean proxy. No direct JDBC/DSN/SQL fallback was found. Original corpus data/metadata were not modified by this review.",
+  "evidence_assessment": {
+    "store_report": "db/document/runtime-evidence.json",
+    "store_tests": 21,
+    "store_failures": 0,
+    "store_source_hash_mismatches": [],
+    "coordinator_report": "db/document/mutation-evidence.json",
+    "coordinator_tests": 10,
+    "coordinator_failures": 0,
+    "coordinator_source_hash_mismatches": [],
+    "interpretation": "Reports match their current listed sources. Store tests exercise real proxy SQL with isolated scopes; coordinator tests use gateway/worker seams. Neither establishes real Alloy/HTTP/SQL end-to-end correspondence or closes G2/G3. No Maven/npm or proof/build rerun performed.",
+    "limitations_retained": [
+      "No shared PostgreSQL restart in store report.",
+      "Postcommit reply loss is injected after real SQL commits, not a network-fault test.",
+      "Proxy deltas cover a shared interval; bootstrap/migration needs its separate evidence."
+    ]
+  },
+  "verification_performed": [
+    "Read source and both current evidence reports, compared every listed source hash.",
+    "Inspected fresh-ID definitions/history/remapping transaction guard and its regression test.",
+    "Inspected raw route capture and exact request/response replay paths.",
+    "Inspected finalization uncertainty conversion, admission recovery, process startup/cleanup and shared permit ownership.",
+    "Ran only a side-effect-free Python known_rollback classification check; no Maven/npm, SQL mutation, build or full tests."
+  ],
+  "production_edits": false,
+  "approval_scope": "Prior store blocker resolved and reviewed store mechanisms pass source review. One concrete coordinator startup/recovery edge remains; runtime evidence scope is21 store plus10 seam tests, not G2/G3 or commercial acceptance."
+}

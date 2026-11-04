@@ -1,0 +1,58 @@
+{
+  "candidate_claim_count": 22,
+  "reviews": [
+    {
+      "seat": "terra-1",
+      "path": "reviews/validation-context-terra-1.json"
+    },
+    {
+      "seat": "terra-2",
+      "path": "reviews/validation-context-terra-2.json"
+    },
+    {
+      "seat": "sol-1",
+      "path": "reviews/validation-context-sol-1.json"
+    },
+    {
+      "seat": "sol-2",
+      "path": "reviews/validation-context-sol-2.json"
+    },
+    {
+      "seat": "astra-1",
+      "path": "reviews/validation-context-astra-1.json"
+    },
+    {
+      "seat": "astra-2",
+      "path": "reviews/validation-context-astra-2.json"
+    }
+  ],
+  "guards": [
+    "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+    "backend/src/main/java/dev/allow/backend/DocumentJson.java",
+    "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+    "backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+    "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+    "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+    "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+    "config/sqlean-parser-lock.json",
+    "formal/Allow.lean",
+    "formal/lake-manifest.json",
+    "formal/lakefile.toml",
+    "formal/lean-toolchain",
+    "retrieval/allow_documents/cli.py",
+    "retrieval/allow_documents/identifiers.py",
+    "retrieval/allow_documents/identity.py",
+    "retrieval/allow_documents/store.py",
+    "retrieval/allow_retrieval/sql_guard.py",
+    "retrieval/allow_retrieval/sql_image.py",
+    "retrieval/allow_retrieval/sql_image_config.py",
+    "retrieval/allow_retrieval/sql_image_init.py",
+    "retrieval/allow_retrieval/sql_proxy.py",
+    "spec/document-adapter-draft.json",
+    "spec/document-stage-draft.json",
+    "spec/document-ui-draft.json",
+    "spec/document-wire-draft.json",
+    "spec/sql-immutable-image.json",
+    "spec/sql-stage.json"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "input": {
+    "protocol": 1,
+    "requestId": "a3ae4f3d-6e54-48aa-a4c4-a63330e259a8",
+    "operation": "validationContext",
+    "args": {
+      "documentId": "server:3628063f-acf9-44f7-88cd-2ceb10888ea6",
+      "revision": 1,
+      "ids": [
+        "server:f149a0b7-3670-431a-874c-4f5416db8908"
+      ]
+    }
+  },
+  "stdout": "{\"protocol\":1,\"requestId\":\"a3ae4f3d-6e54-48aa-a4c4-a63330e259a8\",\"status\":\"OK\",\"data\":{\"documentId\":\"server:3628063f-acf9-44f7-88cd-2ceb10888ea6\",\"baseRevision\":1,\"headObserved\":1,\"artifact\":{\"artifactId\":\"server:b6fb227b-73c3-42d8-8742-57451075d50d\",\"mode\":\"BLOCK_SUPPORTED\",\"source\":\"sig CleanupFixture {}\\r\\n\",\"sourceHash\":\"6035a2322029f12614272ab3abf1baad3759e47ad470240b28f31da3b758fb20\",\"module\":{\"version\":1,\"signatures\":[{\"tag\":\"signature\",\"id\":\"server:f149a0b7-3670-431a-874c-4f5416db8908\",\"name\":\"CleanupFixture\",\"multiplicity\":\"set\"}],\"fields\":[],\"predicates\":[],\"facts\":[],\"assertions\":[],\"commands\":[],\"nodes\":[]},\"occurrences\":[],\"trivia\":[],\"analysisDescriptors\":[],\"policyVersion\":\"authored-document-recovery-v1\",\"dependencyHash\":\"e5a9c87cd0d9bcbb36331e6903f097df44c33d0c150ec49f634916c750d20081\"},\"ownedIdInventory\":{\"server:f149a0b7-3670-431a-874c-4f5416db8908\":\"signature\"}}}\n",
+  "stderr": ""
+}

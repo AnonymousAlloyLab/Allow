@@ -1,0 +1,87 @@
+Allow.ValidationContextCandidate.inventory_membership (s : Allow.ValidationContextCandidate.Snapshot)
+  (wanted : List Nat) (d : Allow.ValidationContextCandidate.Definition) :
+  d ∈ Allow.ValidationContextCandidate.inventory s wanted ↔
+    d ∈ List.flatMap Allow.ValidationContextCandidate.Artifact.definitions s.history ∧ d.id ∈ wanted
+Allow.ValidationContextCandidate.inventory_requested {s : Allow.ValidationContextCandidate.Snapshot} {wanted : List Nat}
+  {d : Allow.ValidationContextCandidate.Definition} (h : d ∈ Allow.ValidationContextCandidate.inventory s wanted) :
+  d.id ∈ wanted
+Allow.ValidationContextCandidate.inventory_historical {s : Allow.ValidationContextCandidate.Snapshot}
+  {wanted : List Nat} {d : Allow.ValidationContextCandidate.Definition}
+  (h : d ∈ Allow.ValidationContextCandidate.inventory s wanted) : ∃ a, a ∈ s.history ∧ d ∈ a.definitions
+Allow.ValidationContextCandidate.inventory_complete {s : Allow.ValidationContextCandidate.Snapshot} {wanted : List Nat}
+  {d : Allow.ValidationContextCandidate.Definition}
+  (owned : d ∈ List.flatMap Allow.ValidationContextCandidate.Artifact.definitions s.history)
+  (requested : d.id ∈ wanted) : d ∈ Allow.ValidationContextCandidate.inventory s wanted
+Allow.ValidationContextCandidate.empty_requested_empty (s : Allow.ValidationContextCandidate.Snapshot) :
+  Allow.ValidationContextCandidate.inventory s [] = []
+Allow.ValidationContextCandidate.foreign_definition_excluded {s : Allow.ValidationContextCandidate.Snapshot}
+  {wanted : List Nat} {d : Allow.ValidationContextCandidate.Definition}
+  (h : ¬d ∈ List.flatMap Allow.ValidationContextCandidate.Artifact.definitions s.history) :
+  ¬d ∈ Allow.ValidationContextCandidate.inventory s wanted
+Allow.ValidationContextCandidate.collision_detected {values : List Allow.ValidationContextCandidate.Definition}
+  {left right : Allow.ValidationContextCandidate.Definition} (hl : left ∈ values) (hr : right ∈ values)
+  (same : left.id = right.id) (different : left.kind ≠ right.kind) :
+  Allow.ValidationContextCandidate.collision values = true
+Allow.ValidationContextCandidate.no_collision_unique_kind {values : List Allow.ValidationContextCandidate.Definition}
+  (clean : Allow.ValidationContextCandidate.collision values = false)
+  {left right : Allow.ValidationContextCandidate.Definition} (hl : left ∈ values) (hr : right ∈ values)
+  (same : left.id = right.id) : left.kind = right.kind
+Allow.ValidationContextCandidate.context_exact {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} {c : Allow.ValidationContextCandidate.Context}
+  (h : Allow.ValidationContextCandidate.readContext s q = some c) :
+  s.key = q.key ∧
+    q.base ≤ s.head ∧
+      Allow.ValidationContextCandidate.baseArtifact s q.base = some c.artifact ∧
+        c.key = q.key ∧
+          c.base = q.base ∧
+            c.headObserved = s.head ∧
+              c.inventory = Allow.ValidationContextCandidate.inventory s q.wanted ∧
+                Allow.ValidationContextCandidate.collision c.inventory = false
+Allow.ValidationContextCandidate.wrong_scope_denied {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} (h : s.key.scope ≠ q.key.scope) :
+  Allow.ValidationContextCandidate.readContext s q = none
+Allow.ValidationContextCandidate.wrong_document_denied {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} (h : s.key.document ≠ q.key.document) :
+  Allow.ValidationContextCandidate.readContext s q = none
+Allow.ValidationContextCandidate.future_base_denied {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} (h : s.head < q.base) :
+  Allow.ValidationContextCandidate.readContext s q = none
+Allow.ValidationContextCandidate.missing_base_denied {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} (h : Allow.ValidationContextCandidate.baseArtifact s q.base = none) :
+  Allow.ValidationContextCandidate.readContext s q = none
+Allow.ValidationContextCandidate.conflicting_inventory_denied {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request}
+  (h : Allow.ValidationContextCandidate.collision (Allow.ValidationContextCandidate.inventory s q.wanted) = true) :
+  Allow.ValidationContextCandidate.readContext s q = none
+Allow.ValidationContextCandidate.returned_base_exact {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} {c : Allow.ValidationContextCandidate.Context}
+  (h : Allow.ValidationContextCandidate.readContext s q = some c) :
+  Allow.ValidationContextCandidate.baseArtifact s q.base = some c.artifact
+Allow.ValidationContextCandidate.observed_head_is_snapshot_head {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} {c : Allow.ValidationContextCandidate.Context}
+  (h : Allow.ValidationContextCandidate.readContext s q = some c) : c.headObserved = s.head
+Allow.ValidationContextCandidate.returned_inventory_requested {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} {c : Allow.ValidationContextCandidate.Context}
+  {d : Allow.ValidationContextCandidate.Definition} (h : Allow.ValidationContextCandidate.readContext s q = some c)
+  (member : d ∈ c.inventory) : d.id ∈ q.wanted
+Allow.ValidationContextCandidate.returned_inventory_unique {s : Allow.ValidationContextCandidate.Snapshot}
+  {q : Allow.ValidationContextCandidate.Request} {c : Allow.ValidationContextCandidate.Context}
+  (h : Allow.ValidationContextCandidate.readContext s q = some c)
+  {left right : Allow.ValidationContextCandidate.Definition} (hl : left ∈ c.inventory) (hr : right ∈ c.inventory)
+  (same : left.id = right.id) : left.kind = right.kind
+Allow.ValidationContextCandidate.read_preserves_durable (durable observed : Allow.ValidationContextCandidate.Snapshot)
+  (q : Allow.ValidationContextCandidate.Request) :
+  (Allow.ValidationContextCandidate.readOnly durable observed q).fst = durable
+Allow.ValidationContextCandidate.concurrent_commit_does_not_mix
+  (before after observed : Allow.ValidationContextCandidate.Snapshot) (q : Allow.ValidationContextCandidate.Request) :
+  (Allow.ValidationContextCandidate.readOnly before observed q).snd =
+    (Allow.ValidationContextCandidate.readOnly after observed q).snd
+Allow.ValidationContextCandidate.existing_base_survives_append (s : Allow.ValidationContextCandidate.Snapshot)
+  (later : List Allow.ValidationContextCandidate.Artifact) (r : Nat) (a : Allow.ValidationContextCandidate.Artifact)
+  (h : Allow.ValidationContextCandidate.baseArtifact s r = some a) :
+  Allow.ValidationContextCandidate.baseArtifact { key := s.key, head := s.head, history := s.history ++ later } r =
+    some a
+Allow.ValidationContextCandidate.nonvacuous_context :
+  Allow.ValidationContextCandidate.readContext Allow.ValidationContextCandidate.witnessSnapshot
+      Allow.ValidationContextCandidate.witnessRequest =
+    some Allow.ValidationContextCandidate.witnessContext

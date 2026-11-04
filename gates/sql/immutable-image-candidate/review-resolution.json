@@ -1,0 +1,29 @@
+{
+  "candidate_revision": "r2",
+  "status": "PLAN_REVISED_RUNTIME_PENDING",
+  "original_reviews": [
+    "gates/sql/immutable-image-candidate/archive-r1/sql-image-astra-1.json",
+    "gates/sql/immutable-image-candidate/archive-r1/sql-image-sol-1.json",
+    "gates/sql/immutable-image-candidate/archive-r1/sql-image-terra-1.json"
+  ],
+  "resolutions": {
+    "T1-01": {
+      "contract": "contract.md Review amendment r2 bounded initialization",
+      "tests": "IM33-IM40",
+      "runtime_status": "pending"
+    },
+    "SQLIM-S1-01": {
+      "contract": "contract.md Review amendment r2 bounded descriptor ownership",
+      "tests": "IM41-IM46 and IM55",
+      "runtime_status": "pending"
+    },
+    "SQLIM-A1-01": {
+      "contract": "contract.md private ConfigSnapshot",
+      "tests": "IM47-IM54",
+      "runtime_status": "pending"
+    }
+  },
+  "same_parser_rule": "ALL client PostgreSQL SQL remains under pinned SQLeanParser; no bypass or stale generation acceptance.",
+  "preserved_model_claims": 280,
+  "candidate_conditional_theorems": 7
+}

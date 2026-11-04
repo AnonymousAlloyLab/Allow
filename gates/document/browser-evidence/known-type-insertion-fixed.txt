@@ -1,0 +1,161 @@
+- navigation "Workspace sections":
+  - link "Editor":
+    - /url: "#editor"
+  - link "Predicate library":
+    - /url: "#predicate-library"
+  - generic: Local workspace
+- main:
+  - heading "Allow" [level=1]
+  - paragraph: Build an Alloy model with blocks, edit its source, and explore examples.
+  - status: Expected relation; actual formula.
+  - region "Documents":
+    - text: New model name
+    - textbox "New model name": Untitled model
+    - button "Create model"
+    - text: Your models
+    - combobox "Your models":
+      - option "Choose explicitly"
+      - option "Authored document integration"
+      - option "Browser acceptance – typed gates" [selected]
+      - option "Authored document integration"
+      - option "Authored document integration"
+      - option "Document integration fixture"
+      - option "500-node performance fixture"
+      - option "Authored document integration"
+      - option "500-node performance fixture"
+    - button "Open model"
+    - button "Refresh"
+  - region "Draft acceptance":
+    - strong: Saved version
+    - button "Check model"
+    - button "Save version"
+    - generic "Save details"
+  - region "Declaration editors":
+    - heading "Declarations" [level=2]
+    - button "Add signature"
+    - button "Add field"
+    - button "Add predicate"
+    - button "Add fact"
+    - button "Add assertion"
+    - button "Add run"
+    - button "Add check"
+    - group "signature":
+      - generic: signature
+      - text: Name
+      - textbox "Name": Person
+      - text: Multiplicity
+      - combobox "Multiplicity":
+        - option "Choose explicitly"
+        - option "set" [selected]
+        - option "one"
+        - option "lone"
+        - option "some"
+      - button "Delete signature"
+      - generic "Declaration identity"
+    - group "predicate":
+      - generic: predicate
+      - text: Name
+      - textbox "Name": Present
+      - group "Ordered set-valued parameters":
+        - generic: Ordered set-valued parameters
+        - button "Add parameter"
+      - button "Select predicate body"
+      - button "Delete predicate"
+      - generic "Declaration identity"
+    - group "run":
+      - generic: run
+      - text: Command target
+      - combobox "Command target":
+        - option "Choose explicitly"
+        - option "Present" [selected]
+      - text: Uniform scope
+      - combobox "Uniform scope":
+        - option "Choose explicitly"
+        - option "1"
+        - option "2"
+        - option "3" [selected]
+        - option "4"
+        - option "5"
+      - paragraph: Bitwidth4 · maxseq3
+      - button "Delete run"
+      - generic "Declaration identity"
+  - region "Typed block editor":
+    - heading "Typed blocks" [level=2]
+    - group "Complete expression palette":
+      - generic: Complete expression palette
+      - text: Declaration or in-scope variable
+      - combobox "Declaration or in-scope variable":
+        - option "Choose explicitly" [selected]
+        - option "Signature Person"
+        - option "Predicate Present"
+      - text: Quantifier variable name
+      - textbox "Quantifier variable name": variable
+      - paragraph: "Expected destination: nonempty relation schema"
+      - list "In-scope variables"
+      - button "Signature"
+      - button "Field"
+      - button "Variable"
+      - button "Call predicate"
+      - button "Not" [active]
+      - button "Some tuples"
+      - button "No tuples"
+      - button "Exactly one tuple"
+      - button "At most one tuple"
+      - button "Transpose"
+      - button "And"
+      - button "Or"
+      - button "Implies"
+      - button "If and only if"
+      - button "Equals"
+      - button "Subset"
+      - button "Union"
+      - button "Intersection"
+      - button "Difference"
+      - button "Join"
+      - button "Product"
+      - button "For every variable"
+      - button "For some variable"
+    - button "Copy (Ctrl/Cmd+C)"
+    - button "Cut (Ctrl/Cmd+X)"
+    - button "Paste (Ctrl/Cmd+V)"
+    - button "Delete selected"
+    - paragraph: Drag an existing block to move; Ctrl/Cmd-drag copies. Selection preserves clipboard content identity.
+    - generic "Owned expression forest":
+      - heading "predicate Present" [level=3]
+      - button "some test · formula"
+      - paragraph: "Expected: formula"
+      - button "signature ref · Person" [pressed]
+      - paragraph: "Expected: nonempty relation schema"
+  - region "Source and accepted artifact":
+    - heading "Alloy source" [level=2]
+    - paragraph: Source for the saved model.
+    - text: Source
+    - textbox "Source": "sig Person { } pred Present[] { (some (Person)) } run Present for 3 but 4 Int, 3 seq"
+    - group "Explore this model":
+      - generic: Explore this model
+      - text: Command
+      - combobox "Command":
+        - option "Choose explicitly" [selected]
+        - option "Present"
+      - button "Run analysis" [disabled]
+      - paragraph: Select a command to look for an instance or counterexample.
+    - generic "Saved source and provenance · version 3"
+  - region "Draft diagnostics":
+    - heading "Specific diagnostics" [level=2]
+    - list
+  - generic "Version history and provenance"
+  - option "Choose explicitly"
+  - option "Undo" [selected]
+  - option "Redo"
+- complementary "Private predicate retrieval":
+  - region "Predicate corpus":
+    - generic: "04"
+    - heading "Predicate corpus" [level=2]
+    - generic: LOCAL RETRIEVAL
+    - paragraph: Explore anonymous predicates with checked e-graph representatives and both witness polarities.
+    - button "Load corpus"
+    - generic: Query predicate
+    - combobox "Query predicate" [disabled]:
+      - option "Load eligible records" [selected]
+    - button "Find related predicates" [disabled]
+    - status: Browse locally stored predicates and their example pools.

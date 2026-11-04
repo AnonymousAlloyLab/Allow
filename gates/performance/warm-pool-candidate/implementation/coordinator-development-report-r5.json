@@ -1,0 +1,103 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Seven authored ownership/coordinator classes; mocked coordinator-boundary tests explicitly do not establish actual SQL CLEAN, descriptor ownership, process containment, Java refinement, finite runtime closure or performance selection. Active target untouched.",
+  "copied_root": "/tmp/allow-warm-coordinator-r5-8txcm830",
+  "sources": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "ad84beb192188ba1b82208c5f1d752dbed4beebd08a72198a6a062e4a5807813"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerReservation.java",
+      "sha256": "2ff0c8c89f1eaa66dfa500e413f893348ac4b68266cf489bd8fc1ddde8b00822"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "3c2a8df2e6a889ab3cb005a0b878015dc10f1cb996c7069f37de23bb8d6671ba"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "58cf61800b3c863efe1efe9e109ce78f79708d00fe3c3cd5c434470633dc5566"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmStandby.java",
+      "sha256": "71683e83481be1f50dd45235d5970e1d90460c60cb3a6f0f00d61b17760903bb"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerPool.java",
+      "sha256": "ff39912b321c73485736096a4b15ac1b6c97acce3e5811142649e7774f0a1918"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmResultLease.java",
+      "sha256": "829afbefeda5912cdf79a75cb57a423d298604777861c5207451ab29a418cfa0"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "sha256": "5ba48c91041feb1f3d6576c64ca92339f5302acc5fe9384c007efe872fe72a21"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmCoordinatorTest.java",
+      "sha256": "56f5ec20350cdfedf4217780a434a2457943c5a76ae59e908c64b9c32b566064"
+    }
+  ],
+  "suites": [
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "tests": 34,
+  "style": "PASS; all callable documentation and 30-line cap, no Java lambdas",
+  "prior_runs_retained": [
+    "/tmp/allow-warm-coordinator-90cqwk4z",
+    "/tmp/allow-warm-coordinator-r2-551o9yux",
+    "/tmp/allow-warm-coordinator-r3-_gpcx4zj",
+    "/tmp/allow-warm-coordinator-r4-9y0qku8v"
+  ],
+  "uncovered": [
+    "Actual helper/cgroup/bwrap/JVM startup, private handoff and exact descendant cleanup",
+    "Startup5s/idle30s/request10s wall-time behavior and lingering children",
+    "Parent death, restart uncertainty and persisted spawn gaps",
+    "P1 CLEAN composition with real scoped SQL context",
+    "Whole-stack paired performance, target host acceptance and promotion"
+  ],
+  "logs": [
+    {
+      "path": "/tmp/allow-warm-coordinator-r5-8txcm830/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-coordinator-r5-8txcm830/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-coordinator-r5-8txcm830/focused-tests.log",
+      "sha256": "05514662380f0f682f8e0ce6cc691f5a260524d053364756896b8b05dc03adad"
+    },
+    {
+      "path": "/tmp/allow-warm-coordinator-r5-8txcm830/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    }
+  ]
+}

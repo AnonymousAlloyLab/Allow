@@ -1,0 +1,20 @@
+{
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled libraries",
+    "propext, Quot.sound and Classical.choice only when reported by the axiom audit",
+    "Pinned Lake/Python verifier and SHA256 collision resistance",
+    "Operating system/filesystem/processes and hardware",
+    "Interpretation of abstract model definitions; no implementation correspondence"
+  ],
+  "excluded": [
+    "Python/Java/PostgreSQL implementation refinement or end-to-end transaction correctness",
+    "SQLean grammar implementation, wire framing and subprocess execution correctness",
+    "Fresh isolated JVM enforcement, real repeatable-read/read-only behavior and protocol I/O",
+    "Runtime resource bounds, privacy, performance300ms target and production promotion"
+  ],
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

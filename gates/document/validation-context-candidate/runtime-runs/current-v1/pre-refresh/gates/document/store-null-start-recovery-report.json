@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "tests": 1,
+  "seconds": 4.07,
+  "input_sha256": {
+    "retrieval/allow_documents/store.py": "603927abb982c337418769cfd82c8be28c819adb5223601a875de18529337942",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/cli.py": "03689eb0278cf79563c5c0a28a316ea656b35e5b8651bd7ca8b80f505852c5fe",
+    "retrieval/tests/test_documents.py": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f",
+    "db/document/interface.json": "4291a9bab7dda66ebbd7f245ce839f61bf714029d4fba3cdbe9bacf9c3067170"
+  },
+  "checks": [
+    "Actual live PID with null captured start rejected.",
+    "Owned child waited/reaped and absent PID with null captured start accepted.",
+    "Nonce rotated; stale old nonce rejected; recovered generation finalized through actual proxy."
+  ],
+  "boundary": "Trusted supervisor establishes owned Process reaped before proof; store additionally probes process_start(pid) is None. No expiry/PID-reuse authority."
+}

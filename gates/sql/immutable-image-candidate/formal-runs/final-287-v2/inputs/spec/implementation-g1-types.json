@@ -1,0 +1,10 @@
+{
+  "Allow.Slots.names_do_not_affect_payload": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String), Allow.Slots.anonymous {p with names := labels} = Allow.Slots.anonymous p",
+  "Allow.Slots.names_do_not_affect_embedding": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String) (source origin : String), Allow.Slots.embedding {p with names := labels, source := source, origin := origin} = Allow.Slots.embedding p",
+  "Allow.Slots.distinct_slots_remain_distinct": "∀ (a b : Allow.Slots.Slot), a ≠ b → Allow.Slots.Tree.reference a ≠ Allow.Slots.Tree.reference b",
+  "Allow.Slots.embedding_has_no_presentation": "∀ (p : Allow.Slots.Presented), Allow.Slots.embedding p = (⟨1, p.resolved⟩ : Allow.Slots.EmbeddingInput)",
+  "Allow.Foundation.admission_bounded": "∀ {active capacity next : Nat}, Allow.Foundation.admit active capacity = some next → next ≤ capacity",
+  "Allow.Foundation.terminal_is_final": "∀ (prior incoming : Allow.SolverStatus), Allow.Foundation.finish (.terminal prior) incoming = .terminal prior",
+  "Allow.Foundation.cancel_is_not_unsat": "Allow.Foundation.cancel .running = .terminal .CANCELLED ∧ ∀ incoming, Allow.Foundation.finish (Allow.Foundation.cancel .running) incoming = .terminal .CANCELLED",
+  "Allow.Foundation.accepted_style_bounded": "∀ {m : Allow.Foundation.MethodMetadata}, Allow.Foundation.acceptable m = true → m.lines ≤ 30 ∧ m.documented = true ∧ m.encapsulated = true"
+}

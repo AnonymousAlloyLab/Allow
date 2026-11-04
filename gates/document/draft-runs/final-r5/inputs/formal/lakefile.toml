@@ -1,0 +1,9 @@
+name = "allow_contract"
+version = "0.1.0"
+defaultTargets = ["Allow"]
+
+[leanOptions]
+warningAsError = true
+
+[[lean_lib]]
+name = "Allow"

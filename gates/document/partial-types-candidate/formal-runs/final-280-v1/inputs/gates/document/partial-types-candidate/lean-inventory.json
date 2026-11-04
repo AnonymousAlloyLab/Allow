@@ -1,0 +1,43 @@
+{
+  "status": "CANDIDATE_LOCAL_COMPILE_ONLY",
+  "namespace": "Allow.DocumentPartialTypes",
+  "types": [
+    "Schema",
+    "ResultSort",
+    "Ty",
+    "Fact",
+    "Constraint",
+    "Op"
+  ],
+  "definitions": [
+    "Ty.sort",
+    "denotes",
+    "satisfies",
+    "compatible",
+    "result",
+    "inputs",
+    "holeResult",
+    "schemaOK",
+    "productConstraint",
+    "joinConstraint",
+    "transposeConstraint"
+  ],
+  "theorems": [
+    "formula_rejected_in_relation",
+    "relation_rejected_in_formula",
+    "nominal_mismatch_rejected",
+    "unknown_schema_not_guessed",
+    "unresolved_hole_preserved",
+    "conjunction_preserves_rejection",
+    "not_hole_rejected_under_some",
+    "product_holes_rejected_at_formula_root",
+    "every_operator_has_known_result_sort",
+    "profile_rejects_opposite_sort",
+    "product_overflow_rejected",
+    "join_endpoint_mismatch_rejected",
+    "transpose_wrong_width_rejected"
+  ],
+  "count": 13,
+  "runtime_correspondence": "NOT_ESTABLISHED",
+  "prior_registry": "UNCHANGED"
+}

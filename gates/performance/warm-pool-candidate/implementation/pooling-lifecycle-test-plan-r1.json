@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "classification": "FINITE_TEST_EXTENSION_WITHIN_APPROVED_CONTRACT_NOT_NEW_PRODUCTION_BEHAVIOR",
+  "status": "PLANNED",
+  "production_changes": false,
+  "production_selection": "DISABLED",
+  "contract": {
+    "path": "gates/performance/warm-pool-candidate/contract.json",
+    "sha256": "dc055e04071710626617dad03fc8b867be0a57ddd0f37e57f7fc1d551f0c5a83"
+  },
+  "formal": {
+    "path": "gates/performance/warm-pool-candidate/formal-runs/final-v1/report.json",
+    "sha256": "95e3568442a1f1010d3c1914699a41e19efca27142cb455c84270f99f0897fc9"
+  },
+  "preserve_existing_nine_cases": true,
+  "cases": [
+    {
+      "id": "sequence-refill-aba",
+      "kind": "SAME_INCARNATION_ONE_USE_REFILL_ABA",
+      "steps": [
+        "source-supported.json",
+        "source-text-only.json",
+        "source-supported.json"
+      ],
+      "assertions": [
+        "one pool incarnation throughout all three admissions",
+        "three distinct exact child PID/start and generation identities",
+        "one request per consumed generation; cleanup and publication before next operation",
+        "bounded ledger at observations and complete independent terminal group receipts",
+        "refill generations serve later operations",
+        "all response schemas, actual operation nonces, expected source and mode checked",
+        "first and last complete A responses equal under existing schema-scoped injective generated-ID bijection; requestId alone substituted after each original exact nonce check"
+      ]
+    },
+    {
+      "id": "idle-expiry-demand",
+      "kind": "REAL_IDLE_EXPIRY_NO_SELF_REFILL_NEW_DEMAND",
+      "idle_ns": 30000000000,
+      "post_expiry_observation_ns": 2000000000,
+      "assertions": [
+        "actual READY timestamp and production idle deadline differ by exactly30seconds",
+        "no clock, state or timeout injection",
+        "no early retirement at observed monotonic checkpoints; first RELEASED observation is at/after deadline (not an exact transition timestamp)",
+        "positive exact group empty and direct child reap; reservation released",
+        "no reservation at observed checkpoints and no durable generation-counter advance during bounded2second no-demand interval",
+        "new explicit demand creates a distinct generation in same incarnation and publishes valid response",
+        "complete terminal cleanup of replacement and all owned scopes"
+      ]
+    }
+  ],
+  "context_boundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL",
+  "limits": "Existing delegated4CPU scope and worker quotas unchanged; total probe180seconds unchanged",
+  "non_claims": [
+    "full cold/idle acceptance profile",
+    "selected Spring/WarmRuntime/OwnedWorkerRun route",
+    "SQL CLEAN integration",
+    "whole190 semantic equivalence",
+    "per-operation production telemetry",
+    "HTTP latency or warm speedup",
+    "soak",
+    "promotion",
+    "Java/OS refinement proof"
+  ],
+  "failure_policy": "Preserve every failed run; no mutation of frozen copies/evidence or weakening expected result to pass.",
+  "review_scope": "Independent read-only audit: these are existing contract experiment families, with no production, timer, authority or theorem change. Existing36model claims and six-seat approval unchanged."
+}

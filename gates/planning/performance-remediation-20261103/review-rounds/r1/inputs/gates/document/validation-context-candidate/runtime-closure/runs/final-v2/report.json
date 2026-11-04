@@ -1,0 +1,572 @@
+{
+  "status": "BLOCKED",
+  "classification": "FINITE_RUNTIME_EVIDENCE_NOT_FORMAL_IMPLEMENTATION_REFINEMENT",
+  "blocking_reasons": [
+    "VC01-PRIVATE-WIRE-BOUNDS",
+    "VC13-JSON-NESTING",
+    "VC14-PARSER-STOP"
+  ],
+  "infrastructure_errors": [],
+  "supplemental": {
+    "python_groups": 7,
+    "r2_scenarios": 40,
+    "auth_strengthened_repeats": 2,
+    "main_python_count": 186,
+    "main_java_count": 189,
+    "composition": "Actual SQL COMMIT/closedconnection + actual bridgeexit/twofreshworkers, not monolithic HTTP trace"
+  },
+  "product_latency": {
+    "measurement": "COMPLETE",
+    "status": "FAIL",
+    "p95_ms": 392.298835,
+    "original_target_p95_ms": 300,
+    "gate": "OPEN",
+    "baseline_p95_ms": 468.348787,
+    "measured_p95_improvement_ms": 76.04995200000002
+  },
+  "input_root_sha256": "dabf5851e05f4d1bfd5a1de55cac43f9a8186fa33b25e741561bff568b830f22",
+  "obligations": {
+    "total": 26,
+    "checked": 23,
+    "blocked": 3
+  },
+  "matrix": [
+    {
+      "id": "VC01",
+      "name": "Closed private request",
+      "frozen_pass_condition": "Accept only protocol1,canonical nonce,operation validationContext and exact {documentId,revision,ids}; reject missing/extra/duplicate keys,unsafe/Boolean/negative/null revisions,malformed IDs,duplicates,unsorted IDs,wrong scalar types,invalid UTF8 and boundary oversizes before SQL/worker.",
+      "evidence_refs": [
+        "python:ValidationContextWireTests.test_context_arguments_reject_before_connection",
+        "python:ValidationContextWireTests.test_closed_cli_shape_and_strict_json",
+        "java:dev.allow.backend.DocumentValidationContextTest#rejectsMalformedArgumentsBeforeBridge",
+        "supp:python-r2",
+        "supp:auth"
+      ],
+      "covered_cases": [
+        "Closedarg/nonce/scalar/invalidUTF8/duplicateJSON negativecases demonstrated beforeStore/connect."
+      ],
+      "remaining_required_cases": [
+        {
+          "gap_id": "VC01-PRIVATE-WIRE-BOUNDS",
+          "case": "Literal private full-frame MAX_INPUT and decoded96/97-depth boundary fixtures not located in executed new-operation evidence. Closed-shape/args-byte negatives cover different guards."
+        }
+      ],
+      "audit_status": "PARTIAL",
+      "scope_notes": [],
+      "status": "BLOCKED"
+    },
+    {
+      "id": "VC02",
+      "name": "Scope and isolation statement order",
+      "frozen_pass_condition": "Real proxy-only trace shows BEGIN then exact SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY before every set_config SELECT and any data query; actual transaction_isolation/read_only observations match. All3 transaction-local scope keys applied before table read. Existing mutation/read/ownedIds transactions remain READ COMMITTED.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "supp:python-r2"
+      ],
+      "covered_cases": [
+        "ActualRepeatableRead/ReadOnly observations andwrite rejection;legacyRC.",
+        "Actual post-auth libpq trace BEGIN/mode/tenant/project/purpose/head/base/history/COMMIT, endpoint/closedconnection/proxy lowerbound bound."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC03",
+      "name": "SOURCE and empty-ID mandatory authorization",
+      "frozen_pass_condition": "SOURCE/absent module/empty set each invokes exactly one validationContext bridge and authorized exact-base read, returning empty inventory with zero history scan. No early return/cache can bypass foreign/missing document or database outage.",
+      "evidence_refs": [
+        "python:ValidationContextWireTests.test_cli_dispatch_has_one_context_call",
+        "python:ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+        "python:ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+        "java:dev.allow.backend.DocumentValidationContextTest#missingModuleStillReadsOneContext",
+        "report:http",
+        "supp:python-r2"
+      ],
+      "covered_cases": [
+        "Source/missingmodule mandatorysinglecontext,emptyIDs authorizebase andno collect_ids invocation;connectfailure propagates.",
+        "Emptywanted guard is a checked source AST fact: history SQL occurs only under if wanted; actual empty-ID/baseauthorization tests and maxquota emptycontrol are separately executed."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC04",
+      "name": "Same-snapshot ordinary case",
+      "frozen_pass_condition": "Real authorized revision0/current/older base returns exact document/base,observed head,decoded artifact/source/maps/policy/dependency and requested inventory. Snapshot output matches legacy read/ownedIds with concurrent writes paused. Whole artifact JSON key ordering is not confused with exact source bytes.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+        "java:dev.allow.backend.DocumentValidationContextTest#retainsExactSourceAndDefensiveCopies",
+        "report:http"
+      ],
+      "covered_cases": [
+        "Base0and1/head1 wholeartifact equality tolegacy,exactCRLF/nonBMPsource,maps/metadata comparedas decodedartifact."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC05",
+      "name": "Missing base and foreign scope",
+      "frozen_pass_condition": "Missing document,foreign principal/workspace,wrong document and absent/future revision yield no artifact or inventory; no worker launched. Same document UUID under a foreign test scope cannot disclose existence. Distinct logicalLaunch in same authorized scope does not partition document history.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory",
+        "python:ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+        "python:ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history",
+        "java:dev.allow.backend.DocumentValidationContextTest#failedContextPreventsWorkerConstruction",
+        "java:dev.allow.backend.DocumentValidationContextTest#rejectsMismatchedIdentityAndRevisions"
+      ],
+      "covered_cases": [
+        "Missingdocument/base/foreignprincipal/workspace deny beforeinventory; foreignrequestusesexistingother-scopeUUID; launchdoesnotpartition; genericfailedcontextpreventsworker;returnedforeignDocId rejected."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [
+        "Case composition is finite source/test evidence,not universalRLSorJavarefinement."
+      ],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC06",
+      "name": "Concurrent commit after snapshot setup",
+      "frozen_pass_condition": "Barrier immediately after first scope SELECT fixes snapshot; another authorized connection commits new revision and new ID. Resume context: old head/history inventory together,exact historical base unchanged,new ID absent. New separate request sees new head/ID. Every connection uses SQLeanParser.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+        "supp:python-r2"
+      ],
+      "covered_cases": [
+        "Realconcurrentcommitafterallscopesetup excluded consistently;newrequest seesboth.",
+        "P02 real first-tenant-SELECT barrier before projectSELECT: oldhead1/newhead2 and immutablebase0."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC07",
+      "name": "Concurrent commit between base and inventory",
+      "frozen_pass_condition": "Barrier after _read before history scan; concurrent committed addition remains excluded from both observed head and inventory. Future requested base committed after snapshot still fails the first call and succeeds only in a new request. No second transaction lookup of missing IDs.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots",
+        "python:ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request"
+      ],
+      "covered_cases": [
+        "Realbarrierafterbase read excludesconcurrentID;futurebaseinsideoldsnapshotfails,separatecallsucceeds."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC08",
+      "name": "Commit before snapshot and immutable history",
+      "frozen_pass_condition": "Commit completed before snapshot appears in both head and ownership map. Requested base older than head remains exact. IDs added after base but before snapshot are included. Concurrent append cannot alter returned historical source/maps.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+        "python:ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory"
+      ],
+      "covered_cases": [
+        "Commitbeforecontextvisibleinhead/inventoryevenforbase0;concurrentappendleaveshistoricalartifactequal."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC09",
+      "name": "Requested-only inventory and kind coverage",
+      "frozen_pass_condition": "All8 kinds across signatures,fields,predicates,facts,assertions,commands,parameters,quantifier binders and expressions map exactly. Repeated same-kind historical definitions collapse; arbitrary reference/name strings alone grant nothing; unrequested and foreign IDs absent; TEXT_ONLY contributes empty definitions.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_requested_kind_inventory_and_text_only",
+        "java:dev.allow.backend.DocumentValidationContextTest#permitsAllEightHistoricalKinds"
+      ],
+      "covered_cases": [
+        "All8kinds,duplicatehistories,requestedonly,reference-onlyabsent,TEXT_ONLYnullmodule."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC10",
+      "name": "Collision detection scans complete history",
+      "frozen_pass_condition": "Requested ID with different kinds in later artifact fails entire context even if every wanted ID was found earlier. No early termination,partial map,last-write overwrite or ignored malformed artifact. Unrequested conflicting IDs retain existing collect_ids behavior and are not newly used as authority.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail"
+      ],
+      "covered_cases": [
+        "Laterrequestedkindcollision fails;unrequestedcollisiondoesnotgrantauthority;latermalformedartifactfailscompleteoperation."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC11",
+      "name": "Java strict context response",
+      "frozen_pass_condition": "Injected OK replies with foreign document/base,head<base,unsafe head,extra/missing fields,nonobject/malformed artifact,unknown/foreign inventory key,unknown/nontext kind or wrong nonce/protocol fail before worker. Artifact exact outer shape checked; fresh validator retains semantic responsibility.",
+      "evidence_refs": [
+        "java:dev.allow.backend.DocumentValidationContextTest#rejectsMismatchedIdentityAndRevisions",
+        "java:dev.allow.backend.DocumentValidationContextTest#rejectsMalformedShapes",
+        "java:dev.allow.backend.DocumentValidationContextTest#rejectsForeignOrMalformedInventory",
+        "java:dev.allow.backend.DocumentContextTransportTest#rejectsWrongNonceFromExitedBridge",
+        "java:dev.allow.backend.DocumentContextTransportTest#rejectsWrongProtocolFromExitedBridge",
+        "java:dev.allow.backend.DocumentContextTransportTest#rejectsExtraTransportFields",
+        "java:dev.allow.backend.DocumentValidationContextTest#failedContextPreventsWorkerConstruction",
+        "supp:java-head"
+      ],
+      "covered_cases": [
+        "Foreignidentity/unsafehead/closedshape/kind/nonce/protocol failures exercised atproperprivateboundaries.",
+        "Positive base1/head0 Java unavailable boundary explicitly executed after preregistration."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC12",
+      "name": "Full combined response limits",
+      "frozen_pass_condition": "Construct artifact/inventory/nonce envelopes at and around1,572,864-byte CLI boundary and private2MiB worker boundary. Capture includes newline; oversized combined result emits bounded UNAVAILABLE,never partial/truncated OK. Public1MiB and diagnostic64/32KiB limits unchanged.",
+      "evidence_refs": [
+        "python:ValidationContextWireTests.test_full_cli_output_boundary_and_nonce",
+        "java:dev.allow.backend.DocumentValidationContextTest#rejectsOversizedBaseArtifact",
+        "java:dev.allow.backend.DocumentBoundaryTest#deadlineIncludesBlockedInputAndReaping",
+        "supp:java-bounds"
+      ],
+      "covered_cases": [
+        "WholeCLI1572864/1572865plusnewline boundary andoversizedartifact rejection;inheritedblockedinputdeadline reaps.",
+        "Actual private frame structural sizes2097151 launch/reap,2097152/3 rejected without launch. Stronger public/artifact caps can make valid boundary unreachable; fixture is adversarial."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC13",
+      "name": "Request/ID limits",
+      "frozen_pass_condition": "Test4096 versus4097 IDs,256KiB encoded args boundary including revision,public256KiB body,nesting and scalar limits. Candidate traversal deduplicates/sorts exactly the preexisting server-prefixed textual values; source/labels are not authority. No unbounded queue/memory increase.",
+      "evidence_refs": [
+        "python:ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries",
+        "python:ValidationContextWireTests.test_context_arguments_reject_before_connection",
+        "java:dev.allow.backend.DocumentValidationContextTest#enforcesDistinctIdCountBeforeBridge",
+        "java:dev.allow.backend.DocumentValidationContextTest#sortsAndDeduplicatesAllServerPrefixedValues",
+        "report:http",
+        "supp:python-r2",
+        "supp:auth"
+      ],
+      "covered_cases": [
+        "4096accepted/4097denied,sorted/dedupcanonicalservervalues,unsafeIDs/revisions reject,actualpublic262145body400 inheritedHTTP."
+      ],
+      "remaining_required_cases": [
+        {
+          "gap_id": "VC13-JSON-NESTING",
+          "case": "Explicit decoded JSON nesting-limit negative fixture not located. Canonical valid args maximum188512bytes and adversarial262144/262145 encodedargs guards ARE covered; no valid256KiBshape is fabricated."
+        }
+      ],
+      "audit_status": "PARTIAL",
+      "scope_notes": [],
+      "status": "BLOCKED"
+    },
+    {
+      "id": "VC14",
+      "name": "Proxy/database failures",
+      "frozen_pass_condition": "Stop parser,deny parser,break proxy/auth,raise SQL/decode/transaction-exit errors and interrupt bridge at each stage. No direct PostgreSQL fallback,no partial context,no worker start, no UNKNOWN_COMMIT_OUTCOME for read-only context. Existing mutator uncertainty tests unchanged.",
+      "evidence_refs": [
+        "python:ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty",
+        "python:ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context",
+        "python:ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+        "python:ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+        "python:ValidationContextWireTests.test_legacy_mutation_uncertainty_remains",
+        "java:dev.allow.backend.DocumentValidationContextTest#interruptedContextPreventsWorkerConstruction",
+        "report:current-integration",
+        "supp:python-r2",
+        "supp:auth"
+      ],
+      "covered_cases": [
+        "Injectedread/connection/txexit/decoder-shapederrorsandrealSQLdivisionzero no partialcontext,no mutationuncertainty;interruptedparentnoworker."
+      ],
+      "remaining_required_cases": [
+        {
+          "gap_id": "VC14-PARSER-STOP",
+          "case": "Literal parser/helper shutdown during current context not performed. Real invalidSQL parser denial, injected transport closes and inherited private FailedGate tests do not equal actual helper shutdown."
+        }
+      ],
+      "audit_status": "PARTIAL",
+      "scope_notes": [],
+      "status": "BLOCKED"
+    },
+    {
+      "id": "VC15",
+      "name": "Transaction closes before worker",
+      "frozen_pass_condition": "Instrument owned connection/bridge process and worker spawn: successful COMMIT/connection close and bridge exit precede launch; failure/timeout/cancel reaps child before permit release. No SQL transaction,live cursor or connection survives into Alloy execution.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_connection_closes_before_context_is_returned",
+        "python:ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context",
+        "java:dev.allow.backend.DocumentBoundaryTest#exchangesAndReapsFrame",
+        "java:dev.allow.backend.DocumentBoundaryTest#deadlineIncludesBlockedInputAndReaping",
+        "java:dev.allow.backend.DocumentValidationContextTest#interruptedContextPreventsWorkerConstruction",
+        "java:dev.allow.backend.DocumentWorkerLifecycleTest#interruptedIdentityFailureStillReaps",
+        "supp:python-r2",
+        "supp:java-sequence"
+      ],
+      "covered_cases": [
+        "ActualStoreconnectionclosedatreturn;genericbridgeexit/reap;failures/interruptionspreventsworkerandreleaselease.",
+        "Compositional: actual SQL COMMIT/closedconnection trace plus real DocumentGateway context bridge exit before two actual sandbox workers. Not one monolithic HTTP/SQL process trace."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC16",
+      "name": "Fresh worker and build fences",
+      "frozen_pass_condition": "Every successful advisory context spawns a new isolated validator PID with same launch flags/resources,full current BuildIdentity and pinned Alloy checks. Build mutation denies; no worker cache/outcome reuse/JIT flag/image/classloader/session change. Reuse existing relevant worker boundary tests.",
+      "evidence_refs": [
+        "java:dev.allow.backend.BuildIdentityTest#registryBytesAffectIdentity",
+        "java:dev.allow.backend.BuildIdentityTest#resourcePresenceAffectsIdentity",
+        "java:dev.allow.backend.DocumentWorkerLifecycleTest#reapsBeforeReturningUnidentifiedChildProof",
+        "report:http",
+        "supp:java-sequence",
+        "supp:java-build-denial"
+      ],
+      "covered_cases": [
+        "Buildidentitypresence/bytes fences andownedchildreaping; actualHTTPfreshwholevalidationworks; newDocumentWorker construction visibleinsource.",
+        "Two real context bridges and distinct successful actual workers; complete launcher command equality; copied-build mutation denied. No active build mutation."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC17",
+      "name": "Fresh whole-module ownership/type behavior",
+      "frozen_pass_condition": "Existing constructor/differential fixtures and real BLOCK/SOURCE HTTP cases retain status,exactsource,nominal types/ordered schemas,diagnostics and source maps. Foreign/missing/wrong-kind IDs still rejected by fresh worker. Invalid cached client flags never authorize.",
+      "evidence_refs": [
+        "report:full-build",
+        "report:http",
+        "report:browser",
+        "supp:java-ownership"
+      ],
+      "covered_cases": [
+        "189Java(including55module/type/source/mapcases andsemantic/differentialfixtures),164frontend,actualSOURCE/BLOCKHTTP exactsource/nominal/schema/diagnostics preserved.",
+        "Direct actual isolated worker missing/foreign/wrong-kind INVALID and matchingkind VALIDATED, composed with actual Store RLS and public type/source fixtures."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC18",
+      "name": "Nonmutation and repeated reads",
+      "frozen_pass_condition": "Compare exact head/history/receipts/admissions/quota counters before/after valid,invalid,missing,timeout,cancel and repeated context calls. No changes. Repeated call may update observed head/map after a legitimate separate commit; it is not receipt replay and creates no idempotency artifact.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+        "python:ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "python:ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+        "supp:python-r2"
+      ],
+      "covered_cases": [
+        "Exactdurablebeforeaftervalid/repeat/missingcasesandquota-fullread;legitimateappend visibleonlytonewrequest.",
+        "Actual cancel and20s timeout before/after all durable rows/ACL/counters equal after explicit owned-backend cleanup. Does not establish automatic SQL termination at CLI death."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC19",
+      "name": "Full quota and memory/resource profile",
+      "frozen_pass_condition": "Read succeeds at logical quota exhaustion when data/physical resources fit. Profile large permitted retained history up to4096 revisions/256MiB accounted bytes,report actual cursor buffering/peakRSS/AS versus payload; retain2GiBAS,20CPU,20sbridge caps. Resource exhaustion is availability,never partial map or false bounded-RSS claim.",
+      "evidence_refs": [
+        "python:ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+        "report:VC19"
+      ],
+      "covered_cases": [
+        "Logicalexactquota exhaustionreadable;actualstorage-shaped4096rows/near256MiBprofile9successsampleswithbufferedrows/rawbytes,RSS/AS/CPU/wall/closedconn andownedDBcleanup."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [
+        "No semanticallyaccepted4096-edit-historyreachabilityclaim. Instrumentation/mock addsdisclosedoverhead. libpqclientbuffered notstreaming. No universalheapbound/resource-exhaustionavailabilityguarantee."
+      ],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC20",
+      "name": "Public identity and stale response",
+      "frozen_pass_condition": "Original exact HTTP bytes retain requestHash/draftId/epoch/base/sourceHash binding. Private headObserved never updates browser accepted state or CAS. Existing delayed-response/stale-draft rejection and source/blocks exact-source cases pass.",
+      "evidence_refs": [
+        "report:http",
+        "report:full-build",
+        "report:browser"
+      ],
+      "covered_cases": [
+        "ActualHTTPrequestHash/draftEpoch retained,frontendstate.test rejectsbody/hash/base/epochstale replies andadvisoryIntegration preservesacceptedreference;privateobservedheadneverpublicstate."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [
+        "Frontendpassrecordisfull164suite+frozenassertionsource,not individualcase durations."
+      ],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC21",
+      "name": "Unaffected durability and solver paths",
+      "frozen_pass_condition": "Existing document realSQL/HTTP smoke/restart/recovery/receipt-byte-equality/owner-nonce/CAS/accepted-solver selection regressions pass without skips; mutation transaction isolation/order and fresh recovery evidence unchanged.",
+      "evidence_refs": [
+        "report:current-integration",
+        "report:http",
+        "report:restart",
+        "report:document-recovery"
+      ],
+      "covered_cases": [
+        "Legacy22docSQL plusfull186/52,actualHTTP8,crashrestart6,receipts/cas/nonces/fullACLrecovery andacceptedsolverdescriptorchecks pass."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC22",
+      "name": "All SQL routing coverage",
+      "frozen_pass_condition": "Existing actual wire/proxy tests and client-tag routing manifest include validationContext BEGIN/mode/scope/read/history/COMMIT path; every query goes through pinned SQLeanParser. No new parser allowlist or direct-connection exception.",
+      "evidence_refs": [
+        "report:current-integration",
+        "python:ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+        "python:ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "supp:python-r2"
+      ],
+      "covered_cases": [
+        "Canonicalconnectionhelpersole rawdriver,currentSQL52/clientinventory/proxyidentityandactualcontextqueriesPASS;noallowlistchange.",
+        "Actual newcontext full stage trace, canonical proxy/allow-recovery fixture tag, sealed identity and lower-bound counter delta. No exclusive asynchronous attribution."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC23",
+      "name": "Clean Code and encapsulation",
+      "frozen_pass_condition": "Full standing Java/JS/TS style verifier passes0violations: meaningful full Javadoc/JSDoc on all callables,<=30physical lines,encapsulated state. No frontend change unless separately justified/reviewed.",
+      "evidence_refs": [
+        "report:full-build"
+      ],
+      "covered_cases": [
+        "Full189Java/164frontend build,96files989callables0styleviolations;checker73JS/TS+13Javafixtures;boundsourceunchanged."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC24",
+      "name": "Unchanged HTTP performance benchmark",
+      "frozen_pass_condition": "Freeze active sources/compiledassets/config/fixtures/verifiers; same500nodes100warmup+1000measured realHTTP requests,report all failures and p50/p95/p99. Strict p95<300ms remains target; keep failure if missed. Compare raw baseline to candidate,do not subtract components or claim stage saves80ms without measurement.",
+      "evidence_refs": [
+        "report:benchmark"
+      ],
+      "covered_cases": [
+        "Originalfrozen500node/100warm/1000measuredbenchmark running;producer/fixtureknown.",
+        "Both frozen complete1100runs; actualpercentiles/failures/source/fixture/verifier comparison. Measurement complete while strict300ms target remains FAIL."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [
+        "Measurementcompletionandstrictp95<300productacceptance separate;neverforcePASSiforiginaltargetmissed."
+      ],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC25",
+      "name": "Finite exact formal closure",
+      "frozen_pass_condition": "Registered verifier checks287 inherited and22candidate exact actual #check types,allowed axioms,nonvacuous witness,all input hashes/review pins and2isolated clean builds. Compare deterministic inventories/artifacts/provenance. No universal Java/PostgreSQL/Alloy refinement claim.",
+      "evidence_refs": [
+        "report:309-model",
+        "report:current-integration"
+      ],
+      "covered_cases": [
+        "Registered309exactmodeltypes,287inherited+22new,allowedaxioms,nonvacuouswitness,2cleanbuilds/determinism,activeformalprojection."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [
+        "Notimplementationrefinement."
+      ],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    },
+    {
+      "id": "VC26",
+      "name": "Browser evidence handling",
+      "frozen_pass_condition": "Unchanged frontend/assets retain prior browser evidence bound to its actual inputs. If installed build/static identity changes, regenerate required binding/capture under existing frozen browser protocol. Browser/manual accessibility/cold-series gaps remain separate,never inferred from API performance.",
+      "evidence_refs": [
+        "report:browser"
+      ],
+      "covered_cases": [
+        "Newbuildidentityhasfreshregisteredbrowservalidation-context-v1 record,p9512.5<50 with100warm+1000measured,source/staticrestorebound."
+      ],
+      "remaining_required_cases": [],
+      "audit_status": "SUPPORTED_FINITE_EVIDENCE",
+      "scope_notes": [
+        "Coldseries/manualaccessibilityandbroadercommercialgatesexplicitlynotconducted/claimed."
+      ],
+      "status": "CHECKED_FINITE_EVIDENCE"
+    }
+  ],
+  "remaining_required_cases": [
+    {
+      "obligation": "VC01",
+      "gap_id": "VC01-PRIVATE-WIRE-BOUNDS",
+      "case": "Literal private full-frame MAX_INPUT and decoded96/97-depth boundary fixtures not located in executed new-operation evidence. Closed-shape/args-byte negatives cover different guards."
+    },
+    {
+      "obligation": "VC13",
+      "gap_id": "VC13-JSON-NESTING",
+      "case": "Explicit decoded JSON nesting-limit negative fixture not located. Canonical valid args maximum188512bytes and adversarial262144/262145 encodedargs guards ARE covered; no valid256KiBshape is fabricated."
+    },
+    {
+      "obligation": "VC14",
+      "gap_id": "VC14-PARSER-STOP",
+      "case": "Literal parser/helper shutdown during current context not performed. Real invalidSQL parser denial, injected transport closes and inherited private FailedGate tests do not equal actual helper shutdown."
+    }
+  ],
+  "material_limitations": [
+    "Actual timeout killed/reaped the owned CLI at20.003274s but backend remained active and required explicit pg_cancel_backend cleanup. Nonmutation is an end-state observation after cleanup, not automatic backend lifetime enforcement.",
+    "RealSQL COMMIT/closedconnection and actualcontextbridge-before-worker are compositional component observations, not a monolithic authenticated HTTP causal trace.",
+    "VC19 fixtures are storage-shaped, not4096 independently Alloy-accepted edits; libpq client cursor buffers whole history result before iteration. Payload quota is not an RSS bound.",
+    "Kernel maxRSS273301504bytes=260.64MiB differs from larger sampledRSS274898944bytes=262.16MiB; report both, never label260.64MiB the largest observed RSS.",
+    "Browser cold-series/manualaccessibility and universal semantic/runtime refinement remain outside these finite checks."
+  ],
+  "trust": [
+    "Registered executable test/probe verifiers and instrumentation",
+    "Finite assertion/source interpretation in frozen case mapping (not formal semantic correspondence)",
+    "Python/XML/JSON/SHA256",
+    "OS/kernel/PostgreSQL/libpq/JVM/Lean and hardware"
+  ],
+  "excluded": [
+    "Universal implementation refinement",
+    "Unexecuted literal cases",
+    "Cold/manualaccessibility",
+    "Automatic backend lifetime bound after killed client",
+    "Product300ms acceptance if actualtargetfails"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "classification": "ADVISORY_DESIGN_REVIEW_NOT_PROOF",
+  "spec_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "reviewers": [
+    {
+      "seat": "terra-1",
+      "requested_model": "gpt-6.1-terra",
+      "path": "reviews/sql-terra-1.json",
+      "sha256": "3d12eeca3322396dc4849594e14e0239e1fe53b194febfaf9338de71ce23e352",
+      "decision": "APPROVE"
+    },
+    {
+      "seat": "terra-2",
+      "requested_model": "gpt-6.1-terra",
+      "path": "reviews/sql-terra-2.json",
+      "sha256": "6b1108a7f011d5b0e15f4e3ff17e9b709b309507e07135ef4f3075fe0dc954cf",
+      "decision": "APPROVE_FOR_IMPLEMENTATION"
+    },
+    {
+      "seat": "sol-1",
+      "requested_model": "gpt-6.1-sol",
+      "path": "reviews/sql-sol-1.json",
+      "sha256": "ed242f948cf459d6e2a9ac3df1b6874af037b4ec283162bc2ac66f2ec55949ad",
+      "decision": "APPROVE"
+    },
+    {
+      "seat": "sol-2",
+      "requested_model": "gpt-6.1-sol",
+      "path": "reviews/sql-sol-2.json",
+      "sha256": "7c9317afcad2208ccc0b87e3d0512cf9aba336718a6848f23cd466e67a3a2e60",
+      "decision": "APPROVE_FOR_IMPLEMENTATION"
+    },
+    {
+      "seat": "astra-1",
+      "requested_model": "gpt-6-astra",
+      "path": "reviews/sql-astra-1.json",
+      "sha256": "ff4252e5dfeb3cf88b5abb5abdb10145121246734f15090951f580eacf7092ce",
+      "decision": "APPROVE_FOR_IMPLEMENTATION"
+    },
+    {
+      "seat": "astra-2",
+      "requested_model": "gpt-6-astra",
+      "path": "reviews/sql-astra-2.json",
+      "sha256": "b02731db91027b74d03544a002f953b8ae0050fafda5310a148ab5a22bb117d6",
+      "decision": "APPROVE_FOR_IMPLEMENTATION"
+    }
+  ],
+  "limits": "Requested dispatch identities recorded; provider runtime not independently attested. Runtime and commercial acceptance remain separate."
+}

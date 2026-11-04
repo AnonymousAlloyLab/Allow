@@ -1,0 +1,104 @@
+{
+  "closure_id": "allow-document-associativity-final-267-v2",
+  "status": "VERIFIED",
+  "timestamp_utc": "2026-11-03T19:30:47.611771+00:00",
+  "input_root_hash": "b80ca6755dec81bcf5f59f642a56345969b75ec68144f302a78c0f6f63113409",
+  "claims": {
+    "total": 267,
+    "passed": 267,
+    "unresolved": 0
+  },
+  "builds": [
+    {
+      "label": "A",
+      "artifact_sha256": {
+        ".lake/build/lib/lean/Allow/Associativity.olean": "27aafe51f611ea19862f0d719dc13075d9017281c1a76adaf1dba9e108927879",
+        ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+        ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+        ".lake/build/lib/lean/Allow/Document.olean": "552d8c3ed642a24ce7e5aab65a130dd4b2c18f97eb6ae5cb87e738bd0d28cb77",
+        ".lake/build/lib/lean/Allow/EGraph.olean": "baedbd679a979e3b0fae6062d4bd7f07acca34bbd66d0d981c45218e701eadde",
+        ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+        ".lake/build/lib/lean/Allow/FieldOrder.olean": "6cb1966b1f8c03898c05d132e455fc43bc12555466b515454177eb21605d319c",
+        ".lake/build/lib/lean/Allow/Foundation.olean": "7f07b1a20633b22da798fe9b4bfbd71080ce9cc03bc4d4c60ae991187514c5ea",
+        ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+        ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+        ".lake/build/lib/lean/Allow/Retrieval.olean": "b3c7e73f71301d67b9ca5c32af70e2dea701cf3eda957334d9fecb6160a460fd",
+        ".lake/build/lib/lean/Allow/Slots.olean": "155f649a33d00867388d114656fe37ee8b0a7fab731f949154d4d64f150cc8a5",
+        ".lake/build/lib/lean/Allow/SqlRouting.olean": "86164d672f8dcd66b39f6511295e2322475c70749c7f02247fb779c8a68ef3d7",
+        ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+        ".lake/build/lib/lean/Allow.olean": "c07ea1493406e7eac62f2d6a87c5cdbb40abfd4cf4de7e3fbb60a5d8ce27cb10"
+      },
+      "audit_sha256": {
+        "inherited-types": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inherited-axioms": "745a69203bf828630774102b6a2e4d7354e07406e21bf3ca9cba1534e03722ad",
+        "document-types": "1ffcc190d0844dff12bd19a42063872188e172810441ca02d6532a5e41a525da",
+        "document-axioms": "676655fc3494f7244c75ad40df7a820a80371913a21ea1fb77fbbdba37858cb9",
+        "order-types": "9b72dfc3a137015c20ddd3c644b14ed229482ba03c245c5f39413272226cbe60",
+        "order-axioms": "8c76a409f8a48d897636f728ffe679a3256d4be3b948f4910c2b9c35869752ba",
+        "associativity-types": "ebbcc7e8633a5ade681b283f0665049f0512d4bde137a16be5323a19b880d16c",
+        "associativity-axioms": "ee4c230e85e90ac232b4c90ba65d1297d7af091b6ed9c0571b5c444eb6a12ee1"
+      }
+    },
+    {
+      "label": "B",
+      "artifact_sha256": {
+        ".lake/build/lib/lean/Allow/Associativity.olean": "27aafe51f611ea19862f0d719dc13075d9017281c1a76adaf1dba9e108927879",
+        ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+        ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+        ".lake/build/lib/lean/Allow/Document.olean": "552d8c3ed642a24ce7e5aab65a130dd4b2c18f97eb6ae5cb87e738bd0d28cb77",
+        ".lake/build/lib/lean/Allow/EGraph.olean": "baedbd679a979e3b0fae6062d4bd7f07acca34bbd66d0d981c45218e701eadde",
+        ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+        ".lake/build/lib/lean/Allow/FieldOrder.olean": "6cb1966b1f8c03898c05d132e455fc43bc12555466b515454177eb21605d319c",
+        ".lake/build/lib/lean/Allow/Foundation.olean": "7f07b1a20633b22da798fe9b4bfbd71080ce9cc03bc4d4c60ae991187514c5ea",
+        ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+        ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+        ".lake/build/lib/lean/Allow/Retrieval.olean": "b3c7e73f71301d67b9ca5c32af70e2dea701cf3eda957334d9fecb6160a460fd",
+        ".lake/build/lib/lean/Allow/Slots.olean": "155f649a33d00867388d114656fe37ee8b0a7fab731f949154d4d64f150cc8a5",
+        ".lake/build/lib/lean/Allow/SqlRouting.olean": "86164d672f8dcd66b39f6511295e2322475c70749c7f02247fb779c8a68ef3d7",
+        ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+        ".lake/build/lib/lean/Allow.olean": "c07ea1493406e7eac62f2d6a87c5cdbb40abfd4cf4de7e3fbb60a5d8ce27cb10"
+      },
+      "audit_sha256": {
+        "inherited-types": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "inherited-axioms": "745a69203bf828630774102b6a2e4d7354e07406e21bf3ca9cba1534e03722ad",
+        "document-types": "1ffcc190d0844dff12bd19a42063872188e172810441ca02d6532a5e41a525da",
+        "document-axioms": "676655fc3494f7244c75ad40df7a820a80371913a21ea1fb77fbbdba37858cb9",
+        "order-types": "9b72dfc3a137015c20ddd3c644b14ed229482ba03c245c5f39413272226cbe60",
+        "order-axioms": "8c76a409f8a48d897636f728ffe679a3256d4be3b948f4910c2b9c35869752ba",
+        "associativity-types": "ebbcc7e8633a5ade681b283f0665049f0512d4bde137a16be5323a19b880d16c",
+        "associativity-axioms": "ee4c230e85e90ac232b4c90ba65d1297d7af091b6ed9c0571b5c444eb6a12ee1"
+      }
+    }
+  ],
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "trusted": [
+    "Lean4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+    "propext, Quot.sound and Classical.choice only when reported by the axiom audit",
+    "Lake, Python verifier and pinned inherited helper",
+    "SHA256 collision resistance",
+    "Operating system, filesystem, processes and hardware",
+    "Interpretation of the abstract formal model"
+  ],
+  "excluded": [
+    "Java/TypeScript/SQL refinement and implementation correctness",
+    "Alloy parser/printer and concrete source-map correspondence",
+    "Generic weighted-subtree depth, actual JVM stack safety and latency",
+    "Browser/accessibility acceptance, complete G2/G3 and commercial release"
+  ],
+  "correspondence": {
+    "required": 0,
+    "note": "Formal compilation only; no implementation correspondence claim"
+  },
+  "interpretation": "VERIFIED applies only to the frozen267-proposition model surface under declared trust.",
+  "environment": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "lean": "4.34.1"
+  },
+  "determinism": "PASS",
+  "witnesses": {
+    "required": 71,
+    "all_checked": true
+  }
+}

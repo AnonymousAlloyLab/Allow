@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "source": "sig A {\n\n}\nsig B {\n\n}\npred model[] { ((((((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A)))))))) and ((((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A)))))) and ((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and ((some (B)) and (some (A)))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A))))))))) and (((((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A)))))) and ((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and ((some (B)) and (some (A)))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A)))))))) and ((((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A)))))) and ((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and ((some (B)) and (some (A)))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A)))))))))) }\nrun model for 3 but 4 Int, 3 seq\n",
+  "source_sha256": "f7e5d4550c7262d7b881d993068159c0f06aca49283d8af3b41be7c95337a51c",
+  "nodes": 500,
+  "headless_fixture_sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+  "printer_class_sha256": "10ce4f3cb1a5e836342d726dc7d1d699ca84d925efce3c23df199dbda1ef9a34",
+  "authoring_provenance": {
+    "fixture": {
+      "path": "/home/augustus/Allow/gates/document/headless-preview-fixture.json",
+      "sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+      "size": 260302,
+      "mode": 436
+    },
+    "canonical_expectation": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/http-setup-expectation.json",
+      "sha256": "11bf0ea30a2c993b345f852ae4f9cf7cd989888f56b6606e13068c2c131caff8",
+      "size": 5353,
+      "mode": 384
+    },
+    "context_seed": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "size": 2531,
+      "mode": 384
+    },
+    "draft_transform": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/http_setup.py",
+      "sha256": "9efb77cb74d35c05071659f952dd06e35195f514506af9df900b198d77eda2cd",
+      "size": 9232,
+      "mode": 436
+    },
+    "scope": "Historical F0-derived canonical printer expectation; no independent printer oracle"
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "reviewer_id": "sol-1",
+  "model_identity": {
+    "requested_model": "GPT-6.1 Sol",
+    "dispatch_model_reported_by_parent": "gpt-6.1-sol",
+    "actual_runtime_model_independently_observable": false,
+    "actual_runtime_model": null,
+    "note": "The parent reports the dispatch identity; this reviewer cannot independently attest the underlying runtime model."
+  },
+  "status": "ADVERSARIAL_CONTRACT_REVIEW",
+  "scope": [
+    "live editor freshness",
+    "typed block UX",
+    "draft and accepted document transactionality",
+    "backend integration",
+    "witness provenance",
+    "future RAG privacy"
+  ],
+  "reviewed_contract_id": "ALLOW-CONTRACT-0.1.0",
+  "reviewed_contract_revision": 1,
+  "reviewed_contract_sha256": "004760bfb080d3a02c7d6a392e3fd5c4095bd462da5e4bd001606eca9e55e564",
+  "verdict": "REQUEST_CHANGES",
+  "summary": "The draft contains strong typing, transactional, provenance and privacy boundaries. Two live editor state ambiguities prevent an unqualified acceptance: edits to raw drafts do not necessarily change the accepted analysis key, and text-only accepted document representation is undefined.",
+  "findings": [
+    {
+      "id": "SOL1-F01",
+      "severity": "HIGH",
+      "contract_paths": [
+        "architecture.A4.single_source_of_truth",
+        "architecture.A4.stale_results",
+        "architecture.A4.analysis_key_fields",
+        "api_contract.operations.validateDraft",
+        "formal_obligations.F07"
+      ],
+      "title": "Raw draft edits can leave the accepted analysis key unchanged",
+      "failure_scenario": "Revision 4 is accepted and an analysis for its key is running. The user makes an invalid text edit. No accepted commit occurs, so accepted revision 4, sourceHash and the complete accepted analysis key are unchanged. The edit clears visible success, but the late revision-4 response then passes the exact-key visibility guard and can reinstall a success badge beside the invalid raw text. validateDraft responses have the same ambiguity when a draftId is reused across edits because there is no required draft version or content hash.",
+      "required_fix": "Model the editable surface separately from committed analysis identity. Add a monotone draft/presentation epoch and exact draft content identity to validation requests/responses and visibility state. Require every raw edit, block preview, undo/redo and document switch to invalidate presentation epoch. Render evidence only when its accepted analysis key matches and no newer incompatible raw draft is shown; alternatively display it in an explicitly labeled prior accepted-revision view. Extend the F07 policy and non-vacuous stale-response counterexample to cover an uncommitted invalid raw edit.",
+      "reference_evidence": [
+        "/home/augustus/Live_Programming/web/app.js:670",
+        "/home/augustus/Live_Programming/web/app.js:1367",
+        "/home/augustus/Live_Programming/web/app.js:1926"
+      ]
+    },
+    {
+      "id": "SOL1-F02",
+      "severity": "HIGH",
+      "contract_paths": [
+        "architecture.A4.single_source_of_truth",
+        "architecture.A4.unsupported_syntax",
+        "architecture.A4.atomic_transition",
+        "architecture.A5.admission",
+        "api_contract.operations.analyze"
+      ],
+      "title": "Text-only solver mode has no defined accepted document representation",
+      "failure_scenario": "A user pastes Alloy that is accepted by the pinned parser and supported by the solver but outside the block fragment. A4 promises solver use in text-only mode. Yet the single source of truth is an accepted IR, the commit returns accepted IR/text/maps, and analyze accepts only an acceptedRevision. Keeping the previous block IR while accepting the new text can give one revision contradictory meanings; refusing commit makes the promised text-only solver mode unreachable.",
+      "required_fix": "Define accepted document mode as a tagged supported-block IR or a text-only parser-accepted artifact. Bind text-only mode to exact source/import/context, use no fabricated block IR, explicitly label or hide previous block projection, and define commit/analyze/corpus eligibility for each mode. Clarify whether a solver-supported but canonicalization-unsupported text artifact may produce evidence while remaining ineligible for trusted canonical CorpusPairs. Add a G3 acceptance scenario covering transitions into and out of text-only mode and stale block results.",
+      "reference_evidence": [
+        "/home/augustus/Live_Programming/docs/alloy-editor-spec.md",
+        "/home/augustus/Live_Programming/docs/implementation-bridges.md"
+      ]
+    },
+    {
+      "id": "SOL1-F03",
+      "severity": "MEDIUM",
+      "contract_paths": [
+        "api_contract.operations.commit",
+        "architecture.A4.atomic_transition",
+        "milestones.G2"
+      ],
+      "title": "Idempotency key has no replay or collision semantics",
+      "failure_scenario": "A commit succeeds but its response is lost. The client retries the same idempotencyKey and expectedRevision. An implementation may return STALE_REVISION, apply another revision, or accept different payload bytes under the same key, producing inconsistent undo history or uncertainty about whether a drag operation committed. The existence of an idempotencyKey field alone does not decide this.",
+      "required_fix": "Specify server-owned idempotency records scoped to launch/workspace/document and authorization context. An identical request retry returns the original result without a second revision increment; reuse with a different canonical request hash rejects without mutation. State record lifetime and behavior after expiration, and require atomic persistence with the document transaction. Register lost-response/replay and changed-payload collision acceptance cases.",
+      "reference_evidence": [
+        "/home/augustus/Live_Programming/docs/private-exercises.md"
+      ]
+    },
+    {
+      "id": "SOL1-F04",
+      "severity": "MEDIUM",
+      "contract_paths": [
+        "architecture.A2.interaction",
+        "architecture.A3.move_semantics",
+        "milestones.G2"
+      ],
+      "title": "Accessibility target lacks explicit acceptance standard for the drag workflow",
+      "failure_scenario": "A nominal keyboard create/move path exists, but slots are announced only visually, incompatible reasons are not exposed to assistive technology, and focus is lost when a failed transaction reconstructs the canvas. The listed keyboard workflows can pass a superficial test while the core typed construction remains inaccessible.",
+      "required_fix": "At G2 require meaningful accessible names for blocks/slots, programmatic expected-type and in-scope-symbol descriptions, keyboard-operable all essential operations, visible focus, preserved/recoverable focus after rejection or commit, and live-region status announcements. Select a named accessibility standard and manual assistive-technology acceptance scenarios before implementation. This is a specified future gate, not a Lean claim.",
+      "reference_evidence": [
+        "/home/augustus/Live_Programming/docs/alloy-editor-spec.md"
+      ]
+    }
+  ],
+  "positive_assessments": [
+    "Incomplete holes are explicit and cannot be silently replaced by runnable defaults.",
+    "Server authority, whole-module re-elaboration, stable binding identities and declaration/move transactions are specified.",
+    "Relation alternatives, signature ancestry and UNKNOWN rejection address arity-only type checks.",
+    "Full analysis provenance, bounded-only reporting, witness validation, truncation distinctions and untrusted imports are explicit.",
+    "RAG generation, remote embeddings, telemetry/training and cross-project sharing remain disabled pending separate opt-in and review.",
+    "Reference-project implementation and Lean proof boundaries are stated without inherited assurance."
+  ],
+  "suggested_lean_followup": [
+    "An invalid uncommitted draft edit increments presentation epoch while preserving committed state.",
+    "Visible evidence implies exact accepted key and exact presentation compatibility; late old evidence is rejected after a raw edit.",
+    "Supported and text-only accepted modes cannot simultaneously claim different sources for one revision.",
+    "Idempotent replay returns the prior outcome and never increments revision twice.",
+    "Rejected scope/type edits preserve the accepted state; successful edits are hole-free and exactly typed under the candidate context."
+  ],
+  "proof_review": {
+    "lean_sources_reviewed": false,
+    "note": "This pass reviews the exact contract JSON. Lean drafts are still being authored and no proof success is asserted."
+  },
+  "external_actions": {
+    "research_only": true,
+    "contacted_anyone": false,
+    "uploaded_sources": false,
+    "product_implementation_written": false
+  },
+  "final_review": {
+    "reviewed_contract_id": "ALLOW-CONTRACT-0.1.0",
+    "reviewed_contract_revision": 4,
+    "reviewed_contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "formal_file_sha256": {
+      "formal/Allow.lean": "9ee4e8bd139c0385729d4c22ecea1e887737f4bd3f995215e78082140994727b",
+      "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+      "formal/Allow/Contract.lean": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10",
+      "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045",
+      "formal/Allow/Generated.lean": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+      "formal/Allow/Kernel.lean": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503",
+      "formal/Allow/Typing.lean": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8",
+      "formal/lake-manifest.json": "58c14e76084b8514765deb185e47743bf95339f17023336e73ce8ee0fe357fa4",
+      "formal/lakefile.toml": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6",
+      "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    "formal_manifest_encoding": "UTF-8 JSON mapping relative path to file SHA256, sorted keys, separators comma/colon, no trailing newline",
+    "formal_bundle_sha256": "da403388959ab57e0432cfba9ab5b9faa30873507d5d43c7c94239900642d2ec",
+    "verdict": "ACCEPT_SPECIFICATION_WITH_IMPLEMENTATION_GATES",
+    "summary": "Revision 4 resolves the four original contract findings. The Lean code proves the declared restricted model properties, including draft presentation invalidation. The final existence/enumeration clarification honestly retains validated SAT witnesses after later enumeration timeout. Acceptance applies to specification/model work only; product implementation, integration and release remain unauthorized or gated as stated.",
+    "finding_dispositions": [
+      {
+        "finding_id": "SOL1-F01",
+        "status": "RESOLVED_MODEL_AND_SPECIFICATION",
+        "evidence": [
+          "architecture.A4.stale_results",
+          "architecture.A4.presentation_key_fields",
+          "api_contract.operations.validateDraft",
+          "formal_obligations.F07",
+          "formal_obligations.F19",
+          "formal/Allow/Evidence.lean:visible",
+          "formal/Allow/Evidence.lean:edit_hides_old"
+        ],
+        "assessment": "Exact accepted key, presentation epoch and accepted-source/draft compatibility are explicit. The model edit increments epoch while preserving accepted key, and edit_hides_old proves prior evidence becomes invisible. Named invalid-draft and positive visibility witnesses are present. Browser event handling and hashing correspondence remain future G3 evidence."
+      },
+      {
+        "finding_id": "SOL1-F02",
+        "status": "RESOLVED_SPECIFIED_FUTURE_GATE",
+        "evidence": [
+          "architecture.A4.single_source_of_truth",
+          "architecture.A4.unsupported_syntax",
+          "api_contract.operations.commit",
+          "milestones.G3"
+        ],
+        "assessment": "BLOCK_SUPPORTED and TEXT_ONLY accepted artifacts are explicitly tagged; text-only accepted source can produce keyed bounded evidence but cannot fabricate blocks or canonical CorpusPairs. Mode switching and stale projections have future acceptance scenarios. The Lean State models a typed expression only; no proof credit is assigned for tagged production modes or their transitions."
+      },
+      {
+        "finding_id": "SOL1-F03",
+        "status": "RESOLVED_SPECIFIED_FUTURE_GATE",
+        "evidence": [
+          "api_contract.idempotency",
+          "milestones.G2"
+        ],
+        "assessment": "Request-hash binding, authenticated scope, atomic outcome persistence, identical retry, changed-payload rejection, lifetime and expiry behavior, concurrent retry and restart tests are specified. No idempotency theorem is present or credited; the one-step commit_revision theorem does not prove retry behavior."
+      },
+      {
+        "finding_id": "SOL1-F04",
+        "status": "RESOLVED_SPECIFIED_FUTURE_GATE",
+        "evidence": [
+          "architecture.A2.accessibility",
+          "milestones.G2"
+        ],
+        "assessment": "WCAG 2.2 AA, names/types/symbol descriptions, essential keyboard operations, visible/predictable focus, diagnostics and manual screen-reader/browser scenarios are specified. No accessibility proof or implementation verification is claimed."
+      }
+    ],
+    "lean_review": {
+      "all_project_lean_sources_read": true,
+      "formal_obligations_reviewed": 19,
+      "checked_commands": [
+        {
+          "command": "python3 closure/scripts/project_contract.py --check",
+          "working_directory": "/home/augustus/Allow",
+          "exit_code": 0
+        },
+        {
+          "command": "lake build",
+          "working_directory": "/home/augustus/Allow/formal",
+          "exit_code": 0,
+          "output": "Build completed successfully (9 jobs)."
+        }
+      ],
+      "placeholder_source_scan": "No sorry, admit, unsafe, native_decide or custom axiom declaration found in project Lean source; one axiom word occurs only in a comment.",
+      "scope_assessment": "infer/checkSlot soundness is an elaborated exact nominal fragment with no hole typing rule; commit preservation assumes a valid starting state; visibility is an abstract identity policy; canonical equality is a fixed ordered Boolean inventory theorem; retrieval/pool checks assume authenticated context and externally validated provenance. Source/IR correspondence, full Alloy semantics, solver soundness, persistence, runtime event timing and production modes remain outside proof coverage.",
+      "clean_build_or_axiom_audit_claimed": false,
+      "note": "This reviewer ran the ordinary project build and projection check; the independent clean-build and transitive axiom-audit evidence belongs to the final closure verifier."
+    },
+    "remaining_required_fixes": [],
+    "release_authorization": false,
+    "product_implementation_written": false,
+    "additional_final_assessment": "AnalysisRun existenceStatus and enumerationStatus are separate. Lean Run.status explicitly denotes the existence observation; pair admission requires SAT plus externally validated own-query provenance, while later enumeration failure cannot become absence evidence. The model does not prove external validation, enumeration or persistence.",
+    "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b"
+  }
+}

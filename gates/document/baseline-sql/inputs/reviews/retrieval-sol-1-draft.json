@@ -1,0 +1,195 @@
+{
+  "seat": "retrieval-sol-1",
+  "status": "DRAFT_AWAIT_LEAN",
+  "audit_mode": "read-only source audit; only this review artifact written; no corpus copies, embeddings, external transmission, installation, or production changes",
+  "inventories": [
+    {
+      "root": "/home/augustus/下载/allloy6/2025-07-10-15-42-08",
+      "files": 70745,
+      "als_files": 70737,
+      "top_level_directories": 532,
+      "bounded_systematic_sample": {
+        "sample_files": 160,
+        "pred_declarations": 737,
+        "files_with_pred": 159,
+        "parametric_pred_declarations": 14,
+        "files_with_open": 38,
+        "files_with_module_parameters": 1,
+        "files_with_temporal_tokens": 12,
+        "files_with_run_or_check": 153
+      },
+      "metadata_paths": [
+        "2021-05-06-10-28-11-watform/README.md",
+        "2021-05-25-13-24-28-jackson/README.md",
+        "README.md",
+        "alloy6_all.txt",
+        "alloy6_less_faulty_alloy4fun.txt",
+        "alloy_6_less_faulty.txt",
+        "log.txt"
+      ],
+      "metadata_path_count": 7,
+      "family_counts": null
+    },
+    {
+      "root": "/home/augustus/下载/alloy5/2025-07-08-11-09-55",
+      "files": 3586,
+      "als_files": 3582,
+      "top_level_directories": 483,
+      "bounded_systematic_sample": {
+        "sample_files": 160,
+        "pred_declarations": 31843,
+        "files_with_pred": 146,
+        "parametric_pred_declarations": 405,
+        "files_with_open": 44,
+        "files_with_module_parameters": 2,
+        "files_with_temporal_tokens": 0,
+        "files_with_run_or_check": 113
+      },
+      "metadata_paths": [
+        "2021-05-06-10-28-11-watform/README.md",
+        "2021-05-25-13-24-28-jackson/README.md",
+        "README.md"
+      ],
+      "metadata_path_count": 3,
+      "family_counts": null
+    },
+    {
+      "root": "/home/augustus/ACGN/classified-data",
+      "files": 66080,
+      "als_files": 66080,
+      "top_level_directories": 17,
+      "bounded_systematic_sample": {
+        "sample_files": 160,
+        "pred_declarations": 640,
+        "files_with_pred": 160,
+        "parametric_pred_declarations": 0,
+        "files_with_open": 36,
+        "files_with_module_parameters": 0,
+        "files_with_temporal_tokens": 12,
+        "files_with_run_or_check": 160
+      },
+      "metadata_paths": [],
+      "metadata_path_count": 0,
+      "family_counts": {
+        "trash_fol": 2680,
+        "lts": 1844,
+        "trash_rl": 2706,
+        "trash_ltl": 4307,
+        "productionLineNew": 2351,
+        "classroom_fol": 4274,
+        "productionLine_v1": 599,
+        "graphs": 2390,
+        "cv_v2": 280,
+        "productionLine_v2": 3571,
+        "socialMedia": 14395,
+        "coursesOld": 9624,
+        "cv_v1": 857,
+        "classroom_rl": 4029,
+        "trainStationNew": 6269,
+        "coursesNew": 4954,
+        "trainStationOld": 950
+      }
+    },
+    {
+      "root": "/home/augustus/ACGN/alloy4fun-augmented",
+      "files": 195,
+      "als_files": 181,
+      "top_level_directories": 1,
+      "bounded_systematic_sample": {
+        "sample_files": 160,
+        "pred_declarations": 4227,
+        "files_with_pred": 160,
+        "parametric_pred_declarations": 4227,
+        "files_with_open": 0,
+        "files_with_module_parameters": 0,
+        "files_with_temporal_tokens": 33,
+        "files_with_run_or_check": 0
+      },
+      "metadata_paths": [
+        "ast_identical_cross_file_comparisons.csv",
+        "ast_identical_predicate_pairs.csv",
+        "canonical_reward_points.csv",
+        "correct_ast_diff_canonical_equiv.json",
+        "correct_ast_diff_fast_rewrite_equiv.json",
+        "incorrect_nearest_zero_distances.csv",
+        "index.json",
+        "parse_retries.csv",
+        "summary.md"
+      ],
+      "metadata_path_count": 9,
+      "family_counts": null
+    }
+  ],
+  "alloy4fun": {
+    "source_root": "/home/augustus/ACGN/classified-data",
+    "evidence": "/home/augustus/ACGN/alloy4fun-augmented/index.json inputRoot",
+    "source_models": 66080,
+    "prior_augmentation_claims": {
+      "considered_parsed_models": 61598,
+      "correct": 19212,
+      "incorrect": 42386,
+      "question_groups": 181,
+      "oracle_references": 181,
+      "unique_correct_student_references": 4315,
+      "reference_total": 4496,
+      "parse_failures": 0
+    },
+    "trust": "Prior index claims only; no fresh parser/semantic replay in this audit. Excluded 4482 files need explicit admission reasons, not inferred incorrect labels."
+  },
+  "rights": {
+    "license_inventory": "No LICENSE/COPYING/NOTICE files observed in supplied roots; root READMEs do not mention license. Anonymized repository directory names are not license grants.",
+    "local_engineering": "User explicitly authorizes local dataset development; absence of redistribution clearance is not itself a local engineering blocker.",
+    "distribution": "Preserve per-origin provenance and license_status=unknown; do not treat anonymization or local authorization as permission to publish corpus/derived artifacts externally."
+  },
+  "extraction_admission": {
+    "initial_supported": "Parse with matching Alloy adapter, resolve complete module/import closure and builtins, typecheck, capture predicate source span + binding/type environment + signature/fact context. Admit non-temporal resolved predicates first if production canonicalizer supports their full node/operator set.",
+    "parametric_predicates": "Parameter binding and ordered type/multiplicity declarations must survive extraction and alpha-renaming. Do not treat same body with different parameter/context constraints as equivalent. Qualified calls require resolved callee identities.",
+    "imports": "Freeze imported module bytes/hashes and parser version. Resolve aliases, parameterized module instantiation, private visibility, and util builtins; reject unresolved/ambiguous imports with machine reason codes. Avoid flattening text.",
+    "anonymization": "Use capture-avoiding alpha-renaming by declaration identity; preserve binder scope, arity, multiplicity, types, operator identities and relational role. Remove comments/paths from encoder text but retain private provenance manifest.",
+    "egress": "Local-only dataset and training by default; no remote embedding services without separate authorization.",
+    "rejection_codes": [
+      "parse_failure",
+      "unresolved_import",
+      "unsupported_ast_node",
+      "temporal_unsupported",
+      "unsupported_module_parameter",
+      "unresolved_binding",
+      "missing_context",
+      "unknown_label",
+      "insufficient_verified_pool"
+    ]
+  },
+  "positive_negative_pools": {
+    "N": "For each anchor materialize separate N=3,4,5 views only when at least N admissible candidates exist; never pad with duplicate predicates.",
+    "positive": "Use verified equivalence under identical typed context and explicit scope/semantics; identical egraph representative is candidate evidence only unless backed by supported verified rewrites. Correct-to-same-exercise label alone is insufficient for equivalence.",
+    "negative": "Use solver counterexample or certified disequality under frozen context; wrong submission status is not automatic semantic non-equivalence to every positive. Include hard negatives by structural closeness only after verification.",
+    "scope": "Finite-scope equivalence and universal equivalence require distinct labels. Store scope N separately from pool cardinality N to prevent ambiguity.",
+    "prior_metrics": "Existing nearest distances, rewards, zero/nonzero canonical distances and correct/incorrect folders are weak supervision; they do not supply proof labels independently."
+  },
+  "splits": {
+    "unit": "Union-find connected model families before train/val/test assignment: repository origin, exact/normalized duplicates across Alloy5/6, import closure, canonical/egraph equivalence cluster, exercise variants and student revision lineage.",
+    "classified_family_groups": [
+      "trash_fol+trash_rl+trash_ltl",
+      "classroom_fol+classroom_rl",
+      "productionLineNew+productionLine_v1+productionLine_v2",
+      "cv_v1+cv_v2",
+      "coursesOld+coursesNew",
+      "trainStationOld+trainStationNew",
+      "graphs",
+      "socialMedia",
+      "lts"
+    ],
+    "policy": "Deterministic seeded assignment of entire connected groups, targeting 70/15/15 by anchors when feasible. Report actual counts and broad-family held-out evaluation; with only nine broad classified families, exact ratios and balanced operators may be impossible. Never split per file or per predicate.",
+    "test_integrity": "Fit learned anonymization vocabulary, hard-negative mining, dimensional adapters and embedding training only on training groups. Use validation for selection; freeze test manifest before training."
+  },
+  "embedding_contract": {
+    "hierarchical3072": "No observed dataset metadata establishes a pretrained hierarchical3072 encoder. Treat as requested output contract, not a supported existing model claim. Keep named hierarchical view slices, normalization, encoder and tokenizer versions in manifest. A learned projection to 3072 needs training-only fitting and honest model_id; padding a smaller vector is not a learned semantic 3072 encoder.",
+    "LangGraph": "Use JSON serializable retrieval record IDs and metadata with local vector-store adapter; graph-state stores query, filters and IDs rather than corpus blobs. Require dimension=3072, metric, normalization, embedding_version, extraction_version, equivalence_context_hash, split and provenance_id."
+  },
+  "limitations": [
+    "Bounded systematic lexical samples (160 files each), not parser-validated full-corpus predicate counts. Samples include generated large files; do not extrapolate counts.",
+    "No fresh semantic verification, license adjudication, dataset copy, embedding or training performed.",
+    "Prior augmented index must be checked for source-hash/version consistency before reuse."
+  ],
+  "next_gate": "Await Lean assessment and parent synthesis before dataset extraction or embedding implementation."
+}

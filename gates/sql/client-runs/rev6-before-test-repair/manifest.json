@@ -1,0 +1,214 @@
+{
+  "reports": {
+    "client-coverage.json": "e87b17e78bdf5cb9c0a59258ec8a2e505731bed40c86678b23dc17b582d36e6c",
+    "recovery-report.json": "9080436ed99af077ea8e75e63cdb6eb5982fa40735b89e3abc9e9828370e7e12"
+  },
+  "inputs": {
+    "config/sqlean-parser-lock.json": {
+      "expected_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "copied_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "status": "MATCH"
+    },
+    "db/migrations/005_expected_catalog.json": {
+      "expected_sha256": "186e6838be0f8b2eb7f6caccd105eb5e6831ba5d792174deb8d96fd778e8ae36",
+      "copied_sha256": "186e6838be0f8b2eb7f6caccd105eb5e6831ba5d792174deb8d96fd778e8ae36",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/__init__.py": {
+      "expected_sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "copied_sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/cli.py": {
+      "expected_sha256": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+      "copied_sha256": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/common.py": {
+      "expected_sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "copied_sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/corpus.py": {
+      "expected_sha256": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "copied_sha256": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/database.py": {
+      "expected_sha256": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+      "copied_sha256": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/embedding.py": {
+      "expected_sha256": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "copied_sha256": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/evaluation.py": {
+      "expected_sha256": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+      "copied_sha256": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/importer.py": {
+      "expected_sha256": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+      "copied_sha256": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/journal.py": {
+      "expected_sha256": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+      "copied_sha256": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/manage.py": {
+      "expected_sha256": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+      "copied_sha256": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/migration.py": {
+      "expected_sha256": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+      "copied_sha256": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/promotion.py": {
+      "expected_sha256": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+      "copied_sha256": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/rag.py": {
+      "expected_sha256": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24",
+      "copied_sha256": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/ranking.py": {
+      "expected_sha256": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+      "copied_sha256": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/sql_connections.py": {
+      "expected_sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2",
+      "copied_sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/sql_guard.py": {
+      "expected_sha256": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "copied_sha256": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/sql_proxy.py": {
+      "expected_sha256": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+      "copied_sha256": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+      "status": "MATCH"
+    },
+    "retrieval/allow_retrieval/training.py": {
+      "expected_sha256": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+      "copied_sha256": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+      "status": "MATCH"
+    },
+    "scripts/bootstrap.py": {
+      "expected_sha256": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+      "copied_sha256": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+      "status": "MATCH"
+    },
+    "scripts/bootstrap_corpus.py": {
+      "expected_sha256": "bd8c442653e1584f43a4a4a7f6ac9be0ddc6f2b2961f6c69bff15b8a317a192c",
+      "copied_sha256": "bd8c442653e1584f43a4a4a7f6ac9be0ddc6f2b2961f6c69bff15b8a317a192c",
+      "status": "MATCH"
+    },
+    "scripts/bootstrap_sqlean.py": {
+      "expected_sha256": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+      "copied_sha256": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+      "status": "MATCH"
+    },
+    "scripts/build.py": {
+      "expected_sha256": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "copied_sha256": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "status": "MATCH"
+    },
+    "scripts/dependency_inventory.py": {
+      "expected_sha256": "c3a46f0b83523d737c1a3809bdac72a7e7a0e674c02e63ac3aa8c5b6468f9196",
+      "copied_sha256": "c3a46f0b83523d737c1a3809bdac72a7e7a0e674c02e63ac3aa8c5b6468f9196",
+      "status": "MATCH"
+    },
+    "scripts/record_egraph.py": {
+      "expected_sha256": "ffa5374bf1aa12a585ac0dccd6146e24fe636c5ff617627194d5394b3d2baf0b",
+      "copied_sha256": "ffa5374bf1aa12a585ac0dccd6146e24fe636c5ff617627194d5394b3d2baf0b",
+      "status": "MATCH"
+    },
+    "scripts/record_implementation.py": {
+      "expected_sha256": "76c33f9248538c37aec02d5163b17d5589899e60dbb2e80fe60945b7e7a429c9",
+      "copied_sha256": "76c33f9248538c37aec02d5163b17d5589899e60dbb2e80fe60945b7e7a429c9",
+      "status": "MATCH"
+    },
+    "scripts/record_retrieval.py": {
+      "expected_sha256": "4d1eb0f5519c6e882923e11e7d8cd31845e98004ef778db33e170e061a1cff68",
+      "copied_sha256": "4d1eb0f5519c6e882923e11e7d8cd31845e98004ef778db33e170e061a1cff68",
+      "status": "MATCH"
+    },
+    "scripts/retrieval_recovery_test.py": {
+      "expected_sha256": "a63a449e195917f129f67d57c6e1024794a74d87f8c6da36bd866e2801fa3f37",
+      "copied_sha256": "a63a449e195917f129f67d57c6e1024794a74d87f8c6da36bd866e2801fa3f37",
+      "status": "MATCH"
+    },
+    "scripts/run_local.py": {
+      "expected_sha256": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896",
+      "copied_sha256": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896",
+      "status": "MATCH"
+    },
+    "scripts/smoke_egraph.py": {
+      "expected_sha256": "da7bf8bc27654d567fd52b6e96170fd7bee90dcfd6df4a232a9f6388928f373a",
+      "copied_sha256": "da7bf8bc27654d567fd52b6e96170fd7bee90dcfd6df4a232a9f6388928f373a",
+      "status": "MATCH"
+    },
+    "scripts/smoke_local.py": {
+      "expected_sha256": "2031b3d24779f40ee1955b72e38a4bca9c1e64694c5548be9125c6b100dae66e",
+      "copied_sha256": "2031b3d24779f40ee1955b72e38a4bca9c1e64694c5548be9125c6b100dae66e",
+      "status": "MATCH"
+    },
+    "scripts/smoke_retrieval.py": {
+      "expected_sha256": "13346d1ffc7d65fcb09d33f2b836d182b20f24bf3ca5064dffc417cade030baf",
+      "copied_sha256": "13346d1ffc7d65fcb09d33f2b836d182b20f24bf3ca5064dffc417cade030baf",
+      "status": "MATCH"
+    },
+    "scripts/verify_corpus_runtime.py": {
+      "expected_sha256": "811b3971d1ae08ae1fb633764ec868f9e40d991b41a6e412fb92d3122a0a3209",
+      "copied_sha256": "811b3971d1ae08ae1fb633764ec868f9e40d991b41a6e412fb92d3122a0a3209",
+      "status": "MATCH"
+    },
+    "scripts/verify_egraph.py": {
+      "expected_sha256": "fedbf92b944f1ead3bd3c5c99960589ad9e134a529a9493aa987cc84796e224e",
+      "copied_sha256": "fedbf92b944f1ead3bd3c5c99960589ad9e134a529a9493aa987cc84796e224e",
+      "status": "MATCH"
+    },
+    "scripts/verify_formal.py": {
+      "expected_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "copied_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "status": "MATCH"
+    },
+    "scripts/verify_retrieval.py": {
+      "expected_sha256": "815484d6a9d152ec969274c112435bf0fda287b44a5a30a0198439a790546266",
+      "copied_sha256": "815484d6a9d152ec969274c112435bf0fda287b44a5a30a0198439a790546266",
+      "status": "MATCH"
+    },
+    "scripts/verify_sql.py": {
+      "expected_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "copied_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "status": "MATCH"
+    },
+    "scripts/verify_sql_clients.py": {
+      "expected_sha256": "8fd83fe9e37c6ca4ab6b58d0b7ad0722a078c3888af28f9a45b284f7ff77c245",
+      "copied_sha256": "8fd83fe9e37c6ca4ab6b58d0b7ad0722a078c3888af28f9a45b284f7ff77c245",
+      "status": "MATCH"
+    },
+    "scripts/verify_sql_runtime.py": {
+      "expected_sha256": "f6235b2057eb0a56bf79b008448dfb41c9bb48e20291a1028193d660ba4a1a45",
+      "copied_sha256": "f6235b2057eb0a56bf79b008448dfb41c9bb48e20291a1028193d660ba4a1a45",
+      "status": "MATCH"
+    },
+    "spec/sql-stage.json": {
+      "expected_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+      "copied_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+      "status": "MATCH"
+    }
+  },
+  "classification": "PRESERVED_PASS_EVIDENCE_BEFORE_TEST_ORACLE_REPAIR"
+}

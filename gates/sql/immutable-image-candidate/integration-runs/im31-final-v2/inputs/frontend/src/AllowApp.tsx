@@ -1,0 +1,19 @@
+import {DocumentWorkbench} from './DocumentWorkbench';
+import {CorpusPanel} from './CorpusPanel';
+
+/** Keep the editor mounted while navigating to the private predicate library.
+ * @param props In-memory local launch authority.
+ * @returns The document editor and locally stored retrieval library.
+ */
+export function AllowApp(props:{token:string}) {
+  return <div className="allow-app">
+    <nav className="allow-navigation" aria-label="Workspace sections">
+      <a href="#editor">Editor</a><a href="#predicate-library">Predicate library</a>
+      <span>Local workspace</span>
+    </nav>
+    <div id="editor"><DocumentWorkbench token={props.token}/></div>
+    <aside id="predicate-library" className="allow-library" aria-label="Private predicate retrieval">
+      <CorpusPanel token={props.token}/>
+    </aside>
+  </div>;
+}

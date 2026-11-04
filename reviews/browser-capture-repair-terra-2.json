@@ -1,0 +1,28 @@
+{
+  "reviewer": "terra-2",
+  "decision": "REQUEST_CHANGES",
+  "scope": "Read-only pre-run review; no UI, HTTP, database, benchmark, or tests run.",
+  "input_hashes": {
+    "/home/augustus/Allow/frontend/bench/runner.ts": "c2acb229d7a61d5be947a90fab94950d7adb9428ac92e4076bea010804e75258",
+    "/home/augustus/Allow/frontend/bench/evidence.ts": "2f4460a2ecddfb575e6ddcd6bc078d8d022c090bb64a7a22fba29db14fb1e477",
+    "/home/augustus/Allow/frontend/bench/bridge.ts": "e86e846170b9181c72d282a6881e05361313c1b3ed3bc5f61bd6c544c3d53346",
+    "/home/augustus/Allow/gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "/home/augustus/Allow/gates/document/browser-benchmark-candidate/capture-repair.json": "4719343fd9c337c6306dcd0bdec25cb74274d8165f94bd2f0c5c65c5657e2a2e"
+  },
+  "findings": [
+    {
+      "id": "BCRT2-01",
+      "severity": "high",
+      "location": "frontend/bench/evidence.ts resourceEvidence and frontend/bench/runner.ts finally",
+      "problem": "Resource evidence is collected only from the browser Resource Timing buffer at the end, without observing entries continuously or detecting buffer overflow. The buffer is bounded and can silently drop activity during setup and the 1100-event run, yet the report can still say COMPLETE. responseStatus can be unavailable and handled fetch failures do not trigger the window error listeners, so a redacted resource list does not establish that all network activity and errors were recorded as the protocol requires.",
+      "required_fix": "Capture resource/request outcomes in a bounded, redacted way that establishes coverage and explicitly handles overflow or unavailable status, and invalidate the run when required evidence cannot be established. Preserve the prohibition on transport logging inside timed callbacks and keep production behavior unchanged."
+    },
+    {
+      "id": "BCRT2-02",
+      "severity": "medium",
+      "location": "frontend/bench/runner.ts end timestamp and frontend/bench/evidence.ts advisoryEvidence",
+      "problem": "The final advisory filter requires request startTime after an end timestamp taken only after final post-edit verification and status updates. If the normal 350ms debounce fires while that verification runs, the actual final request began before this timestamp and is excluded, so a settled valid final advisory can time out and be reported INCOMPLETE.",
+      "required_fix": "Bind observation to the final edit/generation and an appropriate pre-dispatch or commit boundary outside the timing result, and verify the matched response/outcome belongs to that generation."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "ALLOW-RESTORED-PREVIEW-BROWSER-SMOKE-20261104",
+  "created_utc": "2026-11-04T06:32:03.792610+00:00",
+  "classification": "OBSERVED_MANUAL_SMOKE_ONLY",
+  "url": "http://127.0.0.1:18080/",
+  "tab": "Separate newly authenticated tab; original unsaved draft untouched",
+  "actions": [
+    "Open saved Browser acceptance \u2013 typed gates model, version 4",
+    "Click Check model"
+  ],
+  "observed_result": "Draft checked. Your saved version is unchanged.",
+  "persistent_mutations": "None requested; Save version was not clicked.",
+  "active_profile": "DEFAULT",
+  "screenshot": {
+    "path": "restored-preview.png",
+    "sha256": "2938135b293eafa642689760df35d0f5b5ad53fb49a298929cf9e9a0863793d4"
+  },
+  "excluded": [
+    "latency acceptance",
+    "pointer or keyboard acceptance",
+    "Firefox ESR / Orca",
+    "complete browser acceptance"
+  ]
+}

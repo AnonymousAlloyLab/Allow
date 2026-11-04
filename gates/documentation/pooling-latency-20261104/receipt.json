@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "classification": "DOCUMENTATION_PROVENANCE_AND_LINK_CHECK_NOT_CORRECTNESS_PROOF",
+  "pre_update_manifest": {
+    "path": "gates/documentation/pooling-latency-20261104/pre-update-manifest.json",
+    "sha256": "56513c9e000a51bf6e1d96d8f67e154042dd7a4dd7b14fee3b4bf3fdf8a2a956"
+  },
+  "current_files": [
+    {
+      "path": "docs/current-status.md",
+      "sha256": "593838eeb49eb9d106f953b64f35792bbee947bff980c8e73dbc55bb84fdd271"
+    },
+    {
+      "path": "docs/warm-pool.md",
+      "sha256": "925f01d46de661c0981e742ebb1f8b487576eaa6f01992f58abd9fa661454b31"
+    },
+    {
+      "path": "docs/warm-pool-latency.md",
+      "sha256": "f60bf3d4b9a9e37c9fdc7a4661e14cb7338a57ba8009f402d5b7048c31c789b6"
+    },
+    {
+      "path": "docs/performance-remediation-plan.md",
+      "sha256": "ae3c15ce6bbc5eec2e51bd3c5b5a529645f988fe10e7d726367cb1ad6ddf28a4"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/status.json",
+      "sha256": "fce42759b1f1bd01a6bf2b35f8441452e149a19ec52258f91730089c1ea27d20"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/README.md",
+      "sha256": "cfd8c8e775ba5582c490268510ff9d12521104c4eb27bf50690792fe20d8ac74"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/source-ready-r7.json",
+      "sha256": "7ee6c684feacba780ae325e45f2e57ac755bbf21437030a4df22367d0b5c6149"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/development-full-r7-report.json",
+      "sha256": "edc5d99d2d5b3ca87bac42d69069e79604122c47249ece2f36b497b2ba8c8e68"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/latency-ownership-r1/report.json",
+      "sha256": "8494361d467ebd356098330ed12ded1573b362fdfdab7d61218e37085d0b2849"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/contract.json",
+      "sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/council-disposition.json",
+      "sha256": "7495a2f9e1aa32ba58f276e9a4647833b6af2fd4cf4ba48d2bcb01cd8c59ca4d"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/policy-proof-report-r2.json",
+      "sha256": "a1f33c2f5a0990556cec58c060f7815bf0673cd709477662c838525148535eda"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/runs/fixture-r1/report.json",
+      "sha256": "9fdf3e90ac96b3134b0b26b8068b39498d986dec166ebadd3a55af15539e4833"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/runs/measurement-r1/report.json",
+      "sha256": "6b99006357f9da6b316b8246d9ea87431b7fc26864b041e8e037bfba91b7b57c"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/runs/measurement-r1/analysis/summary.json",
+      "sha256": "6fee676289bba4232f461694dfbddfe81004c00bc704f60e7c30ce97be86cfa1"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/runs/measurement-r1/analysis/samples.csv",
+      "sha256": "8528a6fcdf0304948e9c224524825069f38a62f05f891745dc1461d2ba5171d8"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/runs/measurement-r1/analysis/latency.png",
+      "sha256": "a48f068b82caf71439cb1c6b0e78bd912e5cfc314671ce38490b4e6bef564e29"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/runs/measurement-r1/analysis/latency.svg",
+      "sha256": "4b8e7c43a7c721d3d00a9d333b3b686d9e5668394d720d1129db72ee50c81682"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/analyze_metrics.py",
+      "sha256": "73f4e4541d108f060841b2bd9aaf523b9f3f8665eff92d913d8777e82d377770"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/latency-diagnostic/offline-runtime-suite-final-r1-report.json",
+      "sha256": "1734f52d434f17e6d2ed027396e76557440c2c36dd04c117889f47d05e220954"
+    }
+  ],
+  "local_links_checked": 98,
+  "current_source_ready_files_checked": 344,
+  "production_selection": "DISABLED",
+  "warm_performance": "COMPONENT_DIAGNOSTIC_MEASURED_HTTP_ACCEPTANCE_OPEN",
+  "preview_listener_pid_observed": 1162320,
+  "limitations": [
+    "Component diagnostic assumes CLEAN and excludes HTTP/SQL and selected WarmRuntime.",
+    "PASS is successful measurement and cleanup, not a speedup or promotion verdict.",
+    "Historical semantic-r3 remains BLOCKED for full 190 equivalence.",
+    "Documentation provenance does not prove implementation refinement."
+  ]
+}

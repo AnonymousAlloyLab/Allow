@@ -1,0 +1,104 @@
+{
+  "status": "BINDING_PREFLIGHT_PASS",
+  "experiment_binding": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-experiment-binding.json",
+    "sha256": "fbca2d98930c3714ecaab0629d98704451ecada75e7a460d808847653e50c8f9"
+  },
+  "input_root_sha256": "8b0d92855939045d33d6d115e4003854a6d1e2a4525ef30f15f4ac2f58bbd2e6",
+  "common_identities": {
+    "F0": "5bdb1b314d1a36b50f2c4d38f574e6f757b690e16d7884e41f6f693f0d7cb8e0",
+    "F1": "f59ee927f4411f8ed9dd09b8cb9825856d150b625526fbbf83898784c55f3ae7"
+  },
+  "installations": [
+    {
+      "pair": 1,
+      "variant": "F0",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/manifest.json",
+        "sha256": "5e5cacd6ae746f6e94b173e0582f47aea216aa944311d68a948ca8e533ff82de"
+      },
+      "input_root_sha256": "20a1a675d95e2ffd5d3872dc4309382a2261d2556a55b2474e44b376c3976a48",
+      "copied_root": "/tmp/allow-ft1-1wosjub7",
+      "fresh": true
+    },
+    {
+      "pair": 1,
+      "variant": "F1",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f1/manifest.json",
+        "sha256": "628e4861f230bdb9da80c45566d2f65afc811169953a6bd7193711c78b3e3ec5"
+      },
+      "input_root_sha256": "cae1c5fe4cafabffac6f275ed0867d5ee365866afbe710f44d3870461c9bb845",
+      "copied_root": "/tmp/allow-ft1-r2p1f1",
+      "fresh": true
+    },
+    {
+      "pair": 2,
+      "variant": "F0",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f0/manifest.json",
+        "sha256": "24af7959f05bd6a8986c50c0ed7e92092f3d22c29d935dc08ad3b917ee14bd4f"
+      },
+      "input_root_sha256": "34a270e353d089fdc31c5c1594049dc763199762fd7c5ed886a7ca828cf41a07",
+      "copied_root": "/tmp/allow-ft1-o_bjoqoq",
+      "fresh": true
+    },
+    {
+      "pair": 2,
+      "variant": "F1",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair2-f1/manifest.json",
+        "sha256": "e792a727906548c324213ab036dc283ed261e9d2a1c3b56470d336d5e5379e2f"
+      },
+      "input_root_sha256": "d0feb14a57ad886f12ea376f919e5ea3a55918ce645a6fbaedf745176bd547f0",
+      "copied_root": "/tmp/allow-ft1-r2p2f1",
+      "fresh": true
+    },
+    {
+      "pair": 3,
+      "variant": "F0",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f0/manifest.json",
+        "sha256": "12f7b0d4d23b2e3541185fd0c221093a95904c72677478f399b735c5d8f5d8f4"
+      },
+      "input_root_sha256": "897bf8fe0114dc52c13835a13018cdd972458380a54b408e7ab89499b4116767",
+      "copied_root": "/tmp/allow-ft1-e3574l39",
+      "fresh": true
+    },
+    {
+      "pair": 3,
+      "variant": "F1",
+      "manifest": {
+        "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair3-f1/manifest.json",
+        "sha256": "573020556723356d315b3760df6bf2b749fe4159dc77ea18dbec55dc1b18d9df"
+      },
+      "input_root_sha256": "34a4910cf083f0ae7b476fdf8fc9601ecf93e91087d8f245f831bf1dcdcd36fd",
+      "copied_root": "/tmp/allow-ft1-r2p3f1",
+      "fresh": true
+    }
+  ],
+  "verifiers": [
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/experiment_binding.py",
+      "sha256": "05b55c80fbff05636c1e10d7be8d7334914b30f2b326829e529fca4f2f9b378a"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/test_experiment_binding.py",
+      "sha256": "9b6626b7d2bc493d30e13ef63e847a49314d0a294ea0c54a00ac1f0049dfe03e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/installation.py",
+      "sha256": "d7c374fea033381d4b431dacacf4ea2ed473f36ff1b02eb6b3de521ff80833b9"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/pair_runner.py",
+      "sha256": "4a5f8dcaa1d978d0705b1cadadd4c232883df810ba854de4000b3109a99e828e"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/test_pair_runner.py",
+      "sha256": "2d0168be8b29332098feb4318d219b0b8fb6da934f5bb633389b0fa4b8746863"
+    }
+  ],
+  "trial_execution": "NOT_STARTED",
+  "boundary": "Exact input correspondence and fresh installation integrity only; no benchmark acceptance or profile activation."
+}

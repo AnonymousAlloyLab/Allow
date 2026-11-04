@@ -1,0 +1,28 @@
+{
+  "id": "ALLOW-DOCUMENT-PARTIAL-TYPES-IMPLEMENTATION-RELEASE-1",
+  "status": "FORMAL_PREIMPLEMENTATION_GATE_PASSED_WAIT_ROOT_CODE_START",
+  "formal_run": "gates/document/partial-types-candidate/formal-runs/final-280-v1/report.json",
+  "formal_report_sha256": "ef5cddc581e8220b2fa971035140213e032c87ddfc623d2737cd6ec91dddb3e3",
+  "formal_input_root_hash": "13ea997fccbf07588ef813a1149d7e09adfa1fa824aaeeb23baff67ec60c3431",
+  "verifier_sha256": "4d774c09bbeaafdc1cd902f8e31937a3a62b74f2cec9d6c21470d26e9056c374",
+  "review_inputs": {
+    "gates/document/partial-types-candidate/contract.json": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216",
+    "gates/document/partial-types-candidate/PartialTypes.lean": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7",
+    "gates/document/partial-types-candidate/types.json": "dbd4d0d4d9697de048c163d193fad5663a7e4ddec65ff486d65d4a4b38cf554a",
+    "gates/document/partial-types-candidate/tests-plan.json": "88a00a18b730b6a6fbddf2b98167cc283a8055c0806892158897925d8dcd26be"
+  },
+  "model_result": "VERIFIED for frozen280 exact propositions (267 retained+13 new), allowed axiom audits and matching two isolated clean builds under declared TCB; no runtime correspondence claim.",
+  "production_permission": "WAIT for root explicit code-start after baseline browser benchmark; this record does not start implementation.",
+  "runtime_requirements": [
+    "All32 planned cases",
+    "Full shared46 Java/TypeScript agreement",
+    "Actual-browser rejected-edit atomicity and screenshot evidence",
+    "Existing complete checker and server semantics unchanged"
+  ],
+  "ownership_proposal": {
+    "analysis": "partial analysis helper, Checker integration, structured complete violations and capped display adapter; immutable interface for slot obligations; exact Check.types remains resolved only",
+    "transactions": "operations/controller/state/view integration with persistent local sidecar, capture pre-replacement constraints, pre-drop prepare/validate/apply, preserve rejection state/focus and wire stripping",
+    "root": "Baseline preservation, code-start authorization, browser evidence and final integration validation"
+  },
+  "interface_proposal": "analyzeDraft(module, slotObligations, optional testLimits) -> complete analysis {facts, destinationConstraints, violations, resourceFailure}; violation canonical key tuple maps to user diagnostic. checkModule preserves existing exact types/scopes/complete plus internal analysis fields. Candidate transaction supplies captured/retained slot obligations and compares full violation sets only when both analyses complete. Agree exact TypeScript names before concurrent edits."
+}

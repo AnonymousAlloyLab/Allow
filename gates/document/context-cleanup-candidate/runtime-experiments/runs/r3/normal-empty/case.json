@@ -1,0 +1,63 @@
+{
+  "claim_id": "CC05",
+  "subcase": "normal-empty",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r3",
+  "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+  "expected_predicate": "Original exact nonce-bound5-field context with empty inventory, exit0, independently observed backend absence, all7 document-table hashes unchanged.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 222.00648,
+    "command": [
+      "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+      "-m",
+      "allow_documents.cli"
+    ],
+    "fixture_sha256": "9142cde87d00f04ecc98c679976ca13585ace334fba18a66f204c205409ed261",
+    "stdout_sha256": "e760bddaae6a5cc66f40c719cdf82f076589ccaf311df5bf977345cd03de0cf9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562397716996
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562399805579
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562403949605
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 61562406017999
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 61562540534888
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true,
+  "mechanism_predicate": true
+}

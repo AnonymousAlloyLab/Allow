@@ -1,0 +1,46 @@
+{
+  "status": "FROZEN_BEFORE_MEASUREMENT",
+  "classification": "F0_BASELINE_DERIVED_SETUP_EXPECTATION_NOT_INDEPENDENT_ORACLE",
+  "fixture_sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+  "fixture_module_sha256": "9a104542ac8117116b855ec1fa60930dc4f9aaae177e3755258818589c51b3f5",
+  "source": "sig A {\n\n}\nsig B {\n\n}\npred model[] { ((((((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A)))))))) and ((((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A)))))) and ((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and ((some (B)) and (some (A)))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A))))))))) and (((((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A)))))) and ((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and ((some (B)) and (some (A)))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A)))))))) and ((((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A)))))) and ((((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B))))) and (((some (A)) and ((some (B)) and (some (A)))) and ((some (B)) and ((some (A)) and (some (B))))))) and (((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and (some (A))) and ((some (B)) and ((some (A)) and (some (B)))))) and ((((some (A)) and (some (B))) and ((some (A)) and ((some (B)) and (some (A))))) and (((some (B)) and ((some (A)) and (some (B)))) and ((some (A)) and ((some (B)) and (some (A)))))))))) }\nrun model for 3 but 4 Int, 3 seq\n",
+  "source_sha256": "f7e5d4550c7262d7b881d993068159c0f06aca49283d8af3b41be7c95337a51c",
+  "printer_class_sha256": "10ce4f3cb1a5e836342d726dc7d1d699ca84d925efce3c23df199dbda1ef9a34",
+  "authoring_provenance": {
+    "run": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-bootstrap-r1",
+    "manifest_sha256": "1f5c42a62bd423a586000cb1cfbcda706643088cf9f11c09ac20238870f55ac6",
+    "input_root_sha256": "038ae02c74ad4efdc5ae50adb305a9759522f3a9e42eaaf4068aa964b693bb26",
+    "build_identity": "a280c31119621daf2d233ebdf292318c0d9bb8814cd2339ae2669d8ed6a8cde4",
+    "raw_commit_response_sha256": "b2d18c3ec419e680e4d8c00d46542674ee601ac8b06e1f75cebcaab74a059c41",
+    "module_correspondence": {
+      "status": "PASS",
+      "definitions": 504,
+      "nodes": 500,
+      "fixture_module_sha256": "9a104542ac8117116b855ec1fa60930dc4f9aaae177e3755258818589c51b3f5",
+      "committed_module_sha256": "75a34bb9a044813dd4775a24347e1492f083496af3641e7448638a9648b19fd4",
+      "id_remapping_sha256": "66593c04e6936e851bf13912ef3c3c080eff4e79ea85742f388a5fbe42dbc0eb",
+      "permitted_change": "Fresh IDs in closed schema slots only; exact definition/reference bijection."
+    }
+  },
+  "scope": "Exact original BLOCK module canonical print; original SOURCE request/fixture stays byte-exact and separately checked.",
+  "source_setup_diagnostics": [
+    {
+      "code": "LOCATION_UNAVAILABLE",
+      "message": "Some source locations are unavailable."
+    }
+  ],
+  "source_notice_provenance": [
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-bootstrap-r1/http-private/source-response.json",
+      "sha256": "3b78c2d63c647e7e8e6748b6c4d9589008c70f25ab804c243a84d98abcb75fa4",
+      "size": 3145,
+      "mode": 384
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-bootstrap-r2/http-private/source-response.json",
+      "sha256": "94c74aa3db8cc23a265d94a05cf1b2799b1082c282c220a41b9b2cde876240c6",
+      "size": 3145,
+      "mode": 384
+    }
+  ]
+}

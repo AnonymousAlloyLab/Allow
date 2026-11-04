@@ -1,0 +1,293 @@
+{
+  "classification": "INACTIVE_REACHABLE_TRANSITION_MODEL_ONLY_NOT_JAVA_OS_SQL_OR_PERFORMANCE_CORRESPONDENCE",
+  "claims": [
+    {
+      "id": "WPM01",
+      "theorem": "Allow.WarmPool.local_preserves_safety",
+      "claim_class": "proof_compilation",
+      "public_claim": "local preserves safety",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM02",
+      "theorem": "Allow.WarmPool.local_preserves_standby_bound",
+      "claim_class": "proof_compilation",
+      "public_claim": "local preserves standby bound",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM03",
+      "theorem": "Allow.WarmPool.local_preserves_active_bound",
+      "claim_class": "proof_compilation",
+      "public_claim": "local preserves active bound",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM04",
+      "theorem": "Allow.WarmPool.local_slot_unchanged",
+      "claim_class": "proof_compilation",
+      "public_claim": "local slot unchanged",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM05",
+      "theorem": "Allow.WarmPool.step_preserves_safety",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves safety",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM06",
+      "theorem": "Allow.WarmPool.reachable_safety",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable safety",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM07",
+      "theorem": "Allow.WarmPool.two_live_reservations",
+      "claim_class": "proof_compilation",
+      "public_claim": "two live reservations",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM08",
+      "theorem": "Allow.WarmPool.at_most_one_unassigned",
+      "claim_class": "proof_compilation",
+      "public_claim": "at most one unassigned",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM09",
+      "theorem": "Allow.WarmPool.at_most_one_assigned",
+      "claim_class": "proof_compilation",
+      "public_claim": "at most one assigned",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM10",
+      "theorem": "Allow.WarmPool.distinct_slot_owners",
+      "claim_class": "proof_compilation",
+      "public_claim": "distinct slot owners",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM11",
+      "theorem": "Allow.WarmPool.first_request_count_order",
+      "claim_class": "proof_compilation",
+      "public_claim": "first request count order",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM12",
+      "theorem": "Allow.WarmPool.second_request_count_order",
+      "claim_class": "proof_compilation",
+      "public_claim": "second request count order",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM13",
+      "theorem": "Allow.WarmPool.no_busy_to_ready",
+      "claim_class": "proof_compilation",
+      "public_claim": "no busy to ready",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM14",
+      "theorem": "Allow.WarmPool.release_requires_cleanup",
+      "claim_class": "proof_compilation",
+      "public_claim": "release requires cleanup",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM15",
+      "theorem": "Allow.WarmPool.stale_release_rejected",
+      "claim_class": "proof_compilation",
+      "public_claim": "stale release rejected",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM16",
+      "theorem": "Allow.WarmPool.owned_release_refines_step",
+      "claim_class": "proof_compilation",
+      "public_claim": "owned release refines step",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM17",
+      "theorem": "Allow.WarmPool.no_spawn_requires_never_attempted",
+      "claim_class": "proof_compilation",
+      "public_claim": "no spawn requires never attempted",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM18",
+      "theorem": "Allow.WarmPool.attempted_cannot_use_no_spawn",
+      "claim_class": "proof_compilation",
+      "public_claim": "attempted cannot use no spawn",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM19",
+      "theorem": "Allow.WarmPool.publish_requires_exit_fence_and_time",
+      "claim_class": "proof_compilation",
+      "public_claim": "publish requires exit fence and time",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM20",
+      "theorem": "Allow.WarmPool.poison_prevents_publication",
+      "claim_class": "proof_compilation",
+      "public_claim": "poison prevents publication",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM21",
+      "theorem": "Allow.WarmPool.poison_sticky_same_generation",
+      "claim_class": "proof_compilation",
+      "public_claim": "poison sticky same generation",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM22",
+      "theorem": "Allow.WarmPool.attempted_sticky_same_generation",
+      "claim_class": "proof_compilation",
+      "public_claim": "attempted sticky same generation",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM23",
+      "theorem": "Allow.WarmPool.consumption_monotone_same_generation",
+      "claim_class": "proof_compilation",
+      "public_claim": "consumption monotone same generation",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM24",
+      "theorem": "Allow.WarmPool.generation_changes_only_on_vacant_reservation",
+      "claim_class": "proof_compilation",
+      "public_claim": "generation changes only on vacant reservation",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM25",
+      "theorem": "Allow.WarmPool.startup_deadline_checked",
+      "claim_class": "proof_compilation",
+      "public_claim": "startup deadline checked",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM26",
+      "theorem": "Allow.WarmPool.idle_deadline_checked",
+      "claim_class": "proof_compilation",
+      "public_claim": "idle deadline checked",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM27",
+      "theorem": "Allow.WarmPool.handoff_sets_clean_context",
+      "claim_class": "proof_compilation",
+      "public_claim": "handoff sets clean context",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM28",
+      "theorem": "Allow.WarmPool.admission_deadline_not_reset",
+      "claim_class": "proof_compilation",
+      "public_claim": "admission deadline not reset",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM29",
+      "theorem": "Allow.WarmPool.shutdown_is_absorbing",
+      "claim_class": "proof_compilation",
+      "public_claim": "shutdown is absorbing",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM30",
+      "theorem": "Allow.WarmPool.shutdown_forbids_publish",
+      "claim_class": "proof_compilation",
+      "public_claim": "shutdown forbids publish",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM31",
+      "theorem": "Allow.WarmPool.offline_step_preserves_delivery",
+      "claim_class": "proof_compilation",
+      "public_claim": "offline step preserves delivery",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM32",
+      "theorem": "Allow.WarmPool.time_does_not_release",
+      "claim_class": "proof_compilation",
+      "public_claim": "time does not release",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM33",
+      "theorem": "Allow.WarmPool.advisory_preserves_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "advisory preserves durable",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM34",
+      "theorem": "Allow.WarmPool.successful_one_use_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "successful one use witness",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM35",
+      "theorem": "Allow.WarmPool.cancellation_after_fence_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "cancellation after fence witness",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    },
+    {
+      "id": "WPM36",
+      "theorem": "Allow.WarmPool.ready_and_fresh_coexist_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "ready and fresh coexist witness",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory. Runtime adapters remain explicitly unproved.",
+      "verifier": "verify_warm_model.py"
+    }
+  ]
+}

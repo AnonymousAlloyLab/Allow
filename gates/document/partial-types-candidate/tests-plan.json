@@ -1,0 +1,193 @@
+{
+  "id": "ALLOW-DOCUMENT-PARTIAL-TYPES-EXACT-REGRESSION-PLAN-2",
+  "status": "PLANNED_NOT_RUN",
+  "fixtures": {
+    "signatures": [
+      "A",
+      "B",
+      "C"
+    ],
+    "schemas": [
+      "[A]",
+      "[B]",
+      "[A,B]",
+      "[B,A]",
+      "[A,A]",
+      "width8",
+      "width9-invalid"
+    ],
+    "declarations": "Distinct stable IDs; valid predicate with [A,B] argument and valid scoped variables. Baseline roots are complete accepted formulas unless explicitly prior-invalid."
+  },
+  "cases": [
+    {
+      "id": "PT-001",
+      "setup": "accepted some Person; select Person; palette Not",
+      "expected": "reject before mutation; original accepted some Person and draft remain byte-identical; specific formula/relation notice"
+    },
+    {
+      "id": "PT-002",
+      "setup": "same PT-001 via keyboard Enter/Space and pointer/drag insertion",
+      "expected": "identical rejection and state invariants"
+    },
+    {
+      "id": "PT-003",
+      "setup": "replace relation child under each some/no/one/lone test with each formula-result operator, children holes",
+      "expected": "all 14 formula-result profile tags rejected, including not, calls, comparisons and quantifiers"
+    },
+    {
+      "id": "PT-004",
+      "setup": "replace formula declaration root / not operand / each Boolean operand / each quantifier body with each relation-result operator, children holes",
+      "expected": "all 9 relation-result profile tags rejected without guessed schema"
+    },
+    {
+      "id": "PT-005",
+      "setup": "all 23 operator tags in opposite-sort destinations with unresolved children; references use valid declarations and variables lexical scope",
+      "expected": "23 exact profile cases rejected; predicate calls use a declared predicate and required holes; quantifiers use a declared signature"
+    },
+    {
+      "id": "PT-006",
+      "setup": "all 23 tags in same-sort unconstrained valid destinations; valid declarations/scope; unresolved children",
+      "expected": "compatible incomplete candidates allowed; complete leaf references remain subject to exact destination schema; no guessed Check.types entries"
+    },
+    {
+      "id": "PT-007",
+      "setup": "not HOLE, each multiplicity test HOLE, equal/subset HOLE HOLE at formula root",
+      "expected": "all remain incomplete but known formula; no diagnostic until known incompatibility"
+    },
+    {
+      "id": "PT-008",
+      "setup": "transpose HOLE and product/join/set-operation HOLE HOLE under some_test",
+      "expected": "remain incomplete known relations, constraints retained; transpose known width2"
+    },
+    {
+      "id": "PT-009",
+      "setup": "some(not HOLE) and not(product HOLE HOLE) constructed/imported as arbitrary draft, not palette",
+      "expected": "shared checkModule reports known sort contradiction and incomplete; newContradiction rejects transition from valid base"
+    },
+    {
+      "id": "PT-010",
+      "setup": "each binary operator: left formula right HOLE; left HOLE right formula; repeat nested formula not HOLE",
+      "expected": "relation-input operators reject independently of sibling completion; Boolean operands require formulas"
+    },
+    {
+      "id": "PT-011",
+      "setup": "equal/subset/union/intersection/difference with exact [A,B] sibling and [B,A], [A,A], [A], [B,B] counterpart",
+      "expected": "reject exact ordered nominal/arity mismatch; same [A,B] succeeds; missing counterpart constrained not guessed"
+    },
+    {
+      "id": "PT-012",
+      "setup": "typed hole expected formula under relation parent; typed hole expected relation[A] under formula parent; exact[A] hole under required[B]",
+      "expected": "edge and hole constraints conjoin; known contradiction diagnosed; hole never complete"
+    },
+    {
+      "id": "PT-013",
+      "setup": "transpose exact widths1,2,3,8 and transpose HOLE required exact widths1,2,3",
+      "expected": "only width2 compatible; output [A,B] maps to [B,A]; no arity erosion with holes"
+    },
+    {
+      "id": "PT-014",
+      "setup": "product [A]*8 with relation HOLE; product [A]*7 with relation width1; product exact widths4+4,4+5",
+      "expected": "min width implies first overflow even unresolved; 7+1 and4+4 allowed;4+5 reject; preserve ordered output"
+    },
+    {
+      "id": "PT-015",
+      "setup": "join exact endpoints A vs B with other partial columns; unary[A] join unary[A]; unary[A] join [A,B]; result width8 vs9",
+      "expected": "known endpoint mismatch and empty output reject; valid output[B] accepted; width bound enforced without schema guessing"
+    },
+    {
+      "id": "PT-016",
+      "setup": "set-operation destination exact[A,B], both operands holes; then fill one with [B,A]",
+      "expected": "propagate required exact schema to both; later incompatible fill rejected; completing both[A,B] accepted"
+    },
+    {
+      "id": "PT-017",
+      "setup": "predicate argument exact[A,B], insert formula with holes, relation[A], relation[B,A], relation[A,B], relation schema unknown",
+      "expected": "first three reject; exact[A,B] succeeds; unknown remains incomplete with exact argument constraint"
+    },
+    {
+      "id": "PT-018",
+      "setup": "cut/copy/paste/drag formula subtree containing holes into relation slot and converse",
+      "expected": "atomic rejection; source,destination,owned IDs,selection,provenance unchanged; cut source not removed"
+    },
+    {
+      "id": "PT-019",
+      "setup": "copy quantified subtree with internal variable, paste into compatible scope; then paste external variable outside scope",
+      "expected": "first capture-avoiding IDs preserved fresh; second rejects despite holes elsewhere; no declaration renaming/nominal coercion"
+    },
+    {
+      "id": "PT-020",
+      "setup": "valid baseline then introduce new contradiction while prior unrelated diagnostic exists; repeat no-op on prior-invalid draft",
+      "expected": "new contradiction rejects; unchanged prior issue does not spuriously reject; diagnostics stable/deterministic without messages hidden by incomplete children"
+    },
+    {
+      "id": "PT-021",
+      "setup": "fill all holes of compatible intermediate trees for all 23 tags to valid complete module",
+      "expected": "exact types match prechange complete checker; no change to accepted serialization or server semantic rules"
+    },
+    {
+      "id": "PT-022",
+      "setup": "bounds512 nodes/depth32,width1..8; unknown declaration, stale clipboard, descendant move, duplicate identity, cycle, dependency cycle",
+      "expected": "existing rejection/boundary behavior preserved; partial propagation terminates deterministically within same budgets"
+    },
+    {
+      "id": "PT-023",
+      "setup": "browser accepted some Person -> rejected Not insertion -> permitted relation insertion -> fill valid operands -> undo/redo",
+      "expected": "visible constraint label and rejection; Save remains appropriate; rejection never creates some(not HOLE); acceptance/undo history and accepted source verified"
+    },
+    {
+      "id": "PT-024",
+      "setup": "repeat shared analysis on immutable module with node declaration order permutations preserving valid forest",
+      "expected": "same diagnostics/facts/constraints keyed by IDs; no order-dependent missing propagation"
+    },
+    {
+      "id": "PT-025",
+      "setup": "unchanged frozen 500-node1000-edit workload after implementation",
+      "expected": "retain raw baseline and candidate fingerprints; evaluate existing target only; no performance claim from unit timing"
+    },
+    {
+      "id": "PT-026",
+      "setup": "prior-invalid and with bad relation left; insert relation right, then reverse operands; relation binary with bad formula left then right; changing [A] mismatch to [C] while public text unchanged",
+      "expected": "new edge/rule/fact tuple rejects; original violation alone and no-op allowed; run insert/paste/cut/copy/drag routes; clone keys fresh, unchanged internal move keys stable; new destination violations never inherited"
+    },
+    {
+      "id": "PT-027",
+      "setup": "64 and then more than64 distinct pre-existing errors before late insertion of opposite-sort and exact nominal mismatch; permute declaration/node order; include no-op control",
+      "expected": "new violation rejected using complete private set even if absent from64-item display list; no-op unchanged violations permitted; order does not change enforcement result"
+    },
+    {
+      "id": "PT-028",
+      "setup": "replace exact[A] hole under generic some_test with signature[B], signature[A], and union HOLE HOLE then fill with[B]; repeat paste and drag",
+      "expected": "[B] rejects, [A] accepts; incomplete union retains exact[A] slot obligation and later incompatible fill rejects; repeat across undo/redo and copied/moved owning subtrees; sidecar immutable/remapped correctly"
+    },
+    {
+      "id": "PT-029",
+      "setup": "replace concrete signature[A] under generic some_test with signature[B] with no explicit hole constraint",
+      "expected": "allowed; old concrete inferred type must not become a destination obligation"
+    },
+    {
+      "id": "PT-030",
+      "setup": "enter dropNode with pre-existing unrelated clipboard, selected third node, focused toolbar; attempt copy/move typed partial mismatch and out-of-scope reference with unrelated holes",
+      "expected": "snapshot before dropNode; reject without preparatory select/copy publish, no content publication, no focus timer; only notice changes; selection,clipboard,copies,sidecar,epoch,generation,draft/accepted IDs,history and active focus unchanged"
+    },
+    {
+      "id": "PT-031",
+      "setup": "canonical equivalent repeated constraints; lowered worklist/refinement/variable/equation/violation limits; cycles/shared children; max valid512-node/depth32 forest and order permutations",
+      "expected": "duplicate equations not added; ownership/scope checked before propagation; fixed-point result deterministic; forced exhaustion emits ANALYSIS_RESOURCE_LIMIT and rejects atomically; no guessed schema/null/permissive fallback; before-analysis exhaustion also rejects"
+    },
+    {
+      "id": "PT-032",
+      "setup": "explicit constrained hole copy/move into another destination with independent exact constraint; then successive replacement and subtree removal",
+      "expected": "destination-owned obligations stay at destination; inside-source obligations remap/travel with source; combine constraints conjunctively; remove only obligations of removed slots; incompatible later completion rejected; no public wire change"
+    }
+  ],
+  "state_assertion": "Every rejected edit compares original object and serialized module, accepted artifact/hash/revision, selection, provenance, clipboard, undo/redo stack and source root identity. Assert exact pre-existing notice/history policy before adding new behavior. No accepted state mutation. Include immutable constraint sidecar. For drag take snapshot at dropNode entry before any select/copy; verify no focus scheduling after rejection. Compare enforcement violations independently of capped display diagnostics.",
+  "layering": [
+    "Unit shared checker facts/constraints and exact diagnostics",
+    "Controller/operations atomic candidate rejection for each route",
+    "Actual browser regression from persisted accepted document with screenshot + readable DOM evidence",
+    "Complete module parity with independently checked server"
+  ],
+  "correspondence": "Tests are finite runtime evidence only. A future registry must map each runtime tag and constraint representation to the exact abstract profile and theorem; do not infer semantic refinement from passing tests.",
+  "required_existing_regression": "Full shared 46-case Java/TypeScript checker agreement must pass unchanged; complete exact Check.types adapter must have no relation placeholder or fabricated columns.",
+  "resource_contract": "Use contract version2 explicit counters; test lowered budgets deterministically. Tests prove finite executions only, not algorithm termination theorem."
+}

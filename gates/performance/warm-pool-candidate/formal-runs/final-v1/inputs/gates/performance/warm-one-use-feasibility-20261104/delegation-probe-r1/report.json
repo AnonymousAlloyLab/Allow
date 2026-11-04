@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "unit": "allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+  "unit_properties": {
+    "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+    "Delegate": "yes",
+    "DelegateControllers": "cpu cpuset io memory pids",
+    "Id": "allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+    "Description": "allow-warm-infrastructure:592e455978ab4d82b0d28967d26b04d7",
+    "ActiveState": "active",
+    "SubState": "running",
+    "InvocationID": "1142cf4a477249c58771c2ecdab95a3c"
+  },
+  "probe": {
+    "status": "PASS",
+    "probe_identity": {
+      "pid": 1251325,
+      "start_ticks": "7325670"
+    },
+    "group": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+    "scope_uid": 1000,
+    "scope_mode": "0o755",
+    "controllers": "cpu memory pids",
+    "limits": {
+      "cpu.max": "100000 100000",
+      "memory.max": "268435456",
+      "memory.swap.max": "0",
+      "pids.max": "32"
+    },
+    "child_identity": {
+      "pid": 1251328,
+      "start_ticks": "7325673"
+    },
+    "child_group_before_exec": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope/worker",
+    "slot_limits": {
+      "cpu.max": "100000 100000",
+      "memory.max": "67108864",
+      "memory.swap.max": "0",
+      "pids.max": "8"
+    },
+    "slot_uid": 1000,
+    "slot_populated_before_exec": "populated 1\nfrozen 0",
+    "child_exit_status": 0,
+    "child_reaped": true,
+    "slot_events_after_reap": "populated 0\nfrozen 0",
+    "slot_members_after_reap": "",
+    "slot_deleted_after_positive_empty": true,
+    "owner_events_after_self_move": "populated 0\nfrozen 0",
+    "no_allow_executable_or_model": true,
+    "production_or_shared_service_mutation": false
+  },
+  "systemd_run_exit_code": 0,
+  "scope_explicit_populated_zero": true,
+  "probe_process_absent": true,
+  "unit_after_exit": {
+    "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+    "Delegate": "yes",
+    "DelegateControllers": "cpu cpuset io memory pids",
+    "Id": "allow-warm-delegate-a8dcb43f3d2344c49cc7dbe0272305b5.scope",
+    "Description": "allow-warm-infrastructure:592e455978ab4d82b0d28967d26b04d7",
+    "ActiveState": "active",
+    "SubState": "running",
+    "InvocationID": "1142cf4a477249c58771c2ecdab95a3c"
+  },
+  "boundary": "Infrastructure capability only; not JVM image, sandbox, crash/restart or production acceptance."
+}

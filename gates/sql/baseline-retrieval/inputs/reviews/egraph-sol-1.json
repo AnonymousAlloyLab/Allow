@@ -1,0 +1,76 @@
+{
+  "reviewer_id": "egraph-sol-1",
+  "requested_model_seat": "GPT-6.1 Sol",
+  "status": "FINAL_SCOPED_ARCHITECTURE_REVIEW",
+  "verdict": "ACCEPT_ARCHITECTURE_SUBJECT_TO_REGISTERED_PROOF_GATE",
+  "production_files_edited": false,
+  "scope": [
+    "Current canonical/worker/React boundary",
+    "ACGN source and README design comparison",
+    "Implementable generic typed egraph and independently checkable explanations"
+  ],
+  "sources_read": [
+    "spec/slot-profile.json",
+    "backend/src/main/java/dev/allow/canonical/Canonicalizer.java",
+    "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java",
+    "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java",
+    "backend/src/main/java/dev/allow/worker/AlloyEngine.java",
+    "backend/src/main/java/dev/allow/worker/JsonWire.java",
+    "frontend/src/model.ts",
+    "/home/augustus/ACGN/README.md",
+    "/home/augustus/ACGN/src/is/fivefivefive/CanDis/core/egraph/IntEGraph.java",
+    "/home/augustus/ACGN/src/is/fivefivefive/CanDis/core/egraph/AlloyRewriteSystem.java",
+    "/home/augustus/ACGN/src/is/fivefivefive/CanDis/theory/TypedSlottedPortEGraph.java"
+  ],
+  "required_design": [
+    "Typed hash-consed enodes; sort-checked union-find; rebuild to congruence fixed point; generic typed pattern matching; registry-only rewrites; deterministic bounded saturation; positive-cost deterministic finite extraction.",
+    "Retain immutable ground-term proof DAG distinct from mutable class IDs; every union has rule or congruence proof provenance.",
+    "Independent checker recomputes exact rule instance endpoints, substitution sorts, directions and side conditions; congruence checks operator, arity, sort and ordered child proof endpoints; refl/symm/trans use exact endpoint equality.",
+    "Bind checked input/output and proof to typed profile, frozen registry and anonymous input digests. Check rejection produces no equivalence claim; it never changes solver result.",
+    "Child-only mapper accepts resolved AST and creates anonymous typed capability; engine never receives source, display strings, names or provenance hash as atom content.",
+    "Bound graph, match, round, union, extraction and proof budgets before mutation, including 2 MiB worker wire limit.",
+    "Keep exact structural canonical output separate; egraph representative equality is sufficient only within admitted checked rule profile, and bounded saturation is incomplete."
+  ],
+  "blocking_contract_questions": [],
+  "unsoundness_guards": [
+    "Opaque binders and calls remain whole exact anonymous atoms unless context and substitution semantics are separately admitted.",
+    "Anonymous atom identity must preserve resolved refs and lexical context, not rendered spelling or user-provided identifiers.",
+    "Sort-specific relational empty; relation PLUS/MINUS differ from integer IPLUS/IMINUS; PLUSPLUS is override.",
+    "Exact nominal column-schema matching is conservative; Alloy unions across different signatures must become opaque or use validated common carrier.",
+    "Never use eclass membership itself as proof; checker must validate each edge locally.",
+    "Deterministic extraction must ignore hash iteration and UF representative numbering; positive cost avoids cyclic witnesses.",
+    "ACGN observations and certificate annotations do not establish Allow correctness; borrow design ideas without opaque binaries."
+  ],
+  "tests_required": [
+    "Nontrivial congruence after multiple unions and rebuild; e-matching repeated variables; sort mismatch rejection.",
+    "Rule, substitution, direction, endpoint, congruence-child and trace-reference tampering rejected independently.",
+    "Cyclic eclasses extract finite valid witness deterministically; budget-limited runs preserve checked equivalence without completeness claims.",
+    "Alpha-renaming leaves full anonymous egraph output stable; binder shadowing, operand order, field-owner and schema negatives remain distinct."
+  ],
+  "contract_review": {
+    "revision": 2,
+    "assessment": "The revised contract resolves the initial typed-input, trace-language and claim-boundary blockers. Checked congruence is required even for canonicalized insertion collisions; unit tree cost and finite extraction are frozen. MixedFormula, substitution evaluation and MixedDerivation.someCong/noCong explicitly cover the previously missing relation-to-Boolean composition. Rule.notTrue/notFalse exist with semantic cases; 34 catalog mappings match the intended 8 Certificate, 13 Rule and 13 RelRule constructors. Twenty exact formal obligations and four closed named witnesses are listed.",
+    "proof_gate": "Root must complete the registered exact-proposition audit and two clean Lean builds before production changes. This review reads definitions and proofs; it does not claim independently executed clean builds.",
+    "implementation_gates": [
+      "Every successful merge, including insertion/rebuild collisions, must be locally checked before mutation.",
+      "Independent checker validates exact ground endpoints, registered substitutions, ordered congruence premises and root/context/inventory/schema binding.",
+      "The mixed theorem uses one tuple carrier; multiple runtime schemas require conservative per-schema interpretation and tested adapter correspondence.",
+      "NONE may remain opaque; any later NONE-to-EMPTY lowering must preserve exact schema.",
+      "All budget failures preserve honest incomplete state and suppress unchecked equivalence output."
+    ]
+  },
+  "reviewed_revision": 2,
+  "reviewed_files_sha256": {
+    "spec/egraph-stage.json": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+    "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+    "formal/Allow/EGraph.lean": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab",
+    "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+  },
+  "findings": [],
+  "remaining_risks": [
+    "No Java-to-Lean refinement is established; Java checker, catalog translation and Alloy lowering remain explicit trusted tested components.",
+    "Graph.justified is an assumed abstract invariant, not a verified Java union-find implementation.",
+    "No production implementation was reviewed or edited in this advisory.",
+    "Registered clean proof closure remains the root-owned prerequisite for implementation."
+  ]
+}

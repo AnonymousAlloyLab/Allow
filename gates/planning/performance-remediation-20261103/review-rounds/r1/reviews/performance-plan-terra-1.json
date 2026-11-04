@@ -1,0 +1,23 @@
+{
+  "reviewer": "terra-1",
+  "decision": "APPROVE_GAMEPLAN",
+  "package_root_sha256": "ba16e64e252d815d62407d3cac0507096f1d707cea882ffcee1298e10856d4d0",
+  "checked_files": {
+    "count": 83,
+    "sha256_verified": true,
+    "root_verified": true,
+    "substantive_review": [
+      "gates/planning/performance-remediation-20261103/contract.json",
+      "gates/planning/performance-remediation-20261103/runtime-plan.json",
+      "gates/planning/performance-remediation-20261103/PerformancePlan.lean",
+      "gates/planning/performance-remediation-20261103/types.json",
+      "gates/planning/performance-remediation-20261103/claims.json",
+      "docs/performance-remediation-plan.md",
+      "gates/planning/performance-remediation-20261103/verify_plan_model.py",
+      "reviews/validator-session-terra-1.json"
+    ]
+  },
+  "findings": [],
+  "scope": "Approval of the coherent staged gameplan only, including conditional alternatives, lifecycle ownership, SQL cleanup first, and target-host acceptance gates.",
+  "limitations": "No approval of an unimplemented worker, automatic database cleanup, runtime correspondence, performance acceptance, or commercial release. No active checks, SQL, or browser execution were performed. Hash verification covers all 83 manifest entries; substantive inspection focused on the identified plan and prior review inputs."
+}

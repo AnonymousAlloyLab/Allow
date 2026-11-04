@@ -1,0 +1,173 @@
+{
+  "classification": "FINITE_DEVELOPMENT_TEST_BINDINGS_REQUIRE_RUNTIME_FREEZE_BEFORE_CLOSURE",
+  "claims": [
+    {
+      "id": "FTS01",
+      "statement": "Exact complete default command and one-fixed-flag advisory delta, unchanged order/budgets/mounts.",
+      "tests": [
+        "dev.allow.backend.WorkerLaunchProfileTest#defaultArgumentsMatchFrozenCommand",
+        "dev.allow.backend.WorkerLaunchProfileTest#advisoryTier1AddsExactlyOneArgument"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "ACTUAL_ARGUMENT_ARRAY_TEST",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS02",
+      "statement": "Solver disallows the advisory profile; null profiles are rejected.",
+      "tests": [
+        "dev.allow.backend.WorkerLaunchProfileTest#solverProfileCannotChange"
+      ],
+      "profiles": [
+        "DEFAULT_SOLVER",
+        "F1_REJECTED"
+      ],
+      "classification": "ACTUAL_CONSTRUCTOR_TEST",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS03",
+      "statement": "Active advisory callsite still selects DEFAULT after authorized context; durable history denies F1 before launch.",
+      "tests": [
+        "dev.allow.backend.DocumentValidationContextTest#advisoryProfileRemainsDefaultAfterContext",
+        "dev.allow.backend.WorkerLaunchProfileTest#tier1HistoryIsDeniedBeforeLaunch"
+      ],
+      "profiles": [
+        "F0_CALLSITE",
+        "F1_DENIED_FOR_HISTORY"
+      ],
+      "classification": "SCOPED_CALLSITE_AND_GUARD_TEST",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS04",
+      "statement": "Real per-launch full identity rejects class/resource/dependency/Alloy mutation before launch.",
+      "tests": [
+        "dev.allow.backend.WorkerLaunchProfileTest#launchStillChecksAllBuildInputs",
+        "dev.allow.backend.WorkerLaunchProfileTest#launchStillRejectsChangedAlloy"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "REAL_LAUNCH_FENCE_WITH_OWNED_TEMP_INPUTS",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS05",
+      "statement": "Both fixed profiles execute a fresh real sandbox and reap a simple valid authored source result.",
+      "tests": [
+        "dev.allow.backend.WorkerLaunchProfileTest#bothProfilesValidateAndReapFreshWorkers"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "FINITE_REAL_SANDBOX_SMOKE_NOT_FULL_EQUIVALENCE",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS06",
+      "statement": "Malformed/missing/trailing private JSON cannot yield a successful actual worker response; children are reaped.",
+      "tests": [
+        "dev.allow.backend.FreshTier1SafetyTest#bothProfilesRejectMalformedPrivateFramesAndReap"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "REAL_SANDBOX_FAILURE_TEST",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS07",
+      "statement": "Actual owned stopped sandbox launches hit the unchanged10000ms FrameProcess timeout and are reaped.",
+      "tests": [
+        "dev.allow.backend.FreshTier1DeadlineTest#bothProfilesEnforceActualTenSecondDeadlineAndReap"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "REAL_SANDBOX_CONTROLLED_STOP_DEADLINE_TEST",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS08",
+      "statement": "Interruption and accelerated timeout retain reaping for actual profile-selected sandboxes.",
+      "tests": [
+        "dev.allow.backend.FreshTier1SafetyTest#bothProfilesReapAfterInterruption",
+        "dev.allow.backend.FreshTier1SafetyTest#bothProfilesReapAfterAcceleratedDeadline"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "REAL_SANDBOX_FAILURE_TEST_ACCELERATED_CASE_SEPARATE",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS09",
+      "statement": "Input2097151 bytes reaches a worker;2097152/2097153 reject before launch under the actual DocumentWorker API.",
+      "tests": [
+        "dev.allow.backend.FreshTier1SafetyTest#bothProfilesPreserveExactPrivateInputBoundary"
+      ],
+      "profiles": [
+        "F0",
+        "F1"
+      ],
+      "classification": "EXACT_PRIVATE_INPUT_BOUNDARY_TEST",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS10",
+      "statement": "Shared FrameProcess stdout1048576/1048577/1048578 and stderr32767/32768/32769 boundaries and trailing-output denial.",
+      "tests": [
+        "dev.allow.backend.FreshTier1SafetyTest#sharedTransportPreservesExactOutputBoundary",
+        "dev.allow.backend.FreshTier1SafetyTest#sharedTransportPreservesExactStderrBoundary",
+        "dev.allow.backend.FreshTier1SafetyTest#sharedTransportRejectsTrailingOutput"
+      ],
+      "profiles": [
+        "SHARED_UNCHANGED_TRANSPORT"
+      ],
+      "classification": "AUTHORED_CAT_PYTHON_FIXTURES_NOT_ACTUAL_JVM_GENERATED_BOUNDARY_OUTPUT",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS11",
+      "statement": "Existing identity-capture failure and interrupted recovery reap before returning truthful recovery evidence.",
+      "tests": [
+        "dev.allow.backend.DocumentWorkerLifecycleTest#reapsBeforeReturningUnidentifiedChildProof",
+        "dev.allow.backend.DocumentWorkerLifecycleTest#interruptedIdentityFailureStillReaps"
+      ],
+      "profiles": [
+        "DEFAULT_TEST_SEAM"
+      ],
+      "classification": "EXISTING_PROCESS_FIXTURE_NOT_BOTH_PROFILE_LAUNCH",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    },
+    {
+      "id": "FTS12",
+      "statement": "Authored bounded eight-node SAT/UNSAT models preserve actual default WorkerMain solver outcomes and reap.",
+      "tests": [
+        "dev.allow.backend.FreshTier1SolverBaselineTest#defaultSolverHandlesBoundedSatWorkload",
+        "dev.allow.backend.FreshTier1SolverBaselineTest#defaultSolverHandlesBoundedUnsatWorkload"
+      ],
+      "profiles": [
+        "DEFAULT_SOLVER_ONLY"
+      ],
+      "classification": "FINITE_SOLVER_BASELINE_NOT_F1_SOLVER_OPTIMIZATION",
+      "status": "DEVELOPMENT_TEST_PASSED_NOT_REGISTERED_CLOSURE"
+    }
+  ],
+  "uncovered": [
+    "Full F0/F1 response equivalence over frozen constructor/source/history corpus is owned by registered semantic runner, not these tests.",
+    "Actual worker-generated output precisely at1MiB boundaries is not produced here; exact unchanged transport boundaries use authored pipe/output fixtures.",
+    "Host SIGKILL/process-tree/cgroup cleanup, quota enforcement and whole-stack performance remain separate runtime obligations.",
+    "Current tests are development evidence until exact source/tool/fixtures/verifier bindings are frozen; do not reuse mutable report metadata as registered closure.",
+    "F1 cannot revalidate through production DocumentWorker; gate-only probe must measure REVALIDATE effects without changing production guard."
+  ]
+}

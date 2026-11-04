@@ -1,0 +1,2 @@
+pass_iff (run : Run) (valid : Bool) (p95Micros : Nat) :
+  classify run valid p95Micros = Classification.pass ↔ complete run ∧ valid = true ∧ p95Micros < 50000

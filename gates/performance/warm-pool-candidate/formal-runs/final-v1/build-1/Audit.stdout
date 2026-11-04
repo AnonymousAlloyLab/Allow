@@ -1,0 +1,161 @@
+@Allow.WarmPool.local_preserves_safety : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.WorkerSafe s → Allow.WarmPool.LocalStep now event s peer t → Allow.WarmPool.WorkerSafe t
+'Allow.WarmPool.local_preserves_safety' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.local_preserves_standby_bound : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned s) (Allow.WarmPool.unassigned peer)) 1 →
+    Allow.WarmPool.LocalStep now event s peer t →
+      LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned t) (Allow.WarmPool.unassigned peer)) 1
+'Allow.WarmPool.local_preserves_standby_bound' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.local_preserves_active_bound : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.WorkerSafe s →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active s) (Allow.WarmPool.active peer)) 1 →
+      Allow.WarmPool.LocalStep now event s peer t →
+        LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active t) (Allow.WarmPool.active peer)) 1
+'Allow.WarmPool.local_preserves_active_bound' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.local_slot_unchanged : ∀ {now : Nat} {event : Allow.WarmPool.Event} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now event s peer t → Eq.{1} t.owner.slot s.owner.slot
+'Allow.WarmPool.local_slot_unchanged' depends on axioms: [propext]
+@Allow.WarmPool.step_preserves_safety : ∀ {p q : Allow.WarmPool.Pool},
+  Allow.WarmPool.Safe p → Allow.WarmPool.Step p q → Allow.WarmPool.Safe q
+'Allow.WarmPool.step_preserves_safety' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.reachable_safety : ∀ {p : Allow.WarmPool.Pool}, Allow.WarmPool.Reachable p → Allow.WarmPool.Safe p
+'Allow.WarmPool.reachable_safety' depends on axioms: [propext, Quot.sound.{u}]
+Allow.WarmPool.two_live_reservations : ∀ (p : Allow.WarmPool.Pool),
+  LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.occupied p.first) (Allow.WarmPool.occupied p.second)) 2
+'Allow.WarmPool.two_live_reservations' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.at_most_one_unassigned : ∀ {p : Allow.WarmPool.Pool},
+  Allow.WarmPool.Reachable p →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned p.first) (Allow.WarmPool.unassigned p.second)) 1
+'Allow.WarmPool.at_most_one_unassigned' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.at_most_one_assigned : ∀ {p : Allow.WarmPool.Pool},
+  Allow.WarmPool.Reachable p →
+    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active p.first) (Allow.WarmPool.active p.second)) 1
+'Allow.WarmPool.at_most_one_assigned' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.distinct_slot_owners : ∀ {p : Allow.WarmPool.Pool},
+  Allow.WarmPool.Reachable p → Ne.{1} p.first.owner p.second.owner
+'Allow.WarmPool.distinct_slot_owners' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.first_request_count_order : ∀ {p : Allow.WarmPool.Pool},
+  Allow.WarmPool.Reachable p →
+    LE.le.{0} p.first.delivered p.first.staged ∧
+      LE.le.{0} p.first.staged p.first.consumed ∧ LE.le.{0} p.first.consumed 1
+'Allow.WarmPool.first_request_count_order' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.second_request_count_order : ∀ {p : Allow.WarmPool.Pool},
+  Allow.WarmPool.Reachable p →
+    LE.le.{0} p.second.delivered p.second.staged ∧
+      LE.le.{0} p.second.staged p.second.consumed ∧ LE.le.{0} p.second.consumed 1
+'Allow.WarmPool.second_request_count_order' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.WarmPool.no_busy_to_ready : ∀ {now : Nat} {event : Allow.WarmPool.Event} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now event s peer t →
+    Eq.{1} s.phase Allow.WarmPool.Phase.busy → Ne.{1} t.phase Allow.WarmPool.Phase.ready
+'Allow.WarmPool.no_busy_to_ready' depends on axioms: [propext]
+@Allow.WarmPool.release_requires_cleanup : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.release s peer t →
+    Eq.{1} s.phase Allow.WarmPool.Phase.reaped ∧ Eq.{1} s.cleanup true
+'Allow.WarmPool.release_requires_cleanup' depends on axioms: [propext]
+Allow.WarmPool.stale_release_rejected : ∀ (s : Allow.WarmPool.Worker) (identity : Allow.WarmPool.Owner),
+  Ne.{1} identity s.owner → Eq.{1} (Allow.WarmPool.releaseOwned s identity) none.{0}
+'Allow.WarmPool.stale_release_rejected' depends on axioms: [propext]
+@Allow.WarmPool.owned_release_refines_step : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker}
+  {identity : Allow.WarmPool.Owner},
+  Eq.{1} (Allow.WarmPool.releaseOwned s identity) (some.{0} t) →
+    Allow.WarmPool.LocalStep now Allow.WarmPool.Event.release s peer t
+'Allow.WarmPool.owned_release_refines_step' depends on axioms: [propext]
+@Allow.WarmPool.no_spawn_requires_never_attempted : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.noSpawn s peer t → Eq.{1} s.attempted false
+'Allow.WarmPool.no_spawn_requires_never_attempted' depends on axioms: [propext]
+@Allow.WarmPool.attempted_cannot_use_no_spawn : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Eq.{1} s.attempted true → ¬Allow.WarmPool.LocalStep now Allow.WarmPool.Event.noSpawn s peer t
+'Allow.WarmPool.attempted_cannot_use_no_spawn' depends on axioms: [propext]
+@Allow.WarmPool.publish_requires_exit_fence_and_time : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.publish s peer t →
+    Eq.{1} s.phase Allow.WarmPool.Phase.reaped ∧
+      Eq.{1} s.cleanup true ∧ Eq.{1} s.finalFence true ∧ Eq.{1} s.poisoned false ∧ LT.lt.{0} now s.requestDeadline
+'Allow.WarmPool.publish_requires_exit_fence_and_time' depends on axioms: [propext]
+@Allow.WarmPool.poison_prevents_publication : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Eq.{1} s.poisoned true → ¬Allow.WarmPool.LocalStep now Allow.WarmPool.Event.publish s peer t
+'Allow.WarmPool.poison_prevents_publication' depends on axioms: [propext]
+@Allow.WarmPool.poison_sticky_same_generation : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now event s peer t →
+    Eq.{1} s.poisoned true → Eq.{1} t.owner.generation s.owner.generation → Eq.{1} t.poisoned true
+'Allow.WarmPool.poison_sticky_same_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.WarmPool.attempted_sticky_same_generation : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now event s peer t →
+    Eq.{1} s.attempted true → Eq.{1} t.owner.generation s.owner.generation → Eq.{1} t.attempted true
+'Allow.WarmPool.attempted_sticky_same_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.WarmPool.consumption_monotone_same_generation : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now event s peer t →
+    Eq.{1} t.owner.generation s.owner.generation → LE.le.{0} s.consumed t.consumed
+'Allow.WarmPool.consumption_monotone_same_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.WarmPool.generation_changes_only_on_vacant_reservation : ∀ {now : Nat} {event : Allow.WarmPool.Event}
+  {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now event s peer t →
+    Ne.{1} t.owner.generation s.owner.generation →
+      (Eq.{1} event Allow.WarmPool.Event.reserve ∨ Eq.{1} event Allow.WarmPool.Event.freshReserve) ∧
+        Eq.{1} s.phase Allow.WarmPool.Phase.vacant ∧
+          Eq.{1} t.owner.generation (HAdd.hAdd.{0, 0, 0} s.owner.generation 1)
+'Allow.WarmPool.generation_changes_only_on_vacant_reservation' depends on axioms: [propext]
+@Allow.WarmPool.startup_deadline_checked : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.ready s peer t → LT.lt.{0} now s.startDeadline
+'Allow.WarmPool.startup_deadline_checked' depends on axioms: [propext]
+@Allow.WarmPool.idle_deadline_checked : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.handoff s peer t → LT.lt.{0} now s.idleDeadline
+'Allow.WarmPool.idle_deadline_checked' depends on axioms: [propext]
+@Allow.WarmPool.handoff_sets_clean_context : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.handoff s peer t →
+    Eq.{1} t.contextClean true ∧ LT.lt.{0} now t.requestDeadline
+'Allow.WarmPool.handoff_sets_clean_context' depends on axioms: [propext]
+@Allow.WarmPool.admission_deadline_not_reset : ∀ {now : Nat} {s peer t : Allow.WarmPool.Worker},
+  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.handoff s peer t →
+    Exists.{1} fun receipt =>
+      Eq.{1} receipt.clean true ∧
+        Eq.{1} receipt.successPermitted true ∧
+          Eq.{1} receipt.requestNonce t.requestNonce ∧
+            Eq.{1} t.requestDeadline (HAdd.hAdd.{0, 0, 0} receipt.admittedAt 10000) ∧ LE.le.{0} receipt.admittedAt now
+'Allow.WarmPool.admission_deadline_not_reset' depends on axioms: [propext]
+@Allow.WarmPool.shutdown_is_absorbing : ∀ {p q : Allow.WarmPool.Pool},
+  Allow.WarmPool.Step p q → Eq.{1} p.online false → Eq.{1} q.online false
+'Allow.WarmPool.shutdown_is_absorbing' depends on axioms: [propext]
+Allow.WarmPool.shutdown_forbids_publish : ∀ (p : Allow.WarmPool.Pool),
+  Eq.{1} p.online false → ¬(Eq.{1} p.online true ∨ Allow.WarmPool.afterCrash Allow.WarmPool.Event.publish)
+'Allow.WarmPool.shutdown_forbids_publish' depends on axioms: [propext]
+@Allow.WarmPool.offline_step_preserves_delivery : ∀ {p q : Allow.WarmPool.Pool},
+  Allow.WarmPool.Step p q →
+    Eq.{1} p.online false → Eq.{1} q.first.delivered p.first.delivered ∧ Eq.{1} q.second.delivered p.second.delivered
+'Allow.WarmPool.offline_step_preserves_delivery' depends on axioms: [propext]
+Allow.WarmPool.time_does_not_release : ∀ (p : Allow.WarmPool.Pool) (later : Nat),
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (Allow.WarmPool.occupied
+        { first := p.first, second := p.second, now := later, online := p.online, durable := p.durable }.first)
+      (Allow.WarmPool.occupied
+        { first := p.first, second := p.second, now := later, online := p.online, durable := p.durable }.second))
+    (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.occupied p.first) (Allow.WarmPool.occupied p.second))
+'Allow.WarmPool.time_does_not_release' does not depend on any axioms
+@Allow.WarmPool.advisory_preserves_durable : ∀ {p q : Allow.WarmPool.Pool},
+  Allow.WarmPool.Step p q → Eq.{1} q.durable p.durable
+'Allow.WarmPool.advisory_preserves_durable' depends on axioms: [propext]
+Allow.WarmPool.successful_one_use_witness : Exists.{1} fun p =>
+  Allow.WarmPool.Reachable p ∧
+    Eq.{1} p.first.delivered 1 ∧ Eq.{1} p.first.cleanup true ∧ Eq.{1} p.first.contextClean true
+'Allow.WarmPool.successful_one_use_witness' depends on axioms: [propext]
+Allow.WarmPool.cancellation_after_fence_witness : Exists.{1} fun p =>
+  Allow.WarmPool.Reachable p ∧
+    Eq.{1} p.first.phase Allow.WarmPool.Phase.reaped ∧
+      Eq.{1} p.first.finalFence true ∧
+        Eq.{1} p.first.poisoned true ∧
+          Eq.{1} p.first.delivered 0 ∧
+            ∀ (t : Allow.WarmPool.Worker),
+              ¬Allow.WarmPool.LocalStep p.now Allow.WarmPool.Event.publish p.first p.second t
+'Allow.WarmPool.cancellation_after_fence_witness' depends on axioms: [propext]
+Allow.WarmPool.ready_and_fresh_coexist_witness : Exists.{1} fun p =>
+  Allow.WarmPool.Reachable p ∧
+    Eq.{1} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.occupied p.first) (Allow.WarmPool.occupied p.second)) 2 ∧
+      Eq.{1} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned p.first) (Allow.WarmPool.unassigned p.second)) 1 ∧
+        Eq.{1} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active p.first) (Allow.WarmPool.active p.second)) 1
+'Allow.WarmPool.ready_and_fresh_coexist_witness' depends on axioms: [propext]

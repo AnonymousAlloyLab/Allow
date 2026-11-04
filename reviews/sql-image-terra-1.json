@@ -1,0 +1,25 @@
+{
+  "reviewer": "terra-1",
+  "decision": "REQUEST_CHANGES",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "c415800433f00480506fb44b9e256e01e97c3da3f6393ddf7437dffa7f0cb25d",
+    "gates/sql/immutable-image-candidate/contract.md": "19316bc6140a4c47fe7dd0f835e4581f50254945fe8b1d2c8ea1cfe2be2241a9",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "73f634b039ffdb0092f2f8214d2a4aa696d5c71baeb07eac9ba812915ddfeca8"
+  },
+  "scope": "Draft plan review only; no runtime or formal execution. Existing claims remain conditional on their original assumptions and do not preserve the overridden revision 6 live-path policy.",
+  "findings": [
+    {
+      "id": "T1-01",
+      "severity": "high",
+      "location": "contract.md initialization and runtime-test-plan IM01-IM03, IM30",
+      "problem": "Copying in bounded chunks does not bound the total bytes copied. A replaced, concurrently growing, special, or oversized source can keep the copy running or consume arbitrary memfd/system memory before the post-copy size check. Resource exhaustion is required to deny but that alone does not provide a bounded operation or preserve service resources.",
+      "required_fix": "Require a regular-file source if compatible with the intended deployment; enforce a hard total copy limit derived from the immutable expected size, detect early EOF and one-byte excess, bound initialization time, and close every source/image/temporary descriptor on all failures before publishing state. Do not trust fstat alone under mutation. Add oversized, growing, truncated, nonregular and timeout/failure-cleanup tests, including no partially published cache/gate state."
+    }
+  ],
+  "notes": [
+    "The explicit revision 7 restart-only disk check is a genuine policy change; the seven abstract conditional propositions and retained model claims do not prove current-path tamper detection.",
+    "The execution object, descriptor lifetime, prlimit/procfs inheritance, seal checks and dynamic libraries remain runtime and platform trust obligations; the planned tests must establish only their finite observed behavior."
+  ]
+}

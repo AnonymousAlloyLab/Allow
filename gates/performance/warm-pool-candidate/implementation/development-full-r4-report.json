@@ -1,0 +1,423 @@
+{
+  "status": "PASS",
+  "classification": "DEVELOPMENT_TESTED_NOT_RUNTIME_ACCEPTANCE",
+  "counts": {
+    "tests": 307,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "command": "mvn -B -o verify",
+  "exit_code": 0,
+  "source_manifest": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/development-full-r4.json",
+    "sha256": "788c8046dbe6e50d460509aa023838e7771f0d8b58adaad1e445653aa95b16f8"
+  },
+  "log": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/development-full-r4.log",
+    "sha256": "e52f5040f72f0576d9d787caa34ddaacd6b12f7acfe6cb616ff0382252f3bb12"
+  },
+  "suites": [
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.BuildIdentityTest.xml",
+      "sha256": "7d8370b75c71e826ce949c04c9fd63235c25d05844d8af5c40ca08b6a06c0ebc",
+      "name": "dev.allow.backend.BuildIdentityTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentBoundaryTest.xml",
+      "sha256": "139747ff7d0a28c883a7203ac83f35f867e95512df8b7d736b6faa7d7793ff1a",
+      "name": "dev.allow.backend.DocumentBoundaryTest",
+      "tests": 9,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentContextTransportTest.xml",
+      "sha256": "bb13f0444a2ea18e1f68246251c7708d91a7cfe147c58b096f8a76ff807713f5",
+      "name": "dev.allow.backend.DocumentContextTransportTest",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentMutationCoordinatorTest.xml",
+      "sha256": "50027f06167d480f53f67b46b0261a96d8227c5e943b3101e5da7c24974873ba",
+      "name": "dev.allow.backend.DocumentMutationCoordinatorTest",
+      "tests": 10,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentValidationContextTest.xml",
+      "sha256": "225ebd051f6b5b66406a1eed0bb73e73835af59dc4db027d8457ae013f729654",
+      "name": "dev.allow.backend.DocumentValidationContextTest",
+      "tests": 15,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentWorkerLifecycleTest.xml",
+      "sha256": "fad4d2893d7d48272b4b398959240eae1bbfea594d0f200c86a61a2174737503",
+      "name": "dev.allow.backend.DocumentWorkerLifecycleTest",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.FreshTier1DeadlineTest.xml",
+      "sha256": "c96cb192c58a027961cf41f31d05323f46388f44c3bc6372327ff0fe3eeb8af4",
+      "name": "dev.allow.backend.FreshTier1DeadlineTest",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.FreshTier1SafetyTest.xml",
+      "sha256": "51ff371f9641ba2ee20e8766f96fb12281635adde73f9dce342e00c98f97bda5",
+      "name": "dev.allow.backend.FreshTier1SafetyTest",
+      "tests": 7,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.FreshTier1SolverBaselineTest.xml",
+      "sha256": "0c8626bcb2e88c944b8c468488e86056a95ac05cbc4347ec0ceb7c89da0ec759",
+      "name": "dev.allow.backend.FreshTier1SolverBaselineTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.HttpBoundaryTest.xml",
+      "sha256": "47100f1df9d336a96577e897c02b5db8ad39d926e8389acb28d2d93d56eb5e50",
+      "name": "dev.allow.backend.HttpBoundaryTest",
+      "tests": 7,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.JobServiceTest.xml",
+      "sha256": "70082649ed93718ac5f34145807103fd33c3ed443629ee8300c55b8dcdab41ef",
+      "name": "dev.allow.backend.JobServiceTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.OwnedWorkerRecoveryTest.xml",
+      "sha256": "3f333323ba5477c33d9f4d1779d5819874d8ec681c8d8d47881b71850bc12e39",
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.ProcessRunnerTest.xml",
+      "sha256": "e8bdfbde7a0e508a8fedef7dab5ecca45eaabf6d7bc0224e1ae8d86561288dd9",
+      "name": "dev.allow.backend.ProcessRunnerTest",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.SandboxBoundaryTest.xml",
+      "sha256": "2c034deafefecf0f0182aae395dc5139ed76fccc290cbb82c8720959b8cf4ac3",
+      "name": "dev.allow.backend.SandboxBoundaryTest",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmAdmissionDeadlineTest.xml",
+      "sha256": "0969f3191d7031c54ea0e47f669396a32fe301b939f650bfc9dee3e6015c321f",
+      "name": "dev.allow.backend.WarmAdmissionDeadlineTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+      "sha256": "55efd28d55ec42177420466768116636bd19835fb3422c13a2241b7b096dd055",
+      "name": "dev.allow.backend.WarmContextPermitTest",
+      "tests": 6,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "sha256": "59da3cb1b5f75f17c623d2ca09b231de8f7b177b686898964ac90bc27db16dcf",
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": 16,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmDeadlineTest.xml",
+      "sha256": "75d0cb6a51b10276fc2bc974cc75ac4938c9ab842537b60a6df700b0a6e2304c",
+      "name": "dev.allow.backend.WarmDeadlineTest",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmGatewayDeadlineTest.xml",
+      "sha256": "f7363facb6a5e015d1274de20a3e4dba310d8f46a37f7d9c20f1a4336aa170fe",
+      "name": "dev.allow.backend.WarmGatewayDeadlineTest",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmPoolShutdownTest.xml",
+      "sha256": "c378f3643299a7bfb8c50255a3e4e822d3a8c1cbe68794510c69a140f9884e60",
+      "name": "dev.allow.backend.WarmPoolShutdownTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "sha256": "d60190f94304a0e9a4ce5445061baad1d1ccf1d5c61b8d2400a5288b73f38a46",
+      "name": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "tests": 8,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmSemanticProtocolTest.xml",
+      "sha256": "7c652f1aac5286dd9946950d500b346844f595bc0bf7d3825824ada7bbfe6099",
+      "name": "dev.allow.backend.WarmSemanticProtocolTest",
+      "tests": 5,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "sha256": "1d3f6b6bd556ab16cb2253be7ca44c76034b4a826fa607fb52e204aa0fbed8ce",
+      "name": "dev.allow.backend.WarmTransportTest",
+      "tests": 15,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerCreationFailureTest.xml",
+      "sha256": "d34c88bfceec6db48a0cb78e56d7b5bf63315e963b037cd8d2381518913a059c",
+      "name": "dev.allow.backend.WorkerCreationFailureTest",
+      "tests": 8,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+      "sha256": "500f6f39195dd967ec4f7e61a7c0efc47f17d285e1ce0e8a73c32df2cbf38a36",
+      "name": "dev.allow.backend.WorkerIntegrationTest",
+      "tests": 7,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "sha256": "356c9727e4c972fcfde4a1a6959ebb175ffecfb8a7af86cc7de0703959e7f56a",
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": 15,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+      "sha256": "3b188089af1da217f6f5c52bff38a5f00a849b5ed577d29b96cf023a0cb3e77e",
+      "name": "dev.allow.backend.WorkerLaunchProfileTest",
+      "tests": 8,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "sha256": "bc1fdf253533d14a48104de25215bb1ce2b405deff9e1c0d1ab4f451b29fe9d0",
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": 6,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.canonical.CanonicalizerTest.xml",
+      "sha256": "e1e162b2f7252c14017e58097ce084639cd85ccbb7ca63985bed03e742ab7651",
+      "name": "dev.allow.canonical.CanonicalizerTest",
+      "tests": 11,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.canonical.IslandAdapterTest.xml",
+      "sha256": "d37169a1bab55c5a75cfd6d1390251238176f49b466bfe0420cf7028c29ca50b",
+      "name": "dev.allow.canonical.IslandAdapterTest",
+      "tests": 10,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.canonical.SlotBoundaryTest.xml",
+      "sha256": "39d0a1d9a9b58d53ef851a67496f1f1436064ad605cc0f3e3433b75fd734c18b",
+      "name": "dev.allow.canonical.SlotBoundaryTest",
+      "tests": 6,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.corpus.CorpusEngineTest.xml",
+      "sha256": "82f250682094b67b720edd38784003f6db4d120d1f0beeba458277ac2224d762",
+      "name": "dev.allow.corpus.CorpusEngineTest",
+      "tests": 10,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.document.AlloySemanticsTest.xml",
+      "sha256": "f045aeb448a8f98699457ebed15b2e77013b75eaa936d497d318de8089ea1f15",
+      "name": "dev.allow.document.AlloySemanticsTest",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.document.AssociativityTest.xml",
+      "sha256": "8a0dfb2465001d483673573e992bcb29714207f2ea7a8179ad8dde58af5fd6b5",
+      "name": "dev.allow.document.AssociativityTest",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.document.DocumentTypeAgreementTest.xml",
+      "sha256": "ed397ce5955354615689e7270e81f33e2799816039e073372e49253d3c5b3608",
+      "name": "dev.allow.document.DocumentTypeAgreementTest",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.document.ModuleCheckerTest.xml",
+      "sha256": "f45da3dc084cd44f5f1c8a37a4918f281c609d068ef1b7b855e68f30537fcc59",
+      "name": "dev.allow.document.ModuleCheckerTest",
+      "tests": 55,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.egraph.CertificateSliceTest.xml",
+      "sha256": "5005d7cad14fe030b26847dd3e4d854183db928429918eefc1978327db528db0",
+      "name": "dev.allow.egraph.CertificateSliceTest",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.egraph.EGraphEngineTest.xml",
+      "sha256": "9e7403020c91b0b073d9e0ba46d5743f98653220c67fd3b92bcf787428053849",
+      "name": "dev.allow.egraph.EGraphEngineTest",
+      "tests": 9,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.egraph.EGraphMechanicsTest.xml",
+      "sha256": "af1c2cefc4243e17c1873029007fa9dfe97541f7386fc22f707a651beb3155e7",
+      "name": "dev.allow.egraph.EGraphMechanicsTest",
+      "tests": 6,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.egraph.RuleCatalogTest.xml",
+      "sha256": "98df0564bedec5472bed3e070406a94f9ee1a8a202f12dc7c075f66b1f78a6ba",
+      "name": "dev.allow.egraph.RuleCatalogTest",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.worker.JsonWireEGraphTest.xml",
+      "sha256": "88b8d168187e2ef80b7e3969ce44334a2a725f01ecc0a0a4ce9d171b800d08b8",
+      "name": "dev.allow.worker.JsonWireEGraphTest",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.worker.JsonWireStrictTest.xml",
+      "sha256": "54a5a5c15a1165a48e6fb88980d30fdc15abe1e1d02c218510ab65d0e9bb6b2a",
+      "name": "dev.allow.worker.JsonWireStrictTest",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.worker.SourcePolicyTest.xml",
+      "sha256": "1bf32b17dc9405055a1054c1465ef0ef916ce75a02a37cd7a17c385d873c1741",
+      "name": "dev.allow.worker.SourcePolicyTest",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    {
+      "file": "/tmp/allow-warm-full-r4-3ghq8iby/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+      "sha256": "51190aa715603c35a0c7bdb1ecee4f080b7c3e3a7406ee8207643778f6f6ed90",
+      "name": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "tests": 6,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    }
+  ],
+  "limitations": [
+    "No selected-runtime SQL or performance acceptance",
+    "WarmRuntime compile-time selection remains false",
+    "Later mutations require new source-bound evidence"
+  ]
+}

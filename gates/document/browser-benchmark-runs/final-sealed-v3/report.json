@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "classification": "FINITE_ACTUAL_BROWSER_WARM_PREVIEW_ONLY",
+  "timestamp_utc": "2026-11-03T21:21:26.887375+00:00",
+  "verifier_sha256": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+  "protocol_sha256": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+  "cold_series": "NOT_CONDUCTED",
+  "limitations": [
+    "Hashed harness assertions and browser records are trusted runtime test evidence, not a formal implementation refinement.",
+    "Two sequential animation callbacks do not establish physical display paint.",
+    "Server-host CPU/RAM is recorded separately; browser hardware affinity is not attested.",
+    "No cold-start, authoritative diagnostics, manual accessibility, complete G2/G3 or commercial acceptance claim."
+  ],
+  "nodes": 500,
+  "warmup_events": 100,
+  "measured_events": 1000,
+  "p50_ms": 11.599999997764826,
+  "p95_ms": 12.400000002235174,
+  "p99_ms": 12.600000001490116,
+  "target_p95_ms": 50,
+  "source_unchanged": true,
+  "static_restored": true,
+  "input_root_sha256": "445d1493058fefac8bc3ff7fc965d76076a6a3eb7670299f30283845df0029bd",
+  "evidence_sha256": {
+    "browser-result.json": "2ce953e3233322ee2d456a81060d45e703c27993d2618a4177c75da9732e789e",
+    "build-evidence/DocumentWorkbench.diff": "25623192ff79683581f831f0bfa69bb6e5146def0be718688c5585859c6da930",
+    "build-evidence/DocumentWorkbench.original.txt": "8cc7349e3665e7e0b1fa1d3dff4c0f3b430ae6e74a22a2a68a0d2268feba445c",
+    "build-evidence/DocumentWorkbench.transformed.txt": "04ad62bbe12b9ee57bcc748e06d435220e54019e87d20ff0a1d35b618a8f0e2a",
+    "build-evidence/asset-manifest.json": "6016844a76e3d524d9410b3062512ce1927a595fe7882ced2efd849348eaee31",
+    "build-evidence/hashes.json": "5a6d42864af3ce2bb08b3a30114d2ba635409fa4073ab2267d096e69fba139d8",
+    "harness-manifest.json": "08e6591e04c6c6b8bf43d787cfec0118c84d36e2667ffb0827201013f9fbd95a",
+    "host.json": "c44eda956481a033bf3a1383b071af9589f5d88015b8b53c06c0533006f058d3",
+    "installation.json": "0934612085e1bd1d4a26b5eca78b811749a62146fb57719a26442d8a6283acb7",
+    "protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "registered-verifier.py": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+    "restoration.json": "36972a3a4be89906e0d33693e8defcf51eb903877e17bf315e4ebe6c735ba357",
+    "run-registration.json": "87de52798bf7569d5ce6a328e0132287da6f887752a74ab34d366efa34f5c0c6",
+    "source-manifest.json": "a6ec5eda54be2c8e6e613171fada8e4c3c76e9b599433999bb43cac5a48db8f5",
+    "workbench.png": "1e0b53a4866a89dceda7164d5b385046f353de636f7815d61061d20cb128875b"
+  }
+}

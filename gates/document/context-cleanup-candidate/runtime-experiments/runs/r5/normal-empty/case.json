@@ -1,0 +1,61 @@
+{
+  "claim_id": "CC05",
+  "subcase": "normal-empty",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r5",
+  "input_root_sha256": "e913b443cd72b7ef16533673d4c4a0e2515cbf0fcb7665c3b9bcd2eee0a3cc14",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "427951965b3572bf80619d40546dfd9ca38829cf115b38a8ff4696586ab1a14f",
+  "expected_predicate": "Original exact nonce-bound5-field context with empty inventory, exit0, independently observed backend absence, all7 document-table hashes unchanged.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 224.706722,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-x7krdms7/.tools/retrieval-venv/bin/python",
+      "-m",
+      "allow_documents.cli"
+    ],
+    "fixture_sha256": "fd3ccb6605d89f0c4e5d290153d7b1b038d66a9fe597816e9c79c65ada601f02",
+    "stdout_sha256": "7ec0b16a749dbf40ac9699551c049518d50dfff8383f17d4ee43bebddc4b4c50",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62001699668032
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62001703840182
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62001705913743
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 62001840526513
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true,
+  "mechanism_predicate": true
+}

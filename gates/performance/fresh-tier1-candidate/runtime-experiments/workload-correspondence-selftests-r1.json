@@ -1,0 +1,27 @@
+{
+  "id": "ALLOW-WORKLOAD-CORRESPONDENCE-SELFTESTS-R1",
+  "created_utc": "2026-11-04T06:36:26.628473+00:00",
+  "status": "PASS",
+  "test_methods": 12,
+  "exit_code": 0,
+  "scope": "Offline finite adversarial tests only; no service launch, no timing acceptance.",
+  "files": [
+    {
+      "path": "workload_correspondence.py",
+      "sha256": "b18f3d481e701b751afb827f15c8c7ece39f7ae33f3921bbee42efc63bb44ad8"
+    },
+    {
+      "path": "test_workload_correspondence.py",
+      "sha256": "10e5d817f4128c597315e1a513107805aafd425a9bad27b072422b776fce2b89"
+    },
+    {
+      "path": "compare_responses.py",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf"
+    }
+  ],
+  "fixture": {
+    "path": "gates/document/headless-preview-fixture.json",
+    "sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c"
+  },
+  "log_sha256": "e04afef3526987037dbfdba1d170ccf813a1034a7338913d2ac05f7ae99c402d"
+}

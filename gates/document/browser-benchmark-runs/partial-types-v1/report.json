@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "classification": "ACTUAL_BROWSER_WARM_PREVIEW_POST_PARTIAL_TYPES",
+  "measured_events": 1000,
+  "warmup_events": 100,
+  "nodes": 500,
+  "p50_ms": 11.600000001490116,
+  "p95_ms": 12.5,
+  "p99_ms": 12.799999997019768,
+  "target_p95_ms": 50,
+  "input_root_sha256": "8afd4477c64e3b17b3b06c62da99b097fec08d6c591e884b63b312f41ec661e7",
+  "source_unchanged": true,
+  "static_restored": true,
+  "raw_result_sha256": "32fe169b286dc803dc2bb683c21711f875d943e5bc0bf05f281d1d2ad8895ea6",
+  "timestamp_utc": "2026-11-03T20:49:05.620340+00:00",
+  "cold_series": "NOT_CONDUCTED",
+  "server_lifecycle": "Test assets installed before a fresh server launch; server stopped before exact restoration.",
+  "known_type_fix_evidence": "gates/document/browser-evidence/known-type-insertion-fixed.txt",
+  "environment": {
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "viewport": [
+      1194,
+      1260
+    ],
+    "devicePixelRatio": 1,
+    "visibility": "visible",
+    "clock": "performance.now",
+    "workerStartup": "excluded"
+  },
+  "limitations": [
+    "Real controller edits and rendered label checks; two animation callbacks provide frame opportunity, not physical display proof.",
+    "Test-only production bundle instrumentation; original production assets restored unchanged.",
+    "Fixed fixture declaration IDs do not belong to the accepted document; subsequent advisory foreign-identity rejection is outside preview timing.",
+    "No browser hardware affinity attestation, cold-series result, named Firefox/Orca acceptance, complete G2/G3 or commercial release claim."
+  ]
+}

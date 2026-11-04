@@ -1,0 +1,198 @@
+{
+  "classification": "AUTHOR_ELABORATED_TYPES_TO_BE_FROZEN_BEFORE_FINAL_VERIFICATION",
+  "lean": "4.34.1",
+  "claims": [
+    {
+      "id": "PPM01",
+      "theorem": "Allow.PerformancePlan.step_preserves_invariant",
+      "exact_check_output": "@Allow.PerformancePlan.step_preserves_invariant : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Invariant s \u2192 Allow.PerformancePlan.Step s t \u2192 Allow.PerformancePlan.Invariant t",
+      "exact_axiom_output": "'Allow.PerformancePlan.step_preserves_invariant' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM02",
+      "theorem": "Allow.PerformancePlan.reachable_invariant",
+      "exact_check_output": "@Allow.PerformancePlan.reachable_invariant : \u2200 {durable : Nat} {s : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Reachable durable s \u2192 Allow.PerformancePlan.Invariant s",
+      "exact_axiom_output": "'Allow.PerformancePlan.reachable_invariant' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM03",
+      "theorem": "Allow.PerformancePlan.one_request_per_generation",
+      "exact_check_output": "@Allow.PerformancePlan.one_request_per_generation : \u2200 {durable : Nat} {s : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Reachable durable s \u2192 LE.le.{0} s.consumed 1",
+      "exact_axiom_output": "'Allow.PerformancePlan.one_request_per_generation' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM04",
+      "theorem": "Allow.PerformancePlan.staging_requires_consumption",
+      "exact_check_output": "@Allow.PerformancePlan.staging_requires_consumption : \u2200 {durable : Nat} {s : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Reachable durable s \u2192 LE.le.{0} s.staged s.consumed",
+      "exact_axiom_output": "'Allow.PerformancePlan.staging_requires_consumption' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM05",
+      "theorem": "Allow.PerformancePlan.delivery_requires_staging",
+      "exact_check_output": "@Allow.PerformancePlan.delivery_requires_staging : \u2200 {durable : Nat} {s : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Reachable durable s \u2192 LE.le.{0} s.delivered s.staged",
+      "exact_axiom_output": "'Allow.PerformancePlan.delivery_requires_staging' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM06",
+      "theorem": "Allow.PerformancePlan.ready_is_unconsumed",
+      "exact_check_output": "@Allow.PerformancePlan.ready_is_unconsumed : \u2200 {durable : Nat} {s : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Reachable durable s \u2192 Eq.{1} s.phase Allow.PerformancePlan.Phase.ready \u2192 Eq.{1} s.consumed 0",
+      "exact_axiom_output": "'Allow.PerformancePlan.ready_is_unconsumed' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM07",
+      "theorem": "Allow.PerformancePlan.step_preserves_durable",
+      "exact_check_output": "@Allow.PerformancePlan.step_preserves_durable : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192 Eq.{1} t.durable s.durable",
+      "exact_axiom_output": "'Allow.PerformancePlan.step_preserves_durable' does not depend on any axioms"
+    },
+    {
+      "id": "PPM08",
+      "theorem": "Allow.PerformancePlan.advisory_never_mutates_durable",
+      "exact_check_output": "@Allow.PerformancePlan.advisory_never_mutates_durable : \u2200 {durable : Nat} {s : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Reachable durable s \u2192 Eq.{1} s.durable durable",
+      "exact_axiom_output": "'Allow.PerformancePlan.advisory_never_mutates_durable' does not depend on any axioms"
+    },
+    {
+      "id": "PPM09",
+      "theorem": "Allow.PerformancePlan.retirement_cannot_resume",
+      "exact_check_output": "@Allow.PerformancePlan.retirement_cannot_resume : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192\n    Eq.{1} s.phase Allow.PerformancePlan.Phase.retiring \u2192\n      Eq.{1} t.phase Allow.PerformancePlan.Phase.retiring \u2228 Eq.{1} t.phase Allow.PerformancePlan.Phase.reaped",
+      "exact_axiom_output": "'Allow.PerformancePlan.retirement_cannot_resume' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM10",
+      "theorem": "Allow.PerformancePlan.release_requires_reaping",
+      "exact_check_output": "@Allow.PerformancePlan.release_requires_reaping : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192\n    Eq.{1} t.phase Allow.PerformancePlan.Phase.vacant \u2192 Eq.{1} s.phase Allow.PerformancePlan.Phase.reaped",
+      "exact_axiom_output": "'Allow.PerformancePlan.release_requires_reaping' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM11",
+      "theorem": "Allow.PerformancePlan.staging_requires_busy",
+      "exact_check_output": "@Allow.PerformancePlan.staging_requires_busy : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192 LT.lt.{0} s.staged t.staged \u2192 Eq.{1} s.phase Allow.PerformancePlan.Phase.busy",
+      "exact_axiom_output": "'Allow.PerformancePlan.staging_requires_busy' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM12",
+      "theorem": "Allow.PerformancePlan.delivery_requires_reaped",
+      "exact_check_output": "@Allow.PerformancePlan.delivery_requires_reaped : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192 LT.lt.{0} s.delivered t.delivered \u2192 Eq.{1} s.phase Allow.PerformancePlan.Phase.reaped",
+      "exact_axiom_output": "'Allow.PerformancePlan.delivery_requires_reaped' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM13",
+      "theorem": "Allow.PerformancePlan.poison_sticky_in_generation",
+      "exact_check_output": "@Allow.PerformancePlan.poison_sticky_in_generation : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192 Eq.{1} s.poisoned true \u2192 Eq.{1} t.generation s.generation \u2192 Eq.{1} t.poisoned true",
+      "exact_axiom_output": "'Allow.PerformancePlan.poison_sticky_in_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM14",
+      "theorem": "Allow.PerformancePlan.poison_prevents_delivery_in_generation",
+      "exact_check_output": "@Allow.PerformancePlan.poison_prevents_delivery_in_generation : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192\n    Eq.{1} s.poisoned true \u2192 Eq.{1} t.generation s.generation \u2192 Eq.{1} t.delivered s.delivered",
+      "exact_axiom_output": "'Allow.PerformancePlan.poison_prevents_delivery_in_generation' depends on axioms: [propext,\n Classical.choice.{u},\n Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM15",
+      "theorem": "Allow.PerformancePlan.step_generation_monotone",
+      "exact_check_output": "@Allow.PerformancePlan.step_generation_monotone : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192 LE.le.{0} s.generation t.generation",
+      "exact_axiom_output": "'Allow.PerformancePlan.step_generation_monotone' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM16",
+      "theorem": "Allow.PerformancePlan.trace_generation_monotone",
+      "exact_check_output": "@Allow.PerformancePlan.trace_generation_monotone : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Trace s t \u2192 LE.le.{0} s.generation t.generation",
+      "exact_axiom_output": "'Allow.PerformancePlan.trace_generation_monotone' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM17",
+      "theorem": "Allow.PerformancePlan.poisoned_trace_cannot_deliver",
+      "exact_check_output": "@Allow.PerformancePlan.poisoned_trace_cannot_deliver : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Trace s t \u2192\n    Eq.{1} s.poisoned true \u2192 Eq.{1} t.generation s.generation \u2192 Eq.{1} t.poisoned true \u2227 Eq.{1} t.delivered s.delivered",
+      "exact_axiom_output": "'Allow.PerformancePlan.poisoned_trace_cannot_deliver' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM18",
+      "theorem": "Allow.PerformancePlan.generation_increases_only_at_boot",
+      "exact_check_output": "@Allow.PerformancePlan.generation_increases_only_at_boot : \u2200 {s t : Allow.PerformancePlan.Worker},\n  Allow.PerformancePlan.Step s t \u2192\n    Ne.{1} t.generation s.generation \u2192\n      Eq.{1} s.phase Allow.PerformancePlan.Phase.vacant \u2227 Eq.{1} t.generation (HAdd.hAdd.{0, 0, 0} s.generation 1)",
+      "exact_axiom_output": "'Allow.PerformancePlan.generation_increases_only_at_boot' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM19",
+      "theorem": "Allow.PerformancePlan.stale_generation_rejected",
+      "exact_check_output": "Allow.PerformancePlan.stale_generation_rejected : \u2200 (s : Allow.PerformancePlan.Worker) (responseGeneration : Nat),\n  Ne.{1} responseGeneration s.generation \u2192 Eq.{1} (Allow.PerformancePlan.stageReply s responseGeneration) none.{0}",
+      "exact_axiom_output": "'Allow.PerformancePlan.stale_generation_rejected' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM20",
+      "theorem": "Allow.PerformancePlan.staged_reply_is_guarded_step",
+      "exact_check_output": "@Allow.PerformancePlan.staged_reply_is_guarded_step : \u2200 {s t : Allow.PerformancePlan.Worker} {responseGeneration : Nat},\n  Eq.{1} (Allow.PerformancePlan.stageReply s responseGeneration) (some.{0} t) \u2192 Allow.PerformancePlan.Step s t",
+      "exact_axiom_output": "'Allow.PerformancePlan.staged_reply_is_guarded_step' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM21",
+      "theorem": "Allow.PerformancePlan.cancelled_reply_never_delivered",
+      "exact_check_output": "Allow.PerformancePlan.cancelled_reply_never_delivered : \u2200 (s : Allow.PerformancePlan.Worker) (responseGeneration : Nat),\n  Eq.{1} (Allow.PerformancePlan.deliverReply (Allow.PerformancePlan.cancelState s) responseGeneration) none.{0}",
+      "exact_axiom_output": "'Allow.PerformancePlan.cancelled_reply_never_delivered' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM22",
+      "theorem": "Allow.PerformancePlan.delivered_reply_is_guarded_step",
+      "exact_check_output": "@Allow.PerformancePlan.delivered_reply_is_guarded_step : \u2200 {s t : Allow.PerformancePlan.Worker}\n  {responseGeneration : Nat},\n  Eq.{1} (Allow.PerformancePlan.deliverReply s responseGeneration) (some.{0} t) \u2192 Allow.PerformancePlan.Step s t",
+      "exact_axiom_output": "'Allow.PerformancePlan.delivered_reply_is_guarded_step' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM23",
+      "theorem": "Allow.PerformancePlan.live_pool_bound",
+      "exact_check_output": "Allow.PerformancePlan.live_pool_bound : \u2200 (p : Allow.PerformancePlan.Pool),\n  LE.le.{0} (Allow.PerformancePlan.liveSlots p) 2",
+      "exact_axiom_output": "'Allow.PerformancePlan.live_pool_bound' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM24",
+      "theorem": "Allow.PerformancePlan.idle_warm_occupies_slot",
+      "exact_check_output": "Allow.PerformancePlan.idle_warm_occupies_slot : \u2200 (s : Allow.PerformancePlan.Worker),\n  Eq.{1} s.phase Allow.PerformancePlan.Phase.ready \u2192 Eq.{1} (Allow.PerformancePlan.occupied s) 1",
+      "exact_axiom_output": "'Allow.PerformancePlan.idle_warm_occupies_slot' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM25",
+      "theorem": "Allow.PerformancePlan.timeout_cannot_release",
+      "exact_check_output": "Allow.PerformancePlan.timeout_cannot_release : \u2200 (s : Allow.PerformancePlan.DatabaseLease) (owner : Nat),\n  Eq.{1} (Allow.PerformancePlan.releaseDatabase (Allow.PerformancePlan.timeout s) owner) none.{0}",
+      "exact_axiom_output": "'Allow.PerformancePlan.timeout_cannot_release' depends on axioms: [propext]"
+    },
+    {
+      "id": "PPM26",
+      "theorem": "Allow.PerformancePlan.database_release_requires_observation",
+      "exact_check_output": "@Allow.PerformancePlan.database_release_requires_observation : \u2200 {s t : Allow.PerformancePlan.DatabaseLease}\n  {owner : Nat},\n  Eq.{1} (Allow.PerformancePlan.releaseDatabase s owner) (some.{0} t) \u2192\n    Eq.{1} s.phase Allow.PerformancePlan.DatabasePhase.terminated \u2227 Eq.{1} owner s.ownerGeneration",
+      "exact_axiom_output": "'Allow.PerformancePlan.database_release_requires_observation' does not depend on any axioms"
+    },
+    {
+      "id": "PPM27",
+      "theorem": "Allow.PerformancePlan.timeout_preserves_durable",
+      "exact_check_output": "Allow.PerformancePlan.timeout_preserves_durable : \u2200 (s : Allow.PerformancePlan.DatabaseLease),\n  Eq.{1} (Allow.PerformancePlan.timeout s).durable s.durable",
+      "exact_axiom_output": "'Allow.PerformancePlan.timeout_preserves_durable' does not depend on any axioms"
+    },
+    {
+      "id": "PPM28",
+      "theorem": "Allow.PerformancePlan.acceptance_requires_three_runs",
+      "exact_check_output": "@Allow.PerformancePlan.acceptance_requires_three_runs : \u2200 {runs : List.{0} Allow.PerformancePlan.Run},\n  Allow.PerformancePlan.SeriesPass runs \u2192 GE.ge.{0} (List.length.{0} runs) 3",
+      "exact_axiom_output": "'Allow.PerformancePlan.acceptance_requires_three_runs' does not depend on any axioms"
+    },
+    {
+      "id": "PPM29",
+      "theorem": "Allow.PerformancePlan.every_accepted_run_meets_target",
+      "exact_check_output": "@Allow.PerformancePlan.every_accepted_run_meets_target : \u2200 {runs : List.{0} Allow.PerformancePlan.Run}\n  {r : Allow.PerformancePlan.Run},\n  Allow.PerformancePlan.SeriesPass runs \u2192 Membership.mem.{0, 0} runs r \u2192 LT.lt.{0} r.p95Micros 300000",
+      "exact_axiom_output": "'Allow.PerformancePlan.every_accepted_run_meets_target' does not depend on any axioms"
+    },
+    {
+      "id": "PPM30",
+      "theorem": "Allow.PerformancePlan.observed_slow_run_rejects_series",
+      "exact_check_output": "@Allow.PerformancePlan.observed_slow_run_rejects_series : \u2200 {runs : List.{0} Allow.PerformancePlan.Run}\n  {r : Allow.PerformancePlan.Run},\n  Membership.mem.{0, 0} runs r \u2192 LE.le.{0} 300000 r.p95Micros \u2192 \u00acAllow.PerformancePlan.SeriesPass runs",
+      "exact_axiom_output": "'Allow.PerformancePlan.observed_slow_run_rejects_series' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "PPM31",
+      "theorem": "Allow.PerformancePlan.successful_one_use_witness",
+      "exact_check_output": "Allow.PerformancePlan.successful_one_use_witness : Allow.PerformancePlan.Reachable 42\n  Allow.PerformancePlan.witnessDelivered",
+      "exact_axiom_output": "'Allow.PerformancePlan.successful_one_use_witness' does not depend on any axioms"
+    },
+    {
+      "id": "PPM32",
+      "theorem": "Allow.PerformancePlan.accepted_series_witness",
+      "exact_check_output": "Allow.PerformancePlan.accepted_series_witness : Allow.PerformancePlan.SeriesPass\n  (List.cons.{0} { p95Micros := 200000, failures := 0, measured := 1000, warmups := 100, profileMatches := true }\n    (List.cons.{0} { p95Micros := 210000, failures := 0, measured := 1000, warmups := 100, profileMatches := true }\n      (List.cons.{0} { p95Micros := 220000, failures := 0, measured := 1000, warmups := 100, profileMatches := true }\n        List.nil.{0})))",
+      "exact_axiom_output": "'Allow.PerformancePlan.accepted_series_witness' depends on axioms: [propext, Quot.sound.{u}]"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "published": {
+    "active": 0,
+    "clients": {
+      "allow-app": {
+        "B": 14011,
+        "D": 14011,
+        "E": 14011,
+        "P": 14011,
+        "Q": 5563,
+        "S": 14011,
+        "X": 2655,
+        "accepted": 19574,
+        "auth": 5310,
+        "connections": 2655
+      },
+      "allow-bootstrap": {
+        "Q": 2,
+        "X": 2,
+        "accepted": 2,
+        "auth": 4,
+        "connections": 2
+      },
+      "allow-migration": {
+        "B": 82,
+        "D": 82,
+        "E": 82,
+        "P": 82,
+        "Q": 358,
+        "S": 82,
+        "X": 4,
+        "accepted": 440,
+        "auth": 8,
+        "connections": 4
+      },
+      "allow-pg-dump": {},
+      "allow-pg-restore": {},
+      "allow-proxy-readiness": {
+        "Q": 1,
+        "X": 1,
+        "accepted": 1,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-recovery": {
+        "B": 710,
+        "D": 710,
+        "E": 710,
+        "P": 710,
+        "Q": 268,
+        "S": 710,
+        "X": 88,
+        "accepted": 978,
+        "auth": 176,
+        "connections": 88
+      },
+      "allow-recovery-control": {
+        "Q": 84,
+        "X": 16,
+        "accepted": 84,
+        "auth": 32,
+        "connections": 16
+      },
+      "allow-recovery-dump": {
+        "Q": 332,
+        "X": 4,
+        "accepted": 332,
+        "auth": 8,
+        "connections": 4
+      },
+      "allow-recovery-restore": {
+        "Q": 756,
+        "X": 4,
+        "accepted": 756,
+        "auth": 8,
+        "c": 42,
+        "connections": 4,
+        "d": 138
+      },
+      "allow-tests": {
+        "B": 250,
+        "D": 245,
+        "E": 250,
+        "H": 10,
+        "P": 250,
+        "Q": 1078,
+        "S": 256,
+        "X": 13,
+        "accepted": 1330,
+        "auth": 64,
+        "c": 1,
+        "connections": 32,
+        "d": 1,
+        "parser_category_parserFailure": 2,
+        "parser_category_policyDenied": 9,
+        "parser_reason_invalid_native_statement_name": 2,
+        "parser_reason_native_statement_is_not_sole_top-level_statement": 4,
+        "parser_reason_parser_rejected": 2,
+        "parser_reason_unreviewed_set_config": 2,
+        "parser_reason_unreviewed_setting": 1,
+        "protocol_error": 19,
+        "rejected": 11
+      },
+      "other": {
+        "cancel": 1
+      }
+    },
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "cache_entries": 256,
+      "cache_sql_bytes": 40143,
+      "config_policy": "frozen-until-new-generation",
+      "configuration_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "disk_policy": "restart-check-only",
+      "failure_counts": {
+        "parserFailure": 2,
+        "policyDenied": 9
+      },
+      "generation": 1,
+      "identity_mode": "sealed-image",
+      "lifecycle": "ready",
+      "mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+      "policy": "sql-routing-v7-sealed-image",
+      "postgresql_commit": "f0595c3d839debdb140903621c1b44a4f4d86256",
+      "profile": "postgresql-16.15-grammar-v0.1",
+      "required_seals": 15,
+      "reserved_execution_descriptors": 0,
+      "sealed_bytes": 136492600,
+      "shutdown_complete": false,
+      "snapshot_sha256": "a67fa104458af1032b94da580ecae7c7bd0c4163bdaf584fefa1c20b6051e858",
+      "waiting": 0
+    },
+    "pid": 826907,
+    "started": 1793740356.105792
+  },
+  "identity": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 826907,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+      "retrieval/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "disk_binary_matches_pin": true,
+    "disk_binary_audit_error": null,
+    "disk_identity_scope": "Restart readiness only; live sealed-image identity checked separately"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "reviewer": "astra-1",
+  "requested_model": "gpt-6-astra",
+  "actual_model": "Seat assignment supplied by parent; not independently observable",
+  "phase": "final revision-2 specification and formal-boundary review",
+  "verdict": "ACCEPTED_FOR_IMPLEMENTATION",
+  "scope": "Real egraph architecture, soundness boundary, typed relational rules, certificate replay and commercialization; no production writes or execution tests.",
+  "files_sha256": {
+    "spec/allow-contract.json": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+    "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+    "backend/src/main/java/dev/allow/canonical/SlotRegistry.java": "5d591907ff79825421fa01acc5114c505d4b6abfdebdb75ba74cf87d1fa864ef",
+    "/home/augustus/ACGN/egraph_ablation/semantic_soundness.md": "7be85654fd2e23463994083697babd15fd5394345bb44349e8091b3c9e1e649a",
+    "/home/augustus/ACGN/docs/java-lean-refinement/README.md": "4d8f72cf88ed8d28e090f5fcac68e65fe6a7d59c6945f1d0c77fc8274943393c",
+    "/home/augustus/ACGN/LICENSE": "5993c2b089733d9628d7f5965ee6111abf911c04d272ed02d8f03e2b8139aa2e"
+  },
+  "required_obligations": [
+    {
+      "id": "EG-A1-01",
+      "severity": "HIGH",
+      "requirement": "Every union preserves exact context and complete type/schema; hashcons identity contains closed operator tag, ordered canonical children, type, context and exact opaque payload. Hash equality alone is insufficient.",
+      "negative_cases": [
+        "same-arity distinct nominal schemas",
+        "formula versus integer versus relation",
+        "different contextual atom identities"
+      ]
+    },
+    {
+      "id": "EG-A1-02",
+      "severity": "HIGH",
+      "requirement": "Rebuild iterates parent canonicalization and congruence collisions to fixed point; every collision merge has replayable congruence justification with historical child equality evidence. UF membership is never proof authority.",
+      "negative_cases": [
+        "forged same-root union without certificate",
+        "merge a=b after f(a),f(b) insertion",
+        "two-level f(g(a)),f(g(b)) rebuild cascade"
+      ]
+    },
+    {
+      "id": "EG-A1-03",
+      "severity": "HIGH",
+      "requirement": "Finite rewrite registry distinguishes Boolean from relational/integer operators and checks repeated pattern variables by eclass identity. Safe relation laws require exact ordered schemas.",
+      "negative_cases": [
+        "and(p,p) must not match and(p,q)",
+        "difference noncommutativity and nonassociativity",
+        "join and product noncommutativity",
+        "integer addition must not use union idempotence"
+      ]
+    },
+    {
+      "id": "EG-A1-04",
+      "severity": "HIGH",
+      "requirement": "Unsupported binders, lets, temporal and other operators remain whole opaque leaves; no descent, substitution, prenexing, operand reordering or rewriting inside them. Opaque identity must retain exact anonymous structure and lexical identity.",
+      "negative_cases": [
+        "let shadow capture",
+        "comprehension column permutation",
+        "signature and bound variable with same spelling",
+        "temporal implication antecedent loss"
+      ]
+    },
+    {
+      "id": "EG-A1-05",
+      "severity": "HIGH",
+      "requirement": "Independent bounded certificate replay reconstructs concrete endpoints with trusted operator/rule registry and context, rejects unknown rules, forged substitutions, invalid intermediates, forward/cyclic references and endpoint mismatch. Do not validate certificate by querying producer UF.",
+      "negative_cases": [
+        "certificate target mutated",
+        "child equality proof missing",
+        "wrong type or context substituted",
+        "unknown rule id"
+      ]
+    },
+    {
+      "id": "EG-A1-06",
+      "severity": "MEDIUM",
+      "requirement": "Extractor returns finite acyclic expression with deterministic cost and lexical tie break plus root-to-output proof. Budgets separately bound matching, nodes, rewrite attempts, rebuild and replay; budget stop never claims complete semantic normal form.",
+      "negative_cases": [
+        "cycle x=and(x,true)",
+        "equal-cost insertion-order permutations",
+        "zero budget",
+        "match explosion without successful merges"
+      ]
+    },
+    {
+      "id": "EG-A1-07",
+      "severity": "HIGH",
+      "requirement": "Existing complete Shannon-table profile and atom inventory remain distinct from structural and extracted artifacts. Preserve initial ordered atom inventory even when output drops atoms. New rule model requires Lean proof before Java implementation; Lean model theorem does not establish parser or Java refinement.",
+      "negative_cases": [
+        "p AND false reduces to false without losing original atom identity",
+        "more than eight Boolean atoms",
+        "distinct some A/some B inventories with equal abstract truth table"
+      ]
+    },
+    {
+      "id": "EG-A1-08",
+      "severity": "MEDIUM",
+      "requirement": "Preserve commercialization gate and exact dependency/license provenance. ACGN MIT permits reuse subject to notices but does not clear corpora or bundled dependencies. Existing Alloy metadata conflict and SAT4J LGPL remain unresolved release matters."
+    }
+  ],
+  "evidence_interpretation": [
+    "ACGN semantic_soundness.md reports bounded corpus checks and targeted binder/temporal probes, not universal proof transferable to Allow.",
+    "ACGN Java-Lean refinement explicitly excludes universal heap/loop refinement and complete parser correspondence.",
+    "Current Allow Certificate is Boolean only; relational rules and congruence for new constructors require new formal obligations."
+  ],
+  "trust_limits": [
+    "Static review of frozen revision-2 spec, catalog, Lean source and recorded formal run; independent Python rule evaluation performed in earlier review.",
+    "No production sources changed and no implementation tests were possible at this gate.",
+    "Earlier pending/disposition entries are retained as review history and superseded by final_disposition."
+  ],
+  "draft_review": {
+    "stage_revision": 1,
+    "files_sha256": {
+      "spec/egraph-stage.json": "f4955d2b7962c7dc6f1e2d74cc2f4a3c9e20d184cab290ff40afbd80c7030b44",
+      "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34"
+    },
+    "catalog_check": "Independently interpreted all 34 rules with Python over all eight p/q/r Boolean assignments: 272 comparisons passed. Relation rules checked pointwise; this is finite syntax/semantic smoke evidence, not Lean proof.",
+    "resolved_requirements": [
+      "EG-A1-01",
+      "EG-A1-02",
+      "EG-A1-03",
+      "EG-A1-04",
+      "EG-A1-05",
+      "EG-A1-06",
+      "EG-A1-07",
+      "EG-A1-08"
+    ],
+    "pending_formal": [
+      "notTrue and notFalse constructors and proofs must exist before catalog mapping freeze",
+      "Unified mixed Boolean/relation SOME/NO semantics must cover engine congruence; separate Boolean and relation theorems alone do not do so",
+      "formal_obligations must be populated and built before implementation"
+    ],
+    "implementation_clarifications": [
+      "Replay must check ATOM exact payload and sort membership in initial frozen inventory; claimed context/inventory equality alone is insufficient",
+      "Apply explicit input/term/certificate depth bound before recursive traversal, including bounded-size but deeply nested certificates",
+      "Output/certificate exhaustion needs fixed honest unavailable/incomplete classification; never relabel as saturated"
+    ]
+  },
+  "final_disposition": {
+    "stage_revision": 2,
+    "files_sha256": {
+      "spec/egraph-stage.json": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+      "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+      "formal/Allow/EGraph.lean": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab",
+      "gates/egraph/formal-runs/supplement-r2/report.json": "e45f380a9ac40ada170360c4c401b1fc978180eb61b8ad58aa557d5bac54a598"
+    },
+    "open_contract_blockers": [],
+    "resolved": [
+      "All eight architecture obligations are represented by the frozen revision-2 supplement.",
+      "Explicit ATOM inventory membership is checked against trusted adapter input; arbitrary alternate self-asserted inventories reject.",
+      "Term and proof dependency depths limited to 128; OUTPUT_LIMIT included.",
+      "Modulo-eclass matches require concrete substitutions and child congruence proofs before RULE admission.",
+      "Rule.notTrue and Rule.notFalse are present. MixedFormula/substB/MixedDerivation/mixed_sound cover Boolean rules instantiated by SOME/NO formulas plus relational congruence.",
+      "Twenty exact formal obligations include four closed concrete witnesses."
+    ],
+    "formal_evidence": "Inspected supplement-r2/report.json: VERIFIED; two exit-zero builds with equal compiled artifact maps and audit hashes, 53 total/20 new model propositions, 34 mappings and 272 finite rule assignments, determinism PASS, no reported blockers or infrastructure errors. Did not rerun Lean independently.",
+    "scope_limits": [
+      "Acceptance authorizes implementing this design; it is not acceptance of absent production code or UI.",
+      "Graph.justified is an assumed abstract invariant, not a proof of concrete union-find, rebuilding, matching or extraction algorithms.",
+      "Fixed tuple-carrier and finite-list mixed semantics require the runtime schema/AST correspondence gate; no universal Java or Alloy parser refinement is asserted.",
+      "The initial inventory/Boolean Shannon profile is not replaced by bounded egraph extraction.",
+      "Commercialization and corpus/component licensing remain uncleared."
+    ]
+  }
+}

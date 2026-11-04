@@ -1,0 +1,140 @@
+{
+  "reviewer_id": "sol-1",
+  "requested_model_seat": "GPT-6.1 Sol",
+  "model_identity": {
+    "requested_model": "gpt-6.1-sol",
+    "dispatch_model_reported_by_parent": "gpt-6.1-sol",
+    "actual_runtime_model_independently_observable": false
+  },
+  "status": "FINAL_SCOPED_ADVERSARIAL_IMPLEMENTATION_REVIEW",
+  "scope": [
+    "root-owned canonical package and canonical tests",
+    "unsupported semantic attributes",
+    "binding identity/scope restoration",
+    "presentation noninterference",
+    "structural serialization and local feature baseline"
+  ],
+  "independence": "This reviewer implemented the separate worker/Spring foundation; the canonical implementation was owned by the root and is independently reviewed here. No canonical product source was edited by this reviewer.",
+  "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+  "slot_profile_sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+  "reviewed_files_sha256": {
+    "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59",
+    "backend/src/main/java/dev/allow/canonical/CanonicalDigest.java": "1b445d48870cc80f997b5dd5fd92ce1cb8bb89e8c101e15a5de7cf7288341a19",
+    "backend/src/main/java/dev/allow/canonical/CanonicalNodes.java": "1798334e079e527f7a7e160a8f633f932b000e407c4837b66d5800f6f42aa333",
+    "backend/src/main/java/dev/allow/canonical/CanonicalView.java": "fdc52ab58afc4ff5f35f831386b4168df0fb74199b8e48830311a3ad8bf8272a",
+    "backend/src/main/java/dev/allow/canonical/Canonicalizer.java": "2554b1751395be866ef533f5ba6526d0787c48b4021abcd3bbb34ddc98db6a27",
+    "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e",
+    "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+    "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java": "6d10d93ebc4e20b87e170f3b3c50b9d0a40f129c88c73a65ca9ad1f7fb66903f",
+    "backend/src/main/java/dev/allow/canonical/OperatorPolicy.java": "b8e65e2bd9ea1271ce2deea563f7f83643fb215fe10901afa1380904191536a4",
+    "backend/src/main/java/dev/allow/canonical/SlotRegistry.java": "5d591907ff79825421fa01acc5114c505d4b6abfdebdb75ba74cf87d1fa864ef",
+    "backend/src/main/java/dev/allow/canonical/UnsupportedCanonical.java": "38e48badbd8cf3cf1408fdba18fd4137d5a5a2b34ae0d3b8fe5a82917fe8d5ae",
+    "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java": "d6259c9c28a2e7f5541aff21a7a6b64f08783987f2622639212867425a2d4b2b"
+  },
+  "verdict": "ACCEPT_SCOPED_IMPLEMENTATION_WITH_STATED_LIMITS",
+  "findings": [],
+  "confirmed_assessments": [
+    {
+      "area": "Unsupported semantic attributes",
+      "evidence": [
+        "ModuleEncoder.checkSignature",
+        "ModuleEncoder.field",
+        "ModuleEncoder.function",
+        "ModuleEncoder.command",
+        "ExpressionEncoder.checkDeclaration",
+        "OperatorPolicy.checked"
+      ],
+      "assessment": "The mapper rejects unsupported signature flags/non-univ parents/signature-local facts; private/mutable/defined/meta fields; declaration disjoint/private/mutable flags; private/recursive functions; temporal/incremental command context and unknown expression/operator families. It emits an empty UNSUPPORTED_CANONICAL value rather than a raw-source fallback."
+    },
+    {
+      "area": "Binding identity and scope",
+      "evidence": [
+        "SlotRegistry constructor/reference/bind/snapshot/restore",
+        "ExpressionEncoder.declarations/quantified/binding",
+        "ModuleEncoder.function"
+      ],
+      "assessment": "Global slots follow parser declaration order. Local identities use IdentityHashMap, domains/let values precede binding, lexical maps restore in finally blocks, and the bound ordinal counter is not reset across sibling scopes. Calls refer to registered Func identity. Independent shadow/let/dependent-domain/function-return alpha probes retained identical available payloads/features."
+    },
+    {
+      "area": "Identifier/privacy boundary",
+      "evidence": [
+        "AnonymizedArtifact private constructor/fromStructure",
+        "ExpressionEncoder dispatch",
+        "SlotRegistry.reference/function",
+        "EmbeddingEncoder.encode"
+      ],
+      "assessment": "No rendered source, display label, path, comment, name hash or source digest is used in anonymous constructors or feature inputs. Structural strings are fixed tags or checked enum names. AnonymizedArtifact is immutable and package-constructed; EmbeddingEncoder accepts that value rather than an arbitrary source string. This is pseudonymization, not protection against structural re-identification."
+    },
+    {
+      "area": "Encoding and features",
+      "evidence": [
+        "CanonicalNodes.node",
+        "AnonymizedArtifact.fromStructure/bytes",
+        "EmbeddingEncoder.encode/normalized",
+        "spec/slot-profile.json"
+      ],
+      "assessment": "Tagged positional arrays retain node kind, namespace/index, operand order, null optional return versus arrays, fact order and selected bounds. Exact compact JSON UTF-8 is hashed. Feature encoding follows fixed four-byte chunks, SHA-256 first-two-byte bucket mod128, and L2 normalization. Feature collisions are expected and have no equality authority."
+    },
+    {
+      "area": "Tests read",
+      "evidence": [
+        "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java"
+      ],
+      "assessment": "The11 committed tests cover non-vacuous signature/field/function/parameter alpha controls, shadowing, declaration order versus spelling, distinct signatures, multiplicity/operand order, unsupported signature/inheritance/disjoint cases, fact/scope changes, JSON round-trip/vector norm and string/temporal rejection. These remain finite observations."
+    }
+  ],
+  "independent_probes": {
+    "product_build_run": false,
+    "reason": "Root requested no concurrent rebuild. A separate temporary Java harness linked existing compiled canonical classes and pinned dependencies.",
+    "harness_path": "/tmp/allow-canonical-sol1-review/CanonicalReviewProbe.java",
+    "harness_sha256": "21f2b16b701dc4034c52860f92f0f7550f3283036e209671ec140df0ce69d052",
+    "executed_cases": 16,
+    "source_fixture_executions": 19,
+    "unsupported_canonical": [
+      "private signature",
+      "subset signature",
+      "enum",
+      "signature-local fact",
+      "private field",
+      "variable field",
+      "disjoint quantifier declaration",
+      "private predicate",
+      "self recursion",
+      "mutual recursion"
+    ],
+    "available_alpha_pairs": [
+      "let binding across a shadowing quantifier",
+      "dependent quantified domain",
+      "function return and parameter binding"
+    ],
+    "alpha_results": "Each of the3 pairs returned AVAILABLE on both sides, equal exact payloads and equal feature vectors.",
+    "other_controls": [
+      "Explicit parent univ is AVAILABLE, consistent with the direct-univ primitive-signature representation.",
+      "Two attempted parameterized-root module fixtures were rejected by the pinned parser before canonicalization; no canonical claim is made for them."
+    ],
+    "commands": [
+      "javac -cp backend/target/classes:backend/target/solver/alloy.jar:backend/target/dependency/* -d /tmp/allow-canonical-sol1-review /tmp/allow-canonical-sol1-review/CanonicalReviewProbe.java",
+      "java -cp /tmp/allow-canonical-sol1-review:backend/target/classes:backend/target/solver/alloy.jar:backend/target/dependency/* CanonicalReviewProbe"
+    ],
+    "exit_codes": [
+      0,
+      0
+    ]
+  },
+  "limitations": [
+    "No full parser-to-profile refinement or universal alpha-invariance theorem is asserted.",
+    "No unrestricted semantic equivalence, e-graph saturation or retrieval-quality conclusion follows from structural payload equality.",
+    "Not every Alloy AST constructor combination or accepted source has been exhaustively audited. Unknown/unrepresented cases must continue to fail closed.",
+    "The probe uses already compiled classes; the final source/build/hash correspondence and complete suite belong to the root final build report.",
+    "No independent redistribution clearance, production/SaaS security approval or commercial readiness claim is made."
+  ],
+  "actions": {
+    "production_files_edited": false,
+    "temporary_synthetic_probe_authored": true,
+    "corpus_source_used": false,
+    "remote_model_calls": false,
+    "project_sources_uploaded": false
+  }
+}

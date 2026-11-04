@@ -1,0 +1,35 @@
+{
+  "full_records": 46,
+  "eligible_records": 45,
+  "family_components": 12,
+  "validation_components": 2,
+  "test_components": 1,
+  "source_coverage": [
+    "alloy4fun",
+    "alloy5",
+    "alloy6"
+  ],
+  "training_pairs": 32,
+  "validation_queries": 4,
+  "test_queries": 9,
+  "training_status": "TRAINED",
+  "quality_gate": "OPEN",
+  "integrity_passed": false,
+  "baseline_model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+  "learned_model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+  "baseline_family_macro_mrr": 1.0,
+  "learned_family_macro_mrr": 1.0,
+  "weights": [
+    0.45,
+    0.1375,
+    0.41250000000000003
+  ],
+  "exclusions": {
+    "no_checked_variant": 1,
+    "embedding_budget": 0
+  },
+  "interpretation": "Known checked structural-variant retrieval pilot only; one test family cannot establish broad generalization. Learned model is not promoted.",
+  "train_loss_initial": 2.5031580924987793,
+  "train_loss_final": 2.494813919067383,
+  "evaluation_artifact_sha256": "8836d6428445438905e2d9a1ec1614869fec0b6ba63fd78794a2768631df9d25"
+}

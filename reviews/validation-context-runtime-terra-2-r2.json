@@ -1,0 +1,14 @@
+{
+  "reviewer": "terra-2",
+  "decision": "NO_FINDINGS_FOCUSED_RECHECK",
+  "scope": "Read-only recheck of malformed private-envelope classification and real one-shot fixture tests; prior review remains separate.",
+  "input_hashes": {
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentValidationContext.java": "248d2c74cb7ff0dc777760fe56f8f23086a9bdba302e7490415be6d8f5007bb6",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentQueries.java": "76763b82e67c8378a159345bfee99990c8de703ec4042cadfced97e13d8b90da",
+    "/home/augustus/Allow/backend/src/test/java/dev/allow/backend/DocumentValidationContextTest.java": "3804c573ddc3cad1c9c6ea3fcc7bdd7c86882344f7fafaa6d61c2716ce47f047",
+    "/home/augustus/Allow/backend/src/test/java/dev/allow/backend/DocumentContextTransportTest.java": "e73c4875ac7a0dba33df887f72f9e31acaf84fb5a3799fe67e71b0304842e63e"
+  },
+  "findings": [],
+  "assessment": "The advisory context boundary converts the existing gateway closed-envelope IllegalArgumentException to IOException; the controller maps that to HTTP 503 UNAVAILABLE rather than INVALID_REQUEST. The fixture tests exercise an exited private child with wrong nonce, protocol, and extra envelope field, including both unchanged raw gateway behavior and context-specific conversion.",
+  "validation": "No tests independently executed in this recheck; parent reported previous focused tests passed and final full build pending."
+}

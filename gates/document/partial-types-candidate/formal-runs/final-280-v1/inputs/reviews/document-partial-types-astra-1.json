@@ -1,0 +1,38 @@
+{
+  "reviewer": "astra-1",
+  "revision": 2,
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "/home/augustus/Allow/gates/document/partial-types-candidate/contract.json": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216",
+    "/home/augustus/Allow/gates/document/partial-types-candidate/PartialTypes.lean": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7",
+    "/home/augustus/Allow/gates/document/partial-types-candidate/types.json": "dbd4d0d4d9697de048c163d193fad5663a7e4ddec65ff486d65d4a4b38cf554a",
+    "/home/augustus/Allow/gates/document/partial-types-candidate/tests-plan.json": "88a00a18b730b6a6fbddf2b98167cc283a8055c0806892158897925d8dcd26be"
+  },
+  "previous_review": "reviews/partial-types-astra-1.json",
+  "scope": "Approval of frozen revision2 gameplan only. No implementation authorization independent of parent/user gate, no runtime proof, no production fix or performance acceptance claim.",
+  "findings": [],
+  "resolved": [
+    {
+      "id": "PTA1-01",
+      "resolution": "Contract mandates complete private structured enforcement violations separate from capped64 presentation diagnostics and fail-closed incomplete analysis. PT-027 exercises64 and more than64 pre-existing errors, late new violations, no-op control and order permutation."
+    },
+    {
+      "id": "PTA1-02",
+      "resolution": "Contract captures explicit hole.expected before replacement, preserves destination obligations in immutable draft-only sidecar, defines parent/source ownership and remapping, and avoids persisting ordinary inferred concrete types. PT-028/029/032 cover direct and delayed incompatible fills, valid substitution, unconstrained concrete replacement, copy/move and obligation lifetime."
+    },
+    {
+      "id": "T1-01",
+      "resolution": "Canonical edge/role/rule/identity/fact tuples replace diagnostic text identity; PT-026 covers same-parent distinct operands, nominal changes and copy/move identities."
+    },
+    {
+      "id": "T1-02",
+      "resolution": "Fixed graph-derived domains, canonical deduplication, explicit versioned counters and fail-closed exhaustion cover bounded propagation; PT-031 forces limits and malformed graph cases."
+    },
+    {
+      "id": "PTS1-01",
+      "resolution": "dropNode snapshots before any action, prepares without publication, validates then applies once; rejection preserves state/focus except notice. PT-030 directly tests the pre-gesture boundary."
+    }
+  ],
+  "formal_boundary": "Lean and types hashes are unchanged. The13 abstract propositions remain model-only; prior267 propositions are preserved separately for280 inventory total. New sidecar, violation collection and resource-limit requirements are explicitly runtime obligations, not claims proved by those13 propositions.",
+  "validation": "Read revised contract and test plan, verified all four exact SHA256 hashes against supplied revision2 values, and checked closure of prior findings. No candidate/production edits or browser/Lean execution performed."
+}

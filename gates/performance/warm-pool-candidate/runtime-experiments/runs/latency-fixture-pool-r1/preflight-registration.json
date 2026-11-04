@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "classification": "DIAGNOSTIC",
+  "operation": "latency",
+  "plan": {
+    "schema": 1,
+    "variantId": "fixture-pool",
+    "profile": "POOL_SERIAL",
+    "mode": "PREFLIGHT",
+    "warmups": 0,
+    "measured": 1,
+    "contractSha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+    "fixtureSha256": "eaebc8919457781853e41dccdc5c54fa624ca6effd5a8ed5e9c447bfd25a3906"
+  },
+  "installation_manifest": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/latency-fixture-pool-r1/manifest.json",
+    "sha256": "d83886660d60025b537e53602e65b17cf16692058128b36002b07b288e4a2264",
+    "size": 13318806,
+    "mode": 384
+  },
+  "installation_root": "15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+  "claims": {
+    "schema": 1,
+    "status": "FROZEN_FINITE_RUNTIME_CLAIMS",
+    "claims": [
+      {
+        "id": "WP-H01",
+        "kind": "CHECKED",
+        "predicate": "scope Delegate=yes; exact aggregate kernel limits; caller security preserved; root empty; supervisor control leaf; every observed live thread affinity0-3"
+      },
+      {
+        "id": "WP-H02",
+        "kind": "CHECKED",
+        "predicate": "copied immutable source/build/tool/probe inputs equal before and after; config root dev/inode matches actual scope"
+      },
+      {
+        "id": "WP-H03",
+        "kind": "CHECKED",
+        "predicate": "Exact registered warmup+measured attempt accounting, complete outputs, timing and owned receipts pass latency_results.verify_variant",
+        "plan": {
+          "schema": 1,
+          "variantId": "fixture-pool",
+          "profile": "POOL_SERIAL",
+          "mode": "PREFLIGHT",
+          "warmups": 0,
+          "measured": 1,
+          "contractSha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+          "fixtureSha256": "eaebc8919457781853e41dccdc5c54fa624ca6effd5a8ed5e9c447bfd25a3906"
+        },
+        "verifier": "latency_results.verify_variant"
+      },
+      {
+        "id": "WP-H04",
+        "kind": "CHECKED",
+        "predicate": "whole-scope positive empty, all tracked identities absent, terminal counters complete, zero OOM/pids exhaustion and peak<=5GiB"
+      }
+    ],
+    "trusted": [
+      "Linux cgroup/procfs/PID identity and syscall semantics",
+      "systemd255 user scope manager",
+      "pinned JDK/Python/native runtime",
+      "hash and filesystem implementation",
+      "registered Java probe as finite evidence generator, not universal proof"
+    ],
+    "excluded": [
+      "HTTP acceptance",
+      "production promotion or selection",
+      "SQL CLEAN validation",
+      "target4vCPU8GiB acceptance",
+      "full contract fault coverage",
+      "commercial release"
+    ],
+    "namespace": "ALLOW-WARM-LATENCY-DIAGNOSTIC-R1",
+    "classification": "FINITE_COMPONENT_DIAGNOSTIC_NOT_HTTP_ACCEPTANCE"
+  },
+  "case_ids": [],
+  "verifier": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/latency_runner.py",
+    "sha256": "243c0cd4c983d1e88d6a02c7cd55a83cba95ed4c0dd637c62b2d47f207970d31",
+    "size": 23071,
+    "mode": 436
+  },
+  "programs": [
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/compare_responses.py",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf",
+      "size": 16321,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/containment.py",
+      "sha256": "d977c2616249d1362868409b7fd2397ad352deebbfbe206049b941592342caa7",
+      "size": 11770,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/controller.py",
+      "sha256": "816abbd41b206999fae90dfb4d9e2a227a2c0a1853aba4babb9afd06294cd353",
+      "size": 11433,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/delegation.py",
+      "sha256": "ec6a4a152c66080b68c601b345e0e5597c0ee42b1638881c85c218d3c9676362",
+      "size": 3687,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/harness_common.py",
+      "sha256": "946ebd87bf7c54b99e75b25bf06322a823509f573f0477bfd7b1055a21bd3673",
+      "size": 5575,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/http_driver.py",
+      "sha256": "c4494dc21472d5de98092cb803b38cb8be9ac3dbadadad806a7eaa540c864882",
+      "size": 13385,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/http_setup.py",
+      "sha256": "9efb77cb74d35c05071659f952dd06e35195f514506af9df900b198d77eda2cd",
+      "size": 9232,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/installation.py",
+      "sha256": "d0538c35b6cd160ba566c59851f8248abde322ce06049b25701a80a176446062",
+      "size": 25580,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/latency_fixture.py",
+      "sha256": "39f4ec203a30df5e72aa2b07d399e42e5af7fc57db388998fdd0ae6292150d3c",
+      "size": 2908,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/latency_owner.py",
+      "sha256": "a57695dc1c1d207107a64a218c546e792da4c3cf0bcea71d64d667f521004ebb",
+      "size": 4197,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/latency_results.py",
+      "sha256": "03199fa6973dcefac24c9c15d484458a4a13b9c9f6669a1438360f32f144b55f",
+      "size": 20805,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/latency_runner.py",
+      "sha256": "243c0cd4c983d1e88d6a02c7cd55a83cba95ed4c0dd637c62b2d47f207970d31",
+      "size": 23071,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/make_fixtures.py",
+      "sha256": "37db2aec26f5e1d466983c74b0d0732fb81986494397fd0a7013887e0d386efc",
+      "size": 14406,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/probe_owner.py",
+      "sha256": "fb87063b257908a8358fbf6e436740b5f9cb760db2d7e102e3d77cb088bada04",
+      "size": 4253,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/probe_results.py",
+      "sha256": "3fdc224061aa166d172c30f13f5db3c82dc8fce54fd100f48c7f6db33bbb5648",
+      "size": 10491,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/scope_launch.py",
+      "sha256": "60155f8e0fe47019d06c01d35494cf5dbf5b55bda6ed62138ed5ad1d9ed8f926",
+      "size": 11706,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_owner.py",
+      "sha256": "fe8c975099e3ea3af91c4f0fa42adab3ccfad5538fa4baf60f361d2657b97897",
+      "size": 3329,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_plan.py",
+      "sha256": "31ee17d6d09c7c765ce98b6cf2e1211a80231b0ff130d29107fe66d7bec1298c",
+      "size": 2243,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_results.py",
+      "sha256": "4a69a6f2f76af36f6d09877cb7387a035de913775fdbc073523254f543288539",
+      "size": 14247,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_runner.py",
+      "sha256": "a7a5db4b96e1ffb2f4d516ced1af7d2bfc5ad7123e76647c0baef53c0d381353",
+      "size": 16564,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/sequence_results.py",
+      "sha256": "b9ed29f2a53f54aef27a0076477e563abda46849b620ed9ccaafd2c2b617b6d5",
+      "size": 13501,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/stack_owner.py",
+      "sha256": "72ffe5f19aa8a7793d4f1dc4f845aaf79f7a68bdc90011cb934518594c328046",
+      "size": 8060,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_compare_responses.py",
+      "sha256": "4021d50359ee041b3fda95fc467874bf63c483b251845c1ce05ae25f8b24ccba",
+      "size": 11866,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_delegated_harness.py",
+      "sha256": "b11d927ca2bb8c012eefff3a701baa51c42ce9530690d1f527abc174cd417952",
+      "size": 17807,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_http_setup.py",
+      "sha256": "b57de094fafd4b5b67ee49c4dfceff403b08bb53e99e551e795bce5cef472835",
+      "size": 9419,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_latency_results.py",
+      "sha256": "510504b5d5364b0f017b7ddcf9888978216a3f9ef5ed749e05646a06882531bd",
+      "size": 11630,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_latency_runner.py",
+      "sha256": "599f5c773f75bbef374ec8a733308417ee984f4cb258c51c77dc540ede382195",
+      "size": 12470,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_semantic_results.py",
+      "sha256": "ae6a84c2f353a24b9fa4a2af3c232306cde99b12e67d9f4892f9bcd732868c7e",
+      "size": 31658,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_sequence_results.py",
+      "sha256": "e7519ceaba4f41d93c4bfeba9e6be9750dcd67d190b880389c27f511ffd3654e",
+      "size": 31966,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/test_workload_correspondence.py",
+      "sha256": "6f27b49e6c9c63aad7846e3c24495176bfe34050dd0bca34ebce6cd6c22abd1d",
+      "size": 7898,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/topology_diagnostic.py",
+      "sha256": "c01b1e856657ddc1a7aafeee4a4c789e4ad31a93799790591dbab02fab5517db",
+      "size": 6240,
+      "mode": 436
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/workload_correspondence.py",
+      "sha256": "122c3c9dc3760b92c5bdffed1ccf1780480a5b675ee689362d1dc486d906e252",
+      "size": 4062,
+      "mode": 436
+    }
+  ],
+  "suite": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/latency-diagnostic/runs/fixture-r1/registration.json",
+    "sha256": "c5b7b5662971cb4830b8e7e77d797a66aed21c4723c8dd31a1a3dd349842173d",
+    "size": 14189,
+    "mode": 384
+  },
+  "benchmark_authorized": false,
+  "component_diagnostic_authorized": true,
+  "target_host_acceptance": "OPEN",
+  "input_root_sha256": "736f48a67c6a4e46e37829ebe33a98330d0a8550a6fd50658b2aeed83af188c9"
+}

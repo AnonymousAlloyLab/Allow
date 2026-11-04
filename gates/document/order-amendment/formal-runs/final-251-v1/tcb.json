@@ -1,0 +1,16 @@
+{
+  "trusted_components": [
+    "Lean 4.34.1 kernel, elaborator, pretty printer and bundled libraries",
+    "propext, Quot.sound, Classical.choice when reported",
+    "Lake",
+    "Python verifier and imported helper",
+    "SHA-256 collision resistance",
+    "OS, filesystem, processes, hardware",
+    "interpretation of the formal model and published statement boundaries"
+  ],
+  "excluded": [
+    "Java/TypeScript/SQL refinement, runtime correctness and ordering guard implementation",
+    "Alloy parser/printer correspondence, browser accessibility, original G2/G3 and commercial release",
+    "production inputs other than the exact pre-guard ModuleChecker are outside this proof run"
+  ]
+}

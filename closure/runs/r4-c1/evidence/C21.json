@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-spec-2026-11-03-r4-c1",
+  "claim_id": "C21",
+  "input_root_hash": "b5fffef4bb20ae12eef6c848aa852fbaf536acc16190b9fb0efa157d7b5a2635",
+  "verifier_id": "V-ALLOW-SPEC",
+  "verifier_hash": "eddf3255d06a0c65efc0caff5ca45b72ff3a17052eb2d8391b8feec3dbac8a76",
+  "execution_environment": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "jsonschema": "4.17.3",
+    "toolchain": "leanprover/lean4:v4.34.1"
+  },
+  "raw_result": {
+    "reason": "Not discharged",
+    "blocking_reasons": [
+      {
+        "code": "VERIFIER_FAILURE",
+        "message": "Schema: 'Allow.checkSlot_sound' does not match '^Allow\\\\.[a-z_]+$'"
+      }
+    ],
+    "infrastructure_errors": []
+  },
+  "exit_code": 1,
+  "status": "BLOCK"
+}

@@ -1,0 +1,44 @@
+{
+  "reviewer": "astra-1",
+  "seat": "sql-r5-astra-1",
+  "review_type": "FINAL_INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 5,
+  "spec_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "ASTRA1-R4-01",
+      "resolution": "The effect-cycle barrier prevents subsequent Q/P forwarding until the corresponding ReadyForQuery and intervening lexical ParameterStatus have been validated. An older completion retains newer pending effects. This closes the observed pg_settings pipeline gap within the declared trusted-engine boundary without relying on a complete SQL-effect blacklist."
+    }
+  ],
+  "design_assessment": [
+    "Native PREPARE/EXECUTE retains exact whole-source acceptance, sole top-level classification, shared connection-local accepted provenance, conservative ASCII names and restrictions within bodies and parameter expressions.",
+    "Pending effects are marked before Q/E forwarding. Sync/Flush/COPY/Close/Describe/cancellation and already-admitted Bind/Execute remain available for progress.",
+    "A denied Q/P closes the connection; a later successful query is tested on a session that has not already been rejected.",
+    "Six cycle propositions explicitly distinguish pending denial, unvalidated completion, preservation of newer effects and successful completed-cycle release."
+  ],
+  "implementation_acceptance_notes": [
+    "Conservatively reject protocol prepared statement names longer than63UTF8bytes, consistent with conservative policy, to avoid backend/local name-alias discrepancies. Check limits on every name-reference path; test same-prefix names and mixed SQL/protocol operations.",
+    "Exercise prior Sync cycle0 then newer Execute cycle1: Ready0 must leave cycle1 pending and Q/P denied. Only the corresponding validated Ready1 may release a non-rejected session. Mark pending before forward; do not let unrelated startup/stale Ready release it.",
+    "Test delayed/fragmented unsafe ParameterStatus, UPDATE pg_settings followed by new SQL, normal P/B/E/Sync completion, COPY progress, cancellation, portal suspension, and later E while an older cycle remains pending.",
+    "Preserve unchanged pg_dump/pg_restore ACL contents and test both cross-protocol PREPARE/Bind/EXECUTE directions, failed or duplicate preparation, unknown targets, cached Execute on a fresh connection, quoted/Unicode/overlong names and nested/multiple SQL rejection.",
+    "Keep classification, native name normalization, exact body token-span extraction and state-generation association fail closed; do not infer a backend object or successful execution solely from optimistic accepted provenance."
+  ],
+  "formal_review": {
+    "sql_obligations": 28,
+    "source_read": true,
+    "independent_final_build_run": false,
+    "required_gate": "After all six council seats, run the final two clean builds bound to this exact spec and source before production changes."
+  },
+  "formal_limits": [
+    "bodyPart proves only nonempty substring membership. Correct native PREPARE classification/body extraction/name resolution remain trusted adapter obligations.",
+    "CycleState abstracts pending cycle IDs. Correct monotone assignment, ordered Q/Sync acknowledgement matching, ParameterStatus validation and Python concurrency refinement remain implementation obligations.",
+    "The proof establishes exact admitted provenance and abstract barriers, not PostgreSQL execution, SQL semantic equivalence, network isolation or commercial rights."
+  ],
+  "production_edits": false,
+  "reference_review": "reviews/sql-r4-astra-1.json",
+  "approval_scope": "Exact revision5 design. Final proof-first closure and runtime/database/recovery/HTTP/ML-integrity acceptance remain separate gates."
+}

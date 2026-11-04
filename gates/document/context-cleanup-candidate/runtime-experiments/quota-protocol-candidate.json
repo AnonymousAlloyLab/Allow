@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-CC29-FULL-QUOTA-PROCEDURE-CANDIDATE-R1",
+  "status": "DESIGN_ONLY_NOT_EXECUTABLE_OR_EXECUTED",
+  "authority": "../runtime-test-plan.json CC29",
+  "basis": "../../validation-context-candidate/runtime-profiles/vc19-r1/profile.py fixture/identifier/empty_module/setup_case logic and its preserved report; adapt only the fixture construction, not its legacy signal helper or temporary-DB routing seam.",
+  "fixture": {
+    "isolation": "New copied installation, fresh canonical synthetic allow_retrieval database and one provisioned document identity. Do not add4096revisions to the smoke fixture's already-used quota.",
+    "history_count": 4096,
+    "accounted_bytes": 268434782,
+    "max_accounted_bytes": 268435456,
+    "minimum_head": 4095,
+    "construction": "Keep exact prior storage-shaped artifact/request/outcome/admission charge formula:2*request_bytes+outcome_bytes+artifact_bytes+8192 perrevision. Empty revision0, one authored signature in each subsequent artifact, deterministic generatedUUIDv4 identities from frozen seed, identical fixed-length source padding. Verify actual relational counts and octet_length totals throughSQLeanParser before acceptingfixture.",
+    "inventory_request": "Exactly4096 sorted unique canonical server IDs:4095 stored signature IDs plus one absent canonical ID. Expected map has4095 signature entries; absence is not inventedownership.",
+    "scope": "This is explicitly storage-shaped history, not4096Alloy-validated admissions, matching the frozen CC29 setup. Record artifact bytes and actual raw row bytes separately from accounted quota.",
+    "no_authority_override": "Use copied Store.transaction and canonical sql_connections.connect; no replacement DSN, runtime environment escape, live credentials, direct psycopg connection or SQL bypass. Fixture writes are declared preparation, outside read-only before/after comparisons."
+  },
+  "samples": [
+    "Three actual CLI contexts with empty ID list against the same4096history fixture",
+    "Three actual CLI contexts with4096 requested IDs and exact full expected map",
+    "One independently frozen late historical kind-conflict fixture; requiredwanted ID is resolved earlier and conflicting row is observed later by the actual iteration trace"
+  ],
+  "mechanism_constants": {"statement_timeout_ms": 1500, "lock_timeout_ms": 250, "idle_in_transaction_timeout_ms": 1000, "context_wall_ms": 3000, "cleanup_observation_budget_ms": 2500, "cli_address_space_bytes": 2147483648, "cli_cpu_seconds": 20},
+  "measurements": [
+    "Kernel wait4 child user/systemCPU and maxRSS; sampled VmRSS/VmSize/VmPeak at a fixed interval",
+    "Full monotonic registration-to-retirement/receipt and externalCLI elapsed times; do not substitute external elapsed for exact registration workwindow",
+    "Actual row count and fullscan digest from a gate-only wrapper that delegates every original cursor iteration without earlyexit or changedSQL; record instrumentation overhead and source-diff identity",
+    "Raw libpq result sizes, format and buffered rows before iteration; keep source bytes private and publish counts/hashes only",
+    "Observed BOUND backend identity followed by independent fresh autocommit absence; stickyfailure/successPermitted receipt state",
+    "All7document-table before/after hash equality for each read, with separate declared fixture-writer changes",
+    "Exact originalcontext envelope, baseartifact hash and ownedmap equality; no status-substring comparator"
+  ],
+  "pass_predicate": "All6validcontexts complete within registered context workdeadline with exact outputs, successful cleanup receipts and unchangeddurable state; lateconflict fails withoutsuccess after actual laterconflictrow was reached. Anyvalidfixturetimeout blocks promotion; do not lowerquota or raisedeadlines.",
+  "late_conflict_precision": "Production history SELECT has no ORDERBY, so physical insertion order alone cannot prove late-conflict coverage. Record actual ordered rowhashes and index of the conflicting definition; if it is not later than the earlier matchingdefinition the specific subcase isunreached/BLOCKED. Do not change productionSQL to force the desired order.",
+  "failure_policy": "Freeze exact generator/driver/verifier/fixtures and newrun manifest beforeexecution. Preserve every failedrun beforeownedpidfd cleanup. Never map a storage-onlyfixture or3samples into productionlatency/p95 acceptance.",
+  "pending_implementation": ["Gate-local exact fixture generator adapted from prior registeredprofile", "Bounded child resource/row instrumentation", "Independent lateconflict fixture and actualiteration ordering checker", "Separate preregisteredrun selected from experiment.py; no reuse of mutable smoke runtime"]
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "7e40d4d1b07f0543b1f2beb02be149e4c5fccd2f87365212863a5887294aa1d6",
+  "script_sha256": "046fa9792b27e1279b06985ee33a6bdc9de21ea118bcd70380ca69bb01c43880",
+  "windows_iis_ssh_acceptance": "OPEN",
+  "scope": "Actual relocated Linux service and HTTP with explicit proxy Host/Origin; no real IIS or SSH hop.",
+  "sql_app_accepted": 157,
+  "advisory": "VALIDATED",
+  "solver": "SAT",
+  "durable_revision": 1,
+  "restart_persistence": "PASS",
+  "old_token_rejected": true,
+  "owned_stack_shutdown": "PASS",
+  "logs": [
+    {
+      "path": "gates/deployment/iis-v1/linux-smoke-r1/service-first.log",
+      "sha256": "c4caf2d9b812b7e8735f3745fe3fc006822ee7d38292585cd1e72d9615dcf6f4"
+    },
+    {
+      "path": "gates/deployment/iis-v1/linux-smoke-r1/service-restart.log",
+      "sha256": "c4caf2d9b812b7e8735f3745fe3fc006822ee7d38292585cd1e72d9615dcf6f4"
+    }
+  ]
+}

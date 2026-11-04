@@ -1,0 +1,58 @@
+{
+  "reviewer": "astra-2",
+  "seat": "sql-astra-2",
+  "review_type": "FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 3,
+  "spec_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "formal_file": "formal/Allow/SqlRouting.lean",
+  "formal_file_sha256": "228d56de2998e31554d577356ff953ca506fafb40390288175559871bcbd56ad",
+  "formal_types_sha256": "6ec9e5effed49ec557214d7271ac589737bf1768ed141b06c320a13a638571ac",
+  "blocking_design_findings": [],
+  "assessment": [
+    "Q/P admission at the owned wire endpoint covers the actual SQL emitted by psycopg, psql, pg_dump and pg_restore. Exact returned source equality, pinned identity and fail-closed subprocess handling are appropriate for the stated grammar-only guarantee.",
+    "The report implementation recursively collects production IDs but intentionally stops statementFamilies at outer statements. Revision 3 correctly requires forbidden production classification, including nested ExecuteStmt and shared function/procedure CreateFunctionStmt.",
+    "The Lean model proves admission provenance of reachable statements and copied portal payloads. Replacement of a statement cannot mutate the request/report already captured in a portal. Exact request and parser identity claims follow from the explicit admitted predicate; negative and positive witnesses make the intended policy visible.",
+    "The specification explicitly excludes protocol refinement, PostgreSQL semantic actions, runtime execution, network isolation and general routine effect analysis from the proof. This is an honest boundary rather than proof of all PostgreSQL behavior.",
+    "The earlier direct DSN, environment, bootstrap, dynamic migration, paired-constraint, cancellation-capacity and path-attribution issues are implementation obligations explicitly addressed by revision 3. Existing pre-routing code is the baseline to replace, not evidence that routing is already implemented."
+  ],
+  "implementation_acceptance_notes": [
+    "Generate forbidden-production metadata from the same pinned parser source snapshot as the executable. Validate report field types and production ID range; do not silently accept unknown IDs or infer nested safety solely from statementFamilies.",
+    "Implement the literal-key scope templates in database.py: the current SELECT set_config(%s,%s,true) parameterizes the key and therefore does not satisfy the revised safe-template rule. Test pg_dump/pg_restore search_path setup separately with real utility clients.",
+    "Keep backend errors and optimistic admission state distinct. Failed Parse/Bind, duplicate names, DISCARD/DEALLOCATE, transaction end, unnamed replacement and Close must never be reported as successful database execution. Conservative refusal is allowed under this design.",
+    "Apply lexical mode validation to every statement in a Simple Query packet before forwarding any of that packet and before pipelined later Parse/Query messages. ParameterStatus is an additional check, not the sole enforcement point.",
+    "Validate authentication, normal query and COPY phases and preserve CancelRequest behavior under session/parser saturation. Enforce frame-progress deadlines without assuming every idle application connection is an unfinished frame.",
+    "The proxy acceptance counters and endpoint checks must be isolated per registered client entry point. Real dump/restore, partially applied migrations, existing corpus/vector preservation and independent journal recovery remain required gates.",
+    "No parser output, raw SQL, credentials or bound data should enter error logs; bootstrap error handling currently includes captured subprocess output and must be checked when routing is integrated."
+  ],
+  "commercial_scope": {
+    "local_execution": "User-authorized local build/use only.",
+    "redistribution_clearance": "NOT_ESTABLISHED",
+    "observed_provenance": "No root LICENSE, NOTICE or COPYING file found in the supplied SQLeanParser root. The pinned toolchain file names Lean 4.34.0.",
+    "limitation": "This review does not determine ownership, license grants or commercial rights. Preserve source/build provenance and dependency notices; do not infer rights in SQLean-authored code from PostgreSQL grammar licensing or package unrelated fixture corpora as runtime assets."
+  },
+  "verification_performed": [
+    "Checked the exact revision 3 SHA-256 before review and immediately before writing this report.",
+    "Read full SqlRouting.lean and sql-types.json; inspected the earlier Astra draft/final review and current formal-report.json.",
+    "Read upstream Report.lean, PostgresGrammarMain.lean and relevant lexer code plus generated nonterminal names.",
+    "Inspected database connection/scope helpers, bootstrap DSN/startup/migration paths, migration dynamic SQL and recovery pg_dump/pg_restore clients.",
+    "Ran seven read-only parser probes through stdin: numbered parameters, nested EXPLAIN EXECUTE, procedure definition, multi-statement DO, harmless opaque-looking literal, literal-key Allow scope and pg_dump-style search_path. All seven returned grammar-accepted, expected profile and exact source equality. These probes establish parser report behavior only; they do not test proxy denial or PostgreSQL execution.",
+    "Consulted PostgreSQL 16 protocol message flow and format documentation."
+  ],
+  "formal_evidence": {
+    "existing_report": "gates/sql/formal-report.json",
+    "existing_report_supplement_sha256": "dfa00507c3a72ff8362ae217800963984faa3b9effe12b6cd9eafcf249934a72",
+    "matches_reviewed_spec": false,
+    "independent_lean_build_performed": false,
+    "required_gate": "After all six exact-hash council approvals, run the planned two clean formal builds bound to this final specification hash before implementation. The earlier report is draft evidence only."
+  },
+  "sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html",
+    "https://www.postgresql.org/docs/16/protocol-message-formats.html",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Report.lean",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Lexer.lean"
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 3 design only, conditional on completion of all council seats and the final clean formal gate. This is not runtime, end-to-end, independent grammar-correspondence, security-isolation or commercial-license certification."
+}

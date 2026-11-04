@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "classification": "AUTHORING_CHECK_NOT_CLOSURE",
+  "checked_utc": "2026-11-04T04:35:02.152161+00:00",
+  "python_ast_parse": "PASS",
+  "json_parse": "PASS",
+  "captured_inputs_still_match": 205,
+  "changed_inputs": [],
+  "prototype_or_performance_tests_run": 0,
+  "development_failures_preserved": [
+    {
+      "stage": "initial observation attempt",
+      "failure": "JVM blank property line caused ValueError before any observation file was written. Fixed property splitting; also removed Python3.11-only file_digest dependency for installed Python3.10."
+    }
+  ],
+  "boundary": "Syntax and current byte checks only; no production changes, enforcement test, semantic comparison or performance claim."
+}

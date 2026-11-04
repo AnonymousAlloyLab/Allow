@@ -1,0 +1,696 @@
+{
+  "schema_version": "1.0",
+  "run_id": "r8-quota",
+  "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+  "status": "BLOCKED",
+  "cases": [
+    {
+      "claim_id": "CC29",
+      "subcase": "empty-0",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 289.999144,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/empty-0"
+        ],
+        "fixture_sha256": "d40f3975107bb6b6890028effaca74f895b09be1e5d22c994cb09dd8d541e4de",
+        "stdout_sha256": "2f7b1a278aa009a3b77ba62f3f61c5179f4db32c6bec63d36eac7a692a695ca5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62693983293812
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62693985372886
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62693989561754
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62693991666178
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62694191968954
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "telemetry": {
+        "history_select_count": 0,
+        "raw_rows_buffered": 0,
+        "raw_column_bytes": 0,
+        "rows_iterated": 0,
+        "decoded_content_bytes": 0,
+        "focus_row_indexes": [],
+        "started_ns": 62693981252708,
+        "rlimit_as": [
+          2147483648,
+          2147483648
+        ],
+        "rlimit_cpu": [
+          20,
+          20
+        ],
+        "history_finished_ns": 62694189281536,
+        "finished_ns": 62694191781803,
+        "kernel_peak_rss_bytes": 890306560,
+        "cpu_seconds": 0.069582,
+        "row_multiset_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "empty-1",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 95.270265,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/empty-1"
+        ],
+        "fixture_sha256": "ac895f10663099d4d63de94f8812fee2f56d78b2e67f92d6397a59a203033df1",
+        "stdout_sha256": "85a9121f264dd3e7c2ad59bbb61c9647b29e73e25ca1dff897905332c5b25337",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62697273218779
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62697275288303
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62697279423751
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62697287687517
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "telemetry": {
+        "history_select_count": 0,
+        "raw_rows_buffered": 0,
+        "raw_column_bytes": 0,
+        "rows_iterated": 0,
+        "decoded_content_bytes": 0,
+        "focus_row_indexes": [],
+        "started_ns": 62697271259516,
+        "rlimit_as": [
+          2147483648,
+          2147483648
+        ],
+        "rlimit_cpu": [
+          20,
+          20
+        ],
+        "history_finished_ns": 62697285004659,
+        "finished_ns": 62697287059253,
+        "kernel_peak_rss_bytes": 890814464,
+        "cpu_seconds": 0.07003999999999999,
+        "row_multiset_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "empty-2",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 96.586035,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/empty-2"
+        ],
+        "fixture_sha256": "fbf6ae414309c75218205cb6da8d3cd12a466a65df5c9ef5c6c6209f2854102d",
+        "stdout_sha256": "3c9aaab17267852fd20cc9544f9a3faa9040cdbc073062efc35f27aa18856b7f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62700327489783
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62700331678131
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62700333770805
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62700340061498
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62700342159062
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "telemetry": {
+        "history_select_count": 0,
+        "raw_rows_buffered": 0,
+        "raw_column_bytes": 0,
+        "rows_iterated": 0,
+        "decoded_content_bytes": 0,
+        "focus_row_indexes": [],
+        "started_ns": 62700324403442,
+        "rlimit_as": [
+          2147483648,
+          2147483648
+        ],
+        "rlimit_cpu": [
+          20,
+          20
+        ],
+        "history_finished_ns": 62700338404067,
+        "finished_ns": 62700340383180,
+        "kernel_peak_rss_bytes": 890847232,
+        "cpu_seconds": 0.07132,
+        "row_multiset_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "full-0",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 663.477809,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/full-0"
+        ],
+        "fixture_sha256": "61d01eb75ddff963959ba2781de82942ed6ac0c80174c00d92ff83164d7af7ed",
+        "stdout_sha256": "6dfb112e693d9d78655ddecefc92d622b9b5ee0f5e38c0055382afaca0b2a700",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62703384454956
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62703388586884
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62703390653238
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62703944804236
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62703946902650
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "telemetry": {
+        "history_select_count": 1,
+        "raw_rows_buffered": 4096,
+        "raw_column_bytes": 230655922,
+        "rows_iterated": 4096,
+        "decoded_content_bytes": 115323865,
+        "focus_row_indexes": [],
+        "started_ns": 62703374706320,
+        "rlimit_as": [
+          2147483648,
+          2147483648
+        ],
+        "rlimit_cpu": [
+          20,
+          20
+        ],
+        "history_execute_ns": 321395019,
+        "raw_column_format": 0,
+        "history_finished_ns": 62703942706632,
+        "finished_ns": 62703947808887,
+        "kernel_peak_rss_bytes": 891002880,
+        "cpu_seconds": 0.357781,
+        "row_multiset_sha256": "020a91187972950c6ce7be41ba83246c4161c2dbf0d9b4c1a17eaa68d7c55eba"
+      }
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "full-1",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 629.2917,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/full-1"
+        ],
+        "fixture_sha256": "6d156991fe16d0147bd87e6ea07d42c36019b676e9115da117022e10a16d30da",
+        "stdout_sha256": "30fde5bae1f17e7a765e248a37835d6e03d11f501e20c7b6474573c07d8f8b07",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62706981138244
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62706983235248
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62706987425526
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62706989521491
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62707508690774
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62707510760398
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "telemetry": {
+        "history_select_count": 1,
+        "raw_rows_buffered": 4096,
+        "raw_column_bytes": 230655922,
+        "rows_iterated": 4096,
+        "decoded_content_bytes": 115323865,
+        "focus_row_indexes": [],
+        "started_ns": 62706972796697,
+        "rlimit_as": [
+          2147483648,
+          2147483648
+        ],
+        "rlimit_cpu": [
+          20,
+          20
+        ],
+        "history_execute_ns": 288649019,
+        "raw_column_format": 0,
+        "history_finished_ns": 62707506418018,
+        "finished_ns": 62707511513033,
+        "kernel_peak_rss_bytes": 891002880,
+        "cpu_seconds": 0.358001,
+        "row_multiset_sha256": "020a91187972950c6ce7be41ba83246c4161c2dbf0d9b4c1a17eaa68d7c55eba"
+      }
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "full-2",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 635.387115,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/full-2"
+        ],
+        "fixture_sha256": "fa8a205cb7de0bed15a46881fef35d7593764408de753bf5d0429fc1f8e34b9c",
+        "stdout_sha256": "4ded7cc8e170c8f23438ec1a4582e6bf88880d0f2bf11ff1ea23d3e1187ad3d7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62710576745110
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62710580873098
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62710582958802
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62711108947584
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62711111044048
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "telemetry": {
+        "history_select_count": 1,
+        "raw_rows_buffered": 4096,
+        "raw_column_bytes": 230655922,
+        "rows_iterated": 4096,
+        "decoded_content_bytes": 115323865,
+        "focus_row_indexes": [],
+        "started_ns": 62710567469837,
+        "rlimit_as": [
+          2147483648,
+          2147483648
+        ],
+        "rlimit_cpu": [
+          20,
+          20
+        ],
+        "history_execute_ns": 291143177,
+        "raw_column_format": 0,
+        "history_finished_ns": 62711106956760,
+        "finished_ns": 62711112130705,
+        "kernel_peak_rss_bytes": 891002880,
+        "cpu_seconds": 0.359257,
+        "row_multiset_sha256": "020a91187972950c6ce7be41ba83246c4161c2dbf0d9b4c1a17eaa68d7c55eba"
+      }
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "reference-full",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 589.719917,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "5e0e3a5b5b04e9052958869ac5573245eb590e3f8c232fa213bbe9adee67a33c",
+        "stdout_sha256": "d7ab66b4f6bdce298c8fc66170cd365e28f9c755a5e866e5319b8c9cbbd335d9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62714108385157
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62714110449671
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62714114575289
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62714601684809
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 62714603758683
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true
+    },
+    {
+      "claim_id": "CC29",
+      "subcase": "late-conflict",
+      "run_id": "r8-quota",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "verifier_id": "CC29-QUOTA-PROBE",
+      "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+      "fixture_sha256": "28aabeee89bbe15f91ac0d11bf854a638aa85e5126e7cd5253461d84b7879a9d",
+      "status": "PASS",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 520.224437,
+        "command": [
+          "/usr/bin/prlimit",
+          "--as=2147483648",
+          "--cpu=20",
+          "--",
+          "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/late-conflict"
+        ],
+        "fixture_sha256": "5e8eb417a21ea364d65cffb677790ad1db04bf9b7bc53a4ef28ae6bef5e2b3b4",
+        "stdout_sha256": "05c4a1a9f8326ce0c8568b4cbbd12eaff508dc6c5094862919c9691d5b23e281",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62717940366562
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62717942430826
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 62717946561114
+          },
+          {
+            "phase": "RETIRING",
+            "failed": true,
+            "successPermitted": false,
+            "monotonic_ns": 62718355176202
+          },
+          {
+            "phase": "CLEAN",
+            "failed": true,
+            "successPermitted": false,
+            "monotonic_ns": 62718361370744
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "context_status_after": {
+        "protocol": 1,
+        "status": "READY",
+        "contextOccupied": false,
+        "observerOccupied": true
+      },
+      "focus_positions": [
+        1676,
+        1834
+      ],
+      "rows_iterated": 1835,
+      "no_success": true
+    }
+  ],
+  "execution_started_utc": "2026-11-04T05:29:09.168022+00:00",
+  "whole_stack_containment": "NOT_ASSESSED",
+  "target_hardware_acceptance": "NOT_ASSESSED",
+  "bootstrap": {
+    "exit_code": 0,
+    "log_sha256": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e"
+  },
+  "probe": {
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "finite_subcases_passed": true
+}

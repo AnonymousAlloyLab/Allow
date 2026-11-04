@@ -1,0 +1,614 @@
+{
+  "id": "ALLOW-DOCUMENT-WIRE-DRAFT-0.1",
+  "revision": 3,
+  "status": "DRAFT_NOT_AUTHORIZED_FOR_IMPLEMENTATION_OR_GATE_CLOSURE",
+  "extends": [
+    "spec/allow-contract.json",
+    "spec/document-stage-draft.json"
+  ],
+  "notation": {
+    "closed_objects": "Every object has exactly its listed required fields; optional fields are explicitly listed. Reject unknown fields, duplicate JSON keys, nonfinite numbers, floats where integers required and integers outside stated range. JSON encoded strict UTF-8; reject BOM, invalid UTF-8, unpaired surrogates and trailing bytes. No implicit defaults. IDs/names are case-sensitive. null is not omission.",
+    "field_types": {
+      "Id": "server:<lowercase UUIDv4> or draft:<lowercase UUIDv4>; server-created IDs have 122 random bits; draft IDs untrusted temporary IDs",
+      "Name": "ASCII [A-Za-z][A-Za-z0-9_]{0,63}, excluding Alloy keywords and generated namespace prefix allow_; names unique globally in this slice",
+      "Schema": "nonempty ordered list of declared signature IDs, length 1..8",
+      "Child": "expression node ID; each expression ID occurs in exactly one child position or one declaration body root",
+      "Multiplicity": "set | one | lone | some",
+      "Revision": "integer 0..9007199254740991; exhaustion denies new mutation",
+      "Hash": "lowercase SHA-256 hex of exact bytes",
+      "Key": "ASCII [A-Za-z0-9_-]{16,128}, scoped by server principal/logicalLaunch/workspace/document",
+      "Source": "decoded exact UTF-8 string preserving newlines and Unicode; max 32768 UTF-8 bytes"
+    }
+  },
+  "limits": {
+    "request_bytes": 262144,
+    "source_utf8_bytes": 32768,
+    "expression_nodes": 256,
+    "graph_depth": 32,
+    "schema_columns": 8,
+    "declarations_total": 128,
+    "parameters_per_predicate": 16,
+    "source_occurrences": 1024,
+    "diagnostics": 64,
+    "diagnostic_bytes": 32768,
+    "response_bytes": 1048576,
+    "uniform_scope_min": 1,
+    "uniform_scope_max": 5,
+    "bitwidth": 4,
+    "maxseq": 3,
+    "imports": "NONE in either mode; SourcePolicy rejects imports rather than resolving ambient modules",
+    "artifact_storage_bytes": 1048576,
+    "concurrent_validation_workers": 2,
+    "queued_validations": 0,
+    "validation_wall_seconds": 10,
+    "validation_worker_heap_mib": 512,
+    "validation_process_address_space_bytes": 2147483648,
+    "validation_cpu_seconds": 12,
+    "resource_policy": "At most2 global isolated workers, at most1 combined solve/validate/commit-elaboration/canonicalization worker per durable principal; acquire shared permits before process creation. Validation queue=0: busy returns availability without new durable admission/reservation. Existing active owner retry is IN_PROGRESS or recovery, not another worker. Same existing BubblewrapLauncher isolation,512MiB Java heap,2GiB process virtual-address cap,12CPU seconds,10s external wall limit; kill/reap descendants and bound both output pipes. No inference of512MiB RSS limit from heap. Existing launcher filesystem/sandbox caps retained. Parser-spike8GiB address space is NOT deployment budget acceptance; actual launcher startup and budgets must pass before implementation acceptance, fail closed otherwise. Global cap does not relax principal cap. Complete serialized outcome<=1MiB including envelope, artifact encoding, maps, remapping and diagnostics; construct/bound outside final SQL transaction, not by individual component estimates. HTTP response may be a bounded header-only availability error on oversized result, never commit silently then claim rollback.500-node performance target remains an explicit open inherited gate under256-node profile."
+  },
+  "identity": {
+    "principal": "Server-private workspace metadata binds immutable principalId, workspaceId and logicalLaunchId to fresh bearer authority; browser cannot select these. Atomic exclusive creation, trusted canonical root, no symlink traversal, owner check, directory0700/file0600, durable flush and fail-closed corrupt/missing recovery. Resume reopens same logical scope; explicitly new launch creates distinct logical scope. Token changes never derive or replace stable IDs.",
+    "node_remapping": "On a new syntactically admitted request, remap each distinct draft ID injectively to a fresh server UUID before whole-module validation. References to that ID are rewritten consistently. Existing server IDs must belong to this owned document history and retain identity kind; malformed/foreign IDs reject. No client checked flag/type claim accepted. Original request bytes bind receipt; successful stored outcome contains the original-to-server ID map, so retries never rerandomize.",
+    "forest": "No shared expression children or bodies. Every expression has exactly one incoming ownership edge from a child slot or declaration body. Every expression reachable; no cycles; declaration references are leaves and are not ownership edges. Predicate dependency cycles reject. A moved subtree is rechecked in destination lexical environment; copy requires fresh expression/binder IDs and capture-avoiding reference remapping."
+  },
+  "module": {
+    "required": {
+      "version": "1",
+      "signatures": "ordered Signature[]",
+      "fields": "ordered Field[]",
+      "predicates": "ordered Predicate[]",
+      "facts": "ordered Fact[]",
+      "assertions": "ordered Assertion[]",
+      "commands": "ordered Command[]",
+      "nodes": "ordered Expression[]"
+    },
+    "rules": [
+      "IDs unique across declarations, binders, commands and expressions; declaration reference IDs resolve exact kinds. Arrays define presentation order; reference resolution never uses display text.",
+      "All derived types resolve only declared signature IDs. No inheritance, integers, relation constants, holes or imports. Expressions cannot contain declarations.",
+      "Parameters and quantifier binders may not duplicate any binder ID; lexical references must resolve within the containing predicate/body ancestry."
+    ]
+  },
+  "declarations": {
+    "Signature": {
+      "required": {
+        "tag": "signature",
+        "id": "Id",
+        "name": "Name",
+        "multiplicity": "Multiplicity"
+      }
+    },
+    "Field": {
+      "required": {
+        "tag": "field",
+        "id": "Id",
+        "name": "Name",
+        "ownerSignatureId": "Id(signature)",
+        "rangeColumns": "Schema",
+        "multiplicity": "Multiplicity"
+      },
+      "typing": "Full schema is [ownerSignatureId] ++ rangeColumns, length<=8. Unary range permits set/one/lone/some; range length>1 permits only set, printed set (B -> C ...). Reject tuple one/lone/some, no invented arrow multiplicity semantics. Owner is separate and never duplicated implicitly."
+    },
+    "Predicate": {
+      "required": {
+        "tag": "predicate",
+        "id": "Id",
+        "name": "Name",
+        "parameters": "ordered Parameter[]",
+        "bodyId": "Child(formula)"
+      }
+    },
+    "Parameter": {
+      "required": {
+        "tag": "parameter",
+        "id": "Id(binder)",
+        "name": "Name",
+        "columns": "Schema"
+      },
+      "typing": "Parameter is SET-valued with this exact nominal relation schema; print explicit set multiplicity. Call arguments need exact schema, not singleton cardinality."
+    },
+    "Fact": {
+      "required": {
+        "tag": "fact",
+        "id": "Id",
+        "name": "Name",
+        "bodyId": "Child(formula)"
+      }
+    },
+    "Assertion": {
+      "required": {
+        "tag": "assertion",
+        "id": "Id",
+        "name": "Name",
+        "bodyId": "Child(formula)"
+      }
+    },
+    "Command": {
+      "required": {
+        "tag": "run | check",
+        "id": "Id",
+        "targetId": "Id",
+        "uniformScope": "integer 1..5",
+        "bitwidth": "4",
+        "maxseq": "3"
+      },
+      "typing": "run targets only a nullary predicate; check targets only assertion. No per-signature/exact scopes or inline command formulas. Printer emits explicit options."
+    }
+  },
+  "expressions": {
+    "signature_ref": {
+      "required": {
+        "tag": "signature_ref",
+        "id": "Id",
+        "targetId": "Id(signature)"
+      },
+      "typing": "relation [target signature]"
+    },
+    "field_ref": {
+      "required": {
+        "tag": "field_ref",
+        "id": "Id",
+        "targetId": "Id(field)"
+      },
+      "typing": "relation full field schema"
+    },
+    "variable_ref": {
+      "required": {
+        "tag": "variable_ref",
+        "id": "Id",
+        "targetId": "Id(binder)"
+      },
+      "typing": "exact declared binder schema in current lexical scope"
+    },
+    "predicate_call": {
+      "required": {
+        "tag": "predicate_call",
+        "id": "Id",
+        "predicateId": "Id(predicate)",
+        "arguments": "ordered Child[]"
+      },
+      "typing": "formula iff argument count and ordered exact relation schemas match parameters; no recursive dependency"
+    },
+    "not": {
+      "required": {
+        "tag": "not",
+        "id": "Id",
+        "operandId": "Child"
+      },
+      "typing": "formula -> formula"
+    },
+    "some_test": {
+      "required": {
+        "tag": "some_test",
+        "id": "Id",
+        "operandId": "Child"
+      },
+      "typing": "any nonempty relation schema -> formula"
+    },
+    "no_test": {
+      "required": {
+        "tag": "no_test",
+        "id": "Id",
+        "operandId": "Child"
+      },
+      "typing": "any nonempty relation schema -> formula"
+    },
+    "one_test": {
+      "required": {
+        "tag": "one_test",
+        "id": "Id",
+        "operandId": "Child"
+      },
+      "typing": "any nonempty relation schema -> formula"
+    },
+    "lone_test": {
+      "required": {
+        "tag": "lone_test",
+        "id": "Id",
+        "operandId": "Child"
+      },
+      "typing": "any nonempty relation schema -> formula"
+    },
+    "transpose": {
+      "required": {
+        "tag": "transpose",
+        "id": "Id",
+        "operandId": "Child"
+      },
+      "typing": "relation [A,B] -> relation [B,A]"
+    },
+    "and": {
+      "required": {
+        "tag": "and",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "formula, formula -> formula"
+    },
+    "or": {
+      "required": {
+        "tag": "or",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "formula, formula -> formula"
+    },
+    "implies": {
+      "required": {
+        "tag": "implies",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "formula, formula -> formula"
+    },
+    "iff": {
+      "required": {
+        "tag": "iff",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "formula, formula -> formula"
+    },
+    "equal": {
+      "required": {
+        "tag": "equal",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "identical nonempty relation schemas -> formula"
+    },
+    "subset": {
+      "required": {
+        "tag": "subset",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "identical nonempty relation schemas -> formula"
+    },
+    "union": {
+      "required": {
+        "tag": "union",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "identical nonempty relation schemas -> same relation schema"
+    },
+    "intersection": {
+      "required": {
+        "tag": "intersection",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "identical nonempty relation schemas -> same relation schema"
+    },
+    "difference": {
+      "required": {
+        "tag": "difference",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "identical nonempty relation schemas -> same relation schema"
+    },
+    "join": {
+      "required": {
+        "tag": "join",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "left=L++[S], right=[S]++R, exact nominal endpoint S; output L++R nonempty and length<=8"
+    },
+    "product": {
+      "required": {
+        "tag": "product",
+        "id": "Id",
+        "leftId": "Child",
+        "rightId": "Child"
+      },
+      "typing": "concatenate operand schemas; output length <=8"
+    },
+    "all_quant": {
+      "required": {
+        "tag": "all_quant",
+        "id": "Id",
+        "binder": {
+          "id": "Id(binder)",
+          "name": "Name",
+          "signatureId": "Id(signature)"
+        },
+        "bodyId": "Child(formula)"
+      },
+      "typing": "formula; binder is one atom, relation [signatureId], in body only; domain is full declared signature; no disjoint/multiple binder shorthand"
+    },
+    "some_quant": {
+      "required": {
+        "tag": "some_quant",
+        "id": "Id",
+        "binder": {
+          "id": "Id(binder)",
+          "name": "Name",
+          "signatureId": "Id(signature)"
+        },
+        "bodyId": "Child(formula)"
+      },
+      "typing": "formula; binder is one atom, relation [signatureId], in body only; domain is full declared signature; no disjoint/multiple binder shorthand"
+    }
+  },
+  "projection": {
+    "accepted_block": "BLOCK_SUPPORTED contains final server-ID module, exact source, source hash, immutable artifact/source-bound occurrence/trivia maps and policy version. For SOURCE input elaborate the complete supported fragment from user declarations and predicate bodies before solver command expansion; preserve exact authored bytes. Unsupported parser-accepted policy-supported syntax is TEXT_ONLY with no invented IR. Failure or ambiguity in an otherwise claimed supported correspondence rejects or reports projection unavailable; never fabricate a graph.",
+    "occurrences": "Each closed occurrence has occurrenceId=nodeId+\":\"+role, nodeId, role, startUtf16, endUtf16. Roles are expression/operator/reference/binder; at most one interval per node/role; no path/text-based identity. Forest node ownership ensures distinct source nodes even for identical expressions. Maps bind immutable artifactId/sourceHash/exact source bytes only; immutable revision envelope supplies documentId/revision; presentationEpoch is a separate display envelope, never persisted in artifact maps. Zero-based half-open scalar-aligned UTF16 offsets; render via exact StringBuilder units. Pinned Alloy Pos line/column inclusive-end conversion must use tested UTF16 coordinate semantics, not presume byte offsets; tabs, EOF, file-reader CRLF, supplementary characters need fixtures. Reject ambiguous positions or mark location unavailable; never guess.",
+    "trivia": "Authoritative old trivia comes only from exact expectedRevision artifact. Retained/moved unchanged node IDs retain anchors; deleted node comments become visible trailing orphans in original order. presentationCopies explicitly duplicates source-node attached comment payloads to compatible roles on remapped fresh target nodes, ordered by original comment order then presentationCopies array index. Original trivia remains with surviving source; deletion still orphans original separately. Copy map transfers comments only, never proves an AST clone. Fresh nodes with no transfer map receive no inherited comments. No text/structural-equality inference. For SOURCE candidates preserve exact bytes and lex authoritative comment tokens: complete v1 elaboration assigns new IR IDs and node/role anchors; unsupported TEXT_ONLY stores exact comment tokens/source identity without IR or source-to-block map. Replacement BLOCK_SUPPORTED candidate from TEXT_ONLY moves all previous comments to visible trailing orphan bucket; no fabricated ownership. Existing BLOCK_SUPPORTED trivia uses deterministic smallest-enclosing expression, deepest-expression then role precedence reference,binder,operator,expression, with leading/trailing boundary ties fixed; ambiguity goes to visible orphan bucket. Comment slices stored once with original byte order and anchor (copy intentionally duplicates payload). Unchanged source exact; changed whitespace may regenerate. Source replacement is explicit authority for its authored comments; block edits preserve/transfer old payloads as above and must parse/remap successfully.",
+    "draft_freshness": "draftId, draftEpoch and exactSourceHash bind diagnostics. Increment epoch on every edit/document/selection/bounds/undo transition. Current evidence additionally requires full accepted analysis key and draft equals accepted source.",
+    "structural_equivalence": "Ordered typed trees equal modulo explicit declaration/signature/binder-ID bijection, transparent parser NOOP wrappers and ordered associative AND/OR flattening only. Preserve other operator tags, column order, multiplicity, predicate-call target, all/some distinction and command options. Expanded Command.formula is not an authored-tree oracle."
+  },
+  "api": {
+    "common": "Versioned /api/v1/documents endpoints. Request objects closed; path documentId supplied once, not duplicated in body. Server derives all principal/workspace/launch scope. Responses have protocol=1, requestId, status, data; status-specific data objects closed. No browser authority/type/validation Boolean fields.",
+    "create": {
+      "method": "POST /api/v1/documents",
+      "request": {
+        "idempotencyKey": "Key",
+        "title": "string 1..128 Unicode scalars"
+      },
+      "response": "new documentId, revision=0, empty accepted module/source/maps and policyVersion; creation receipt scoped to workspace and reserved creation namespace. Workspace lock serializes key/create quota. Revision zero is valid empty BLOCK_SUPPORTED module, no command."
+    },
+    "read": {
+      "method": "GET /api/v1/documents/{documentId}?revision=<Revision optional>",
+      "response": "authorized immutable revision/artifact/provenance, or current head. Never return another scope existence. Indefinite history is readable subject to output bounds."
+    },
+    "validateDraft": {
+      "method": "POST /api/v1/documents/{documentId}/validate",
+      "request": {
+        "draftId": "UUID",
+        "draftEpoch": "Revision",
+        "baseRevision": "Revision",
+        "candidate": "Candidate"
+      },
+      "response": "draftId,draftEpoch,exactSourceHash,baseRevision,supportMode,diagnostics; advisory only, no checked-candidate token or accepted revision"
+    },
+    "commit": {
+      "method": "POST /api/v1/documents/{documentId}/commit",
+      "request": {
+        "idempotencyKey": "Key",
+        "expectedRevision": "Revision",
+        "candidate": "Candidate"
+      },
+      "response": "COMMITTED: revision,artifact,sourceHash,policyVersion,idRemapping,provenance; terminal rejected outcome: code,acceptedRevision,diagnostics. Receipt contains exact response."
+    },
+    "Candidate": {
+      "variant_rule": "Exactly one of two closed variants; no edit-program language in v1. Browser applies edits to full immutable candidate then submits whole candidate.",
+      "block": {
+        "mode": "BLOCK_SUPPORTED",
+        "module": "Module",
+        "presentationCopies": [
+          {
+            "sourceNodeId": "existing server ID in exact expectedRevision artifact",
+            "targetNodeId": "fresh draft ID present in submitted candidate"
+          }
+        ]
+      },
+      "text": {
+        "mode": "SOURCE",
+        "source": "Source"
+      },
+      "presentationCopies_rules": "Required closed array, empty if none, at most256 entries; each entry has exactly sourceNodeId and targetNodeId. Exact original request bytes bind mapping. Source must exist in authorized exact base artifact; target must be a newly created draft ID in this complete candidate, remapped by server, and each destination appears once. One source may have multiple destinations. Source/target node kind and transferable closed roles must match. This authorizes only comment transfer, never certifies subtree cloning or structural equality: user may edit copied content before commit. No client trivia payload, source spans or checked flag accepted. Validate map before transferring comments; invalid mapping is deterministic INVALID_DRAFT."
+    },
+    "undoRedo": {
+      "method": "POST /api/v1/documents/{documentId}/history-copy",
+      "request": {
+        "idempotencyKey": "Key",
+        "expectedRevision": "Revision",
+        "targetRevision": "Revision",
+        "direction": "UNDO | REDO"
+      },
+      "response": "Same commit envelope; revalidation creates a fresh checked artifact under current policy and a fresh revision with targetRevision/direction provenance. Exact source unchanged may reuse immutable map CONTENT bytes, but artifact identity/envelope is fresh; no prior maps or artifacts mutate. Map contents contain no old revision authority."
+    },
+    "analyze": {
+      "method": "POST /api/v1/documents/{documentId}/analyze",
+      "request": {
+        "acceptedRevision": "Revision",
+        "commandId": "Id(command)",
+        "draftEpoch": "Revision",
+        "exactSourceHash": "Hash"
+      },
+      "response": "jobId/full accepted analysis key; command owns explicit bounded options from accepted revision. Historical evidence separately labeled."
+    }
+  },
+  "errors": {
+    "terminal_receipted": [
+      "INVALID_DRAFT",
+      "TYPE_MISMATCH",
+      "UNBOUND_SYMBOL",
+      "UNSUPPORTED_FRAGMENT",
+      "STALE_REVISION",
+      "INVALID_UNDO_TARGET"
+    ],
+    "not_receipted": [
+      "UNAUTHORIZED",
+      "FORBIDDEN",
+      "MALFORMED_REQUEST",
+      "RESOURCE_LIMIT_PRE_ADMISSION",
+      "CAPACITY_PRE_ADMISSION",
+      "UNAVAILABLE",
+      "UNKNOWN_COMMIT_OUTCOME",
+      "IDEMPOTENCY_CONFLICT",
+      "IN_PROGRESS"
+    ],
+    "rules": "After strict envelope admission and quota reservation, deterministic whole-module validation errors and stale outcomes receive immutable receipts. Authentication/malformed/availability/pre-admission capacity failure never does. Runtime resource timeout is availability, not deterministic validation. Receipt conflict never overwrites original receipt. HTTP transport failure cannot establish rollback."
+  },
+  "receipts": {
+    "request_identity": "Store exact original HTTP body bytes (no JSON canonicalization) plus SHA256 and method/route/API version; transport whitespace/key order differences are changed bytes. Client persists exact body for retry. Key is also inside body; scoped unique key is principal/logicalLaunch/workspace/document/key. Digest collision never substitutes for exact equality.",
+    "retention": "All receipts and history retained indefinitely in this bounded local slice; no expiry or deletion API or cleanup job. Thus 24h and active retry windows are retained without clock-based lifecycle. Backup/restore retains all scoped identities and receipts.",
+    "lookup": "Authenticate/authorize document then bounded envelope parse then receipt lookup before quota rejection, remapping, parser or stale check. Identical stored body returns original stored response; changed bytes rejects. Repeat lookup under final lock, including for deterministic validation errors.",
+    "quota": "Per workspace hard limits: 64 documents, 4096 revisions, 16384 receipts, 256 MiB accounted artifact/request/response bytes. Track durable usage and admission reservations under workspace lock. Reserve worst-case 4 MiB per admitted mutating request and one receipt slot plus possible revision slot; reject new admission if exhausted. Existing receipt lookups remain readable at quota. Reclaim only unused reservation after known outcome; abandoned reservations require recovery of commit certainty, never history deletion. Reservation payload ceiling covers original request<=256KiB, stored artifact<=1MiB, stored terminal response<=1MiB and admission/request duplication<=256KiB; accounting metadata charged conservatively within 4MiB. SQL/WAL/index/physical disk overhead excluded and monitored independently; physical capacity failure is availability, never false rollback certainty. Document limit includes document_count + reserved_documents. Each admitted CREATE reserves one document slot and revision0 slot under workspace lock; with63 documents only one pending CREATE can be admitted. Preserve reservations across takeover. Successful token-fenced creation converts its document/revision reservation to used counters; deterministic failure or verified recoverable abandonment releases unused reservations atomically. No release on unknown commit outcome until receipt/transaction certainty recovered. Before admission enforce request/component ceilings; before final transaction construct and bound full terminal response and artifact bytes.4MiB reservation is a conservative bound, not permission to emit an oversized component. Known serialization/output failure is availability, retains recoverable admission and writes no terminal receipt.",
+    "outcome": "Store immutable response envelope/status and ID remapping. Replay returns original outcome even after later revisions/policy upgrades; response labels receipt replay and separately supplies current revision if requested, never changes original outcome. Successful receipt and accepted revision atomic; rejected receipt and unchanged document atomic."
+  },
+  "storage": {
+    "namespace": "Dedicated documents schema owned by NOLOGIN NOBYPASSRLS owner; allow_app is neither table owner nor BYPASSRLS. No raw SQL public interface. All SQL including migration/restore/transaction control through SQLean proxy using existing sql_connections.connect; no new JDBC path.",
+    "scope_settings": "Fixed literal SELECT set_config('allow.tenant',%s,true) with durable principalId; allow.project with workspaceId; allow.purpose='document'. These existing admitted keys need no new guard GUC names. Do not instantiate retrieval.Repository with purpose=document (its purpose allowlist intentionally differs). Separate narrow store bridge reuses connection plumbing only.",
+    "columns": "Every table includes principal_id, workspace_id; scoped identities below include both. Logical launch partitions receipts but does not partition durable document ownership/history.",
+    "tables": {
+      "workspace": {
+        "key": [
+          "principal_id",
+          "workspace_id"
+        ],
+        "fields": [
+          "policy_version",
+          "document_count",
+          "revision_count",
+          "receipt_count",
+          "accounted_bytes",
+          "reserved_bytes",
+          "reserved_receipts",
+          "reserved_revisions",
+          "reserved_documents"
+        ],
+        "rules": "Server provisioned; counters nonnegative; limits immutable versioned policy. Policy update locks this row."
+      },
+      "logical_launch": {
+        "key": [
+          "principal_id",
+          "workspace_id",
+          "launch_id"
+        ],
+        "foreign_keys": [
+          "workspace(principal_id,workspace_id)"
+        ],
+        "fields": [
+          "metadata_version"
+        ],
+        "rules": "Private metadata-bound immutable launch registration; never browser provisioned."
+      },
+      "document": {
+        "key": [
+          "principal_id",
+          "workspace_id",
+          "document_id"
+        ],
+        "foreign_keys": [
+          "workspace(principal_id,workspace_id)"
+        ],
+        "fields": [
+          "title",
+          "head_revision"
+        ],
+        "rules": "Head references same scoped revision with deferred FK; revision 0 inserted atomically with document. Only head/title mutable."
+      },
+      "artifact": {
+        "key": [
+          "principal_id",
+          "workspace_id",
+          "document_id",
+          "artifact_id"
+        ],
+        "foreign_keys": [
+          "document(principal_id,workspace_id,document_id) deferred"
+        ],
+        "fields": [
+          "mode",
+          "source_bytes BYTEA",
+          "source_hash",
+          "module_bytes BYTEA nullable",
+          "map_bytes BYTEA nullable",
+          "trivia_bytes BYTEA nullable",
+          "policy_version",
+          "dependency_hash"
+        ],
+        "rules": "Immutable; TEXT_ONLY module/map null; BLOCK_SUPPORTED all required. Hash never sole byte equality authority."
+      },
+      "revision": {
+        "key": [
+          "principal_id",
+          "workspace_id",
+          "document_id",
+          "revision"
+        ],
+        "foreign_keys": [
+          "artifact(principal_id,workspace_id,document_id,artifact_id)",
+          "same-document target_revision when nonnull"
+        ],
+        "fields": [
+          "artifact_id",
+          "target_revision nullable",
+          "direction nullable",
+          "created_at database time"
+        ],
+        "rules": "Immutable; revision monotone head+1. Direction/target both present for history-copy only; artifact references always same document."
+      },
+      "receipt": {
+        "key": [
+          "principal_id",
+          "workspace_id",
+          "launch_id",
+          "document_namespace",
+          "idempotency_key"
+        ],
+        "foreign_keys": [
+          "logical_launch(principal_id,workspace_id,launch_id)"
+        ],
+        "fields": [
+          "method",
+          "route",
+          "request_bytes BYTEA",
+          "request_hash",
+          "outcome_bytes BYTEA",
+          "outcome_code",
+          "result_document_id nullable",
+          "result_revision nullable",
+          "committed_at database time"
+        ],
+        "rules": "Immutable; document_namespace is documentId or reserved CREATE namespace; successful result FK includes scope and document/revision. Noncreate receipt document FK same scope; create outcomes bind created document. No expiry column or cleanup."
+      },
+      "admission": {
+        "key": [
+          "principal_id",
+          "workspace_id",
+          "launch_id",
+          "document_namespace",
+          "idempotency_key"
+        ],
+        "foreign_keys": [
+          "logical_launch(principal_id,workspace_id,launch_id)"
+        ],
+        "fields": [
+          "request_bytes BYTEA",
+          "request_hash",
+          "reservation_bytes",
+          "state",
+          "server_incarnation",
+          "owner_nonce CSPRNG UUID",
+          "reservation_documents integer 0..1",
+          "reservation_revisions integer 0..1",
+          "method",
+          "route",
+          "api_version"
+        ],
+        "rules": "Serializes same-key active work and durable quota reservation; state ADMITTED/VALIDATING/FINALIZING/TERMINAL. Each ownership generation has server incarnation and fresh CSPRNG owner_nonce. No lease expiry takeover. Takeover requires verified old owned process reaping or verified prior incarnation exit and new owner_nonce installed under workspace/document locks. Every finalization compares exact current owner_nonce and request bytes; old checked frames are fenced out even if old validation returns. Preserve reservation through takeover; recover committed receipt first. No cleanup of history/receipt and no inference of rollback from child timeout. Bind method/route/API version in active row and checked frame as well as original body. CREATE reserves document=1 and revision=1 (revision0 counts); all other operations document=0. State/counter settlement requires current owner_nonce under ordered locks. Terminal admissions retained and all retained request/outcome/metadata copies charged exactly once; unused reservations release atomically."
+      }
+    },
+    "rls": "ENABLE and FORCE RLS on every table; USING and WITH CHECK compare principal_id=current_setting(allow.tenant,true) and workspace_id=current_setting(allow.project,true) and purpose=document. Missing settings deny. Scoped composite FKs prevent cross-document/workspace references. Revoke PUBLIC schema/table privileges, no app CREATE/TRUNCATE. Grant SELECT/INSERT on immutable tables, UPDATE only on document head/title and quota/admission control columns; no app UPDATE/DELETE on history/artifact/receipt. No SECURITY DEFINER bypass in v1.",
+    "lock_order": "READ COMMITTED transactions; trusted scope settings transaction-local. Always workspace row FOR UPDATE first, then document row FOR UPDATE when applicable, then scoped admission/receipt key. No reverse acquisition. Workspace lock serializes quota, policy, same-key reservation and final CAS locally; no advisory-key hash collision dependence. Initial receipt read is advisory; all mutation decisions repeat under this order. Never hold transaction while parsing/worker subprocess runs.",
+    "protocol": [
+      "Authenticate/bind scope; strict bounded envelope parse; authorized existing receipt lookup before parser/quota.",
+      "Short admission transaction locks workspace/document, repeats receipt lookup, compares active key exact bytes, reserves quota and creates durable admission. Concurrent identical in-flight request returns IN_PROGRESS availability response or waits outside SQL transaction then repeats lookup; changed bytes denies. CREATE additionally checks document_count+reserved_documents<64 and atomically reserves one document slot and revision0. Receipt-only failed outcomes release revision/document reservation and account retained failure data; no quota oversubscription between distinct pending CREATE keys.",
+      "Outside SQL transaction only the admitted owner_nonce holder validates: freeze original bytes, remap IDs, whole-module/parser/maps validation; immutable checked frame binds owner_nonce, scope/document/base, original bytes, final artifact bytes and current policy/dependency versions. Never browser supplied. Reap bounded worker before ownership recovery. Availability leaves no terminal receipt and retains recoverable admission reservation.",
+      "Final short transaction locks workspace/document, then scoped admission key; repeat authorized receipt lookup FIRST. Existing identical outcome returns unchanged regardless of current stale/validation result; conflicting bytes deny. Otherwise compare admission exact bytes and current owner_nonce, authorization and policy fence. New success additionally requires checked-artifact binding and head=expectedRevision; atomically insert artifact/revision, advance head, insert immutable success receipt and settle reservation/counters. Deterministic validation/stale rejection atomically inserts immutable terminal receipt, settles reservation, leaves head untouched. Validation failures still require current nonce and policy fence; changed policy requests outside-transaction revalidation rather than recording obsolete validation outcome. Database errors known rolled back create no receipt; uncertain acknowledgement returns UNKNOWN_COMMIT_OUTCOME. Final nonce checks bind method/route/API version. Workspace/document counter settlement includes reserved_documents and revision0. If nonce stale, no mutation or terminal receipt; old owner cannot release current owner reservation.",
+      "Known rollback reports no commit. Connection/ack loss after commit sent yields UNKNOWN_COMMIT_OUTCOME; retain same request/key and query/retry. Never assert previous revision unchanged on an uncertain acknowledgement. A new bridge invocation must recover committed receipt before any new attempt."
+    ]
+  },
+  "freeze_requirements": [
+    "No production implementation approval from this draft. Resolve all cross-review findings then six final exact-hash council reviews and registered Lean propositions/two clean builds before code.",
+    "Register all constructor acceptance/denial, forest/scope remapping, endpoint schema limits, receipt concurrency/rollback/unknown, ownership/RLS and source-map adapter fixtures. G2/G3 accessibility/evidence obligations remain independently open.",
+    "Exactly 23 expression tags plus 8 declaration/command tags are described. Parser acceptance spike does not establish full source elaboration or printer correspondence.",
+    "Regression:63 existing documents plus two simultaneous different CREATE keys admits one; failure/recovery returns only unused reservation; successful replay at full quota stays readable.",
+    "Regression:comment copy with changed target subtree, multiple destinations, foreign/base-stale source IDs, duplicate targets, role mismatch, TEXT_ONLY-to-block orphan transfer and undo map-envelope identity."
+  ]
+}

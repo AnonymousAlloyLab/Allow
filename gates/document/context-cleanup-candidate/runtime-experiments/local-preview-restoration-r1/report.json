@@ -1,0 +1,48 @@
+{
+  "status": "RESTORED",
+  "classification": "LOCAL_DEV_RESTORATION_NOT_PRODUCTION_ACCEPTANCE",
+  "started_utc": "2026-11-04T06:14:28.553378+00:00",
+  "profile": "DEFAULT",
+  "p1_full33": "BLOCKED",
+  "F1_enabled": false,
+  "postgres_restarted": false,
+  "backup": {
+    "sha256": "c6e3c68b9a78c3b69f8516fcea83d54ed46b84f9d6c47a9e2489695aec177e24",
+    "bytes": 24362051,
+    "archive_list_sha256": "6d2d0aeaf442d8552477c9aee739de10dfc038d78e93d9eb70d4cf001f11dd55",
+    "contains_document_and_receipt_data": true,
+    "sql_route": "canonical_SQLeanParser",
+    "scope": "Full database including ACLs; existing cluster roles and private metadata are separately retained."
+  },
+  "old_spring_exit": {
+    "pid": 921163,
+    "start": "3659423",
+    "owned_identity_absent": true
+  },
+  "old_proxy_exit": {
+    "pid": 826907,
+    "start": "3288589",
+    "owned_identity_absent": true
+  },
+  "previous_target_preserved": "/home/augustus/Allow/backend/target.before-local-preview-r1",
+  "installed_target_files": 191,
+  "new_spring_identity": {
+    "pid": 1119683,
+    "start": "6540390",
+    "parent": 1119169
+  },
+  "http": {
+    "document_count": 14,
+    "exact_source_sha256": "7bad7593a36f19358ae973df9ecf9d3658b5ca8a60ec067caf16142a0fe0187b",
+    "document_identity_sha256": "3a54622e7cd0f1446c6e3f3da86acf6377a5117cdd7009c73ee84271ef146df8",
+    "revision": 6,
+    "status": "VALIDATED",
+    "head_and_artifact_unchanged": true
+  },
+  "durable_state_unchanged_except_scope_policy": true,
+  "workspace_identity_unchanged": true,
+  "retrieval_journal_unchanged": true,
+  "installed_policy": "document-v1:a280c31119621daf2d233ebdf292318c0d9bb8814cd2339ae2669d8ed6a8cde4",
+  "new_proxy_pid": 1119652,
+  "private_launch_file": "/home/augustus/Allow/.runtime/launch.url"
+}

@@ -1,0 +1,40 @@
+Allow.DocumentPartialTypes.conjunction_preserves_rejection (f : Allow.DocumentPartialTypes.Fact)
+  (a b : List Allow.DocumentPartialTypes.Constraint) (h : ¬Allow.DocumentPartialTypes.compatible f a) :
+  ¬Allow.DocumentPartialTypes.compatible f (a ++ b)
+Allow.DocumentPartialTypes.every_operator_has_known_result_sort (op : Allow.DocumentPartialTypes.Op) :
+  Allow.DocumentPartialTypes.result op ≠ Allow.DocumentPartialTypes.Fact.unknown
+Allow.DocumentPartialTypes.formula_rejected_in_relation (cs : List Allow.DocumentPartialTypes.Constraint)
+  (h : Allow.DocumentPartialTypes.Constraint.sort Allow.DocumentPartialTypes.ResultSort.relation ∈ cs) :
+  ¬Allow.DocumentPartialTypes.compatible Allow.DocumentPartialTypes.Fact.formula cs
+Allow.DocumentPartialTypes.join_endpoint_mismatch_rejected (a b out : Allow.DocumentPartialTypes.Schema)
+  (h : List.getLast? a ≠ List.head? b) : ¬Allow.DocumentPartialTypes.joinConstraint a b out
+Allow.DocumentPartialTypes.nominal_mismatch_rejected (a b : Allow.DocumentPartialTypes.Schema) (h : a ≠ b) :
+  ¬Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.Fact.relation (some a))
+      [Allow.DocumentPartialTypes.Constraint.exact (Allow.DocumentPartialTypes.Ty.relation b)]
+Allow.DocumentPartialTypes.not_hole_rejected_under_some :
+  ¬Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.result Allow.DocumentPartialTypes.Op.not)
+      [Allow.DocumentPartialTypes.Constraint.sort Allow.DocumentPartialTypes.ResultSort.relation]
+Allow.DocumentPartialTypes.product_holes_rejected_at_formula_root :
+  ¬Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.result Allow.DocumentPartialTypes.Op.product)
+      [Allow.DocumentPartialTypes.Constraint.sort Allow.DocumentPartialTypes.ResultSort.formula]
+Allow.DocumentPartialTypes.product_overflow_rejected (a b out : Allow.DocumentPartialTypes.Schema)
+  (h : 8 < List.length a + List.length b) : ¬Allow.DocumentPartialTypes.productConstraint a b out
+Allow.DocumentPartialTypes.profile_rejects_opposite_sort (op : Allow.DocumentPartialTypes.Op) :
+  (Allow.DocumentPartialTypes.result op = Allow.DocumentPartialTypes.Fact.formula →
+      ¬Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.result op)
+          [Allow.DocumentPartialTypes.Constraint.sort Allow.DocumentPartialTypes.ResultSort.relation]) ∧
+    (Allow.DocumentPartialTypes.result op = Allow.DocumentPartialTypes.Fact.relation none →
+      ¬Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.result op)
+          [Allow.DocumentPartialTypes.Constraint.sort Allow.DocumentPartialTypes.ResultSort.formula])
+Allow.DocumentPartialTypes.relation_rejected_in_formula (schema : Option Allow.DocumentPartialTypes.Schema)
+  (cs : List Allow.DocumentPartialTypes.Constraint)
+  (h : Allow.DocumentPartialTypes.Constraint.sort Allow.DocumentPartialTypes.ResultSort.formula ∈ cs) :
+  ¬Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.Fact.relation schema) cs
+Allow.DocumentPartialTypes.transpose_wrong_width_rejected (a out : Allow.DocumentPartialTypes.Schema)
+  (h : List.length a ≠ 2) : ¬Allow.DocumentPartialTypes.transposeConstraint a out
+Allow.DocumentPartialTypes.unknown_schema_not_guessed (s : Allow.DocumentPartialTypes.Schema) :
+  Allow.DocumentPartialTypes.compatible (Allow.DocumentPartialTypes.Fact.relation none)
+    [Allow.DocumentPartialTypes.Constraint.exact (Allow.DocumentPartialTypes.Ty.relation s)]
+Allow.DocumentPartialTypes.unresolved_hole_preserved (s : Allow.DocumentPartialTypes.Schema) :
+  Allow.DocumentPartialTypes.compatible Allow.DocumentPartialTypes.holeResult
+    [Allow.DocumentPartialTypes.Constraint.exact (Allow.DocumentPartialTypes.Ty.relation s)]

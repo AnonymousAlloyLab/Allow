@@ -1,0 +1,57 @@
+{
+  "reviewer": "Sol council seat 1",
+  "artifact": "spec/sql-stage.json",
+  "revision": 4,
+  "reviewed_draft_sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "decision": "APPROVE",
+  "remaining_design_blockers": [],
+  "incremental_scope": "Native SQL PREPARE/EXECUTE accepted provenance, full pinned pg_dump compatibility, unchanged exact SQL bytes and unchanged conservative exclusions.",
+  "findings": [
+    {
+      "topic": "Observed utility need",
+      "assessment": "The prior real pg_dump run reached 68 accepted queries and was correctly denied on PREPARE getColumnACLs(pg_catalog.oid) AS a static SELECT. Pinned PostgreSQL 16.15 primary source pg_dump.c:15373 establishes that query family. Other pinned static PREPARE sites exist for domains, types, functions and operators. Keeping complete native backups is preferable to dropping ACLs to evade the requirement."
+    },
+    {
+      "topic": "Exact parser boundary",
+      "assessment": "The whole PREPARE source, including static body, and every EXECUTE source must each pass exact SQLean grammar admission. No percent-parameter substitution or SQL regeneration is introduced by Allow. Source bytes forwarded to PostgreSQL remain unchanged."
+    },
+    {
+      "topic": "Name correspondence",
+      "assessment": "Unquoted simple ASCII names of at most 63 bytes and ASCII-only lowercase normalization avoid quoted/Unicode/long-name ambiguity. Protocol names remain exact; a shared connection-local provenance namespace supports cross-protocol operations without conflating SQL lexical normalization with protocol strings."
+    },
+    {
+      "topic": "State and provenance",
+      "assessment": "EXECUTE needs a previously admitted target plus its own admitted exact source; connection boundaries and existing object/metadata caps remain mandatory. A Bind portal retains its immutable accepted payload across replacement. Optimistic admission must never be presented as PostgreSQL execution success or exact server-object correspondence after an error."
+    },
+    {
+      "topic": "Nested effects and mode assumptions",
+      "assessment": "Sole top-level native statements only; reject nested/multi combinations and apply all existing opaque-production, unsafe set_config, lexer-mode and resource restrictions to PREPARE bodies and EXECUTE expressions. Arbitrary function-effect analysis is explicitly not claimed."
+    },
+    {
+      "topic": "Retained exclusions",
+      "assessment": "SQL DEALLOCATE, two-phase prepared transactions, DO/function/procedure dynamic bodies, and fast-path calls remain rejected. Managed psycopg automatic preparation is disabled while ordinary extended parameter binding remains supported."
+    }
+  ],
+  "implementation_acceptance_obligations": [
+    "Real full pg_dump/pg_restore with ACLs through canonical proxy endpoints; distinct client counter evidence and unchanged backup content.",
+    "Native PREPARE/EXECUTE success; unknown/cross-connection target rejection; both SQL-to-protocol Bind and protocol-Parse-to-SQL EXECUTE.",
+    "Quoted, Unicode, overlong and ambiguous names reject; uppercase ASCII names normalize only for lookup, never mutate SQL source.",
+    "Nested EXPLAIN EXECUTE, CREATE AS EXECUTE, multi-statement combinations, unsafe mode functions inside prepared bodies and EXECUTE arguments reject before forwarding.",
+    "Retain original rev3 failed backup evidence and original strict policy snapshot; do not reinterpret prior failure as a pass.",
+    "Re-run fresh/idempotent/partial/drift migration and real restore/revocation tests after the approved proxy implementation."
+  ],
+  "implementation_plan_unchanged": "My production ownership remains canonical connection enforcement, bootstrap, explicit migration/catalog validation and real recovery routing. All source/SQL/test mutations are paused until final rev4 proof/council release.",
+  "formal_limit": "Await exact final spec hash and additional Lean obligations. This is a design review, not an implementation approval or proof of PostgreSQL semantics.",
+  "approved_exact_hash": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "formal_obligation_count": 22,
+  "new_claim_review": {
+    "SQ17": "A reachable native EXECUTE carries its own admitted request and a known admitted target statement.",
+    "SQ18": "Unknown native target cannot execute in the model.",
+    "SQ19": "Native PREPARE can feed the shared Bind/portal path while preserving admitted request/report provenance.",
+    "SQ20": "Successful cache lookup is pure and cannot create a prepared statement.",
+    "SQ21_SQ22": "Explicit nonempty native PREPARE and EXECUTE witnesses make the new policy non-vacuous."
+  },
+  "body_span_trust_boundary": "Read NativePrepare/bodyPart and their Lean documentation. bodyPart proves only a nonempty substring decomposition of the whole accepted source; correct SQL statement classification, actual body-span identification and ASCII name correspondence remain trusted adapter obligations. The review does not infer a verified parser AST/body mapping or PostgreSQL execution semantics from these theorems.",
+  "final_conclusion": "Approve exact revision 4 design with no remaining design blockers. Runtime protocol, body/name extraction, native full backup, migration and restore/revocation checks remain implementation acceptance obligations. Production remains paused until the parent announces formal/council release."
+}

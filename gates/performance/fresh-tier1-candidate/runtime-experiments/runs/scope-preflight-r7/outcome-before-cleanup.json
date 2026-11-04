@@ -1,0 +1,5309 @@
+{
+  "status": "BLOCKED",
+  "input_root_sha256": "7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+  "classification": "SCOPE_REAL_WORKER_PREFLIGHT_ONLY",
+  "benchmark_executed": false,
+  "snapshots": [
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 20094\nuser_usec 16087\nsystem_usec 4007\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=4\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=4",
+        "memory.current": "9510912",
+        "memory.peak": "9510912",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "1",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41"
+      },
+      "observed_monotonic_ns": 69649491898099
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 37038\nuser_usec 31190\nsystem_usec 5848\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5",
+        "memory.current": "10006528",
+        "memory.peak": "10100736",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "1",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41"
+      },
+      "observed_monotonic_ns": 69649514841944
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 60038\nuser_usec 49211\nsystem_usec 10826\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5",
+        "memory.current": "40812544",
+        "memory.peak": "40812544",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "1",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41"
+      },
+      "observed_monotonic_ns": 69649537987040
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 96761\nuser_usec 78862\nsystem_usec 17898\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=33\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=33",
+        "memory.current": "54513664",
+        "memory.peak": "54562816",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "20",
+        "pids.peak": "20",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649561199266
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 149017\nuser_usec 131118\nsystem_usec 17898\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=63\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=63",
+        "memory.current": "61399040",
+        "memory.peak": "61566976",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "21",
+        "pids.peak": "21",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649584680395
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 204900\nuser_usec 182133\nsystem_usec 22766\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1035\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=75",
+        "memory.current": "63283200",
+        "memory.peak": "63545344",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "21",
+        "pids.peak": "21",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649607727370
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 250984\nuser_usec 219239\nsystem_usec 31745\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1705\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=78",
+        "memory.current": "109826048",
+        "memory.peak": "109826048",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "21",
+        "pids.peak": "21",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649631172539
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 283531\nuser_usec 247717\nsystem_usec 35814\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1711\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=84",
+        "memory.current": "112185344",
+        "memory.peak": "112185344",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "21",
+        "pids.peak": "21",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649654444796
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168621,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168621,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168622,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168622,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168623,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168623,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168624,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168626,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168630,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168631,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168632,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168633,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168634,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168635,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168636,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168637,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168638,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168639,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168640,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 329237\nuser_usec 288435\nsystem_usec 40802\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 2\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3541\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=129",
+        "memory.current": "134713344",
+        "memory.peak": "134713344",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "41",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649677459401
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168621,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168621,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168622,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168622,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168623,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168623,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168624,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168626,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168630,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168631,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168632,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168633,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168634,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168635,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168636,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168637,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168638,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168639,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168640,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 377928\nuser_usec 333936\nsystem_usec 43991\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 2\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3561\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=149",
+        "memory.current": "145002496",
+        "memory.peak": "145002496",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "41",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649700853189
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168621,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168621,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168622,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168622,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168623,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168623,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168624,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168626,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168630,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168631,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168632,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168633,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168634,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168635,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168636,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168637,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168638,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168639,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168640,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 432577\nuser_usec 384623\nsystem_usec 47953\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 2\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3586\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=174",
+        "memory.current": "154177536",
+        "memory.peak": "154177536",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "41",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649724340198
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168621,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168621,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168622,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168622,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168623,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168623,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168624,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168626,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168630,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168631,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168632,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168633,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168634,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168635,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168636,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168637,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168638,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168639,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168640,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 491135\nuser_usec 439702\nsystem_usec 51433\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 2\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3603\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=191",
+        "memory.current": "163336192",
+        "memory.peak": "163336192",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "41",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649747389573
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168621,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168621,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168622,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168622,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168623,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168623,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168624,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168626,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168630,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168631,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168632,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168633,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168634,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168635,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168636,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168637,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168638,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168639,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168640,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 541068\nuser_usec 489567\nsystem_usec 51501\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3623\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=211",
+        "memory.current": "169648128",
+        "memory.peak": "169648128",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "41",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649770867602
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168617,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168621,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168621,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168622,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168622,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168623,
+          "start_ticks": "6964965",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168623,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168624,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168626,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168630,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168631,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168632,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168633,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168634,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168635,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168636,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168637,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168638,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168639,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168640,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 596189\nuser_usec 544687\nsystem_usec 51501\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3643\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=231",
+        "memory.current": "175144960",
+        "memory.peak": "175144960",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "41",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649793836627
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168627,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168628,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168629,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 643367\nuser_usec 583964\nsystem_usec 59403\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5083\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=248",
+        "memory.current": "115331072",
+        "memory.peak": "178282496",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "24",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649816478709
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168648,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168649,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 695463\nuser_usec 635777\nsystem_usec 59686\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5609\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=322",
+        "memory.current": "122892288",
+        "memory.peak": "178282496",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "23",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649839503004
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168599,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168601,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168602,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168606,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168613,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168648,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168649,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 754340\nuser_usec 693750\nsystem_usec 60589\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5628\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=341",
+        "memory.current": "124727296",
+        "memory.peak": "178282496",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "23",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649862763561
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1168595,
+          "start_ticks": "6964953",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168595,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168597,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168598,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168600,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168603,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168604,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168605,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168607,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168608,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168609,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168610,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168611,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168612,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168614,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168625,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168648,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168649,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "tid": 1168652,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 802059\nuser_usec 738499\nsystem_usec 63559\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5651\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=355",
+        "memory.current": "107847680",
+        "memory.peak": "178282496",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "19",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=138\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=138"
+      },
+      "observed_monotonic_ns": 69649885435123
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Delegate": "no",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1168589,
+          "start_ticks": "6964943",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+          "threads": [
+            {
+              "tid": 1168589,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1168589,
+        "start_ticks": "6964943"
+      },
+      "launch_lane": "owned_caller_scope_v1",
+      "metrics": {
+        "cpu.stat": "usage_usec 804451\nuser_usec 738844\nsystem_usec 65607\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 4\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=7448\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=358",
+        "memory.current": "32768000",
+        "memory.peak": "178282496",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "41",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=239\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=239"
+      },
+      "observed_monotonic_ns": 69649908040265
+    }
+  ],
+  "verifier_sha256": "2f1c241d2c56161cf3865f5a35456efa1a87be821bd07f0c726be818f6ad8105",
+  "worker": {
+    "schemaVersion": 1,
+    "profile": "DEFAULT",
+    "inputSha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+    "inputBytes": 361,
+    "outcome": "COMPLETE_RESPONSE",
+    "noWorkerStarted": false,
+    "constructorNanos": 41916697,
+    "buildIdentity": "a280c31119621daf2d233ebdf292318c0d9bb8814cd2339ae2669d8ed6a8cde4",
+    "launchNanos": 46763316,
+    "workerPid": 1168621,
+    "workerStartTicks": "6964965",
+    "responseBytes": 530,
+    "responseSha256": "257f5004eee769c5105f3f48bcf4870106021a8fd8c87517e8d4233ee5f2ff70",
+    "requestIdentityMatches": true,
+    "workerStatus": "VALIDATED",
+    "exchangeNanos": 213573417,
+    "reapNanos": 2270,
+    "reaped": true,
+    "workerExitCode": 0,
+    "totalNanos": 302337771
+  },
+  "placement": {
+    "unit": {
+      "Result": "success",
+      "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+      "Delegate": "no",
+      "KillMode": "control-group",
+      "Id": "allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+      "Description": "allow-fresh:7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "running",
+      "InvocationID": "9f2241bfb0c845358dae0ab8dc4f1ba9"
+    },
+    "limits": {
+      "cpu.max": "400000 100000",
+      "memory.high": "5368709120",
+      "memory.max": "6442450944",
+      "memory.swap.max": "0",
+      "pids.max": "512"
+    },
+    "processes": [
+      {
+        "pid": 1168589,
+        "start_ticks": "6964943",
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-7bd2bed1044b4e9fbd5063fbf6cb65b6.scope",
+        "threads": [
+          {
+            "tid": 1168589,
+            "affinity": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    ],
+    "supervisor_identity": {
+      "pid": 1168589,
+      "start_ticks": "6964943"
+    },
+    "launch_lane": "owned_caller_scope_v1",
+    "metrics": {
+      "cpu.stat": "usage_usec 20094\nuser_usec 16087\nsystem_usec 4007\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=4\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=4",
+      "memory.current": "9510912",
+      "memory.peak": "9510912",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+      "memory.swap.current": "0",
+      "memory.swap.events": "high 0\nmax 0\nfail 0",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+      "pids.current": "1",
+      "pids.peak": "1",
+      "pids.events": "max 0",
+      "cgroup.events": "populated 1\nfrozen 0",
+      "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=41\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=41"
+    },
+    "observed_monotonic_ns": 69649489005296
+  },
+  "owner": {
+    "identity": {
+      "pid": 1168589,
+      "start_ticks": "6964943"
+    },
+    "parent": {
+      "pid": 1168565,
+      "start_ticks": "6964752"
+    },
+    "security": {
+      "profile": "chatgpt (unconfined)",
+      "fields": {
+        "CapInh": "0000000000000000",
+        "CapPrm": "0000000000000000",
+        "CapEff": "0000000000000000",
+        "CapBnd": "000001ffffffffff",
+        "CapAmb": "0000000000000000",
+        "NoNewPrivs": "0",
+        "Seccomp": "0"
+      },
+      "namespaces": {
+        "user": "user:[4026531837]",
+        "mnt": "mnt:[4026531832]",
+        "net": "net:[4026531833]",
+        "pid": "pid:[4026531836]",
+        "cgroup": "cgroup:[4026531835]"
+      }
+    },
+    "input_root_sha256": "7118db3525a0dcc9ffe9c2e4c9cf973d399f1729b37830de7538013cffbfda62"
+  },
+  "checks_passed_before_cleanup": true
+}

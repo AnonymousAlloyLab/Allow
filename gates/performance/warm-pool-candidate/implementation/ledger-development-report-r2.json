@@ -1,0 +1,61 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Four new ownership classes only; no registered runtime closure, kernel cleanup, Java refinement or promotion claim. No active target mutation. Prior development run retained.",
+  "copied_root": "/tmp/allow-warm-ledger-r2-xlnvk99m",
+  "sources": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "aa8d9542574076fe24112310956a6b57f069ae568496c367af5a3441fc28f5cc"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerReservation.java",
+      "sha256": "2ff0c8c89f1eaa66dfa500e413f893348ac4b68266cf489bd8fc1ddde8b00822"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "9be43fa768e6c558cdddc984a65010cd29ff33b2ed79d886afc3460d9fc10682"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "58cf61800b3c863efe1efe9e109ce78f79708d00fe3c3cd5c434470633dc5566"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerJournalTest.java",
+      "sha256": "5ba48c91041feb1f3d6576c64ca92339f5302acc5fe9384c007efe872fe72a21"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerReservationTest.java",
+      "sha256": "bf20c181f6b4731fb9dae41bced1d860005201c8a2ffc82418d0e0bee4855dd8"
+    }
+  ],
+  "suites": [
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "tests": 18,
+  "style": "PASS; documented callables <=30 physical lines; no Java lambdas",
+  "uncovered": [
+    "Actual delegated cgroup open/kill/empty/remove and group descendants",
+    "UNKNOWN physical cleanup and direct-child attachment failure under real helper",
+    "Parent death and restart persistence/uncertainty reconciliation",
+    "Combined shared fresh/warm capacity and response publication fencing"
+  ],
+  "logs": [
+    "/tmp/allow-warm-ledger-r2-xlnvk99m/main-compile.log",
+    "/tmp/allow-warm-ledger-r2-xlnvk99m/test-compile.log",
+    "/tmp/allow-warm-ledger-r2-xlnvk99m/focused-tests.log",
+    "/tmp/allow-warm-ledger-r2-xlnvk99m/checkstyle.log"
+  ]
+}

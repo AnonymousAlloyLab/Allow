@@ -1,0 +1,146 @@
+{
+  "id": "ALLOW-DOCUMENT-STAGE-DRAFT-0.1",
+  "status": "DRAFT_NOT_AUTHORIZED_FOR_IMPLEMENTATION_OR_GATE_CLOSURE",
+  "revision": 2,
+  "extends": [
+    "spec/allow-contract.json",
+    "spec/retrieval-stage.json",
+    "spec/sql-stage.json"
+  ],
+  "sequence": [
+    "Complete and preserve SQL routing stage evidence",
+    "Freeze this supplement and additional Lean propositions",
+    "Obtain two Terra, two Sol and two Astra independent reviews and resolve findings",
+    "Run two clean formal builds with exact frozen propositions and baseline, before production edits",
+    "Implement and test server document transactions, full palette, text projection and accessibility",
+    "Run every inherited G2/G3 gate; explicitly retain unmet gates"
+  ],
+  "current_baseline": {
+    "browser": "frontend/src/model.ts supports only kind-only holes/ref/and/or/implies/not/some/no/union; browser Workbench increments local revision after worker validation; no durable authoritative commit or complete palette is shown.",
+    "server": "Worker AlloyEngine parses modules using Alloy; parser acceptance alone does not prove the graph is typed, scope-safe or atomically persisted. Existing jobs and retrieval storage are not a document transaction API.",
+    "formal": "formal/Allow/Typing.lean proves a smaller exact-nominal subset; the isolated draft groups operator typing families, is not registered and does not establish full implementation correspondence."
+  },
+  "scope": {
+    "palette": [
+      "signature declarations and fields with explicit nominal column types and declared multiplicity",
+      "predicate parameters and stable variable references",
+      "and, or, not, implies, iff",
+      "some, no, one, lone relation tests",
+      "equality and subset",
+      "union, intersection, difference",
+      "join, product, transpose",
+      "all and some quantification",
+      "fact, predicate, assertion, run and check"
+    ],
+    "fragment": "Block-supported IR permits static self-contained modules with exact nominal nonempty schemas, no inheritance, integer expressions or alternative schemas; names are syntax/display only, with stable declaration IDs and explicit scope IDs. Reject unsupported construction as block-supported, without truncation. Parser-accepted solver-policy-supported other syntax remains TEXT_ONLY per A4; this bounded slice does not close unsupported original obligations by relabeling them.",
+    "constraints": "Set operations, equality and subset require identical nonempty column schemas. Product concatenates nonempty schemas; join requires equal nominal endpoint sorts and a nonempty result; transpose requires binary relation. Boolean operators require formulas. Multiplicity tests accept nonempty relation schema. All/some bind one atom of a declared nominal signature with an explicitly scoped stable binder; predicate parameter declarations are checked at calls. Reject cycles, unknown/unbound references and captures; recheck entire module after every edit. Enforce field/declaration multiplicity and dependencies using the trusted Alloy parser and server policy.",
+    "identity": "Wire draft IDs are untrusted draft:UUID placeholders. The authenticated server replaces each fresh placeholder injectively with a generated UUID before complete candidate validation, rewrites all references, and returns the mapping in the stored outcome. Existing UUIDs must belong to this authorized document history. Neither ID spelling nor source labels grant authority. All declaration, binder and expression IDs are unique in an artifact. Full validation occurs after remapping, so no unproved renaming preservation is needed to authorize a commit.",
+    "ir_contract": {
+      "representation": "Immutable versioned syntax forest with unique ownership: each expression node has exactly one parent edge or one declared body root; all nodes reachable, no sharing, dangling edges or cycles. References to declarations/binders are typed leaves, not child edges. The separate canonical e-graph may share terms without changing source occurrence identity. Complete closed tags, fields and arities are specified by the companion wire contract. Unknown fields/tags, duplicate IDs and excess budgets reject. Draft holes are browser-only and cannot enter accepted IR.",
+      "tags": [
+        "signature",
+        "field",
+        "predicate",
+        "parameter",
+        "fact",
+        "assertion",
+        "run",
+        "check",
+        "signature_ref",
+        "field_ref",
+        "variable_ref",
+        "predicate_call",
+        "and",
+        "or",
+        "not",
+        "implies",
+        "iff",
+        "some_test",
+        "no_test",
+        "one_test",
+        "lone_test",
+        "equal",
+        "subset",
+        "union",
+        "intersection",
+        "difference",
+        "join",
+        "product",
+        "transpose",
+        "all_quant",
+        "some_quant"
+      ],
+      "declarations": "Signatures have unique ID, valid globally unique name and declared multiplicity; fields have unique ID, owning signature, ordered nominal columns and multiplicity; predicates have unique ID, ordered parameters with unique binder IDs and nominal types, and formula body. Facts/assertions have unique IDs and formula bodies; commands have unique IDs, exact target IDs and explicit bounded options. Names and generated printer identifiers must be parser-valid and unique in their namespace.",
+      "binders_and_calls": "Resolve each variable reference under the unique lexical ancestor environment of its forest occurrence. Predicate parameters are explicitly set-valued exact nonempty nominal product schemas; calls require the same count and ordered exact schemas, without a singleton-value promise. All/some quantifiers introduce one atom of a declared unary signature in the body only. Binder IDs are globally unique in a module. Calls must resolve known predicates and admit a strictly decreasing rank for every dependency edge, ruling out recursion of any length. Copy freshens all owned IDs and bound references; move preserves IDs but rejects escaping or captured references after whole-module validation.",
+      "multiplicity": "Signatures allow set/one/lone/some. Fields store owner separately from nonempty ordered range columns: full schema is [owner] ++ range, length at most8. Unary ranges allow set/one/lone/some; tuple ranges initially allow only set, printed as set (B -> C ...). The pinned parser rejects one/lone/some of a tuple range; reject such IR rather than invent arrow-multiplicity semantics. Predicate parameters are set-valued schemas, printed explicitly. Parser and solver enforce declaration cardinality; structural typing alone does not establish satisfiability."
+    }
+  },
+  "accepted_state": {
+    "artifact": "Every immutable accepted revision is tagged BLOCK_SUPPORTED with validated typed IR, exact UTF-8 source, occurrence map and trivia, or TEXT_ONLY with exact parser-accepted solver-policy-supported source/import closure and no invented IR, block graph or canonical CorpusPair. Preserve exact source including CRLF. Drafts are separately visible, may contain holes or invalid text and never mutate accepted state.",
+    "validation": "Server independently bounds, parses and elaborates the entire candidate and authoritative declaration environment, checks scopes, graph acyclicity, every shipped type and multiplicity rule, and re-renders/maps where applicable. Browser checks are advisory. Worker time/memory/output, request and graph size bounds must be declared and enforced before implementation; timeout/error/unknown reject commit. Authentication and workspace/document ownership checked before validation and commit.",
+    "atomicity": "Validate outside the final database transaction. Under the ordered workspace/document locks, repeat authorized receipt lookup, exact request equality, policy/version and base-revision checks; then atomically append immutable artifact, revision and outcome receipt. A known rollback or rejected terminal outcome leaves the accepted head unchanged. A lost commit acknowledgement, process death or transport failure can occur after commit: return UNKNOWN_COMMIT_OUTCOME and recover by the original exact scoped key; never claim the old head is unchanged from an uncertain response. No successful response before committed outcome.",
+    "idempotency": "Bind scoped key to method, exact route/API version and exact original strict UTF-8 JSON body bytes plus digest; whitespace/key-order changes count as changed bytes. Authenticate/authorize and look up an existing receipt before parsing/revalidation/quota/stale checks beyond bounded envelope decoding. Repeat lookup under transaction locks to close races. Indefinitely retain successful and deterministic validation/stale outcome receipts and history in bounded local v1; there is no expiration/deletion/cleanup. This exceeds24h and any active retry window. Quota/admission and unavailable/malformed/auth outcomes have separate pre-admission rules in the companion; do not fabricate terminal receipts after uncertain commit. Browser retains exact serialized request for retry.",
+    "undo_redo": "Undo/redo request explicitly names immutable target revision/artifact and current expected revision, with direction and target included in idempotent request. Revalidate the exact historical artifact against current parser, policy, declarations and frozen dependency versions, then append it as a new revision with provenance; never mutate history or decrement revision. If target unavailable, unauthorized, stale or invalid under current policy, reject without change. History navigation is client selected; no implicit global undo stack or inference of inverse edits.",
+    "identity_and_restart": "Provision immutable local owner principal, workspace and logical launch IDs in workspace-private mode0700 directory and mode0600 metadata using create-exclusive write, fsync and atomic persistence; reject symlinks, ownership/mode mismatches, malformed metadata, concurrent conflicting provisioning and missing identity for a nonempty store. Fresh per-process bearer remains ephemeral and is never a durable database key. Server supplies scope only from this metadata. Rotation/restart preserves the logical scope and receipts while old bearer authority stops working. No browser-supplied principal/scope, cross-owner recovery or multi-user credential system is implied.",
+    "commit_protocol": "A dedicated bounded internal document Python persistence bridge reuses sql_connections, not retrieval.Repository or a public arbitrary-write corpus operation. Bind current immutable policy/dependency version, principal/workspace/logical scope, document/base revision, exact original request bytes and complete checked artifact/source/maps bytes in one server-owned immutable frame after worker validation. Browser cannot send checked=true or substitute this frame. Final transaction rechecks authorization, receipt, exact bytes, policy fence and head before append. Policy installation serializes on the same workspace row. Detailed admission reservations and crash-owner recovery remain candidate rules requiring adversarial review; no unsafe expiry-based takeover is allowed."
+  },
+  "projection": {
+    "round_trip": "Compare ordered typed structural trees modulo an explicit bijection of signature/declaration/binder IDs, transparent parser NOOP wrappers and ordered associative AND/OR flattening. Preserve every other operator tag, nominal column order, multiplicity, predicate-call target, quantifier distinction and command option. Graph IDs, source offsets and e-graph sharing are not reconstructed from source text alone. Add deterministic source-to-IR elaboration for the complete supported fragment; unsupported accepted syntax is TEXT_ONLY. Parse user declarations and predicate bodies before solver command expansion; expanded Command.formula cannot serve as the structural oracle.",
+    "maps": "Strict UTF-8 source bytes and SHA256 are immutable artifact identity; reject unpaired UTF-16 surrogates and preserve CRLF. Stored zero-based half-open UTF-16 spans bind artifact/revision and source identity, with nodeID:role occurrence identity in the closed syntax forest. The presentation envelope separately binds current draft/epoch after exact-source equality. Do not conflate parser coordinates with byte offsets or reuse a map solely because equal text appears elsewhere.",
+    "freshness": "Stored maps are revision/source artifacts. A presentation envelope associates an artifact with current document/draft/epoch only after exact-source agreement. Increment presentation epoch on every edit, document/selection/bounds change, undo/redo. Diagnostics match draft ID/epoch/source hash. Accepted analysis resolves source and command server-side from an authorized immutable revision and exact current policy, returning complete analysis identity. Late commit success can update history but never overwrite a newer draft or restore current evidence. Draft validation is diagnostic-only; legacy draft analysis cannot badge accepted-document evidence.",
+    "occurrence_rules": "Accepted artifact maps bind immutable revision and exact source bytes/hash, not an ephemeral presentation epoch. The closed forest gives each source expression a unique owned node. Occurrence IDs are stable node-ID plus closed role, never path text or text equality; roles distinguish expression/operator/reference/binder occurrences. Rendering tracks exact UTF-16 StringBuilder offsets over validated Unicode. Pinned Alloy Pos line/column interpretation must be adapter-tested: the authored Unicode/CRLF spike matches Java UTF-16, not UTF-8 bytes. Convert only valid scalar boundaries; reject ambiguity or report unavailable location rather than guess. Raw source-to-IR elaboration assigns fresh IDs and exact occurrence maps with a stated bijection.",
+    "trivia_rules": "Trivia ownership is stable node/role anchoring, independent of traversal positions. Store each exact comment slice once with original order, plus module-leading/trailing and orphan anchors. Move carries node anchors; copy explicitly freshens IDs and duplicates attached comments; delete sends comments to a visible module trailing orphan bucket in original order. Preserve unchanged source bytes exactly. A block edit may regenerate whitespace but must preserve comment payload/order according to the edit map, report relocated comments and parse/remap successfully. Define deterministic ownership/tie rules before freeze; source-authoritative mode preserves all bytes even when projection is unavailable."
+  },
+  "formal_draft": {
+    "path": "gates/document/draft/Document.lean",
+    "coverage": "Intermediate replacement draft must link checked module structure/typing/calls/ranks/scopes and bound occurrences to actual candidate validity in the transaction model. Arbitrary caller-supplied valid predicates are insufficient. Register precise universal properties and inhabited positive/negative witnesses for full declared feature surface; active imports and production remain unchanged until final council plus two clean proof builds.",
+    "trust": "Lean does not prove Alloy parsing, name resolution, field multiplicity semantics, source/render mapping, PostgreSQL transaction isolation, browser accessibility, subprocess or Java/TypeScript refinement. Register exact propositions, proofs, witnessed acceptance and denial before production; test parser and adapters against Lean oracle separately."
+  },
+  "validation": [
+    "All full-palette operators: valid and invalid exact schemas, direction/arity, destination scope, bound variables, params, declaration edits and dependency cascades; malformed graph, cycle and unbound negatives.",
+    "Server-authoritative commit, concurrent conflicting expected revisions, rejected candidate unchanged, lost response, concurrent duplicate and collision, indefinite receipt retention through restart and full-quota recovery; atomic persistence under forced transaction failure and parser unavailable.",
+    "Undo/redo as fresh revisions including stale, failed, concurrent and restart cases; historical source and maps exact.",
+    "Round-trip every supported constructor modulo defined alpha/presentation equivalence; text-only transitions and invalid draft retains historical view, no stale evidence.",
+    "Occurrence maps for repeated references/identical text, nested spans, non-BMP, combining marks, CRLF/LF and invalid encodings, with revision/epoch validation and delayed-response regression.",
+    "Full keyboard create/connect/move/delete/undo/redo, focus and live announcements; automated WCAG 2.2 AA checks and named manual browser/screen-reader scenarios.",
+    "Inherited canonical proof checker, Java truth-table/certificate differential checks, budget tests and G2/G3 exit criteria remain required. Report each original gate independently; no automatic closure from this supplement."
+  ],
+  "open_review_questions": [
+    "Finalize complete closed wire/SQL schema, state machine and bounded admission/crash recovery without expanding trust silently.",
+    "Complete connected formal ModuleValid-to-commit invariant, scoped receipt/replay/rollback/unknown/retention/undo proofs and scalar boundary mapping.",
+    "Implement and verify pinned parser-to-IR structural adapter and full per-tag differential oracle; parser spike is not round-trip proof.",
+    "Freeze deterministic node-role occurrence and trivia transport plus stale UI reducer envelopes.",
+    "Resolve all six initial review findings and obtain six approvals bound to final specification and exact formal types before production."
+  ],
+  "budgets": {
+    "status": "Candidate fixed local profile; inherited stricter limits apply; no silent relaxation.",
+    "request_bytes": 262144,
+    "source_utf8_bytes": 32768,
+    "nodes": 256,
+    "graph_depth": 32,
+    "declarations": 128,
+    "predicate_parameters": 16,
+    "schema_columns": 8,
+    "source_occurrences": 1024,
+    "diagnostics": 64,
+    "diagnostic_bytes": 32768,
+    "validation_output_bytes": 1048576,
+    "concurrent_validation_workers": 2,
+    "queued_validations": 0,
+    "validation_wall_seconds": 10,
+    "validation_memory_mib": 1024,
+    "import_closure": "NONE in BLOCK_SUPPORTED and TEXT_ONLY; reuse actual SourcePolicy, no ambient resolution.",
+    "storage": "Indefinite receipts/history under versioned logical quotas; physical PostgreSQL/WAL/disk overhead is not bounded by payload accounting. Quota exhaustion rejects new admissions; existing outcomes remain readable."
+  },
+  "wire_contract": "spec/document-wire-draft.json (candidate; must be reviewed and frozen with this supplement)",
+  "canonical_integration": "Keep existing anonymous slot/e-graph profiles separate from presentation UUIDs/names. No UUID, display label, path or source text enters retrieval embeddings. Bind a checked artifact to its exact source/policy and existing parser-generated anonymous context/atom inventory; equality of an abstract Boolean table alone never authorizes document equivalence. TEXT_ONLY, unsupported canonical encoding, budget-limited profiles and unverified atom/context associations produce no document-authoritative canonical CorpusPair. Existing corpus ingestion remains its separate explicit authorization path. Test same table under different binders, field owners and column order.",
+  "refinement_evidence": [
+    "reviews/document-draft-terra-1.json",
+    "reviews/document-draft-terra-2.json",
+    "reviews/document-draft-sol-1.json",
+    "reviews/document-draft-sol-2.json",
+    "reviews/document-draft-astra-1.json",
+    "reviews/document-draft-astra-2.json",
+    "reviews/document-parser-spike.json"
+  ]
+}

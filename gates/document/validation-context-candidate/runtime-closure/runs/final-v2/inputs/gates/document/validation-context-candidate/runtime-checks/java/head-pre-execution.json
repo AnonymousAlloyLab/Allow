@@ -1,0 +1,28 @@
+{
+  "status": "REGISTERED_PRE_EXECUTION",
+  "case": "baseRevision=1,headObserved=0, matching document and base; actual checked boundary must reject with IOException before artifact parsing",
+  "inputs": {
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentValidationContext.java": "248d2c74cb7ff0dc777760fe56f8f23086a9bdba302e7490415be6d8f5007bb6",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/backend/DocumentJson.java": "8495e9177da33ee50eb892f3b6b5994c2493759bca2b843cb3a6d82c481f57a8",
+    "/home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java": "f2a366a01970e313b21d2db8677eba3cba27c3a093afac3ed38ed2848e1074de",
+    "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ContextHeadBoundaryProbe.java": "886f036c51640eee6e02ac9c1895727fa19311234074ae898f0a288d083ec547",
+    "/home/augustus/Allow/config/checkstyle.xml": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+    "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar": "afcba25e869016442972ec4513a8c06c812edf68f511c88ef497de00c3383917",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/DocumentWorker.class": "97891c32518350dc869dddba5916afa8212dc80cb184f1fd37c344da973cde92",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/FrameProcess.class": "4ab4a57a507491a4b2bbf6b816713eb8a10aa6821eb1cc536a8186d35c370fa5",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/ProcessIdentity.class": "6ff32b0949fe8233ac0d38413eff7cc3edd429c35dad09a002c9348e28843d46",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/SandboxLauncher.class": "812014707865ec106bafc90e03991e8d7f1bd95e06d63202ec7541ab0816460e",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/backend/DocumentJson.class": "c439e35a65996b176b2e91fa511f04e99cf8f29126a7d6f67ae954bfcb5f4f26",
+    "/home/augustus/Allow/backend/target/classes/dev/allow/worker/JsonWire.class": "081a7daa68f6cdc1ee6189f2d926738144e871281a48b26e47dcb53dea97f97f",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar": "53ca085f4a150f703f49e1aabd935bd03b43e1ea3d55d135438292af22cef56b",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar": "4b40a06396f239f8de2da57419adde6e94e5edc18a2171d471ea05eeed4e5c2d",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar": "3888e9e69ab66fbacaacc9aea0e9ffbf15368288e4aca468b024dba11c09fbf9"
+  },
+  "dependency_jars": [
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar",
+    "/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar"
+  ],
+  "jdk": "openjdk version \"17.0.20.1\" 2026-08-18\nOpenJDK Runtime Environment (build 17.0.20.1+1-1-24.04-Ubuntu)\nOpenJDK 64-Bit Server VM (build 17.0.20.1+1-1-24.04-Ubuntu, mixed mode, sharing)",
+  "scope": "single structural response-boundary case; no database, bridge, HTTP or full VC11 closure"
+}

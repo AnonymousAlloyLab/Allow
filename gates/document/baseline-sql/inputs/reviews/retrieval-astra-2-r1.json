@@ -1,0 +1,73 @@
+{
+  "reviewer": "retrieval-astra-2",
+  "requested_model": "gpt-6-astra",
+  "provider_attestation": "Council seat name supplied by parent; no independent model-provider attestation performed.",
+  "phase": "Revision 1 adversarial specification review",
+  "verdict": "REVISE_BEFORE_PRODUCTION_IMPLEMENTATION",
+  "production_files_edited": false,
+  "files_sha256": {
+    "spec/retrieval-stage.json": "a9e866e0caa2457d577452f44acfd314476c89aac7363b085465edb9cd1c69a1",
+    "spec/retrieval-types.json": "8b6c60c6a19530a88f08d5bf430a10a10a9e53713ff94537ed23d926c1b4e1ab",
+    "formal/Allow/Retrieval.lean": "f885107336724e7ab46059adf2096731015590ef8fd37087e5aef3160f109921",
+    "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+  },
+  "positive_findings": [
+    "Local store/embed/train/retrieve authorization is explicit and separated from redistribution rights.",
+    "F AND NOT P, whole-instance isomorphism, exact compatible context, full pools, content equality after hashes, filtered exact ranking and deny-first restore policy repair the major draft hazards.",
+    "Fixed four-block hierarchy and genuinely learned adapter are distinguished from the legacy hash embedding.",
+    "Held-out family splits, synthetic-versus-semantic labels and baseline retention prevent unsupported quality claims."
+  ],
+  "findings": [
+    {
+      "id": "RET-A2-01",
+      "severity": "BLOCKER_BEFORE_PRODUCTION",
+      "location": "persistence.rights, persistence.outbox, embedding.learning, embedding.versions",
+      "finding": "Revocation invalidates the revoked record and regeneration, but the policy does not state whether a checkpoint trained on revoked-purpose data remains eligible. Every candidate can depend on that checkpoint, even after the source row disappears. Training lineage is recorded but is not part of the serving authorization test.",
+      "required_resolution": "Specify purpose-specific trained-artifact retention policy. Unless continued use is explicitly permitted by the recorded grant, revoke/quarantine affected adapters and their derived vectors, cancel relevant jobs and retrain from permitted lineage before republishing. Include checkpoint lineage in restore replay and query model eligibility. This is a lifecycle consistency requirement, not a demand for third-party clearance before authorized local training.",
+      "acceptance": "Train an adapter on two records, revoke a contributing training grant, restore a pre-revocation backup and verify that neither old checkpoint nor its derived vectors serves until policy permits continued use or clean retraining completes."
+    },
+    {
+      "id": "RET-A2-02",
+      "severity": "BLOCKER_BEFORE_PRODUCTION",
+      "location": "retrieval.api, retrieval.pool_component",
+      "finding": "The validated structured vector-envelope query route does not define how trusted query environment and full witness memberships are obtained. Vector shape/model validation cannot establish witness validity or context compatibility; accepting caller-supplied overlap sets would permit fabricated high overlap. The ban on asserted admission flags does not fully define this query route.",
+      "required_resolution": "Resolve query pools/context through an authorized immutable server record, or require the same local solver admission pipeline for a structured query. A vector-only external envelope must receive no trusted pool-overlap credit and explicit unavailable status; define its ranking mode rather than implying full three-component evidence. Recheck authorization on referenced query records as well as candidates.",
+      "acceptance": "Forged same-context and witness-ID envelopes cannot gain positive/negative overlap credit; cross-project query record references are denied."
+    },
+    {
+      "id": "RET-A2-03",
+      "severity": "BLOCKER_FOR_FORMAL_GATE_CLAIM",
+      "location": "formal_obligations, formal/Allow/Retrieval.lean Member/admitted/ready, trust_boundary",
+      "finding": "formal_obligations is empty in the reviewed hash. Retrieval.ready proves cardinalities and Boolean flags but has no own-query or SAT-run link, unlike Evidence.admitPair. Embedding is a Fin 3072 function and vectorWidth is constant: this proves the chosen type width, not concatenation order or component coverage. Current fixed-point score proof covers only default weights. These are legitimate small abstractions but cannot support an unqualified full admission/layout/scoring claim.",
+      "required_resolution": "Fill exact obligation registry and run the two clean builds. Compose ready membership with the existing own-query/run admission policy or explicitly register that bridge as a trusted implementation condition. Define actual four-block assembly/index placement if claiming layout proof. State clearly that tuned weights and float arithmetic are tested, or add a general normalized-weight proof.",
+      "acceptance": "Registry exactly names and hashes propositions; evidence reports the narrow theorem claims and lists own-query, block order and tuned float score implementation obligations separately unless proved."
+    },
+    {
+      "id": "RET-A2-04",
+      "severity": "REQUIRED_ACCEPTANCE_DETAIL",
+      "location": "retrieval.candidate_stage, datasets_and_evaluation.metrics",
+      "finding": "ANN recall against exact filtered search is ambiguous about its target. Four-block cosine candidate retrieval and the final predicate-plus-overlap score can rank differently even with a perfect vector ANN index.",
+      "required_resolution": "Define candidate recall against exact final-score top-k under identical filters, not only exact vector nearest neighbors. Retain a low-vector/high-overlap regression candidate. Exact all-eligible-row ranking remains the accepted default."
+    },
+    {
+      "id": "RET-A2-05",
+      "severity": "REQUIRED_PRETRAINING_FREEZE",
+      "location": "embedding.encoder, embedding.learning, datasets_and_evaluation.acceptance",
+      "finding": "The high-level contract leaves chunk weighting/overlap, token and chunk budgets, adapter family/objective and non-regression rule uninstantiated. This is acceptable as planning but insufficient as the frozen reproducibility manifest for actual training.",
+      "required_resolution": "Before fitting, pin those choices plus exact model/tokenizer bytes, optimizer/seed/epochs, family manifest, k and relevance targets, validation selection and numeric tolerance. Freeze the promotion rule before evaluating test. Deterministically distinguish successful training from quality improvement."
+    }
+  ],
+  "commercialization": {
+    "local_development": "AUTHORIZED_WITH_RECORDED_LOCAL_PURPOSES",
+    "redistribution": "UNRESOLVED_AND_NOT_AUTHORIZED_BY_THIS_REVIEW",
+    "clarification": "Unresolved corpus redistribution/commercial rights do not automatically block the user-authorized local ingestion, training and retrieval work. Anonymous structural serialization is not evidence that content may be uploaded or redistributed.",
+    "production_evidence": "Measure corpus acceptance/coverage, exact final-score retrieval quality, end-to-end cost/latency and operational recovery before claims. No market, legal or commercial clearance opinion is made."
+  },
+  "review_limits": [
+    "No production code edited, dependencies installed, corpus transmitted or training run.",
+    "Reviewed local supplied files; did not independently verify external model/license/dependency claims or execute Lean.",
+    "Theorems rely on faithful identities/flags and trusted solver/projection implementations as documented.",
+    "Spec advanced to revision 2 during report creation; this report intentionally binds the fully read revision 1 hash, not concurrently modified content."
+  ],
+  "next_step": "Reconcile the two lifecycle/API blockers and precise formal claims, freeze the new hashes, then request acceptance re-review. Runtime gates and commercial release remain distinct."
+}

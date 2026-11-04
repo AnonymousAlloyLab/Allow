@@ -1,0 +1,472 @@
+{
+  "status": "PASS",
+  "classification": "FINITE_RUNTIME_CHECKS_NOT_FORMAL_REFINEMENT",
+  "timestamp_utc": "2026-11-04T06:54:17.747908+00:00",
+  "tests": 52,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_unchanged": true,
+  "input_root_sha256": "998fba3797f071cee7273f9d9688c4506ea4b912c6ca33bc47eff7b56a00538f",
+  "files": [
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_control.py",
+      "sha256": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_identity.py",
+      "sha256": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_journal.py",
+      "sha256": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_lease.py",
+      "sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_observer.py",
+      "sha256": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_context_protocol.py",
+      "sha256": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image.py",
+      "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_config.py",
+      "sha256": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_init.py",
+      "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_inventory.py",
+      "sha256": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182"
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "dab759ea22d9c0d3abdc7fe2b703c09d991d9d70e1c4bc7112ecb4934b49603c"
+    },
+    {
+      "path": "scripts/verify_sql_runtime.py",
+      "sha256": "3e8e57e1285790d53fb03df33dee6c212c3df956ac40880dec1e2277dcdb0ed8"
+    },
+    {
+      "path": "spec/sql-stage.json",
+      "sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4"
+    }
+  ],
+  "proxy_status_before": {
+    "active": 0,
+    "clients": {
+      "allow-app": {
+        "B": 2306,
+        "D": 2306,
+        "E": 2306,
+        "P": 2306,
+        "Q": 885,
+        "S": 2306,
+        "X": 322,
+        "accepted": 3191,
+        "auth": 644,
+        "connections": 322
+      },
+      "allow-bootstrap": {
+        "Q": 7,
+        "X": 7,
+        "accepted": 7,
+        "auth": 14,
+        "connections": 7
+      },
+      "allow-context-observer": {
+        "B": 59,
+        "D": 59,
+        "E": 59,
+        "P": 59,
+        "Q": 2,
+        "S": 59,
+        "accepted": 61,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-document-context": {
+        "B": 152,
+        "D": 152,
+        "E": 152,
+        "P": 152,
+        "Q": 164,
+        "S": 152,
+        "X": 28,
+        "accepted": 316,
+        "auth": 58,
+        "connections": 29,
+        "protocol_error": 1
+      },
+      "allow-migration": {
+        "B": 41,
+        "D": 41,
+        "E": 41,
+        "P": 41,
+        "Q": 182,
+        "S": 41,
+        "X": 3,
+        "accepted": 223,
+        "auth": 6,
+        "connections": 3
+      },
+      "allow-pg-dump": {},
+      "allow-pg-restore": {},
+      "allow-proxy-readiness": {
+        "Q": 2,
+        "X": 2,
+        "accepted": 2,
+        "auth": 6,
+        "connections": 3,
+        "disconnected": 1
+      },
+      "allow-recovery": {},
+      "allow-recovery-control": {},
+      "allow-recovery-dump": {},
+      "allow-recovery-restore": {},
+      "allow-tests": {
+        "B": 238,
+        "D": 238,
+        "E": 238,
+        "P": 238,
+        "Q": 783,
+        "S": 238,
+        "X": 2,
+        "accepted": 1021,
+        "auth": 4,
+        "connections": 2
+      },
+      "other": {
+        "cancel": 10
+      }
+    },
+    "context": {
+      "contextOccupied": false,
+      "observerOccupied": true,
+      "protocol": 1,
+      "status": "READY"
+    },
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "cache_entries": 256,
+      "cache_sql_bytes": 30336,
+      "config_policy": "frozen-until-new-generation",
+      "configuration_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "disk_policy": "restart-check-only",
+      "failure_counts": {},
+      "generation": 1,
+      "identity_mode": "sealed-image",
+      "lifecycle": "ready",
+      "mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+      "policy": "sql-routing-v8-context-leases",
+      "postgresql_commit": "f0595c3d839debdb140903621c1b44a4f4d86256",
+      "profile": "postgresql-16.15-grammar-v0.1",
+      "required_seals": 15,
+      "reserved_execution_descriptors": 0,
+      "sealed_bytes": 136492600,
+      "shutdown_complete": false,
+      "snapshot_sha256": "96bfbf2dd09d7d8019e494c1fa9429cb4941f9a520d663a520bf2945aa8be4b9",
+      "waiting": 0
+    },
+    "pid": 1141713,
+    "runtime": {
+      "executable": "/tmp/allow-cc-xgmbaoxk/.tools/retrieval-venv/bin/python",
+      "libpq": 170000,
+      "psycopg": "3.2.3"
+    },
+    "started": 1793775187.905486
+  },
+  "proxy_status_after": {
+    "active": 0,
+    "clients": {
+      "allow-app": {
+        "B": 2306,
+        "D": 2306,
+        "E": 2306,
+        "P": 2306,
+        "Q": 885,
+        "S": 2306,
+        "X": 322,
+        "accepted": 3191,
+        "auth": 644,
+        "connections": 322
+      },
+      "allow-bootstrap": {
+        "Q": 7,
+        "X": 7,
+        "accepted": 7,
+        "auth": 14,
+        "connections": 7
+      },
+      "allow-context-observer": {
+        "B": 59,
+        "D": 59,
+        "E": 59,
+        "P": 59,
+        "Q": 2,
+        "S": 59,
+        "accepted": 61,
+        "auth": 2,
+        "connections": 1
+      },
+      "allow-document-context": {
+        "B": 152,
+        "D": 152,
+        "E": 152,
+        "P": 152,
+        "Q": 164,
+        "S": 152,
+        "X": 28,
+        "accepted": 316,
+        "auth": 58,
+        "connections": 29,
+        "protocol_error": 1
+      },
+      "allow-migration": {
+        "B": 41,
+        "D": 41,
+        "E": 41,
+        "P": 41,
+        "Q": 182,
+        "S": 41,
+        "X": 3,
+        "accepted": 223,
+        "auth": 6,
+        "connections": 3
+      },
+      "allow-pg-dump": {},
+      "allow-pg-restore": {},
+      "allow-proxy-readiness": {
+        "Q": 2,
+        "X": 2,
+        "accepted": 2,
+        "auth": 6,
+        "connections": 3,
+        "disconnected": 1
+      },
+      "allow-recovery": {},
+      "allow-recovery-control": {},
+      "allow-recovery-dump": {},
+      "allow-recovery-restore": {},
+      "allow-tests": {
+        "B": 250,
+        "D": 245,
+        "E": 250,
+        "H": 10,
+        "P": 250,
+        "Q": 1078,
+        "S": 256,
+        "X": 13,
+        "accepted": 1330,
+        "auth": 64,
+        "c": 1,
+        "connections": 32,
+        "d": 1,
+        "parser_category_parserFailure": 2,
+        "parser_category_policyDenied": 9,
+        "parser_reason_invalid_native_statement_name": 2,
+        "parser_reason_native_statement_is_not_sole_top-level_statement": 4,
+        "parser_reason_parser_rejected": 2,
+        "parser_reason_unreviewed_set_config": 2,
+        "parser_reason_unreviewed_setting": 1,
+        "protocol_error": 19,
+        "rejected": 11
+      },
+      "other": {
+        "cancel": 11
+      }
+    },
+    "context": {
+      "contextOccupied": false,
+      "observerOccupied": true,
+      "protocol": 1,
+      "status": "READY"
+    },
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "cache_entries": 256,
+      "cache_sql_bytes": 6087,
+      "config_policy": "frozen-until-new-generation",
+      "configuration_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "disk_policy": "restart-check-only",
+      "failure_counts": {
+        "parserFailure": 2,
+        "policyDenied": 9
+      },
+      "generation": 1,
+      "identity_mode": "sealed-image",
+      "lifecycle": "ready",
+      "mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+      "policy": "sql-routing-v8-context-leases",
+      "postgresql_commit": "f0595c3d839debdb140903621c1b44a4f4d86256",
+      "profile": "postgresql-16.15-grammar-v0.1",
+      "required_seals": 15,
+      "reserved_execution_descriptors": 0,
+      "sealed_bytes": 136492600,
+      "shutdown_complete": false,
+      "snapshot_sha256": "96bfbf2dd09d7d8019e494c1fa9429cb4941f9a520d663a520bf2945aa8be4b9",
+      "waiting": 0
+    },
+    "pid": 1141713,
+    "runtime": {
+      "executable": "/tmp/allow-cc-xgmbaoxk/.tools/retrieval-venv/bin/python",
+      "libpq": 170000,
+      "psycopg": "3.2.3"
+    },
+    "started": 1793775187.905486
+  },
+  "runtime_identity_before": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 1141713,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "disk_binary_matches_pin": true,
+    "disk_binary_audit_error": null,
+    "disk_identity_scope": "Restart readiness only; live sealed-image identity checked separately"
+  },
+  "runtime_identity_after": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 1141713,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_lease.py": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "disk_binary_matches_pin": true,
+    "disk_binary_audit_error": null,
+    "disk_identity_scope": "Restart readiness only; live sealed-image identity checked separately"
+  },
+  "daemon_pid_stable": true,
+  "allow_tests_counter_deltas": {
+    "parser_category_parserFailure": 2,
+    "E": 12,
+    "auth": 60,
+    "Q": 295,
+    "X": 11,
+    "H": 10,
+    "parser_reason_native_statement_is_not_sole_top-level_statement": 4,
+    "B": 12,
+    "protocol_error": 19,
+    "P": 12,
+    "D": 7,
+    "parser_category_policyDenied": 9,
+    "parser_reason_invalid_native_statement_name": 2,
+    "d": 1,
+    "parser_reason_parser_rejected": 2,
+    "parser_reason_unreviewed_setting": 1,
+    "rejected": 11,
+    "c": 1,
+    "parser_reason_unreviewed_set_config": 2,
+    "S": 18,
+    "connections": 30,
+    "accepted": 309
+  },
+  "cancel_counter_delta": 1,
+  "real_proxy_coverage": true,
+  "log_sha256": "c36e309dada5308775b5a3c0dc962a013c5ddfd646be5b7808e79a67e4eb8579",
+  "limits": [
+    "Finite authored fixtures; no universal SQL/Python/protocol refinement",
+    "Per-client application/bootstrap/migration/dump/restore coverage requires separate evidence"
+  ]
+}

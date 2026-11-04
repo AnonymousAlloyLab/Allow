@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "tests": 10,
+  "failures": 0,
+  "errors": 0,
+  "source_sha256": {
+    "backend/src/main/java/dev/allow/backend/DocumentMutationValidation.java": "6a6b994d25657b6a217eee39881fdfb9cefd52be9d302d97a1f8cedc28c6d842",
+    "backend/src/main/java/dev/allow/backend/DocumentMutationWorkers.java": "ef8b6972981416e520b6001e3faf1b76869cf0ff1d261a804be43eae25c2cf65",
+    "backend/src/main/java/dev/allow/backend/DocumentMutationFrames.java": "501be905e1de34c29c6af167be870c5e14cb01ff82623c948d131a450077deef",
+    "backend/src/main/java/dev/allow/backend/DocumentMutations.java": "b0911232a92432ba7bcf78c880846a8d302248214be662de579ba075d75f0881",
+    "backend/src/test/java/dev/allow/backend/DocumentMutationCoordinatorTest.java": "5a852627fdb5b45caefb1b212c7b0e451defab6e581ec0dd7db6c37fde23ac92"
+  },
+  "scope": "Coordinator private bridge/worker seams plus pinned Maven compile and Checkstyle; not real Alloy/HTTP/SQL correspondence evidence."
+}

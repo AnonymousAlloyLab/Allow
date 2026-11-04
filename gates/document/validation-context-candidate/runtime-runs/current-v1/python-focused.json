@@ -1,0 +1,125 @@
+{
+  "classification": "FOCUSED_PYTHON_RUNTIME_TEST_EVIDENCE_NOT_FULL_GATE_CLOSURE",
+  "files": {
+    "retrieval/allow_documents/cli.py": "b6f2266b4424a780f001b60a8c6a931750dd168271f037f801298cd89b3dec67",
+    "retrieval/allow_documents/store.py": "f43df582a6d41b07fcc9f434548653b8b6d60c95a05e27138c288df9e961133a",
+    "retrieval/tests/test_validation_context.py": "34953bcacd486dae749113076446102fe07f354f3b88c8082c633eab814d3539"
+  },
+  "runs": [
+    {
+      "command": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python -m unittest discover -s retrieval/tests -p test_validation_context.py -v",
+      "log": "/tmp/allow-validation-context-python-final.log",
+      "log_sha256": "9fcbb125944f8285beee8ca2d9d2008b1f0ac4ff5a2e02c267c041e92237cba2",
+      "tests": 22,
+      "seconds": 0.582,
+      "exit_code": 0,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    {
+      "command": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python -m unittest discover -s retrieval/tests -p test_documents.py -v",
+      "log": "/tmp/allow-validation-context-legacy-documents.log",
+      "log_sha256": "25a25742c7c7eef066d60ed116163ee3852db66e1becf7c8d503f9e6b1fb17bd",
+      "tests": 22,
+      "seconds": 1.137,
+      "exit_code": 0,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    }
+  ],
+  "total_tests": 44,
+  "tests_by_runtime_plan_id": {
+    "VC01": [
+      "test_context_arguments_reject_before_connection",
+      "test_closed_cli_shape_and_strict_json"
+    ],
+    "VC13": [
+      "test_context_arguments_reject_before_connection",
+      "test_context_accepts_safe_integer_and_id_count_boundaries"
+    ],
+    "VC03": [
+      "test_cli_dispatch_has_one_context_call",
+      "test_empty_ids_authorize_base_and_skip_scan"
+    ],
+    "VC12": [
+      "test_full_cli_output_boundary_and_nonce"
+    ],
+    "VC14": [
+      "test_read_failure_never_invents_mutation_uncertainty",
+      "test_transaction_exit_failure_discards_complete_context",
+      "test_actual_cli_context_and_database_error_envelopes",
+      "test_proxy_connection_failure_has_no_fallback"
+    ],
+    "VC15": [
+      "test_transaction_exit_failure_discards_complete_context",
+      "test_connection_closes_before_context_is_returned"
+    ],
+    "VC21": [
+      "test_legacy_mutation_uncertainty_remains"
+    ],
+    "VC02": [
+      "test_actual_snapshot_mode_read_only_and_legacy_mode"
+    ],
+    "VC18": [
+      "test_actual_snapshot_mode_read_only_and_legacy_mode",
+      "test_reads_do_not_mutate_and_full_quota_remains_readable"
+    ],
+    "VC22": [
+      "test_actual_cli_context_and_database_error_envelopes",
+      "test_proxy_connection_failure_has_no_fallback"
+    ],
+    "VC04": [
+      "test_context_matches_legacy_at_quiescence_and_exact_source"
+    ],
+    "VC08": [
+      "test_context_matches_legacy_at_quiescence_and_exact_source"
+    ],
+    "VC05": [
+      "test_empty_ids_authorize_base_and_skip_scan",
+      "test_missing_and_foreign_context_never_reaches_inventory",
+      "test_logical_launch_does_not_partition_document_history"
+    ],
+    "VC09": [
+      "test_requested_kind_inventory_and_text_only"
+    ],
+    "VC10": [
+      "test_complete_history_collision_and_malformed_artifact_fail"
+    ],
+    "VC19": [
+      "test_reads_do_not_mutate_and_full_quota_remains_readable"
+    ],
+    "VC06": [
+      "test_commit_after_snapshot_is_excluded_from_head_and_inventory"
+    ],
+    "VC07": [
+      "test_commit_between_base_and_inventory_cannot_mix_snapshots",
+      "test_future_base_committed_after_snapshot_requires_new_request"
+    ]
+  },
+  "remaining_scope": {
+    "VC02": "Actual mode/readonly and legacy behavior tested; complete wire trace/client coverage manifest remains root integration.",
+    "VC11": "Java reply validation owned by root.",
+    "VC12": "Python full1.5MiB envelope tested; Java/private-worker/public output limits remain root coverage.",
+    "VC13": "Private4096/safe integer/oversize args tested; HTTP/nesting/global bridge limits retain inherited tests and root integration.",
+    "VC14": "Actual read SQL error, exit failure and injected canonical connection failure tested; shared live parser was intentionally not stopped.",
+    "VC15": "Actual SQL connection closes and failed exit discards result; child/JVM spawn/reaping sequence is root integration.",
+    "VC16": "Unchanged fresh JVM/build/resource fences require root Java/integration evidence.",
+    "VC17": "Fresh constructor/Alloy/type regressions are root build/integration.",
+    "VC19": "Full logical quota read/nonmutation tested; maximum4096-history/256MiB cursor buffering/RSS/AS profile NOT_RUN here.",
+    "VC20": "Public HTTP/browser freshness is root coverage.",
+    "VC21": "Existing22 document store tests pass; actual HTTP/restart/recovery/solver stages remain root integration.",
+    "VC22": "Every realSQL test uses existing connect proxy route; full wire/client coverage manifest remains root integration.",
+    "VC23": "Every new Python callable documented; Java/JS/TS strict style is root build.",
+    "VC24": "Full frozen500node100/1000 HTTP benchmark NOT_RUN here; target remains300ms.",
+    "VC25": "Preimplementation309-model closure already completed by root; not rerun or relabeled as runtime refinement.",
+    "VC26": "Browser evidence binding/manual accessibility outside this Python change."
+  },
+  "database_safety": "RealSQL fixtures use fresh isolated scopes and existing canonical connect/SQLeanParser. No live corpus deletion, schema/routing/worker/JIT/lifecycle changes.",
+  "immutable_contract_or_formal_modified": false,
+  "notes": [
+    "New operation returns ERROR for malformed arguments/missing scoped base and UNAVAILABLE for corrupt stored content/read infrastructure; no partial context or fabricated write uncertainty.",
+    "Initial concurrency test failure was a fixture pause on its own writer read, fixed using a separate writer Store instance. Preserved initial log /tmp/allow-validation-context-python.log."
+  ]
+}

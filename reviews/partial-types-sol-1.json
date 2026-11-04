@@ -1,0 +1,42 @@
+{
+  "reviewer": "sol-1",
+  "decision": "REQUEST_CHANGES",
+  "scope": "Four-file partial-types gameplan review only. No implementation or candidate edits.",
+  "requested_manifest_root": "dda81a5072f8b4ecfa43ee24d708e53995be47bd9075712786752ccac748a8d5",
+  "observed_manifest_input_root": "0b7ac50a6cb3ea762fe75fd74aac6770476f06d3034ea16871a3c8eec1de00e7",
+  "inputs_sha256": {
+    "gates/document/partial-types-candidate/contract.json": "7363437d07cbcbe62863e1fac0bf9586a0bff6e03eaa28963e2a021b30ea1dab",
+    "gates/document/partial-types-candidate/PartialTypes.lean": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7",
+    "gates/document/partial-types-candidate/tests-plan.json": "3e1323d5c9a30aefa8f1f185612e5ee7fee6f02fbb9c188440c923dc638f5061",
+    "gates/document/partial-types-candidate/lean-inventory.json": "4cb85b0f18dfe4a7dbb83c098c244f5ba259e720049512b50b4d8a24107e70a1"
+  },
+  "findings": [
+    {
+      "id": "PTS1-01",
+      "severity": "high",
+      "location": "contract normative atomicity and tests PT-018 / state_assertion; frontend/src/document/controller.ts dropNode",
+      "issue": "Actual drag route calls select(source), copy, select(target), then pasteClipboard. These publish selection/clipboard changes before paste performs newContradiction. Checking only operations.paste rejection or the controller state at paste entry misses violation of the promised pre-action atomicity. The plan requires atomic rejection but does not explicitly identify this existing multi-publication route or define its before snapshot.",
+      "requested_change": "Specify preparing drag candidate and clipboard/provenance effects without publishing, then shared analysis, then a single successful commit. Snapshot state before dropNode (not pasteClipboard) and on rejected drag compare module, original selection, original clipboard/copies, accepted state, generation/draft identity and interaction/focus policy. Exercise move and copy drags through the controller, including typed partial mismatch and out-of-scope reference with unrelated holes."
+    }
+  ],
+  "additional_observations": [
+    {
+      "id": "PTS1-N1",
+      "kind": "evidence identity",
+      "issue": "Observed manifest input_root differs from requested root. Four exact reviewed hashes are recorded; approvals must be aggregated against the same frozen bytes after reconciliation."
+    },
+    {
+      "id": "PTS1-N2",
+      "kind": "implementation obligation",
+      "issue": "Monotone finite constraints are feasible at bounded width/node limits, but finite graph bounds alone do not bound arbitrary redundant pending-equation creation. Use canonical deduplicated constraints/worklist and only enqueue changed facts; explicit termination/work bound and stress/permutation evidence are necessary. This overlaps the known Terra bound finding rather than adding a separate veto."
+    },
+    {
+      "id": "PTS1-N3",
+      "kind": "prior-invalid policy",
+      "issue": "Existing nodeId:message set comparison cannot distinguish a new violation at another operand with identical parent diagnostic text, and cloned IDs create the converse false positive. Structured violation identity and adversarial same-parent left/right replacement, same-text nominal mismatch changes, copy/move/remap and unchanged prior-invalid tests should resolve the known Terra finding."
+    }
+  ],
+  "assessment": "All 23 structural output sorts and independent operand/root constraints are covered; partial exact/width/endpoints and equality/concat/join equations avoid invented schemas. Exact complete checker projection and 46-case parity remain required. Scope/ownership must be established before propagation so cyclic or shared graphs cannot be legitimized by inferred facts.",
+  "lean_limit": "13 propositions concern abstract denotation only. No completion flag, partial fixed-point algorithm, atomic UI operation, percentile/performance or runtime correspondence is proved. Inventory limitations correctly prevent these claims.",
+  "validation": "Read all four inputs and existing checker, operations and controller routes. No Lean build, browser run or production change performed."
+}

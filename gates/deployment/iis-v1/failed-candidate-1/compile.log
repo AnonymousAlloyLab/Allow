@@ -1,0 +1,245 @@
+IisDeployment.lean:8:20: error: expected token
+IisDeployment.lean:9:10: error: unexpected identifier; expected 'instance'
+IisDeployment.lean:17:10: error: Constructor field `host` of `Allow.IisDeployment.Request.mk` contains universe level metavariables at the expression
+  {Host : Sort ?u.4} → Host
+in its type
+  {Host : Sort ?u.4} → Host
+IisDeployment.lean:25:2: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:25:22: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:25:43: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:25:11: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.tunnel` could not be determined
+IisDeployment.lean:25:33: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.absent` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.absent`
+  [apply] `Origin.absent`
+IisDeployment.lean:25:54: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.configured` could not be determined
+
+Hint: Using `Origin.configured would be unambiguous:
+  [apply] `Origin.configured`
+IisDeployment.lean:26:48: error: failed to synthesize
+  Decidable (?m.3 ∧ ?m.4)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+IisDeployment.lean:27:42: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:27:57: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.valid` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Char.valid`
+  [apply] `Float.Model.valid`
+  [apply] `Float32.Model.valid`
+  [apply] `Capability.valid`
+  [apply] `Std.Time.PlainDate.valid`
+  [apply] `Std.Http.Header.Connection.valid`
+  [apply] `Std.Http.URI.EncodedQueryString.valid`
+  [apply] `Std.Http.URI.EncodedString.valid`
+IisDeployment.lean:28:46: error: failed to synthesize
+  Decidable (?m.3 ∧ ?m.4)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+IisDeployment.lean:31:4: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:31:24: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:31:45: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:31:13: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.tunnel` could not be determined
+IisDeployment.lean:31:35: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.absent` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.absent`
+  [apply] `Origin.absent`
+IisDeployment.lean:31:56: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.configured` could not be determined
+
+Hint: Using `Origin.configured would be unambiguous:
+  [apply] `Origin.configured`
+IisDeployment.lean:34:4: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:34:19: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.valid` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Char.valid`
+  [apply] `Float.Model.valid`
+  [apply] `Float32.Model.valid`
+  [apply] `Capability.valid`
+  [apply] `Std.Time.PlainDate.valid`
+  [apply] `Std.Http.Header.Connection.valid`
+  [apply] `Std.Http.URI.EncodedQueryString.valid`
+  [apply] `Std.Http.URI.EncodedString.valid`
+IisDeployment.lean:37:9: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:37:29: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:37:51: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:37:70: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:37:18: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.hostile` could not be determined
+
+Hint: Using `Origin.hostile would be unambiguous:
+  [apply] `Origin.hostile`
+IisDeployment.lean:37:38: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.duplicate` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.duplicate`
+  [apply] `Origin.duplicate`
+IisDeployment.lean:37:60: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.public` could not be determined
+IisDeployment.lean:37:79: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.absent` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.absent`
+  [apply] `Origin.absent`
+IisDeployment.lean:38:17: error: unsolved goals
+case inl
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+
+case inr.inl
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+
+case inr.inr.inl
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+
+case inr.inr.inr
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+IisDeployment.lean:40:44: warning: declaration uses `sorry`
+IisDeployment.lean:43:9: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:43:31: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:43:20: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.hostile` could not be determined
+
+Hint: Using `Origin.hostile would be unambiguous:
+  [apply] `Origin.hostile`
+IisDeployment.lean:43:42: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.duplicate` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.duplicate`
+  [apply] `Origin.duplicate`
+IisDeployment.lean:43:69: error: unsolved goals
+case inl
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+
+case inr
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+IisDeployment.lean:48:9: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:48:34: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:48:60: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Request` which does not have the necessary form.
+IisDeployment.lean:48:24: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.absent` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.absent`
+  [apply] `Origin.absent`
+IisDeployment.lean:48:49: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.invalid` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.invalid`
+  [apply] `ByteArray.utf8DecodeChar?.FirstByte.invalid`
+IisDeployment.lean:48:75: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.duplicate` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Capability.duplicate`
+  [apply] `Origin.duplicate`
+IisDeployment.lean:49:15: error: unsolved goals
+case inl
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+
+case inr.inl
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+
+case inr.inr
+Request : Sort u_1
+r : Request
+allowed : sorry r
+⊢ False
+IisDeployment.lean:51:40: warning: declaration uses `sorry`
+IisDeployment.lean:54:10: error: expected structure
+IisDeployment.lean:57:10: error: expected structure
+IisDeployment.lean:60:32: error: Invalid `⟨...⟩` notation: The expected type `Request` is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+IisDeployment.lean:61:41: error: Invalid `⟨...⟩` notation: The expected type `Request` is not an inductive type
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+IisDeployment.lean:62:29: error: don't know how to synthesize implicit argument `Request`
+  @api ?m.2 browserWitness
+context:
+⊢ Sort ?u.3
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+IisDeployment.lean:62:33: error: don't know how to synthesize implicit argument `Request`
+  @browserWitness ?m.2
+context:
+⊢ Sort ?u.3
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+IisDeployment.lean:62:54: error: Expected type must not contain metavariables
+  api browserWitness
+IisDeployment.lean:63:39: error: don't know how to synthesize implicit argument `Request`
+  @api ?m.2 capabilityClientWitness
+context:
+⊢ Sort ?u.3
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+IisDeployment.lean:63:43: error: don't know how to synthesize implicit argument `Request`
+  @capabilityClientWitness ?m.2
+context:
+⊢ Sort ?u.3
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+IisDeployment.lean:63:73: error: Expected type must not contain metavariables
+  api capabilityClientWitness
+IisDeployment.lean:125:26: error: unsolved goals
+p : Payload
+h : eligible p = true
+a✝ : privatePayload p
+⊢ False
+IisDeployment.lean:126:15: error: unexpected token 'have'; expected 'abbrev', 'axiom', 'builtin_initialize', 'class', 'coinductive', 'def', 'example', 'inductive', 'initialize', 'instance', 'opaque', 'structure', 'syntax' or 'theorem'
+IisDeployment.lean:127:53: error: unexpected identifier; expected 'abbrev', 'axiom', 'builtin_initialize', 'class', 'coinductive', 'def', 'example', 'inductive', 'initialize', 'instance', 'opaque', 'structure', 'syntax' or 'theorem'

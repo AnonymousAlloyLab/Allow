@@ -1,0 +1,52 @@
+{
+  "warmups": 100,
+  "measured": 1000,
+  "failures": [],
+  "p50_ms": 388.273777,
+  "p95_ms": 399.671788,
+  "p99_ms": 434.852154,
+  "maximum_ms": 532.07983,
+  "latency_gate": "FAIL",
+  "status": "PASS",
+  "valid_measurement": true,
+  "classification": "MEASURED_BASELINE",
+  "pair": 1,
+  "variant": "F0",
+  "input_root_sha256": "20a1a675d95e2ffd5d3872dc4309382a2261d2556a55b2474e44b376c3976a48",
+  "experiment_root_sha256": "8b0d92855939045d33d6d115e4003854a6d1e2a4525ef30f15f4ac2f58bbd2e6",
+  "registration_path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/pair-registration.json",
+  "registration_root_sha256": "deadf3081941a0495ca43acd04c4d0599bea9b225444d5ea1fec081ab4b5faf1",
+  "observed_peak_memory_bytes": 669532160,
+  "evidence": [
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/report.json",
+      "sha256": "76b74f56fd0312e19bbc9e8a1742692022eac71691d59547d50b0e993e69e616"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/driver-report.json",
+      "sha256": "9172d085a83775b217e8e6d038e9a9f4719a8fcb1bc954a58e00ff322cfa1bec"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/http-original-report.json",
+      "sha256": "a5db749e021004bca3bccd9d297325e6c42abe5792a6a54f08fb44fb14ef0519"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/http-original-exit.json",
+      "sha256": "c6b8c09450b9d5a28f691a59cdfe27d47a2254786119971a3d3509622c1187a7"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/driver-final-cgroup.json",
+      "sha256": "08c339a622e5cb1c03dc9db8bed83c5977f29da14985036446a762f2d4f865ab"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/http-private/requests-manifest.json",
+      "sha256": "033dce93efaf41389534cc931623bcb627bfd607f42f09cf0b63f9c6d48ea32c"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-pair1-f0/http-private/samples.jsonl",
+      "sha256": "2c5c8705e665b6cd75149286abd0c92651bf70a6b38119c68e5d3f0414db3d43"
+    }
+  ],
+  "target_acceptance": "OPEN",
+  "profile_activation": "NOT_PERFORMED"
+}

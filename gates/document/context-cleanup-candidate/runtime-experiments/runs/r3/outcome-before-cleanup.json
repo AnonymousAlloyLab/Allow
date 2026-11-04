@@ -1,0 +1,286 @@
+{
+  "schema_version": "1.0",
+  "run_id": "r3",
+  "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+  "status": "BLOCKED",
+  "cases": [
+    {
+      "claim_id": "CC05",
+      "subcase": "normal-empty",
+      "status": "PASS",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "Original exact nonce-bound5-field context with empty inventory, exit0, independently observed backend absence, all7 document-table hashes unchanged.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 222.00648,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "9142cde87d00f04ecc98c679976ca13585ace334fba18a66f204c205409ed261",
+        "stdout_sha256": "e760bddaae6a5cc66f40c719cdf82f076589ccaf311df5bf977345cd03de0cf9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562397716996
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562399805579
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562403949605
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562406017999
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 61562540534888
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "mechanism_predicate": true
+    },
+    {
+      "claim_id": "CC05",
+      "subcase": "normal-owned",
+      "status": "PASS",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "Original exact context with one owned signature, exit0, independently observed backend absence, durable hashes unchanged.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 92.610868,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "fc46683f4a7ac7b7d92c697d8fe1b78eb4e8e71bc815d0d25432f4f0fb2ae60b",
+        "stdout_sha256": "958883351a22035a41c7b83d28976cbd923e5324df255d93c5719543b92fda4b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562663680061
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562665759194
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562669889261
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562671952763
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562678152883
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 61562680218956
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "mechanism_predicate": true
+    },
+    {
+      "claim_id": "CC05",
+      "subcase": "normal-4096-ids",
+      "status": "PASS",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "4096 sorted distinct canonical IDs requested, exact result contains only the one authored owned signature; exit0, backend absence and durable hashes unchanged. This is not4096-history/full-quota coverage.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 104.014225,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "f128b9ed210378600e5dbac3f68090d35658c80543fed05d4a73cb590a6e0724",
+        "stdout_sha256": "7f16305c68e9800690603ebab343098ef209b6d934ba5ed8de55c05952c8457b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562780663825
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562782739858
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562786904604
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562795164316
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 61562797230009
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "mechanism_predicate": true
+    },
+    {
+      "claim_id": "CC09",
+      "subcase": "actual-lock-timeout",
+      "status": "BLOCK",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "Ordinary canonical admin session holds ACCESS EXCLUSIVE document lock. Actual context fails with55P03, no success frame, exact backend absence or retained lease, durable hashes unchanged. Outcome recorded before lock release; lock owner never signaled.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 344.135584,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-06_lus1h/.gate/probe_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r3/actual-lock-timeout"
+        ],
+        "fixture_sha256": "9e54637ef7593f4fb72353518ae787efd9cc37533d3acb5ab4a4e9f8c16c5304",
+        "stdout_sha256": "518a4b194f88dd1dc89d42df879e653a29d4903c6e847a3c03c18fb91f70565a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562928864875
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562932998801
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562935082764
+          },
+          {
+            "phase": "RETIRING",
+            "failed": true,
+            "successPermitted": false,
+            "monotonic_ns": 61563188790884
+          },
+          {
+            "phase": "CLEAN",
+            "failed": true,
+            "successPermitted": false,
+            "monotonic_ns": 61563190887127
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "sqlstates": [],
+      "context_status_after": {
+        "protocol": 1,
+        "status": "READY",
+        "contextOccupied": false,
+        "observerOccupied": true
+      },
+      "no_success_output": true,
+      "mechanism_predicate": false
+    }
+  ],
+  "execution_started_utc": "2026-11-04T05:10:27.584856+00:00",
+  "whole_stack_containment": "NOT_ASSESSED",
+  "target_hardware_acceptance": "NOT_ASSESSED",
+  "bootstrap": {
+    "exit_code": 0,
+    "log_sha256": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e"
+  },
+  "probe": {
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "finite_subcases_passed": false
+}

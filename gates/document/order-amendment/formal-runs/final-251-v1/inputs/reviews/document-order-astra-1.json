@@ -1,0 +1,37 @@
+{
+  "reviewer": "astra-1",
+  "seat": "document-order-astra-1",
+  "review_type": "FOCUSED_FORMAL_FIRST_AMENDMENT_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "timestamp_utc": "2026-11-03T18:43:49.632765+00:00",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0",
+    "gates/document/order-amendment/types.json": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+  },
+  "blocking_findings": [],
+  "assessment": [
+    "The grouping predicate compares the entire ordered Field records, preserving ID, owner, range and multiplicity as well as within-owner order. It rejects interleaved owner presentation instead of silently rewriting accepted candidates.",
+    "The module.nodes array is correctly treated as identity-indexed storage; child slots, roots and call arguments retain their ordered syntax meaning. This does not permit arbitrary reordering of semantic child lists or declaration arrays.",
+    "Result-sensitive OrderRequired applies only to accepted and unknown-applied-success. Replay, key collision and authorization denial remain independent of fresh candidate order and parser availability. Concrete unordered-candidate replay/collision witnesses exercise this distinction.",
+    "CandidateOrder is vacuous for TEXT_ONLY. The additional presentation constraint does not manufacture an IR, weaken type/schema checking or authorize a canonical pair.",
+    "Original transition guarantees are retained by conjunction with Step/AdmittedStep. This is a conservative acceptance restriction, not a change to underlying Alloy or SQL semantics."
+  ],
+  "formal_assessment": {
+    "registered_amendment_propositions": 14,
+    "source_hash_matches_inventory": true,
+    "independent_lean_run": false,
+    "limits": "Read-only proof/type inspection. The partial guarded relation proves the success-order restriction and preserves early outcomes; it does not itself construct a deterministic INVALID_DRAFT receipt transition for an otherwise valid unordered candidate. That concrete denial/receipt mapping remains an explicit runtime adapter obligation, consistent with this amendment limited to accepted/unknown-applied-success properties. No full transition completeness or parser/Java/TypeScript refinement claim."
+  },
+  "finite_implementation_acceptance": [
+    "Server and browser reject a complete interleaved fields candidate deterministically; accepted head/source/history unchanged and any admitted deterministic rejection receipt follows existing exact-byte replay rules.",
+    "Grouped multiple-owner fields preserve within-owner order through print/elaboration, including field IDs, range columns and multiplicity.",
+    "Shuffling flat node registry leaves ordered syntax unchanged; shuffling child slots or call arguments does not get the same exemption.",
+    "An unordered candidate supplied with an existing exact receipt still replays without validation; changed wire collides, and unauthorized access denies before receipt disclosure.",
+    "UI field insertion/reassignment is an explicit draft transition with visible reorder; no automatic accepted-history rewrite."
+  ],
+  "required_sequence": "Six exact-three-hash approvals and two clean amendment proof builds before implementing this new order guard. Unrelated previously approved implementation may continue; incomplete engine remains unavailable.",
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Exact amendment gameplan only. No runtime evidence, G2/G3 closure, commercial claim, or alteration of original237 registered claims."
+}

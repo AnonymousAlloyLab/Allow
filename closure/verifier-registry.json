@@ -1,0 +1,19 @@
+{
+  "verifiers": [
+    {
+      "id": "V-ALLOW-SPEC",
+      "executable": "closure/scripts/verify.py",
+      "sha256": "eddf3255d06a0c65efc0caff5ca45b72ff3a17052eb2d8391b8feec3dbac8a76",
+      "claim_classes": [
+        "proof_compilation_with_expected_proposition",
+        "mechanical_metadata_check"
+      ],
+      "exit_codes": {
+        "pass": 0,
+        "block": 1,
+        "infrastructure_failure": 2
+      },
+      "unexpected_exit_policy": "INFRASTRUCTURE_FAILURE; never PASS"
+    }
+  ]
+}

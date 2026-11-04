@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "scope": "Frozen IM31/IM32 are external integration obligations, not skipped unit tests or waived checks.",
+  "obligations": {
+    "IM31": {
+      "id": "all_existing",
+      "status": "UNRESOLVED_UNTIL_PROMOTION_EVIDENCE",
+      "required_evidence": [
+        {"role": "formal_models", "verifier": "verify_model_closure.py", "predicate": "VERIFIED287/287 including all280 existing propositions, frozen exact inputs"},
+        {"role": "sql_wire_and_postgresql", "verifier": "scripts/verify_sql_runtime.py", "predicate": "PASS52 tests (39 wire +13 actual PostgreSQL), failures/errors/skipped zero, source unchanged and both runtime identities PASS"},
+        {"role": "full_python", "verifier": "scripts/verify_corpus_runtime.py", "predicate": "PASS full discovered suite, failures/errors/skipped zero, source unchanged and active new sql_image modules/test hashes in report"},
+        {"role": "sql_clients", "verifier": "scripts/verify_sql_clients.py", "predicate": "PASS source inventory plus separately registered client counters/endpoints and pinned same daemon generation"},
+        {"role": "retrieval_recovery", "verifier": "scripts/retrieval_recovery_test.py", "predicate": "PASS full pg_dump/restore ACLs, source unchanged, canonical proxy endpoints and same parser identity"},
+        {"role": "document_recovery", "verifier": "scripts/document_recovery_test.py", "predicate": "PASS full ACL recovery and canonical proxy admission/counters, unchanged reviewed inputs"}
+      ],
+      "binding": "Every supplied report must be hashed, originate from its registered executable and bind the promoted source hashes; another code root is stale. Root release integration must generate the final linked result."
+    },
+    "IM32": {
+      "id": "full_cli_benchmark",
+      "status": "UNRESOLVED_UNTIL_BOTH_FULL_RUNS",
+      "required_evidence": [
+        {"role": "baseline", "verifier": "scripts/benchmark_documents.py", "predicate": "Complete100 warmups/1000 measured actual authoritative HTTP requests, all1000 samples, input root and source unchanged, failure list retained even if original300ms target fails"},
+        {"role": "candidate", "verifier": "scripts/benchmark_documents.py", "predicate": "Complete same frozen fixture/method/counts and original300ms target with samples/failures/source identity, after promoted pinned-image runtime is established"},
+        {"role": "scoped_read_ownedIds", "verifier": "actual CLI/HTTP production path plus registered SQL client/runtime evidence", "predicate": "Actual scoped read and ownedIds remain under SQLeanParser; record sample counts/failures and source hashes, do not infer benefit from the20ms single parser probe"}
+      ],
+      "binding": "Freeze/hash both reports and relevant verifier and source roots; compare fixture/method/reference-host context. Preserve invalidated earlier baselines as invalid evidence, never reuse their timing as current. No skipped unit test discharges this obligation."
+    }
+  }
+}

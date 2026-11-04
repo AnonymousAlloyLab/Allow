@@ -1,0 +1,189 @@
+{
+  "status": "LOCAL_RETRIEVAL_AND_SQL_TESTED_WITH_OPEN_PRODUCT_GATES",
+  "classification": "FINITE_IMPLEMENTATION_TESTS_NOT_FORMAL_REFINEMENT",
+  "recorded_utc": "2026-11-03T17:42:42.163763+00:00",
+  "source_input_root_sha256": "4078b52b95a7cae314a7ff5cf64bb111fd1fb051631b223e4ecec85002a844f9",
+  "source_files": 309,
+  "evidence": [
+    {
+      "path": "gates/retrieval/build.log",
+      "sha256": "775a3f1285a970161d49eba49290ee5f8905b185bf6b847bd552ad9f6971f6bb"
+    },
+    {
+      "path": "gates/retrieval/http-smoke.json",
+      "sha256": "f63327946fa7292531a5488a2f999fec5ad2f10bbc600fc02f8182f214d8f56d"
+    },
+    {
+      "path": "gates/retrieval/java-tests.json",
+      "sha256": "5c4429244b3224b1aba15ff20988f81dd91178df93b4eba3cda79d3ffcc82222"
+    },
+    {
+      "path": "gates/retrieval/runtime-tests.json",
+      "sha256": "04989eb376d864c5df00332847b49ac413cdb4c4a6b3889180df967521dd84f9"
+    },
+    {
+      "path": "gates/sql/client-coverage.json",
+      "sha256": "2ee753179a9b8976ab156e5ee81ae1a568f91e86b33cc591e41962ba20f19f5b"
+    },
+    {
+      "path": "gates/sql/formal-report.json",
+      "sha256": "bd393aef4f9bec1e555034050a87789685e861128deb7e3fb5656cae58ab9199"
+    },
+    {
+      "path": "gates/sql/recovery-report.json",
+      "sha256": "f5184dc888cb2356538f85edd93bd2e7ea766441d3fab79f8548e6b2523e9aee"
+    },
+    {
+      "path": "gates/sql/runtime-tests.json",
+      "sha256": "e3ad0b6891ca0a4bad7c61359a35e0bd20951ce99e84ed7533fab9b7be7bdcb4"
+    },
+    {
+      "path": "retrieval/dependency-security.json",
+      "sha256": "e788a68a7d234b8f9b55029447630de6bf48b529190f4a64450c4d3a5341c55c"
+    },
+    {
+      "path": "retrieval/pilot-summary.json",
+      "sha256": "5a33191a35373eaa7e053abce2844f799bd6075c3e7e4f987981e083c71ba6ce"
+    },
+    {
+      "path": "reviews/sql-council.json",
+      "sha256": "0d52785bcd07f409e61c7ab112c9349d92a532cce381da9b4a4a85d11baedf3e"
+    }
+  ],
+  "checks": {
+    "formal_model_propositions": 112,
+    "clean_formal_builds": 2,
+    "backend_tests": 83,
+    "frontend_tests": 25,
+    "style_js_ts_fixtures": 53,
+    "style_java_fixtures": 13,
+    "retrieval_python_tests": 81,
+    "sql_wire_and_postgresql_tests": 52,
+    "full_acl_backup_restore": "PASS",
+    "http_stored_vector_retrieval": "PASS"
+  },
+  "pilot": {
+    "full_records": 46,
+    "eligible_records": 46,
+    "family_components": 13,
+    "validation_components": 2,
+    "test_components": 2,
+    "source_coverage": [
+      "alloy4fun",
+      "alloy5",
+      "alloy6"
+    ],
+    "training_pairs": 32,
+    "validation_queries": 4,
+    "test_queries": 10,
+    "training_status": "REUSED_FROZEN_CHECKPOINT_NO_RETRAIN",
+    "quality_gate": "PASS",
+    "integrity_passed": true,
+    "baseline_model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+    "learned_model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+    "baseline_family_macro_mrr": 1.0,
+    "learned_family_macro_mrr": 1.0,
+    "weights": [
+      0.45,
+      0.1375,
+      0.41250000000000003
+    ],
+    "repaired_queries": 1,
+    "adapter_sha256": "298aea35c56a3a56698af4e58316ccafe22e847995ef1db9494415f212c65026",
+    "validation_decision_sha256": "4de8368c3db4b8c298a364c70ebaed1fc349e6a5d124f383253b94dab73e5f83",
+    "frozen_manifest_id": "0278261e522d92e8c144a7a67375121c26fc716a3becea74f4f72e0276a42779",
+    "exclusions": {
+      "no_checked_variant": 0,
+      "embedding_budget": 0
+    },
+    "interpretation": "Technical-repair rerun of an already observed holdout, not a fresh blind test. Known checked structural-variant retrieval only: 13 family components, two test families and 10 test queries. Equal learned and pretrained family-macro MRR@10 satisfies the predeclared non-regression gate; it does not demonstrate improvement or broad semantic generalization. Database publication completed with 46 learned vectors; both active models provide 92 eligible vectors in total.",
+    "train_loss_initial": 2.5031580924987793,
+    "train_loss_final": 2.494813919067383,
+    "evaluation_artifact_sha256": "3d2f9e8828e6f152e4c04ba17447253857482a6ce2f204aa546c3bd887a0b873",
+    "evaluation_path": ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/evaluation.json",
+    "promotion_artifact_sha256": "4d35e9750092d90d681559090bc58dcd5257ac1ffd54dec249a292b262aa5798",
+    "promotion_status": "PUBLISHED",
+    "database_promoted": true,
+    "original_summary": "retrieval/history/pilot-summary-before-final-repair.json",
+    "original_evaluation_sha256": "8836d6428445438905e2d9a1ec1614869fec0b6ba63fd78794a2768631df9d25",
+    "original_cache_verification": "All 45 original canonical and exact certificate-bound variant arrays independently re-encoded with the pinned original model and matched bit-for-bit. Hashes below are new repair-input bindings, not invented historical hashes.",
+    "combined_pretrained_family_macro_mrr": 1.0,
+    "combined_learned_family_macro_mrr": 1.0,
+    "predicate_only_family_macro_mrr": 0.6644179894179895,
+    "publication_report": "gates/retrieval/publication-report.json",
+    "published_vector_count": 46,
+    "servable_vector_count": 92,
+    "publication_report_sha256": "23296738584a51b0ea098313bd088f742284ed75db1a8a7d2b14d15b1223ffc4",
+    "luna_learned_fixture_report": "reviews/retrieval-luna-learned-results.json",
+    "luna_learned_fixture_report_sha256": "71c4771862c0e389159a41a1084c5ab2014894404f642b9d2e6b99b00dc0044b"
+  },
+  "original_gates": {
+    "G0": {
+      "state": "FINITE_MODEL_VERIFIED",
+      "evidence": "gates/sql/formal-runs/final-rev6/report.json"
+    },
+    "G1": {
+      "state": "TECHNICAL_CHECKS_PASSED_RIGHTS_OPEN",
+      "remaining": [
+        "Dependency redistribution/license reconciliation"
+      ]
+    },
+    "G2": {
+      "state": "OPEN",
+      "remaining": [
+        "Full typed document transactions and palette",
+        "Durable edit idempotency/undo",
+        "Manual browser and assistive-technology acceptance"
+      ]
+    },
+    "G3": {
+      "state": "OPEN",
+      "remaining": [
+        "Complete occurrence maps and supported-fragment round trips",
+        "Full document mode transitions"
+      ]
+    },
+    "G4": {
+      "state": "BOUNDED_SOLVER_AND_PAIRED_POOLS_TESTED_DEPENDENCIES_OPEN",
+      "remaining": [
+        "Inherited complete document/provenance acceptance"
+      ]
+    },
+    "G5": {
+      "state": "LOCAL_RETRIEVAL_AND_RECOVERY_TESTED_DEPENDENCIES_OPEN",
+      "remaining": [
+        "Inherited G2/G3/G4 gates"
+      ]
+    },
+    "G6": {
+      "state": "NO_GO",
+      "remaining": [
+        "Dataset and dependency commercial rights",
+        "Manual accessibility acceptance",
+        "Customer task pilot and support economics"
+      ]
+    }
+  },
+  "trusted": [
+    "Lean 4.34.1 kernel/compiler and bundled libraries",
+    "propext, Quot.sound, Classical.choice",
+    "Lake",
+    "Python and this verifier/generator",
+    "SHA-256 collision resistance",
+    "OS/filesystem/process semantics",
+    "hardware",
+    "interpretation of model versus specification prose",
+    "Alloy/Kodkod/SAT4J",
+    "PostgreSQL and pgvector",
+    "SQLean grammar CLI and pinned lexer assumptions",
+    "Python/Java/TypeScript adapters and local pretrained encoder"
+  ],
+  "excluded": [
+    "Universal implementation refinement",
+    "Complete Alloy canonical normal forms",
+    "Unbounded solver soundness",
+    "Browser/manual accessibility acceptance",
+    "Commercial release clearance"
+  ],
+  "interpretation": "Proof closure applies only to the frozen Lean surface under its TCB. Runtime results are finite executed checks. Learned pilot non-regression is not broad semantic retrieval quality."
+}

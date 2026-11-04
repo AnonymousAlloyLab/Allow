@@ -1,0 +1,82 @@
+{
+  "id": "ALLOW-P1-COMPLETE-ISOLATED-REGRESSIONS-R3",
+  "status": "REGISTERED_BEFORE_EXECUTION",
+  "authority": "../formal-activation.json and root-directed continuation of the authorized implementation",
+  "source": "Exact staged P1 source including observation deadline repair and 8 boundary tests; registered source-root aliases backend/frontend and read-only tooling/model to active inputs, hashes copied and frozen; active shared runtime never reused. Default immutable191file target unchanged.",
+  "sequence": [
+    {
+      "step": "bootstrap",
+      "timeout_seconds": 90,
+      "expected": "Fresh synthetic copied PostgreSQL16.15 and canonical SQLeanParser v8 ready"
+    },
+    {
+      "step": "migrate",
+      "timeout_seconds": 90,
+      "expected": "Copied retrieval schema migrations via canonical parser"
+    },
+    {
+      "step": "initialize-retrieval",
+      "timeout_seconds": 30,
+      "expected": "Fresh copied independent revocation journal and repository state"
+    },
+    {
+      "step": "bootstrap-documents",
+      "timeout_seconds": 90,
+      "expected": "Fresh copied private identity and document schema"
+    },
+    {
+      "step": "python-all",
+      "timeout_seconds": 900,
+      "expected": "Complete current retrieval/tests unittest discovery, zero failures/errors/skips"
+    },
+    {
+      "step": "sql-runtime",
+      "timeout_seconds": 300,
+      "expected": "verify_sql_runtime.py PASS with actual parser/proxy counters and stable loaded identity"
+    },
+    {
+      "step": "sql-clients-and-retrieval-recovery",
+      "timeout_seconds": 300,
+      "expected": "verify_sql_clients.py PASS including real pg_dump/pg_restore, ACLs, revocation replay and canonical client routes"
+    },
+    {
+      "step": "document-recovery",
+      "timeout_seconds": 300,
+      "expected": "document_recovery_test.py PASS on registered temporary database using the copied parser"
+    },
+    {
+      "step": "spring-ready",
+      "timeout_seconds": 60,
+      "expected": "New bounded default-profile JVM on registered loopback port with private new bearer and authorized document-list readiness"
+    },
+    {
+      "step": "http-smoke",
+      "timeout_seconds": 300,
+      "expected": "Existing smoke_documents.py PASS including document validation/commit/history/analysis"
+    },
+    {
+      "step": "spring-crash-and-restart",
+      "timeout_seconds": 75,
+      "expected": "Owned pidfd SIGKILL after completed smoke, reap, fresh bearer and authorized readiness; PostgreSQL not restarted"
+    },
+    {
+      "step": "http-restart",
+      "timeout_seconds": 180,
+      "expected": "Existing verify_document_restart.py PASS with exact retained receipts/head/artifact and old bearer denied"
+    }
+  ],
+  "failure_policy": "Stop at the first failed regression, preserve exact private logs and outcome before owned cleanup. Never patch a frozen copied run, retry in place, bypass the SQL parser, or count unexecuted steps as PASS.",
+  "ownership": "New /tmp/allow-cc-* root0700, fresh credentials/identity/runtime/cluster; shared tooling aliases only. No active service, socket, database, credential, target or source mutation. Test fixture SQL and restore actions target only this copied cluster.",
+  "limits": {
+    "spring_heap_mib": 1024,
+    "spring_processors": 4,
+    "document_cli_address_space_bytes": 2147483648,
+    "document_cli_cpu_seconds": 20,
+    "whole_stack_cgroup": "NOT_ASSESSED",
+    "expected_new_disk_under_gib": 2
+  },
+  "network": "No downloads required; pinned local model, archives and runtime tools copied/hashed. HF/transformers offline environment enabled. HTTP only registered loopback service; Java workers retain namespace network isolation. No claim that the full Python harness has a network namespace.",
+  "trust": "Linux process/peer/filesystem primitives, managed Python/venv, pinned local parser/PG/model/JDK, unchanged existing test scripts and authored harness are trusted components; this is finite regression evidence, not universal refinement.",
+  "boundary": "No benchmark/timing-selection claim, no F1 activation, no shared runtime promotion, no all33 P1 runtime-closure claim, and no production4vCPU8GiB acceptance. Existing regression suite counts are kept separate from gate-harness subcases.",
+  "runtime_binding": "Every regular file under managed venv including all caches/pyc/pyo, executable symlinks and their literal/resolved targets, interpreter bytes and pyvenv.cfg. Exact before/after content+membership+symlinks checked; no assertion every reachable package was loaded. Source/target/SQL fixtures identical to r12."
+}

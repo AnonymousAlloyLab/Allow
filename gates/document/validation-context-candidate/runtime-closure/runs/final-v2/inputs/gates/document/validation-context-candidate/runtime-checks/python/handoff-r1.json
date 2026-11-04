@@ -1,0 +1,85 @@
+{
+  "active_sources_match_all_preregistered_hashes_after_execution": true,
+  "completed_at": "2026-11-03T22:37:41.120647+00:00",
+  "coverage": {
+    "VC01": "11 closed shape negative cases before SQL",
+    "VC02": "Actual libpq BEGIN/mode/three scopeSELECTs/data/COMMIT order, safe sanitized trace",
+    "VC06": "Concurrent actual Store commit after first tenantSELECT before projectSELECT, heads1->2 and immutable base0",
+    "VC13": "Maximum canonical valid4096ID safe-revision args188512bytes. At262144 invalid-ID guard; at262145 ids_limit; noSQL. Valid positive256KiB is unreachable.",
+    "VC14": "8 actual parser denials via fixed invalidSQL;8 locally injected transport closes;2 synthetic returned-content decoder faults;actual wrong-password path with explicit diagnostic assertion;3 empty-ID fault cases. Literal parser shutdown not performed.",
+    "VC18": "All document tables exact before/after snapshot equality for read/failures/cancellation/20s timeout. Actual process reaping and explicit backend cleanup verified. See lifecycle limitation.",
+    "VC22": "Actual canonical endpoint + client tag + sealed parser identity + postauth protocol trace and proxy accepted/rejected deltas. Counter publication is asynchronous: recorded deltas can include prior setup increments and are lower-bound evidence, not exclusive per-request counts."
+  },
+  "database_cleanup": "all three owned generated temporary databases dropped and absence confirmed",
+  "evidence_root_sha256": "f5eb3cda353b0e3248bcb37fc079bcbda11d320e508f692296af98e5a26b9a81",
+  "existing_test_counts_unchanged": {
+    "java": 189,
+    "python": 186
+  },
+  "files": [
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r1/protocol.json",
+      "sha256": "3a7da05c1d62fb28e4320d1a79ec43fec4b3669b4a8788d244b6f022ce2595a0"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r1/probe.py",
+      "sha256": "8c93db728f691385585bcf4eb484e63d8bf24e0604be32a019c618b4b3ab63b3"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r1/registration.json",
+      "sha256": "0fb1422afa31f0ca8234e869a4af4e67d000ed6d8427fcc5d39e6275df2ff079"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r1/runs/run-20261103T223340Z/report.json",
+      "sha256": "d421e8e8ae0dfda011a0da3a2e1d2144f87ba5e7222f0d786ed35fe82e6e094a"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r2/protocol.json",
+      "sha256": "5a7256f6f6d4f3817d816cffdde8b0fdb8030163c87b5239a6772f09d015e329"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r2/probe.py",
+      "sha256": "c73339a1a49136991dc19eeb19edbc2530237a9a7823ed0996c42c88a732b93a"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r2/registration.json",
+      "sha256": "937b0e783c29fdefdcf3cf1d303e66c47c034e1f003d04db9023fed677f8fac0"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/r2/runs/run-20261103T223426Z/report.json",
+      "sha256": "5f4c081c9618d84dab1d7865de414a6749ab92c62a2dc113f58e7d68468a5f27"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/auth-diagnostic-r1/protocol.json",
+      "sha256": "784cec54a3f73d4f83164665536630593ff1f5cf4062cc12a6a55a07921e965a"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/auth-diagnostic-r1/probe.py",
+      "sha256": "2f34f5b5b150ca978e4445f2b717ce2c060a8b96aff6de4e5c955d7f9e8ce56d"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/auth-diagnostic-r1/registration.json",
+      "sha256": "0d2e267dcd4c5cda9398163b1f6fc1cdb2b2adba0fb732520345baeb68b1bb38"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/auth-diagnostic-r1/runs/run-20261103T223614Z/report.json",
+      "sha256": "ff16ba6f1fba6e2739229ef644502769270cf798d8292777f300113b9e19e0e1"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/lifecycle-limitation-r1.json",
+      "sha256": "65f26747d6be12dcb01f40fc4090f56787ea7a919f937cfd3b7478f4a07584b7"
+    }
+  ],
+  "performance": "No new latency claim. Parent actual HTTP p95392.298835ms remains above binding300ms target.",
+  "prior_failure": {
+    "classification": "r1 fixture setup ValueError; source-based diagnosis nonempty CREATE violates admission contract; no probe claims. Preserved original report and owned DB cleanup.",
+    "path": "gates/document/validation-context-candidate/runtime-checks/python/r1/runs/run-20261103T223340Z/report.json"
+  },
+  "production_mutations": "none",
+  "status": "FINITE_SUPPLEMENTAL_CHECKS_PASS_WITH_EXPLICIT_LIFECYCLE_LIMITATION",
+  "supplemental": {
+    "auth_addendum_repeat_scenarios_with_stronger_diagnostic": 2,
+    "r2_groups": 7,
+    "r2_registered_scenarios": 40
+  }
+}

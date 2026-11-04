@@ -1,0 +1,50 @@
+{
+  "reviewer": "astra-1",
+  "decision": "REQUEST_CHANGES",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "c415800433f00480506fb44b9e256e01e97c3da3f6393ddf7437dffa7f0cb25d",
+    "gates/sql/immutable-image-candidate/contract.md": "19316bc6140a4c47fe7dd0f835e4581f50254945fe8b1d2c8ea1cfe2be2241a9",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "73f634b039ffdb0092f2f8214d2a4aa696d5c71baeb07eac9ba812915ddfeca8"
+  },
+  "scope": "Independent frozen five-input gameplan review. No candidate/production/browser/HTTP changes or runtime/Lean execution.",
+  "findings": [
+    {
+      "id": "SQLIM-A1-01",
+      "severity": "high",
+      "location": "contract.json identity.init/cache_key/status_introspection; contract.md report interpretation; runtime-test-plan IM22/IM24; retrieval/allow_retrieval/sql_guard.py:119",
+      "problem": "The image digest and size are pinned, but the normative plan does not explicitly freeze the full interpretation configuration with that image. Current ParserGate retains production_lhs as mutable public self.lhs and digest as public state. Report production IDs are interpreted through that mapping. A changed mapping can alter policy classification without changing executable bytes, SQL, profile or PostgreSQL commit; the stated cache tuple does not include mapping identity. Sol1 notes this concern, but it needs a normative requirement and concrete tests rather than relying on cache tuple wording.",
+      "required_fix": "Construct one private defensive immutable validated configuration snapshot containing binary digest/expected size, profile, PostgreSQL commit, full ordered production mapping and policy. Bind it to the unique gate generation and use that same snapshot for initialization, report decoding/classification, cache checks and introspection. No mutable aliases or late lock reload within a generation; any interpretation change requires a fresh generation and empty cache. Status must reflect this snapshot and actual lifecycle consistently, not reread current disk/config or expose mutable internals. Add tests changing each profile/commit/policy/mapping independently, mutating original mapping aliases, and modifying lock config on disk after initialization; assert rejection or explicit fresh-generation behavior and no stale cache admission."
+    }
+  ],
+  "concurred_blockers": [
+    {
+      "review": "reviews/sql-image-terra-1.json",
+      "id": "T1-01",
+      "reason": "Bounded copy chunks do not bound total initialization bytes/time; expected-size cap, nonregular/growing-input handling and complete cleanup are required."
+    },
+    {
+      "review": "reviews/sql-image-sol-1.json",
+      "id": "SQLIM-S1-01",
+      "reason": "Descriptor reservations need bounded concurrency, exclusive ownership until inheritance, and cleanup on every wait/cancel/error/close path."
+    }
+  ],
+  "assessment": [
+    "Hashing the sealed destination plus four required seals and reserved descriptor execution addresses source-copy and pathname TOCTOU under the stated kernel/ownership assumptions. The actual-ELF witness must observe the parser phase, not merely the preceding prlimit process; finite witness evidence is not universal proof.",
+    "Restart-only disk checking is an intentional policy change. Retained280 theorem types remain models of their own definitions, not proof that revision7 preserves revision6 live-path denial. Seven new conditional propositions likewise do not prove OS behavior or database routing.",
+    "Dynamic loader and libraries remain explicitly trusted; executable byte sealing does not seal those dependencies. Retain existing explicit sanitized child environment and absolute reviewed prlimit launcher. No arbitrary inherited loader overrides should be introduced by this optimization.",
+    "Noexec rejection is correctly required. Kernel documentation distinguishes explicit MFD_EXEC, noexec defaults and enforced noexec; unsupported flag/policy handling must not retry by weakening policy, changing sysctls, invoking an interpreter manually or reverting to the disk path. The existing planned negative test should observe denial and cleanup."
+  ],
+  "primary_sources": [
+    {
+      "url": "https://docs.kernel.org/userspace-api/mfd_noexec.html",
+      "supports": "MFD_EXEC explicitly enables executable memfd; enforced namespace policy rejects creation without MFD_NOEXEC_SEAL. Namespace policy hierarchy applies."
+    },
+    {
+      "url": "https://man7.org/linux/man-pages/man3/fexecve.3.html",
+      "supports": "Descriptor execution removes pathname substitution but alone does not ensure byte immutability; file contents require independent protection."
+    }
+  ],
+  "validation": "Read five frozen inputs, prior Terra/Sol reports, and current ParserGate initialization/report-decoding/launch implementation. Verified input hashes while writing review. Consulted primary Linux documentation only for platform semantics."
+}

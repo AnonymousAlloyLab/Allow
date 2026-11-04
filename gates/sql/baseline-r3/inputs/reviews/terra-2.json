@@ -1,0 +1,90 @@
+{
+  "reviewer": "terra-2",
+  "requested_model": "gpt-6.1-terra",
+  "actual_model": "not independently observable from within agent; requested dispatch identity is not runtime attestation",
+  "reviewed_revision": 2,
+  "reviewed_files": [
+    {
+      "path": "spec/allow-contract.json",
+      "sha256": "d97781f33756b6fcdb77acf59a8ea27f6b0a93ffb57970710be53a863c63b425"
+    },
+    {
+      "path": "formal/Allow/Typing.lean",
+      "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    {
+      "path": "formal/Allow/Canonical.lean",
+      "sha256": "c5a9361ba34b45b2ad8c5e41ff0ac4adc646817e51d9e9b20810d77b839427c8"
+    }
+  ],
+  "verdict": "CHANGES_REQUIRED",
+  "scope": "Adversarial review of the revision 2 specification and the two Lean files present at review time; no platform implementation review. Evidence.lean and Generated.lean were not present at inspection; their missing checks are not reported as failed proofs.",
+  "findings": [
+    {
+      "id": "T2-01",
+      "severity": "HIGH",
+      "location": "canonicalization.normal_form; formal_obligations F18; formal/Allow/Canonical.lean ContextualFormula and CertifiedMerge",
+      "problem": "The contract says Lean proves different ordered inventories give different contextual canonical keys, but the reviewed Lean file has no inventory, contextual key, injective encoding, or distinct_inventories_distinct_keys theorem. ContextualFormula holds an unconstrained String and Formula n. Two independently encoded atoms P and Q both represented by atom 0 in Formula 1 produce the same table; the current model does not prevent equal context strings. The fixed-index truth table theorem does not establish identity across differing atom inventories.",
+      "required_fix": "Model an explicit ordered exact atom inventory in the equality-bearing key and prove F18 for that key, including an appropriate representation of context and serialization or clearly mark serialization injectivity as trusted. Check the registered theorem against the final reviewed source; until then downgrade the claimed proof to an outstanding obligation. Include a non-vacuous P/Q negative control."
+    },
+    {
+      "id": "T2-02",
+      "severity": "MEDIUM",
+      "location": "architecture.A3.binder_model; formal/Allow/Typing.lean HasType.existsRel and infer",
+      "problem": "The model has only a list of types, with no declaration environment or validation of nominal sorts. For example, inference accepts existsRel 7 in an empty context even though the model has no declaration of signature 7. Likewise type-index lookup cannot establish that a stable source binding survived a move without capture. These are assumptions of elaboration, not consequences of infer_sound or commit_preserves. The contract acknowledges much of this boundary, but the term 'unsound drops' in U3 can be read more broadly than the proved judgment.",
+      "required_fix": "Keep proof claims explicitly restricted to derivability under a supplied, already valid elaborated context and declared sort inventory; require independent declaration/scope/capture-avoiding refinement at G2. If sort validity is intended to be proved at G0, add a declaration environment and a well-formedness premise/check and prove it preserved."
+    }
+  ],
+  "checks": [
+    {
+      "command": "cd formal && lake env lean Allow/Typing.lean",
+      "result": "exit 0"
+    },
+    {
+      "command": "cd formal && lake env lean Allow/Canonical.lean",
+      "result": "exit 0"
+    }
+  ],
+  "positive_observations": [
+    "Successful inference contains an actual HasType derivation, and explicit positive and negative examples exercise the restricted typing kernel.",
+    "The fixed-inventory Boolean table and certificate soundness proofs do not rely on relational semantics, and the spec identifies the Alloy valuation bridge as trusted.",
+    "The contract disclaims parser, implementation, solver and accessibility refinement and separates unbuilt gates from model proofs."
+  ],
+  "final_review": {
+    "reviewed_revision": 4,
+    "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "formal_sha256": {
+      "formal/Allow.lean": "9ee4e8bd139c0385729d4c22ecea1e887737f4bd3f995215e78082140994727b",
+      "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+      "formal/Allow/Contract.lean": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10",
+      "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045",
+      "formal/Allow/Generated.lean": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+      "formal/Allow/Kernel.lean": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503",
+      "formal/Allow/Typing.lean": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    "verdict": "ACCEPT_WITH_EXPLICIT_TRUST_BOUNDARIES",
+    "dispositions": [
+      {
+        "finding": "T2-01",
+        "status": "RESOLVED_IN_MODEL",
+        "reason": "ContextualFormula carries an ordered Fin-indexed inventory; canonicalKey includes it; CertifiedMerge requires equality; distinct_inventories_distinct_keys and a concrete distinct-atom example compile. Equality is a Lean structural key: faithful atom identity, actual serialization and injective encoding remain external assumptions or future acceptance obligations, not proven by F18."
+      },
+      {
+        "finding": "T2-02",
+        "status": "RESOLVED_AS_BOUNDARY",
+        "reason": "Revision 4 explicitly trusts source-to-IR elaboration, legal declarations, lexical context and capture-avoiding moves, and states that the kernel does not validate a global signature registry. The kernel proves syntactic typing under supplied contexts, not product or Alloy correspondence; G2 refinement remains required."
+      }
+    ],
+    "checks": [
+      {
+        "command": "cd formal && lake build",
+        "result": "exit 0; all modules built"
+      },
+      {
+        "command": "python3 closure/scripts/project_contract.py --check",
+        "result": "exit 0"
+      }
+    ],
+    "limitations": "Review covers the contract and Lean source snapshot, not platform implementation, independently attested runtime identity, complete Alloy semantics, serializer correctness, solver soundness, or implementation refinement. Individual proofs are scoped to their definitions and assumptions; a successful build is not evidence for those external properties."
+  }
+}

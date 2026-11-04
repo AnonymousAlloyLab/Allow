@@ -1,0 +1,167 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Orderly coordinator shutdown avoids internally generated interrupts at actual WorkerJournal NIO writes. Exact coordinator executors and pool.close are used; mocked unused ledger/launcher allocate no worker or cgroup. This is not actual cgroup lifecycle acceptance or full runtime refinement.",
+  "source_ready": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WarmWorkerPool.java",
+      "sha256": "b05612f5ea7e125ca8505fe64be40b4c7c2b981e79055455ad460fd9df85c00f"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WarmPoolShutdownTest.java",
+      "sha256": "d3d984f9092806d8292f651abbc3973a89fd76c927272a118b862a28d1d5cd67"
+    }
+  ],
+  "copied_root": "/tmp/allow-warm-shutdown-r11-vloddudo",
+  "tests": 73,
+  "suites": [
+    {
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmPoolShutdownTest",
+      "tests": "2",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmTransportTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerCreationFailureTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "compile_and_style": "PASS",
+  "negative_control": {
+    "copied_root": "/tmp/allow-warm-shutdown-old-r11-gn5mv1qe",
+    "delta": "Only restore watcher.shutdownNow() and refill.shutdownNow() in the copied WarmWorkerPool; identical test source.",
+    "expected_tests": 2,
+    "expected_failures": 2,
+    "observed": [
+      {
+        "method": "refillShutdownDoesNotInterruptJournalOwner",
+        "failure": "expected: <null> but was: <java.nio.channels.ClosedByInterruptException>"
+      },
+      {
+        "method": "watcherShutdownDoesNotInterruptJournalOwner",
+        "failure": "expected: <null> but was: <java.nio.channels.ClosedByInterruptException>"
+      }
+    ]
+  },
+  "ordering": "Each task enters the actual selected executor, waits until the close caller has completed shutdown initiation and is TIMED_WAITING for task termination, then executes actual WorkerJournal.write; any prior interrupt is retained for actual NIO observation. Finally joins the closer, both executors and closes the private journal.",
+  "original_runtime_observation": {
+    "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r2-w1/report.json",
+    "status": "BLOCKED",
+    "consumed_generation": "RELEASED",
+    "replacement_generation": "UNKNOWN with direct child reaped and positive empty cgroup; pids/memory/cpu peaks zero",
+    "causal_limit": "Consistent with interruption during pre-bootstrap attach/journal I/O; original nested exception was not retained, so exact failing I/O site remains unproven."
+  },
+  "remaining_acceptance": [
+    "Coherent full r4 copied build",
+    "New actual attached-STARTING shutdown ownership case and all prior ownership cases",
+    "Entire fresh W0/W1 finite semantic corpus rerun; prior run remains immutable BLOCKED",
+    "No activation or performance acceptance claimed"
+  ],
+  "logs": [
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/focused-tests.log",
+      "sha256": "4e8d6f64806c4befce4aa75d1be9f9c084e7d914b758125799e285843d9cdd7b"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-old-r11-gn5mv1qe/negative-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-old-r11-gn5mv1qe/negative-tests.log",
+      "sha256": "16870d46fb976e5056f679653048d7b6b337df2fcb25ffd7af0294cd9c0c55d5"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.OwnedWorkerRecoveryTest.xml",
+      "sha256": "edd93860037b0fd899ec93e82ff7a7183604d3728bfadddc4db544666733c063"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+      "sha256": "449b176a9666e6bccce00b8aadd3150e6824befd23596f2c024dfb558c799ae9"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WarmPoolShutdownTest.xml",
+      "sha256": "29b1472093ba9069d9d60d4045c5e3e486926a2c0ebbfdf5f068375ba7dbbed5"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+      "sha256": "c0c54b444d08c82e91e39fdd1bc5b3bb500bb8a67e2fa6e6a1ee91e243a3a93f"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+      "sha256": "67d792d1a12c9d13b8745b936a2a22a723a33b4a897ab202753cd5254cea6ef2"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerCreationFailureTest.xml",
+      "sha256": "eb5930acc3bde33ba97ce1bde089e089a78a1acf5968ecf5e22678d0e90b0671"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+      "sha256": "9214c9ae5d07ed86499b77025832f50f0da22af0b8da7f33c1b0557c0ca27181"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-r11-vloddudo/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+      "sha256": "5185154259e3518ae4be4e5d97fdac9ef14243927162853115d2f87fbbe09d78"
+    },
+    {
+      "path": "/tmp/allow-warm-shutdown-old-r11-gn5mv1qe/backend/target/surefire-reports/TEST-dev.allow.backend.WarmPoolShutdownTest.xml",
+      "sha256": "92076e2c41e94e4946f7aac7717badf02407cb7b99151798da2de32fb372fc28"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "reviewer": "astra-2",
+  "candidate_revision": "r2",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_root_sha256": "4704a9190a7df708ff7cfb528d94475b173de0d9875e52ee91fd2edea18a798c",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+    "gates/sql/immutable-image-candidate/contract.md": "ad9f4a9fcb4591d17a627c505ccb83e566127dc6f40e848db8a24e0a17d2613d",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "c49a8f53884a28b5ac5d90926ce42feda7895418be658976e6b46cacb3e10b42",
+    "gates/sql/immutable-image-candidate/input-manifest.json": "28434c9d5ef8ee35e4d363d42c98494f6da02f645a8c12f410bd0462936b38f5",
+    "gates/sql/immutable-image-candidate/existing-type-inventory.json": "bd7f8d0b7816f9e2236e5683008d841fc3095c2e05cd5cd3ed0ae17d398cd9ea",
+    "gates/sql/immutable-image-candidate/probe-result.json": "9f921847818c9327b7a328e071385682456326f03798a707faf6413f06500096",
+    "gates/sql/immutable-image-candidate/findings.md": "9c5a5bd70773f369d25e596c7101496cbbcee0d4ff39466635599f482f10b91f"
+  },
+  "scope": "Independent adversarial review of the frozen design and planned evidence. No production/candidate changes, HTTP/browser activity, execution probe or build performed.",
+  "findings": [],
+  "assessment": [
+    "All nine frozen file hashes and the canonical file-list root match. Every file listed in the baseline input manifest also matches its recorded hash. Existing inventory groups total280 propositions:112 inherited,125 document,14 order,16 associativity,13 partial.",
+    "Bounded regular-file initialization uses a trusted size rather than attacker-controlled fstat as the copy bound. Exact-size copy plus one-byte probe, sealed-destination hashing, strict single-fd transfer and atomic publication address growth, short write, source race and partial-init acceptance. The supervised5s initializer is feasible as fail-closed startup; it does not promise successful startup on every host or hard real-time kernel teardown.",
+    "Lifetime ownership bounds two reserved execution duplicates and one transient check duplicate. Waiters own no descriptor; close invalidates under lock and delegates child/fd cleanup to registered owners outside the lock. Rechecking live generation and snapshot before returning or caching excludes stale completion. The launch reservation must be registered atomically before close can miss it.",
+    "Exact immutable ConfigSnapshot includes the ordered production mapping and digest as well as image,size,profile,commit,policy,generation. Shared use for report interpretation, classification, decisions, cache and status closes mutable configuration alias and stale interpretation reuse gaps. Strict duplicate-key validation and independently changing mapping/profile/commit tests are material.",
+    "All fresh parses must execute the inherited sealed descriptor through reviewed absolute prlimit with existing limits and sanitized environment. Cache reuse remains exact-byte and snapshot-bound previously verified admission. Missing procfs, failed execution, unsupported MFD_EXEC or enforced noexec denies without interpreter, pathname or direct-database fallback.",
+    "The new policy deliberately continues the pinned live sealed executable after disk replacement/removal until restart. This changes revision6 live-path denial and is clearly exposed in status and required tests. Approval accepts this proposed policy at gameplan level only; promotion still requires the declared authorization.",
+    "The56 planned checks cover identity, mutation, syscall failures, initialization bounds, ancillary transfer, lifetime/cancellation/shutdown, cache interpretation and disk policy. Existing SQL classification/provenance/framing suites must still pass; this finite matrix is not a general OS correctness proof.",
+    "The seven Lean propositions are conditional consequences of checked observations, initialization equality and supplied kernel preservation. They do not prove sealing semantics, SHA pin soundness, actual exec correspondence, immutable mapping, concurrent ownership or cleanup. The existing280 models and isolated historical probe do not close those runtime obligations.",
+    "Executable pinning leaves the loader, shared libraries, kernel and Python adapter trusted. Additional memfd backing is explicitly separated from child RLIMIT_AS. A single20ms probe is not a latency distribution, performance improvement, release-readiness or commercial-acceptance result."
+  ],
+  "implementation_watchpoints": [
+    "Exercise shutdown precisely between reservation registration and process creation, and between descriptor transfer and publication; preserve shutdown-incomplete when cleanup fails.",
+    "Strict ancillary validation should include truncated payload/control flags, malformed or missing success metadata and unexpected descriptors; every received fd must have a single cleanup owner.",
+    "Record actual service-interpreter MFD_EXEC availability and noexec behavior. Historical capability evidence predates the expanded r2 initializer and cannot substitute for its tests.",
+    "Runtime review must confirm cache hits use the same lifetime-lock linearization point and immutable decisions, and no changed interpretation is hidden behind a reused generation.",
+    "Two final clean builds, exact proposition/axiom audits, runtime matrix, complete comparative benchmark/memory evidence and explicit production authorization remain outstanding."
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "candidate_revision": "r2",
+  "candidate_scope": "Draft candidate only; source hashes pin the read-only production/formal baseline, not an assertion of full runtime verification.",
+  "files": [
+    {
+      "path": "closure/theorem-types.json",
+      "sha256": "185a556d0d312148898ab92fed83b63ca8b6f6c835c22188137121b140f05166"
+    },
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    {
+      "path": "formal/Allow/Associativity.lean",
+      "sha256": "b0e003ebd07a530eabec1edd241f17a940505fb538e870a2ce3015bbe2849316"
+    },
+    {
+      "path": "formal/Allow/Canonical.lean",
+      "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+    },
+    {
+      "path": "formal/Allow/Contract.lean",
+      "sha256": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10"
+    },
+    {
+      "path": "formal/Allow/Document.lean",
+      "sha256": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07"
+    },
+    {
+      "path": "formal/Allow/EGraph.lean",
+      "sha256": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab"
+    },
+    {
+      "path": "formal/Allow/Evidence.lean",
+      "sha256": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+    },
+    {
+      "path": "formal/Allow/FieldOrder.lean",
+      "sha256": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0"
+    },
+    {
+      "path": "formal/Allow/Foundation.lean",
+      "sha256": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7"
+    },
+    {
+      "path": "formal/Allow/Generated.lean",
+      "sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925"
+    },
+    {
+      "path": "formal/Allow/Kernel.lean",
+      "sha256": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503"
+    },
+    {
+      "path": "formal/Allow/PartialTypes.lean",
+      "sha256": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7"
+    },
+    {
+      "path": "formal/Allow/Retrieval.lean",
+      "sha256": "b4e348c95d346cec441b04b85713df0c81150f5199062c513d9c76a684a60965"
+    },
+    {
+      "path": "formal/Allow/Slots.lean",
+      "sha256": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f"
+    },
+    {
+      "path": "formal/Allow/SqlRouting.lean",
+      "sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f"
+    },
+    {
+      "path": "formal/Allow/Typing.lean",
+      "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    {
+      "path": "formal/Allow.lean",
+      "sha256": "678a3f00cb4690f482cf92664243988f501c08ee36f0d748a9505b4fa1056d08"
+    },
+    {
+      "path": "formal/lake-manifest.json",
+      "sha256": "58c14e76084b8514765deb185e47743bf95339f17023336e73ce8ee0fe357fa4"
+    },
+    {
+      "path": "formal/lakefile.toml",
+      "sha256": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6"
+    },
+    {
+      "path": "formal/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f"
+    },
+    {
+      "path": "retrieval/tests/test_sql_guard.py",
+      "sha256": "3686c3eebc2389671e182373da64d659b216a22a41409a90e59ef46cb4144352"
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "c7b2366ec96333baf37f910b8764a633d8ddd9d9bfa636185231e777cb26a410"
+    },
+    {
+      "path": "spec/allow-contract.json",
+      "sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b"
+    },
+    {
+      "path": "spec/allow-contract.schema.json",
+      "sha256": "bbfa286ed585ab71e887eb0bb14c761b733b0d90d52df38f92bf0a5cc73fc571"
+    },
+    {
+      "path": "spec/document-adapter-draft.json",
+      "sha256": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0"
+    },
+    {
+      "path": "spec/document-associativity.json",
+      "sha256": "b7a60034b650bb75dc8a1d160d8312ccbc3f8d1449b2554290e0db9748045d1b"
+    },
+    {
+      "path": "spec/document-field-order.json",
+      "sha256": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870"
+    },
+    {
+      "path": "spec/document-partial-types.json",
+      "sha256": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216"
+    },
+    {
+      "path": "spec/document-stage-draft.json",
+      "sha256": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368"
+    },
+    {
+      "path": "spec/document-ui-draft.json",
+      "sha256": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c"
+    },
+    {
+      "path": "spec/document-wire-draft.json",
+      "sha256": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a"
+    },
+    {
+      "path": "spec/egraph-rules.json",
+      "sha256": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34"
+    },
+    {
+      "path": "spec/egraph-stage.json",
+      "sha256": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42"
+    },
+    {
+      "path": "spec/egraph-types.json",
+      "sha256": "229a1d3b92b6713fa4f51291b16c353cf52df1370a41f3d9f860e0c79d01b5ed"
+    },
+    {
+      "path": "spec/implementation-g1-types.json",
+      "sha256": "1d2412397e4af7b78f145b884acd39685f4e5b49902b82b4a949b22c8364c753"
+    },
+    {
+      "path": "spec/implementation-g1.json",
+      "sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654"
+    },
+    {
+      "path": "spec/retrieval-stage.json",
+      "sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb"
+    },
+    {
+      "path": "spec/retrieval-types.json",
+      "sha256": "27ba0b43b311aabc04d21f0ebac4fd2108c8db54056a7009586577613b0d3905"
+    },
+    {
+      "path": "spec/slot-profile.json",
+      "sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4"
+    },
+    {
+      "path": "spec/sql-stage.json",
+      "sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4"
+    },
+    {
+      "path": "spec/sql-types.json",
+      "sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac"
+    },
+    {
+      "path": "gates/document/draft/types.json",
+      "sha256": "fd0a31b549a8c20d079b960f68b306603b66aaed3facfd2e4a4bc302ea336109"
+    },
+    {
+      "path": "gates/document/order-amendment/types.json",
+      "sha256": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+    },
+    {
+      "path": "gates/document/associativity-amendment/types.json",
+      "sha256": "0d8f95224108d094f8c54df6a7f6fdd260faa2ea61e42aca02dcaf09556efce7"
+    },
+    {
+      "path": "gates/document/partial-types-candidate/types.json",
+      "sha256": "dbd4d0d4d9697de048c163d193fad5663a7e4ddec65ff486d65d4a4b38cf554a"
+    },
+    {
+      "path": "gates/document/partial-types-candidate/verify_partial_types.py",
+      "sha256": "4d774c09bbeaafdc1cd902f8e31937a3a62b74f2cec9d6c21470d26e9056c374"
+    },
+    {
+      "path": "gates/document/draft/verify_document_candidate.py",
+      "sha256": "4a2072a32925ab13ff549c441f3c764074a58166276311dbbbb45d7d8839ddcb"
+    }
+  ],
+  "prior_review_inputs": [
+    {
+      "path": "gates/sql/immutable-image-candidate/archive-r1/sql-image-astra-1.json",
+      "sha256": "b3e4e3afd43348436f0dd97a63137f13c257356bb88014a711861dfebb9cdcb3"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/archive-r1/sql-image-sol-1.json",
+      "sha256": "d48cf3d408bebd3c21dd25382679cc9de357c49eb89979240e9695e97a3cc8e1"
+    },
+    {
+      "path": "gates/sql/immutable-image-candidate/archive-r1/sql-image-terra-1.json",
+      "sha256": "c9a3919dfe791df11513934af948651322a0842c4e688c7b9436d4f5eeddf2e3"
+    }
+  ],
+  "scope": "read-only snapshot hashes; does not assert inputs remained frozen after inventory"
+}

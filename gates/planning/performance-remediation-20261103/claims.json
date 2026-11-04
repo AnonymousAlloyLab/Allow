@@ -1,0 +1,261 @@
+{
+  "classification": "INACTIVE_FINITE_MODEL_CLAIMS_NOT_RUNTIME_CORRESPONDENCE",
+  "claims": [
+    {
+      "id": "PPM01",
+      "theorem": "Allow.PerformancePlan.step_preserves_invariant",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves invariant",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM02",
+      "theorem": "Allow.PerformancePlan.reachable_invariant",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable invariant",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM03",
+      "theorem": "Allow.PerformancePlan.one_request_per_generation",
+      "claim_class": "proof_compilation",
+      "public_claim": "one request per generation",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM04",
+      "theorem": "Allow.PerformancePlan.staging_requires_consumption",
+      "claim_class": "proof_compilation",
+      "public_claim": "staging requires consumption",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM05",
+      "theorem": "Allow.PerformancePlan.delivery_requires_staging",
+      "claim_class": "proof_compilation",
+      "public_claim": "delivery requires staging",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM06",
+      "theorem": "Allow.PerformancePlan.ready_is_unconsumed",
+      "claim_class": "proof_compilation",
+      "public_claim": "ready is unconsumed",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM07",
+      "theorem": "Allow.PerformancePlan.step_preserves_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves durable",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM08",
+      "theorem": "Allow.PerformancePlan.advisory_never_mutates_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "advisory never mutates durable",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM09",
+      "theorem": "Allow.PerformancePlan.retirement_cannot_resume",
+      "claim_class": "proof_compilation",
+      "public_claim": "retirement cannot resume",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM10",
+      "theorem": "Allow.PerformancePlan.release_requires_reaping",
+      "claim_class": "proof_compilation",
+      "public_claim": "release requires reaping",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM11",
+      "theorem": "Allow.PerformancePlan.staging_requires_busy",
+      "claim_class": "proof_compilation",
+      "public_claim": "staging requires busy",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM12",
+      "theorem": "Allow.PerformancePlan.delivery_requires_reaped",
+      "claim_class": "proof_compilation",
+      "public_claim": "delivery requires reaped",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM13",
+      "theorem": "Allow.PerformancePlan.poison_sticky_in_generation",
+      "claim_class": "proof_compilation",
+      "public_claim": "poison sticky in generation",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM14",
+      "theorem": "Allow.PerformancePlan.poison_prevents_delivery_in_generation",
+      "claim_class": "proof_compilation",
+      "public_claim": "poison prevents delivery in generation",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM15",
+      "theorem": "Allow.PerformancePlan.step_generation_monotone",
+      "claim_class": "proof_compilation",
+      "public_claim": "step generation monotone",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM16",
+      "theorem": "Allow.PerformancePlan.trace_generation_monotone",
+      "claim_class": "proof_compilation",
+      "public_claim": "trace generation monotone",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM17",
+      "theorem": "Allow.PerformancePlan.poisoned_trace_cannot_deliver",
+      "claim_class": "proof_compilation",
+      "public_claim": "poisoned trace cannot deliver",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM18",
+      "theorem": "Allow.PerformancePlan.generation_increases_only_at_boot",
+      "claim_class": "proof_compilation",
+      "public_claim": "generation increases only at boot",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM19",
+      "theorem": "Allow.PerformancePlan.stale_generation_rejected",
+      "claim_class": "proof_compilation",
+      "public_claim": "stale generation rejected",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM20",
+      "theorem": "Allow.PerformancePlan.staged_reply_is_guarded_step",
+      "claim_class": "proof_compilation",
+      "public_claim": "staged reply is guarded step",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM21",
+      "theorem": "Allow.PerformancePlan.cancelled_reply_never_delivered",
+      "claim_class": "proof_compilation",
+      "public_claim": "cancelled reply never delivered",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM22",
+      "theorem": "Allow.PerformancePlan.delivered_reply_is_guarded_step",
+      "claim_class": "proof_compilation",
+      "public_claim": "delivered reply is guarded step",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM23",
+      "theorem": "Allow.PerformancePlan.live_pool_bound",
+      "claim_class": "proof_compilation",
+      "public_claim": "live pool bound",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM24",
+      "theorem": "Allow.PerformancePlan.idle_warm_occupies_slot",
+      "claim_class": "proof_compilation",
+      "public_claim": "idle warm occupies slot",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM25",
+      "theorem": "Allow.PerformancePlan.timeout_cannot_release",
+      "claim_class": "proof_compilation",
+      "public_claim": "timeout cannot release",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM26",
+      "theorem": "Allow.PerformancePlan.database_release_requires_observation",
+      "claim_class": "proof_compilation",
+      "public_claim": "database release requires observation",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM27",
+      "theorem": "Allow.PerformancePlan.timeout_preserves_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "timeout preserves durable",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM28",
+      "theorem": "Allow.PerformancePlan.acceptance_requires_three_runs",
+      "claim_class": "proof_compilation",
+      "public_claim": "acceptance requires three runs",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM29",
+      "theorem": "Allow.PerformancePlan.every_accepted_run_meets_target",
+      "claim_class": "proof_compilation",
+      "public_claim": "every accepted run meets target",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM30",
+      "theorem": "Allow.PerformancePlan.observed_slow_run_rejects_series",
+      "claim_class": "proof_compilation",
+      "public_claim": "observed slow run rejects series",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM31",
+      "theorem": "Allow.PerformancePlan.successful_one_use_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "successful one use witness",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    },
+    {
+      "id": "PPM32",
+      "theorem": "Allow.PerformancePlan.accepted_series_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "accepted series witness",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_plan_model.py"
+    }
+  ]
+}

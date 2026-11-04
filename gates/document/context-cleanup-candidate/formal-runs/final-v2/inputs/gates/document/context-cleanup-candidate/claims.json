@@ -1,0 +1,229 @@
+{
+  "classification": "INACTIVE_FINITE_MODEL_CLAIMS_NOT_RUNTIME_CORRESPONDENCE",
+  "claims": [
+    {
+      "id": "CCM01",
+      "theorem": "Allow.ContextCleanup.step_preserves_invariant",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves invariant",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM02",
+      "theorem": "Allow.ContextCleanup.reachable_invariant",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable invariant",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM03",
+      "theorem": "Allow.ContextCleanup.application_sql_requires_bound_prelude",
+      "claim_class": "proof_compilation",
+      "public_claim": "application sql requires bound prelude",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM04",
+      "theorem": "Allow.ContextCleanup.new_application_sql_requires_bound_phase",
+      "claim_class": "proof_compilation",
+      "public_claim": "new application sql requires bound phase",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM05",
+      "theorem": "Allow.ContextCleanup.staged_context_requires_application_sql",
+      "claim_class": "proof_compilation",
+      "public_claim": "staged context requires application sql",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM06",
+      "theorem": "Allow.ContextCleanup.receipt_proves_matching_cleanup",
+      "claim_class": "proof_compilation",
+      "public_claim": "receipt proves matching cleanup",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM07",
+      "theorem": "Allow.ContextCleanup.reachable_clean_has_receipt",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable clean has receipt",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM08",
+      "theorem": "Allow.ContextCleanup.reachable_clean_is_safe",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable clean is safe",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM09",
+      "theorem": "Allow.ContextCleanup.release_requires_clean",
+      "claim_class": "proof_compilation",
+      "public_claim": "release requires clean",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM10",
+      "theorem": "Allow.ContextCleanup.release_requires_observed_cleanup",
+      "claim_class": "proof_compilation",
+      "public_claim": "release requires observed cleanup",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM11",
+      "theorem": "Allow.ContextCleanup.step_preserves_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves durable",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM12",
+      "theorem": "Allow.ContextCleanup.advisory_cleanup_preserves_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "advisory cleanup preserves durable",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM13",
+      "theorem": "Allow.ContextCleanup.context_lease_at_most_one",
+      "claim_class": "proof_compilation",
+      "public_claim": "context lease at most one",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM14",
+      "theorem": "Allow.ContextCleanup.unknown_retains_capacity",
+      "claim_class": "proof_compilation",
+      "public_claim": "unknown retains capacity",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM15",
+      "theorem": "Allow.ContextCleanup.nonfree_retains_capacity",
+      "claim_class": "proof_compilation",
+      "public_claim": "nonfree retains capacity",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM16",
+      "theorem": "Allow.ContextCleanup.replacement_requires_vacant",
+      "claim_class": "proof_compilation",
+      "public_claim": "replacement requires vacant",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM17",
+      "theorem": "Allow.ContextCleanup.unknown_cannot_be_replaced",
+      "claim_class": "proof_compilation",
+      "public_claim": "unknown cannot be replaced",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM18",
+      "theorem": "Allow.ContextCleanup.unidentified_attempt_cannot_be_clean",
+      "claim_class": "proof_compilation",
+      "public_claim": "unidentified attempt cannot be clean",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM19",
+      "theorem": "Allow.ContextCleanup.closed_transport_alone_is_insufficient",
+      "claim_class": "proof_compilation",
+      "public_claim": "closed transport alone is insufficient",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM20",
+      "theorem": "Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup",
+      "claim_class": "proof_compilation",
+      "public_claim": "timeout ack or eof never proves cleanup",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM21",
+      "theorem": "Allow.ContextCleanup.stale_receipt_rejected",
+      "claim_class": "proof_compilation",
+      "public_claim": "stale receipt rejected",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM22",
+      "theorem": "Allow.ContextCleanup.accepted_receipt_exact_owner",
+      "claim_class": "proof_compilation",
+      "public_claim": "accepted receipt exact owner",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM23",
+      "theorem": "Allow.ContextCleanup.stale_lease_generation_rejected",
+      "claim_class": "proof_compilation",
+      "public_claim": "stale lease generation rejected",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM24",
+      "theorem": "Allow.ContextCleanup.context_ok_requires_cleanup",
+      "claim_class": "proof_compilation",
+      "public_claim": "context ok requires cleanup",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM25",
+      "theorem": "Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success",
+      "claim_class": "proof_compilation",
+      "public_claim": "context ok requires staged unpoisoned success",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM26",
+      "theorem": "Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic",
+      "claim_class": "proof_compilation",
+      "public_claim": "conditional postgresql capacity arithmetic",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM27",
+      "theorem": "Allow.ContextCleanup.normal_cleanup_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "normal cleanup witness",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    },
+    {
+      "id": "CCM28",
+      "theorem": "Allow.ContextCleanup.unidentified_crash_witness",
+      "claim_class": "proof_compilation",
+      "public_claim": "unidentified crash witness",
+      "pass_condition": "Both isolated clean builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_context_model.py"
+    }
+  ]
+}

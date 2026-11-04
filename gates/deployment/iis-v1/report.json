@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "status": "PACKAGE_BUILT_AND_LINUX_SMOKE_PASSED",
+  "classification": "FINITE_DEPLOYMENT_TEST_EVIDENCE_NOT_PRODUCTION_ACCEPTANCE",
+  "package": {
+    "package": "/home/augustus/Allow/dist/allow-iis-linux-private-20261104-r1.zip",
+    "sha256": "8529bd9cc46e81cb2c0b970860e9de0fa6ee6a9178a45cbaf6b9ab5f813ed67b",
+    "files": 272,
+    "bytes": 75773426
+  },
+  "manifest_sha256": "7e40d4d1b07f0543b1f2beb02be149e4c5fccd2f87365212863a5887294aa1d6",
+  "payload_files": 272,
+  "archive_and_current_inputs_match": true,
+  "contract": {
+    "path": "spec/iis-deployment.json",
+    "sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+  },
+  "proof": {
+    "theorems": 22,
+    "clean_builds": 2,
+    "scope": "finite policy only"
+  },
+  "council": {
+    "terra": 2,
+    "sol": 2,
+    "astra": 2
+  },
+  "java": {
+    "tests": 310,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "frontend_tests": 164,
+  "deployment_python_tests": 14,
+  "style": "PASS",
+  "ui_badge": "ABSENT_FROM_COMPILED_STATIC_ASSETS",
+  "linux_initialization": "PASS_FRESH_PRIVATE_POSTGRES_SQLEAN_PROXY",
+  "linux_http_smoke": {
+    "status": "PASS",
+    "manifest_sha256": "7e40d4d1b07f0543b1f2beb02be149e4c5fccd2f87365212863a5887294aa1d6",
+    "script_sha256": "046fa9792b27e1279b06985ee33a6bdc9de21ea118bcd70380ca69bb01c43880",
+    "windows_iis_ssh_acceptance": "OPEN",
+    "scope": "Actual relocated Linux service and HTTP with explicit proxy Host/Origin; no real IIS or SSH hop.",
+    "sql_app_accepted": 157,
+    "advisory": "VALIDATED",
+    "solver": "SAT",
+    "durable_revision": 1,
+    "restart_persistence": "PASS",
+    "old_token_rejected": true,
+    "owned_stack_shutdown": "PASS",
+    "logs": [
+      {
+        "path": "gates/deployment/iis-v1/linux-smoke-r1/service-first.log",
+        "sha256": "c4caf2d9b812b7e8735f3745fe3fc006822ee7d38292585cd1e72d9615dcf6f4"
+      },
+      {
+        "path": "gates/deployment/iis-v1/linux-smoke-r1/service-restart.log",
+        "sha256": "c4caf2d9b812b7e8735f3745fe3fc006822ee7d38292585cd1e72d9615dcf6f4"
+      }
+    ]
+  },
+  "validation": {
+    "deployment_advisory": "DOCUMENT_ADVISORY_TIER1",
+    "local_default": "DEFAULT",
+    "durable_and_solver": "DEFAULT",
+    "warm_pool": "DISABLED",
+    "status": "EXPLICIT_PRIVATE_EXPERIMENT_NOT_OLD_GATE_PROMOTION",
+    "prior_same_workload_http_p95_ms": {
+      "tier1": 348.69954,
+      "default": 399.671788
+    },
+    "strict_300ms_gate": "FAILED_HISTORICAL_UNCHANGED"
+  },
+  "evidence": [
+    {
+      "path": "gates/deployment/iis-v1/backend-inputs.json",
+      "sha256": "e3a4eb5b866a2e29182fe865d203d80b1970743803b5f0eb3515da77dba518f6"
+    },
+    {
+      "path": "gates/deployment/iis-v1/backend-build.log",
+      "sha256": "b935983c48fe08305ef2fea91a06de302b7176bd4bfef92331f4324d1a7866a1"
+    },
+    {
+      "path": "gates/deployment/iis-v1/frontend-inputs.json",
+      "sha256": "b6af3b64be101851cef4d8d608cf714aa5d7c497c27f9ff277c104e0cbfdca94"
+    },
+    {
+      "path": "gates/deployment/iis-v1/frontend-tests.log",
+      "sha256": "8516c026406c74ca195a6bce0a068d50899baddcc7e21ace56883912986dc79b"
+    },
+    {
+      "path": "gates/deployment/iis-v1/frontend-build.log",
+      "sha256": "0b84c8a49f0d8f85e49971a33a6f443911be7f7a36a8e430650465e83e04d90a"
+    },
+    {
+      "path": "gates/deployment/iis-v1/linux-tests.log",
+      "sha256": "e7a71ad8c48291a4226bfab33c7c49d70e5cae1c19be02eaa4af280f2de14e34"
+    },
+    {
+      "path": "gates/deployment/iis-v1/renderer-tests.log",
+      "sha256": "82a67edb949711c194c856bd6c816a4670f39b27a627fae4db45028b31ed34a9"
+    },
+    {
+      "path": "gates/deployment/iis-v1/code-style.log",
+      "sha256": "eb75d68edea81fcc30c742584471735385bb833cb40965cb92fc9f13e8033ec3"
+    },
+    {
+      "path": "gates/deployment/iis-v1/style-checker-tests.log",
+      "sha256": "a6710858cf9a059177154a5d44553eee0be5348d88626c89a2c3992c1194df31"
+    },
+    {
+      "path": "gates/deployment/iis-v1/systemd-unit-check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gates/deployment/iis-v1/initialization-r1.log",
+      "sha256": "edc2bf02a07ee0f1cc4ff2a25f0d0cd02d2e080b034d6cbb231bc6c1a95b94b1"
+    },
+    {
+      "path": "gates/deployment/iis-v1/linux-smoke-r1/report.json",
+      "sha256": "daebd84b2c13d5283c91a824e4bbbec71233fc1e55d8103a235363e4b03618e7"
+    },
+    {
+      "path": "gates/deployment/iis-v1/smoke_package.py",
+      "sha256": "046fa9792b27e1279b06985ee33a6bdc9de21ea118bcd70380ca69bb01c43880"
+    },
+    {
+      "path": "gates/deployment/iis-v1/formal-report.json",
+      "sha256": "797e52fd19730d09b68ceae8095b6fab4a9bbb3e70bd952d45b027863981bd2d"
+    },
+    {
+      "path": "gates/deployment/iis-v1/council-disposition.json",
+      "sha256": "351de151a2c70cd77fcf0834cbd1030b841594a3835dfb1876658750bd65ac9b"
+    }
+  ],
+  "package_builder": {
+    "path": "scripts/package_iis.py",
+    "sha256": "7fb2265a8a4296c4dd0024da0b40e0b6be4d007b262fb642da84c3ba65eadf4c"
+  },
+  "open": [
+    "Actual Windows IIS/ARR/SSH execution with chosen hostname/certificate/host key",
+    "Systemd service resource acceptance and slower production target performance",
+    "Full outstanding safety/semantic/accessibility and commercialization gates",
+    "Predicate corpus/model provisioning; no private training artifacts shipped"
+  ],
+  "live_preview": "Active preview was not rebuilt or restarted; tests used an extracted private package and fresh database. No live credentials or workspace data were copied.",
+  "boundary": "A private deployment package and finite Linux tests; no Windows-native backend, multi-tenant isolation, cryptographic proof, implementation refinement, target SLA or commercial release claim."
+}

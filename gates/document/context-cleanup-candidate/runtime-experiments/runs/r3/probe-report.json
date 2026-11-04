@@ -1,0 +1,333 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "cases": [
+    {
+      "claim_id": "CC05",
+      "subcase": "normal-empty",
+      "status": "PASS",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "Original exact nonce-bound5-field context with empty inventory, exit0, independently observed backend absence, all7 document-table hashes unchanged.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 222.00648,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "9142cde87d00f04ecc98c679976ca13585ace334fba18a66f204c205409ed261",
+        "stdout_sha256": "e760bddaae6a5cc66f40c719cdf82f076589ccaf311df5bf977345cd03de0cf9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562397716996
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562399805579
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562403949605
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562406017999
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 61562540534888
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "mechanism_predicate": true
+    },
+    {
+      "claim_id": "CC05",
+      "subcase": "normal-owned",
+      "status": "PASS",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "Original exact context with one owned signature, exit0, independently observed backend absence, durable hashes unchanged.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 92.610868,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "fc46683f4a7ac7b7d92c697d8fe1b78eb4e8e71bc815d0d25432f4f0fb2ae60b",
+        "stdout_sha256": "958883351a22035a41c7b83d28976cbd923e5324df255d93c5719543b92fda4b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562663680061
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562665759194
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562669889261
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562671952763
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562678152883
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 61562680218956
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "mechanism_predicate": true
+    },
+    {
+      "claim_id": "CC05",
+      "subcase": "normal-4096-ids",
+      "status": "PASS",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "4096 sorted distinct canonical IDs requested, exact result contains only the one authored owned signature; exit0, backend absence and durable hashes unchanged. This is not4096-history/full-quota coverage.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 104.014225,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "-m",
+          "allow_documents.cli"
+        ],
+        "fixture_sha256": "f128b9ed210378600e5dbac3f68090d35658c80543fed05d4a73cb590a6e0724",
+        "stdout_sha256": "7f16305c68e9800690603ebab343098ef209b6d934ba5ed8de55c05952c8457b",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "RESERVED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562780663825
+          },
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562782739858
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562786904604
+          },
+          {
+            "phase": "RETIRING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562795164316
+          },
+          {
+            "phase": "CLEAN",
+            "failed": false,
+            "successPermitted": true,
+            "monotonic_ns": 61562797230009
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "exact_envelope": true,
+      "mechanism_predicate": true
+    },
+    {
+      "claim_id": "CC09",
+      "subcase": "actual-lock-timeout",
+      "status": "BLOCK",
+      "scope": "Python context mechanism only; Java/worker path not exercised",
+      "run_id": "r3",
+      "input_root_sha256": "f6319d91664dfb3d6f056bb3ab45dc718493a2d270a600627cd9aea091bc1a19",
+      "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+      "verifier_sha256": "df9b46e5b4090dd2a720cdc6a0384c2c0ec3294bb708031f0e1a4626cdebad67",
+      "expected_predicate": "Ordinary canonical admin session holds ACCESS EXCLUSIVE document lock. Actual context fails with55P03, no success frame, exact backend absence or retained lease, durable hashes unchanged. Outcome recorded before lock release; lock owner never signaled.",
+      "observed": {
+        "exit_code": 0,
+        "elapsed_ms": 344.135584,
+        "command": [
+          "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+          "/tmp/allow-cc-06_lus1h/.gate/probe_child.py",
+          "--directory",
+          "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r3/actual-lock-timeout"
+        ],
+        "fixture_sha256": "9e54637ef7593f4fb72353518ae787efd9cc37533d3acb5ab4a4e9f8c16c5304",
+        "stdout_sha256": "518a4b194f88dd1dc89d42df879e653a29d4903c6e847a3c03c18fb91f70565a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "backend_absent": true,
+        "absence_was_exact_bound_identity": true,
+        "matching_name_still_present": false,
+        "events": [
+          {
+            "phase": "CONNECTING",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562928864875
+          },
+          {
+            "phase": "KEYED",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562932998801
+          },
+          {
+            "phase": "BOUND",
+            "failed": false,
+            "successPermitted": false,
+            "monotonic_ns": 61562935082764
+          },
+          {
+            "phase": "RETIRING",
+            "failed": true,
+            "successPermitted": false,
+            "monotonic_ns": 61563188790884
+          },
+          {
+            "phase": "CLEAN",
+            "failed": true,
+            "successPermitted": false,
+            "monotonic_ns": 61563190887127
+          }
+        ],
+        "injected": null,
+        "stderr_empty": true
+      },
+      "durable_unchanged": true,
+      "sqlstates": [],
+      "context_status_after": {
+        "protocol": 1,
+        "status": "READY",
+        "contextOccupied": false,
+        "observerOccupied": true
+      },
+      "no_success_output": true,
+      "mechanism_predicate": false
+    }
+  ],
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "python_executable": "/tmp/allow-cc-06_lus1h/.tools/retrieval-venv/bin/python",
+    "psycopg": "3.2.3",
+    "libpq_version": 170000,
+    "postgres_version": "16.15",
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_context_control.py": "e58a9773d17b6f4f03584fc0aa2773589923b598755b947b08d8ba5d0d69c96f",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a208bed3044822c773d4b9a6115849e4a8659ca34baa61d70866f26fd029db66",
+      "retrieval/allow_retrieval/sql_context_lease.py": "6e8d75c875099235f9fba5e48c76e8d7fee8c352cb8ff15fc040d6f9058abf98",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_proxy.py": "5208719b70282f91c480e557efe3e9c0213526db5b52c7943f8ff7fefad933aa",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "cache_entries": 12,
+      "cache_sql_bytes": 1019,
+      "config_policy": "frozen-until-new-generation",
+      "configuration_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "disk_policy": "restart-check-only",
+      "failure_counts": {},
+      "generation": 1,
+      "identity_mode": "sealed-image",
+      "lifecycle": "ready",
+      "mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+      "policy": "sql-routing-v8-context-leases",
+      "postgresql_commit": "f0595c3d839debdb140903621c1b44a4f4d86256",
+      "profile": "postgresql-16.15-grammar-v0.1",
+      "required_seals": 15,
+      "reserved_execution_descriptors": 0,
+      "sealed_bytes": 136492600,
+      "shutdown_complete": false,
+      "snapshot_sha256": "96bfbf2dd09d7d8019e494c1fa9429cb4941f9a520d663a520bf2945aa8be4b9",
+      "waiting": 0
+    },
+    "context_status": {
+      "protocol": 1,
+      "status": "READY",
+      "contextOccupied": false,
+      "observerOccupied": true
+    },
+    "kernel": "7.0.0-38-generic",
+    "pidfd_supported": true
+  },
+  "finite_subcases_passed": false,
+  "blocking_reasons": [
+    "Full33-case runtime surface and two implementation builds are not executed by this initial harness."
+  ],
+  "boundary": "Six initial registered mechanism subcases, not the33-case closure. No Java validation path or full permitted-history fixture is included."
+}

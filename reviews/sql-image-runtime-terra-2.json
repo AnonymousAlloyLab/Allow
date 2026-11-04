@@ -1,0 +1,26 @@
+{
+  "reviewer": "terra-2",
+  "decision": "REQUEST_CHANGES",
+  "status": "INTERIM_IMPLEMENTATION_CHANGING_NOT_FROZEN",
+  "scope": "Read-only staged implementation review. No database/HTTP traffic or tests run. Hashes are observed snapshots, not final approval.",
+  "input_hashes": {
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_guard.py": "1fa8391c3738e325822c5019efe9f272e98d3f04b1ff9a72d339a19c99d23fea",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image.py": "c54af3b1d10f9783a6f0cc3ce7e529f5d59722aabd1c0c298a7e15061c1b8809",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_init.py": "617a7d5afa97362f0ec2e3f9765aaca818aa951d19beb0c1264ad3d79dc63349",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_config.py": "a8a12ad7c4af9109bf9ea974beecfd4a4f2748faa4e046d9dfc61186228c17a3",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_proxy.py": "2b1f4ebe15a83130ce422111553e51b874d87a7229b597468b68fad0381d9a69"
+  },
+  "findings": [
+    {
+      "id": "SQLIRT2-01",
+      "severity": "high",
+      "location": "sql_image.py check_locked and _checked_duplicate",
+      "problem": "A transient duplicate close failure in check_locked escapes as OSError and is classified by ParserGate.validate as parserFailure while the image remains ready. Error-path close inside _checked_duplicate can also throw before state is marked failed. A failed close leaves cleanup/ownership uncertain and can permit subsequent admissions and repeated duplicate creation, contrary to fail-closed infrastructure handling and the one-transient bound.",
+      "required_fix": "Treat transient close/cleanup failure as infrastructureFailure, mark lifecycle failed and cleanup incomplete before propagating, prevent subsequent admissions, and test both normal and error-path injected close failures without unsafe numeric-fd retry."
+    }
+  ],
+  "limitations": [
+    "The author is still changing the implementation. This report is not a final approval of any subsequent bytes.",
+    "Runtime execution, 56-case plan, existing SQL regression and formal correspondence remain separate evidence."
+  ]
+}

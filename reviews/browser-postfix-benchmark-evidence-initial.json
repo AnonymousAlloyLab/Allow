@@ -1,0 +1,64 @@
+{
+  "audit": "browser-postfix-benchmark-evidence",
+  "timestamp_utc": "2026-11-03T20:51:01.193973+00:00",
+  "classification": "INCOMPLETE_PROTOCOL_EVIDENCE",
+  "measurement_observation": "The captured 1000-sample warm browser report is complete and its unrounded p95 is below 50 ms. Full frozen protocol PASS is not independently established.",
+  "inputs_sha256": {
+    "gates/document/browser-benchmark-runs/partial-types-v1/browser-result.json": "32fe169b286dc803dc2bb683c21711f875d943e5bc0bf05f281d1d2ad8895ea6",
+    "gates/document/browser-benchmark-runs/partial-types-v1/report.json": "1063dff09f63be5589f35116dd50b3ded7d9b62c5f54e3eefcf017a81b5c14fc",
+    "gates/document/browser-benchmark-runs/partial-types-v1/installation.json": "59e5d1cf0658a92785c0b9bf942271d7ef61fc81118ac698f2b2d781db9f47ff",
+    "gates/document/browser-benchmark-runs/partial-types-v1/restoration.json": "680968108289da0223c394e4c6c5f28e442ad15563bac6d44706725e47b87ab2",
+    "gates/document/browser-benchmark-runs/partial-types-v1/source-manifest.json": "6ed114e72fb34436cece28190c12b849a431a6949631c027afc74dfa89e99273",
+    "gates/document/browser-benchmark-runs/partial-types-v1/harness-manifest.json": "1d99972fcb7d9f4cf18e8e20400768ea96247c6b5e2ff19b502d9e489de2e5f2",
+    "gates/document/browser-benchmark-runs/partial-types-v1/build-evidence/asset-manifest.json": "78fd7dfb202d971b13ff828b484f3b6b52382b94aab8c1ba98e2dd9f6b513855",
+    "gates/document/browser-benchmark-runs/partial-types-v1/build-evidence/hashes.json": "5a6d42864af3ce2bb08b3a30114d2ba635409fa4073ab2267d096e69fba139d8",
+    "gates/document/browser-benchmark-runs/partial-types-v1/build-evidence/DocumentWorkbench.original.txt": "8cc7349e3665e7e0b1fa1d3dff4c0f3b430ae6e74a22a2a68a0d2268feba445c",
+    "gates/document/browser-benchmark-runs/partial-types-v1/build-evidence/DocumentWorkbench.transformed.txt": "04ad62bbe12b9ee57bcc748e06d435220e54019e87d20ff0a1d35b618a8f0e2a",
+    "gates/document/browser-benchmark-runs/partial-types-v1/build-evidence/DocumentWorkbench.diff": "aa598a48ce8b229842c363bb59776902ad05ef84c8d123df27071ce1fee32117",
+    "gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "gates/document/headless-preview-fixture.json": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c"
+  },
+  "mechanical_checks": {
+    "raw_result_hash_matches": true,
+    "finite_nonnegative_samples": 1000,
+    "nearest_rank_zero_based": {
+      "499": 11.600000001490116,
+      "949": 12.5,
+      "989": 12.799999997019768
+    },
+    "raw_statistics_match": true,
+    "p95_strictly_below_50ms": true,
+    "source_manifest_canonical_root_matches": "8afd4477c64e3b17b3b06c62da99b097fec08d6c591e884b63b312f41ec661e7",
+    "current_source_manifest_files_match": 409,
+    "harness_files_match_current": 8,
+    "fixture_sha256_matches_protocol": true,
+    "observed_browser_visibility_events": [],
+    "restore_report_says_source_and_static_restored": true
+  },
+  "blocking_evidence_gaps": [
+    {
+      "id": "SERVED_BUNDLE_PROVENANCE_MISMATCH",
+      "detail": "Installed and browser-loaded JS is H1_C1Pma (installation hash 47aef9...), while the run-preserved build evidence registers Dy1_AhT5 (hash a00f31...). The recorded HTML hashes also differ. The installed JS was not preserved by this run, so the source/transform and exact measured code cannot be independently bound using these records.",
+      "installed_js": {
+        "backend/target/classes/static/bench/assets/index-H1_C1Pma.js": "47aef9dff9ed251ef372cc466867403646000b4027cf66a5991bbdcb7dd870b2"
+      },
+      "registered_built_js": {
+        "frontend/dist/benchmark/assets/index-Dy1_AhT5.js": "a00f31abc27af094c149f306e5700afa767d05db0c8b73090b2205e97fd4053f"
+      },
+      "installed_html_sha256": "2a7defc1a4c69910527f0d66f073686c316affe510e1dad3da9627c2ae11d2eb",
+      "registered_built_html_sha256": "64937406a8b00f2090c0e62a2815f92c1086def11537e928a6045f7cd487ea29"
+    },
+    {
+      "id": "INCOMPLETE_REQUIRED_METADATA",
+      "detail": "Run report and raw output do not record CPU model, RAM, display refresh conditions, accepted document base revision/draft identity or explicit server-side advisory outcomes/errors as called for by frozen protocol. Resource Timing records document reads and asset requests, not an advisory validation request before result capture. A resource entry absence alone does not prove a request was never made."
+    }
+  ],
+  "qualified_findings": [
+    "Inspection of the current hash-matched harness shows real changeModule, a rendered-view React commit marker, per-edit checks and two sequential requestAnimationFrame callbacks. Because the served bundle does not match the archived build manifest, these source checks do not prove that exact code ran.",
+    "The installation and restoration records say the server was freshly launched after installation and static files were restored; post-restoration active files were not inspected during this audit.",
+    "The reports record 100 warmups and 1000 measured events; raw output stores only measured samples and does not individually record all event identities or warmup observations.",
+    "The fixture contains server-prefixed declarations potentially foreign to the accepted document; no server acceptance follows from this preview run.",
+    "Cold-start series is NOT_CONDUCTED. Authoritative diagnostics, solver latency, named Firefox/Orca accessibility, full G2/G3 and commercial release remain outside this audit.",
+    "Two animation frame callbacks establish a prior-frame paint opportunity, not physical display presentation."
+  ]
+}

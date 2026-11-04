@@ -1,0 +1,244 @@
+{
+  "status": "ORIGINAL_MODEL_TREE_ARCHIVED",
+  "recorded_utc": "2026-11-04T07:37:35.936260+00:00",
+  "run_id": "r12-regressions",
+  "model_directory_at_recording": "ABSENT",
+  "not_a_substitute_for_original_regular_files": true,
+  "plan_path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/plan.json",
+  "plan_sha256": "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+  "archive": {
+    "path": "/home/augustus/.local/state/allow-owned-regression-archives/sha256-9ecf14208a71c5ad447cd7790b12f34253acc2b12a1f9f7d14f7c78c29907e30/models",
+    "content_sha256": "9ecf14208a71c5ad447cd7790b12f34253acc2b12a1f9f7d14f7c78c29907e30",
+    "files": [
+      {
+        "path": "config.json",
+        "size": 632,
+        "sha256": "eedcf6117fdeb234759a2d2ee684feaef6cb4891a5c54eb4504c61538e029fa4"
+      },
+      {
+        "path": "cpu-smoke.json",
+        "size": 929,
+        "sha256": "512320a9d69f8b440bc79d59a205e6f7c697d3a59b719407c7d85b36835c9290"
+      },
+      {
+        "path": "model-lock.json",
+        "size": 679,
+        "sha256": "65d87fb3fe650721e0552b79fb70e6bc4192981f8e735a35485bd3dd6946a593"
+      },
+      {
+        "path": "model.onnx",
+        "size": 435811516,
+        "sha256": "157f97ef1957d34f52efa26f8031371bf9043acc45460cec7ebe94631ac0e96b"
+      },
+      {
+        "path": "onnx-inspection.json",
+        "size": 386,
+        "sha256": "036debb7c335b3f5c74467d641b05c155440e0ec31d3fd8491e7a84ff3bd460c"
+      },
+      {
+        "path": "special_tokens_map.json",
+        "size": 125,
+        "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      {
+        "path": "tokenizer.json",
+        "size": 711396,
+        "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "size": 314,
+        "sha256": "ae83fa6ca0333117ff12606020af925d648667ef70d92ff7f27d781ba0ca4544"
+      },
+      {
+        "path": "vocab.txt",
+        "size": 231508,
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+      }
+    ],
+    "manifest_path": "/home/augustus/.local/state/allow-owned-regression-archives/sha256-9ecf14208a71c5ad447cd7790b12f34253acc2b12a1f9f7d14f7c78c29907e30/content-manifest.json",
+    "manifest_sha256": "c1e80548e499c8506b168b5da0b767290ba0acff33b44df8d412269867bfbdd7"
+  },
+  "original_inventory": {
+    "run_id": "r12-regressions",
+    "root": "/tmp/allow-cc-alh5blo3",
+    "root_metadata": {
+      "mode": 448,
+      "mtime_ns": 1793774940969401379,
+      "uid": 1000,
+      "gid": 1000,
+      "device": 66311,
+      "inode": 2146203,
+      "size": 4096,
+      "allocated_bytes": 4096
+    },
+    "model_directory": "/tmp/allow-cc-alh5blo3/.tools/retrieval/models",
+    "directory_metadata": {
+      "mode": 509,
+      "mtime_ns": 1793774815550304266,
+      "uid": 1000,
+      "gid": 1000,
+      "device": 66311,
+      "inode": 5030491,
+      "size": 4096,
+      "allocated_bytes": 4096
+    },
+    "files": [
+      {
+        "path": "config.json",
+        "mode": 436,
+        "mtime_ns": 1793720503823152967,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030492,
+        "size": 632,
+        "allocated_bytes": 4096,
+        "sha256": "eedcf6117fdeb234759a2d2ee684feaef6cb4891a5c54eb4504c61538e029fa4"
+      },
+      {
+        "path": "cpu-smoke.json",
+        "mode": 436,
+        "mtime_ns": 1793720535967485786,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030493,
+        "size": 929,
+        "allocated_bytes": 4096,
+        "sha256": "512320a9d69f8b440bc79d59a205e6f7c697d3a59b719407c7d85b36835c9290"
+      },
+      {
+        "path": "model-lock.json",
+        "mode": 436,
+        "mtime_ns": 1793720612029473135,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030494,
+        "size": 679,
+        "allocated_bytes": 4096,
+        "sha256": "65d87fb3fe650721e0552b79fb70e6bc4192981f8e735a35485bd3dd6946a593"
+      },
+      {
+        "path": "model.onnx",
+        "mode": 436,
+        "mtime_ns": 1793720503050933155,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030495,
+        "size": 435811516,
+        "allocated_bytes": 435830784,
+        "sha256": "157f97ef1957d34f52efa26f8031371bf9043acc45460cec7ebe94631ac0e96b"
+      },
+      {
+        "path": "onnx-inspection.json",
+        "mode": 436,
+        "mtime_ns": 1793720612621499049,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030496,
+        "size": 386,
+        "allocated_bytes": 4096,
+        "sha256": "036debb7c335b3f5c74467d641b05c155440e0ec31d3fd8491e7a84ff3bd460c"
+      },
+      {
+        "path": "special_tokens_map.json",
+        "mode": 436,
+        "mtime_ns": 1793720503976943496,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030497,
+        "size": 125,
+        "allocated_bytes": 4096,
+        "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      {
+        "path": "tokenizer.json",
+        "mode": 436,
+        "mtime_ns": 1793720503603939330,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030498,
+        "size": 711396,
+        "allocated_bytes": 712704,
+        "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "mode": 436,
+        "mtime_ns": 1793720504164563679,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030499,
+        "size": 314,
+        "allocated_bytes": 4096,
+        "sha256": "ae83fa6ca0333117ff12606020af925d648667ef70d92ff7f27d781ba0ca4544"
+      },
+      {
+        "path": "vocab.txt",
+        "mode": 436,
+        "mtime_ns": 1793720504426948521,
+        "uid": 1000,
+        "gid": 1000,
+        "device": 66311,
+        "inode": 5030500,
+        "size": 231508,
+        "allocated_bytes": 233472,
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+      }
+    ],
+    "manifest": {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r12-regressions/manifest.json",
+      "sha256": "56591e18ac3014d0ad9256e4957b60a3568b951ca2001de6bc7e03948f6704b2"
+    },
+    "report": {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r12-regressions/report.json",
+      "sha256": "2089f25b355737e2df0ae9e16da9d1465bba74b443452dadf5114e79eebb8fc5"
+    },
+    "recorded_proxy_absence": {
+      "owner_receipt_sha256": "5008738fbad0fb12d1f2d7b647c6211b225a1689559a92f0d7dd33d25d35ecf2",
+      "pid": 1131489,
+      "start_ticks": "6738097",
+      "owned_incarnation_absent": true
+    },
+    "prior_owned_cleanup": [
+      {
+        "service": "proxy",
+        "emergency_escalation": false,
+        "owned_identity_absent": true
+      },
+      {
+        "service": "postgres",
+        "emergency_escalation": false,
+        "owned_identity_absent": true
+      }
+    ],
+    "prior_spring_cleanup": {
+      "owned_identity_absent": true,
+      "exit_code": 143,
+      "intentional_crash": false,
+      "emergency_escalation": false
+    }
+  },
+  "restore_argv": [
+    "/home/augustus/Allow/.tools/retrieval-venv/bin/python",
+    "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model_retention.py",
+    "restore",
+    "--plan",
+    "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/plan.json",
+    "--plan-sha256",
+    "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+    "--run-id",
+    "r12-regressions",
+    "--receipt",
+    "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/r12-regressions-restoration-receipt.json"
+  ],
+  "historical_manifest_and_report_unchanged": true,
+  "restoration_note": "A later restore must create distinct files and a separate restoration receipt; this immutable record describes archival time only."
+}

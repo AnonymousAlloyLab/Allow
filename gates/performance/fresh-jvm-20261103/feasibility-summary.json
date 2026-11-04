@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "classification": "READ_ONLY_FEASIBILITY_AND_EXPERIMENT_DESIGN",
+  "observation_file": "environment-observation-r1.json",
+  "protocol_file": "protocol-candidate.json",
+  "observed": [
+    "systemd255 user manager is reachable and user@1000.service delegates cpu,memory,pids.",
+    "The current process has32 logical CPUs in its affinity and no current whole-stack CPU or memory cap.",
+    "cpuset is not delegated to the user manager. A distinct service can plausibly enforce CPU time quota and memory/pid controls, while affinity needs separate descendant checking.",
+    "Local JDK is OpenJDK17.0.20.1+1-1-24.04-Ubuntu, with sharing in the reported VM mode.",
+    "The current full target inventory has187 files. The captured independent POSIX implementation of BuildIdentity yields c46e90d8cd9e3be2b150d8a393cbea28295664d8169e3d401d16d25e35ef5a35; direct Java equality remains a prototype preflight obligation."
+  ],
+  "inferences": [
+    "Whole-stack workstation screening should be possible in a newly owned transient user service at cpu.max400000/100000, memory.high5GiB, memory.max6GiB and zero swap. Actual effective limits and child membership have not been tested yet.",
+    "A new synthetic cluster, copied installation and private proxy socket can avoid touching the active stack. Existing bootstrap_corpus.py resolves its root from its own path, so a copied script may be reusable only after exact-root and tool-prefix checks. Do not invoke the active bootstrap script for this experiment.",
+    "Tier1 is the smallest next fresh-worker candidate. Prior exploratory exchange improvement is suggestive, but its total bypassed launch fences and compared only a status substring. No gain is established under the corrected experiment.",
+    "AppCDS is plausible after deterministic jar packaging and artifact identity work. Default CDS may already be active, so six separate variants distinguish tier policy, packaging and application archive effects.",
+    "An unchanged prestarted DocumentWorkerMain blocks before constructing DocumentEngine. This may save part of startup but is not proof of Alloy warmup. Prestart requires a new READY protocol, immutable image and slot/cleanup ownership design before promotion."
+  ],
+  "not_executed": ["Any cgroup write or transient service launch", "Any heavy component or HTTP benchmark", "Any JVM archive generation", "Any copied-target compilation", "Any SQL query", "Any production-source/configuration/proof/compiled change", "Any live-service restart or move"],
+  "pending_before_execution": ["Root releases SQL/performance scheduling hold", "Exact gate-local contract, Lean supplement, six reviews and formal builds", "Implemented runner and finite fixtures pinned", "Containment preflight", "Full semantic comparator adversarial cases", "Exact JDK/artifact/classpath inventory"],
+  "pending_acceptance": ["P1 database ownership and cleanup amendment", "Actual4-vCPU/8-GiB production server or pinned matching VM", "Full HTTP performance and cold/sustained/soak gates", "Browser/manual/accessibility/commercial acceptance"],
+  "boundary": "This is an inference from local read-only observations and source inspection. It is not measured performance, proved implementation correspondence, or a registered mechanical closure result."
+}

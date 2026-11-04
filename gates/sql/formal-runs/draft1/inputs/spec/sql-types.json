@@ -1,0 +1,14 @@
+{
+  "Allow.SqlRouting.exact_request": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r \u2192 r.sql = p.sql",
+  "Allow.SqlRouting.pinned_identity": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r \u2192 r.binary = p.binary \u2227 r.profile = p.profile \u2227 r.policy = p.policy",
+  "Allow.SqlRouting.mismatch_denied": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.sql \u2260 p.sql \u2192 \u00ac Allow.SqlRouting.admitted p r",
+  "Allow.SqlRouting.binary_mismatch_denied": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.binary \u2260 p.binary \u2192 \u00ac Allow.SqlRouting.admitted p r",
+  "Allow.SqlRouting.profile_mismatch_denied": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.profile \u2260 p.profile \u2192 \u00ac Allow.SqlRouting.admitted p r",
+  "Allow.SqlRouting.parser_failure_denied": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.success = false \u2192 \u00ac Allow.SqlRouting.admitted p r",
+  "Allow.SqlRouting.isOpaque_denied": "\u2200 {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.isOpaque = true \u2192 \u00ac Allow.SqlRouting.admitted p r",
+  "Allow.SqlRouting.cache_exact": "\u2200 {p : Allow.SqlRouting.Request} {e : Allow.SqlRouting.CacheEntry}, Allow.SqlRouting.cacheReuse p e \u2192 p = e.request \u2227 Allow.SqlRouting.admitted p e.report",
+  "Allow.SqlRouting.execute_accepted": "\u2200 {s : Allow.SqlRouting.State} {name : String}, Allow.SqlRouting.execute s name \u2192 \u2203 p \u2208 s.portals, p.name = name \u2227 \u2203 st \u2208 s.statements, st.name = p.statementName \u2227 Allow.SqlRouting.admitted st.request st.report",
+  "Allow.SqlRouting.admission_witness": "Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest Allow.SqlRouting.sampleReport",
+  "Allow.SqlRouting.execution_witness": "Allow.SqlRouting.execute Allow.SqlRouting.sampleState \"p\"",
+  "Allow.SqlRouting.denial_witness": "\u00ac Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest { Allow.SqlRouting.sampleReport with isOpaque := true }"
+}

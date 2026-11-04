@@ -1,0 +1,119 @@
+[
+  {
+    "name": "dev.allow.backend.HttpBoundaryTest",
+    "tests": "5",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "hostileHost",
+      "strictBody",
+      "submitEchoesIdentity",
+      "authorityAndOrigin",
+      "strictIdentityTypes"
+    ],
+    "original_xml_sha256": "e5e4b0376450a4e61cdd52e6644514240e34dc0faa2390af8eb2fd9d62adc434"
+  },
+  {
+    "name": "dev.allow.backend.JobServiceTest",
+    "tests": "2",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "queueIsBounded",
+      "cancelledJobKeepsAdmission"
+    ],
+    "original_xml_sha256": "54062ce7cf22f168b2e9dc2713094fc14720c4b4b982e42100b110ebdc06c937"
+  },
+  {
+    "name": "dev.allow.backend.ProcessRunnerTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "timeoutReapsStalledInput",
+      "cancellationReaps",
+      "hostileFramesReject",
+      "deniedSandboxRejects"
+    ],
+    "original_xml_sha256": "482b827408fac7649606aefd8f56560e8404851b1e261362ee3fd2440ceb8718"
+  },
+  {
+    "name": "dev.allow.backend.SandboxBoundaryTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "filesystemAndNetworkDenied"
+    ],
+    "original_xml_sha256": "f65672a479afbda5c69d98415cb821009ffd29c5cb1db503261036dcd72a0c53"
+  },
+  {
+    "name": "dev.allow.backend.WorkerIntegrationTest",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "invalidSource",
+      "satRun",
+      "unsatCheck",
+      "unsatRun",
+      "importRejectedInChild",
+      "validateOnly",
+      "satCheck"
+    ],
+    "original_xml_sha256": "434c3da22601ce6e142b37c8e336c6a560b09e57384365aff81a6cec8c75c6ff"
+  },
+  {
+    "name": "dev.allow.canonical.CanonicalizerTest",
+    "tests": "11",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "lexicalSpellingOrderCannotInfluenceSlots",
+      "rejectsUnsupportedSignatureAttributes",
+      "preservesShadowedBinderScopes",
+      "renamesSignaturesWithoutLeakingLabels",
+      "rejectsStringsAndTemporalOperators",
+      "distinctSignaturesDoNotCollapse",
+      "preservesMultiplicityAndOperandOrder",
+      "rejectsInheritanceAndDisjointDeclarations",
+      "includesFactsAndScopeInPayload",
+      "renamesFieldsPredicatesAndParameters",
+      "serializedPayloadRoundTrips"
+    ],
+    "original_xml_sha256": "afe890463f2d1b74ff78d0879c91907094de48b6ae0585a8fcf03716f9bdfbe5"
+  },
+  {
+    "name": "dev.allow.canonical.SlotBoundaryTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "exactBytesDetermineFeatures",
+      "fieldArityCannotCollapse",
+      "letScopeIsCaptureAvoiding",
+      "dependentDomainsPreserveReferences",
+      "framingSeparatesStructuralValues",
+      "freeReferencesNeverBecomeGlobalSlots"
+    ],
+    "original_xml_sha256": "6cfa1fddc6115458f9baad86cc3383020e8fa8cd0bd6bc495c1153ac77f5506c"
+  },
+  {
+    "name": "dev.allow.worker.JsonWireStrictTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "invalidProtocolNumbers"
+    ],
+    "original_xml_sha256": "81f53a5e5e39c98ebcbe0db1892e303894064bc58aea8e2ddeb1dd55b4393d0e"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "status": "PROMOTED",
+  "timestamp_utc": "2026-11-03T21:12:20.581394+00:00",
+  "formal_report_sha256": "d9c471c0ee68550ad110649bdb8f86c3e581ecf30a1acb2cf25aabe696c31c4a",
+  "staged_root_sha256": "2b136c038def06f770bad455c2bd2aa4831105f0acdbd3c38764aadca259688b",
+  "sql_policy": "sql-routing-v7-sealed-image",
+  "active_files": {
+    "formal/Allow/ImmutableImageCandidate.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "spec/sql-immutable-image.json": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+    "formal/Allow.lean": "42fd1268cbece6142b7e127bed134e422533a93627c39dbb265fdd3a1af55bd7",
+    "retrieval/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+    "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "retrieval/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+    "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "retrieval/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+    "scripts/bootstrap_corpus.py": "85aaad35e2eec311e96265bd73b0ac5b9a7df10d3240b078a8097d5fa052c0f1",
+    "scripts/document_recovery_test.py": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+    "scripts/verify_sql_runtime.py": "fb6342d80a6588d057190a6502ab36d52fa705f938c9c34daadaff1a88ddd870",
+    "retrieval/tests/test_sql_guard.py": "751426b3a363b87537c2088255b9ca9fddb05c6feeff105c9359a59611f485c7",
+    "retrieval/tests/test_sql_image.py": "c702007e0d381ae9a777e533b8af06454d37dd2f18473af501f62b1d03f2384f",
+    "retrieval/tests/test_sql_image_consumers.py": "dda20f5fdc9b8d0df6ffb103e497966c30765586a0b4574442388165abd3054f"
+  },
+  "pending": [
+    "IM31 actual integration",
+    "IM32 candidate full benchmark"
+  ],
+  "production_copied_utc": "2026-11-03T21:12:20.582498+00:00"
+}

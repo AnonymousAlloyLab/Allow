@@ -1,0 +1,115 @@
+{
+  "reviewer": "terra-1",
+  "requested_model": "gpt-6.1-terra",
+  "actual_model": "Runtime identity not independently observable; parent states this seat was explicitly dispatched with model gpt-6.1-terra and fork_turns none.",
+  "reviewed_contract": "spec/allow-contract.json",
+  "reviewed_revision": 1,
+  "sha256": "004760bfb080d3a02c7d6a392e3fd5c4095bd462da5e4bd001606eca9e55e564",
+  "verdict": "CHANGES_REQUIRED",
+  "scope": "Adversarial review of contract only. Lean drafts were unavailable and no proof or implementation was verified.",
+  "findings": [
+    {
+      "id": "T1-01",
+      "severity": "HIGH",
+      "location": "canonicalization.identity, first_proved_domain, normal_form; formal_obligations F08",
+      "problem": "Canonical bytes are defined as a serialized truth table but the exact ordered atom dictionary is not required in the serialized object or equality predicate. Two distinct atoms P and Q in the same module each have the same one-variable table [false,true], although P and Q need not have equal Alloy truth values. Fixed ordering in F08 only establishes equivalence after fixing the same atom interpretation; it does not authorize cross-dictionary comparison.",
+      "required_fix": "Require canonical object and comparison to include a deterministic, injectively encoded ordered atom dictionary with binding IDs, types and module environment, plus table and profile/version; compare full context and dictionary before claiming equivalence. State F08 and its application for a common dictionary, or prove a correct common-dictionary alignment. Do not call a table lossless with respect to syntax."
+    },
+    {
+      "id": "T1-02",
+      "severity": "HIGH",
+      "location": "architecture.A5.records.AnalysisRun, Witness, CorpusPair; A5.label_semantics and pair_transaction; F14",
+      "problem": "A CorpusPair has only one analysisRunId, yet positive F\u2227P and negative F\u2227\u00acP pools normally derive from different queries and analysis keys. F14 requires witness and artifact to share the same analysis identity, with no defined projection for common environment and separate query polarity. Implementations may misattribute one polarity to the other's run or be unable to represent valid pairs.",
+      "required_fix": "Specify each witness's own run/query key and polarity; distinguish the shared environment/target/bounds identity from individual query identities. Require an explicit checked relation between every witness, its own run, the common target and the selected pool; permit multiple runs per pool and forbid deriving negative provenance from a positive run. Define the corresponding abstract F14 precisely."
+    },
+    {
+      "id": "T1-03",
+      "severity": "MEDIUM",
+      "location": "architecture.A2.first_proved_kernel, A3.types, formal_kernel.raw_nodes, formal_obligations F01-F03",
+      "problem": "An existential binder and references are promised but the contract does not define whether quantified variables denote one atom, arbitrary relations, or how their domains and lexical depth are represented. Exact nominal schemas alone do not model Alloy quantifier multiplicity/domain semantics. Successful inference may only prove consistency with a weaker invented judgment.",
+      "required_fix": "Define binder syntax, environment extension, reference lookup, domain and multiplicity interpretation, and the exact fragment excluded (in particular dependent domains and relation-valued multiplicities if unsupported). Limit inference and sound-drop claims to syntactic model typing until a correspondence to Alloy elaboration is separately established."
+    },
+    {
+      "id": "T1-04",
+      "severity": "MEDIUM",
+      "location": "canonicalization.egraph and normal_form; architecture.A5.records.CanonicalArtifact",
+      "problem": "The complete Shannon-table normal form and resource-bounded e-graph extraction are both called canonicalization without defining which artifact identifies the canonical profile. A bounded extraction may vary with budget or rule scheduling even with deterministic tie-breaking and must not be treated as the complete canonical code.",
+      "required_fix": "Designate the complete truth table plus atom dictionary as the sole equality-bearing artifact for this profile. Treat an extracted expression as a presentation/witness, record its certificate and budget separately, and forbid its use as a canonical key unless a distinct profile proves its stability and semantics."
+    },
+    {
+      "id": "T1-05",
+      "severity": "MEDIUM",
+      "location": "architecture.A4.source_map",
+      "problem": "UTF-16 offsets are said to be tied to exact source bytes, but the byte encoding and conversion/invalid-input policy are unspecified; byte offsets and UTF-16 code-unit offsets differ, especially for non-ASCII text. A map can point at the wrong occurrence despite matching a byte hash.",
+      "required_fix": "Specify accepted source encoding and malformed-text handling, hash exact UTF-8 bytes, and define UTF-16 positions against the exact decoded text/revision with explicit conversion and non-BMP/line-ending acceptance cases."
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "path": "/home/augustus/ACGN/documentation/REWRITE_SYSTEM.md",
+      "observation": "Binding ownership, alpha normalization, capture avoidance, guarded prenexing and A/AC/ACI container distinctions are explicit. It disclaims Java-to-Lean refinement and equivalence completeness."
+    },
+    {
+      "path": "/home/augustus/ACGN/egraph_ablation/semantic_soundness.md",
+      "observation": "Bounded Alloy checks do not establish unbounded validity; targeted probes include capture, comprehension ordering, shadowing and temporal implication."
+    },
+    {
+      "path": "/home/augustus/ACGN/LICENSE",
+      "observation": "Repository license text is MIT, conditional on preservation of notice; third-party dependencies and data require independent clearance."
+    }
+  ],
+  "positive_observations": [
+    "Revision 1 separates bounded evidence from global proof and disclaims inherited ACGN proofs.",
+    "Budget failure is distinguished from a complete canonical profile.",
+    "Rewrites that ignore empty-domain, temporal, order, and multiplicity conditions are excluded."
+  ],
+  "final_review": {
+    "reviewed_revision": 4,
+    "verdict": "ACCEPT_WITH_STATED_BOUNDARIES",
+    "file_sha256": {
+      "spec/allow-contract.json": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "formal/Allow.lean": "9ee4e8bd139c0385729d4c22ecea1e887737f4bd3f995215e78082140994727b",
+      "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+      "formal/Allow/Contract.lean": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10",
+      "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045",
+      "formal/Allow/Generated.lean": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+      "formal/Allow/Kernel.lean": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503",
+      "formal/Allow/Typing.lean": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    "finding_dispositions": [
+      {
+        "id": "T1-01",
+        "status": "RESOLVED",
+        "evidence": "Canonical identity requires complete ordered exact atom inventory and context; distinct_inventories_distinct_keys and contextual CertifiedMerge model this for a fixed arity. Real encoding and atom identity remain trusted implementation boundaries."
+      },
+      {
+        "id": "T1-02",
+        "status": "RESOLVED",
+        "evidence": "Own query and polarity, shared target context, separate run lists, and per-witness validation are specified and abstractly checked in pair_admission_bound. Correct query construction and full witness validation remain external trust obligations."
+      },
+      {
+        "id": "T1-03",
+        "status": "RESOLVED",
+        "evidence": "binder_model defines syntactic unary singleton-intended binder and excludes semantic correspondence; Typing.lean uses context extension and indexed lookup."
+      },
+      {
+        "id": "T1-04",
+        "status": "RESOLVED",
+        "evidence": "Only the complete inventory/table artifact identifies the profile; extraction is expressly presentation/evidence only."
+      },
+      {
+        "id": "T1-05",
+        "status": "RESOLVED",
+        "evidence": "source_map specifies strict UTF-8, unchanged line endings, UTF-16 code units, explicit conversion and non-BMP and CRLF acceptance cases."
+      }
+    ],
+    "verification": "Read all seven Lean files and contract revision 3; lake build completed successfully. This review did not rerun isolated clean builds or validate the generator independently. Theorems are about the abstract Lean models and not executable system refinement. Revision 4 narrow lifecycle delta reviewed: status field documents a prior existence observation and the contract separately records enumeration outcome; proof behavior is unchanged.",
+    "residual_boundaries": [
+      "Context and exact atom inventories are abstract strings in Lean; injective serialization and Alloy interpretation require the stated separate implementation gates.",
+      "pair_admission_bound assumes the validated flag and correctly identified target/query; it does not prove witness satisfaction or query polarity semantics.",
+      "Typing proves consistency with the stated syntactic judgment, not Alloy parser correspondence, binder evaluation, or whole-system type safety."
+    ],
+    "lifecycle_disposition": "RESOLVED: immutable SAT existence observations are separate from subsequent enumeration terminal statuses; the Lean model abstracts only the existence observation. Actual event persistence and witness validation remain implementation gates.",
+    "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b"
+  }
+}

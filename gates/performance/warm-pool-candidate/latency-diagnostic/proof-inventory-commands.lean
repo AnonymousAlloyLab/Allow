@@ -1,0 +1,13 @@
+#print axioms Allow.WarmLatencyDiagnostic.selection_unchanged
+#print axioms Allow.WarmLatencyDiagnostic.production_selection_disabled
+#print axioms Allow.WarmLatencyDiagnostic.diagnostic_pass_cannot_promote
+#print axioms Allow.WarmLatencyDiagnostic.attempt_requires_authorization
+#print axioms Allow.WarmLatencyDiagnostic.no_attempt_before_explicit_authorization
+#print axioms Allow.WarmLatencyDiagnostic.all_attempt_accounting
+#print axioms Allow.WarmLatencyDiagnostic.failure_blocks_interpretation
+#print axioms Allow.WarmLatencyDiagnostic.ready_conditioned_never_serial
+#print axioms Allow.WarmLatencyDiagnostic.nearest_rank_bounded
+#print axioms Allow.WarmLatencyDiagnostic.measured100_exact_ranks
+#print axioms Allow.WarmLatencyDiagnostic.empty20_exact_ranks
+#print axioms Allow.WarmLatencyDiagnostic.planned_request_count
+#print axioms Allow.WarmLatencyDiagnostic.authorized_success_witness

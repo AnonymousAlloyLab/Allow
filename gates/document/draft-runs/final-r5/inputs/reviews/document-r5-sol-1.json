@@ -1,0 +1,59 @@
+{
+  "reviewer": "Sol council seat 1",
+  "seat": "document-r5-sol-1",
+  "review_type": "FINAL_EXACT_SIX_INPUT_DELTA_GAMEPLAN_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "manifest": "gates/document/review-candidate-r5/manifest.json",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07",
+    "gates/document/draft/types.json": "fd0a31b549a8c20d079b960f68b306603b66aaed3facfd2e4a4bc302ea336109"
+  },
+  "all_live_input_hashes_match_manifest": true,
+  "scope": "Approves this frozen bounded local implementation plan only, conditional on six-seat approval and two clean registered formal builds before production. No runtime correctness, full G2/G3 closure, accessibility, performance or commercial approval.",
+  "remaining_design_blockers": [],
+  "resolved_findings": [
+    {
+      "id": "R3-SOL1-01",
+      "assessment": "OperationValid now selects history[target] including revision0, and SameContent excludes parser report so fresh current-policy report is permitted without historical mutation. HistoricalStep passes fresh content; history length includes initial artifact. witness_revision_zero_restore inhabits target0 at policy4 from policy3 initial content."
+    },
+    {
+      "id": "R3-SOL1-02",
+      "assessment": "Payload now describes raw authored intent/base/operation/raw bytes only. Server policy and generated checked artifact remain outside deterministic decoding; CheckedFrameBinding is separate explicit TCB. AdmittedStep.replay does not require decoding/parser/remapping, preserving original outcome despite policy change."
+    },
+    {
+      "id": "R3-SOL1-03",
+      "assessment": "Wire explicitly stores full original terminal envelope including original requestId and returns byte-identical replay. Replay marker is optional transport header; current head requires separate authorized read. No fresh JSON mutation conflicts with exact receipts."
+    },
+    {
+      "id": "R3-SOL1-04",
+      "assessment": "Step.unknownDenial and unknown_denial_retry separately model durable rejected receipt with lost acknowledgement; runtime maps success and denial uncertainty to UNKNOWN_COMMIT_OUTCOME. Inhabited denial-lost-ack/replay witnesses are registered."
+    }
+  ],
+  "protocol_assessment": [
+    "Closed forest and23 distinct expression tags cover full bounded v1 palette; owner-separated fields, tuple-set restriction and SET-valued predicate params have concrete adapter rules rather than inferred parser Type authority.",
+    "Exact scoped request identity, authorized receipt lookup before quota/revalidation, nonce-fenced admission, pending CREATE document/revision0 reservations, workspace-first lock order and indefinite immutable retention give a coherent bounded local persistence protocol.",
+    "TEXT_ONLY analysis now has <=32 artifact/source/policy-bound parser descriptors and opaque commandKey without invented graph. Missing per-role source spans are explicitly unavailable while full supported elaboration remains mandatory.",
+    "Closed trivia tokens/anchors, expression-copy provenance and exact-source replacement make comment behavior reviewable. Frozen adapter table limits normalization and forbids command-expanded structural inference.",
+    "Validation freshness now matches exact serialized request hash plus draft/epoch/base and SOURCE source hash; proposed source and inverse-remapped diagnostics never grant accepted authority. UI separately guards late commit, clipboard identity and evidence freshness.",
+    "Dedicated operation-only Python store over existing sql_connections remains the appropriate repository architecture; no new JDBC route or direct PostgreSQL fallback is authorized."
+  ],
+  "formal_claim_limits": [
+    "Exact theorem inventory and source hashes match this manifest; this review did not independently execute Lean. Two clean registered proof builds remain required.",
+    "Typed witness vectors are finite acceptance/denial evidence, not universal correctness of experimental infer or Java/TypeScript validators.",
+    "CheckedFrameBinding/parser admission, strict JSON decoding, random-ID ownership, source-to-IR/multiplicity semantics, trivia/positions, SQL linearizability/quota/fencing and browser behavior remain explicit trusted/tested adapters. No proof conclusion is expanded to these omitted runtime properties."
+  ],
+  "required_implementation_acceptance_evidence": [
+    "All constructor/arity/schema/scope/capture/dependency vectors and full source round-trip matrix, including set tuple calls and per-owner multiplicity SAT4J checks.",
+    "Actual unchanged sandbox launcher at512MiB heap/2GiB address-space/12CPU/10wall; shared one-worker-per-principal permits, zero validation queue, bounded complete outputs and kill/reap. Startup failure blocks acceptance; no silent resource relaxation.",
+    "Every document DDL/transaction/RLS/recovery path through frozen SQLean proxy, composite FK/RLS cross-scope negatives and no direct database fallback.",
+    "63docs plus two concurrent CREATE keys, nonce takeover, obsolete worker finalization, current policy change, lost success/denial acknowledgements, process/database restart, full-quota receipt replay and exact byte collision tests.",
+    "Immutable artifact/source maps with fresh revision envelopes, comment copy/move/delete/TEXT_ONLY replacement and source Unicode/CRLF/tab/EOF fixtures, delayed validation/commit and descriptor freshness tests.",
+    "Inherited500-node/1000-event reference-host latency, keyboard/pointer parity, named browser/screen-reader and WCAG checks. Report each original gate independently; retain unmet obligations."
+  ],
+  "edits": "Only reviews/document-r5-sol-1.json written; no candidate, production, formal or script changes.",
+  "delta_review": "Four contracts byte-identical to approved r4. Read admitted collision and authorization-denial constructors, unchanged-state/digest collision theorems and adapter-independent collision witness. Existing-receipt collision is now handled without raw decoding/parser/frame admission, consistent with protocol collision-before-validation; authorization denial remains side-effect-free. No new acceptance path or scope authority is introduced. Prior r4 substantive assessment remains applicable."
+}

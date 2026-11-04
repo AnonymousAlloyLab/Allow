@@ -1,0 +1,137 @@
+{
+  "id": "ALLOW-DOCUMENT-STAGE-DRAFT-0.1",
+  "status": "DRAFT_NOT_AUTHORIZED_FOR_IMPLEMENTATION_OR_GATE_CLOSURE",
+  "revision": 1,
+  "extends": [
+    "spec/allow-contract.json",
+    "spec/retrieval-stage.json",
+    "spec/sql-stage.json"
+  ],
+  "sequence": [
+    "Complete and preserve SQL routing stage evidence",
+    "Freeze this supplement and additional Lean propositions",
+    "Obtain two Terra, two Sol and two Astra independent reviews and resolve findings",
+    "Run two clean formal builds with exact frozen propositions and baseline, before production edits",
+    "Implement and test server document transactions, full palette, text projection and accessibility",
+    "Run every inherited G2/G3 gate; explicitly retain unmet gates"
+  ],
+  "current_baseline": {
+    "browser": "frontend/src/model.ts supports only kind-only holes/ref/and/or/implies/not/some/no/union; browser Workbench increments local revision after worker validation; no durable authoritative commit or complete palette is shown.",
+    "server": "Worker AlloyEngine parses modules using Alloy; parser acceptance alone does not prove the graph is typed, scope-safe or atomically persisted. Existing jobs and retrieval storage are not a document transaction API.",
+    "formal": "formal/Allow/Typing.lean proves a smaller exact-nominal subset; the isolated draft groups operator typing families, is not registered and does not establish full implementation correspondence."
+  },
+  "scope": {
+    "palette": [
+      "signature declarations and fields with explicit nominal column types and declared multiplicity",
+      "predicate parameters and stable variable references",
+      "and, or, not, implies, iff",
+      "some, no, one, lone relation tests",
+      "equality and subset",
+      "union, intersection, difference",
+      "join, product, transpose",
+      "all and some quantification",
+      "fact, predicate, assertion, run and check"
+    ],
+    "fragment": "Block-supported IR permits static self-contained modules with exact nominal nonempty schemas, no inheritance, integer expressions or alternative schemas; names are syntax/display only, with stable declaration IDs and explicit scope IDs. Reject unsupported construction as block-supported, without truncation. Parser-accepted solver-policy-supported other syntax remains TEXT_ONLY per A4; this bounded slice does not close unsupported original obligations by relabeling them.",
+    "constraints": "Set operations, equality and subset require identical nonempty column schemas. Product concatenates nonempty schemas; join requires equal nominal endpoint sorts and a nonempty result; transpose requires binary relation. Boolean operators require formulas. Multiplicity tests accept nonempty relation schema. All/some bind one atom of a declared nominal signature with an explicitly scoped stable binder; predicate parameter declarations are checked at calls. Reject cycles, unknown/unbound references and captures; recheck entire module after every edit. Enforce field/declaration multiplicity and dependencies using the trusted Alloy parser and server policy.",
+    "identity": "Use server-created stable IDs for declarations, binders, nodes and distinct source occurrences. Move/copy capture avoidance uses identity and lexical scope, never display text or reused de Bruijn indices. Reject duplicate declarations and unresolved or escaping bindings, with specific diagnostics. No silent hole completion.",
+    "ir_contract": {
+      "representation": "Immutable versioned module: ordered declarations and commands, node table keyed by unique server IDs, ordered child-ID edges, explicit root IDs, and source occurrences separate from nodes. Each node has one closed operator tag and exactly its specified fields and arity; reject unknown fields/tags, duplicate IDs, dangling edges, cycles, excessive depth and unreachable nodes. An edit creates a candidate, never mutates an accepted revision.",
+      "tags": [
+        "signature",
+        "field",
+        "predicate",
+        "parameter",
+        "fact",
+        "assertion",
+        "run",
+        "check",
+        "signature_ref",
+        "field_ref",
+        "variable_ref",
+        "predicate_call",
+        "and",
+        "or",
+        "not",
+        "implies",
+        "iff",
+        "some_test",
+        "no_test",
+        "one_test",
+        "lone_test",
+        "equal",
+        "subset",
+        "union",
+        "intersection",
+        "difference",
+        "join",
+        "product",
+        "transpose",
+        "all_quant",
+        "some_quant"
+      ],
+      "declarations": "Signatures have unique ID, valid globally unique name and declared multiplicity; fields have unique ID, owning signature, ordered nominal columns and multiplicity; predicates have unique ID, ordered parameters with unique binder IDs and nominal types, and formula body. Facts/assertions have unique IDs and formula bodies; commands have unique IDs, exact target IDs and explicit bounded options. Names and generated printer identifiers must be parser-valid and unique in their namespace.",
+      "binders_and_calls": "A reference resolves to its exact unique binder ID within its lexical ancestry and expected nominal signature; quantifiers extend scope only for their bodies and predicate parameters only for their predicate body. No duplicate binder IDs, implicit rebinding or capture. A call resolves a unique predicate ID and has the same count and ordered exact nominal types as its parameters; recursive or mutually recursive predicate dependencies reject. Declaration references must resolve uniquely and nominal types refer to declared signature IDs. Revalidate whole module including all incoming dependencies after any change.",
+      "multiplicity": "Signature multiplicity is set/one/lone/some; field range multiplicity is set/one/lone/some in supported forms, checked by trusted parser and preserved explicitly by printer. No inferred subtype or union schema. Solver enforces declared multiplicities; this type system alone does not prove satisfiability."
+    }
+  },
+  "accepted_state": {
+    "artifact": "Every immutable accepted revision is tagged BLOCK_SUPPORTED with validated typed IR, exact UTF-8 source, occurrence map and trivia, or TEXT_ONLY with exact parser-accepted solver-policy-supported source/import closure and no invented IR, block graph or canonical CorpusPair. Preserve exact source including CRLF. Drafts are separately visible, may contain holes or invalid text and never mutate accepted state.",
+    "validation": "Server independently bounds, parses and elaborates the entire candidate and authoritative declaration environment, checks scopes, graph acyclicity, every shipped type and multiplicity rule, and re-renders/maps where applicable. Browser checks are advisory. Worker time/memory/output, request and graph size bounds must be declared and enforced before implementation; timeout/error/unknown reject commit. Authentication and workspace/document ownership checked before validation and commit.",
+    "atomicity": "Within one PostgreSQL transaction, lock or conditionally compare current revision and atomically persist immutable accepted artifact/source/maps, incremented revision, scoped idempotency request digest and original outcome. Do not hold an unbounded parser subprocess inside a database transaction: validate a frozen complete candidate first, then lock and recheck base revision and candidate identity. Any stale, validation, persistence, crash or serialization failure leaves the previous revision unchanged and reports no success. All SQL through the required SQLeanParser proxy; parser or proxy failure denies commit.",
+    "idempotency": "Scope key by durable authenticated principal, logical launch scope, workspace, document and key. Retain exact canonical request bytes and digest and original successful outcome at least 24 hours after commit and while registered retry is active; collision or changed bytes reject. Authenticate and authorize each retry, including after fresh bearer on restart. Use database time for expiration and durable active-window tracking; refresh revision and choose new key after expiry. Receipt lookup and uniqueness occur before stale base rejection. Test process and database restart, concurrent key reuse, cleanup boundaries and collision.",
+    "undo_redo": "Undo/redo request explicitly names immutable target revision/artifact and current expected revision, with direction and target included in idempotent request. Revalidate the exact historical artifact against current parser, policy, declarations and frozen dependency versions, then append it as a new revision with provenance; never mutate history or decrement revision. If target unavailable, unauthorized, stale or invalid under current policy, reject without change. History navigation is client selected; no implicit global undo stack or inference of inverse edits.",
+    "identity_and_restart": "Current per-launch bearer is ephemeral and is not a durable principal or database key. Provision a random immutable local principal ID and logical launch scope ID in private durable workspace metadata, bound to owner/workspace/document authorization; do not derive these IDs from bearer material. A restarted process issues fresh bearer authority, authenticates its holder and reopens the same authorized logical launch scope so its durable receipts remain addressable; token rotation alone cannot change scope or permit cross-principal replay. Separate new logical launches remain isolated. Until secure provisioning and recovery exist, durable document commits are blocked.",
+    "commit_protocol": "Validate a bounded frozen canonical request/candidate and capture document base revision, immutable policy/dependency version and exact artifact bytes. In one transaction first serialize scoped key and compare stored exact request bytes plus digest; an existing identical receipt returns original outcome even if base is now stale; conflicting bytes reject. Otherwise lock document and recheck revision, authorization, policy/dependency versions and candidate identity, then insert artifact/revision and exact request receipt atomically. Concurrent new same-key requests serialize under unique scope+key constraint; losing transaction rereads receipt. Validation failures leave document untouched; specify whether deterministic failures receive receipts before freeze. No client success until database commit; uncertain result must be retried with same key."
+  },
+  "projection": {
+    "round_trip": "For every supported IR family, Alloy parse(print(IR)) equals IR modulo specified alpha-renaming and declared presentation normalization. Comments/trivia retain explicit attachment and behavior on edits; no exact byte round-trip from canonical IR is promised. Unsupported parsed syntax becomes TEXT_ONLY; mode switches commit atomically.",
+    "maps": "Exact strict UTF-8 bytes are hashed; reject invalid UTF-8 and unpaired UTF-16 surrogates, never normalize newlines. Zero-based half-open UTF-16 code unit offsets bind accepted revision and presentation epoch; byte/parser offsets convert explicitly against exact decoded source, including multi-byte Unicode, combining characters and CRLF. Map distinct occurrences separately even for shared node IDs; reject or explicitly represent ambiguous mappings.",
+    "freshness": "Increment monotone presentation epoch for each raw or tentative block edit, document change, undo/redo, selection or bounds change. Diagnostics require exact draft ID, epoch and UTF-8 hash. Evidence is current only for exact accepted analysis key, matching epoch and identical current draft/source; stale asynchronous results cannot restore a badge. Label historical evidence separately.",
+    "occurrence_rules": "Parser reports byte intervals aligned to UTF-8 code-point boundaries. Decode strict UTF-8 preserving CRLF and Unicode exactly; convert by counting UTF-16 units in the prefix (one for BMP scalar, two for supplementary scalar). Spans are zero-based half-open, nested or overlapping where grammar warrants, and stored as occurrence ID, node ID, role, start, end and exact revision/epoch/hash. Printer traversal order assigns occurrence IDs deterministically by structural path plus role, not text equality; distinct paths remain distinct even for a shared node. Reject missing, duplicate, out-of-range or ambiguous parser-to-IR correspondence and offsets inside a scalar; never guess. Stable node IDs need not imply stable occurrence IDs across revisions.",
+    "trivia_rules": "Store exact comments and whitespace as ordered byte slices anchored to occurrence boundary (leading/trailing) or module boundary with deterministic offset and tie order. For an unchanged source artifact preserve all bytes exactly. During a block edit retain trivia attached to surviving occurrence paths in original relative order; trivia belonging to deleted or ambiguous occurrences moves to a module trailing orphan bucket in original byte order, surfaced as a projection notice. Copy duplicates attached trivia; move carries it. Canonical reprint may alter whitespace but cannot silently discard comments; output must parse and remap or reject candidate."
+  },
+  "formal_draft": {
+    "path": "gates/document/draft/Document.lean",
+    "coverage": "Isolated draft models grouped typing, lexical references, nonempty join, abstract module symbol/cycle and call checks, atomic revision and receipt properties, and occurrence span bounds. These are not registered or imported into active Allow. Grouped tags and all adapter mappings require exact obligations before freeze; no runtime refinement is proved.",
+    "trust": "Lean does not prove Alloy parsing, name resolution, field multiplicity semantics, source/render mapping, PostgreSQL transaction isolation, browser accessibility, subprocess or Java/TypeScript refinement. Register exact propositions, proofs, witnessed acceptance and denial before production; test parser and adapters against Lean oracle separately."
+  },
+  "validation": [
+    "All full-palette operators: valid and invalid exact schemas, direction/arity, destination scope, bound variables, params, declaration edits and dependency cascades; malformed graph, cycle and unbound negatives.",
+    "Server-authoritative commit, concurrent conflicting expected revisions, rejected candidate unchanged, lost response, concurrent duplicate and collision, retention through restart and expiry; atomic persistence under forced transaction failure and parser unavailable.",
+    "Undo/redo as fresh revisions including stale, failed, concurrent and restart cases; historical source and maps exact.",
+    "Round-trip every supported constructor modulo defined alpha/presentation equivalence; text-only transitions and invalid draft retains historical view, no stale evidence.",
+    "Occurrence maps for repeated nodes/identical text, nested spans, non-BMP, combining marks, CRLF/LF and invalid encodings, with revision/epoch validation and delayed-response regression.",
+    "Full keyboard create/connect/move/delete/undo/redo, focus and live announcements; automated WCAG 2.2 AA checks and named manual browser/screen-reader scenarios.",
+    "Inherited canonical proof checker, Java truth-table/certificate differential checks, budget tests and G2/G3 exit criteria remain required. Report each original gate independently; no automatic closure from this supplement."
+  ],
+  "open_review_questions": [
+    "Confirm finite budgets against inherited limits and reference-laptop measurements; failure cannot silently relax limits.",
+    "Specify canonical request serialization, deterministic failure receipt policy, secure durable principal/scope provisioning and active retry-window lifecycle before freeze.",
+    "Independently review closed IR tags, all declaration forms, scope and exact nominal correspondence with Alloy; test trusted multiplicity handling.",
+    "Validate deterministic trivia attachment for overlapping parser spans, copy/move, deletions and ambiguous source projections; retain loss notices.",
+    "Formalize and register module typing, full operator distinctions, call/dependency cycles, revisions and scoped concurrency, UTF-16 mapping and parser/printer correspondence before any claimed coverage."
+  ],
+  "budgets": {
+    "status": "Draft starting limits, subject to inherited stricter limits and empirical verification before freeze; fail closed before allocation where possible.",
+    "request_bytes": 2097152,
+    "source_utf8_bytes": 1048576,
+    "nodes": 10000,
+    "edges": 30000,
+    "declarations": 512,
+    "predicate_parameters": 32,
+    "schema_columns": 8,
+    "graph_depth": 128,
+    "source_occurrences": 30000,
+    "diagnostics": 256,
+    "diagnostic_bytes": 65536,
+    "idempotency_key_bytes": 128,
+    "canonical_request_bytes": 2097152,
+    "concurrent_validation_workers": 2,
+    "queued_validations_per_launch": 8,
+    "validation_wall_seconds": 10,
+    "validation_memory_mib": 1024,
+    "validation_output_bytes": 1048576,
+    "import_closure": "BLOCK_SUPPORTED is self-contained and admits no imports. TEXT_ONLY allows only existing solver-policy-approved local modules with deterministic frozen content-addressed closure; no ambient/network imports. Cap closure at 16 files and 2 MiB total, count root source, apply inherited stricter resource limits. Unsupported import resolution rejects commit, does not fabricate BLOCK_SUPPORTED."
+  }
+}

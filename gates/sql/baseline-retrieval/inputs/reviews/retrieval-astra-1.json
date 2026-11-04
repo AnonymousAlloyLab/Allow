@@ -1,0 +1,62 @@
+{
+  "reviewer": "astra-1",
+  "seat": "retrieval-astra-1",
+  "review_type": "FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/retrieval-stage.json",
+  "spec_revision": 4,
+  "spec_sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "formal_file_sha256": "b4e348c95d346cec441b04b85713df0c81150f5199062c513d9c76a684a60965",
+  "formal_evidence": {
+    "path": "gates/retrieval/formal-report.json",
+    "status": "VERIFIED",
+    "model_propositions": 84,
+    "new_model_propositions": 31,
+    "catalog_mappings": 34,
+    "clean_builds": 2,
+    "review_scope": "Read complete supplement and Retrieval.lean; checked hash equality and recorded report status/build exit codes. Did not rerun Lean independently in this council turn."
+  },
+  "blocking_findings": [],
+  "resolved_draft_findings": [
+    "Explicit nullary target rejects ambiguous parameter quantification. F AND NOT P and identical generated scopes preserve facts and distinguish N from solver scope.",
+    "Complete independently evaluated anonymous instances replace display objects; joint atom bijection preserves typed memberships and integer meanings, with exact-byte confirmation and fail-closed caps.",
+    "Environment erases only target body and unrelated source command; target-dependent facts/functions retain body dependency token, preventing false cross-context overlap.",
+    "3072 dimensions derive from four genuine pinned pretrained 768 blocks and explicit learned diagonal adapters; no hash/padding fallback, no mixed model versions.",
+    "Atomic pair/outbox, pre/post authorization checks, independent revocation journal and checkpoint lineage invalidation cover stale/revoked vectors and restore behavior.",
+    "Trusted FULL record-ID API prevents client-submitted vectors or pool labels gaining evidence authority.",
+    "Family grouping, duplicate union, train-only adapter fitting, frozen validation weights and held-out promotion rule distinguish synthetic structural retrieval from semantic correctness."
+  ],
+  "implementation_acceptance_notes": [
+    {
+      "priority": "required",
+      "note": "FULL records require exact N isomorphism-distinct validated members per polarity. This excludes many valid tautologies/contradictions/small instance spaces; report coverage and PARTIAL reasons without weakening admission."
+    },
+    {
+      "priority": "required",
+      "note": "Regression tests must include target-dependent facts, contradictory facts, ignored hostile original command scopes, consistent renaming across multiple relations, empty fields, integer atoms, isomorphism cap, and SAT followed by enumeration timeout."
+    },
+    {
+      "priority": "required",
+      "note": "Revocation must block all vectors using affected adapter checkpoints, including otherwise active records. Test revoke during outbox publish and restore from before revocation; durable journal failure leaves service quarantined."
+    },
+    {
+      "priority": "required",
+      "note": "Serialize only allowed anonymous structures into encoder inputs. Keep provenance, source hash, dataset family, rights metadata, paths and display names out of all four components, including context and proof metadata."
+    },
+    {
+      "priority": "required",
+      "note": "Test actual installed PostgreSQL/pgvector and LangGraph, downloaded model integrity and tokenizer/chunk recipe; earlier inspection found infrastructure and pretrained caches unavailable, so these remain implementation work."
+    },
+    {
+      "priority": "required",
+      "note": "Macro-family held-out MRR promotion and minimum family/source coverage are empirical gates. If quality or cohort size fails, keep quality gate open and retain eligible baseline rather than tune after test."
+    }
+  ],
+  "formal_limits": [
+    "The proofs establish supplied abstract identities/flags and fixed integer scoring policy, not faithful Java/SQL identities, witness canonicalization, floats, tuned weights, evaluator correctness or learned quality.",
+    "ready_three_witness is a nonvacuous abstract policy example, not evidence that any concrete Alloy dataset supplies three witnesses per polarity.",
+    "Checked egraph representative equality is scoped; finite samples, cosine similarity, pool overlap and Luna judgment never confer semantic equivalence or proof badges."
+  ],
+  "gate_status": "Design approved for exact frozen revision. G4/G5 implementation and empirical acceptance remain open; no original gate or commercial clearance is certified here.",
+  "production_edits": false
+}

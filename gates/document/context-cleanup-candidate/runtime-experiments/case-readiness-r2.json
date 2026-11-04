@@ -1,0 +1,1131 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-CASE-READINESS-R2",
+  "status": "BLOCKED",
+  "runtime_plan_sha256": "22c95620d15ec14a44efa464b7faca97845a0dfeab7aa1ca3563aca0636c7e3b",
+  "offline_report": {
+    "path": "offline-regressions-r2/report.json",
+    "sha256": "d96af7f45717bb80415cd38678257810deb3608a4166fbd5fab044de9af052bf"
+  },
+  "planned_cases": 33,
+  "whole_case_verified_count": 0,
+  "rows": [
+    {
+      "id": "CC01",
+      "observed": "Copied source hashes, managed interpreter/tooling, canonical copied bootstrap, parser/proxy identity and real normal context paths were recorded; offline AST inventory finds one raw driver inside the validated helper. Complete copied250-test Python and52-check real SQL suites bind loaded/current v8 identity; client-routing verifier exercises bootstrap, migration, application, dump and restore through canonical SQLeanParser. All frozen copied sources unchanged.",
+      "remaining": "Complete CC01 final binder must retain process/library/start identity and route traces. Finite client inventory does not prove universal dynamic dispatch.",
+      "name": "Loaded source and routing identity",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [
+        {
+          "path": "runs/r6/report.json",
+          "sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5"
+        },
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET",
+      "integration_evidence": {
+        "manifest.json": {
+          "path": "runs/r11-regressions/manifest.json",
+          "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+        },
+        "report.json": {
+          "path": "runs/r11-regressions/report.json",
+          "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+        },
+        "python-tests.json": {
+          "path": "runs/r11-regressions/python-tests.json",
+          "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+        },
+        "python-tests.log": {
+          "path": "runs/r11-regressions/python-tests.log",
+          "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+        },
+        "sql-runtime.json": {
+          "path": "runs/r11-regressions/sql-runtime.json",
+          "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+        },
+        "sql-runtime.log": {
+          "path": "runs/r11-regressions/sql-runtime.log",
+          "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+        },
+        "client-coverage.json": {
+          "path": "runs/r11-regressions/client-coverage.json",
+          "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+        },
+        "recovery-report.json": {
+          "path": "runs/r11-regressions/recovery-report.json",
+          "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+        },
+        "document-recovery-report.json": {
+          "path": "runs/r11-regressions/document-recovery-report.json",
+          "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+        },
+        "http-smoke.json": {
+          "path": "runs/r11-regressions/http-smoke.json",
+          "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+        },
+        "restart-report.json": {
+          "path": "runs/r11-regressions/restart-report.json",
+          "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+        }
+      }
+    },
+    {
+      "id": "CC02",
+      "observed": "Offline bounded-control parsing and real owned test sockets cover duplicate/overflow/exact reply limits, EOF framing, two frames, nested JSON and no-half-close dispatch.",
+      "remaining": "Execute the complete registered 8191/8192/8193 request matrix, UTF8/BOM/nonfinite/schema/UUID/truncation and actual two-second stalled-read matrix against the installed control service, including no lease/backend creation.",
+      "name": "Control frame byte and schema boundaries",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC03",
+      "observed": "Unit fixtures check owner/generation mismatch, private socket modes and closed request authority fields.",
+      "remaining": "Actual same-UID cross-process registration/await, deterministic wrong-UID fixture and complete installed control identity/mode/status matrix.",
+      "name": "Peer authority and control identity",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC04",
+      "observed": "Unit checks cover durable exclusive registration, serialized writes and preserving both reservations; runtime traces observe selected phase transitions.",
+      "remaining": "All fsync/marker/RESERVED/CONNECTING/socket/KEYED/BOUND ordering barriers and crash cuts, with syscall ordering evidence.",
+      "name": "Registration persistence precedes backend open",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC05",
+      "observed": "Three actual CLI cases return exact context, successful CLEAN, exact backend absence and unchanged durable tables. The 4096-ID smoke case is not 4096 history rows; quota runs cover the latter separately. Additional actual document HTTP smoke passes SOURCE\u2192BLOCK, typed block edit, TEXT_ONLY, historical validation and real SAT4J run/check. Actual Python validation context reports closed transport before publication.",
+      "remaining": "Deterministic delayed observer receipt and exact Java worker-spawn-after-CLEAN trace remain unexecuted in the registered fault matrix.",
+      "name": "Normal complete snapshot and CLEAN fence",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [
+        {
+          "run_id": "r6",
+          "subcase": "normal-empty",
+          "status": "PASS",
+          "path": "runs/r6/normal-empty/case.json",
+          "sha256": "0874f401778a6504c384bec6c55988dadc99784aeeecb9eaec47d704734614e3"
+        },
+        {
+          "run_id": "r6",
+          "subcase": "normal-owned",
+          "status": "PASS",
+          "path": "runs/r6/normal-owned/case.json",
+          "sha256": "cbfe230fa50654381d5e8031cd08b16a209b64445c016584c7152cc5d65304af"
+        },
+        {
+          "run_id": "r6",
+          "subcase": "normal-4096-ids",
+          "status": "PASS",
+          "path": "runs/r6/normal-4096-ids/case.json",
+          "sha256": "91fc18be41936abb569991afd0004d09a889408ab79fd52e89f17b5ec9be7cbb"
+        }
+      ],
+      "evidence_level": "EXECUTED_FINITE_SUBSET",
+      "integration_evidence": {
+        "manifest.json": {
+          "path": "runs/r11-regressions/manifest.json",
+          "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+        },
+        "report.json": {
+          "path": "runs/r11-regressions/report.json",
+          "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+        },
+        "python-tests.json": {
+          "path": "runs/r11-regressions/python-tests.json",
+          "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+        },
+        "python-tests.log": {
+          "path": "runs/r11-regressions/python-tests.log",
+          "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+        },
+        "sql-runtime.json": {
+          "path": "runs/r11-regressions/sql-runtime.json",
+          "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+        },
+        "sql-runtime.log": {
+          "path": "runs/r11-regressions/sql-runtime.log",
+          "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+        },
+        "client-coverage.json": {
+          "path": "runs/r11-regressions/client-coverage.json",
+          "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+        },
+        "recovery-report.json": {
+          "path": "runs/r11-regressions/recovery-report.json",
+          "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+        },
+        "document-recovery-report.json": {
+          "path": "runs/r11-regressions/document-recovery-report.json",
+          "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+        },
+        "http-smoke.json": {
+          "path": "runs/r11-regressions/http-smoke.json",
+          "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+        },
+        "restart-report.json": {
+          "path": "runs/r11-regressions/restart-report.json",
+          "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+        }
+      },
+      "integration_test_ids": [
+        "test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+        "test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots",
+        "test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail",
+        "test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned",
+        "test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+        "test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+        "test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request",
+        "test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history",
+        "test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+        "test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+        "test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only"
+      ]
+    },
+    {
+      "id": "CC06",
+      "observed": "Storage-shaped quota history contains an actual earlier matching row and later conflicting-kind row; row hashes and iteration positions prove failure after encountering the later row, with no success and failed CLEAN. Additional real PG tests pass three snapshot races (before base, between base/history, future base), missing/foreign-base rejection, complete-history collision and malformed artifact rejection. Independent quota late-conflict remains bound to actual earlier/later row hashes.",
+      "remaining": "Consolidate these registered regression outcomes and quota traces into the exact CC06 executable binder; no whole-case closure is asserted by this readiness map.",
+      "name": "Snapshot race and complete history",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [
+        {
+          "run_id": "r9-quota-memory",
+          "subcase": "late-conflict",
+          "status": "PASS",
+          "path": "runs/r9-quota-memory/late-conflict/case.json",
+          "sha256": "a1f9dff4753e703f120fd58dc20442145473ae9796300baeb01a40345a6af43a"
+        }
+      ],
+      "evidence_level": "EXECUTED_FINITE_SUBSET",
+      "integration_evidence": {
+        "manifest.json": {
+          "path": "runs/r11-regressions/manifest.json",
+          "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+        },
+        "report.json": {
+          "path": "runs/r11-regressions/report.json",
+          "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+        },
+        "python-tests.json": {
+          "path": "runs/r11-regressions/python-tests.json",
+          "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+        },
+        "python-tests.log": {
+          "path": "runs/r11-regressions/python-tests.log",
+          "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+        },
+        "sql-runtime.json": {
+          "path": "runs/r11-regressions/sql-runtime.json",
+          "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+        },
+        "sql-runtime.log": {
+          "path": "runs/r11-regressions/sql-runtime.log",
+          "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+        },
+        "client-coverage.json": {
+          "path": "runs/r11-regressions/client-coverage.json",
+          "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+        },
+        "recovery-report.json": {
+          "path": "runs/r11-regressions/recovery-report.json",
+          "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+        },
+        "document-recovery-report.json": {
+          "path": "runs/r11-regressions/document-recovery-report.json",
+          "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+        },
+        "http-smoke.json": {
+          "path": "runs/r11-regressions/http-smoke.json",
+          "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+        },
+        "restart-report.json": {
+          "path": "runs/r11-regressions/restart-report.json",
+          "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+        }
+      },
+      "integration_test_ids": [
+        "test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+        "test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots",
+        "test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail",
+        "test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned",
+        "test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+        "test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+        "test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request",
+        "test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history",
+        "test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+        "test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+        "test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only"
+      ]
+    },
+    {
+      "id": "CC07",
+      "observed": "Exact protocol state-machine attacks, real pinned grammar/template checks and synthetic backend wire regressions pass.",
+      "remaining": "Bind the complete ordinary/context/observer installed-role attack matrix to actual no-backend-write observations. Synthetic backend tests are not PostgreSQL cleanup evidence.",
+      "name": "Narrow SQL settings and protocol",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC08",
+      "observed": "No registered actual allowed-history SIGSTOP/CONT statement-timeout probe executed.",
+      "remaining": "Capture owned active-history pidfd/start identity, pause 1700ms, observe actual 57014 and failed cleanup/publication outcome without changing SQL templates.",
+      "name": "Statement deadline on actual allowed SELECT",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC09",
+      "observed": "Actual canonical context head read produced PostgreSQL 55P03, suppressed success, reached failed CLEAN and exact backend absence, with unchanged durable hashes.",
+      "remaining": "Complete registered binding including unrelated lock-owner identity/signal audit and explicit no-Alloy-worker launch evidence. This executed subcase is PASS, not whole-case closure.",
+      "name": "Lock deadline",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [
+        {
+          "run_id": "r6",
+          "subcase": "actual-lock-timeout",
+          "status": "PASS",
+          "path": "runs/r6/actual-lock-timeout/case.json",
+          "sha256": "30ad474f210219c42406d77b65eb42805bae3c0c1592cf9e559f69163e000473"
+        }
+      ],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC10",
+      "observed": "After-decode delay suppresses output, but it can trigger idle timeout before wall retirement and does not bind actual 25P03; it does not discharge this case.",
+      "remaining": "Pause the owned CLI for 1200ms at confirmed idle-in-transaction phase and bind actual PG idle-timeout outcome, exact absence and durable invariance.",
+      "name": "Idle transaction deadline",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC11",
+      "observed": "Never-connected RESERVED deadline and paced connected SELECTs retire near registration+3000ms; fourth 800ms pause retires before idle1000, isolating wall behavior. After-decode late success is suppressed but can be idle-confounded.",
+      "remaining": "Exact original history-decode wall barrier with unambiguous wall cause and complete CC11 final binding. External wall-to-exit exceeds 3000ms because cleanup is distinct from work retirement.",
+      "name": "Total context wall budget",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [
+        {
+          "run_id": "r6",
+          "subcase": "wall-before-connect",
+          "status": "PASS",
+          "path": "runs/r6/wall-before-connect/case.json",
+          "sha256": "47fec2709531d2e52a08802dbde20eecb29e2f723d6062fd90f2978f6fa490f6"
+        },
+        {
+          "run_id": "r6",
+          "subcase": "wall-during-connected-work",
+          "status": "PASS",
+          "path": "runs/r6/wall-during-connected-work/case.json",
+          "sha256": "fca618b8ace16f9039ac0c94652ee8ad8604a625c58da203b3817ab59a94bba9"
+        },
+        {
+          "run_id": "r6",
+          "subcase": "wall-after-decode",
+          "status": "PASS",
+          "path": "runs/r6/wall-after-decode/case.json",
+          "sha256": "0661cc87aa4a5b9aefd6b3d5f3d2204177db8b139758dcaf9c21c7a94053e6d4"
+        }
+      ],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC12",
+      "observed": "One actual pidfd SIGKILL of the owned CLI after decode suppresses output and independently cleans the owned backend.",
+      "remaining": "Seven remaining owner/phase combinations: CLI at BOUND/scope/active history and Java parent at all four phases; replacement admission fencing during cleanup.",
+      "name": "CLI death and Java death",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [
+        {
+          "run_id": "r6",
+          "subcase": "cli-kill-after-decode",
+          "status": "PASS",
+          "path": "runs/r6/cli-kill-after-decode/case.json",
+          "sha256": "ff63c8e3e5a4b4c59adb7f19c04d76bff60a8423303aec9b4be7868ee3185048"
+        }
+      ],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC13",
+      "observed": "Offline protocol/failure fixtures pass.",
+      "remaining": "Actual client EOF, owned CancelRequest, malformed frontend and caller interruption at both registered phases with separate bridge-reap/backend-lease evidence.",
+      "name": "Client EOF, cancellation and protocol failure",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC14",
+      "observed": "Existing offline parser lifecycle regressions pass; no P1 actual parser-stop context case executed.",
+      "remaining": "Literal owned parser shutdown during context prelude and cleanup observer query, UNKNOWN retention and registered recovery branch.",
+      "name": "Literal parser shutdown",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC15",
+      "observed": "Synthetic identity/cancel and actual harmless-child stale pidfd-authority checks pass; runtime harness only signals owned pidfds.",
+      "remaining": "Full wrong/stale/foreign key and metadata predicate mutation matrix, tagged PID-reuse fixtures and proof that no unmatched cancellation or forbidden SQL was emitted.",
+      "name": "Secret cancellation and PID reuse defenses",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC16",
+      "observed": "Executed connected cases observe absence of the exact bound PG identity after cleanup; preconnect case explicitly has no backend.",
+      "remaining": "Separate live/stale-cache/missing/multiple/ambiguous metadata fixtures and fresh-transaction proof for every observation branch.",
+      "name": "Fresh observation and absence",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [
+        {
+          "path": "runs/r6/report.json",
+          "sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5"
+        },
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC17",
+      "observed": "Unit expiry does not release UNKNOWN.",
+      "remaining": "Actual observation held beyond2500ms, expired receipt lookup, three replacement attempts and fixed resource-count/UNKNOWN persistence evidence.",
+      "name": "Observation budget and uncertainty",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC18",
+      "observed": "End-of-run idle proxy and PG shutdown exit normally without escalation. Offline actual asyncio server shutdown checks cover persistent connection ordering.",
+      "remaining": "All seven registered context phases and repeated SIGTERM during bounded cleanup; current end-of-run shutdown is not that matrix.",
+      "name": "Proxy graceful stop",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [
+        {
+          "path": "runs/r6/report.json",
+          "sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5"
+        },
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC19",
+      "observed": "No actual proxy SIGKILL/restart case executed in the final implementation.",
+      "remaining": "Six complete-binding crash phases, generation fencing, retained secret cancellation and independently confirmed reconciliation or UNKNOWN.",
+      "name": "Proxy SIGKILL and restart after complete binding",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC20",
+      "observed": "Unit reconstruction preserves UNKNOWN and blocks replacement.",
+      "remaining": "Actual pre-key proxy crash, empty activity lookup, three registrations, >60s TTL and restart. Prompt automatic recovery remains explicitly OPEN even if safety passes.",
+      "name": "Pre-key startup UNKNOWN is a safety case",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC21",
+      "observed": "Offline impossible/uncertified phase rejection passes.",
+      "remaining": "Actual KEYED-before-bind crash and present/absent/duplicate-name/wrong-role/db identity outcomes; label simulated branches precisely.",
+      "name": "KEYED without complete metadata",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC22",
+      "observed": "Focused corruption, reservation preservation, interleaving and writer-thread fixtures pass.",
+      "remaining": "Complete registered wrongowner/mode/symlink/oversize/marker and write/fsync/replace/dirfsync failure matrix, plus actual persistence crash cuts.",
+      "name": "Journal corruption and durability failures",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC23",
+      "observed": "Synthetic ordinary-handler overflow and cancellation capacity regression passes.",
+      "remaining": "Installed real15ordinary+1context+1observer and4extra-handshake matrix, secondcontext/fifth-extra rejection and cleanup with ordinary slots full; no aggregate17-backend claim.",
+      "name": "Live-handler limits and persistent observer availability",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC24",
+      "observed": "Unit uncertain observer replacement and interleaving checks pass.",
+      "remaining": "External-process observer-tag spoof plus actual observer query/transport failures and three request/restart attempts with reservation/thread counts.",
+      "name": "Observer lane authority and single ownership",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC25",
+      "observed": "No actual observer crash/restart matrix executed.",
+      "remaining": "CONNECTING/pre-key, KEYED, BOUND, activeobservation and retiring SIGKILL/restart cases with Linux identity reconciliation, ordinary-SQL liveness and UNKNOWN retention.",
+      "name": "Observer crash restart reconciliation",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC26",
+      "observed": "Actual failures produce failed CLEAN and never OK; unit owner/nonce/generation/sticky-failure checks pass.",
+      "remaining": "65receipt boundary, >60sTTL, four concurrent awaits/fifth denial, six-second bound and full failure-class replay/late-success matrix.",
+      "name": "Receipt bounds and replay",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [
+        "test_context_lease_client.ContextLeaseClientTests.test_cleanup_receipt_matches_all_registration_identity"
+      ],
+      "runtime_reports": [
+        {
+          "path": "runs/r6/report.json",
+          "sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5"
+        },
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC27",
+      "observed": "Actual isolated safe-default preflight reaches READY; offline privacy predicate fixtures pass.",
+      "remaining": "At least seven preregistered actual PG logging configurations and exact settings/DEGRADED outcomes; no global mutation of shared PG.",
+      "name": "Logging privacy preflight",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [
+        {
+          "path": "runs/r6/report.json",
+          "sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5"
+        },
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC28",
+      "observed": "Sanitized-error unit tests reject private message/detail leakage and accept only actual failed Ready after whitelisted SQLSTATE.",
+      "remaining": "Complete private marker audit of owned PG/proxy/CLI/Java/control/status streams across actual CC08\u2013CC14 matrix. Private synthetic run logs are not a universal privacy certificate.",
+      "name": "No private markers in observable logs",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC29",
+      "observed": "All eight registered quota subcases PASS: three empty, three full4096-ID/history, one unmodified CLI reference and one later conflict. Accounted268434782/268435456 bytes; actual4096 buffered/iterated rows,230655922 raw column bytes,115323865 decoded bytes. Post-exec memory and production2GiB AS/20s CPU limits recorded.",
+      "remaining": "Final all-case evidence binder and two implementation builds. This is a storage-shaped fixture, not4096 accepted Alloy admissions; three timing samples are not a production p95 or4vCPU/8GiB acceptance.",
+      "name": "Full permitted history/quota viability",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET"
+    },
+    {
+      "id": "CC30",
+      "observed": "Before/after exact row-hash inventories cover all seven document tables for every executed case, including failures; late-conflict fixture write is declared before the read-only measurement. Additional real PG context tests verify repeated reads preserve durable state at full counters; HTTP denial/replay and backup/recovery preserve expected stored outcomes.",
+      "remaining": "Remaining cancellation/Java-parent death, proxy restart and UNKNOWN fault families still need complete seven-table before/after inventories.",
+      "name": "Read-only durable invariance",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [
+        {
+          "path": "runs/r6/report.json",
+          "sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5"
+        },
+        {
+          "path": "runs/r9-quota-memory/report.json",
+          "sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d"
+        }
+      ],
+      "runtime_subcases": [],
+      "evidence_level": "EXECUTED_FINITE_SUBSET",
+      "integration_evidence": {
+        "manifest.json": {
+          "path": "runs/r11-regressions/manifest.json",
+          "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+        },
+        "report.json": {
+          "path": "runs/r11-regressions/report.json",
+          "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+        },
+        "python-tests.json": {
+          "path": "runs/r11-regressions/python-tests.json",
+          "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+        },
+        "python-tests.log": {
+          "path": "runs/r11-regressions/python-tests.log",
+          "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+        },
+        "sql-runtime.json": {
+          "path": "runs/r11-regressions/sql-runtime.json",
+          "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+        },
+        "sql-runtime.log": {
+          "path": "runs/r11-regressions/sql-runtime.log",
+          "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+        },
+        "client-coverage.json": {
+          "path": "runs/r11-regressions/client-coverage.json",
+          "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+        },
+        "recovery-report.json": {
+          "path": "runs/r11-regressions/recovery-report.json",
+          "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+        },
+        "document-recovery-report.json": {
+          "path": "runs/r11-regressions/document-recovery-report.json",
+          "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+        },
+        "http-smoke.json": {
+          "path": "runs/r11-regressions/http-smoke.json",
+          "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+        },
+        "restart-report.json": {
+          "path": "runs/r11-regressions/restart-report.json",
+          "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+        }
+      },
+      "integration_test_ids": [
+        "test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+        "test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots",
+        "test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail",
+        "test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned",
+        "test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+        "test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+        "test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request",
+        "test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history",
+        "test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+        "test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+        "test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only"
+      ]
+    },
+    {
+      "id": "CC31",
+      "observed": "203 selected offline Python/parser/wire/harness tests pass with real psycopg.connect denied and all133 source-ready files unchanged. Finite AST routing inventory passes for65 production Python files. Complete current Python250 and realSQL52 pass without skips; client routing, retrieval pg_dump/pg_restore+revocation/ACL recovery, document pg_dump/pg_restore+owner/RLS/ACL recovery pass; actual document HTTP smoke8 checks and owned Spring JVM crash/restart6 replay checks pass. All copied sources unchanged. Separate parent-owned Java204 report targets the same immutable r1 build.",
+      "remaining": "Bind parent frontend/current Java reports and these artifacts in the final acceptance binder. The HTTP restart is a completed-request JVM crash, not PostgreSQL restart or the CC19 in-flight proxy crash matrix. Two active JS style scripts evolved after this frozen copy and require parent-owned latest style validation.",
+      "name": "Durable, backup and SQL regressions",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [
+        "test_context_lease_client.ContextLeaseClientTests.test_cleanup_receipt_matches_all_registration_identity"
+      ],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "OFFLINE_FIXTURES_ONLY",
+      "integration_evidence": {
+        "manifest.json": {
+          "path": "runs/r11-regressions/manifest.json",
+          "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+        },
+        "report.json": {
+          "path": "runs/r11-regressions/report.json",
+          "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+        },
+        "python-tests.json": {
+          "path": "runs/r11-regressions/python-tests.json",
+          "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+        },
+        "python-tests.log": {
+          "path": "runs/r11-regressions/python-tests.log",
+          "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+        },
+        "sql-runtime.json": {
+          "path": "runs/r11-regressions/sql-runtime.json",
+          "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+        },
+        "sql-runtime.log": {
+          "path": "runs/r11-regressions/sql-runtime.log",
+          "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+        },
+        "client-coverage.json": {
+          "path": "runs/r11-regressions/client-coverage.json",
+          "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+        },
+        "recovery-report.json": {
+          "path": "runs/r11-regressions/recovery-report.json",
+          "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+        },
+        "document-recovery-report.json": {
+          "path": "runs/r11-regressions/document-recovery-report.json",
+          "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+        },
+        "http-smoke.json": {
+          "path": "runs/r11-regressions/http-smoke.json",
+          "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+        },
+        "restart-report.json": {
+          "path": "runs/r11-regressions/restart-report.json",
+          "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+        }
+      },
+      "integration_test_ids": [
+        "test_context_lease_client.ContextLeaseClientTests.test_cleanup_receipt_matches_all_registration_identity",
+        "test_context_lease_client.ContextLeaseClientTests.test_cleanup_success_flag_is_required",
+        "test_context_lease_client.ContextLeaseClientTests.test_control_request_has_no_pid_route_or_scope",
+        "test_context_lease_client.ContextLeaseClientTests.test_original_request_failure_survives_confirmed_cleanup",
+        "test_context_lease_client.ContextLeaseClientTests.test_poisoned_cleanup_never_becomes_success",
+        "test_context_lease_client.ContextLeaseClientTests.test_private_control_socket_modes_are_required",
+        "test_context_lease_client.ContextLeaseClientTests.test_real_control_duplicate_and_oversize_replies",
+        "test_context_lease_client.ContextLeaseClientTests.test_real_control_eof_and_exact_reply",
+        "test_context_lease_client.ContextLeaseClientTests.test_real_control_exact_byte_limit_is_inclusive",
+        "test_context_lease_client.ContextLeaseClientTests.test_registration_failure_never_connects",
+        "test_context_lease_client.ContextLeaseClientTests.test_registration_is_closed_and_nonce_bound",
+        "test_context_lease_client.ContextLeaseClientTests.test_success_waits_for_transport_close_and_receipt",
+        "test_context_lease_client.ContextLeaseClientTests.test_unconfirmed_cleanup_overrides_request_error",
+        "test_context_leases.ControlTests.test_closed_shape_and_duplicate_protocol",
+        "test_context_leases.ControlTests.test_control_shutdown_closes_clients_before_server_wait",
+        "test_context_leases.ControlTests.test_deep_json_handler_denies_without_registration",
+        "test_context_leases.ControlTests.test_exact_boundary_and_overflow",
+        "test_context_leases.ControlTests.test_first_line_without_half_close_does_not_dispatch",
+        "test_context_leases.ControlTests.test_two_frames_rejected_before_dispatch",
+        "test_context_leases.FailureCompletionTests.test_only_actual_failed_ready_completes_error",
+        "test_context_leases.ForwardingFenceTests.test_actual_proxy_run_exits_with_live_persistent_connection",
+        "test_context_leases.ForwardingFenceTests.test_error_notification_keeps_only_whitelisted_sqlstate",
+        "test_context_leases.ForwardingFenceTests.test_parser_completion_after_deadline_cannot_forward_sql",
+        "test_context_leases.ForwardingFenceTests.test_shutdown_keeps_observer_until_context_cleanup_finishes",
+        "test_context_leases.LeaseTests.test_absolute_deadline_and_parent_loss_are_fences",
+        "test_context_leases.LeaseTests.test_cleanup_after_failure_cannot_enable_success",
+        "test_context_leases.LeaseTests.test_context_mutation_preserves_observer_entry",
+        "test_context_leases.LeaseTests.test_deeply_nested_corrupt_journal_degrades_without_crash",
+        "test_context_leases.LeaseTests.test_duplicate_fields_and_boolean_version_degrade",
+        "test_context_leases.LeaseTests.test_expiry_does_not_drop_unknown_reservation",
+        "test_context_leases.LeaseTests.test_invalid_journal_cannot_replace_the_safe_in_memory_schema",
+        "test_context_leases.LeaseTests.test_journal_and_marker_modes_are_private",
+        "test_context_leases.LeaseTests.test_missing_initialized_journal_degrades",
+        "test_context_leases.LeaseTests.test_noncanonical_route_never_registers_or_runs_preflight",
+        "test_context_leases.LeaseTests.test_observer_binding_cannot_overwrite_concurrent_retirement",
+        "test_context_leases.LeaseTests.test_other_thread_cannot_mutate_journal",
+        "test_context_leases.LeaseTests.test_registration_is_exclusive_and_durable",
+        "test_context_leases.LeaseTests.test_uncertified_clean_and_impossible_phase_rejected",
+        "test_context_leases.LeaseTests.test_unknown_observer_cannot_be_overwritten_by_replacement",
+        "test_context_leases.LeaseTests.test_unknown_survives_restart_and_blocks_replacement",
+        "test_context_leases.LeaseTests.test_wrong_generation_never_receives_clean_receipt",
+        "test_context_leases.LeaseTests.test_wrong_process_generation_cannot_await",
+        "test_context_leases.ObserverPrerequisiteTests.test_current_identity_and_reused_generation",
+        "test_context_leases.ObserverPrerequisiteTests.test_safe_defaults_and_disabled_parameter_logging",
+        "test_context_leases.ObserverPrerequisiteTests.test_unsafe_settings_fail_closed",
+        "test_documents.DocumentSQLTests.test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt",
+        "test_documents.DocumentSQLTests.test_competing_revision_and_terminal_stale_receipt",
+        "test_documents.DocumentSQLTests.test_create_capacity_reserves_pending_documents_and_replay",
+        "test_documents.DocumentSQLTests.test_create_revision_zero_and_exact_replay_at_stale_base",
+        "test_documents.DocumentSQLTests.test_encoded_route_preserved_and_encoding_change_collides",
+        "test_documents.DocumentSQLTests.test_failure_after_append_and_receipt_rolls_back_every_row",
+        "test_documents.DocumentSQLTests.test_final_rejection_observed_head_is_locked",
+        "test_documents.DocumentSQLTests.test_forced_fk_rollback_keeps_previous_head",
+        "test_documents.DocumentSQLTests.test_live_owner_and_verified_dead_takeover",
+        "test_documents.DocumentSQLTests.test_live_supervisor_recovery_requires_reap_proof",
+        "test_documents.DocumentSQLTests.test_locked_historical_fresh_id_collision_and_remapping_denial",
+        "test_documents.DocumentSQLTests.test_lost_admission_ack_recovers_same_supervisor_before_worker_start",
+        "test_documents.DocumentSQLTests.test_owned_ids_bounded_kinds_and_cross_scope_fk",
+        "test_documents.DocumentSQLTests.test_policy_fence_and_history_zero_fresh_artifact",
+        "test_documents.DocumentSQLTests.test_reaped_worker_without_captured_start_ticks_requires_absent_pid",
+        "test_documents.DocumentSQLTests.test_receipt_replay_ignores_broken_new_checked_frame",
+        "test_documents.DocumentSQLTests.test_rejected_receipt_and_nonce_fence",
+        "test_documents.DocumentSQLTests.test_scope_and_immutable_sql_grants",
+        "test_documents.DocumentSQLTests.test_simultaneous_exact_key_serializes_and_commits_once",
+        "test_documents.DocumentSQLTests.test_unknown_sqlstates_never_claim_known_rollback",
+        "test_documents.WireTests.test_private_identity_restart_modes_and_symlink",
+        "test_documents.WireTests.test_strict_duplicate_surrogate_number_and_limit",
+        "test_luna_adversarial.LunaAdversarialTests.test_digest_collision_does_not_replace_exact_canonical_bytes",
+        "test_luna_adversarial.LunaAdversarialTests.test_distance_direction_ranks_near_above_orthogonal_and_opposite",
+        "test_luna_adversarial.LunaAdversarialTests.test_embedding_composition_preserves_declared_block_order_and_rejects_zero",
+        "test_luna_adversarial.LunaAdversarialTests.test_invalid_weights_rejected",
+        "test_luna_adversarial.LunaAdversarialTests.test_overlap_deduplicates_and_normalizes_by_larger_unique_pool",
+        "test_luna_adversarial.LunaAdversarialTests.test_polarity_pools_are_compared_only_with_same_polarity",
+        "test_luna_adversarial.LunaAdversarialTests.test_same_instance_in_different_context_gets_no_overlap",
+        "test_luna_adversarial.LunaAdversarialTests.test_valid_weights_keep_score_bounded",
+        "test_luna_adversarial.LunaAdversarialTests.test_vector_dimension_nonfinite_zero_and_database_order_are_checked",
+        "test_luna_semantic.LunaSemanticProductionTests.test_frozen_weighted_scores_and_context_gate",
+        "test_luna_semantic.LunaSemanticProductionTests.test_worker_pools_are_full_and_both_negative_queries_are_sat",
+        "test_ml.MLTests.test_cached_evaluation_and_grid",
+        "test_ml.MLTests.test_checked_variant_endpoint_binding",
+        "test_ml.MLTests.test_invalid",
+        "test_ml.MLTests.test_layout",
+        "test_ml.MLTests.test_macro",
+        "test_ml.MLTests.test_original_cache_corruption_rejected",
+        "test_ml.MLTests.test_original_manifest_hash_rejected",
+        "test_ml.MLTests.test_pool_order_and_coverage",
+        "test_ml.MLTests.test_promotion_rejects_family_leak",
+        "test_ml.MLTests.test_real_training",
+        "test_ml.MLTests.test_training_rejects_holdout",
+        "test_repository.JournalTests.test_chain_missing_corrupt_and_truncation",
+        "test_repository.PostgresTests.test_01_nonbypassrls_exact_and_langgraph",
+        "test_repository.PostgresTests.test_025_lease_owner_and_expired_claim",
+        "test_repository.PostgresTests.test_02_atomic_failure_and_full_gate",
+        "test_repository.PostgresTests.test_03_lineage_revoke_restore_and_retries",
+        "test_repository.RankingTests.test_exact_overlap_and_wrong_context",
+        "test_repository.RankingTests.test_family_alias_duplicate_union",
+        "test_repository.SandboxTests.test_host_sentinel_denied_and_positive_worker",
+        "test_repository.SourceTests.test_no_follow_symlink_components",
+        "test_sql_connections.ConnectionPolicyTests.test_bypass_and_ambient_routes_fail_closed",
+        "test_sql_connections.ConnectionPolicyTests.test_canonical_route_and_safe_startup",
+        "test_sql_connections.ConnectionPolicyTests.test_database_variation_and_kwargs_are_bounded",
+        "test_sql_connections.ConnectionPolicyTests.test_private_tags_require_canonical_uuid_app_role_and_database",
+        "test_sql_connections.ExplicitMigrationTests.test_fresh_existing_and_partial_constraint_repair",
+        "test_sql_context_protocol.ContextProtocolTests.test_backend_reorder_copy_and_wrong_completion_denied",
+        "test_sql_context_protocol.ContextProtocolTests.test_error_messages_do_not_disclose_sql_or_parameters",
+        "test_sql_context_protocol.ContextProtocolTests.test_error_rollback_and_terminate_never_restore_success",
+        "test_sql_context_protocol.ContextProtocolTests.test_external_failure_and_early_terminate_poison_success",
+        "test_sql_context_protocol.ContextProtocolTests.test_named_objects_and_parameter_mismatch_denied",
+        "test_sql_context_protocol.ContextProtocolTests.test_no_next_sql_until_ready_even_after_commandcomplete",
+        "test_sql_context_protocol.ContextProtocolTests.test_no_second_history_or_postcommit_execution",
+        "test_sql_context_protocol.ContextProtocolTests.test_normal_transaction_needs_commit_ready_and_terminate",
+        "test_sql_context_protocol.ContextProtocolTests.test_observer_requires_own_timeout_and_fixed_metadata_only",
+        "test_sql_context_protocol.ContextProtocolTests.test_omitted_sync_and_repeated_sync_fail",
+        "test_sql_context_protocol.ContextProtocolTests.test_out_of_order_or_modified_sql_denied",
+        "test_sql_context_protocol.ContextProtocolTests.test_parse_does_not_advance_the_sequence",
+        "test_sql_context_protocol.ContextProtocolTests.test_private_settings_helper_has_no_variant_escape",
+        "test_sql_context_protocol.ContextProtocolTests.test_ready_requires_command_and_expected_transaction_state",
+        "test_sql_context_protocol.ContextProtocolTests.test_repeated_bind_and_execute_denied",
+        "test_sql_context_protocol.ContextProtocolTests.test_startup_ready_is_required_exactly_once",
+        "test_sql_context_protocol.ContextProtocolTests.test_sync_order_and_limits",
+        "test_sql_guard.RealParserGateTests.test_context_exact_settings_and_observer_metadata_use_real_parser",
+        "test_sql_guard.RealParserGateTests.test_malformed_and_binary_tamper_after_cache",
+        "test_sql_guard.RealParserGateTests.test_modes_and_pipeline",
+        "test_sql_guard.RealParserGateTests.test_native_decisions_and_cache",
+        "test_sql_guard.RealParserGateTests.test_native_denied_unsafe_or_ambiguous",
+        "test_sql_guard.RealParserGateTests.test_nested_opaque_and_protocol_state",
+        "test_sql_guard.RealParserGateTests.test_normal_and_literals",
+        "test_sql_guard.RealParserGateTests.test_pinned_dump_restore_templates",
+        "test_sql_image.ImageTests.test_IM01_initialize_pinned",
+        "test_sql_image.ImageTests.test_IM02_initialize_mismatch",
+        "test_sql_image.ImageTests.test_IM03_copy_race",
+        "test_sql_image.ImageTests.test_IM04_seal_write",
+        "test_sql_image.ImageTests.test_IM05_seal_grow",
+        "test_sql_image.ImageTests.test_IM06_seal_shrink",
+        "test_sql_image.ImageTests.test_IM07_seal_mmap",
+        "test_sql_image.ImageTests.test_IM08_missing_seal",
+        "test_sql_image.ImageTests.test_IM09_wrong_size",
+        "test_sql_image.ImageTests.test_IM10_closed_fd",
+        "test_sql_image.ImageTests.test_IM11_reused_fd",
+        "test_sql_image.ImageTests.test_IM12_lifetime_race",
+        "test_sql_image.ImageTests.test_IM13_duplicate_failure",
+        "test_sql_image.ImageTests.test_IM14_child_inheritance",
+        "test_sql_image.ImageTests.test_IM15_actual_executable",
+        "test_sql_image.ImageTests.test_IM16_procfs_missing",
+        "test_sql_image.ImageTests.test_IM17_noexec_policy",
+        "test_sql_image.ImageTests.test_IM18_parser_success",
+        "test_sql_image.ImageTests.test_IM19_parser_rejection",
+        "test_sql_image.ImageTests.test_IM20_parser_timeout",
+        "test_sql_image.ImageTests.test_IM21_parser_output",
+        "test_sql_image.ImageTests.test_IM22_exact_cache",
+        "test_sql_image.ImageTests.test_IM23_changed_sql",
+        "test_sql_image.ImageTests.test_IM24_changed_generation",
+        "test_sql_image.ImageTests.test_IM25_cache_provenance",
+        "test_sql_image.ImageTests.test_IM26_cache_bounds",
+        "test_sql_image.ImageTests.test_IM27_disk_replacement_running",
+        "test_sql_image.ImageTests.test_IM28_disk_replacement_restart",
+        "test_sql_image.ImageTests.test_IM29_stopped_gate",
+        "test_sql_image.ImageTests.test_IM30_resource_accounting",
+        "test_sql_image.ImageTests.test_IM33_trusted_size_missing",
+        "test_sql_image.ImageTests.test_IM34_source_nonregular",
+        "test_sql_image.ImageTests.test_IM35_source_oversize",
+        "test_sql_image.ImageTests.test_IM36_source_growing",
+        "test_sql_image.ImageTests.test_IM37_source_truncated",
+        "test_sql_image.ImageTests.test_IM38_initializer_deadline",
+        "test_sql_image.ImageTests.test_IM39_initializer_transfer",
+        "test_sql_image.ImageTests.test_IM40_source_short_write",
+        "test_sql_image.ImageTests.test_IM41_slot_wait_no_fd",
+        "test_sql_image.ImageTests.test_IM42_hit_fd_cleanup",
+        "test_sql_image.ImageTests.test_IM43_cancel_fd_cleanup",
+        "test_sql_image.ImageTests.test_IM44_launch_failure_cleanup",
+        "test_sql_image.ImageTests.test_IM45_shutdown_reservations",
+        "test_sql_image.ImageTests.test_IM46_numeric_fd_reuse",
+        "test_sql_image.ImageTests.test_IM47_profile_independent",
+        "test_sql_image.ImageTests.test_IM48_commit_independent",
+        "test_sql_image.ImageTests.test_IM49_policy_independent",
+        "test_sql_image.ImageTests.test_IM50_mapping_independent",
+        "test_sql_image.ImageTests.test_IM51_mapping_alias",
+        "test_sql_image.ImageTests.test_IM52_config_disk_change",
+        "test_sql_image.ImageTests.test_IM53_digest_size_independent",
+        "test_sql_image.ImageTests.test_IM54_status_snapshot_lifecycle",
+        "test_sql_image.ImageTests.test_IM55_stale_completion_shutdown",
+        "test_sql_image.ImageTests.test_IM56_noexec_no_fallback",
+        "test_sql_image.ImageTests.test_cancel_during_live_child_reaps_owner",
+        "test_sql_image.ImageTests.test_close_failure_is_infrastructure_and_sticky",
+        "test_sql_image.ImageTests.test_identity_error_cleanup_failure_sticks",
+        "test_sql_image.ImageTests.test_repeated_proxy_cancellation_retains_slot_until_thread_cleanup",
+        "test_sql_image_consumers.ConsumerIdentityTests.test_disk_mismatch_keeps_live_identity",
+        "test_sql_image_consumers.ConsumerIdentityTests.test_live_snapshot_still_checked_if_disk_missing",
+        "test_sql_image_consumers.ConsumerIdentityTests.test_missing_disk_is_restart_audit_only",
+        "test_sql_proxy.FrameDeadlineTests.test_idle_before_first_byte_outlasts_frame_deadline",
+        "test_sql_proxy.FrameDeadlineTests.test_partial_body_stall_receives_frame_deadline",
+        "test_sql_proxy.FrameDeadlineTests.test_partial_header_stall_receives_frame_deadline",
+        "test_sql_proxy.HandshakeDeadlineTests.test_backend_not_ready_cannot_outlast_overall_deadline",
+        "test_sql_proxy.HandshakeDeadlineTests.test_fragmented_startup_cannot_renew_overall_deadline",
+        "test_sql_proxy.HandshakeDeadlineTests.test_ready_session_remains_usable_beyond_handshake_deadline",
+        "test_sql_proxy.WireProxyTests.test_backend_parse_error_cannot_execute_failed_pipeline",
+        "test_sql_proxy.WireProxyTests.test_backend_unsafe_initial_mode_never_allows_ready_query",
+        "test_sql_proxy.WireProxyTests.test_bind_preserves_sql_looking_text_and_binary",
+        "test_sql_proxy.WireProxyTests.test_cancel_packet_routes_without_sql_admission",
+        "test_sql_proxy.WireProxyTests.test_close_statement_invalidates_dependent_portal",
+        "test_sql_proxy.WireProxyTests.test_copy_data_preserved_only_during_server_copy_stage",
+        "test_sql_proxy.WireProxyTests.test_each_effect_blocks_both_new_source_message_kinds",
+        "test_sql_proxy.WireProxyTests.test_execute_requires_connection_local_portal",
+        "test_sql_proxy.WireProxyTests.test_fifteen_live_handlers_reject_overflow_and_preserve_cancel_capacity",
+        "test_sql_proxy.WireProxyTests.test_fragmented_query_preserved",
+        "test_sql_proxy.WireProxyTests.test_idle_transaction_end_invalidates_named_portal",
+        "test_sql_proxy.WireProxyTests.test_implicit_transaction_control_admitted",
+        "test_sql_proxy.WireProxyTests.test_injected_parser_failure_has_no_direct_backend_fallback",
+        "test_sql_proxy.WireProxyTests.test_invalid_parse_never_reaches_backend",
+        "test_sql_proxy.WireProxyTests.test_invalid_query_never_reaches_backend",
+        "test_sql_proxy.WireProxyTests.test_invalid_wire_frames_fail_closed",
+        "test_sql_proxy.WireProxyTests.test_matching_ready_releases_completed_effect_and_copy_has_no_orphan",
+        "test_sql_proxy.WireProxyTests.test_native_and_protocol_share_accepted_namespace_both_directions",
+        "test_sql_proxy.WireProxyTests.test_native_classifier_and_names_are_conservative",
+        "test_sql_proxy.WireProxyTests.test_native_prepare_counts_toward_shared_object_capacity",
+        "test_sql_proxy.WireProxyTests.test_native_prepare_execute_and_cache_cannot_prepare_another_session",
+        "test_sql_proxy.WireProxyTests.test_native_unknown_target_denied",
+        "test_sql_proxy.WireProxyTests.test_old_ready_does_not_release_newer_execute_effect",
+        "test_sql_proxy.WireProxyTests.test_opaque_and_nested_execute_denied",
+        "test_sql_proxy.WireProxyTests.test_portal_snapshots_unnamed_statement_before_replacement",
+        "test_sql_proxy.WireProxyTests.test_prepared_object_capacity_fails_before_forwarding_overflow",
+        "test_sql_proxy.WireProxyTests.test_protocol_name_lengths_and_prefix_collisions_fail_closed",
+        "test_sql_proxy.WireProxyTests.test_query_and_numbered_parse_admission",
+        "test_sql_proxy.WireProxyTests.test_simple_query_invalidates_unnamed_statement",
+        "test_sql_proxy.WireProxyTests.test_startup_unsafe_encoding_denied",
+        "test_sql_proxy.WireProxyTests.test_unsafe_fragmented_status_precedes_barrier_release",
+        "test_sql_proxy.WireProxyTests.test_unsafe_mode_change_stops_pipeline_before_forwarding",
+        "test_sql_proxy.WireProxyTests.test_unsolicited_ready_after_startup_fails_closed",
+        "test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes",
+        "test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode",
+        "test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots",
+        "test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail",
+        "test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned",
+        "test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source",
+        "test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan",
+        "test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request",
+        "test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history",
+        "test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory",
+        "test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback",
+        "test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable",
+        "test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only",
+        "test_validation_context.ValidationContextWireTests.test_cli_dispatch_has_one_context_call",
+        "test_validation_context.ValidationContextWireTests.test_closed_cli_shape_and_strict_json",
+        "test_validation_context.ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries",
+        "test_validation_context.ValidationContextWireTests.test_context_arguments_reject_before_connection",
+        "test_validation_context.ValidationContextWireTests.test_full_cli_output_boundary_and_nonce",
+        "test_validation_context.ValidationContextWireTests.test_legacy_mutation_uncertainty_remains",
+        "test_validation_context.ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty",
+        "test_validation_context.ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context"
+      ]
+    },
+    {
+      "id": "CC32",
+      "observed": "No actual ordinary-backend tail/PG-slot exhaustion fixture executed.",
+      "remaining": "Twenty owned backend-tail attempts, measured PG rejections, three context registrations, observer cleanup and observer-loss variant without inferring backend counts from handler caps.",
+      "name": "Ordinary backend-tail churn and PG slot exhaustion",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED"
+    },
+    {
+      "id": "CC33",
+      "observed": "All33 cases are mapped here; copied run/report/source hashes and focused tests are indexed. This report is a readiness map, not the final registered acceptance binder. All33 mapped with exact frozen source, copied target, runtime/report hashes,250 complete Python tests,52 real SQL checks and backup/HTTP evidence.",
+      "remaining": "Complete missing fault cases and two clean implementation builds; final registered all-case binder remains absent. Preserve r6 selector-hash caveat and all prior failures. Pre-key automatic recovery and target performance stay separately OPEN/BLOCKED.",
+      "name": "Final finite runtime binding",
+      "closure_status": "BLOCKED",
+      "offline_test_ids": [],
+      "runtime_reports": [],
+      "runtime_subcases": [],
+      "evidence_level": "NOT_EXECUTED",
+      "integration_evidence": {
+        "manifest.json": {
+          "path": "runs/r11-regressions/manifest.json",
+          "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+        },
+        "report.json": {
+          "path": "runs/r11-regressions/report.json",
+          "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+        },
+        "python-tests.json": {
+          "path": "runs/r11-regressions/python-tests.json",
+          "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+        },
+        "python-tests.log": {
+          "path": "runs/r11-regressions/python-tests.log",
+          "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+        },
+        "sql-runtime.json": {
+          "path": "runs/r11-regressions/sql-runtime.json",
+          "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+        },
+        "sql-runtime.log": {
+          "path": "runs/r11-regressions/sql-runtime.log",
+          "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+        },
+        "client-coverage.json": {
+          "path": "runs/r11-regressions/client-coverage.json",
+          "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+        },
+        "recovery-report.json": {
+          "path": "runs/r11-regressions/recovery-report.json",
+          "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+        },
+        "document-recovery-report.json": {
+          "path": "runs/r11-regressions/document-recovery-report.json",
+          "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+        },
+        "http-smoke.json": {
+          "path": "runs/r11-regressions/http-smoke.json",
+          "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+        },
+        "restart-report.json": {
+          "path": "runs/r11-regressions/restart-report.json",
+          "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+        }
+      }
+    }
+  ],
+  "boundary": "Readiness map of actual finite evidence and explicit gaps. No whole-case VERIFIED, universal refinement, production deployment or target-hardware acceptance claim.",
+  "supersedes": "case-readiness-r1.json",
+  "integration_regression_bindings": {
+    "manifest.json": {
+      "path": "runs/r11-regressions/manifest.json",
+      "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+    },
+    "report.json": {
+      "path": "runs/r11-regressions/report.json",
+      "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+    },
+    "python-tests.json": {
+      "path": "runs/r11-regressions/python-tests.json",
+      "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+    },
+    "python-tests.log": {
+      "path": "runs/r11-regressions/python-tests.log",
+      "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+    },
+    "sql-runtime.json": {
+      "path": "runs/r11-regressions/sql-runtime.json",
+      "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+    },
+    "sql-runtime.log": {
+      "path": "runs/r11-regressions/sql-runtime.log",
+      "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+    },
+    "client-coverage.json": {
+      "path": "runs/r11-regressions/client-coverage.json",
+      "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+    },
+    "recovery-report.json": {
+      "path": "runs/r11-regressions/recovery-report.json",
+      "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+    },
+    "document-recovery-report.json": {
+      "path": "runs/r11-regressions/document-recovery-report.json",
+      "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+    },
+    "http-smoke.json": {
+      "path": "runs/r11-regressions/http-smoke.json",
+      "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+    },
+    "restart-report.json": {
+      "path": "runs/r11-regressions/restart-report.json",
+      "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+    }
+  }
+}

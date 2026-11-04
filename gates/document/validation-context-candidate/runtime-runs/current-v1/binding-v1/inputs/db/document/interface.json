@@ -1,0 +1,138 @@
+{
+  "protocol": 1,
+  "entrypoint": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python -m allow_documents.cli",
+  "envelope": {
+    "protocol": 1,
+    "requestId": "UUID",
+    "operation": "operation below",
+    "args": "closed object"
+  },
+  "operation_fields": {
+    "init": [
+      "policyVersion"
+    ],
+    "list": [],
+    "read": [
+      "documentId",
+      "revision"
+    ],
+    "receipt": [
+      "bodyBase64",
+      "documentId",
+      "key",
+      "method",
+      "route"
+    ],
+    "ownedIds": [
+      "documentId",
+      "ids"
+    ],
+    "admit": [
+      "bodyBase64",
+      "documentId",
+      "expectedRevision",
+      "key",
+      "method",
+      "operation",
+      "ownerPid",
+      "ownerStartTicks",
+      "route"
+    ],
+    "recoverUnstarted": [
+      "bodyBase64",
+      "documentId",
+      "key",
+      "method",
+      "noWorkerStarted",
+      "ownerPid",
+      "ownerStartTicks",
+      "route"
+    ],
+    "recover": [
+      "bodyBase64",
+      "documentId",
+      "key",
+      "method",
+      "noWorkerStarted",
+      "nonce",
+      "ownerPid",
+      "ownerStartTicks",
+      "route",
+      "workerPid",
+      "workerStartTicks"
+    ],
+    "finalize": [
+      "artifact",
+      "bodyBase64",
+      "direction",
+      "documentId",
+      "expectedRevision",
+      "key",
+      "method",
+      "nonce",
+      "outcomeBase64",
+      "policyVersion",
+      "result",
+      "route",
+      "targetRevision"
+    ],
+    "policy": [
+      "expectedPolicyVersion",
+      "policyVersion"
+    ]
+  },
+  "scope": "Loaded only from private .runtime/documents/identity.json; bootstrap checks any existing document store before provisioning missing identity. No scope/DSN/SQL accepted in bridge frames.",
+  "artifact_fields": [
+    "artifactId",
+    "mode",
+    "source",
+    "sourceHash",
+    "module",
+    "occurrences",
+    "trivia",
+    "analysisDescriptors",
+    "policyVersion",
+    "dependencyHash"
+  ],
+  "reply": "{protocol,requestId,status,data}; successful dispatch outer status OK, inspect data.status. receipt/finalize data.responseBase64 is exact stored original HTTP envelope bytes. Reads return headRevision/requestedRevision/artifact/provenance.",
+  "statuses": [
+    "READY",
+    "ADMITTED",
+    "IN_PROGRESS",
+    "ABSENT",
+    "REPLAY",
+    "COMMITTED",
+    "REJECTED",
+    "STALE_REVISION",
+    "STALE_OWNER",
+    "REVALIDATE",
+    "IDEMPOTENCY_CONFLICT",
+    "CAPACITY_PRE_ADMISSION",
+    "NOT_FOUND"
+  ],
+  "outer_failure_statuses": [
+    "ERROR",
+    "UNAVAILABLE",
+    "KNOWN_ROLLBACK",
+    "UNKNOWN_COMMIT_OUTCOME"
+  ],
+  "finalization": "COMMITTED stale base returns STALE_REVISION+acceptedRevision and retains nonce/reservation; coordinator builds REJECTED outcome then finalizes. NonCREATE REJECTED outcome.data.acceptedRevision must equal locked head, otherwise same STALE_REVISION loop. Policy mismatch returns REVALIDATE without terminal receipt. Existing receipt is returned before new frame/artifact/outcome validation.",
+  "recovery": "recover requires current nonce and same live supervisor PID/start ticks. Explicit worker PID/start ticks must be dead, or null with trusted noWorkerStarted=true. It rotates nonce and retains all reservations; stale old nonce cannot finalize. admit takeover for a different supervisor only after old PID/start identity verifiably dead. No time expiry. Coordinator must enforce its shared validation permit and proof provenance.",
+  "limits": {
+    "input_bytes": 3145728,
+    "output_bytes": 1572864,
+    "original_http_body_bytes": 262144,
+    "artifact_bytes": 1048576,
+    "original_http_outcome_bytes": 1048576,
+    "source_utf8_bytes": 32768,
+    "ownedIds": 4096
+  },
+  "identity": "ownerStartTicks Linux /proc/<supervisorPID>/stat field22, exact string; CLI requires admit/recover ownerPid equal its actual getppid. PID reuse never proves old owner alive.",
+  "sql": "Only allow_retrieval.sql_connections.connect; existing allow-app/allow-migration tags and fixed existing GUC keys. No direct backend fallback.",
+  "testing": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python -m unittest retrieval.tests.test_documents -v",
+  "known_rollback": "Conservative whitelist: SQLSTATE classes22,23,25,42 and exact40001/40P01. All class08,08007,40003 and other unlisted errors are UNKNOWN_COMMIT_OUTCOME.",
+  "recoverUnstarted": "Only coordinator retaining exact request proof recorded BEFORE a lost admission call, while holding shared permit and before any worker start, may send noWorkerStarted=true with same actual supervisorPID/start. Store checks exact active identity and rotates nonce under locks. Ordinary samePID admission remains IN_PROGRESS. Absent admission returns ABSENT so coordinator may admit fresh.",
+  "route": "Document route is exact literal server:UUID or canonical uppercase server%3AUUID segment, never normalized. Changed route encoding under same key conflicts; lowercase escapes/query/double encoding reject.",
+  "freshness": "Before final append, under workspace/document locks scan bounded authorized document module definitions. BLOCK definitions equal rawexisting IDs (same historical kind) plus injective exact draft-definition remapping; fresh mapping values disjoint full history. SOURCE generated definitions all disjoint full history. HISTORY_COPY exact content revalidation remains separate. Failure precedes mutation/receipt; no ID side table.",
+  "recovery_null_start": "Narrow implementation of frozen trusted verified-old-owned-process-reaping predicate: supervisor must establish its owned Process has been reaped before workerPid nonnull/workerStartTicks null/noWorkerStarted=false. Store additionally requires identity.process_start(workerPid) is None. Never compare alive(pid,None); any live/reused process with observable start ticks rejects. Exact owner supervisor/start, current nonce and exact original intent remain required. This is not expiry or a new authority."
+}

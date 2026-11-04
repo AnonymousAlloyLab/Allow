@@ -1,0 +1,327 @@
+{
+  "id": "ALLOW-WARM-ONE-USE-INFRASTRUCTURE-FEASIBILITY-R1",
+  "status": "FEASIBLE_WITH_EXPLICIT_RUNTIME_GAPS",
+  "created_utc": "2026-11-04T08:47:18.830181+00:00",
+  "production_edits": false,
+  "active_build_or_runtime_mutation": false,
+  "benchmark_executed": false,
+  "viable_approach": "A fixed Python helper enters a generation-owned delegated worker cgroup, captures each class/resource/JAR into a sealed memfd, and execs existing bubblewrap with ro-bind-data at the unchanged logical classpath paths. Public trusted capture/setup use FS64MiB; the fixed in-sandbox prlimit lowers hard+soft FS8MiB before the JVM. One private advisory request consumes and retires each JVM; no reuse after any private input.",
+  "actual_inventory": {
+    "files": 191,
+    "bytes": 43404937,
+    "classes_and_resources": 156,
+    "dependency_jars": 34,
+    "alloy_jars": 1,
+    "image_file_cap": 512,
+    "image_byte_cap": 67108864,
+    "observed_peak_image_owner_fd_count": 195,
+    "observed_final_fd_count": 4,
+    "descriptor_note": "512 caps image descriptors; totalhelper FD limit1024 accommodatesstdio/control/setup descriptors."
+  },
+  "delegation": {
+    "evidence": {
+      "path": "gates/performance/warm-one-use-feasibility-20261104/delegation-probe-r1/report.json",
+      "sha256": "01c551d161cbcd39706bb43ac657f3579c77ace4f12ce1625ee2f43e1a27bb41",
+      "bytes": 2644
+    },
+    "cleanup": {
+      "path": "gates/performance/warm-one-use-feasibility-20261104/delegation-probe-r1/cleanup-confirmation.json",
+      "sha256": "b826047ab3a3f8f4bd3316819df6527d3a6669a92fbc9281c41ee2a2f4c231d3",
+      "bytes": 588
+    },
+    "actual": "New private user Delegate=yes scope, uid1000 andcpu/memory/pids. Moveowner intoownleaf; enablecontrollers atemptydelegate root. Forkpipeblockedchild, place+verifybeforepublicexec. Reap; actualpopulated0; removechildgroups. ExactunitDescription+InvocationIDcleanup; scopepositiveempty andpathabsent."
+  },
+  "image_variants": [
+    {
+      "run": "image-probe-r1",
+      "status": "BLOCKED_PRESERVED",
+      "detail": "ro-bind-data underFS8MiB cannotcopy21,064,917byteAlloy.jar; actualEFBIG. Allseals/identity/FDcleanup passed."
+    },
+    {
+      "run": "image-probe-r2",
+      "status": "BLOCKED_PRESERVED",
+      "detail": "Installed0.9.0-1ubuntu0.3 ro-bind-fd failsanonymousmemfd path /proc/self/fd/4; flagpresence insufficient. Upstreamissue755 corroboratesrealpath limitation; exactinstalledfailureisprimaryevidence."
+    },
+    {
+      "run": "image-probe-r3",
+      "status": "BLOCKED_PRESERVED",
+      "detail": "Finalexecutable reached; observerregex incorrectlyrejectedkerneltrailingwhitespace. No limitrelaxation; r4fixesonlyfixtureformatparser andretainsrawobservation."
+    },
+    {
+      "run": "image-probe-r4",
+      "status": "PASS",
+      "detail": "All191actualmountedfilehashes match sealedcapturedbytes andinstalledsource. DirectexistingJava BuildIdentity matches sealedlogicalidentity a280c31119621daf2d233ebdf292318c0d9bb8814cd2339ae2669d8ed6a8cde4. Actualfinalpublicexecutable FS8MiBhard+soft,AS2GiB,CPU12,CapEff/CapPrm/CapBnd0. All191write/grow/shrinkdenials pass. FDs195\u21924, exactsourcebytes/membershipunchanged, directchildrenreaped andscopepositiveempty/pathabsent."
+    }
+  ],
+  "contract_review": {
+    "current_contract": {
+      "path": "gates/performance/warm-pool-candidate/contract.json",
+      "sha256": "dc055e04071710626617dad03fc8b867be0a57ddd0f37e57f7fc1d551f0c5a83",
+      "bytes": 23294
+    },
+    "conclusion": "No remaining implementation-feasibility contradiction identified in the amended file. Originalro-bind-data/FS8MiBordering was a real blocker; currentcapture/setupFS64MiB\u2192fixedin-sandboxprlimitFS8MiB amendment resolves the demonstrated issue.",
+    "clarifications": [
+      "RLIMIT_CPU12 is perprocess, not a cumulativewholetreeCPU guarantee; usewholegroupcpu.stat foraccounting.",
+      "JavaProcessBuilder cannotpassarbitraryFDs throughits publicAPI; fixedhelper creates/owns/inheritsmemfds andexecs bwrap, retainingdirectchildownership.",
+      "Publicbootstrapline onstdin precedes exec and is fullyconsumed; privateframe waitsforREADY+freshcontextCLEAN.",
+      "CurrentFrameProcess cannotbecombinedwithcompetingREADY/stderrreaders; warmtransport needsone lifetimeowner withcontinuous32KiBstderr cap.",
+      "Directory/classpath shape preserved; oneprivateuse doesnotcertifypublicbootstrap staticinitialization semantics withoutdifferential evidence."
+    ]
+  },
+  "remaining_runtime_gaps": [
+    "NoactualWarmDocumentWorkerMain, classloader/resource initialization orprivateAlloyrequest tested.",
+    "No fullhelperparentdeath/spawn-crash/restartledger/UNKNOWNreconciliation faultmatrix.",
+    "No mountedwriteorcapability-escalation attackmatrix; kernelEPERM onsealedsourceFDs andfinalCap0/limits arefinite positiveevidence only.",
+    "No actualcandidateCLEAN-to-handoff/publication/lifetimeDeadline/2slotsharedlegacytransition tests.",
+    "No4vCPU8GiBproductionhostacceptance, cold/sustained/onehour/10k/pairedHTTP performanceclaim.",
+    "Javaidentityreader uses currentexisting BuildIdentity only; noAlloyengine/parsing/solving oruserprivateinput ran."
+  ],
+  "safe_next_step": "Freeze amendedcontract+experiment+exactLean/types/council inputroot beforedependentproductionadapter work; retainfreshDEFAULT livepreview.",
+  "primary_references": [
+    "https://raw.githubusercontent.com/containers/bubblewrap/v0.9.0/bubblewrap.c",
+    "https://github.com/containers/bubblewrap/issues/755",
+    "https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html"
+  ],
+  "source_snapshots": [
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/IdentityReadProbe.java",
+        "sha256": "0bd0321305cbe5e6293d5b591c3461d1635b4bee670a17bbfbb23ee0dfda1fbb",
+        "bytes": 910
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/IdentityReadProbe.java",
+        "sha256": "0bd0321305cbe5e6293d5b591c3461d1635b4bee670a17bbfbb23ee0dfda1fbb",
+        "bytes": 910
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/delegation_probe.py",
+        "sha256": "5b9ac9d610d3a3985d625546cfdbdf02700067f20f00f719ac7837cc53d1e4d8",
+        "bytes": 5474
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/delegation_probe.py",
+        "sha256": "5b9ac9d610d3a3985d625546cfdbdf02700067f20f00f719ac7837cc53d1e4d8",
+        "bytes": 5474
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/delegation_probe_child.py",
+        "sha256": "5b98193e0cb00994e21077166a6580e5b785d76f26fb3ad8dd4e6bc060fc5986",
+        "bytes": 4363
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/delegation_probe_child.py",
+        "sha256": "5b98193e0cb00994e21077166a6580e5b785d76f26fb3ad8dd4e6bc060fc5986",
+        "bytes": 4363
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/image_probe.py",
+        "sha256": "ba70f0d9f36f0b3ab563ab15ada615d39f940bd45824ce1c450b0f351d7aaee8",
+        "bytes": 5074
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/image_probe.py",
+        "sha256": "ba70f0d9f36f0b3ab563ab15ada615d39f940bd45824ce1c450b0f351d7aaee8",
+        "bytes": 5074
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/image_probe_child.py",
+        "sha256": "1aca6b1ba023148fefaa68a89b52efc9cc3b5ee0918e33639ee3b9d7416ed94d",
+        "bytes": 11430
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/image_probe_child.py",
+        "sha256": "1aca6b1ba023148fefaa68a89b52efc9cc3b5ee0918e33639ee3b9d7416ed94d",
+        "bytes": 11430
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r3.py",
+        "sha256": "5978493dafeeace84098f04b0aad135d16565c84cf68c6e5fbaaa50580488266",
+        "bytes": 13878
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r3.py",
+        "sha256": "5978493dafeeace84098f04b0aad135d16565c84cf68c6e5fbaaa50580488266",
+        "bytes": 13878
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r4.py",
+        "sha256": "23fc55fba54b733b17b27919e90fad747abfa9de12f08ed3f289b7d7e228e2b9",
+        "bytes": 14055
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r4.py",
+        "sha256": "23fc55fba54b733b17b27919e90fad747abfa9de12f08ed3f289b7d7e228e2b9",
+        "bytes": 14055
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/image_probe_r3.py",
+        "sha256": "d12f74a342635aeb4f6958eb97e34fb0b93e1d5707ecb9494519419e045d494c",
+        "bytes": 5099
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/image_probe_r3.py",
+        "sha256": "d12f74a342635aeb4f6958eb97e34fb0b93e1d5707ecb9494519419e045d494c",
+        "bytes": 5099
+      }
+    },
+    {
+      "original": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/image_probe_r4.py",
+        "sha256": "292df14e2ca0108347352a286ea3672e67c9d318f736dbeb9ecd9e749a942af9",
+        "bytes": 5099
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/gates/performance/warm-one-use-feasibility-20261104/image_probe_r4.py",
+        "sha256": "292df14e2ca0108347352a286ea3672e67c9d318f736dbeb9ecd9e749a942af9",
+        "bytes": 5099
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+        "sha256": "5d7fb4b6fbe905c8de8f10127c88c7a3b2fa09419f67cedda2a814f23b34698d",
+        "bytes": 5363
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+        "sha256": "5d7fb4b6fbe905c8de8f10127c88c7a3b2fa09419f67cedda2a814f23b34698d",
+        "bytes": 5363
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+        "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0",
+        "bytes": 2474
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+        "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0",
+        "bytes": 2474
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+        "sha256": "fa7243e235754824157a8375fb2f21e5c7360200060cfbe6e76f9a034476b3ee",
+        "bytes": 7115
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+        "sha256": "fa7243e235754824157a8375fb2f21e5c7360200060cfbe6e76f9a034476b3ee",
+        "bytes": 7115
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+        "sha256": "db93d3f5cbaae317ee7c621579981288b1c7cd5b05f1bb18d275fc06e190e9b2",
+        "bytes": 14125
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+        "sha256": "db93d3f5cbaae317ee7c621579981288b1c7cd5b05f1bb18d275fc06e190e9b2",
+        "bytes": 14125
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+        "sha256": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08",
+        "bytes": 4110
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/FrameProcess.java",
+        "sha256": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08",
+        "bytes": 4110
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+        "sha256": "ffb71612c7a083bfa97201f1244fa338ec4d586b6427f71a70e4e1dc7efe4958",
+        "bytes": 1019
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+        "sha256": "ffb71612c7a083bfa97201f1244fa338ec4d586b6427f71a70e4e1dc7efe4958",
+        "bytes": 1019
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+        "sha256": "fcb25f4e8c2c005df6c68295efe02a9bdad58eb316552f78f6fa1e7f73963863",
+        "bytes": 7003
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+        "sha256": "fcb25f4e8c2c005df6c68295efe02a9bdad58eb316552f78f6fa1e7f73963863",
+        "bytes": 7003
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/backend/JobControl.java",
+        "sha256": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+        "bytes": 1436
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/backend/JobControl.java",
+        "sha256": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+        "bytes": 1436
+      }
+    },
+    {
+      "original": {
+        "path": "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+        "sha256": "f79d5bc24568ca1616f4054b3d3db199e292821ff1a3fe920ee3ac8619ae4986",
+        "bytes": 4279
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+        "sha256": "f79d5bc24568ca1616f4054b3d3db199e292821ff1a3fe920ee3ac8619ae4986",
+        "bytes": 4279
+      }
+    },
+    {
+      "original": {
+        "path": "retrieval/allow_retrieval/sql_image.py",
+        "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+        "bytes": 14138
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/retrieval/allow_retrieval/sql_image.py",
+        "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+        "bytes": 14138
+      }
+    },
+    {
+      "original": {
+        "path": "retrieval/allow_retrieval/sql_image_init.py",
+        "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+        "bytes": 4014
+      },
+      "snapshot": {
+        "path": "gates/performance/warm-one-use-feasibility-20261104/review-inputs/retrieval/allow_retrieval/sql_image_init.py",
+        "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+        "bytes": 4014
+      }
+    }
+  ]
+}

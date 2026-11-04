@@ -1,0 +1,418 @@
+{
+  "reviewer": "sol-1",
+  "decision": "APPROVE_GAMEPLAN",
+  "package_root_sha256": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+  "checked_files": [
+    {
+      "path": "README.md",
+      "sha256": "3775e8c1a9646545fd017cb0e60f45289f220145bcea637cb09199139e0b6747"
+    },
+    {
+      "path": "backend/pom.xml",
+      "sha256": "f04a127ac3362e6ffca462e2dcbfadc9f302e7c5fb4ff20c248528c3a2b2f4c4"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+      "sha256": "2c0dcdbe87700bd9695efd3cb11a0462cefe606d6cdcc719a0c5ad8e0df3487c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+      "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+      "sha256": "bc94212e0d9049e6de47b405177108a45ae34dff706be474d325c8a0f62fdac8"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "sha256": "76763b82e67c8378a159345bfee99990c8de703ec4042cadfced97e13d8b90da"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+      "sha256": "cd0d3b5478bf8522bb52438104bdb4d66152ce24e85c6137b681748ae2ee0b40"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentValidationContext.java",
+      "sha256": "248d2c74cb7ff0dc777760fe56f8f23086a9bdba302e7490415be6d8f5007bb6"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "4502e4da14b8002b309c597a9709b93505c5ed35458b4aeef436ca7e06e657ab"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "sha256": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessIdentity.java",
+      "sha256": "a47e6cb81188237ded7dd7da505868930cfa7040e05ed8ed3585d86e4902aab7"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+      "sha256": "984d42f9ab6aba4e308636ae966fdb3ef0d7f00b825cbc18233c6f1a139b2498"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/DocumentEngine.java",
+      "sha256": "ad94dbdecff44f80bf35d71842314ba41df19375a6baa1d28a8d7d570012f04b"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+      "sha256": "f79d5bc24568ca1616f4054b3d3db199e292821ff1a3fe920ee3ac8619ae4986"
+    },
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    {
+      "path": "docs/current-status.md",
+      "sha256": "f0058a50144c0b6399da5e441120b8f160a59920a3d6bed6fedef52c01feaa43"
+    },
+    {
+      "path": "docs/document-stage.md",
+      "sha256": "e8e331e1917a9c887736f1daaf8a39bf91c5d1bb935517c2c8120849c4977a2f"
+    },
+    {
+      "path": "docs/egraph-stage.md",
+      "sha256": "6044062286c6ef14369781a5600e1387cd1aa8bde7d2453b0d97581871830e4f"
+    },
+    {
+      "path": "docs/implementation-g1.md",
+      "sha256": "85311003479b0f748223c391a568e9b89013f25bfe91dd6e48f2581e45dfcf6d"
+    },
+    {
+      "path": "docs/performance-remediation-plan.md",
+      "sha256": "76dbcdd7f047497eadee97eed20574822993c40e2fe751f96a65846ba65e25fb"
+    },
+    {
+      "path": "docs/retrieval-stage.md",
+      "sha256": "126987dcfc59f3af9d8ff9890479ab129c5d1258b4f52aebb982b03f206a87bd"
+    },
+    {
+      "path": "docs/sql-stage.md",
+      "sha256": "baae7db2a280c7061d3298625ea318d9f11c3becda8f086fa86067154db1e9ca"
+    },
+    {
+      "path": "formal/Allow.lean",
+      "sha256": "7584b31e772124904597735749190810a1b4e84c43166ff20509c368e043834c"
+    },
+    {
+      "path": "formal/Allow/Associativity.lean",
+      "sha256": "b0e003ebd07a530eabec1edd241f17a940505fb538e870a2ce3015bbe2849316"
+    },
+    {
+      "path": "formal/Allow/Canonical.lean",
+      "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+    },
+    {
+      "path": "formal/Allow/Contract.lean",
+      "sha256": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10"
+    },
+    {
+      "path": "formal/Allow/Document.lean",
+      "sha256": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07"
+    },
+    {
+      "path": "formal/Allow/EGraph.lean",
+      "sha256": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab"
+    },
+    {
+      "path": "formal/Allow/Evidence.lean",
+      "sha256": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+    },
+    {
+      "path": "formal/Allow/FieldOrder.lean",
+      "sha256": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0"
+    },
+    {
+      "path": "formal/Allow/Foundation.lean",
+      "sha256": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7"
+    },
+    {
+      "path": "formal/Allow/Generated.lean",
+      "sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925"
+    },
+    {
+      "path": "formal/Allow/ImmutableImageCandidate.lean",
+      "sha256": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e"
+    },
+    {
+      "path": "formal/Allow/Kernel.lean",
+      "sha256": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503"
+    },
+    {
+      "path": "formal/Allow/PartialTypes.lean",
+      "sha256": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7"
+    },
+    {
+      "path": "formal/Allow/Retrieval.lean",
+      "sha256": "b4e348c95d346cec441b04b85713df0c81150f5199062c513d9c76a684a60965"
+    },
+    {
+      "path": "formal/Allow/Slots.lean",
+      "sha256": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f"
+    },
+    {
+      "path": "formal/Allow/SqlRouting.lean",
+      "sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f"
+    },
+    {
+      "path": "formal/Allow/Typing.lean",
+      "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    {
+      "path": "formal/Allow/ValidationContextCandidate.lean",
+      "sha256": "b489b52ea9edd291afca8ce15dce746c05f079f8ed00913a61948ec4c37d1cb4"
+    },
+    {
+      "path": "formal/lake-manifest.json",
+      "sha256": "58c14e76084b8514765deb185e47743bf95339f17023336e73ce8ee0fe357fa4"
+    },
+    {
+      "path": "formal/lakefile.toml",
+      "sha256": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6"
+    },
+    {
+      "path": "formal/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "gates/document/browser-benchmark-candidate/protocol.json",
+      "sha256": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/report.json",
+      "sha256": "0a4e6bc64fdf1862f15f1532588656e0748b7669ad728ed1afc8127cc9b6cc67"
+    },
+    {
+      "path": "gates/document/component-profiles/remaining-latency-options.json",
+      "sha256": "2e4b522b77d231b2880a97f02492e26039b7cbe3c3f5d43fc81f23aec820d891"
+    },
+    {
+      "path": "gates/document/implementation-manifest.json",
+      "sha256": "60d5217afd0b937437bdafcad19ac2842c201de71132a4226740f2501c35c60d"
+    },
+    {
+      "path": "gates/document/implementation-report.json",
+      "sha256": "d6f83003e57b69f00ca10067bedd39efa10d963ec521ec45f9da1316bf80e6ce"
+    },
+    {
+      "path": "gates/document/server-performance.json",
+      "sha256": "82627d8b559531399be33ccef023abc210e79586772e11def066be5f250a3052"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/contract.json",
+      "sha256": "652f1950fb7497df063e58ebd05b54b0363f1bd2358b84b0900055508ab9c806"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/formal-runs/final-309-v1/report.json",
+      "sha256": "b01467b80b8dc8989826aa37004b0a53cb654da727ef4a5bfbe402b5fe772da9"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/lifecycle-limitation-r1.json",
+      "sha256": "65f26747d6be12dcb01f40fc4090f56787ea7a919f937cfd3b7478f4a07584b7"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-closure/runs/final-v2/report.json",
+      "sha256": "2ca5b76a2b5d3d80cc60a12c5d469d332b8ceac9e79fa6f537e6ac64bfd57756"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-test-plan.json",
+      "sha256": "31cccb355382536f1505d310a6a4bf892463dca19a521b1314c914bb4d01a431"
+    },
+    {
+      "path": "gates/document/validator-session-candidate/contract.json",
+      "sha256": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d"
+    },
+    {
+      "path": "gates/document/validator-session-candidate/council-disposition.json",
+      "sha256": "e11ae7f460d8aa622dd6a79a3de72efb870ba03026eb7d2d5828197f6546cba7"
+    },
+    {
+      "path": "gates/documentation/cleanup-20261103/cleanup-receipt.json",
+      "sha256": "604378abc7140a67e7bafd4a90c8884e3a6978f8cdad044e2ad8a349280d6d71"
+    },
+    {
+      "path": "gates/documentation/cleanup-20261103/pre-cleanup/manifest.json",
+      "sha256": "793be2194ca56fc7dd60b809fec6a71aec76497f14007599f22037fafdc529d7"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/Audit.lean",
+      "sha256": "f3616e050df5894c8299187f2f8217c077f62db885a7b7d6e5a106f5b452daa8"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/PerformancePlan.lean",
+      "sha256": "daf0e9ff12748476af89d2763439ab0db8204ad96db65f570323ac51a90b1ca6"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/author-type-audit.log",
+      "sha256": "73542f700468d188002be239d1e6225e603bc03b1a25129fd5dddca68c2b2a7a"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/basis.json",
+      "sha256": "82fad6a48f54a06fb8e950223469c9321c0c769899412d5c77be8f927514c75b"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/claims.json",
+      "sha256": "e6b8e7f65b7eb939c92fbffe29c897adb43aea70e278f044fbc53b3d80cbe861"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/contract.json",
+      "sha256": "de33d8d9f9143ff9cf832305cce0da377278c208c642a708db7cd140cc879df2"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/development-check.json",
+      "sha256": "05d33554d4d1c165d86cfd78fdf468fe6dfd8f272aaf37d3888f282713112990"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/model-closure-config.json",
+      "sha256": "f4bffbc7f072b96f573d5e1c8a0a6c3e670c9c110dbdc55406e97eefb8202048"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/review-input-pins.json",
+      "sha256": "e6294ceb46c5cb386889175fee3e4a28442aa00bb5039ac9b2be776d5112562d"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-astra-1.json",
+      "sha256": "7ce862b839242dbffc20e76e028231ae37fde7add18c7e88383492ca3446d86b"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-astra-2.json",
+      "sha256": "23d78482fe5fb43fadc272542afe2a457f40c0945841593adfe923b1fe6a8778"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-sol-1.json",
+      "sha256": "d2459a01d4cea85f2e13d197fb8e592d52e690c92cba240353235edf5c6ec689"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-sol-2.json",
+      "sha256": "ca39936f8ddaea7e4c2de73c4bf36bc05185d4ceab352f167714bf8abf8500f9"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-terra-1.json",
+      "sha256": "db9346c9756f893a40888caa242f29e10ab5223f1425421d6bfb8f58c981b1d6"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-terra-2.json",
+      "sha256": "13d59f8e7235908db7473eccd88332db3944a57c6719601df35570bda2094ca4"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/revision-r2.json",
+      "sha256": "95e159f96c99d82c6ab78710aa5c842e24f49701d222ce38bb62704ad3a5108f"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/runtime-plan.json",
+      "sha256": "5063de513ae15c1f3426e73a15f1b9c3613594320c2ee98a9f8690cafca59d68"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/types.json",
+      "sha256": "36d285c91855e429a8cb912c55bbfd46de1dd57a931e79aafcb8ad9fb1b8905b"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/verify_plan_model.py",
+      "sha256": "7ad61c65787d4c85c8a97c13988ab47e8f463bb7baeb9e6b636bda63849ac950"
+    },
+    {
+      "path": "retrieval/allow_documents/cli.py",
+      "sha256": "b6f2266b4424a780f001b60a8c6a931750dd168271f037f801298cd89b3dec67"
+    },
+    {
+      "path": "retrieval/allow_documents/store.py",
+      "sha256": "f43df582a6d41b07fcc9f434548653b8b6d60c95a05e27138c288df9e961133a"
+    },
+    {
+      "path": "retrieval/allow_documents/wire.py",
+      "sha256": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98"
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0"
+    },
+    {
+      "path": "reviews/validator-session-astra-1.json",
+      "sha256": "51f6107bb7b9d5fafbdf501d2cefb21ff473bb8ef68f24e58b2b6cd3fa00e5b8"
+    },
+    {
+      "path": "reviews/validator-session-astra-2.json",
+      "sha256": "69fd11df8fa5d3f8bef7dc2aa8deb527f09a63f9671af4e627e822f349f5c084"
+    },
+    {
+      "path": "reviews/validator-session-sol-1.json",
+      "sha256": "12ad2e806822d105b35e0bf8ecb09224e2447c17924daa266eb6e3dcda83aa70"
+    },
+    {
+      "path": "reviews/validator-session-sol-2.json",
+      "sha256": "385c161bb98898d6c92db6d5468ada94577b84cc0a65fe8ea4868d1f2aa58416"
+    },
+    {
+      "path": "reviews/validator-session-terra-1.json",
+      "sha256": "c40ce9f9e3980031138ac20907587f8b95ad9b8de71aa93bbf84569f00ccf3e0"
+    },
+    {
+      "path": "reviews/validator-session-terra-2.json",
+      "sha256": "acd9846113cdbe239c5e8a286c33368a1d3960188791680087f0a889a5ea1d9f"
+    },
+    {
+      "path": "scripts/benchmark_documents.py",
+      "sha256": "edd10e0737566634587caa49a93fbab1f86303fefd03ac93a00738ea90feb09f"
+    },
+    {
+      "path": "scripts/run_local.py",
+      "sha256": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896"
+    }
+  ],
+  "findings": [],
+  "scope": {
+    "decision": "Gameplan coherence and explicit future acceptance/rejection criteria only.",
+    "focus": "Honest target-hardware benchmarks, headroom, cold misses, refill, sustained traffic, whole-stack resource budgets and practical architecture selection.",
+    "integrity": "Independently checked all 91 R2 file SHA-256 values, recomputed the canonical manifest root, verified all archived R1 input bytes against its 83-file manifest, and diffed R1 against R2.",
+    "reviewed_surfaces": [
+      "contract.json",
+      "runtime-plan.json",
+      "docs/performance-remediation-plan.md",
+      "PerformancePlan.lean",
+      "types.json",
+      "claims.json",
+      "verify_plan_model.py",
+      "model-closure-config.json",
+      "basis.json",
+      "development-check.json",
+      "current status and cleanup receipt",
+      "measured server/browser and lifecycle limitation basis",
+      "existing worker/benchmark and SQL-context ownership surfaces"
+    ],
+    "assessment": [
+      "The 392.298835-ms failure remains a failure; no component-percentile subtraction or workstation-to-target extrapolation certifies 300 ms.",
+      "Original strict nearest-rank p95, sample counts, all errors and three individually passing target runs are retained. The 240-ms selection objective provides explicit engineering headroom without being represented as measured evidence.",
+      "Prestart includes ready hits, empty-pool misses, ordinary refill contention and retirement in whole-series and whole-stack accounting; cold, open-loop sustained, burst, saturation and soak procedures must be frozen before implementation acceptance.",
+      "The 4-vCPU/8-GiB target is distinct from synthetic screening, with a complete service group, explicit 6-GiB ceiling/5-GiB peak criterion, separately identified clients and fixed application settings.",
+      "Fresh, prestarted one-use and true reusable branches remain experiments. Concrete immutable-image/ownership evidence and resolved reset/isolation objections gate pool selection; the old rejected proposal is not revived.",
+      "Database deadlines, independent owned-backend termination observation, retained reservations on uncertainty, maximum-history validation and canonical parser routing precede worker promotion.",
+      "The 32-theorem supplement and runner are explicitly inactive abstract model checks; their guarded observations, fixed logical slots and synthetic witnesses do not establish real cleanup, memory, timing or reusable-JVM correctness.",
+      "Documentation cleanup preserves original failed/rejected/historical evidence and does not relabel documentation byte changes as a fresh runtime closure."
+    ],
+    "revision_review": {
+      "round": "R2",
+      "prior_root_sha256": "ba16e64e252d815d62407d3cac0507096f1d707cea882ffcee1298e10856d4d0",
+      "changed_existing_files": [
+        "docs/performance-remediation-plan.md"
+      ],
+      "added_files": 8,
+      "removed_files": 0,
+      "conclusion": "The sole existing-input change clearly identifies 32 propositions and two matching author development builds as unregistered, and makes registered closure pending all six exact-input approvals followed by the frozen two-clean-build verifier. The additional files preserve R1 review provenance and document R2. No contract, model, runner or runtime semantics changed; the clarification resolves TERRA2-01 without changing my planning-only approval."
+    }
+  },
+  "limitations": [
+    "No production worker, SQL-policy change, implementation correspondence, target-host performance, JVM reset, redistribution rights or commercialization is approved.",
+    "This review did not execute formal builds, benchmarks, runtime probes, SQL or browser actions. The registered post-council model runner and all future implementation gates remain required.",
+    "All 91 files were integrity checked; substantive review concentrated on the stated plan, model/runner, benchmark/lifecycle basis and related installed ownership boundaries.",
+    "Exact deployment CPU/provider/storage and future executable fixtures remain intentionally unmeasured and must be frozen by the implementation contract."
+  ]
+}

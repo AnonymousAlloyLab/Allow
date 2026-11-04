@@ -1,0 +1,36 @@
+{
+  "id": "ALLOW-DOCUMENT-ASSOCIATIVITY-1",
+  "status": "DRAFT_REQUIRES_REVIEW_AND_FORMAL_VERIFICATION_BEFORE_IMPLEMENTATION",
+  "extends": [
+    "gates/document/review-candidate-r5/manifest.json",
+    "spec/document-field-order.json"
+  ],
+  "supersedes": "Only the deterministic left-fold requirement for associative AND/OR elaboration in spec/document-adapter-draft.json. All other frozen constraints and all 251 prior formal claims remain binding.",
+  "problem": "The existing bounded 500-node balanced formula has depth 10, but Alloy's ExprList.AND flattens its 167 ordered operands; deterministic left fold produces a 500-node intermediate of depth 168. Applying the public depth-32 guard to that intermediate incorrectly denies supported BLOCK round trips and classifies supported SOURCE as TEXT_ONLY.",
+  "scope": "Only pure static formula-valued AND and OR, independently and separately. No commutation, deduplication, identity/constant introduction, arbitrary relation, integer, temporal, quantifier, iff, implication or mixed-operator rewrite. Other parser normalization and exact ID/scope/schema rules remain unchanged.",
+  "source_elaboration": "For each maximal same-operator ExprList.AND or ExprList.OR in source order, preserve all operand occurrences exactly once and recursively group the ordered sequence by split floor(n/2) on the left and ceil(n/2) on the right until singletons. Zero-operand parser nodes are unsupported; one operand is emitted unchanged, with no invented truth constant. Every output expression/binder ID is server-assigned, uniquely owned and scoped. Source elaboration still performs complete schema, ownership, multiplicity, command, 512-node and depth-32 validation; an otherwise accepted source whose final constructed tree exceeds a public bound remains TEXT_ONLY, never a partially supported graph.",
+  "block_round_trip": "An accepted BLOCK candidate remains its submitted exact typed 512-node/depth-32 forest. Parse the server print and compare ordered associative normal forms under the already declared ID bijection; do not substitute reconstructed IDs or reassociate the accepted artifact. The comparison must preserve every operand occurrence and every non-associative operator/argument order, declaration identity, binder scope, nominal schema, multiplicity and command option. Comparison may stream ordered operands rather than allocate a folded tree. It is trusted/tested adapter correspondence, not a Lean proof of the Alloy parser.",
+  "transient_budget": "Depth 32 applies to every accepted public BLOCK artifact, including supported SOURCE elaboration output, and is never raised. A transient same-operator parse/comparison tree is not an accepted artifact: enforce at most 512 expression nodes and depth at most 512 derived from that node cap, plus the inherited request/source, worker wall/CPU/memory/output limits. Reject over-budget/ambiguous reconstruction; never persist a transient tree, emit it as an accepted module, or turn timeout/worker failure into unsupported syntax. Prefer iterative or explicitly bounded traversal; if implementation cannot safely process the transient bound under its actual stack cap, fail closed and keep the gate open.",
+  "history_and_maps": "No block edit or history-copy silently changes the exact accepted source, stable owned IDs, maps, trivia or prior revision. Associative comparison is a validation relation only. SOURCE parsing yields freshly mapped IDs and validated scalar-aligned occurrences; omitted unavailable roles and trivia handling continue to follow the frozen contracts. No source-token or comment attachment is inferred from the truth-equivalence theorem.",
+  "formal": {
+    "path": "gates/document/associativity-amendment/Associativity.lean",
+    "coverage": "Abstract ordered trees over arbitrary atom identities and arbitrary Boolean valuations. Lean proves exact ordered leaf preservation for the balanced construction, truth equivalence for AND and OR, public-to-transient bound implication and depth no greater than modeled node count, and computes nonvacuous 167-operand/500-node witnesses with balanced depth 10 and left-fold depth 168. It also projects existing CandidateValid/Step and field-order obligations, leaving the prior public guards unchanged.",
+    "limits": "An abstract atom is modeled as a two-node test/reference for the explicit 500-node witness. Generic leaf identity/order and Boolean equivalence hold for arbitrary atom identities; the numeric node-depth witness is not a general weighted-subtree or source-to-IR correspondence theorem. The mathematical helper has a total fallback if fuel is exhausted; production must use bounded grouping until singleton or reject, not silently fall back to an overdepth accepted graph. Parser, Java/TypeScript, stack safety and source equivalence remain trusted/tested.",
+    "import": "Allow.FieldOrder imports the frozen prior 251 claims; exact theorem inventory is gates/document/associativity-amendment/types.json. No previously frozen source or registry is modified."
+  },
+  "required_evidence": [
+    "Six independent exact-hash gameplan reviews and two isolated clean Lean builds proving all previously registered 251 claims plus the exact amendment inventory before production associativity edits.",
+    "Run the existing gates/document/headless-preview-fixture.json on the actual worker and Xss512k profile: its 500 nodes and depth 10 must pass BLOCK print/parse/compare and supported SOURCE elaboration, retain exact ordered 167 operands and preserve immutable accepted source and maps.",
+    "Negative fixtures for swapped, deleted, duplicated, different-operator and mixed-operator operands; no associativity across implication/iff/quantifiers; correct binding and nominal identity, field references, command options, comments, Unicode and CRLF.",
+    "Reject more than 512 nodes, transient depth over 512, public depth over 32, malformed/shared/escaping scopes, missing correspondence and oversize requests before unbounded allocation; timeouts/errors remain availability failures.",
+    "Retest original 500-node latency targets and all inherited G2/G3 requirements independently; no successful formal proof substitutes for worker, UI, SQL proxy or accessibility evidence."
+  ],
+  "release": "Formal-model gameplan only. No production edits under this amendment before frozen six-seat approval and clean formal verification; no full runtime, G2/G3 or commercial claim.",
+  "regression_fixture": {
+    "path": "gates/document/headless-preview-fixture.json",
+    "sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+    "structure": "500 expression nodes, 166 AND nodes and 167 some-test/signature-reference pairs, public tree depth 10.",
+    "witness_limit": "Lean independently computes the numerical shape using 167 distinct abstract atom IDs; connecting it to this JSON and the real parser is a required finite adapter test, not a formal correspondence claim.",
+    "runtime_failure_evidence": "gates/document/associativity-amendment/runtime-failure.json (when frozen by the implementation owner; not yet evidence of a fix)."
+  }
+}

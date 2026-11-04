@@ -1,0 +1,22 @@
+{
+  "reviewer": "terra-1",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+    "gates/sql/immutable-image-candidate/contract.md": "ad9f4a9fcb4591d17a627c505ccb83e566127dc6f40e848db8a24e0a17d2613d",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "c49a8f53884a28b5ac5d90926ce42feda7895418be658976e6b46cacb3e10b42",
+    "gates/sql/immutable-image-candidate/input-manifest.json": "28434c9d5ef8ee35e4d363d42c98494f6da02f645a8c12f410bd0462936b38f5",
+    "gates/sql/immutable-image-candidate/existing-type-inventory.json": "bd7f8d0b7816f9e2236e5683008d841fc3095c2e05cd5cd3ed0ae17d398cd9ea",
+    "gates/sql/immutable-image-candidate/probe-result.json": "9f921847818c9327b7a328e071385682456326f03798a707faf6413f06500096",
+    "gates/sql/immutable-image-candidate/findings.md": "9c5a5bd70773f369d25e596c7101496cbbcee0d4ff39466635599f482f10b91f"
+  },
+  "input_root_sha256": "4704a9190a7df708ff7cfb528d94475b173de0d9875e52ee91fd2edea18a798c",
+  "scope": "Revised draft gameplan only; no runtime verification or production authorization.",
+  "resolution": [
+    "Trusted size bounds the copy, with regular-file checks, deadline-supervised initializer, bounded descriptor transfer and failure cleanup; adversarial tests address the prior finding.",
+    "Descriptor ownership, close synchronization and immutable interpretation are explicitly bounded and subject to runtime tests.",
+    "Revision 7 intentionally changes revision 6 live-path checking; the conditional Lean facts and retained claims do not prove live-path detection or runtime correspondence."
+  ]
+}

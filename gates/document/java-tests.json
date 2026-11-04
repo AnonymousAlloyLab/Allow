@@ -1,0 +1,451 @@
+[
+  {
+    "name": "dev.allow.backend.BuildIdentityTest",
+    "tests": "2",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "resourcePresenceAffectsIdentity",
+      "registryBytesAffectIdentity"
+    ],
+    "original_xml_sha256": "c24c47915116ae92217a0a5a477bb1b4add4c34c9663282f9cdf03efab390531"
+  },
+  {
+    "name": "dev.allow.backend.DocumentBoundaryTest",
+    "tests": "9",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "preservesOriginalRequestBytesAndRoute",
+      "deadlineIncludesBlockedInputAndReaping",
+      "rejectsDuplicateKeys",
+      "replaysExactOriginalEnvelope",
+      "exchangesAndReapsFrame",
+      "rejectsClientAuthorityFields",
+      "rejectsInvalidUnicode",
+      "deniesConcurrentPrincipalLease",
+      "constructsDistinctEmptyArtifacts"
+    ],
+    "original_xml_sha256": "3b97af3d10a61a9aca516a25cae2afd3420287c12910d937b632646f0cbab9d5"
+  },
+  {
+    "name": "dev.allow.backend.DocumentContextTransportTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "rejectsExtraTransportFields",
+      "classifiesExtraEnvelopeAsUnavailableContext",
+      "rejectsWrongNonceFromExitedBridge",
+      "rejectsWrongProtocolFromExitedBridge"
+    ],
+    "original_xml_sha256": "aa9de577d50bbf454cd6560a1477e71b35f5ac945b63ee4429f9af2f91b7d5fe"
+  },
+  {
+    "name": "dev.allow.backend.DocumentMutationCoordinatorTest",
+    "tests": "10",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "changedWorkerBuildBlocksNewAdmissionButNotReplay",
+      "lostFinalAcknowledgementRecoversOriginalEnvelope",
+      "knownRollbackRemainsDistinct",
+      "creationAndReceiptReplay",
+      "staleRaceBecomesDurableRejection",
+      "malformedFinalBridgeReplyIsUncertain",
+      "malformedWorkerCannotCreateDenialReceipt",
+      "deterministicInvalidityGetsReceipt",
+      "lostAdmissionAcknowledgementRecoversBeforeWorkerStarts",
+      "unavailableValidatorRetainsReapedAttemptForRecovery"
+    ],
+    "original_xml_sha256": "9cf022aee9166a9098a4919bf0e1bbaaf07728d44ce6f13906c27959351d4c39"
+  },
+  {
+    "name": "dev.allow.backend.DocumentValidationContextTest",
+    "tests": "14",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "permitsAllEightHistoricalKinds",
+      "missingModuleStillReadsOneContext",
+      "failedContextPreventsWorkerConstruction",
+      "rejectsMismatchedIdentityAndRevisions",
+      "rejectsForeignOrMalformedInventory",
+      "interruptedContextPreventsWorkerConstruction",
+      "rejectsMalformedShapes",
+      "rejectsOversizedBaseArtifact",
+      "permitsObservedHeadBeyondExactBase",
+      "doesNotInventMissingOwnership",
+      "enforcesDistinctIdCountBeforeBridge",
+      "sortsAndDeduplicatesAllServerPrefixedValues",
+      "retainsExactSourceAndDefensiveCopies",
+      "rejectsMalformedArgumentsBeforeBridge"
+    ],
+    "original_xml_sha256": "5bcce686685d7638732480a93a8e838c91b986bf0ae9009723bdae5f6e267fcb"
+  },
+  {
+    "name": "dev.allow.backend.DocumentWorkerLifecycleTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "reapsBeforeReturningUnidentifiedChildProof",
+      "noWorkerEvidencePrecedesLaunch",
+      "interruptedIdentityFailureStillReaps"
+    ],
+    "original_xml_sha256": "5af79a6a09cd615cd3ea328e0d24a35698b7396beb443f02f8d337a8dc0322f2"
+  },
+  {
+    "name": "dev.allow.backend.HttpBoundaryTest",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "hostileHost",
+      "strictBody",
+      "submitEchoesIdentity",
+      "authorityAndOrigin",
+      "corpusAuthorityAndUnavailableRuntime",
+      "corpusSearchRejectsUntrustedEvidence",
+      "strictIdentityTypes"
+    ],
+    "original_xml_sha256": "d05a41df6a4e93146fc4c4c7ede0c5d4fb79ad3002a50001ac2fac08b27f8b0b"
+  },
+  {
+    "name": "dev.allow.backend.JobServiceTest",
+    "tests": "2",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "queueIsBounded",
+      "cancelledJobKeepsAdmission"
+    ],
+    "original_xml_sha256": "10f1b63872aa7b47e187e52aaf52e0fb15a4bd0d71dff3bc2309a320c7783c8a"
+  },
+  {
+    "name": "dev.allow.backend.ProcessRunnerTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "timeoutReapsStalledInput",
+      "cancellationReaps",
+      "hostileFramesReject",
+      "deniedSandboxRejects"
+    ],
+    "original_xml_sha256": "f7b85e0c05fd2bc7a01fa456cf562b30eb44e1ff62d72ff2d8489ddd35afdb33"
+  },
+  {
+    "name": "dev.allow.backend.SandboxBoundaryTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "filesystemAndNetworkDenied"
+    ],
+    "original_xml_sha256": "333df52c338214ac3bdcaa82ff535ac2c8b722b53675abe1c4c75baa061d64cb"
+  },
+  {
+    "name": "dev.allow.backend.WorkerIntegrationTest",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "invalidSource",
+      "satRun",
+      "unsatCheck",
+      "unsatRun",
+      "importRejectedInChild",
+      "validateOnly",
+      "satCheck"
+    ],
+    "original_xml_sha256": "8af12c018983659a711749f213c1a97c9d3075095d54cfb9a0160489b8d98884"
+  },
+  {
+    "name": "dev.allow.canonical.CanonicalizerTest",
+    "tests": "11",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "lexicalSpellingOrderCannotInfluenceSlots",
+      "rejectsUnsupportedSignatureAttributes",
+      "preservesShadowedBinderScopes",
+      "renamesSignaturesWithoutLeakingLabels",
+      "rejectsStringsAndTemporalOperators",
+      "distinctSignaturesDoNotCollapse",
+      "preservesMultiplicityAndOperandOrder",
+      "rejectsInheritanceAndDisjointDeclarations",
+      "includesFactsAndScopeInPayload",
+      "renamesFieldsPredicatesAndParameters",
+      "serializedPayloadRoundTrips"
+    ],
+    "original_xml_sha256": "a9e060d196606dfdd0f57c312e794cd0187e1221f2568249e1b358d5d3e95931"
+  },
+  {
+    "name": "dev.allow.canonical.IslandAdapterTest",
+    "tests": "10",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "alloySolverFindsNoBoundedCounterexample",
+      "structuralGoldenRemainsUnchanged",
+      "mixedSchemaUnionIsOpaque",
+      "capturesFunctionFactAndCommandOccurrences",
+      "nestedIffRespectsLoweringBudget",
+      "predicateBodyGetsCheckedExtraction",
+      "renamedParametersKeepAnonymousTerms",
+      "quantifierIsOpaque",
+      "distinctNominalColumnsRemainDistinct",
+      "outputBudgetTruncatesAndReportsLimit"
+    ],
+    "original_xml_sha256": "2c9927a49c8ce86d7350c7b86e62f06de83d2bcffca99f67e720bca3ffa18567"
+  },
+  {
+    "name": "dev.allow.canonical.SlotBoundaryTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "exactBytesDetermineFeatures",
+      "fieldArityCannotCollapse",
+      "letScopeIsCaptureAvoiding",
+      "dependentDomainsPreserveReferences",
+      "framingSeparatesStructuralValues",
+      "freeReferencesNeverBecomeGlobalSlots"
+    ],
+    "original_xml_sha256": "1a53a150dc5beab6d7fdeb8068232c105e61d407242c2fa94ed96c4474976944"
+  },
+  {
+    "name": "dev.allow.corpus.CorpusEngineTest",
+    "tests": "10",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "contextAndRenaming",
+      "discoveryAndInvalidTargets",
+      "factsAndNegation",
+      "directAugmentationAvoidsSaturationBudget",
+      "fullAndChecked",
+      "configurablePoolSizes",
+      "generatedCommandHelpersExcluded",
+      "atomLimitIsPartial",
+      "targetDependentFacts",
+      "signatureProfileReason"
+    ],
+    "original_xml_sha256": "8b595b308b29b896753921193f0ac07f7e2ada7e58c18de717f56e8b9aa034f3"
+  },
+  {
+    "name": "dev.allow.document.AlloySemanticsTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "tupleSetAllowsBothCardinalities",
+      "unaryMultiplicityConstrainsEveryOwner",
+      "loneRejectsTwoRangeAtoms",
+      "setTupleParametersReceiveRelations"
+    ],
+    "original_xml_sha256": "7b48a868e80d78d0bdfa17897ef71b4ec2de6d240c0d9e8e753bc965e4a65e32"
+  },
+  {
+    "name": "dev.allow.document.AssociativityTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "rejectsChangedOrderedOperandsAndOperators",
+      "registeredWitnessRoundTrips",
+      "rejectsPublicDepthAndNodeOverflow",
+      "transientDepthIsStackSafe"
+    ],
+    "original_xml_sha256": "a20423c3a784ac511f93ab67793dca6416bb13df22bf234368fbf510acc25426"
+  },
+  {
+    "name": "dev.allow.document.DocumentTypeAgreementTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "agreesWithRegisteredTypeScriptCases"
+    ],
+    "original_xml_sha256": "5cb727062a7cf6850bacc0252169e8236d2cd2babb363c5f749c72f7ca78a327"
+  },
+  {
+    "name": "dev.allow.document.ModuleCheckerTest",
+    "tests": "55",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "rejectsRecursivePredicateDependency",
+      "historyPreservesBlockContent",
+      "rejectsBinderEscapeAcrossPredicates",
+      "attachesSourceCommentsToVerifiedTokens",
+      "comparesPrintedAndParsedModule",
+      "mapsReferenceAfterTab",
+      "acceptsValidFormula",
+      "printerFieldAndCommandParse",
+      "parsesExactSourceThroughWorkerPolicy",
+      "roundTripsScopedPredicatesAndCommands",
+      "rejectsInterleavedFieldOwners",
+      "printerProducesParsableSource",
+      "derivesSchemasFromDeclarationObjects",
+      "readsGeneratedFieldReference",
+      "invalidEngineCandidateIsDenied",
+      "readsParserExpressionByIdentity",
+      "roundTripsEveryExpressionTag",
+      "validatesSourceVariantsWithoutPublicAcceptance",
+      "transportsCommentAndShiftsSpans",
+      "rejectsTupleOne",
+      "publicSourceAndHistoryPreserveExactBytes",
+      "sourceFragmentGuardRejectsUnsupportedSyntax",
+      "historyPreservesTextOnlyContent",
+      "mapsVerifiedUnicodeAndCrLfReferences",
+      "publicEngineDeniesInterleavedFieldOwners",
+      "historyRetainsManyBoundedComments",
+      "everyTagRejectsUnknownFields",
+      "textTriviaUsesByteOffsetsAndActualTokens",
+      "commandDescriptorsPreserveScopeDetails",
+      "publicBlockEditPreservesComments",
+      "countsOnlyTopLevelAuthoredCommands",
+      "historyDoesNotReinterpretTextOnlyMode",
+      "mapsReferenceAfterNonBmpOnSameLine",
+      "printerRecordsExactExpressionSpans",
+      "remapsDraftIdentitiesConsistently",
+      "attachesDeclarationAndBinderTrivia",
+      "rejectsUnknownSignature",
+      "mapsVerifiedSourceReferences",
+      "rejectsUnreachable",
+      "readsPredicatesAndCalls",
+      "rejectsSharedExpression",
+      "sourceCommentsSurviveBlockReprint",
+      "readsQuantifiedBinder",
+      "unchangedBlocksPreserveAuthoredBytes",
+      "shuffledNodeRegistryHasSameRoundTrip",
+      "sourceExpressionSpanExcludesDeclarationBraces",
+      "historicalArtifactIntegrityChecksSourceAndMaps",
+      "deletedSourceCommentIsOrphanedAndCopied",
+      "comparesAssociativeBooleanOrder",
+      "readsGeneratedModule",
+      "validatesExplicitCopyIdentityAndUniqueness",
+      "emptySourceIsSupported",
+      "validatesBlockCandidateWithoutPublicAcceptance",
+      "rejectsDifferentNominalSchemas",
+      "noAuthoredCommandsHaveNoDescriptors"
+    ],
+    "original_xml_sha256": "c9f0bd06d7219ff6f97b54fdaa889258595847bb383cb42c251259ddfec78c4f"
+  },
+  {
+    "name": "dev.allow.egraph.CertificateSliceTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "keepsAndReindexesOnlyReachableDerivation"
+    ],
+    "original_xml_sha256": "1ed82726426c55de96cffc3a0fec8ea706935992bc02872e13a29b524a097c53"
+  },
+  {
+    "name": "dev.allow.egraph.EGraphEngineTest",
+    "tests": "9",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "replayRejectsLocalForgeries",
+      "schemasAndOperatorFamiliesStayDistinct",
+      "replayRejectsContextAndConclusionTampering",
+      "mixedRelationBridge",
+      "cyclicClassesAndMultilevelCongruence",
+      "cappedCertificateSizing",
+      "rejectsExcessiveProofAndTermDepth",
+      "absorptionIsCheckedAndDeterministic",
+      "expiredDeadlineCannotClaimSaturation"
+    ],
+    "original_xml_sha256": "3c575b379e9df7cce0208fd5b4bacf890507eebed4d6548c6d9d9727cca577c0"
+  },
+  {
+    "name": "dev.allow.egraph.EGraphMechanicsTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "proofBudgetStopsBeforeAppend",
+      "nodeAdmissionLimitIsHonest",
+      "inputOccurrenceLimitIsHonest",
+      "repeatedVariableRequiresClassEquality",
+      "matcherLimitIsHonest",
+      "failedProofNeverMutatesUnionFind"
+    ],
+    "original_xml_sha256": "5a612676bd953243a971e958db38a4bd2c4252ba3f26ed53e6c185ee3e8d4ec3"
+  },
+  {
+    "name": "dev.allow.egraph.RuleCatalogTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "everyRegisteredRuleHasFiniteSemanticParity",
+      "alteredRegistryCannotBecomeSelfApproved",
+      "rewriteDefensivelyCopiesBothPatternBoundaries"
+    ],
+    "original_xml_sha256": "9dc94f5c4fef06aa35f3e9bace25bb59ce791e7d8610a7f3c574b20800ae9a0b"
+  },
+  {
+    "name": "dev.allow.worker.JsonWireEGraphTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "genericPreviewRoundTripKeepsCanonicalFrame",
+      "excessiveWireNestingStillRejects",
+      "admittedProofDepthSurvivesTransport"
+    ],
+    "original_xml_sha256": "878330e324df830b1336c5a35fb996dd168e70f5baa32f25b0fba4ca375b3b05"
+  },
+  {
+    "name": "dev.allow.worker.JsonWireStrictTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "invalidProtocolNumbers"
+    ],
+    "original_xml_sha256": "dd7634c8322040ab1f0d5f57d6c25e4fa5421e8c671b0669e5804e6326ff7f79"
+  },
+  {
+    "name": "dev.allow.worker.SourcePolicyTest",
+    "tests": "2",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "rejectsImportsAfterLineComments",
+      "permitsNonImportTokensInTriviaAndStrings"
+    ],
+    "original_xml_sha256": "85f043ae3fe1aa44dfc28dfd1e4670bdd21372866c98cfe900d3168bf6aa5be8"
+  }
+]

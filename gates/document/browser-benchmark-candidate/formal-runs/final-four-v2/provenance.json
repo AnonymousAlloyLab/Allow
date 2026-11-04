@@ -1,0 +1,66 @@
+[
+  {
+    "public_claim": "trace_event_count",
+    "claim_id": "trace_event_count",
+    "evidence": "evidence/trace_event_count.json",
+    "verifier": "V-LEAN-EXACT",
+    "inputs": [
+      "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean",
+      "gates/document/browser-benchmark-candidate/types.json"
+    ],
+    "trusted_dependencies": [
+      "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice only when audited",
+      "Python verifier and SHA256 collision resistance",
+      "operating system, filesystem and hardware"
+    ]
+  },
+  {
+    "public_claim": "edit_order",
+    "claim_id": "edit_order",
+    "evidence": "evidence/edit_order.json",
+    "verifier": "V-LEAN-EXACT",
+    "inputs": [
+      "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean",
+      "gates/document/browser-benchmark-candidate/types.json"
+    ],
+    "trusted_dependencies": [
+      "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice only when audited",
+      "Python verifier and SHA256 collision resistance",
+      "operating system, filesystem and hardware"
+    ]
+  },
+  {
+    "public_claim": "incomplete_not_pass",
+    "claim_id": "incomplete_not_pass",
+    "evidence": "evidence/incomplete_not_pass.json",
+    "verifier": "V-LEAN-EXACT",
+    "inputs": [
+      "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean",
+      "gates/document/browser-benchmark-candidate/types.json"
+    ],
+    "trusted_dependencies": [
+      "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice only when audited",
+      "Python verifier and SHA256 collision resistance",
+      "operating system, filesystem and hardware"
+    ]
+  },
+  {
+    "public_claim": "pass_iff",
+    "claim_id": "pass_iff",
+    "evidence": "evidence/pass_iff.json",
+    "verifier": "V-LEAN-EXACT",
+    "inputs": [
+      "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean",
+      "gates/document/browser-benchmark-candidate/types.json"
+    ],
+    "trusted_dependencies": [
+      "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice only when audited",
+      "Python verifier and SHA256 collision resistance",
+      "operating system, filesystem and hardware"
+    ]
+  }
+]

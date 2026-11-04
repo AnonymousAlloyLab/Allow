@@ -1,0 +1,958 @@
+{
+  "checks": {
+    "P01_protocol_order": {
+      "evidence": {
+        "command_completions": [
+          "BEGIN",
+          "SET",
+          "SELECT 1",
+          "SELECT 1",
+          "SELECT 1",
+          "SELECT 1",
+          "SELECT 1",
+          "SELECT 2",
+          "COMMIT"
+        ],
+        "commands": [
+          "BEGIN",
+          "mode",
+          "tenant",
+          "project",
+          "purpose",
+          "head",
+          "base",
+          "history",
+          "COMMIT"
+        ],
+        "connection_closed": true,
+        "durable_unchanged": true,
+        "endpoint": {
+          "application_name": "allow-recovery",
+          "database_kind": "owned_temporary_database",
+          "host": "/home/augustus/Allow/.runtime/corpus/sql-proxy/socket",
+          "port": "54329"
+        },
+        "frame_counts": {
+          "B:BindComplete": 6,
+          "B:CommandComplete": 9,
+          "B:DataRow": 7,
+          "B:ParseComplete": 6,
+          "B:ReadyForQuery": 9,
+          "B:RowDescription": 6,
+          "F:Bind": 6,
+          "F:Describe": 6,
+          "F:Execute": 6,
+          "F:Parse": 6,
+          "F:Query": 3,
+          "F:Sync": 6,
+          "F:Terminate": 1
+        },
+        "proxy_counter_delta": {
+          "B": 20,
+          "D": 20,
+          "E": 20,
+          "P": 20,
+          "Q": 6,
+          "S": 20,
+          "X": 2,
+          "accepted": 26,
+          "auth": 4,
+          "connections": 2
+        },
+        "raw_bytes": 6011,
+        "raw_retention": "private temporary file deleted; only sanitized stage tags retained",
+        "raw_sha256": "ebd6855ec5c59df7ea94c971b4b2ed49353a900973dea9d84fd9ded16e00c382"
+      },
+      "seconds": 0.01683063899690751,
+      "status": "PASS"
+    },
+    "P02_first_scope_race": {
+      "evidence": {
+        "barrier_after": "first tenant SELECT returned, before project SELECT",
+        "base_immutable": true,
+        "new_head": 2,
+        "new_identity_visible_only_in_new_snapshot": true,
+        "old_head": 1
+      },
+      "seconds": 0.025362010004755575,
+      "status": "PASS"
+    },
+    "P03_encoded_size": {
+      "evidence": {
+        "adversarial_invalid_id_cases": [
+          {
+            "encoded_args_bytes": 262144,
+            "reason": "invalid_server_id",
+            "sql_calls": 0
+          },
+          {
+            "encoded_args_bytes": 262145,
+            "reason": "ids_limit",
+            "sql_calls": 0
+          }
+        ],
+        "document_id_bytes": 43,
+        "identity_bytes": 43,
+        "maximum_ids": 4096,
+        "maximum_valid_compact_args_bytes": 188512,
+        "positive_256KiB_boundary": "unreachable for the closed canonical shape",
+        "revision_digits": 16
+      },
+      "seconds": 0.011724304997187573,
+      "status": "PASS"
+    },
+    "P04_closed_shapes": {
+      "evidence": {
+        "cases": [
+          {
+            "case": "outer_missing_protocol",
+            "status": "ERROR"
+          },
+          {
+            "case": "outer_missing_requestId",
+            "status": "ERROR"
+          },
+          {
+            "case": "outer_missing_operation",
+            "status": "ERROR"
+          },
+          {
+            "case": "outer_missing_args",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_NoneType",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_list",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_int",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_str",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_missing_documentId",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_missing_revision",
+            "status": "ERROR"
+          },
+          {
+            "case": "args_missing_ids",
+            "status": "ERROR"
+          }
+        ],
+        "sql_calls": 0
+      },
+      "seconds": 0.0007781480017001741,
+      "status": "PASS"
+    },
+    "P05_staged_faults": {
+      "evidence": {
+        "cases": [
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 0,
+              "D": 0,
+              "E": 0,
+              "P": 0,
+              "Q": 1,
+              "S": 0,
+              "X": 0,
+              "accepted": 1,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "mode",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 0,
+              "D": 0,
+              "E": 0,
+              "P": 0,
+              "Q": 2,
+              "S": 0,
+              "X": 0,
+              "accepted": 2,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "tenant",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 1,
+              "D": 1,
+              "E": 1,
+              "P": 1,
+              "Q": 2,
+              "S": 1,
+              "X": 0,
+              "accepted": 3,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "project",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 2,
+              "D": 2,
+              "E": 2,
+              "P": 2,
+              "Q": 2,
+              "S": 2,
+              "X": 0,
+              "accepted": 4,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "purpose",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 3,
+              "D": 3,
+              "E": 3,
+              "P": 3,
+              "Q": 2,
+              "S": 3,
+              "X": 0,
+              "accepted": 5,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "head",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 4,
+              "D": 4,
+              "E": 4,
+              "P": 4,
+              "Q": 2,
+              "S": 4,
+              "X": 0,
+              "accepted": 6,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "base",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 5,
+              "D": 5,
+              "E": 5,
+              "P": 5,
+              "Q": 2,
+              "S": 5,
+              "X": 0,
+              "accepted": 7,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "history",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy rejects fixed invalid SQL injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "parser",
+            "proxy_counter_delta": {
+              "B": 6,
+              "D": 6,
+              "E": 6,
+              "P": 6,
+              "Q": 2,
+              "S": 6,
+              "X": 0,
+              "accepted": 8,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "response_bytes": 138,
+            "stage": "exit",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "mode",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "tenant",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "project",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "purpose",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "head",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "base",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "history",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "local owned connection close injected before declared stage",
+            "durable_unchanged": true,
+            "fault": "transport",
+            "response_bytes": 138,
+            "stage": "exit",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real query then synthetic malformed authored content",
+            "durable_unchanged": true,
+            "fault": "decode",
+            "response_bytes": 138,
+            "stage": "base",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real query then synthetic malformed authored content",
+            "durable_unchanged": true,
+            "fault": "decode",
+            "response_bytes": 138,
+            "stage": "history",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "actual_or_injected": "real proxy login rejected using transient synthetic wrong password",
+            "driver_exception": "OperationalError",
+            "durable_unchanged": true,
+            "fault": "auth",
+            "proxy_counter_delta": {
+              "B": 0,
+              "D": 0,
+              "E": 0,
+              "P": 0,
+              "Q": 0,
+              "S": 0,
+              "X": 0,
+              "accepted": 0,
+              "auth": 2,
+              "connections": 1,
+              "disconnected": 1,
+              "parser_category_parserFailure": 0,
+              "parser_reason_parser_rejected": 0,
+              "protocol_error": 0,
+              "rejected": 0
+            },
+            "response_bytes": 138,
+            "sqlstate": null,
+            "stage": "connect",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "durable_unchanged": true,
+            "empty_ids": true,
+            "fault": "parser",
+            "stage": "mode",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "durable_unchanged": true,
+            "empty_ids": true,
+            "fault": "parser",
+            "stage": "base",
+            "status": "UNAVAILABLE"
+          },
+          {
+            "durable_unchanged": true,
+            "empty_ids": true,
+            "fault": "auth",
+            "stage": "connect",
+            "status": "UNAVAILABLE"
+          }
+        ],
+        "literal_parser_shutdown": "not performed; this probe does not claim that coverage",
+        "transaction_exit_transport": "connection closes before real context exit; no success frame published"
+      },
+      "seconds": 0.6652311740035657,
+      "status": "PASS"
+    },
+    "P06_actual_cancel": {
+      "evidence": {
+        "blocking_read_observed": "PgSleep",
+        "cancel_mechanism": "SQL pg_cancel_backend through canonical proxy",
+        "caps": {
+          "as_bytes": 2147483648,
+          "cpu_seconds": 20,
+          "wall_seconds": 20
+        },
+        "cleanup_cancel_needed": false,
+        "durable_after_equal": true,
+        "durable_before": {
+          "column_acl": [
+            {
+              "attacl": "{allow_app=w/allow_owner}",
+              "attname": "head_revision",
+              "relname": "document"
+            },
+            {
+              "attacl": "{allow_app=w/allow_owner}",
+              "attname": "title",
+              "relname": "document"
+            }
+          ],
+          "preexisting_cluster_roles": [
+            {
+              "rolbypassrls": false,
+              "rolcanlogin": true,
+              "rolname": "allow_app",
+              "rolsuper": false
+            },
+            {
+              "rolbypassrls": false,
+              "rolcanlogin": false,
+              "rolname": "allow_owner",
+              "rolsuper": false
+            }
+          ],
+          "schema_owner_acl": [
+            {
+              "nspacl": "{allow_owner=UC/allow_owner,allow_app=U/allow_owner}",
+              "nspname": "documents",
+              "rolname": "allow_owner"
+            },
+            {
+              "nspacl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}",
+              "nspname": "public",
+              "rolname": "pg_database_owner"
+            }
+          ],
+          "table_owner_rls_acl": [
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "admission",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "admission_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "artifact",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "artifact_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "document",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "document_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "logical_launch",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "logical_launch_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "receipt",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "receipt_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "revision",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "revision_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "workspace",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "workspace_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            }
+          ],
+          "tables": {
+            "admission": {
+              "count": 3,
+              "sha256": "acd5be6a7bfc2b03938a395f51a611a3cf757554bb16ce4be7fdfed869fd3337"
+            },
+            "artifact": {
+              "count": 3,
+              "sha256": "ef1f0a5f1ff5fcbe5d1401ade57e7e5225bbfe4c4e10ae1f1b425cb45eef850d"
+            },
+            "document": {
+              "count": 1,
+              "sha256": "cf975c07e08be9933972f531c9c93576f88947db972fb36e29f90db70b701a43"
+            },
+            "logical_launch": {
+              "count": 1,
+              "sha256": "e78b0712d41419a20542aa8892ab4fcefdd72b3ed1d9e0a6fbba8028ba29cde5"
+            },
+            "receipt": {
+              "count": 3,
+              "sha256": "bd512ecdf0123f3f8220b8e0548a473a97c48601a78a73ac9c25ee6eff626b36"
+            },
+            "revision": {
+              "count": 3,
+              "sha256": "e42a10e6de0f121f96a127f4232c12f2affe05a20572315696d4da437e7ffe28"
+            },
+            "workspace": {
+              "count": 1,
+              "sha256": "431ef1b781fbe1936e0b55698bb28cd345c7ee86570cd69c46f7b3ad82bd1eb6"
+            }
+          }
+        },
+        "elapsed_seconds": 0.16831549299968174,
+        "kind": "cancel",
+        "owned_backend_absent": true,
+        "owned_process_reaped": true,
+        "response_bytes": 138,
+        "response_status": "UNAVAILABLE",
+        "returncode": 0
+      },
+      "seconds": 0.19275510199804557,
+      "status": "PASS"
+    },
+    "P07_actual_timeout": {
+      "evidence": {
+        "blocking_read_observed": "PgSleep",
+        "cancel_mechanism": "SQL pg_cancel_backend through canonical proxy",
+        "caps": {
+          "as_bytes": 2147483648,
+          "cpu_seconds": 20,
+          "wall_seconds": 20
+        },
+        "cleanup_cancel_needed": true,
+        "durable_after_equal": true,
+        "durable_before": {
+          "column_acl": [
+            {
+              "attacl": "{allow_app=w/allow_owner}",
+              "attname": "head_revision",
+              "relname": "document"
+            },
+            {
+              "attacl": "{allow_app=w/allow_owner}",
+              "attname": "title",
+              "relname": "document"
+            }
+          ],
+          "preexisting_cluster_roles": [
+            {
+              "rolbypassrls": false,
+              "rolcanlogin": true,
+              "rolname": "allow_app",
+              "rolsuper": false
+            },
+            {
+              "rolbypassrls": false,
+              "rolcanlogin": false,
+              "rolname": "allow_owner",
+              "rolsuper": false
+            }
+          ],
+          "schema_owner_acl": [
+            {
+              "nspacl": "{allow_owner=UC/allow_owner,allow_app=U/allow_owner}",
+              "nspname": "documents",
+              "rolname": "allow_owner"
+            },
+            {
+              "nspacl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}",
+              "nspname": "public",
+              "rolname": "pg_database_owner"
+            }
+          ],
+          "table_owner_rls_acl": [
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "admission",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "admission_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "artifact",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "artifact_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "document",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "document_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "logical_launch",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "logical_launch_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "receipt",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "receipt_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "revision",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "revision_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "workspace",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "workspace_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            }
+          ],
+          "tables": {
+            "admission": {
+              "count": 3,
+              "sha256": "acd5be6a7bfc2b03938a395f51a611a3cf757554bb16ce4be7fdfed869fd3337"
+            },
+            "artifact": {
+              "count": 3,
+              "sha256": "ef1f0a5f1ff5fcbe5d1401ade57e7e5225bbfe4c4e10ae1f1b425cb45eef850d"
+            },
+            "document": {
+              "count": 1,
+              "sha256": "cf975c07e08be9933972f531c9c93576f88947db972fb36e29f90db70b701a43"
+            },
+            "logical_launch": {
+              "count": 1,
+              "sha256": "e78b0712d41419a20542aa8892ab4fcefdd72b3ed1d9e0a6fbba8028ba29cde5"
+            },
+            "receipt": {
+              "count": 3,
+              "sha256": "bd512ecdf0123f3f8220b8e0548a473a97c48601a78a73ac9c25ee6eff626b36"
+            },
+            "revision": {
+              "count": 3,
+              "sha256": "e42a10e6de0f121f96a127f4232c12f2affe05a20572315696d4da437e7ffe28"
+            },
+            "workspace": {
+              "count": 1,
+              "sha256": "431ef1b781fbe1936e0b55698bb28cd345c7ee86570cd69c46f7b3ad82bd1eb6"
+            }
+          }
+        },
+        "elapsed_seconds": 20.003273950998846,
+        "kind": "timeout",
+        "owned_backend_absent": true,
+        "owned_process_reaped": true,
+        "response_bytes": 0,
+        "response_status": "no frame; supervisor timeout",
+        "returncode": -9
+      },
+      "seconds": 20.03233083899977,
+      "status": "PASS"
+    }
+  },
+  "finished_at": "2026-11-03T22:34:47.913833+00:00",
+  "fixture_semantics": "authored storage-shaped artifact; no independent Alloy validation claim",
+  "input_root_sha256": "73be9a09ed8efc2a3f2f39bf39680b555e2761c3eba1087af278c9606317f626",
+  "owned_fixture_database_dropped": true,
+  "proxy_identity_unchanged": true,
+  "run_id": "run-20261103T223426Z",
+  "runtime_identity": {
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "configuration_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "generation": 1,
+      "identity_mode": "sealed-image",
+      "mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+      "policy": "sql-routing-v7-sealed-image",
+      "profile": "postgresql-16.15-grammar-v0.1",
+      "snapshot_sha256": "a67fa104458af1032b94da580ecae7c7bd0c4163bdaf584fefa1c20b6051e858"
+    },
+    "pid": 826907,
+    "started": 1793740356.105792
+  },
+  "scope": "supplemental gate-local probes; existing186Python/189Java counts unchanged",
+  "status": "PASS"
+}

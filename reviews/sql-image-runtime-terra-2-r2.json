@@ -1,0 +1,28 @@
+{
+  "reviewer": "terra-2",
+  "decision": "APPROVE_RECHECK",
+  "scope": "Focused read-only frozen-stage recheck of SQLIRT2-01, initializer all-fd cleanup and staged consumer status checks. No DB, HTTP, tests or universal runtime proof.",
+  "staged_root_sha256": "836cf521efade9e6325f90269c232c65bbf86d854c7a25e015571f1c4dc833e2",
+  "release_proposal_sha256": "8468926933a45f232179f16c315bd594d681438ecc71fb898852f5bb7beb4852",
+  "input_hashes": {
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/bootstrap_corpus.py": "85aaad35e2eec311e96265bd73b0ac5b9a7df10d3240b078a8097d5fa052c0f1",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/document_recovery_test.py": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/verify_sql_runtime.py": "a8d0bf871b89c9628e72b125feb641ea1b20de07ae5f73ccff7d6c7e86b92c9e",
+    "/home/augustus/Allow/gates/sql/immutable-image-candidate/implementation/tests/test_sql_image.py": "c702007e0d381ae9a777e533b8af06454d37dd2f18473af501f62b1d03f2384f"
+  },
+  "findings": [],
+  "resolution": {
+    "SQLIRT2-01": "Transient close failure now marks cleanup incomplete and lifecycle failed, notifies waiters, and raises infrastructure ImageError. Identity-check error marks failed before attempting cleanup; failed cleanup stays sticky. Subsequent admissions fail and shutdown completion cannot be claimed.",
+    "initializer": "Helper cleanup attempts both source and image closes even when one fails; transfer receiver similarly attempts all received descriptors. Parent closes owned channels and any received descriptor on unsuccessful initialization and does not publish the gate.",
+    "consumer_status": "Staged bootstrap checks sealed-image policy, identity, ready lifecycle and loaded configuration hash; staged runtime verifier additionally checks the frozen image and snapshot fields. These checks do not establish live database behavior."
+  },
+  "limitations": [
+    "Author reports stage-v4 104 passing tests without skips; this reviewer did not rerun them. IM31 actual PostgreSQL and IM32 full CLI remain external pending evidence.",
+    "Approval is limited to the stated recheck and is not authorization to promote or proof of universal runtime behavior."
+  ]
+}

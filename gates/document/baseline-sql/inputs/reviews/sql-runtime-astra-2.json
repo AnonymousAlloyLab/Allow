@@ -1,0 +1,96 @@
+{
+  "seat": "sql-runtime-astra-2",
+  "reviewer": "astra-2",
+  "review_type": "ADVERSARIAL_IMPLEMENTATION_REVIEW",
+  "decision": "CODE_APPROVED_RUNTIME_GATES_PENDING",
+  "timestamp_utc": "2026-11-03T16:50:56.743261+00:00",
+  "spec_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "files_sha256": {
+    "spec/sql-stage.json": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+    "formal/Allow/SqlRouting.lean": "228d56de2998e31554d577356ff953ca506fafb40390288175559871bcbd56ad",
+    "retrieval/allow_retrieval/sql_proxy.py": "ab877a938ff4be139216a46945cd673d6af5122717670be9fdfacd7fe7ec3784",
+    "retrieval/allow_retrieval/sql_guard.py": "57628be67c32e602fbdaa86ccfe109e0681d1d8b9ec7d275152e5a95dbb73647",
+    "retrieval/allow_retrieval/sql_connections.py": "e1a8fcf4f344062b2f244e2442af89545cc9272bcfb0690844d4b22c24df8d0a",
+    "retrieval/allow_retrieval/migration.py": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+    "retrieval/allow_retrieval/database.py": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+    "scripts/bootstrap_sqlean.py": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+    "scripts/bootstrap_corpus.py": "bd8c442653e1584f43a4a4a7f6ac9be0ddc6f2b2961f6c69bff15b8a317a192c",
+    "scripts/retrieval_recovery_test.py": "b7093e7ac7c3b7fe5c74aa3b889384be0f40d68644d3cf78ae48b7e615665e0f",
+    "scripts/verify_sql_runtime.py": "3dba43a337c88dad0a82252076fc050ec19fc1a8c4148b10871ad4f95611d1ee",
+    "retrieval/tests/test_sql_proxy.py": "941a3ec6eacfb8b39408fcae51f822a2567e2392f4324ebe0a40113efc461b72",
+    "retrieval/tests/test_sql_guard.py": "c288ced6347010f8955a13a44a13aa5fd51c4bd9f70e0125cfeea7949b95e515",
+    "retrieval/tests/test_sql_connections.py": "9dbc942f6abfaf3ea4e7a07d5f7a1bc258f8ee07583de8702cff7ac0dd2ad4bb",
+    "db/migrations/005_expected_catalog.json": "186e6838be0f8b2eb7f6caccd105eb5e6831ba5d792174deb8d96fd778e8ae36",
+    "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+  },
+  "unresolved_code_findings": [],
+  "resolved_findings": [
+    {
+      "id": "SQL-ASTRA2-R01",
+      "severity": "high",
+      "finding": "Inter-frame silence was subject to the frame deadline, disconnecting idle sessions and long queries.",
+      "resolution": "read_frame waits without a deadline for the first byte and bounds the remaining header/body; independently verified idle and partial-frame behavior."
+    },
+    {
+      "id": "SQL-ASTRA2-R02",
+      "severity": "high",
+      "finding": "Pinned pg_dump/restore emits restrict_nonsystem_relation_kind set_config SQL and vector WITH SCHEMA public, both originally rejected.",
+      "resolution": "Exact utility templates now permit the pinned forms and reject altered encoding/string-setting keys, other schemas and compound SQL. Confirmed local PostgreSQL source call sites and independent gate probes."
+    },
+    {
+      "id": "SQL-ASTRA2-R03",
+      "severity": "medium",
+      "finding": "Per-read startup timeouts could repeatedly renew the advertised 15-second handshake deadline.",
+      "resolution": "A session timer now spans startup, backend connect, authentication and first ReadyForQuery; fragmented startup, delayed backend readiness and post-ready survival tests pass."
+    },
+    {
+      "id": "SQL-ASTRA2-R04",
+      "severity": "medium",
+      "finding": "Explicit stop left an owned proxy running when PostgreSQL was already down.",
+      "resolution": "bootstrap stop now always stops the recorded owned proxy before conditionally stopping the database; source inspection only."
+    },
+    {
+      "id": "SQL-ASTRA2-R05",
+      "severity": "medium",
+      "finding": "Existing table inline constraints and column drift were not validated by CREATE TABLE IF NOT EXISTS and named added-constraint checks.",
+      "resolution": "apply_migrations now compares the complete captured table/column/constraint/index catalog with a checked-in expected manifest inside the migration transaction. Added real-database negatives cover a dropped variant FK, dropped record CHECK and altered column; execution of those real tests remains pending in this review."
+    },
+    {
+      "id": "SQL-ASTRA2-R06",
+      "severity": "medium",
+      "finding": "On-disk fingerprint equality could certify tests against a stale already-running proxy.",
+      "resolution": "Proxy records startup-loaded source/lock hashes; runtime verifier compares them with current files and parser binary/profile and requires stable process identity across the test run. A final restart and real run remain required."
+    }
+  ],
+  "verification_performed": [
+    "Read SQL guard, complete proxy state/transport implementation, connection policy, explicit migration, parser bootstrap, database bootstrap, repository scope setup, recovery utility invocations and finite verification code.",
+    "Read pinned PostgreSQL 16.15 pg_dump sources to confirm generated extension and set_restrict_relation_kind SQL.",
+    "Scanned supported Python/Java/TypeScript/JavaScript/shell sources outside historical gates/closure for PostgreSQL client calls: sole direct psycopg.connect is centralized in sql_connections; psql and dump/restore calls use the owned proxy paths.",
+    "Ran independent shortened-deadline StreamReader probes: idle first-byte wait preserved; stalled partial header and partial body time out.",
+    "Ran all current RealParserGateTests, FrameDeadlineTests and HandshakeDeadlineTests: 11 tests, 0 failures, 0 errors. Guard tests include nested opaque rejection, lexical-mode denial, warm-cache binary tamper and exact dump/restore utility templates."
+  ],
+  "observations": [
+    "No remaining concrete accepted-SQL bypass was found in the reviewed code. Q/P strings pass the gate before forwarding; bound values and COPY payloads remain data. Fast-path functions and untracked SQL PREPARE/EXECUTE are denied.",
+    "Prepared-object state is deliberately conservative and may reject valid PostgreSQL lifetimes. Every retained portal captures previously admitted statement payload; this review does not assert exact backend object correspondence.",
+    "Endpoint normalization rejects supported environment, service, hostaddr and multihost bypasses. Bootstrap disables backend TCP; direct host-administrator access to the private backend remains outside the stated local trust model.",
+    "Parser subprocess limits, strict response checks, production-based denial, bounded cache and identity checks are implemented. Ordinary trusted function effect analysis remains excluded by specification."
+  ],
+  "pending_runtime_gates": [
+    "Real PostgreSQL protocol suite including cancellation and COPY, against the final restarted daemon with loaded-source identity matching the reviewed files.",
+    "Fresh, existing and partial migration checks including the new catalog-drift negatives and preservation of existing corpus/vector/journal state.",
+    "Actual pg_dump/pg_restore recovery and isolated counter/endpoint evidence for bootstrap, migration, application, implicit transaction and utility client paths.",
+    "Final HTTP/ML-integrity checks and overall finite runtime report required by the parent task."
+  ],
+  "limits": [
+    "This is approval of the reviewed code snapshot, not a claim that pending real runtime gates passed. Source changes require revalidation/rebinding.",
+    "No independent database mutations, real migration, backup/restore or broader integration tests were run by this reviewer.",
+    "No universal protocol/security refinement, PostgreSQL semantic correctness or independently rechecked serialized grammar proof is claimed.",
+    "Local user-authorized execution only; commercial redistribution rights in SQLean-authored code remain unestablished."
+  ],
+  "production_edits": false,
+  "sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html",
+    "https://www.postgresql.org/docs/16/protocol-message-formats.html",
+    ".tools/retrieval/src/postgresql-16.15/src/bin/pg_dump/pg_dump.c"
+  ]
+}

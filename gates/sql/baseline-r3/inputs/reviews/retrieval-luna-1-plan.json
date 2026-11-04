@@ -1,0 +1,94 @@
+{
+  "review": {
+    "id": "retrieval-luna-1-adversarial-plan",
+    "spec_revision": 3,
+    "reviewer": "GPT-6 Luna evaluator 1",
+    "status": "DESIGN_ONLY",
+    "scope": "Finite advisory fixtures for candidate generation and retrieval integrity. Expected results are deterministic and must be frozen before training or held-out evaluation.",
+    "implementation_observed": "scripts/verify_retrieval.py covers the formal abstract score model, but no retrieval runtime implementation was found during this review; backend currently exposes EmbeddingEncoder.java only.",
+    "non_claims": ["No semantic equivalence claim", "No proof of embedding quality", "No rights or authorization conclusion"]
+  },
+  "score_contract": {
+    "formula": "score = w_d * clamp((1 + cosine(q3072,r3072))/2,0,1) + w_p * shared_positive + w_c * shared_negative",
+    "default_weights": [0.55, 0.225, 0.225],
+    "weight_order": ["canonical", "positive", "negative"],
+    "pool_overlap": "size(intersection(unique(q),unique(r))) / max(size(unique(q)),size(unique(r))); zero for either empty; zero if environment/bounds/schema incompatible",
+    "ranking": "descending score then ascending immutable content ID",
+    "embedding_layout": {"context": [0, 768], "predicate": [768, 1536], "positives": [1536, 2304], "negatives": [2304, 3072]},
+    "formula_critique": [
+      "Full-vector cosine is the specified canonical score, not predicate-block cosine. Check all four block cosines as diagnostics; isolated block cosine is not algebraically interchangeable with full cosine because concatenation, normalization, and cross-block energy affect it.",
+      "The division by two is consistent with concatenating four individually unit-normalized blocks: the resulting vector norm is two. Verify the runtime actually renormalizes each adapted block before concatenation.",
+      "The positive and negative overlap terms are witness-membership evidence, not semantic labels. Exact context/bounds/schema compatibility and byte equality after digest lookup are prerequisites; incompatible contexts get zero overlap and an explicit label.",
+      "Weights must be finite, nonnegative and sum to one within tolerance. Candidate score must be higher-is-better; a distance must be transformed to similarity, never added as a descending-rank bonus.",
+      "Deduplicate witness identities before intersection and cardinality. For unequal pool sizes, max-size denominator bounds overlap by one and avoids rewarding larger N. Define empty-pool behavior explicitly as zero."
+    ]
+  },
+  "fixtures": [
+    {
+      "id": "direction-distance-vs-similarity",
+      "category": "ranking_direction",
+      "input": {"query_vector": [1, 0], "candidates": [{"id": "near", "vector": [1, 0]}, {"id": "orthogonal", "vector": [0, 1]}, {"id": "opposite", "vector": [-1, 0]}], "pool_scores": [0, 0, 0], "weights": [1, 0, 0]},
+      "expected": {"canonical_similarity": {"near": 1, "orthogonal": 0.5, "opposite": 0}, "rank": ["near", "orthogonal", "opposite"], "failure_if": "descending rank puts opposite first or treats larger cosine distance as better"}
+    },
+    {
+      "id": "pool-deduplicate-and-n-normalize",
+      "category": "pool_overlap",
+      "input": {"query_positive": ["a", "a", "b"], "candidate_x_positive": ["a"], "candidate_y_positive": ["a", "b", "c", "d"], "same_3072_vector_for_all": true, "weights": [0, 1, 0]},
+      "expected": {"candidate_x_overlap": 0.5, "candidate_y_overlap": 0.5, "same_score": true, "reason": "unique sets are {a,b}, {a}, and {a,b,c,d}; denominator is max(unique cardinalities)"}
+    },
+    {
+      "id": "same-hash-different-bytes",
+      "category": "digest_collision",
+      "input": {"left": {"digest": "forced-collision", "canonical_bytes": "sig=A;field=empty"}, "right": {"digest": "forced-collision", "canonical_bytes": "sig=A;field=A->A"}, "context_compatible": true},
+      "expected": {"shared_membership": 0, "identity_equal": false, "failure_if": "digest equality alone yields overlap or identity"}
+    },
+    {
+      "id": "negation-polarity-not-interchangeable",
+      "category": "polarity",
+      "input": {"query_positive": ["p1", "p2"], "query_negative": ["n1"], "candidate_positive": ["n1"], "candidate_negative": ["p1", "p2"], "vectors_equal": true, "weights": [0, 0.5, 0.5]},
+      "expected": {"shared_positive": 0, "shared_negative": 0, "score": 0, "failure_if": "positive witness matches negative pool or vice versa"}
+    },
+    {
+      "id": "same-atoms-wrong-context",
+      "category": "context_compatibility",
+      "input": {"query_positive": ["canonical-instance-bytes-1"], "candidate_positive": ["canonical-instance-bytes-1"], "vectors_equal": true, "query_context": "decls-facts-target-env-A", "candidate_context": "decls-facts-target-env-B", "bounds": "equal", "schema": "equal"},
+      "expected": {"shared_positive": 0, "compatibility": "INCOMPATIBLE_CONTEXT", "failure_if": "pool overlap credited across distinct context identity"}
+    },
+    {
+      "id": "layout-order-and-vector-integrity",
+      "category": "embedding_shape",
+      "input": {"expected_dimension": 3072, "expected_ranges": [[0,768],[768,1536],[1536,2304],[2304,3072]], "vectors": [{"name":"valid","dimension":3072,"finite":true},{"name":"swapped-blocks","dimension":3072,"finite":true,"block_order":["context","positives","predicate","negatives"]},{"name":"short","dimension":3071,"finite":true},{"name":"nan","dimension":3072,"finite":false}]},
+      "expected": {"valid": "ACCEPT", "swapped-blocks": "REJECT_LAYOUT_IDENTITY_MISMATCH", "short": "REJECT_DIMENSION", "nan": "REJECT_NONFINITE", "failure_if": "coerce, pad, truncate, or silently accept wrong block/model identity"}
+    },
+    {
+      "id": "family-split-leakage",
+      "category": "split_integrity",
+      "input": {"records": [{"id":"r1","split":"train","family_aliases":["fam-a"],"source_hash":"h1","anonymous_module":"m1"},{"id":"r2","split":"test","family_aliases":["fam-a"],"source_hash":"h2","anonymous_module":"m2"},{"id":"r3","split":"validation","family_aliases":["fam-c"],"source_hash":"h1","anonymous_module":"m3"}]},
+      "expected": {"status": "REJECT_MANIFEST", "violations": ["r1/r2 share family component across splits", "r1/r3 share identical source hash across splits"], "failure_if": "training or synthetic variant lineage crosses a connected family component"}
+    },
+    {
+      "id": "identity-and-alpha-only-pairs",
+      "category": "training_pair_validity",
+      "input": {"pairs": [{"id":"exact","left_serialization":"BOOL: AND(p,TRUE)","right_serialization":"BOOL: AND(p,TRUE)","derivation_checked":true},{"id":"alpha","left_serialization":"slot0:P","right_serialization":"slot0:P","derivation_checked":true},{"id":"rewrite","left_serialization":"BOOL: AND(p,TRUE)","right_serialization":"BOOL: p","derivation_checked":true}]},
+      "expected": {"exact": "EXCLUDE_NO_NONTRIVIAL_CHANGE", "alpha": "EXCLUDE_IDENTITY_ALPHA_ONLY", "rewrite": "ELIGIBLE_IF_CERTIFICATE_BINDS_EXACT_INPUTS", "failure_if": "identity pair counts toward nontrivial augmentation requirement"}
+    },
+    {
+      "id": "revoked-training-lineage-invalidates-model",
+      "category": "lineage_revocation",
+      "input": {"model":"M1","training_records":[{"id":"train-a","purpose_version":1,"active":true},{"id":"train-b","purpose_version":2,"active":false}],"query_record":{"id":"query-z","active":true,"vector_model":"M1"},"outbox_job":{"model":"M1","record":"query-z","status":"RETRY"}},
+      "expected": {"model_status":"QUARANTINED_LINEAGE","query_z_retrievable":false,"outbox_publish":"DENY","failure_if":"active query record remains eligible through adapter trained on revoked lineage"}
+    },
+    {
+      "id": "weight-validation-and-score-bounds",
+      "category": "weight_contract",
+      "input": {"valid_weights":[[0.55,0.225,0.225],[0,0,1],[0.45,0.4125,0.1375]],"invalid_weights":[[-0.01,0.505,0.505],[0.5,0.5,0.5],[0.5,"NaN",0.5]],"component_values":[0,0.5,1]},
+      "expected": {"valid":"ACCEPT", "invalid":"REJECT", "score_range":[0,1], "all_components_zero_score":0, "all_components_one_score":1, "failure_if":"negative/nonfinite weights, non-unit sum, or score outside [0,1]"}
+    }
+  ],
+  "execution_notes": [
+    "Execute each fixture against pure overlap/score functions before training and before inspecting held-out retrieval results.",
+    "Record exact runtime/model/content identities alongside results; failures must not be repaired by changing fixtures after outputs are seen.",
+    "The family leakage and revoked-lineage cases are policy/integrity checks, not relevance labels.",
+    "All judgments remain advisory. Solver-derived witness truth and exact compatibility metadata remain the ground truth for these tests."
+  ]
+}

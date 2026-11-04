@@ -1,0 +1,106 @@
+{
+  "reviewer": "astra-final",
+  "date": "2026-11-03",
+  "review_type": "RUNTIME_STATIC_ADVERSARIAL_FOLLOWUP",
+  "decision": "NO_OPEN_MATERIAL_CODE_FINDINGS_WITH_EXPLICIT_LIMITATIONS",
+  "scope": "Follow-up on revision 4 and the five prior runtime findings; read-only production inspection and local read-only artifact checks. This reviewer wrote only this new report, did not mutate production code or databases, did not rebuild compiled output, and did not execute the final repaired evaluation. This follow-up does not replace the completed preimplementation six-seat council.",
+  "snapshot_sha256": {
+    "spec/retrieval-stage.json": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+    "reviews/retrieval-runtime-astra-1.json": "31585ef365561990f70540ef3bf7cb70fa6dffd44d5e8ce1df6fd38578d83ed3",
+    "retrieval/allow_retrieval/corpus.py": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+    "retrieval/allow_retrieval/database.py": "a87843ec2b89a8d9ca83e55bc9de8794c859850f8ab283489e09d3745b601ed8",
+    "retrieval/allow_retrieval/promotion.py": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+    "retrieval/allow_retrieval/journal.py": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+    "retrieval/allow_retrieval/ranking.py": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+    "retrieval/allow_retrieval/evaluation.py": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+    "retrieval/allow_retrieval/importer.py": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+    "retrieval/allow_retrieval/training.py": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+    "retrieval/allow_retrieval/manage.py": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+    "db/migrations/004_retrieval.sql": "b9705a00228910947c9a187424ee8d2befe59b0f7b3ee3e14ec5685d062b2fa2",
+    "backend/src/main/java/dev/allow/corpus/CorpusEngine.java": "e28e61f7376dbf0c1f1057ea7d5250a691d837c67afc1e5d3f31b32218fe1ec0",
+    "backend/src/main/java/dev/allow/corpus/CorpusWorkerMain.java": "383a40c9cc20d395f3af5db35315b9b1b2924c2e72a0e9c230ad1c42ecae0340",
+    "backend/src/main/java/dev/allow/corpus/CorpusAugmentMain.java": "20dc79cc63c3d62227cdbe7f1324f779d4326d06e7ed12a0f37322cf7695365e",
+    "backend/src/main/java/dev/allow/corpus/TrainingVariant.java": "1027f084f7757b9c9c52f6d71fd97bfa3ee80a7b6c05f1c5fa779dbe94b0e21e",
+    "retrieval/tests/test_repository.py": "76360a0b6e3e5cfa347ad1e14a71f8c698d64823614132cd9168c73488e68b9b",
+    "retrieval/tests/test_ml.py": "20a677459164466c2fe1b3de8e39c040c1aaf183c1c1ac51f20d03be91f1d023",
+    "scripts/retrieval_recovery_test.py": "c8c121478362e9df49218f2043c62fca0683be7d7ecdc4381c8d03144aea192c",
+    "scripts/smoke_retrieval.py": "7505011c9b80c82c851dd52235ce23e81b942ea0e2d2e192a837492908ced6d0",
+    "retrieval/README.md": "0e4300c2f61e2efcf5985df8f2b45f3a9a7c96061da70a68aa9f9ca37d45e836",
+    "docs/retrieval-stage.md": "df44875f2c6519ba345bb4d1a45b1d9ddab961bd3af769e359a3766facad7e1a"
+  },
+  "issues": [],
+  "prior_finding_disposition": [
+    {
+      "id": "RA1-01",
+      "status": "RESOLVED_FOR_DOCUMENTED_SANDBOX",
+      "evidence": "corpus.sandbox_command replaces whole-host mount with explicit JDK/runtime libraries, classes, dependencies and pinned solver mounts; unshare-all, new-session, die-with-parent, cap-drop ALL, private tmpfs /tmp, empty environment and address-space/file-size/FD/CPU limits apply. No home, corpus runtime or database credential mount remains. Source tests include a denied host sentinel and a positive corpus request.",
+      "limitation": "This review inspected the actual launcher and tests but did not independently run a timeout/process-reaping probe or claim OS isolation as a formal proof."
+    },
+    {
+      "id": "RA1-02",
+      "status": "RESOLVED",
+      "evidence": "Model servable defaults false. register_model does not enable serving. promote_model checks immutable evidence, model/adapter/lineage, weights and trained quality counts/non-regression; promotion persists weights. searchable, records and candidate SQL require active AND servable, including explicit model selection. Unpromoted registration no longer silently switches default retrieval."
+    },
+    {
+      "id": "RA1-03",
+      "status": "RESOLVED_FOR_DOCUMENTED_TRUSTED_INSTALLATION_NOT_EXACT_RUNTIME_ATTESTATION",
+      "evidence": "toolchain_id now includes worker class/resource inventory, every dependency JAR, solver JAR and java.runtime.version. worker and augment reject changed before/after build identity. docs/retrieval-stage.md explicitly states that JDK/native bytes and OS/filesystem remain trusted.",
+      "limitation": "JDK and native-library bytes are not hashed; mounts are mutable installation paths, and a change-and-revert during execution is not excluded. Sorted inventory hashing is not an immutable ordered execution snapshot. Do not describe this as exact-byte runtime attestation or removal of the trusted installation boundary."
+    },
+    {
+      "id": "RA1-04",
+      "status": "RESOLVED_BY_EXPLICIT_NARROWER_SLICE",
+      "evidence": "Python MAX_SOURCE and existing Java SourcePolicy both enforce 32768 bytes. retrieval/README.md and docs/retrieval-stage.md explicitly document the stricter slice under the supplement outer262144 ceiling. This uses the prior finding requested alternative of recording the narrower implementation, not a claim of256KiB support.",
+      "limitation": "Selection excludes larger sources before parser admission; broad coverage figures must not imply support through262144 bytes or complete per-file rejection diagnostics."
+    },
+    {
+      "id": "RA1-05",
+      "status": "RESOLVED",
+      "evidence": "claim_job selects PENDING or expired RUNNING only and atomically assigns unique claim_token plus120-second lease. publish verifies token, live lease, current record/model and rights under row locks. Former owners cannot publish after replacement. test_025_lease_owner_and_expired_claim exercises skip/reclaim/stale-owner behavior.",
+      "limitation": "The bounded lease has no heartbeat; unusually slow inference can lose its claim. No unbounded-duration job-completion guarantee is inferred."
+    }
+  ],
+  "findings_discovered_and_repaired_during_followup": [
+    {
+      "id": "RAF-01",
+      "severity": "MEDIUM",
+      "status": "FIXED_IN_REVIEWED_SOURCE",
+      "finding": "The initial repair writer omitted validation_decision_sha256 from evaluation-artifact.json although trained promotion requires it, causing an otherwise eligible generated artifact to fail promotion.",
+      "repair": "rerun_repaired_holdout now includes validation_decision_sha256 in its emitted envelope. The first repair artifact remains preserved and must not be silently relabeled as the corrected artifact."
+    },
+    {
+      "id": "RAF-02",
+      "severity": "MEDIUM",
+      "status": "FIXED_IN_REVIEWED_SOURCE_PENDING_FULL_REPLAY",
+      "finding": "The initial rerun checked training-cache hashes but merely loaded and newly hashed heldout caches; original eligible manifest identity and historical excluded-record content were insufficiently bound. Changed heldout caches could silently change a claimed frozen rerun.",
+      "repair": "The revised function verifies original evaluation bytes against its preserved envelope, original eligible manifest digest, preserved46-row export digest and historical content/context/family/split/source/certificate fields. Every original canonical and certificate-bound variant is independently re-encoded with the pinned original encoder and must match cached arrays bit-for-bit. Existing training hashes and exact variant certificate IDs are also checked. New cache hashes are explicitly described as new repair-input bindings, not historical hashes. Actual cache-corruption and manifest-corruption rejection tests were inspected."
+    }
+  ],
+  "repair_only_methodology": {
+    "assessment": "Acceptable as a disclosed technical repair and observed-holdout rerun; not a new blind evaluation and not evidence of improved generalization.",
+    "fixed_fit": "The function reuses the original adapter.npy after SHA verification and original Encoder model IDs. It copies exact validation-decision bytes and retains their weights. Static AST inspection found no call to train or select_weights in rerun_repaired_holdout.",
+    "fixed_cohort": "Only the originally excluded no_checked_variant row set may be added, and each addition must remain test split. The preserved historical export now binds content and family for all46 rows. All original45 eligible rows and their variants remain unchanged.",
+    "repair": "Java TrainingVariant.fromCertificate replays the original proof and the explicit pinned B_AND_TRUE step directly; this repairs augmentation availability without training, checkpoint selection or score-weight tuning.",
+    "observed_artifact_checks": {
+      "original_checkpoint_sha_matches_first_repair": true,
+      "original_and_first_repair_validation_bytes_identical": true,
+      "original_and_first_repair_weights_identical": true,
+      "original_and_first_repair_training_lineage_identical": true,
+      "original_eligible_records": 45,
+      "first_repair_eligible_records": 46,
+      "original_test_components": 1,
+      "first_repair_test_components": 2,
+      "original_and_first_repair_pretrained_and_learned_family_macro_mrr": 1.0
+    },
+    "interpretation": "The first original evaluation was OPEN because only one eligible test family remained. Repair adds the previously assigned missing family without manufacturing independence. A subsequent successful rerun may satisfy the predeclared numeric gate, but reuse of observed holdout and tiny family counts must remain prominently disclosed. MRR1.0 versus1.0 is non-regression, not learned improvement.",
+    "pending": "The full revised45-cache replay and corrected evaluation artifact must succeed before parent marks the repair complete or promotes from that artifact. This report itself is not that runtime gate."
+  },
+  "other_review_observations": [
+    "Journal lock covers verification/replay and repository transaction; revocation is appended and fsynced before database application. Active model filtering protects all vectors derived from revoked training lineage. Restore script retains journal while restoring a real pg_dump/pg_restore backup.",
+    "Ranking uses full hierarchy cosine and exact context plus exact canonical witness bytes for same-polarity overlap; incompatible contexts get zero. Tenant/project RLS, purpose eligibility and servable/active/current version checks remain in candidate access.",
+    "CorpusEngine constructs facts AND selected target and facts AND NOT selected target under the same explicit generated static command. Original source commands do not determine the target.",
+    "read_source now traverses components via directory FDs with O_NOFOLLOW and rejects nonregular leaves, addressing the previous parent-component symlink race observation."
+  ],
+  "proof_and_scope_statement": "This is a finite source review with read-only empirical artifact checks, not a proof of Java/Python/SQL refinement, parser/solver correctness, OS security, semantic equivalence or commercial clearance. CHECKED is a bounded selected derivation; finite pools and retrieval scores never establish equivalence. Prior runtime report preserved unchanged.",
+  "scope_exclusion": "The newly requested SQLean/query-routing supplement is upcoming separate work and was not reviewed here. Final ML measurement and promotion must also satisfy its applicable new integrity gate; this report does not pre-approve that change."
+}

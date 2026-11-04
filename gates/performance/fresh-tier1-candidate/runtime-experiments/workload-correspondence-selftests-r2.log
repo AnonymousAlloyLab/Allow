@@ -1,0 +1,31 @@
+test_alias_missing_surplus_and_swapped_mapping (test_workload_correspondence.WorkloadCorrespondenceTests.test_alias_missing_surplus_and_swapped_mapping)
+Remapping must be complete, injective and agree with each definition position. ... ok
+test_canonical_generated_identity (test_workload_correspondence.WorkloadCorrespondenceTests.test_canonical_generated_identity)
+Uppercase, draft, non-v4, non-string and malformed targets are rejected. ... ok
+test_duplicate_definition (test_workload_correspondence.WorkloadCorrespondenceTests.test_duplicate_definition)
+A duplicate output identity fails before complete graph comparison. ... ok
+test_exact_scalar_types (test_workload_correspondence.WorkloadCorrespondenceTests.test_exact_scalar_types)
+Boolean and floating-point aliases cannot satisfy integer workload fields. ... ok
+test_generated_ids_reuse_fixture_uuid (test_workload_correspondence.WorkloadCorrespondenceTests.test_generated_ids_reuse_fixture_uuid)
+Changing only draft prefixes cannot count as fresh server identity allocation. ... ok
+test_literal_looks_like_identity (test_workload_correspondence.WorkloadCorrespondenceTests.test_literal_looks_like_identity)
+Even an ID-looking name remains exact and is never replaced by remapping. ... ok
+test_missing_module_and_cross_prefix_collision (test_workload_correspondence.WorkloadCorrespondenceTests.test_missing_module_and_cross_prefix_collision)
+Absent modules and server/draft IDs that collapse to one draft are rejected. ... ok
+test_original_500_node_graph (test_workload_correspondence.WorkloadCorrespondenceTests.test_original_500_node_graph)
+A complete fresh-ID remapping preserves the exact original workload. ... ok
+test_same_size_wrong_edge (test_workload_correspondence.WorkloadCorrespondenceTests.test_same_size_wrong_edge)
+A changed signature reference cannot pass merely because 500 nodes remain. ... ok
+test_swapped_definition_order (test_workload_correspondence.WorkloadCorrespondenceTests.test_swapped_definition_order)
+Reordered declarations are not silently accepted as an equivalent graph. ... ok
+test_swapped_operand_order (test_workload_correspondence.WorkloadCorrespondenceTests.test_swapped_operand_order)
+Commutative operators still retain the original ordered benchmark edges. ... ok
+test_tags_literals_and_unknown_fields (test_workload_correspondence.WorkloadCorrespondenceTests.test_tags_literals_and_unknown_fields)
+Tags, visible names and closed schema fields are never normalized away. ... ok
+test_undeclared_reference_in_both_inputs (test_workload_correspondence.WorkloadCorrespondenceTests.test_undeclared_reference_in_both_inputs)
+Identically malformed dangling references cannot establish correspondence. ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.109s
+
+OK

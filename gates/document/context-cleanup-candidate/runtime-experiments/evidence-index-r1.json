@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-11-04T05:34:29.758180+00:00",
+  "status": "BLOCKED",
+  "classification": "FINITE_RUNTIME_TEST_EVIDENCE_INDEX_NOT_33_CASE_CLOSURE",
+  "runs": [
+    {
+      "run_id": "r6",
+      "report": "runs/r6/report.json",
+      "report_sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5",
+      "manifest_sha256": "b8193722af49bb05ed3d66655fd3990db1e3a7711b4fa56cb55ed1cd4a8eb2f1",
+      "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "copied_production_source_root_sha256": "4046b8dfef3b8629d5011bf16193765ad28f79689203df27dc919644fbf53fa9",
+      "suite": "smoke",
+      "passed_subcases": [
+        {
+          "claim_id": "CC05",
+          "subcase": "normal-empty"
+        },
+        {
+          "claim_id": "CC05",
+          "subcase": "normal-owned"
+        },
+        {
+          "claim_id": "CC05",
+          "subcase": "normal-4096-ids"
+        },
+        {
+          "claim_id": "CC09",
+          "subcase": "actual-lock-timeout"
+        },
+        {
+          "claim_id": "CC11",
+          "subcase": "wall-before-connect"
+        },
+        {
+          "claim_id": "CC11",
+          "subcase": "wall-during-connected-work"
+        },
+        {
+          "claim_id": "CC11",
+          "subcase": "wall-after-decode"
+        },
+        {
+          "claim_id": "CC12",
+          "subcase": "cli-kill-after-decode"
+        }
+      ],
+      "nonpassing_subcases": [],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    },
+    {
+      "run_id": "r8-quota",
+      "report": "runs/r8-quota/report.json",
+      "report_sha256": "4232e0b251436075224ba3c663a2db8397cad6c4be332e0287b6d13ef0d8226a",
+      "manifest_sha256": "fe6bc65cd1b6814a91e62bb612efaeb4401fcc19745f7bb3ea4b911479c06b85",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "copied_production_source_root_sha256": "4046b8dfef3b8629d5011bf16193765ad28f79689203df27dc919644fbf53fa9",
+      "suite": "quota",
+      "passed_subcases": [
+        {
+          "claim_id": "CC29",
+          "subcase": "empty-0"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "empty-1"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "empty-2"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "full-0"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "full-1"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "full-2"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "reference-full"
+        },
+        {
+          "claim_id": "CC29",
+          "subcase": "late-conflict"
+        }
+      ],
+      "nonpassing_subcases": [],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    }
+  ],
+  "same_copied_production_source": true,
+  "latest_finite_pass_count": 16,
+  "preserved_failures": [
+    "prepare-failure-r1.json",
+    "runs/r2/report.json",
+    "runs/r3/report.json",
+    "prepare-failure-r4.json",
+    "runs/r5/report.json",
+    "runs/r7-quota/report.json"
+  ],
+  "blocking_reasons": [
+    "Remaining33-case runtime matrix not executed and finalbinding not present.",
+    "Two clean implementation builds are outside these probes.",
+    "r6 manifest suite selector was recorded but not included in its original input root; finalbinding must pin exactmanifest/invocation, or rerun currentharness.",
+    "r8 getrusage RSS is process-lifetime highwater; post-exec VmPeak/VmHWM supplemental run pending scheduling.",
+    "Whole-stack4-vCPU8-GiB production acceptance not assessed."
+  ],
+  "boundary": "16 specifically identified finite subcases passed on matching copied production source. This does not discharge each named broadCCcase in full or prove implementation refinement. All SQL used the isolated canonical SQLeanParser route; active services were not modified by these harnesses."
+}

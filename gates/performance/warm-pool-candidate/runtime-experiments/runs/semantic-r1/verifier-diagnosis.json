@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "CHECKED",
+  "classification": "OFFLINE_REPLAY_OF_PRESERVED_EVIDENCE",
+  "supersedes_diagnostic_reason_only": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r1/report.json",
+    "sha256": "21edb1c228e0a78f9bb804856aa0870113a8c2ff3222e043f45dc35a47fdba8a",
+    "size": 1038,
+    "mode": 384
+  },
+  "correct_reason": "NULL_EXPECTED_MODE_READ_ON_INVALID_RESPONSE",
+  "exact_failures": [
+    {
+      "id": "source-syntax",
+      "expectedStatus": "INVALID",
+      "expectedMode": null,
+      "failure_class": "KeyError",
+      "missing_field": "'mode'"
+    },
+    {
+      "id": "source-unbound",
+      "expectedStatus": "INVALID",
+      "expectedMode": null,
+      "failure_class": "KeyError",
+      "missing_field": "'mode'"
+    },
+    {
+      "id": "source-type",
+      "expectedStatus": "INVALID",
+      "expectedMode": null,
+      "failure_class": "KeyError",
+      "missing_field": "'mode'"
+    },
+    {
+      "id": "source-import",
+      "expectedStatus": "INVALID",
+      "expectedMode": null,
+      "failure_class": "KeyError",
+      "missing_field": "'mode'"
+    },
+    {
+      "id": "source-utf8-32769",
+      "expectedStatus": "INVALID",
+      "expectedMode": null,
+      "failure_class": "KeyError",
+      "missing_field": "'mode'"
+    }
+  ],
+  "expectedMode_null_means_absent_mode": true,
+  "prior_report_unchanged": true,
+  "runtime_executed": false
+}

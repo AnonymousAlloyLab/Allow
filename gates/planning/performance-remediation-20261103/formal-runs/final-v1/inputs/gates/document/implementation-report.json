@@ -1,0 +1,288 @@
+{
+  "status": "LOCAL_DOCUMENT_IMPLEMENTATION_TESTED_WITH_OPEN_PRODUCT_GATES",
+  "classification": "FINITE_EXECUTED_IMPLEMENTATION_TESTS_NOT_FORMAL_REFINEMENT",
+  "recorded_utc": "2026-11-03T22:42:10.238336+00:00",
+  "source_files": 540,
+  "source_root_sha256": "7f64fbc0305b019f8fd5181efe799878fe35971263a68d8148d0e7b5a1058533",
+  "evidence": [
+    {
+      "path": "db/document/runtime-evidence.json",
+      "sha256": "726a8503cf955ce98de968805aebc951412f40f9902322d0674d50db0a17aca2"
+    },
+    {
+      "path": "gates/document/associativity-amendment/council.json",
+      "sha256": "d40f5656b7703380610d34d366ec3f7b0e7b5cef78e8eced8a9aaa79a52d7756"
+    },
+    {
+      "path": "gates/document/browser-benchmark-candidate/protocol.json",
+      "sha256": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/build-evidence/asset-manifest.json",
+      "sha256": "6016844a76e3d524d9410b3062512ce1927a595fe7882ced2efd849348eaee31"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/harness-manifest.json",
+      "sha256": "08e6591e04c6c6b8bf43d787cfec0118c84d36e2667ffb0827201013f9fbd95a"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/protocol.json",
+      "sha256": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/registered-verifier.py",
+      "sha256": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/report.json",
+      "sha256": "0a4e6bc64fdf1862f15f1532588656e0748b7669ad728ed1afc8127cc9b6cc67"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/run-registration.json",
+      "sha256": "87de52798bf7569d5ce6a328e0132287da6f887752a74ab34d366efa34f5c0c6"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/source-manifest.json",
+      "sha256": "e438bbb4ca8560c428daf0e3dee44cf4369a8fe47991c1acea30f46cb6c4aa17"
+    },
+    {
+      "path": "gates/document/build.log",
+      "sha256": "b0ded0689d4a38b6b7324d6eb66f6c5fb0ce2d8988c8629129c86378b37582b0"
+    },
+    {
+      "path": "gates/document/document-recovery-report.json",
+      "sha256": "865cfe3cf3b50deb3f66f5651f4f474fa54cf81fe8120e3f9af520b7f092cb25"
+    },
+    {
+      "path": "gates/document/headless-preview-performance.json",
+      "sha256": "448377065e5f75fd6a753a4298362c9723ca285ccebe90c2a176e89975ebc75b"
+    },
+    {
+      "path": "gates/document/http-smoke.json",
+      "sha256": "b25a70a4b8d5c58681d53e15a0accd603d5e746ce52726a669c8f2e490cfd27f"
+    },
+    {
+      "path": "gates/document/inherited-runtime-tests.json",
+      "sha256": "fcb347af30df2de6c6cc91b2fd6f57caefd94805270bb9e0c2a61b2a2932dcce"
+    },
+    {
+      "path": "gates/document/java-tests.json",
+      "sha256": "7cc08c355b3930dabee43489b27df3f41484a9e7f924dab34be98bcd1fa43884"
+    },
+    {
+      "path": "gates/document/restart-report.json",
+      "sha256": "234519cf78d572a0bcc5261d13139904a3e2bcb0260677a69ce0ef57f02f38da"
+    },
+    {
+      "path": "gates/document/server-performance.json",
+      "sha256": "82627d8b559531399be33ccef023abc210e79586772e11def066be5f250a3052"
+    },
+    {
+      "path": "gates/document/sql-client-inventory.json",
+      "sha256": "f0c1fee58d0cd7e410f7395479d4ca50182757c329c46aec27e6d8d787503638"
+    },
+    {
+      "path": "gates/document/store-null-start-recovery-report.json",
+      "sha256": "fd59b11579aa0c1da79986fabfb050acffbbc61c07b05d7752688bc94bf02ef8"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/closure-runner-config.json",
+      "sha256": "65f3d2e7004e882c2a44ad5781fc7dcbe6b150010f22b481663e3b3aefc3af06"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/contract.json",
+      "sha256": "652f1950fb7497df063e58ebd05b54b0363f1bd2358b84b0900055508ab9c806"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/final-build/build-manifest.json",
+      "sha256": "e96c7e88b4547bed1e4d5281d220ad7c2a9744ad5350538d8afd32158f97cd79"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/final-build/build.log",
+      "sha256": "b0ded0689d4a38b6b7324d6eb66f6c5fb0ce2d8988c8629129c86378b37582b0"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/formal-activation.json",
+      "sha256": "1cfb310dcd2c0383148703753e2a93903b9248747fd686b9190cdae455cf9d97"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/formal-runs/final-309-v1/report.json",
+      "sha256": "b01467b80b8dc8989826aa37004b0a53cb654da727ef4a5bfbe402b5fe772da9"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/review-input-pins.json",
+      "sha256": "3c05a17aaf3879c5a0f2a20ac047671a31cbb6a15882199a5a4e2e739368985a"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/handoff-r1.json",
+      "sha256": "ca65614e66d9c6e3128be2d21e3c0aa14270b9698ca34caadef1a7f1cda0ec00"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/lifecycle-limitation-r1.json",
+      "sha256": "65f26747d6be12dcb01f40fc4090f56787ea7a919f937cfd3b7478f4a07584b7"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-closure/runs/final-v2/report.json",
+      "sha256": "2ca5b76a2b5d3d80cc60a12c5d469d332b8ceac9e79fa6f537e6ac64bfd57756"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-profiles/vc19-r1/runs/run-20261103T221837Z/report.json",
+      "sha256": "ea72893ff8c3d728b4a59146af7a47b5507f63fc0ad687f7a39ade15729645c3"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-runs/current-v1/binding-v1/report.json",
+      "sha256": "82278054e8cd2bd33bc79bd44e2fed9be357a5422abd375fede6acfecf03b37c"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-test-plan.json",
+      "sha256": "31cccb355382536f1505d310a6a4bf892463dca19a521b1314c914bb4d01a431"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/verify_model_closure.py",
+      "sha256": "222da06dec2833c36f654e3ff3b531661fb7cae931dd13afab643deba8d2f5ac"
+    },
+    {
+      "path": "gates/retrieval/http-smoke.json",
+      "sha256": "607f1445cd04b479f3305dce7dc0be37d4c8ff527bb0118818b80f43dc61f86f"
+    },
+    {
+      "path": "reviews/document-assoc-runtime-astra-1.json",
+      "sha256": "4549104fdb0457047a93f721a3c15a58c76c5f1d47355c4c7a232a1b3836c1ea"
+    },
+    {
+      "path": "reviews/validation-context-astra-1.json",
+      "sha256": "323ec4e8f3e0da0feedb85f07ce08feca97d6e20aa5aa0e9b5f6343067cb2751"
+    },
+    {
+      "path": "reviews/validation-context-astra-2.json",
+      "sha256": "e664bf32b46d82bc4ea54a21904add1049973ff77eba10b2aa90ec75bb3641fd"
+    },
+    {
+      "path": "reviews/validation-context-sol-1.json",
+      "sha256": "b410c8826008badaff253e32a7e17ea3e5fde5fd69533708e6b69bbbefd3cab1"
+    },
+    {
+      "path": "reviews/validation-context-sol-2.json",
+      "sha256": "e1bdf82c3c109ed824a5304a09ec20b7cf173ebf8f7151f017a00bec73b67986"
+    },
+    {
+      "path": "reviews/validation-context-terra-1.json",
+      "sha256": "0b7bf081a88f7b5f7b4f3926aab57c5a72bfc343861e0cb7ea40457ff33c713a"
+    },
+    {
+      "path": "reviews/validation-context-terra-2.json",
+      "sha256": "e389cccc24534b8c0f8ed8270e9c6b55888fb32c7e718fb44fe19614ef5e55d1"
+    },
+    {
+      "path": "scripts/verify_browser_benchmark.py",
+      "sha256": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a"
+    }
+  ],
+  "checks": {
+    "formal_model_propositions": 309,
+    "clean_formal_builds": 2,
+    "backend_tests": 189,
+    "frontend_tests": 164,
+    "shared_java_typescript_cases": 46,
+    "document_store_tests": 22,
+    "all_retrieval_document_python_tests": 186,
+    "style_js_ts_fixtures": 73,
+    "style_java_fixtures": 13,
+    "actual_http": "PASS",
+    "server_crash_restart": "PASS",
+    "full_acl_database_restore": "PASS",
+    "sql_client_inventory": "PASS",
+    "retrieval_http": "PASS"
+  },
+  "latency": {
+    "status": "FAIL",
+    "events": 1000,
+    "p50_ms": 381.128225,
+    "p95_ms": 392.298835,
+    "p99_ms": 418.294607,
+    "target_p95_ms": 300
+  },
+  "original_gates": {
+    "G0": {
+      "state": "FINITE_MODEL_VERIFIED",
+      "propositions": 309,
+      "clean_builds": 2
+    },
+    "G1": {
+      "state": "LOCAL_TECHNICAL_CHECKS_PASSED_RIGHTS_OPEN",
+      "remaining": [
+        "Dependency redistribution and license reconciliation"
+      ]
+    },
+    "G2": {
+      "state": "IMPLEMENTATION_TESTED_BROWSER_ACCEPTANCE_INCOMPLETE",
+      "tested": [
+        "23 typed constructors and46 shared Java/TypeScript cases",
+        "Durable commits, exact retries and history",
+        "Actual process restart and full-ACL database recovery"
+      ],
+      "remaining": [
+        "Manual browser/pointer/keyboard and named assistive-technology acceptance",
+        "Universal implementation refinement is not claimed"
+      ]
+    },
+    "G3": {
+      "state": "IMPLEMENTATION_TESTED_ACCEPTANCE_OPEN",
+      "tested": [
+        "Exact Unicode/CRLF source and verified occurrences",
+        "BLOCK/TEXT_ONLY transitions and historical evidence",
+        "500-node ordered associative reconstruction under actual sandbox"
+      ],
+      "remaining": [
+        "Cold browser preview series and full browser interaction/manual accessibility acceptance",
+        "Authoritative diagnostic latency target remains FAIL"
+      ],
+      "authoritative_latency_target": "FAIL"
+    },
+    "G4": {
+      "state": "BOUNDED_SOLVER_AND_PAIRED_POOLS_TESTED_DEPENDENCIES_OPEN",
+      "remaining": [
+        "Inherited product acceptance"
+      ]
+    },
+    "G5": {
+      "state": "LOCAL_LEARNED_RETRIEVAL_AND_RECOVERY_TESTED_DEPENDENCIES_OPEN",
+      "remaining": [
+        "Inherited product acceptance"
+      ]
+    },
+    "G6": {
+      "state": "NO_GO",
+      "remaining": [
+        "Dependency/dataset commercial rights",
+        "Accessibility/performance acceptance",
+        "Consenting customer task pilot and support economics"
+      ]
+    }
+  },
+  "browser_acceptance": "INCOMPLETE",
+  "browser_warm": {
+    "run_id": "validation-context-v1",
+    "status": "PASS",
+    "p95_ms": 12.5
+  },
+  "browser_cold_and_named_assistive_technology": "NOT_ESTABLISHED",
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled libraries",
+    "propext, Quot.sound and Classical.choice only when reported by the axiom audit",
+    "Pinned Lake/Python verifier and SHA256 collision resistance",
+    "Operating system/filesystem/processes and hardware",
+    "Interpretation of abstract model definitions; no implementation correspondence",
+    "Alloy/Kodkod/SAT4J",
+    "Java/TypeScript/Python adapters",
+    "PostgreSQL/pgvector and SQLeanParser grammar CLI"
+  ],
+  "excluded": [
+    "Universal runtime refinement",
+    "Full Alloy semantic normal forms",
+    "Unbounded solver validity",
+    "Browser/accessibility acceptance",
+    "Public deployment or commercial distribution"
+  ],
+  "interpretation": "Proof closure certifies only frozen formal model propositions. Tests and performance measurements support their stated finite fixtures."
+}

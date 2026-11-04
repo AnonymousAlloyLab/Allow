@@ -1,0 +1,654 @@
+{
+  "claims": [
+    {
+      "id": "F01",
+      "statement": "Every successful raw-expression inference has a derivation in the declared typing judgment.",
+      "symbol": "Allow.infer_sound",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F02",
+      "statement": "Every derivably typed expression is free of holes.",
+      "symbol": "Allow.typed_hole_free",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F03",
+      "statement": "An accepted typed slot has the exact expected type under the supplied elaborated context.",
+      "symbol": "Allow.checkSlot_sound",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F04",
+      "statement": "A failed or stale accepted-state transaction returns the previous accepted state exactly.",
+      "symbol": "Allow.reject_preserves",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F05",
+      "statement": "Every accepted model-state transition preserves the well-typed committed expression invariant.",
+      "symbol": "Allow.commit_preserves",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F06",
+      "statement": "A successful candidate transaction increments the accepted revision exactly once.",
+      "symbol": "Allow.commit_revision",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F07",
+      "statement": "Visible current evidence has the exact accepted analysis key and presentation epoch, and the draft matches the accepted source.",
+      "symbol": "Allow.visible_is_current",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F08",
+      "statement": "Truth-table canonical equality iff all Boolean valuations agree, for a fixed atom count and ordering.",
+      "symbol": "Allow.canonical_eq_iff",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F09",
+      "statement": "Every derivation in the registered Boolean certificate calculus preserves evaluation.",
+      "symbol": "Allow.certificate_sound",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F10",
+      "statement": "Certified same-context Boolean merges preserve canonical table identity.",
+      "symbol": "Allow.certified_merge_canonical",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F11",
+      "statement": "No solver status in the reporting policy returns an unbounded-validity claim.",
+      "symbol": "Allow.no_unbounded_claim",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F12",
+      "statement": "UNKNOWN/TIMEOUT/CANCELLED/ERROR do not yield bounded absence evidence.",
+      "symbol": "Allow.unknown_is_not_unsat",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F13",
+      "statement": "The abstract retrieval filter returns only same-tenant, live, permitted rows in the selected model/schema.",
+      "symbol": "Allow.retrieval_is_authorized",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F14",
+      "statement": "Admitted witness-pool membership binds a common target context, own query identity, validation and expected query polarity; positive and negative queries need not share their query IDs.",
+      "symbol": "Allow.pair_admission_bound",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F15",
+      "statement": "The frozen formal-kernel configuration has an explicit coherent, non-release, RAG-disabled witness.",
+      "symbol": "Allow.contract_has_witness",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F16",
+      "statement": "Unrestricted existential hoisting across disjunction has a concrete empty-domain counterexample.",
+      "symbol": "Allow.empty_domain_counterexample",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F17",
+      "statement": "Tabulating evaluation of a canonical table returns the identical table.",
+      "symbol": "Allow.canonical_idempotent",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F18",
+      "statement": "Different ordered exact atom inventories cannot have equal contextual canonical keys, even if truth tables coincide.",
+      "symbol": "Allow.distinct_inventories_distinct_keys",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "F19",
+      "statement": "A presentation edit invalidates prior current evidence even if the accepted analysis key is unchanged.",
+      "symbol": "Allow.edit_hides_old",
+      "claim_class": "proof_compilation_with_expected_proposition",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "Both isolated Lean builds check the frozen expected proposition and allowed axioms.",
+      "block_conditions": [
+        "missing_or_different_proposition",
+        "build_failure",
+        "undeclared_axiom"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "C20",
+      "statement": "Contract conforms to schema, retains six user invariants, and has unique frozen obligations.",
+      "symbol": null,
+      "claim_class": "mechanical_metadata_check",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "The registered deterministic verifier predicate returns true.",
+      "block_conditions": [
+        "predicate_false",
+        "unresolved",
+        "missing_evidence"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "C21",
+      "statement": "Formal-kernel JSON deterministically regenerates the identical Lean constants.",
+      "symbol": null,
+      "claim_class": "mechanical_metadata_check",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "The registered deterministic verifier predicate returns true.",
+      "block_conditions": [
+        "predicate_false",
+        "unresolved",
+        "missing_evidence"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "C22",
+      "statement": "Six concrete non-vacuity witnesses inhabit the frozen expected Lean propositions.",
+      "symbol": null,
+      "claim_class": "mechanical_metadata_check",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "The registered deterministic verifier predicate returns true.",
+      "block_conditions": [
+        "predicate_false",
+        "unresolved",
+        "missing_evidence"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "C23",
+      "statement": "Two isolated clean builds agree on proof inventory, correspondence, projection and olean hashes.",
+      "symbol": null,
+      "claim_class": "mechanical_metadata_check",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "The registered deterministic verifier predicate returns true.",
+      "block_conditions": [
+        "predicate_false",
+        "unresolved",
+        "missing_evidence"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "C24",
+      "statement": "Lean source and axiom audit contains no prohibited proof escapes or undeclared axioms.",
+      "symbol": null,
+      "claim_class": "mechanical_metadata_check",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "The registered deterministic verifier predicate returns true.",
+      "block_conditions": [
+        "predicate_false",
+        "unresolved",
+        "missing_evidence"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    },
+    {
+      "id": "C25",
+      "statement": "Six council reports are bound to the final contract and requested model dispatch roster; opinions are not proof.",
+      "symbol": null,
+      "claim_class": "mechanical_metadata_check",
+      "verifier": "V-ALLOW-SPEC",
+      "severity": "blocking",
+      "pass_condition": "The registered deterministic verifier predicate returns true.",
+      "block_conditions": [
+        "predicate_false",
+        "unresolved",
+        "missing_evidence"
+      ],
+      "trusted_dependencies": [
+        "T-LEAN",
+        "T-LOGIC",
+        "T-LAKE",
+        "T-PYTHON",
+        "T-SCHEMA",
+        "T-VERIFIER",
+        "T-HASH",
+        "T-OS",
+        "T-HARDWARE",
+        "T-INTERPRETATION"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer": "Terra council seat 1",
+  "review_type": "FIELD_ORDER_AMENDMENT_REVIEW",
+  "decision": "BLOCKERS",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "a99ce19599454b43e1b754600aefdd95bc06b867a672c3d6e58536297f35932f"
+  },
+  "checker_pre_guard": {
+    "path": "backend/src/main/java/dev/allow/document/ModuleChecker.java",
+    "sha256": "71a6d42375a4a2e6067d45ea81288e7d088ed796ccb8f8b6a05a0840bf1cab77"
+  },
+  "blocking_findings": [
+    {
+      "id": "ORDER-TERRA1-01",
+      "title": "GuardedStep applies field validation to receipt replay and authorization denial",
+      "evidence": "GuardedStep is CandidateOrder a \u2227 Step ... for every result. An authorized exact receipt retry must return the saved outcome before parser, candidate/order validation, even if candidate is invalid, unavailable or differs from the historical request after process restart; the user-supplied candidate is irrelevant on replay. CandidateOrder can be false for that a, so GuardedStep excludes otherwise valid Step.replay. The same precondition incorrectly restricts collision and authorization denial. This conflicts with inherited r5 receipt-before-validation rules.",
+      "resolution": "Require CandidateOrder only for new artifact mutations: accepted and unknown-applied-success branches, while replay, collision, auth denial, capacity, revalidate, known rollback, terminal denial, and unknown-denial proceed without candidate order. Equivalently define a result-sensitive guard or refine the admitted transition with a success-only rule; retain the narrow success-order theorem and add exact replay/collision witnesses with a false CandidateOrder, unavailable parser/decoder/frame, and no state mutation. Do not infer rejected or unknown status from absence of a guard proof."
+    }
+  ],
+  "positive_assessment": "Owner grouping in signature order with stable per-owner order is a sound reversible restriction for Alloy nested declaration printing, provided existing declaration uniqueness/ownership checks and exact-source round-trip tests remain required. Treating node registry order as nonsemantic matches its role as an identity lookup table.",
+  "verification": "One isolated scratch copy of formal was built using Lake from the correct formal directory, followed by a successful Lean check of FieldOrder.lean. This is preliminary only, not the two registered clean builds. SHA-256 inputs and pre-guard ModuleChecker hash captured; no active source or production changes."
+}

@@ -1,0 +1,86 @@
+{
+  "reviewer": "astra-1",
+  "review_type": "RUNTIME_STATIC_ADVERSARIAL",
+  "decision": "CHANGES_REQUIRED",
+  "scope": "Read-only static inspection of working files. Concurrent implementation was ongoing. No database mutations, runtime tests, security probes or production edits performed.",
+  "snapshot_sha256": {
+    "retrieval/allow_retrieval/corpus.py": "5037167898a23a460ee9d9eed5961093480fc46ba750429f06c10e78b76cfe2f",
+    "retrieval/allow_retrieval/database.py": "dda73d67805b2de2f7067a6f71a8be269639758f1052d2780cf92ceb7de05aef",
+    "retrieval/allow_retrieval/journal.py": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+    "retrieval/allow_retrieval/ranking.py": "c37bf36a9af1f5c8632a734907922d7ea71c232f242301550ccbee358317dcf6",
+    "retrieval/allow_retrieval/importer.py": "d99b30808d41d55f99389fff9672b7a1d85b0467a5122b06a300d25811453865",
+    "db/migrations/004_retrieval.sql": "4180284fd2f78e582b9227545721bce455f3e626017b907848577d4b91556b15",
+    "backend/src/main/java/dev/allow/corpus/CorpusEngine.java": "5495b257f5dcf0d47e0864c0ed548210e105405a5144674038e929b06e0c483e",
+    "backend/src/main/java/dev/allow/corpus/PoolBuilder.java": "1a5e0d92f587c4c95658f23d65c63331c2a060758cf142f21bab4864abd886bc",
+    "backend/src/main/java/dev/allow/corpus/InstanceCanonicalizer.java": "9271ca7d75d75587e01fb7158552a39ddb03969c37c8163295392518a7a3b3e6",
+    "backend/src/main/java/dev/allow/canonical/CorpusProjection.java": "6dcc87e62022f2059b55ab28108df3da380c24ff0719278ca4366f5ac41ff5eb"
+  },
+  "issues": [
+    {
+      "id": "RA1-01",
+      "severity": "HIGH",
+      "file": "retrieval/allow_retrieval/corpus.py",
+      "line": 38,
+      "finding": "Dedicated corpus worker mounts the complete host filesystem read-only using --ro-bind / /; unlike the G1 sandbox, private files and database credentials remain readable to the parser/solver process. Only network namespace is unshared, and native address-space/process resources are not bounded by the existing G1 policy.",
+      "impact": "The declared hostile-input/private-file isolation boundary is absent. Read-only does not protect confidentiality; Java heap limit does not bound native memory.",
+      "fix": "Reuse the G1 allowlisted mount and namespace launcher, mounting only JDK, libraries, compiled classes/resources and solver artifacts; no complete host/home mount. Apply external process-tree termination/reaping and OS limits consistent with G1. Add actual private-file denial and timeout/reap tests for this corpus entrypoint.",
+      "verification": "Confirmed statically from launcher argument list; no exploit/probe executed."
+    },
+    {
+      "id": "RA1-02",
+      "severity": "HIGH",
+      "file": "retrieval/allow_retrieval/database.py",
+      "line": 265,
+      "finding": "Default searchable model is newest active row. register_model inserts models active by default and immediately queues embeddings, with no quality-promotion eligibility state in schema or lookup.",
+      "impact": "As soon as new trained vectors publish, default user retrieval uses the adapter even before validation or if held-out non-regression/cohort gate fails; this violates the frozen retain-baseline promotion rule.",
+      "fix": "Separate active-lineage state from serving/promotion state. Retain baseline as default until explicit successful frozen promotion; persist selected model and validation-tuned weights together. Permit explicit diagnostic evaluation without changing default serving model.",
+      "verification": "Static schema/register_model/searchable review; no serving request executed."
+    },
+    {
+      "id": "RA1-03",
+      "severity": "MEDIUM",
+      "file": "retrieval/allow_retrieval/corpus.py",
+      "line": 16,
+      "finding": "toolchain_id hashes implementation classes and alloy.jar only; worker executes target/dependency/* and JVM plus classpath resources that are outside the digest. No post-launch identity recheck prevents a rebuild between hash and launch.",
+      "impact": "Different dependency/JDK/resource execution can receive identical provenance/context keys, and a mid-launch rebuild can receive a stale key. Exact analysis provenance is not established.",
+      "fix": "Bind complete ordered classpath bytes/resources and JVM/runtime identity using existing BuildIdentity logic or equivalent immutable installation snapshot. Detect changed bytes before accepting output; ensure identity matches actual worker-loaded snapshot.",
+      "verification": "Static inspection of hash inventory and command classpath."
+    },
+    {
+      "id": "RA1-04",
+      "severity": "MEDIUM",
+      "file": "backend/src/main/java/dev/allow/corpus/CorpusEngine.java",
+      "line": 64,
+      "finding": "Corpus validates through SourcePolicy.check, which rejects above 32768 UTF-8 bytes, while corpus MAX_SOURCE and frozen corpus spec claim 262144.",
+      "impact": "Valid 32\u2013256KiB corpus files are silently classified SOURCE_OR_REQUEST_POLICY despite admitted contract size, distorting coverage.",
+      "fix": "Make source policy budget explicit for corpus versus G1, retain import/Unicode checks and corresponding AST/output isolation limits, or record a deliberate narrower implemented slice and its coverage limitation without claiming full 256KiB admission.",
+      "verification": "Static constants and call graph."
+    },
+    {
+      "id": "RA1-05",
+      "severity": "MEDIUM",
+      "file": "retrieval/allow_retrieval/database.py",
+      "line": 196,
+      "finding": "claim_job permits RUNNING rows immediately after another process claims them, and the transaction lock is released before computation. SKIP LOCKED cannot prevent duplicate concurrent processing once that claim transaction commits.",
+      "impact": "Concurrent embed workers repeatedly choose the same RUNNING job, wasting expensive inference and potentially starving later rows; successful publish remains idempotent but actual worker ownership/crash recovery is missing.",
+      "fix": "Use claim owner plus bounded lease/heartbeat and reclaim only expired RUNNING jobs, or enforce a cross-process singleton embedding worker lock. Preserve idempotent publish.",
+      "verification": "Static transaction/selection lifecycle; no concurrency test run."
+    }
+  ],
+  "positive_static_observations": [
+    "CorpusEngine constructs F AND target.call and F AND NOT target.call with the same fresh static bounds. Target is resolved nullary predicate and source command formula is ignored.",
+    "PoolBuilder reevaluates original reachable facts and selected body truth before instance projection. SAT existence and termination are represented separately; failures do not become UNSAT.",
+    "InstanceCanonicalizer uses one global atom bijection across all signature memberships and fields, including relation arity/empty tuples and fixed integer labels. Although all atom permutations are enumerated rather than prepartitioned by signatures, serialized memberships retain signature colors, so this does not itself collapse differently typed structures.",
+    "CorpusProjection preserves target-dependency body token where facts/other functions reference target and requires CHECKED selected-root proof.",
+    "Production HTTP bridge exposes status/list/search using stored record identity, not arbitrary client vectors/pools. add_record/normalize_full remain trusted internal boundaries rather than independent proof validators; do not later expose these as public admission APIs.",
+    "Journal operations are serialized under an independent file lock; append is fsynced before DB replay. Record revocation deactivates dependent trained models and cancels their outboxes; publish/search require active models. Continuity mismatch raises quarantine.",
+    "Ranking filters active FULL current-version records and requested purposes before score, compares exact context bytes plus keys for overlap, validates nonnegative normalized weights and returns evidenceOnly."
+  ],
+  "remaining_acceptance_obligations": [
+    "Record each witness own-query/SAT provenance explicitly in normalized storage tests; current SQL inserts validated=true from trusted internal construction. Test wrong polarity/run/target rejection and prohibit arbitrary external callers from creating these rows.",
+    "Source read_source checks parent symlinks before leaf open; directory-component replacement can race checks. For adversarial mutable roots, use openat directory traversal with O_NOFOLLOW or explicitly assume immutable trusted local corpus roots.",
+    "Current worker hard wall timeout drops already collected members because output is emitted only at completion. Report that timeout loses partial progress; do not assert already validated witnesses are durably retained across worker death.",
+    "Run original approved negative tests, restore/revocation lineage tests and actual quality metrics before declaring G4/G5 passed. This review contains no test pass claims."
+  ],
+  "proof_and_scope_statement": "Checked egraph extraction remains a bounded representative of a selected occurrence, not a global normal form. CHECKED and evidenceOnly labels must not imply semantic equivalence of retrieved candidates. Finite positive/negative pool agreement never proves equivalence, and different extracted terms never prove inequivalence."
+}

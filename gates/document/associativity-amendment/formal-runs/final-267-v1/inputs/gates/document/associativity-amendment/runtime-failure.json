@@ -1,0 +1,38 @@
+{
+  "status": "REGRESSION_REPRODUCED",
+  "classification": "ACTUAL_SANDBOXED_HTTP_FIXTURE",
+  "fixture_sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+  "fixture_nodes": 500,
+  "fixture_depth": 10,
+  "observations": [
+    {
+      "mode": "BLOCK_SUPPORTED",
+      "http": 200,
+      "status": "INVALID",
+      "supportMode": "UNAVAILABLE",
+      "diagnostics": [
+        {
+          "code": "INVALID_DRAFT",
+          "message": "forest"
+        }
+      ],
+      "request_sha256": "1fd48db2aa307670a2dde78e448dad12277b4ff4955c61e53dc043ddb088fcb8"
+    },
+    {
+      "mode": "SOURCE",
+      "http": 200,
+      "status": "VALIDATED",
+      "supportMode": "TEXT_ONLY",
+      "diagnostics": [],
+      "request_sha256": "6dccdf81d9f0c942f71a715a063b74dff13c4eb193ec79534a100e84479b3943"
+    }
+  ],
+  "source_sha256": {
+    "backend/src/main/java/dev/allow/document/ModuleChecker.java": "8a168d0b5ada7bd20d421cc114a6d0711d0b08ddaae5a7798f352618e08acdfe",
+    "backend/src/main/java/dev/allow/document/AlloyExpressionReader.java": "cfab1c5681a55de37c068632aa409fb7b261af5500bd7bbac267225755508704",
+    "backend/src/main/java/dev/allow/document/AlloyModuleReader.java": "24511dd02dea7b5349650a405301242ab80ac2cd979aafb7a125ae82597f0f9a",
+    "backend/src/main/java/dev/allow/document/EngineData.java": "cfcdd5c47236e8286830f382a286a24efd14e18d08600b939253df0e56fe992e",
+    "backend/src/main/java/dev/allow/document/ModuleEquivalence.java": "346b055b69eea160e2348c5716994a3a336fd888842aa223412dde495be8bf5f"
+  },
+  "authority_exported": false
+}

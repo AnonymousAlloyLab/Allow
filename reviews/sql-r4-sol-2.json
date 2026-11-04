@@ -1,0 +1,60 @@
+{
+  "reviewer": "Sol council seat 2",
+  "seat": "sql-r4-sol-2",
+  "review_type": "INCREMENTAL_FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 4,
+  "spec_sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "approved_exact_hash": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "formal_file_sha256": "648e16bd95be98f8089fe5bbd14290a21efe0c0405422be91c8081c82699f9f8",
+  "types_file_sha256": "156723aa97fe7cffafbec87fa342cea535d9f90bfdb6c7c1884f7fa034e919f0",
+  "blocking_design_findings": [],
+  "review_basis": [
+    "Read complete revision 4 specification, the six additional native-prepare/cache claims, and their definitions/proofs. Mechanically checked all 22 SQL obligation symbols/statements against spec/sql-types.json.",
+    "Inspected current revision 3 guard/protocol sources and preserved backup failure. Registered baseline_changes returned an empty list, so revision 4 production implementation has not begun.",
+    "Ran read-only grammar probes with the pinned workspace executable to check native statements, duplicate ordered statement families, wrapper forms, quoted/overlong names, comments and unsafe expressions.",
+    "Consulted official PostgreSQL 16 PREPARE, EXECUTE and lexical documentation for session-local statements, expression parameters, unquoted folding and identifier truncation."
+  ],
+  "approval_basis": [
+    "Revision 4 replaces a blanket ban that blocked actual full pg_dump with a bounded shared-namespace admission rule. It preserves exact grammar acceptance of the complete client-issued source and requires a connection-local admitted target for SQL EXECUTE.",
+    "Sole top-level statements, conservative ASCII names of at most 63 bytes, unchanged nested-production/mode/function restrictions, bounded state and no direct fallback retain the established boundary.",
+    "The native PREPARE request includes its statically parsed body; no arbitrary executable string is admitted through Bind/COPY parameters. SQL EXECUTE parameter expressions themselves remain subject to the normal policy.",
+    "The six new abstract claims establish native execution admission/target provenance, missing-name denial, native-to-protocol binding, pure cache lookup and accepted witnesses without asserting backend execution or adapter correctness.",
+    "The revision 3 failure remains BLOCKED evidence. Revision 4 requires unmodified full pg_dump/pg_restore with ACLs rather than suppressing backup contents."
+  ],
+  "read_only_parser_probe_results": [
+    "PREPARE getColumnACLs(pg_catalog.oid) AS SELECT $1 and EXECUTE getColumnACLs(42) are grammar accepted with exact returned source and single PrepareStmt/ExecuteStmt families.",
+    "EXECUTE s; EXECUTE s yields ordered families [ExecuteStmt, ExecuteStmt]; converting this list to a set would incorrectly erase the multi-statement evidence.",
+    "CREATE TEMP TABLE tmp AS EXECUTE s yields outer [ExecuteStmt] despite its leading CREATE token. A singleton family check alone is insufficient; require the correct leading PREPARE/EXECUTE token as well.",
+    "EXPLAIN EXECUTE s yields outer ExplainStmt and nested ExecuteStmt, so the nested production restriction remains necessary.",
+    "Unsafe set_config in PREPARE bodies and EXECUTE arguments is grammar accepted, confirming that existing policy checks must scan the complete native statement before forwarding.",
+    "Quoted names and 64-character ASCII names are grammar accepted and therefore need the independent conservative name policy. Leading comments are absent from the token list, which supports token-based classification without source-prefix guessing."
+  ],
+  "implementation_acceptance_notes": [
+    "Keep statementFamilies as an ordered list with duplicates. Require exactly one expected family and the matching leading PREPARE/EXECUTE token, then apply every nested forbidden-production check; do not whitelist all ExecuteStmt productions globally.",
+    "Extract names from verified lexer tokens, require the specified ASCII pattern and byte length, and lowercase only native SQL identifiers. Protocol statement-name bytes remain exact: SQL EXECUTE Foo targets foo and must not accidentally match protocol name Foo.",
+    "Treat classification, native name extraction and PREPARE body span as explicit trusted adapter work. Do not infer grammar structure from a textual AS substring, a regex over comments/strings, or a substring-only Lean premise.",
+    "Cache only immutable grammar/policy classification. Every request, including a cache hit, must update or consult its own connection-local statement state; another connection or a pure cache lookup cannot create native preparation.",
+    "Handle native/protocol duplicate names, Close, backend Parse/PREPARE errors and pipelined requests conservatively. Optimistic accepted metadata must never be reported as successful backend preparation, and a parsed PREPARE utility wrapper must not be represented as already executed. Prefer rejecting ambiguous replacement rather than implying source identity for a backend object retained after failure.",
+    "Test both cross-protocol directions, native unknown names, case distinctions, 63/64-byte boundaries, quoted/Unicode names, cache hits on fresh connections, state exhaustion, unsafe body/argument set_config, EXPLAIN, CREATE TABLE AS EXECUTE and repeated-family multi-statements.",
+    "After the six approvals and two clean final proof builds, rerun the full wire/real PostgreSQL verifier with a daemon whose loaded-input hashes and pinned parser binary match the frozen sources. Run full native pg_dump/pg_restore with ACLs and preserve the independent revocation journal and existing corpus."
+  ],
+  "formal_limits": [
+    "bodyPart proves only that a nonempty body string is a substring of the admitted PREPARE request. It does not establish that this substring is the grammar-selected query body; classification and span correctness remain trusted adapter assumptions.",
+    "NativeExecute assumes its request has been classified as EXECUTE and its supplied name has been normalized/extracted correctly. The formal theorem proves admitted-request/table-lookup facts from those premises, not SQL lexical correspondence.",
+    "The model still omits backend success, lifecycle/error correspondence, Python implementation refinement, wire framing, real cache/state behavior and network isolation. No stronger claim is warranted by the six additions.",
+    "No Lean build or PostgreSQL query execution was performed in this review. Final two-clean-build and implementation/runtime gates remain outstanding."
+  ],
+  "sources": [
+    "https://www.postgresql.org/docs/16/sql-prepare.html",
+    "https://www.postgresql.org/docs/16/sql-execute.html",
+    "https://www.postgresql.org/docs/16/sql-syntax-lexical.html",
+    "gates/sql/baseline-r3/recovery-failure.json",
+    "formal/Allow/SqlRouting.lean",
+    "retrieval/allow_retrieval/sql_guard.py",
+    "retrieval/allow_retrieval/sql_proxy.py"
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 4 implementation design only. This approval does not establish completed backup recovery, adapter correctness, runtime conformance or rights beyond user-authorized local execution."
+}

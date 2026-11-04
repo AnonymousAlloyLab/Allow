@@ -1,0 +1,71 @@
+{
+  "claim_id": "CC29",
+  "subcase": "late-conflict",
+  "run_id": "r9-quota-memory",
+  "input_root_sha256": "353340d7549568299c389f3fc185ccc5ab9f87d51f739a307992574b97cad346",
+  "verifier_id": "CC29-QUOTA-PROBE",
+  "verifier_sha256": "759ca83d0df3a2082ba357023c73282162dd5bd1603659ea3ff40cd24d31854a",
+  "fixture_sha256": "65015fc41399c1519e13f205e8e16fc98537bfb9da9d3a5c2f3943147a68e1f4",
+  "status": "PASS",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 527.985661,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-uvy_vjpi/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-uvy_vjpi/.gate/quota_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r9-quota-memory/late-conflict"
+    ],
+    "fixture_sha256": "db8623a24cbc3d9d34bd4e7572a55d7c201b5fbe0f208ecd47c29f855e241ccc",
+    "stdout_sha256": "4e31762c3e53761239bbf3843c6e5a19f070d034501e003e4ca49f188fd1573d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 63094683841037
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 63094690093201
+      },
+      {
+        "phase": "RETIRING",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 63095107945837
+      },
+      {
+        "phase": "CLEAN",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 63095110095463
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "focus_positions": [
+    300,
+    1778
+  ],
+  "rows_iterated": 1779,
+  "no_success": true
+}

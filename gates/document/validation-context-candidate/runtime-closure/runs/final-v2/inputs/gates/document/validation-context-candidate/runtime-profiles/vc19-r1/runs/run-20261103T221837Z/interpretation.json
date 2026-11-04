@@ -1,0 +1,175 @@
+{
+  "classification": "DERIVED_INTERPRETATION_OF_PREREGISTERED_VC19_RESOURCE_EVIDENCE",
+  "status": "TESTED_STORAGE_RESOURCE_SURFACE_PASS",
+  "raw_report": "report.json",
+  "raw_report_sha256": "ea72893ff8c3d728b4a59146af7a47b5507f63fc0ad687f7a39ade15729645c3",
+  "input_root_sha256": "8c815bbdba4f2a34a0163d5a70581b2b3c67906f17270fa44448bc388bbd5ac4",
+  "source_root_unchanged": true,
+  "database_dropped": true,
+  "samples": 9,
+  "successful_samples": 9,
+  "resource_limit_fail_closed_samples": 0,
+  "cases": [
+    {
+      "revisions": 64,
+      "accounted_bytes": 4194182,
+      "artifact_bytes": 1775500,
+      "unused_budget_bytes": 122,
+      "runs": [
+        {
+          "label": "n64-0",
+          "outcome": "SUCCESS",
+          "wall_ms": 91.5153050009394,
+          "cpu_ms": 84.38999999999999,
+          "wait4_peak_rss_bytes_including_pre_exec": 175669248,
+          "post_exec_peak_rss_bytes": 43704320,
+          "post_exec_peak_rss_mib": 41.6796875,
+          "peak_address_space_bytes": 84447232,
+          "peak_address_space_mib": 80.53515625,
+          "rows_buffered_before_iteration": 64,
+          "raw_libpq_value_bytes": 3551128,
+          "inspection_wall_ms": 0.10483100049896166
+        },
+        {
+          "label": "n64-1",
+          "outcome": "SUCCESS",
+          "wall_ms": 91.56941699620802,
+          "cpu_ms": 84.852,
+          "wait4_peak_rss_bytes_including_pre_exec": 175669248,
+          "post_exec_peak_rss_bytes": 44113920,
+          "post_exec_peak_rss_mib": 42.0703125,
+          "peak_address_space_bytes": 84447232,
+          "peak_address_space_mib": 80.53515625,
+          "rows_buffered_before_iteration": 64,
+          "raw_libpq_value_bytes": 3551128,
+          "inspection_wall_ms": 0.0824999951873906
+        }
+      ]
+    },
+    {
+      "revisions": 512,
+      "accounted_bytes": 33553688,
+      "artifact_bytes": 14392279,
+      "unused_budget_bytes": 744,
+      "runs": [
+        {
+          "label": "n512-0",
+          "outcome": "SUCCESS",
+          "wall_ms": 121.86610200296855,
+          "cpu_ms": 109.13400000000001,
+          "wait4_peak_rss_bytes_including_pre_exec": 175669248,
+          "post_exec_peak_rss_bytes": 70656000,
+          "post_exec_peak_rss_mib": 67.3828125,
+          "peak_address_space_bytes": 110813184,
+          "peak_address_space_mib": 105.6796875,
+          "rows_buffered_before_iteration": 512,
+          "raw_libpq_value_bytes": 28785582,
+          "inspection_wall_ms": 0.7511960066040047
+        },
+        {
+          "label": "n512-1",
+          "outcome": "SUCCESS",
+          "wall_ms": 121.95973299822072,
+          "cpu_ms": 110.718,
+          "wait4_peak_rss_bytes_including_pre_exec": 175669248,
+          "post_exec_peak_rss_bytes": 70230016,
+          "post_exec_peak_rss_mib": 66.9765625,
+          "peak_address_space_bytes": 110813184,
+          "peak_address_space_mib": 105.6796875,
+          "rows_buffered_before_iteration": 512,
+          "raw_libpq_value_bytes": 28785582,
+          "inspection_wall_ms": 0.7911360007710755
+        }
+      ]
+    },
+    {
+      "revisions": 2048,
+      "accounted_bytes": 134215006,
+      "artifact_bytes": 57648089,
+      "unused_budget_bytes": 2722,
+      "runs": [
+        {
+          "label": "n2048-0",
+          "outcome": "SUCCESS",
+          "wall_ms": 243.66144500527298,
+          "cpu_ms": 208.36699999999996,
+          "wait4_peak_rss_bytes_including_pre_exec": 175669248,
+          "post_exec_peak_rss_bytes": 157057024,
+          "post_exec_peak_rss_mib": 149.78125,
+          "peak_address_space_bytes": 197537792,
+          "peak_address_space_mib": 188.38671875,
+          "rows_buffered_before_iteration": 2048,
+          "raw_libpq_value_bytes": 115300274,
+          "inspection_wall_ms": 3.0306159969768487
+        },
+        {
+          "label": "n2048-1",
+          "outcome": "SUCCESS",
+          "wall_ms": 242.91569899651222,
+          "cpu_ms": 212.293,
+          "wait4_peak_rss_bytes_including_pre_exec": 175669248,
+          "post_exec_peak_rss_bytes": 156819456,
+          "post_exec_peak_rss_mib": 149.5546875,
+          "peak_address_space_bytes": 197537792,
+          "peak_address_space_mib": 188.38671875,
+          "rows_buffered_before_iteration": 2048,
+          "raw_libpq_value_bytes": 115300274,
+          "inspection_wall_ms": 2.836204002960585
+        }
+      ]
+    },
+    {
+      "revisions": 4096,
+      "accounted_bytes": 268434782,
+      "artifact_bytes": 115323865,
+      "unused_budget_bytes": 674,
+      "runs": [
+        {
+          "label": "n4096-0",
+          "outcome": "SUCCESS",
+          "wall_ms": 396.2726490062778,
+          "cpu_ms": 328.64,
+          "wait4_peak_rss_bytes_including_pre_exec": 273301504,
+          "post_exec_peak_rss_bytes": 273301504,
+          "post_exec_peak_rss_mib": 260.640625,
+          "peak_address_space_bytes": 314302464,
+          "peak_address_space_mib": 299.7421875,
+          "rows_buffered_before_iteration": 4096,
+          "raw_libpq_value_bytes": 230655922,
+          "inspection_wall_ms": 5.311025000992231
+        },
+        {
+          "label": "n4096-1",
+          "outcome": "SUCCESS",
+          "wall_ms": 386.42561600136105,
+          "cpu_ms": 326.693,
+          "wait4_peak_rss_bytes_including_pre_exec": 272928768,
+          "post_exec_peak_rss_bytes": 272928768,
+          "post_exec_peak_rss_mib": 260.28515625,
+          "peak_address_space_bytes": 314302464,
+          "peak_address_space_mib": 299.7421875,
+          "rows_buffered_before_iteration": 4096,
+          "raw_libpq_value_bytes": 230655922,
+          "inspection_wall_ms": 5.770718998974189
+        }
+      ]
+    }
+  ],
+  "maximum_history_empty_control": {
+    "wall_ms": 81.40280999941751,
+    "cpu_ms": 77.20100000000001,
+    "post_exec_peak_rss_bytes": 41852928,
+    "post_exec_address_space_peak_bytes": 84668416,
+    "history_query_performed": false
+  },
+  "rss_interpretation": "wait4/getrusage ru_maxrss includes the child launch history before exec; the first small cases report a175669248-byte floor inherited from the parent launch, while post-exec /proc VmHWM is much smaller. Preserve both raw metrics. /proc VmHWM is the CLI execution memory high water; do not compare the inherited wait4 floor with post-exec VmPeak as if both described one address-space image. Largest history exceeds that floor and both RSS observations agree.",
+  "scope_and_gaps": [
+    "Fixtures are storage-shaped direct insertions with actual artifact/revision/receipt/admission bytes and exact production accounting formula; they are not4096 Java/Alloy-validated admissions or proof of reachable full-quota UI history.",
+    "All four scales completed. Largest measured accounting is268434782 bytes,674 bytes below256MiB; largest scanned artifact payload is115323865 bytes. No larger or all possible payload distributions are claimed.",
+    "libpq is fully client-buffered:4096 rows/230655922 raw text-bytea value bytes exist before row iteration. Allocator/metadata overhead is outside that raw-payload count but included in process RSS/AS.",
+    "Instrumentation retains test metadata and imports extra harness modules, and sums raw libpq field lengths once; overhead is explicitly included. These are finite component resource observations, not HTTP/browser p95 acceptance.",
+    "All9 samples succeeded under unchanged2GiBAS/20CPU/20s wall caps. Allowed fail-closed resource outcomes were registered but not encountered or force-injected; this profile does not independently prove timeout/OOM recovery.",
+    "Child process resources are measured. PostgreSQL/proxy server memory/CPU and physical disk overhead are not bounded by the child limits.",
+    "No active source/configuration changed; temporary database cleanup and same pinned proxy identity were checked."
+  ]
+}

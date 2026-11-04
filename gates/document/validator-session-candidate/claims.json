@@ -1,0 +1,370 @@
+{
+  "id": "ALLOW-ADVISORY-VALIDATOR-SESSION-MODEL-CLAIMS-R1",
+  "mode": "DESIGN_ONLY",
+  "candidate_count": 22,
+  "inherited_count_required_unchanged": 287,
+  "active_claim_count_increase": 0,
+  "claims": [
+    {
+      "id": "VSM01",
+      "symbol": "Allow.ValidatorSessionCandidate.start_requires_idle",
+      "exact_source_declaration_before_proof": "theorem start_requires_idle {s : Session} {q : Request} (h : canStart s q) :\n    s.phase = .idle",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM02",
+      "symbol": "Allow.ValidatorSessionCandidate.start_requires_binding",
+      "exact_source_declaration_before_proof": "theorem start_requires_binding {s : Session} {q : Request} (h : canStart s q) :\n    q.binding = s.binding",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM03",
+      "symbol": "Allow.ValidatorSessionCandidate.start_requires_sequence",
+      "exact_source_declaration_before_proof": "theorem start_requires_sequence {s : Session} {q : Request} (h : canStart s q) :\n    q.sequence = s.next",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM04",
+      "symbol": "Allow.ValidatorSessionCandidate.busy_has_no_second_request",
+      "exact_source_declaration_before_proof": "theorem busy_has_no_second_request (s : Session) (first next : Request) :\n    ¬ canStart (start s first) next",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM05",
+      "symbol": "Allow.ValidatorSessionCandidate.stale_binding_denied",
+      "exact_source_declaration_before_proof": "theorem stale_binding_denied {s : Session} {q : Request}\n    (h : q.binding ≠ s.binding) : ¬ canStart s q",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM06",
+      "symbol": "Allow.ValidatorSessionCandidate.stale_sequence_denied",
+      "exact_source_declaration_before_proof": "theorem stale_sequence_denied {s : Session} {q : Request}\n    (h : q.sequence ≠ s.next) : ¬ canStart s q",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM07",
+      "symbol": "Allow.ValidatorSessionCandidate.publication_exact",
+      "exact_source_declaration_before_proof": "theorem publication_exact {s : Session} {current packet : Request} {out : Output} {r : Reset}\n    (h : publishable s current packet out r) : packet = current",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM08",
+      "symbol": "Allow.ValidatorSessionCandidate.publication_requires_reset",
+      "exact_source_declaration_before_proof": "theorem publication_requires_reset {s : Session} {current packet : Request} {out : Output} {r : Reset}\n    (h : publishable s current packet out r) : clean r",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM09",
+      "symbol": "Allow.ValidatorSessionCandidate.retiring_cannot_publish",
+      "exact_source_declaration_before_proof": "theorem retiring_cannot_publish (s : Session) (current packet : Request) (out : Output) (r : Reset) :\n    ¬ publishable (retire s) current packet out r",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM10",
+      "symbol": "Allow.ValidatorSessionCandidate.dead_cannot_publish",
+      "exact_source_declaration_before_proof": "theorem dead_cannot_publish (s : Session) (current packet : Request) (out : Output) (r : Reset) :\n    ¬ publishable (reaped s) current packet out r",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM11",
+      "symbol": "Allow.ValidatorSessionCandidate.reset_failure_denied",
+      "exact_source_declaration_before_proof": "theorem reset_failure_denied {s : Session} {current packet : Request} {out : Output} {r : Reset}\n    (h : ¬ clean r) : ¬ publishable s current packet out r",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM12",
+      "symbol": "Allow.ValidatorSessionCandidate.completed_sequence_not_reused",
+      "exact_source_declaration_before_proof": "theorem completed_sequence_not_reused (s : Session) (q : Request) (h : q.sequence = s.next) :\n    ¬ canStart (finish s) q",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM13",
+      "symbol": "Allow.ValidatorSessionCandidate.request_cap_denied",
+      "exact_source_declaration_before_proof": "theorem request_cap_denied {s : Session} {q : Request} (h : 64 ≤ s.completed) :\n    ¬ canStart s q",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM14",
+      "symbol": "Allow.ValidatorSessionCandidate.per_request_cpu_from_lifetime",
+      "exact_source_declaration_before_proof": "theorem per_request_cpu_from_lifetime (before after : Nat)\n    (_monotone : before ≤ after) (cap : after ≤ 12000) : after - before ≤ 12000",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM15",
+      "symbol": "Allow.ValidatorSessionCandidate.spawn_global_bound",
+      "exact_source_declaration_before_proof": "theorem spawn_global_bound (c : Capacity) (h : c.live < 2) : (spawn c).live ≤ 2",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM16",
+      "symbol": "Allow.ValidatorSessionCandidate.idle_still_counted",
+      "exact_source_declaration_before_proof": "theorem idle_still_counted (c : Capacity) : (quiesce c).live = c.live",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM17",
+      "symbol": "Allow.ValidatorSessionCandidate.idle_releases_principal",
+      "exact_source_declaration_before_proof": "theorem idle_releases_principal (c : Capacity) : (quiesce c).activePrincipal = 0",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM18",
+      "symbol": "Allow.ValidatorSessionCandidate.retirement_does_not_release_live",
+      "exact_source_declaration_before_proof": "theorem retirement_does_not_release_live (s : Session) : ¬ mayReleaseLive (retire s)",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM19",
+      "symbol": "Allow.ValidatorSessionCandidate.reaped_can_release_live",
+      "exact_source_declaration_before_proof": "theorem reaped_can_release_live (s : Session) : mayReleaseLive (reaped s)",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM20",
+      "symbol": "Allow.ValidatorSessionCandidate.advisory_preserves_durable",
+      "exact_source_declaration_before_proof": "theorem advisory_preserves_durable (d : Durable) (s : Session) : (advisory d s).1 = d",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM21",
+      "symbol": "Allow.ValidatorSessionCandidate.fresh_correspondence_is_required",
+      "exact_source_declaration_before_proof": "theorem fresh_correspondence_is_required (fresh session : Request → Output)\n    (h : observationallyFresh fresh session) (q : Request) : session q = fresh q",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    },
+    {
+      "id": "VSM22",
+      "symbol": "Allow.ValidatorSessionCandidate.nonvacuous_advisory_exchange",
+      "exact_source_declaration_before_proof": "theorem nonvacuous_advisory_exchange :\n    canStart witnessSession witnessRequest ∧\n    publishable { witnessSession with phase",
+      "class": "FINITE_ABSTRACT_MODEL_PROPOSITION",
+      "verifier": "PENDING_REGISTERED_LEAN_EXACT_TYPE_AND_AXIOM_CHECK",
+      "pass_condition": "Exact frozen proposition elaborates in both isolated clean builds; declaration and allowed axiom inventory match frozen expected types, no sorryAx or unregistered axiom; concrete witness checked where required.",
+      "runtime_correspondence": "NOT_CLAIMED; explicit observations/premises and interpretation are trusted or unresolved as contract states.",
+      "trusted_dependencies": [
+        "Lean4.34.1 kernel/toolchain",
+        "OS/hardware",
+        "exact-type/axiom/inventory verifier",
+        "SHA256 input integrity"
+      ],
+      "status": "NOT_CLOSED"
+    }
+  ],
+  "trusted_interpretation": [
+    "Lean strings stand for exact decoded bounded identities/bytes; JSON encoding and SHA256 mapping are external.",
+    "Reset.clean states observations supplied as premises; model does not establish real classloader reset.",
+    "Resource counters/retirement phases stand for OS and supervisor observations; correct implementation correspondence is not proved.",
+    "fresh_correspondence_is_required explicitly assumes observational equivalence; no theorem discharges it.",
+    "advisory excludes all durable update operations by construction; runtime route dispatch correctness remains separate."
+  ],
+  "required_clean_builds": 2,
+  "not_a_closure_report": true
+}

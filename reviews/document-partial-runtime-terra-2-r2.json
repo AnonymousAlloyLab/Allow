@@ -1,0 +1,26 @@
+{
+  "reviewer": "terra-2",
+  "decision": "APPROVE_RECHECK",
+  "scope": "Narrow read-only recheck of PTR-T2-01 only; not a complete renewed implementation audit or runtime proof. No tests, browser, HTTP or build run by this reviewer.",
+  "input_hashes": {
+    "/home/augustus/Allow/gates/document/partial-types-candidate/contract.json": "1d286937e571071160ee3f4494c99f451edd3a983b73b3e21d6565b6b29ff216",
+    "/home/augustus/Allow/frontend/src/document/operations.ts": "157bc379dba78d6364f36525d5a5be3fe023f20f49a2939153014bfa1f97de9c",
+    "/home/augustus/Allow/frontend/src/document/obligations.ts": "a3d890d75da0c992ef9bd343756ab604aaebf8267d8278e6eb87e051f801a460",
+    "/home/augustus/Allow/frontend/src/document/state.ts": "5203047bc3fffce119a6c0a2a8025ce53bfa48d905b7745f90b66313fc19759f",
+    "/home/augustus/Allow/frontend/src/document/constraintHistory.ts": "392712ded9993215497ad62deb9071100c6f434bdb3c4afb798b54c133fbb03e",
+    "/home/augustus/Allow/frontend/src/document/controller.ts": "fd0b11f8356b0e1be8800bbbed729c94d52ea6185bbde8f44c0710bedea73a6f",
+    "/home/augustus/Allow/frontend/src/document/checker.ts": "563772972e67396b120bd0d77c6dabc581c6a1dc79547b98bac14300eb6c803d",
+    "/home/augustus/Allow/frontend/src/document/partialAnalysis.ts": "f9f30a7f8e3d36db8a85d583860cf5c56357f95a08fce1d26f305014d9528d60",
+    "/home/augustus/Allow/frontend/src/document/partialRules.ts": "71b5e9b8dcd84715e01099388af04c4c2274f0608945ac86eda9ca7359efd2be",
+    "/home/augustus/Allow/frontend/src/document/partialSupports.ts": "e218148051a7f41b9d60e0b7cc57ad82661a4421bb15313f08d6c34045472fe7",
+    "/home/augustus/Allow/frontend/src/document/partialShapes.ts": "ede1fc9f57434984df90239195c09507ab83cc46b365bf6f61fa900849f0b66c",
+    "/home/augustus/Allow/frontend/src/document/partialDestinations.ts": "339764ee40d2acdb855d1ba15c338fd961c6f492811b368ad0426bef1f2441f4",
+    "/home/augustus/Allow/frontend/src/document/ExpressionEditor.tsx": "38db2ca10723b36b04d1d3c4233bb450edb105f1335fce155ca74dfe944e1d9e",
+    "/home/augustus/Allow/frontend/src/DocumentWorkbench.tsx": "8cc7349e3665e7e0b1fa1d3dff4c0f3b430ae6e74a22a2a68a0d2268feba445c",
+    "/home/augustus/Allow/frontend/src/document/partialDisplay.ts": "ba3cc79ff08aa738200441922f84880edc413a5c9fb5802d9d07f5ed564afd39",
+    "/home/augustus/Allow/frontend/src/document/partialAnalysis.test.ts": "291a3e8c52fe40cdc233be43d21a6b721095190345efa6b80e39383c5cdf9735"
+  },
+  "prior_finding": "PTR-T2-01",
+  "resolution": "Resolved in inspected source: checker.finish appends uncovered partial diagnostics regardless of whether legacy diagnostics exist, retaining capped display and complete private violation sets. The regression creates an unrelated invalid command plus some(not HOLE) and asserts both public messages within the cap.",
+  "validation": "The parent reports 164 frontend tests passed; this reviewer did not independently execute them. Full runtime, parity and browser validation remain separate."
+}

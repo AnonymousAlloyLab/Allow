@@ -1,0 +1,31 @@
+{
+  "status": "STAGED_PROPOSALS_ONLY_NOT_EXECUTED",
+  "required_copies": [
+    {
+      "active_path": "scripts/bootstrap_corpus.py",
+      "original_sha256": "bd8c442653e1584f43a4a4a7f6ac9be0ddc6f2b2961f6c69bff15b8a317a192c",
+      "proposal_path": "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/bootstrap_corpus.py",
+      "proposed_sha256": "85aaad35e2eec311e96265bd73b0ac5b9a7df10d3240b078a8097d5fa052c0f1"
+    },
+    {
+      "active_path": "scripts/verify_sql_runtime.py",
+      "original_sha256": "7c7293b65b8c8f5ac8be41b806ccea74c04ebbd687db5127e9022bc08a70a7d7",
+      "proposal_path": "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/verify_sql_runtime.py",
+      "proposed_sha256": "fb6342d80a6588d057190a6502ab36d52fa705f938c9c34daadaff1a88ddd870"
+    },
+    {
+      "active_path": "scripts/document_recovery_test.py",
+      "original_sha256": "7f2741c30d16caeefef1510a805c3f49aaa493716ff95d30c401e99c1c12054b",
+      "proposal_path": "gates/sql/immutable-image-candidate/implementation/promotion-proposals/scripts/document_recovery_test.py",
+      "proposed_sha256": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2"
+    }
+  ],
+  "covered_without_edit": [
+    "scripts/verify_sql_clients.py fingerprints all sql modules via glob; imports runtime_identity",
+    "scripts/verify_corpus_runtime.py fingerprints full retrieval source/tests",
+    "scripts/verify_sql.py inventories all retrieval SQL-facing source via AST"
+  ],
+  "real_postgresql_tests_retained": 13,
+  "fake_wire_tests_retained": 39,
+  "policy_difference": "runtime verifier reports current disk pin separately from sealed live identity; never claims per-admission disk integrity"
+}

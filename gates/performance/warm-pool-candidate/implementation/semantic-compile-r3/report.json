@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "status": "SOURCE_READY",
+  "classification": "GATE_COMPILE_STYLE_FIVE_ORACLE_TESTS_NOT_RUNTIME_ACCEPTANCE",
+  "copied_root": "/tmp/allow-warm-semantic-compile-r3-dkec11d3",
+  "manifest_sha256": "94dee3d0d3cf5d552151fd6d9cf0fe6d3796f1add7d4975ed6863e43072f6b95",
+  "copied_inputs_unchanged": true,
+  "current_gate_sources_match": true,
+  "java_checkstyle": "PASS",
+  "focused_tests": {
+    "{http://www.w3.org/2001/XMLSchema-instance}noNamespaceSchemaLocation": "https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd",
+    "version": "3.0.2",
+    "name": "dev.allow.backend.WarmSemanticProtocolTest",
+    "time": "0.13",
+    "tests": "5",
+    "errors": "0",
+    "skipped": "0",
+    "failures": "0",
+    "flakes": "0"
+  },
+  "sources": {
+    "backend/src/test/java/dev/allow/backend/WarmSemanticCase.java": "2a6b4d69f555932787bd853506a0c3b631c9349add127ce0d141db59b9e101e8",
+    "backend/src/test/java/dev/allow/backend/WarmSemanticOwned.java": "58716d5c6c44102779338b48cf0c6d581e96b99abe64cde1dd132a31cf8b940c",
+    "backend/src/test/java/dev/allow/backend/WarmSemanticProbeMain.java": "98c3db234430527447655148406174c8f776c3f063c328eb099c58097c51095b",
+    "backend/src/test/java/dev/allow/backend/WarmSemanticProtocol.java": "ec358756a263146c6fa5e2d12a54e2d8a4f18b1b5d4c984f77715c1ec5e603f8",
+    "backend/src/test/java/dev/allow/backend/WarmSemanticProtocolTest.java": "f706c58aa0536e839af8014d66bcbdd7b1d29b0610e6d62301581f2b90b89504"
+  },
+  "compiled_gate_classes": {
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticCase.class": "c71cb1ccefde9f98afb66b53e40c20cbf508dfd1832dfb5880b7e8edfd6a54c4",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticOwned$Completion.class": "9cf2dbfd00aba26d7715aef410ee47def978fce7982609710e3305900892ed52",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticOwned.class": "94a8dcc132a1dc3e4b591d2854b83cba75457c775d31229c93f266cf852fd8f8",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticProbeMain.class": "cbb33b34a0cfb63fa563755cb840288c83f15df8ba6f36926357b4f0bc52eb13",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticProtocol.class": "ae7c47ad25c4a5f4bb4db5a6c62761baf0dfa66cb4f42e638369d66ecc774e10",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticProtocolTest.class": "8f9bca5cb410b6481b51101904c7ebcee78cc1e27fc35164cd06c93747d7b2af"
+  },
+  "shared_probe_sources": {
+    "backend/src/test/java/dev/allow/backend/WarmProbeFiles.java": "639369235f60bc408f5122100bce973265aaf0ab058c88b8c808c794f1c1c4b7",
+    "backend/src/test/java/dev/allow/backend/WarmProbeWitness.java": "8023772c956d677086769d1db7db0cf845a6e5a4bc3670ed9f9ae430e05f7f03"
+  },
+  "runtime_executed": false,
+  "production_or_active_target_edits": false,
+  "log_sha256": "58a60baa83e4e485309bd8fd3c93eb48b9daf4cc1e33d38119ff14dc0e2714c2",
+  "context_boundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL",
+  "w1_fresh_route": "DIRECT_HELPER_LEDGER_NOT_OWNEDWORKERRUN",
+  "w1_response_capture": "RESERIALIZED_COMPLETE_POOL_RESPONSE",
+  "blank_policy": "EXPECTED_BINDING_INPUT_REJECTED_NOT_COMPARABLE",
+  "full190_equality": "BLOCKED_EXPECTED_ONE_NOT_COMPARABLE_ROW",
+  "cli": [
+    "--runtime-root",
+    "ROOT",
+    "--variant",
+    "W0|W1",
+    "--manifest",
+    "ROOT/.gate/semantic-fixtures.json",
+    "--report",
+    "ROOT/.gate/evidence/semantic-java.json"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "classification": "FIVE_SAMPLE_COMPONENT_PROFILE_NOT_ACCEPTANCE",
+  "samples": [
+    {
+      "constructor_ms": 21.628861,
+      "launch_ms": 33.42827,
+      "exchange_ms": 240.112775,
+      "total_ms": 295.169906,
+      "output_bytes": 257511.0
+    },
+    {
+      "constructor_ms": 21.130946,
+      "launch_ms": 34.246947,
+      "exchange_ms": 220.689576,
+      "total_ms": 276.067469,
+      "output_bytes": 257511.0
+    },
+    {
+      "constructor_ms": 20.068396,
+      "launch_ms": 30.480812,
+      "exchange_ms": 232.970609,
+      "total_ms": 283.519817,
+      "output_bytes": 257511.0
+    },
+    {
+      "constructor_ms": 20.42891,
+      "launch_ms": 31.073438,
+      "exchange_ms": 229.131143,
+      "total_ms": 280.633491,
+      "output_bytes": 257511.0
+    },
+    {
+      "constructor_ms": 20.662462,
+      "launch_ms": 30.766535,
+      "exchange_ms": 221.152179,
+      "total_ms": 272.581176,
+      "output_bytes": 257511.0
+    }
+  ],
+  "untimed_parent_warmups": 1,
+  "fresh_sandbox_per_sample": true,
+  "files": {
+    "gates/document/component-profiles/fresh-worker.log": "b27561eee15bb11d92bfff4f55f0ba5dce0e2ac082488f5dca575cd92357b3a4",
+    "gates/document/component-profiles/fresh-worker.jsh": "f199f671671421230ff44298e98abac7d4f99514fae571415b65ca915c131f1c"
+  },
+  "private_input_sha256": "fcdec06d99a89e36541994c8b889594b782091028bdb1d979171800c2760f5a3",
+  "limitations": [
+    "Parent JShell reflection probe, not full HTTP execution",
+    "Identity files captured after measurement; no preregistered performance claim",
+    "Current unchanged BubblewrapLauncher/FrameProcess; output validation status checked, no semantic equivalence proof",
+    "Input is private; only digest is published"
+  ]
+}

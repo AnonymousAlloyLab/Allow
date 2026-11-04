@@ -1,0 +1,47 @@
+{
+  "pre_execution_sha256": "c1e321f59fe50076406447fcc91f3eb5f0904638e51b746a916d7a7006632b9f",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/java",
+        "-jar",
+        "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar",
+        "-c",
+        "/home/augustus/Allow/config/checkstyle.xml",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ContextWorkerSequenceProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "Starting audit...\nAudit done.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/javac",
+        "-cp",
+        "/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "-d",
+        "/tmp/allow-vc-sequence-s0c0ykw6/output",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ContextWorkerSequenceProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/java",
+        "-cp",
+        "/tmp/allow-vc-sequence-s0c0ykw6/output:/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "dev.allow.backend.ContextWorkerSequenceProbe",
+        "/tmp/allow-vc-sequence-s0c0ykw6/target",
+        "/tmp/allow-vc-sequence-s0c0ykw6/fixture"
+      ],
+      "exit_code": 0,
+      "stdout": "bridge_exited=954755 worker_reaped=954775\nbridge_exited=954795 worker_reaped=954800\nPASS two bridge exits, fresh worker PIDs and copied-build mutation denial\n",
+      "stderr": ""
+    }
+  ],
+  "inputs_unchanged": true,
+  "temporary_output_removed": true,
+  "status": "PASS"
+}

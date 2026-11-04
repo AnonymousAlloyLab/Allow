@@ -1,0 +1,223 @@
+[
+  {
+    "name": "dev.allow.backend.BuildIdentityTest",
+    "tests": "2",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "resourcePresenceAffectsIdentity",
+      "registryBytesAffectIdentity"
+    ],
+    "original_xml_sha256": "dddd15795b4b924f1d9afc3eac3748a189acf4564ed9169fd2bdb46423c146b1"
+  },
+  {
+    "name": "dev.allow.backend.HttpBoundaryTest",
+    "tests": "5",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "hostileHost",
+      "strictBody",
+      "submitEchoesIdentity",
+      "authorityAndOrigin",
+      "strictIdentityTypes"
+    ],
+    "original_xml_sha256": "b67ab7ff832e435216eccd8be7785707a09dbc459e9e9eede0a3ab7c3a890ed1"
+  },
+  {
+    "name": "dev.allow.backend.JobServiceTest",
+    "tests": "2",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "queueIsBounded",
+      "cancelledJobKeepsAdmission"
+    ],
+    "original_xml_sha256": "3138dec5192a574ccb7d43981743be57152b01e1a685be9e06eadcfcda1aa3f8"
+  },
+  {
+    "name": "dev.allow.backend.ProcessRunnerTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "timeoutReapsStalledInput",
+      "cancellationReaps",
+      "hostileFramesReject",
+      "deniedSandboxRejects"
+    ],
+    "original_xml_sha256": "fda0a9eb250298064a2c4cd5b619122ed33f5daa75a1b990a59a5a6846663738"
+  },
+  {
+    "name": "dev.allow.backend.SandboxBoundaryTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "filesystemAndNetworkDenied"
+    ],
+    "original_xml_sha256": "dba76b003cded4b797fa10b819c1f0250c38b403e4e70413e53288831f96330d"
+  },
+  {
+    "name": "dev.allow.backend.WorkerIntegrationTest",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "invalidSource",
+      "satRun",
+      "unsatCheck",
+      "unsatRun",
+      "importRejectedInChild",
+      "validateOnly",
+      "satCheck"
+    ],
+    "original_xml_sha256": "4e1275e073a5baba36928ff8dfccf8a758860da2dd50472d8323e3cfcfa4a259"
+  },
+  {
+    "name": "dev.allow.canonical.CanonicalizerTest",
+    "tests": "11",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "lexicalSpellingOrderCannotInfluenceSlots",
+      "rejectsUnsupportedSignatureAttributes",
+      "preservesShadowedBinderScopes",
+      "renamesSignaturesWithoutLeakingLabels",
+      "rejectsStringsAndTemporalOperators",
+      "distinctSignaturesDoNotCollapse",
+      "preservesMultiplicityAndOperandOrder",
+      "rejectsInheritanceAndDisjointDeclarations",
+      "includesFactsAndScopeInPayload",
+      "renamesFieldsPredicatesAndParameters",
+      "serializedPayloadRoundTrips"
+    ],
+    "original_xml_sha256": "1d6f6ba436b78b00e6587da1012e1c0a3369846329afeed96f6592e18128c72c"
+  },
+  {
+    "name": "dev.allow.canonical.IslandAdapterTest",
+    "tests": "10",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "alloySolverFindsNoBoundedCounterexample",
+      "structuralGoldenRemainsUnchanged",
+      "mixedSchemaUnionIsOpaque",
+      "capturesFunctionFactAndCommandOccurrences",
+      "nestedIffRespectsLoweringBudget",
+      "predicateBodyGetsCheckedExtraction",
+      "renamedParametersKeepAnonymousTerms",
+      "quantifierIsOpaque",
+      "distinctNominalColumnsRemainDistinct",
+      "outputBudgetTruncatesAndReportsLimit"
+    ],
+    "original_xml_sha256": "8a201761f901f7125564a0a88c5019269690e1135e4fd18e65bab4c783e07419"
+  },
+  {
+    "name": "dev.allow.canonical.SlotBoundaryTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "exactBytesDetermineFeatures",
+      "fieldArityCannotCollapse",
+      "letScopeIsCaptureAvoiding",
+      "dependentDomainsPreserveReferences",
+      "framingSeparatesStructuralValues",
+      "freeReferencesNeverBecomeGlobalSlots"
+    ],
+    "original_xml_sha256": "ffaa5a93e7bda4aba3d4eb20f332146c0d470a18555b571c4f6a445ea5a104d7"
+  },
+  {
+    "name": "dev.allow.egraph.CertificateSliceTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "keepsAndReindexesOnlyReachableDerivation"
+    ],
+    "original_xml_sha256": "99f97f8b9fb7bfe219af4e6aa895e4d3a5965b1a8148888134a6c3f2f448eccf"
+  },
+  {
+    "name": "dev.allow.egraph.EGraphEngineTest",
+    "tests": "9",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "replayRejectsLocalForgeries",
+      "schemasAndOperatorFamiliesStayDistinct",
+      "replayRejectsContextAndConclusionTampering",
+      "mixedRelationBridge",
+      "cyclicClassesAndMultilevelCongruence",
+      "cappedCertificateSizing",
+      "rejectsExcessiveProofAndTermDepth",
+      "absorptionIsCheckedAndDeterministic",
+      "expiredDeadlineCannotClaimSaturation"
+    ],
+    "original_xml_sha256": "87299eb3dd68ef4ec84160c1dca5006d6a735c6b10d0ec6f9ca917dc05cbb15c"
+  },
+  {
+    "name": "dev.allow.egraph.EGraphMechanicsTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "proofBudgetStopsBeforeAppend",
+      "nodeAdmissionLimitIsHonest",
+      "inputOccurrenceLimitIsHonest",
+      "repeatedVariableRequiresClassEquality",
+      "matcherLimitIsHonest",
+      "failedProofNeverMutatesUnionFind"
+    ],
+    "original_xml_sha256": "3eae79f7337b8e2a2947c50804c091a0693964e012d23669553a2f26f0d4bd8a"
+  },
+  {
+    "name": "dev.allow.egraph.RuleCatalogTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "everyRegisteredRuleHasFiniteSemanticParity",
+      "alteredRegistryCannotBecomeSelfApproved",
+      "rewriteDefensivelyCopiesBothPatternBoundaries"
+    ],
+    "original_xml_sha256": "ad33de56fefff6b09caf3fe4151c2a74f117c456ddcd7ba46950689a3140319d"
+  },
+  {
+    "name": "dev.allow.worker.JsonWireEGraphTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "genericPreviewRoundTripKeepsCanonicalFrame",
+      "excessiveWireNestingStillRejects",
+      "admittedProofDepthSurvivesTransport"
+    ],
+    "original_xml_sha256": "5de24b2c6f5a99959d5b0d597e868882159de21583d4b83b72e3d7e00509eaba"
+  },
+  {
+    "name": "dev.allow.worker.JsonWireStrictTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "testcases": [
+      "invalidProtocolNumbers"
+    ],
+    "original_xml_sha256": "abcf00d65f8f3d56606bee74693d60b84ba18014343a8809f8a61a71d9724e95"
+  }
+]

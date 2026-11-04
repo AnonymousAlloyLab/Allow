@@ -1,0 +1,28 @@
+{
+  "reviewer": "terra-2",
+  "seat": "sql-r4-terra-2",
+  "review_type": "INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 4,
+  "spec_sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "formal_file_sha256": "648e16bd95be98f8089fe5bbd14290a21efe0c0405422be91c8081c82699f9f8",
+  "blocking_design_findings": [],
+  "basis": [
+    "Reviewed revision 4 exact spec, full Lean model, all 22 registered SQL propositions and real revision 3 backup failure evidence. Native SQL PREPARE/EXECUTE have an explicit exact-source admission and connection-local shared namespace design; no backup content downgrade or parser bypass is proposed.",
+    "The six new propositions establish conditional abstract provenance, rejection of unknown names, native-prepare-to-bind reachability, pure cache lookup, and positive witnesses. bodyPart proves only a nonempty exact substring; semantic body classification and source-span extraction are trusted adapter obligations.",
+    "SQLean statementFamilies derives outer grammar productions, which can present ExecuteStmt for CREATE TABLE AS EXECUTE; singleton ordered families alone therefore do not establish that EXECUTE is top-level. Spec requires sole top-level statements, so enforce both first real token PREPARE/EXECUTE and the singleton ordered family in the implementation, alongside production-based restrictions."
+  ],
+  "implementation_acceptance_notes": [
+    "Apply nested opaque, mode, function and resource restrictions across whole PREPARE and EXECUTE expressions. Reject nested, multiple-statement, quoted, Unicode-escaped and overlong name cases; normalize only unquoted ASCII SQL names, while protocol names remain exact.",
+    "Use one connection-local accepted-provenance table for SQL and wire protocol, including pipelining, Bind capture, duplicate/failing preparation and server-error transitions. Admission is not proof of backend success; no cache hit creates state. Tests must cover both cross-protocol directions and colliding names.",
+    "Preserve and replay the full pg_dump/pg_restore path including ACLs and the prior failure evidence. Re-run finite protocol, recovery and application acceptance without weakening grammar or backup contents.",
+    "Perform the two planned clean proof builds against the exact revision 4 and model hashes before implementation. I did not independently run Lean or runtime tests for this review."
+  ],
+  "formal_limits": [
+    "Lean is an abstract model of accepted provenance, not a proof of parser report classification, name normalization, SQL body span, wire implementation or PostgreSQL execution. bodyPart does not show that its substring is the actual parsed body.",
+    "Optimistically tracking an admitted request is not a claim that PostgreSQL created or executed a statement; server errors and stale names need conservative runtime handling."
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 4 bounded design only, conditional on final clean proof and separate runtime/recovery checks."
+}

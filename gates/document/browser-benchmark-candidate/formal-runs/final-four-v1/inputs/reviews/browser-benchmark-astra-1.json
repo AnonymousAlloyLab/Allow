@@ -1,0 +1,29 @@
+{
+  "reviewer": "astra-1",
+  "revision": 2,
+  "decision": "APPROVE_GAMEPLAN",
+  "input_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "57d8512a8bd483ff9bfa76d43e66c0963a90c8b3b9eb7751b9ff89d2df48a49c"
+  },
+  "previous_review": "reviews/browser-benchmark-astra-1-r1.json",
+  "scope": "Approval of revised test-only gameplan, not execution, runtime proof, or performance gate closure.",
+  "findings": [],
+  "resolved": [
+    {
+      "id": "A1-01",
+      "resolution": "Mandatory independently expected A/B text on the actual edited owned-node button, full fixture node-set/ownership integrity checks, and INCOMPLETE on missing or stale state/DOM evidence resolve the visual observability loophole."
+    },
+    {
+      "id": "A1-02",
+      "resolution": "Fresh rendered-view layout-effect commit, observer arming before dispatch, explicit mounted document/draft/generation identity, sequential rAF callbacks with fresh performance.now endpoint, and fail-closed interruption handling resolve stale-commit and timer acceptance ambiguity."
+    }
+  ],
+  "assessment": [
+    "Fixture pinning, 500 actual unique rendered owned nodes, 100 warmups followed by 1000 sequential real changeModule edits and target transitions are explicitly required.",
+    "Unrounded nearest-rank p95 strictly below 50 ms governs warm PASS; slow valid runs remain FAIL and invalid runs remain INCOMPLETE. Samples cannot be selectively discarded.",
+    "Production React build and reversible same-origin temporary test asset serving are specified without production source or security bypass changes.",
+    "Separate cold-start and authoritative diagnostic obligations remain open even with warm PASS; physical display, manual AT, solver and commercial claims remain excluded.",
+    "Lean now explicitly models two callback events and externally supplied validity/percentile. Its limitations are accurately stated and its approval is not a runtime proof."
+  ]
+}

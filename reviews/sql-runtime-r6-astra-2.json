@@ -1,0 +1,41 @@
+{
+  "reviewer": "astra-2",
+  "seat": "sql-runtime-r6-astra-2",
+  "review_type": "ADVERSARIAL_IMPLEMENTATION_REVIEW",
+  "decision": "CODE_APPROVED_RUNTIME_GATES_PENDING",
+  "timestamp_utc": "2026-11-03T17:19:02.504225+00:00",
+  "files_sha256": {
+    "spec/sql-stage.json": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+    "formal/Allow/SqlRouting.lean": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+    "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+    "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+    "retrieval/tests/test_sql_guard.py": "3686c3eebc2389671e182373da64d659b216a22a41409a90e59ef46cb4144352"
+  },
+  "unresolved_code_findings": [],
+  "scope": "Revision6 native prepared-statement admission, shared provenance/cache and expanded lexical effect-cycle barrier. Prior broader runtime review is preserved; this does not certify unexecuted integration gates.",
+  "positive_assessments": [
+    "Native classification checks the ordered singleton statement family and leading keyword, rejecting CREATE AS EXECUTE and nested/multiple forms. Native names use ASCII-only syntax, 63-byte bound and lowercase lookup; original wire bytes are unchanged.",
+    "Every parser token span is checked against the original UTF-8 bytes. Static PREPARE body spans remain metadata inside the accepted whole request. Opaque and lexical policy scans still apply to all productions/tokens.",
+    "Immutable cached NativeDecision is connection-independent classification only. ProtocolState applies PREPARE provenance and EXECUTE lookup locally after admission; cache hits cannot create a target on another connection.",
+    "Protocol and native names share a table; protocol names remain exact bytes and are capped at63bytes. Portals capture immutable Statement objects. Optimistic acceptance is not backend execution success.",
+    "Q/P/B/D/E/C/S mark pending effects before forwarding. Q/Sync enqueue and advance cycle identifiers, and later pending effects survive older Ready. Bind/Execute/Sync/Describe/Close remain available to complete admitted work.",
+    "Initial Ready requires idle status and no pending/barrier state. Later Ready requires a queued barrier and valid one-byte status. Backend lexical ParameterStatus is checked before ready clears pending; unsafe or missing initial lexical settings deny readiness.",
+    "COPY data/completion does not add orphan pending cycles. Ignored messages have no synthetic acknowledgement path; conservative retention may deny later SQL but does not release uncompleted effects."
+  ],
+  "verification_performed": [
+    "Read complete revised sql_guard.py and sql_proxy.py, including cache, framing, state, frontend forwarding and backend status order.",
+    "Ran all seven current RealParserGateTests successfully: exact native decisions/body byte spans, immutable cache, unsafe/nested/ambiguous name rejection, lexical controls, ordinary literals, utility templates and copied-binary tamper.",
+    "Ran independent parser-backed in-memory state probes covering native mixed-case folding, SQL PREPARE to protocol Bind, Bind-before-Execute blocking new Parse, stale Ready retention after a newer Execute, final matching Ready release, unsolicited Ready rejection and cached EXECUTE rejection on a fresh connection.",
+    "No database SQL or live corpus mutation was performed; no production or test source file was edited."
+  ],
+  "pending_runtime_gates": [
+    "Independent fake-backend wire tests must cover rejection before backend forwarding, fragmented ParameterStatus, all expanded effect classes, COPY, initial/unsolicited Ready and matching old/new cycles.",
+    "Restart the real proxy and verify loaded-source/parser identity against these reviewed hashes before final real-database protocol testing.",
+    "Execute native PREPARE/EXECUTE and both cross-protocol directions, backend failure/duplicate-name behavior, limits and full unchanged ACL pg_dump/pg_restore.",
+    "Finish the registered per-client endpoint/counter, migration/recovery, HTTP and ML-integrity gates; retain earlier failure evidence."
+  ],
+  "formal_limits": "Parent reports final revision6 two-clean-build verification of112total/28SQL obligations before edits. This reviewer did not rerun Lean. Neither those abstract lemmas nor this finite audit establish Python/protocol refinement or arbitrary PostgreSQL execution correctness.",
+  "production_edits": false,
+  "prior_reports_preserved": true,
+  "approval_scope": "Reviewed code snapshot only; changes require revalidation and hash rebinding. No claim that pending runtime gates passed or redistribution rights were established."
+}

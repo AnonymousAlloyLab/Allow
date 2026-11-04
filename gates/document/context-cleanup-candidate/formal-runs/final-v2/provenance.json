@@ -1,0 +1,450 @@
+[
+  {
+    "claim_id": "CCM01",
+    "theorem": "Allow.ContextCleanup.step_preserves_invariant",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM02",
+    "theorem": "Allow.ContextCleanup.reachable_invariant",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM03",
+    "theorem": "Allow.ContextCleanup.application_sql_requires_bound_prelude",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM04",
+    "theorem": "Allow.ContextCleanup.new_application_sql_requires_bound_phase",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM05",
+    "theorem": "Allow.ContextCleanup.staged_context_requires_application_sql",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM06",
+    "theorem": "Allow.ContextCleanup.receipt_proves_matching_cleanup",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM07",
+    "theorem": "Allow.ContextCleanup.reachable_clean_has_receipt",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM08",
+    "theorem": "Allow.ContextCleanup.reachable_clean_is_safe",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM09",
+    "theorem": "Allow.ContextCleanup.release_requires_clean",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM10",
+    "theorem": "Allow.ContextCleanup.release_requires_observed_cleanup",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM11",
+    "theorem": "Allow.ContextCleanup.step_preserves_durable",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM12",
+    "theorem": "Allow.ContextCleanup.advisory_cleanup_preserves_durable",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM13",
+    "theorem": "Allow.ContextCleanup.context_lease_at_most_one",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM14",
+    "theorem": "Allow.ContextCleanup.unknown_retains_capacity",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM15",
+    "theorem": "Allow.ContextCleanup.nonfree_retains_capacity",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM16",
+    "theorem": "Allow.ContextCleanup.replacement_requires_vacant",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM17",
+    "theorem": "Allow.ContextCleanup.unknown_cannot_be_replaced",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM18",
+    "theorem": "Allow.ContextCleanup.unidentified_attempt_cannot_be_clean",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM19",
+    "theorem": "Allow.ContextCleanup.closed_transport_alone_is_insufficient",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM20",
+    "theorem": "Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM21",
+    "theorem": "Allow.ContextCleanup.stale_receipt_rejected",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM22",
+    "theorem": "Allow.ContextCleanup.accepted_receipt_exact_owner",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM23",
+    "theorem": "Allow.ContextCleanup.stale_lease_generation_rejected",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM24",
+    "theorem": "Allow.ContextCleanup.context_ok_requires_cleanup",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM25",
+    "theorem": "Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM26",
+    "theorem": "Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM27",
+    "theorem": "Allow.ContextCleanup.normal_cleanup_witness",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  },
+  {
+    "claim_id": "CCM28",
+    "theorem": "Allow.ContextCleanup.unidentified_crash_witness",
+    "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+    "evidence": [
+      "build-1/Audit.stdout",
+      "build-2/Audit.stdout"
+    ],
+    "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+    "trust": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+      "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+      "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+      "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+    ]
+  }
+]

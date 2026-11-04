@@ -1,0 +1,55 @@
+{
+  "classification": "EXECUTED_FULL_SUITE_SUBSET_NOT_SEPARATE_TIMING_OR_COUNTER_RUN",
+  "timestamp_utc": "2026-11-03T22:13:30.714105+00:00",
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_unchanged": true,
+  "evidence": {
+    "full_suite_report": "gates/document/inherited-runtime-tests.json",
+    "full_suite_report_sha256": "fcb347af30df2de6c6cc91b2fd6f57caefd94805270bb9e0c2a61b2a2932dcce",
+    "full_suite_log": "gates/document/inherited-runtime-tests.log",
+    "full_suite_log_sha256": "5a0e6c4aa3326081323df44c07b9c7f92cffd30ae82b35ee586e48524d9cb0c0",
+    "full_suite_input_root_sha256": "b1713bf55cf09216f87b7107ab9b7a06880a5d46334e347f59e44189be8858ac",
+    "full_suite_tests": 186,
+    "binding_verifier_sha256": "968c492b2f00a472d81675915ba136543a1021822a27110f091a635d8b271f05"
+  },
+  "subset_timing": "NOT_SEPARATELY_MEASURED",
+  "subset_proxy_counter_attribution": "NOT_MEASURED",
+  "limitations": [
+    "Document subset derived from actual full186-test execution, not a newly timed isolated22-test run.",
+    "No old timing or counter delta is reused or attributed to this subset.",
+    "Some wire/identity tests reject before database access; actual SQL routing has separate SQL52/client evidence.",
+    "No PostgreSQL restart; documentSQL tests use isolated random scopes."
+  ],
+  "status": "PASS",
+  "tests": 1,
+  "input_sha256": {
+    "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+    "db/document/interface.json": "4291a9bab7dda66ebbd7f245ce839f61bf714029d4fba3cdbe9bacf9c3067170",
+    "db/document/schema-catalog.sql": "4d5e0e917c97e188921f62d572c33f4fe4b020390c204ccee0d4cc86caccbb8d",
+    "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+    "retrieval/allow_documents/cli.py": "b6f2266b4424a780f001b60a8c6a931750dd168271f037f801298cd89b3dec67",
+    "retrieval/allow_documents/identifiers.py": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+    "retrieval/allow_documents/store.py": "f43df582a6d41b07fcc9f434548653b8b6d60c95a05e27138c288df9e961133a",
+    "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+    "retrieval/allow_retrieval/sql_connections.py": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2",
+    "retrieval/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+    "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "retrieval/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+    "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "retrieval/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+    "retrieval/tests/test_documents.py": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f"
+  },
+  "tested_symbols": [
+    "test_documents.DocumentSQLTests.test_reaped_worker_without_captured_start_ticks_requires_absent_pid"
+  ],
+  "checks": [
+    "Actual live PID with null captured start rejected.",
+    "Owned child waited/reaped and absent PID with null captured start accepted.",
+    "Nonce rotated; stale old nonce rejected; recovered generation finalized through actual proxy."
+  ],
+  "boundary": "Actual registered test body and full-suite log bind these checks. Trusted supervisor reaps owned process; no expiry or PID-reuse authority is inferred."
+}

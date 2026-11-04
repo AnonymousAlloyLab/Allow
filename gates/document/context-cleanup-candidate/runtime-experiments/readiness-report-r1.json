@@ -1,0 +1,295 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-READINESS-R1",
+  "created_utc": "2026-11-04T05:45:43.821798+00:00",
+  "status": "BLOCKED",
+  "implementation": "P1 source implemented, finite isolated subcases and selected offline tests pass; not activated in shared runtime.",
+  "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+  "source_ready_file_count": 133,
+  "source_delta": {
+    "path": "source-delta-r1.json",
+    "sha256": "c1759d55bfac7f3a525011718b21935aed0638cbd422d7d6a6eee6a6e2a97010",
+    "changed_baseline_intersection_count": 13,
+    "context_files_not_in_baseline_count": 11
+  },
+  "runs": [
+    {
+      "run_id": "r6",
+      "report_sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5",
+      "manifest_sha256": "b8193722af49bb05ed3d66655fd3990db1e3a7711b4fa56cb55ed1cd4a8eb2f1",
+      "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "passed_subcases": [
+        "normal-empty",
+        "normal-owned",
+        "normal-4096-ids",
+        "actual-lock-timeout",
+        "wall-before-connect",
+        "wall-during-connected-work",
+        "wall-after-decode",
+        "cli-kill-after-decode"
+      ],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    },
+    {
+      "run_id": "r8-quota",
+      "report_sha256": "4232e0b251436075224ba3c663a2db8397cad6c4be332e0287b6d13ef0d8226a",
+      "manifest_sha256": "fe6bc65cd1b6814a91e62bb612efaeb4401fcc19745f7bb3ea4b911479c06b85",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "passed_subcases": [
+        "empty-0",
+        "empty-1",
+        "empty-2",
+        "full-0",
+        "full-1",
+        "full-2",
+        "reference-full",
+        "late-conflict"
+      ],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    },
+    {
+      "run_id": "r9-quota-memory",
+      "report_sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d",
+      "manifest_sha256": "d72b01f5ef4103ca22b0ca45e89f4c1a835a3e385ccdf313513a3b8f22639648",
+      "input_root_sha256": "353340d7549568299c389f3fc185ccc5ab9f87d51f739a307992574b97cad346",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "passed_subcases": [
+        "empty-0",
+        "empty-1",
+        "empty-2",
+        "full-0",
+        "full-1",
+        "full-2",
+        "reference-full",
+        "late-conflict"
+      ],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    }
+  ],
+  "latest_distinct_subcase_count": 16,
+  "historical_quota_repeat_is_not_added_coverage": true,
+  "offline_regressions": {
+    "report": "offline-regressions-r2/report.json",
+    "sha256": "d96af7f45717bb80415cd38678257810deb3608a4166fbd5fab044de9af052bf",
+    "tests": 203,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "module_counts": {
+      "test_context_lease_client": 13,
+      "test_context_leases": 32,
+      "test_sql_context_protocol": 17,
+      "test_sql_connections": 4,
+      "test_sql_guard": 8,
+      "test_sql_proxy": 39,
+      "test_sql_image": 58,
+      "test_sql_image_consumers": 3,
+      "test_validation_context": 8,
+      "test_documents": 2,
+      "test_repository": 4,
+      "test_luna_adversarial": 9,
+      "test_harness": 6
+    },
+    "source_ready_files_unchanged": true,
+    "additional_inputs_unchanged": true,
+    "separate_harness_tests": 6,
+    "real_postgresql_denied": true
+  },
+  "sql_client_inventory": {
+    "path": "offline-regressions-r2/sql-client-inventory.json",
+    "sha256": "3e2529db762a05e8c51570d74c31c767e2aa4ba2565181c6b0a6efec203a4b2b",
+    "status": "PASS",
+    "scanned_files": 65,
+    "raw_driver_calls": 1,
+    "helper": "retrieval/allow_retrieval/sql_connections.py:125"
+  },
+  "quota_fixture": {
+    "fixture_kind": "storage-shaped-not-Alloy-admissions",
+    "revisions": 4096,
+    "target_accounted_bytes": 268435456,
+    "unused_target_bytes": 674,
+    "source_padding_bytes": 27559,
+    "expected_text_bytea_bytes": 230655922,
+    "raw_row_bytes_status": "EXPECTED_ONLY_UNTIL_ACTUAL_LIBPQ_TELEMETRY",
+    "requested_ids": 4096,
+    "known_requested_ids": 4095,
+    "absent_requested_ids": 1,
+    "actual_database_counts_and_bytes": {
+      "documents": 1,
+      "revisions": 4096,
+      "artifacts": 4096,
+      "receipts": 4096,
+      "admissions": 4096,
+      "artifact_bytes": 115323865,
+      "receipt_request_bytes": 1525083,
+      "outcome_bytes": 116506319,
+      "admission_request_bytes": 1525083,
+      "accounted_bytes": 268434782,
+      "head_revision": 4095
+    },
+    "setup_elapsed_seconds": 9.454707409000548,
+    "setup_deadline_seconds": 600,
+    "artifact_bytes": 115323865,
+    "request_bytes_once": 1525083,
+    "outcome_bytes": 116506319,
+    "accounted_bytes": 268434782
+  },
+  "quota_metrics": [
+    {
+      "subcase": "empty-0",
+      "status": "PASS",
+      "elapsed_ms": 297.503715,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 82771968,
+        "VmSize_bytes": 79622144,
+        "VmHWM_bytes": 39723008,
+        "VmRSS_bytes": 39723008
+      },
+      "cpu_seconds": 0.07506499999999999
+    },
+    {
+      "subcase": "empty-1",
+      "status": "PASS",
+      "elapsed_ms": 102.361247,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 82771968,
+        "VmSize_bytes": 79622144,
+        "VmHWM_bytes": 39862272,
+        "VmRSS_bytes": 39862272
+      },
+      "cpu_seconds": 0.07458
+    },
+    {
+      "subcase": "empty-2",
+      "status": "PASS",
+      "elapsed_ms": 106.148874,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 82771968,
+        "VmSize_bytes": 79622144,
+        "VmHWM_bytes": 39718912,
+        "VmRSS_bytes": 39718912
+      },
+      "cpu_seconds": 0.077481
+    },
+    {
+      "subcase": "full-0",
+      "status": "PASS",
+      "elapsed_ms": 727.579806,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 313044992,
+        "VmSize_bytes": 313044992,
+        "VmHWM_bytes": 273043456,
+        "VmRSS_bytes": 273043456
+      },
+      "cpu_seconds": 0.382084
+    },
+    {
+      "subcase": "full-1",
+      "status": "PASS",
+      "elapsed_ms": 659.878675,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 313044992,
+        "VmSize_bytes": 313044992,
+        "VmHWM_bytes": 273010688,
+        "VmRSS_bytes": 273010688
+      },
+      "cpu_seconds": 0.376866
+    },
+    {
+      "subcase": "full-2",
+      "status": "PASS",
+      "elapsed_ms": 707.080572,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 313044992,
+        "VmSize_bytes": 313044992,
+        "VmHWM_bytes": 273018880,
+        "VmRSS_bytes": 273018880
+      },
+      "cpu_seconds": 0.409955
+    },
+    {
+      "subcase": "reference-full",
+      "status": "PASS",
+      "elapsed_ms": 593.368435,
+      "post_exec_final_memory": null,
+      "cpu_seconds": null
+    },
+    {
+      "subcase": "late-conflict",
+      "status": "PASS",
+      "elapsed_ms": 527.985661,
+      "post_exec_final_memory": null,
+      "cpu_seconds": null
+    }
+  ],
+  "memory_interpretation": "VmPeak/VmHWM are observed post-exec per-process peaks, not whole-stack physical memory; getrusage lifetime highwater is separately recorded and must not be used as post-exec CLI RSS. Proc RSS accounting is approximate.",
+  "case_map": {
+    "path": "case-readiness-r1.json",
+    "sha256": "9e25b4e63eadf54dab972bca7060f4e05a370bd3001897dff4728a9f5b46ad79",
+    "cases": 33,
+    "whole_case_verified": 0
+  },
+  "preview": {
+    "path": "preview-assessment-r1.json",
+    "sha256": "c98dac0698fbd479b03b03e8825862886df227703140e98ab104631fb205c119",
+    "assessment": "Root page200, unauthenticatedconfig403. Actual loadedproxyv7, no privatecontextsocket, currentv8identitySTALE_RUNTIME. Validationcontextfailure inferred from missing mandatorycontrolsocket and freshCLIlaunchpath; no document mutation or authenticated API action performed.",
+    "options": [
+      "Complete candidate acceptance before coordinated promotion; do not restart proxy alone as a shortcut.",
+      "If immediate stable preview is required, prepare a complete baseline copy with baseline Python/Java build and a fresh owned synthetic cluster/identity; route browser to its distinct port after read-only health checks.",
+      "Restoring baseline helper files in active tree is a scoped rollback that would invalidate current source freeze and needs separate root-managed artifact and recovery plan; not performed."
+    ]
+  },
+  "blockers": [
+    "Complete 33-case runtime matrix and final executable binder not executed; all case-level closure remains BLOCKED.",
+    "Two clean final implementation builds and type/inventory comparison absent for P1 runtime acceptance.",
+    "Pre-key automatic recovery availability remains explicitly OPEN even if fail-closed safety passes.",
+    "R6 manifest records suite but original input-root hash omitted that selector; preserve evidence and rerun under current harness or preregister explicit final binding.",
+    "Full integration regressions, Java/frontend/HTTP/restart/backup/recovery not yet executed on final isolated install; newly authorized next run will be separate.",
+    "Whole-stack4vCPU/6GiB containment and actual4vCPU/8GiB production hardware acceptance not assessed by these P1 tests.",
+    "Shared preview is mixed v7 proxy/v8 source and fails closed for new validationContext; no shared services promoted/restarted."
+  ],
+  "preserved_failures": [
+    "prepare-failure-r1.json",
+    "prepare-failure-r4.json",
+    "runs/r2/report.json",
+    "runs/r3/report.json",
+    "runs/r5/report.json",
+    "runs/r7-quota/report.json",
+    "authoring-check-r1.json"
+  ],
+  "boundary": "Finite evidence index and readiness assessment, not formal implementation refinement, not all33 runtime closure, not commercialization/deployment acceptance."
+}

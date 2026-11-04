@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "context_pid": 1004257,
+      "context_reaped": true,
+      "context_start_ticks": "5937303",
+      "durable_unchanged": true,
+      "isolated_counters": {},
+      "mode": "service-stop",
+      "mutation_uncertainty": false,
+      "owned_parser_shutdown_complete": true,
+      "parser_child": null,
+      "partial_context": false,
+      "proxy_pid": 1004252,
+      "proxy_reaped": true,
+      "proxy_start_ticks": "5937283",
+      "status": "UNAVAILABLE",
+      "telemetry": {
+        "alternate_routes": 0,
+        "connection_attempts": [
+          {
+            "client": "allow-recovery",
+            "endpoint": "owned isolated parser -> canonical parser"
+          }
+        ]
+      },
+      "worker_nonlaunch": "CLI contains no worker factory; inherited Java context-failure ordering is composition, not new HTTP trace"
+    },
+    {
+      "context_pid": 1004261,
+      "context_reaped": true,
+      "context_start_ticks": "5937329",
+      "durable_unchanged": true,
+      "isolated_counters": {
+        "Q": 1,
+        "accepted": 1,
+        "auth": 2,
+        "connections": 1,
+        "parser_category_parserFailure": 1,
+        "parser_reason_parser_rejected": 1,
+        "protocol_error": 1,
+        "rejected": 1
+      },
+      "mode": "child-kill",
+      "mutation_uncertainty": false,
+      "owned_parser_shutdown_complete": true,
+      "parser_child": {
+        "exact_target_sha256": "536900a16f8e0e3b41ae2b5e50b32be256a56180d59389694215738d971b0d56",
+        "pid": 1004268,
+        "sealed_executable": true,
+        "start_ticks": "5937340",
+        "uncached": true
+      },
+      "partial_context": false,
+      "proxy_pid": 1004259,
+      "proxy_reaped": true,
+      "proxy_start_ticks": "5937312",
+      "status": "UNAVAILABLE",
+      "telemetry": {
+        "alternate_routes": 0,
+        "connection_attempts": [
+          {
+            "client": "allow-recovery",
+            "endpoint": "owned isolated parser -> canonical parser"
+          }
+        ]
+      },
+      "worker_nonlaunch": "CLI contains no worker factory; inherited Java context-failure ordering is composition, not new HTTP trace"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "claim_id": "CC29",
+  "subcase": "late-conflict",
+  "run_id": "r8-quota",
+  "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+  "verifier_id": "CC29-QUOTA-PROBE",
+  "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+  "fixture_sha256": "28aabeee89bbe15f91ac0d11bf854a638aa85e5126e7cd5253461d84b7879a9d",
+  "status": "PASS",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 520.224437,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-1ss9cdby/.gate/quota_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r8-quota/late-conflict"
+    ],
+    "fixture_sha256": "5e8eb417a21ea364d65cffb677790ad1db04bf9b7bc53a4ef28ae6bef5e2b3b4",
+    "stdout_sha256": "05c4a1a9f8326ce0c8568b4cbbd12eaff508dc6c5094862919c9691d5b23e281",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62717940366562
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62717942430826
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62717946561114
+      },
+      {
+        "phase": "RETIRING",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62718355176202
+      },
+      {
+        "phase": "CLEAN",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62718361370744
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "focus_positions": [
+    1676,
+    1834
+  ],
+  "rows_iterated": 1835,
+  "no_success": true
+}

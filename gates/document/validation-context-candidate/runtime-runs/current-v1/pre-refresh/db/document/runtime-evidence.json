@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 94.999,
+  "source_sha256": {
+    "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+    "retrieval/allow_documents/store.py": "603927abb982c337418769cfd82c8be28c819adb5223601a875de18529337942",
+    "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/identifiers.py": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+    "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+    "retrieval/allow_documents/cli.py": "03689eb0278cf79563c5c0a28a316ea656b35e5b8651bd7ca8b80f505852c5fe",
+    "scripts/bootstrap_documents.py": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827",
+    "retrieval/tests/test_documents.py": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f"
+  },
+  "sql_proxy_counter_delta": {
+    "allow-app": {
+      "accepted": 1768,
+      "D": 1277,
+      "Q": 491,
+      "S": 1277,
+      "E": 1277,
+      "auth": 388,
+      "X": 194,
+      "B": 1277,
+      "connections": 194,
+      "P": 1277
+    },
+    "allow-migration": {
+      "accepted": 0,
+      "D": 0,
+      "Q": 0,
+      "S": 0,
+      "E": 0,
+      "auth": 0,
+      "X": 0,
+      "B": 0,
+      "connections": 0,
+      "P": 0
+    }
+  },
+  "limitations": [
+    "No shared PostgreSQL restart; isolated random scopes in documents schema.",
+    "Checked-artifact parser/Java/browser refinement is separate coordinator evidence.",
+    "Lost-ack tests inject reply loss after real SQL commits, not network fault injection.",
+    "Proxy deltas describe shared interval, not exclusive attribution."
+  ]
+}

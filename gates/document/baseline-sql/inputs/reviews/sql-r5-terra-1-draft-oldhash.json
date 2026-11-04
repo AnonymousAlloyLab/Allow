@@ -1,0 +1,31 @@
+{
+  "reviewer": "terra-1",
+  "seat": "sql-r5-terra-1",
+  "review_type": "INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_DESIGN_SUBJECT_TO_REGISTERED_GATES",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 5,
+  "spec_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "formal_types_sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac",
+  "assessment": "Revision 5 requires pending effect cycles to block new Q/P before forwarding, validates lexical statuses before release, and associates completion with ordered Q/Sync barriers. The abstract policy proves pending and forward blocking, invalid completion retention, older effect removal and newer effect retention, with a concrete witness.",
+  "blocking_findings": [],
+  "implementation_acceptance_notes": [
+    "Cycle identifier assignment and ReadyForQuery-to-barrier association must correctly model actual ordered Q/Sync protocol, including E before Sync and an older Ready after a newer E.",
+    "Set pending before forwarding Q/E; reject later Q/P while pending, yet permit required progress messages and validate all intervening ParameterStatus before release.",
+    "Exercise indirect pg_settings changes and delayed and fragmented responses; ensure denial precedes backend receipt.",
+    "Do not claim Python, wire framing, parser adapter, database behavior or GUC validation are proved by this Lean model."
+  ],
+  "formal_limits": [
+    "The cycle model is separate from the prepared-routing model; sourceAllowed denotes the shared Q/P gate abstractly. Natural-number cycle ordering and matching acknowledgement are adapter assumptions, not protocol correspondence proofs.",
+    "validated is an abstract Boolean; no actual ParameterStatus parsing or correctness of validation is proved."
+  ],
+  "draft_formal_run": {
+    "path": "gates/sql/formal-runs/r5-terra1-draft/report.json",
+    "status": "VERIFIED",
+    "input_root_hash": "ec7dbb4a7051a879993be8deeb34fc80057a780fa0c6dda35b755ae8655a7895",
+    "scope": "Registered abstract model and rule audit under its listed trust, not production refinement."
+  },
+  "production_edits": false,
+  "current_disk_hash_at_write": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9"
+}

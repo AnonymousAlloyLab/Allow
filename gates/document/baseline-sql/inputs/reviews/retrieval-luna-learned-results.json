@@ -1,0 +1,112 @@
+{
+  "artifacts": {
+    "adapter_path": ".runtime/corpus/ml/pilot-3d255e2a-py312/trained/adapter.npy",
+    "adapter_sha256": "298aea35c56a3a56698af4e58316ccafe22e847995ef1db9494415f212c65026",
+    "frozen_model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+    "production_code_sha256": {
+      "retrieval/allow_retrieval/corpus.py": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "retrieval/allow_retrieval/embedding.py": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "retrieval/allow_retrieval/ranking.py": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f"
+    },
+    "runner_path": ".runtime/luna-learned/run_authored4.py",
+    "runner_verifier_sha256": "03b4361f638a0e6320e226cdb5fd5c6371a3b440386d7e443362c26b31ed1b2e",
+    "test_path": "retrieval/tests/test_luna_semantic.py",
+    "test_sha256": "398a9572bed80a55269920817615e12a240ad36b23557ca9ea58c825d9643e8a",
+    "validation_decision_path": ".runtime/corpus/ml/pilot-3d255e2a-py312/validation-decision.json",
+    "validation_decision_sha256": "4de8368c3db4b8c298a364c70ebaed1fc349e6a5d124f383253b94dab73e5f83",
+    "weights": [
+      0.45,
+      0.1375,
+      0.41250000000000003
+    ]
+  },
+  "checks": {
+    "all_vector_norms_within_1e-5_of_unit": true,
+    "all_vectors_finite": true,
+    "each_polarity_enumerated": 3,
+    "each_polarity_existence": "SAT",
+    "each_worker_status": "FULL",
+    "equivalent_score_above_opposite": true,
+    "explicit_weighted_formula_matches_score_with_abs_tolerance_1e-12": true,
+    "fixtures": [
+      "query",
+      "equivalent",
+      "opposite",
+      "wrong_context"
+    ],
+    "pool_member_count_per_polarity": 3,
+    "vector_dimension": 3072,
+    "wrong_context_overlap_zero_both_polarities": true
+  },
+  "execution": {
+    "command": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python .runtime/luna-learned/run_authored4.py",
+    "exit_code": 0,
+    "runner_stdout_sha256": "7d6b9c31dd6c4894c4bb2d9798639df639f5c5fb0a3965e991f65507a81b6dce"
+  },
+  "interpretation": "In these four authored fixtures the equivalent candidate ranked above the opposite candidate and the context gate zeroed both overlap terms for the wrong-context candidate. Canonical similarities were all close to 1; this is a narrow execution check and does not establish broad semantic generalization or retrieval improvement.",
+  "numeric_results": {
+    "model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+    "norms": {
+      "equivalent": 1.0,
+      "opposite": 1.0,
+      "query": 1.0,
+      "wrong_context": 1.0
+    },
+    "pool_counts": {
+      "equivalent": {
+        "negative": 3,
+        "positive": 3
+      },
+      "opposite": {
+        "negative": 3,
+        "positive": 3
+      },
+      "query": {
+        "negative": 3,
+        "positive": 3
+      },
+      "wrong_context": {
+        "negative": 3,
+        "positive": 3
+      }
+    },
+    "scores": {
+      "equivalent": {
+        "canonicalSimilarity": 0.9988387557482444,
+        "compatibility": "EXACT_CONTEXT",
+        "contextCompatible": true,
+        "explicit_formula": 0.9994774400867101,
+        "predicateCosine": 0.9907100459318756,
+        "score": 0.9994774400867101,
+        "sharedNegative": 1.0,
+        "sharedPositive": 1.0
+      },
+      "opposite": {
+        "canonicalSimilarity": 0.9979844872026705,
+        "compatibility": "EXACT_CONTEXT",
+        "contextCompatible": true,
+        "explicit_formula": 0.44909301924120176,
+        "predicateCosine": 0.9980484845391706,
+        "score": 0.44909301924120176,
+        "sharedNegative": 0.0,
+        "sharedPositive": 0.0
+      },
+      "wrong_context": {
+        "canonicalSimilarity": 0.9981946624749056,
+        "compatibility": "INCOMPATIBLE_CONTEXT",
+        "contextCompatible": false,
+        "explicit_formula": 0.44918759811370756,
+        "predicateCosine": 1.0,
+        "score": 0.44918759811370756,
+        "sharedNegative": 0.0,
+        "sharedPositive": 0.0
+      }
+    }
+  },
+  "review": {
+    "id": "retrieval-luna-learned-authored4-results",
+    "reviewer": "GPT-6 Luna evaluator",
+    "scope": "Four self-authored toy Alloy fixtures processed through production worker, full-pool normalization, pinned local E5 encoder with frozen learned adapter, and production ranking.score. No corpus records read; no SQL/DB actions, training, network access, or source edits.",
+    "status": "EXECUTED_AUTHORED_FIXTURE_CHECKS_PASS"
+  }
+}

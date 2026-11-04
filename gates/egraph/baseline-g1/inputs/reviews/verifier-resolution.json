@@ -1,0 +1,26 @@
+{
+  "reviewed_candidate": "closure/scripts/verify.py before final freeze",
+  "classification": "CANDIDATE_REFINEMENT_NOT_PROOF_EVIDENCE",
+  "resolutions": [
+    {
+      "finding": "duplicate or drifted claim records",
+      "resolution": "Exact generated claim records and unique obligation IDs/symbols are required."
+    },
+    {
+      "finding": "incomplete provenance accepted",
+      "resolution": "Require exact total public statement, evidence-template, full input and trust bindings."
+    },
+    {
+      "finding": "manifest completeness unchecked",
+      "resolution": "Recompute exact verification input set and compare; manifest/root exclusions explicitly declared."
+    },
+    {
+      "finding": "current hash accepted anywhere in report",
+      "resolution": "Require exact final_review.contract_sha256 and normalized seat identity."
+    },
+    {
+      "finding": "unrelated theorem with valid symbol accepted",
+      "resolution": "Each symbol must inhabit a frozen expected proposition in closure/theorem-types.json in both clean Lean builds."
+    }
+  ]
+}

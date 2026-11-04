@@ -1,0 +1,13 @@
+{
+  "status": "INFRASTRUCTURE_FAILURE",
+  "tests_run": 76,
+  "errors": 6,
+  "test_source_sha256": "ac3357b2aec4be6a58794fbc37952abdb3dbac892b4b1a155fe5872baddb3133",
+  "causes": [
+    "Four synthetic opened fixtures incorrectly retained RESERVED phase and were correctly rejected by journal validation",
+    "One integration migration test incorrectly selected without private cluster",
+    "One nonexistent test module selected"
+  ],
+  "production_failure": false,
+  "active_source_unchanged": true
+}

@@ -1,0 +1,65 @@
+test_alias_collision_and_missing_mapping (test_compare_responses.ComparatorTests.test_alias_collision_and_missing_mapping)
+Every fresh definition needs one distinct corresponding identity. ... ok
+test_all_old_candidate_identities_cannot_disappear (test_compare_responses.ComparatorTests.test_all_old_candidate_identities_cannot_disappear)
+Both profiles replacing every owned definition must still fail the input oracle. ... ok
+test_bad_uuid (test_compare_responses.ComparatorTests.test_bad_uuid)
+Noncanonical generated ID syntax fails independently of response equality. ... ok
+test_changed_diagnostic (test_compare_responses.ComparatorTests.test_changed_diagnostic)
+Diagnostics remain exact even when they contain UUID-looking strings. ... ok
+test_changed_same_kind_reference_edges (test_compare_responses.ComparatorTests.test_changed_same_kind_reference_edges)
+Swapping same-kind operand references must not redefine the mapping. ... ok
+test_changed_source_and_recomputed_hash (test_compare_responses.ComparatorTests.test_changed_source_and_recomputed_hash)
+A self-consistent source digest cannot conceal changed source bytes. ... ok
+test_changed_trivia_offset (test_compare_responses.ComparatorTests.test_changed_trivia_offset)
+Comment byte locations cannot be normalized with generated identities. ... ok
+test_collection_tag_cannot_move_between_kinds (test_compare_responses.ComparatorTests.test_collection_tag_cannot_move_between_kinds)
+Equal malformed declaration tags do not pass merely by matching each other. ... ok
+test_decoder_duplicate_trailing_and_nonfinite (test_compare_responses.ComparatorTests.test_decoder_duplicate_trailing_and_nonfinite)
+Strict decoding rejects ambiguity before fields are compared. ... ok
+test_duplicate_comments (test_compare_responses.ComparatorTests.test_duplicate_comments)
+Comment identities cannot alias a syntax definition or another comment. ... ok
+test_equal_but_misassociated_remappings (test_compare_responses.ComparatorTests.test_equal_but_misassociated_remappings)
+A mapping must resolve the declared definition at its typed input position. ... ok
+test_existing_identity_cannot_rename (test_compare_responses.ComparatorTests.test_existing_identity_cannot_rename)
+Trusted inventory identities must stay byte-identical in both responses. ... ok
+test_fresh_mapping_cannot_alias_owned_id (test_compare_responses.ComparatorTests.test_fresh_mapping_cannot_alias_owned_id)
+An identical fresh assignment in both outputs must still avoid old IDs. ... ok
+test_generated_id_outside_schema (test_compare_responses.ComparatorTests.test_generated_id_outside_schema)
+Generated identities inserted into diagnostic literals are not translated. ... ok
+test_generated_identity_bijection (test_compare_responses.ComparatorTests.test_generated_identity_bijection)
+Typed definitions and all dependent schema references may rename together. ... ok
+test_generated_uuid_version (test_compare_responses.ComparatorTests.test_generated_uuid_version)
+A canonical UUIDv5 is not a fresh random UUIDv4 identity. ... ok
+test_incorrect_source_digest (test_compare_responses.ComparatorTests.test_incorrect_source_digest)
+Both profiles reporting the same wrong hash must still be rejected. ... ok
+test_invalid_responses_compare_every_field (test_compare_responses.ComparatorTests.test_invalid_responses_compare_every_field)
+Denials compare their complete code and diagnostic payload without mapping. ... ok
+test_json_scalar_types_are_exact (test_compare_responses.ComparatorTests.test_json_scalar_types_are_exact)
+Booleans and floating numbers cannot impersonate an integer field. ... ok
+test_missing_and_extra_fields (test_compare_responses.ComparatorTests.test_missing_and_extra_fields)
+Closed result and nested module schemas reject omitted or extra fields. ... ok
+test_numeric_offsets_do_not_coerce (test_compare_responses.ComparatorTests.test_numeric_offsets_do_not_coerce)
+Offset and scope types remain exact outside explicit scalar validators. ... ok
+test_parameters_must_be_arrays (test_compare_responses.ComparatorTests.test_parameters_must_be_arrays)
+An empty object cannot impersonate an empty parameter list in both outputs. ... ok
+test_unknown_metadata_fields_in_both_profiles (test_compare_responses.ComparatorTests.test_unknown_metadata_fields_in_both_profiles)
+Equal extra metadata is still outside the independently closed grammar. ... ok
+test_uuid_looking_source_literal_replacement (test_compare_responses.ComparatorTests.test_uuid_looking_source_literal_replacement)
+A UUID-looking source comment remains exact across otherwise valid mapping. ... ok
+test_empty_duplicate_or_unregistered_corpus (test_run_semantic.RunnerTests.test_empty_duplicate_or_unregistered_corpus)
+No-case, duplicate and extra-file corpora cannot yield a finite pass. ... ok
+test_explicit_size_rejection (test_run_semantic.RunnerTests.test_explicit_size_rejection)
+Only an identity-bound prelaunch rejection satisfies the oversize case. ... ok
+test_generic_exit_two_is_not_size_rejection (test_run_semantic.RunnerTests.test_generic_exit_two_is_not_size_rejection)
+A missing class or unavailable input cannot impersonate a boundary pass. ... ok
+test_mutated_fixture_is_rejected (test_run_semantic.RunnerTests.test_mutated_fixture_is_rejected)
+An edited fixture fails even when its JSON and byte count remain valid. ... ok
+test_timeout_cannot_pass (test_run_semantic.RunnerTests.test_timeout_cannot_pass)
+Cleanup uncertainty stops comparison even if a response file was written. ... ok
+test_wrong_profile_identity_and_started_child (test_run_semantic.RunnerTests.test_wrong_profile_identity_and_started_child)
+Correct status does not excuse wrong profile, bytes, digest or worker launch. ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.005s
+
+OK

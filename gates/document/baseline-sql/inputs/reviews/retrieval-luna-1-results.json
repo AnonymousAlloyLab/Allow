@@ -1,0 +1,44 @@
+{
+  "reviewer": "GPT-6 Luna evaluator 1",
+  "plan": "reviews/retrieval-luna-1-plan.json",
+  "status": "ADVISORY_CHECKS_PASS",
+  "scope": "Pure production-function checks only. No PostgreSQL mutation, corpus source access, model inference, or external calls.",
+  "implementation": [
+    "retrieval/allow_retrieval/ranking.py: cosine, overlap, score, parse_vector",
+    "retrieval/allow_retrieval/embedding.py: compose"
+  ],
+  "test_file": "retrieval/tests/test_luna_adversarial.py",
+  "execution": [
+    {
+      "command": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python -m pytest retrieval/tests/test_luna_adversarial.py -q",
+      "exit_code": 1,
+      "result": "NOT_RUN: pytest module is not installed in the supplied venv"
+    },
+    {
+      "command": "PYTHONPATH=retrieval .tools/retrieval-venv/bin/python retrieval/tests/test_luna_adversarial.py -v",
+      "exit_code": 0,
+      "result": "PASS: 9 unittest methods; 15 concrete subcases/assertion groups (including parameter loops)"
+    }
+  ],
+  "cases": [
+    {"id":"direction-distance-vs-similarity","status":"PASS","evidence":"Full-vector transformed cosine values [1.0, 0.75, 0.5] rank near > orthogonal > opposite."},
+    {"id":"pool-deduplicate-and-n-normalize","status":"PASS","evidence":"Duplicate member ignored; overlap is 0.5 for both a smaller and larger pool; empty pool gives 0."},
+    {"id":"same-hash-different-bytes","status":"PASS","evidence":"Distinct canonical objects with equal forced digest marker produce zero overlap."},
+    {"id":"negation-polarity-not-interchangeable","status":"PASS","evidence":"Positive members only compare against positive; negative only against negative; score 0."},
+    {"id":"same-atoms-wrong-context","status":"PASS","evidence":"Equal instance member with differing context key/bytes reports INCOMPATIBLE_CONTEXT and zero overlap."},
+    {"id":"layout-order-and-vector-integrity","status":"PASS","evidence":"parse_vector rejects length 3071 and NaN; cosine rejects zero and NaN; compose rejects zero/NaN blocks, yields finite width 3072 unit vector and preserves block order."},
+    {"id":"weight-validation-and-score-bounds","status":"PASS","evidence":"Negative, non-unit-sum, and NaN weights rejected; three valid tuples produce bounded scores."}
+  ],
+  "not_executed": [
+    {"id":"family-split-leakage","reason":"Manifest and training split policy are outside the exercised ranking/embedding functions; requires separate training/evaluation fixture review."},
+    {"id":"identity-and-alpha-only-pairs","reason":"Pair admission/augmentation is outside the requested production functions tested here."},
+    {"id":"revoked-training-lineage-invalidates-model","reason":"Would exercise persistent database state; no DB mutation was made to the shared corpus."},
+    {"id":"actual-postgresql-integration","reason":"Avoided database writes and shared-corpus state changes as instructed."}
+  ],
+  "fixture_note": "An initial block-order fixture failed because per-block normalization made its four one-hot blocks identical. Replaced that fixture with distinct patterns, then reran successfully. No implementation defect was indicated by the initial failure.",
+  "limitations": [
+    "These are finite implementation checks, not proofs of retrieval soundness, semantic relevance, or model quality.",
+    "The forced-digest fixture exercises ranking.overlap's canonical object comparison, not a mocked database digest lookup path.",
+    "Block ordering is verified through the compose input order; block labels are enforced by the caller/serialization recipe, not validated by compose itself."
+  ]
+}

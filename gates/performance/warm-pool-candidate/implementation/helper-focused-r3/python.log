@@ -1,0 +1,27 @@
+test_actual_seals_and_logical_identity (test_warm_worker_image.WarmImageTest.test_actual_seals_and_logical_identity)
+Actual memfds reject mutation and reproduce path-NUL/content-NUL/version hashing. ... ok
+test_bootstrap_no_read_ahead (test_warm_worker_image.WarmImageTest.test_bootstrap_no_read_ahead)
+The later private bytes remain unread after the exact first line. ... ok
+test_deadline (test_warm_worker_image.WarmImageTest.test_deadline)
+An expired startup budget never attempts a blocking read. ... ok
+test_fixed_modes_and_final_limit (test_warm_worker_image.WarmImageTest.test_fixed_modes_and_final_limit)
+All fixed modes share immutable mounts and lower FS before JVM entry. ... ok
+test_image_caps (test_warm_worker_image.WarmImageTest.test_image_caps)
+Both file count and aggregate byte ceilings fail before image allocation. ... ok
+test_inventory_order_and_unexpected_files (test_warm_worker_image.WarmImageTest.test_inventory_order_and_unexpected_files)
+Inventory matches logical group order and rejects unbound dependency members. ... ok
+test_malformed_lines (test_warm_worker_image.WarmImageTest.test_malformed_lines)
+Duplicate, incomplete, nonobject, NUL, malformed UTF-8 and oversized lines fail. ... ok
+test_schema_and_identity_rejection (test_warm_worker_image.WarmImageTest.test_schema_and_identity_rejection)
+Closed metadata refuses coercions, nonce/path substitutions and child mismatches. ... ok
+test_size_mutation_rejected_without_fd_leak (test_warm_worker_image.WarmImageTest.test_size_mutation_rejected_without_fd_leak)
+Capture refuses changed input length and closes its owned descriptors on failure. ... ok
+test_source_component_symlink_rejected (test_warm_worker_image.WarmImageTest.test_source_component_symlink_rejected)
+Descriptor-relative capture rejects a parent symlink even after inventory. ... ok
+test_symlinks_and_special_members (test_warm_worker_image.WarmImageTest.test_symlinks_and_special_members)
+Symlinks and FIFOs cannot enter executable/resource inventory. ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.007s
+
+OK

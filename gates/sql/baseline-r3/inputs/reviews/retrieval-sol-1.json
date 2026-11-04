@@ -1,0 +1,44 @@
+{
+  "reviewer": "Sol council seat 1",
+  "scope": "Corpus use, ingestion admission, provenance, train/validation/test leakage and evaluation design",
+  "artifact": "spec/retrieval-stage.json",
+  "revision": 4,
+  "sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "decision": "APPROVE",
+  "approved_exact_hash": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "remaining_design_blockers": [],
+  "basis": [
+    {
+      "topic": "Authorized corpus use",
+      "assessment": "Local analyze/store/embed/train/retrieve explicitly authorized; remote corpus requests and redistribution/commercial clearance remain excluded. Missing source license inventories are an unresolved distribution question, not a local engineering veto."
+    },
+    {
+      "topic": "Source identity",
+      "assessment": "Alloy4Fun root matches previously inspected augmented index inputRoot. Source paths for Alloy5 and Alloy6 match audited roots. Counts from prior audit: 66080, 3582 and 70737 ALS files respectively; these are inventory counts, not admission counts."
+    },
+    {
+      "topic": "Supported extraction",
+      "assessment": "Explicit nullary/static/self-contained slice rejects imports, parametric predicates and unsupported constructs rather than silently approximating. Original command scopes cannot change the pinned witness query semantics. FULL requires complete independently evaluated witnesses for both polarities."
+    },
+    {
+      "topic": "Provenance",
+      "assessment": "Private immutable source hash and locator, origin/family, toolchain, bounds, rights/version and training lineage are separate from anonymous encoder inputs. Exact comparisons follow hashes. Record/adapter identity and revocation cover source-to-vector lineage."
+    },
+    {
+      "topic": "Leakage prevention",
+      "assessment": "Whole family components assigned before fitting; aliases, identical hashes and anonymous duplicates union across source roots; all augmentation/pool copies remain in-family; manifests and variants freeze before training. Test selection and hyperparameter tuning are excluded."
+    },
+    {
+      "topic": "Metrics",
+      "assessment": "Known checked structural-variant retrieval is separated from semantic relevance. Family-macro evaluation and a predeclared non-regression promotion rule prevent duplicate-heavy or undersized pilots being represented as demonstrated generalization."
+    }
+  ],
+  "implementation_verification_obligations_not_design_blockers": [
+    "Implement explicit family aliases at least for classified-data trash FOL/RL/LTL, classroom FOL/RL, productionLine versions/New, CV versions, course Old/New and trainStation Old/New; repository origin identifiers must be shared between Alloy5/6 roots. Fail closed or conservatively union unresolved family lineage.",
+    "Freeze complete split manifest and demonstrate zero cross-split source-hash, anonymous record and family-component intersections before fitting. Report actual independent components and all rejected/partial candidates; do not turn unsupported files into FULL records.",
+    "Do not reuse augmented index correct/incorrect folders, reward values or canonical distances as verified equivalence labels. Preserve those only as separately labeled weak metadata if used.",
+    "Show per-source FULL coverage and exact counts; 12 independent family components and at least 2 validation/test components are quality gates, never presumed from raw file counts.",
+    "Confirm source bytes remain outside tracked source, local model-download requests carry no corpus, and rights/version lineage revocation invalidates affected model outputs."
+  ],
+  "limits": "Design approval only. No fresh parser replay, extraction, model training, implementation certification or independent verification of reported Lean builds was performed by this seat. Earlier bounded lexical sample audit remains descriptive, not full-corpus semantic validation."
+}

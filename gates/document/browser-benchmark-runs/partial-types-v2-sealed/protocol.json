@@ -1,0 +1,36 @@
+{
+  "status": "CANDIDATE_NOT_APPROVED_NOT_EXECUTED",
+  "scope": "Test-only browser preview benchmark; not production instrumentation or G2/G3 accessibility acceptance.",
+  "authority": [
+    "spec/document-ui-draft.json:performance",
+    "spec/allow-contract.json:A3.realtime_target"
+  ],
+  "fixture": {
+    "path": "gates/document/headless-preview-fixture.json",
+    "file_sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+    "edit_sequence_compact_json_sha256": "05e389b2700cc35ca24cbec2ef21d045596039feea1a24d2a13538cfc7f3363f",
+    "source_utf8_bytes": 2565,
+    "nodes": 500,
+    "warmup_events": 100,
+    "measured_events": 1000,
+    "rule": "Validate pinned file bytes and edit count before mounting; execute entries in file order, including warmups, with no dropped or coalesced edits. Each event toggles one reference target while preserving node identity and count. Abort on mismatch."
+  },
+  "harness": {
+    "placement": "frontend/bench and scripts only; do not modify production frontend/src, backend, spec, or formal.",
+    "binding": "Exact fail-closed test-only Vite transform exposes actual useController and injects a commit-phase layout effect in actual DocumentWorkbench, keyed to rendered view.document identity and generation. Marker reads rendered committed view, never controller.current or render-body notification. Arm one observer before dispatch and require strictly fresh post-dispatch commit. Mount actual AllowApp and components; call actual changeModule, editModule and publishDocument. No replacement components, checker, scheduling, advisory, flushSync or forced layout. Record transform diff and hashes; fail if anchor missing or nonunique.",
+    "setup": "Open an authenticated accepted document through actual app. Before timing use actual controller to load frozen candidate into draft; record accepted document provenance, setup, requests, mount identity, node-ID set, source bytes, depth and bounds. Verify 500 unique nodes, depth <=32, source <=32768 UTF-8 bytes, distinct A/B names and IDs. Fixture injection is test-only, not normal user gesture or server acceptance evidence.",
+    "event_interval": "For all 1100 sequential events, arm observer before dispatch and bind to unique mount, token/authority identity, document ID, base revision, draft ID, prior generation and sequence index. Verify pre-edit target and expected opposite A/B target and identity. Immediately before changeModule take performance.now(); require fresh rendered-view commit for same identity and generation previous + 1. Schedule first rAF only after commit, second inside first; end with fresh performance.now() in second callback, not rAF timestamp. Verify identity and generation at commit and after each callback. Bound commit/callback timeouts. Unmount, authority/document/base/draft change, visibility loss, stale or absent commit, concurrent content replacement, timeout or unexpected generation invalidates run INCOMPLETE. Preserve evidence and advisory behavior. No hashing, DOM queries, transport logging or forced layout in timed callbacks.",
+    "advisory": "Keep normal debounce and effects enabled; record network activity, errors, and whether validation actually occurs. Consecutive edits can continually defer the 350 ms advisory and this run is preview only, not authoritative diagnostic latency.",
+    "measurement_limits": "Timing includes React commit and scheduling to a prior-frame paint opportunity, not physical display scanout or an external user input event; it uses real changeModule instead of a pointer/keyboard gesture. Background-tab throttling, display refresh and shared-host scheduling affect results. Report visibility, refresh conditions, observed interruptions and all samples.",
+    "build_and_serving": "Build test entry with Vite production mode and production React NODE_ENV, HMR off, actual production StrictMode configuration; record command, dependencies, viewport and DPR. After approval, archive and hash any existing backend/target/classes/static/bench; install registered test assets temporarily and serve on existing loopback 18080 origin via Spring static route, retaining authentication and same-origin security guards with no proxy or bypass. Record before/during/after manifests and hashes; restore pre-existing bytes exactly or remove created path afterward and verify restoration. Temporary runtime artifact is not a production release. Stop incomplete if route cannot be served safely.",
+    "dom_verification": "Outside each interval before next event verify exact post-edit committed controller state and actual owned-forest button with exact edited fixture node ID and expected signature ref \u00b7 A or signature ref \u00b7 B text. Derive A/B independently from pinned edits and verify opposite pre-edit target. Verify exactly one signature_ref target changed, all 500 fixture IDs and ownership unchanged, exact unique owned-node button set, no missing-node/depth alerts. Missing, stale or incorrect target DOM or state makes run INCOMPLETE; no artificial labels.",
+    "environment": "Require foreground visible document throughout; record visibility transitions, callback timeouts, refresh conditions, viewport, DPR and instrumentation overhead and limits. Never discard slow samples or rerun only unfavorable events. Allow and record ordinary advisory activity; invalidate if dispatched identity/content no longer matches."
+  },
+  "acceptance": {
+    "statistics": "Sort 1000 finite nonnegative samples numerically; retain all samples and invalidations. Nearest-rank p50/p95/p99 zero-based indices 499/949/989; exclude 100 warmups. Classify on unrounded p95 strictly < 50 ms.",
+    "metadata": "Record CPU, RAM, OS, JDK, browser versions, host/visibility, viewport/DPR, refresh conditions, build command/mode, worker startup included/excluded/not applicable, fixture and transformed source hashes, counts, clock and interval. Worker startup is excluded from browser preview interval; record concurrent advisory separately.",
+    "classification": "Warm PASS only for a complete valid actual-browser series satisfying protocol and strict target; warm FAIL for complete valid series with unrounded p95 >= 50 ms; INCOMPLETE for missing/invalid/interrupted series. Overall performance gate remains open until separate cold-start series and authoritative diagnostic requirements are met. Preserve all failures; no solver, accessibility or commercial acceptance inferred.",
+    "cold_start": "Separate cold-start series is required evidence; never mix it with warm samples. Record procedure, results and worker-startup inclusion/exclusion if performed; otherwise report NOT_CONDUCTED and leave cold-start performance open. Warm series may be classified independently without closing overall performance gate."
+  },
+  "lean_model": "BrowserBenchmarkProtocol.lean models abstract counts, one edit ordering including two callbacks, and classification on supplied validity and p95. It does not derive percentiles or establish fixture integrity, identity continuity, actual browser execution, React commits, visual output, physical paint, timing accuracy or user-facing correctness."
+}

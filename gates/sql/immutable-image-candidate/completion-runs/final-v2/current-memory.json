@@ -1,0 +1,32 @@
+{
+  "scope": "point-in-time active proxy RSS/PSS versus separate immutable backing size; no aggregate cap claim",
+  "proxy_pid": 826907,
+  "proxy_rollup_bytes": {
+    "Rss": 29491200,
+    "Pss": 20785152,
+    "Pss_Dirty": 18132992,
+    "Pss_Anon": 18132992,
+    "Pss_File": 2652160,
+    "Pss_Shmem": 0,
+    "Shared_Clean": 11243520,
+    "Shared_Dirty": 0,
+    "Private_Clean": 114688,
+    "Private_Dirty": 18132992,
+    "Referenced": 29491200,
+    "Anonymous": 18132992,
+    "KSM": 0,
+    "LazyFree": 0,
+    "AnonHugePages": 0,
+    "ShmemPmdMapped": 0,
+    "FilePmdMapped": 0,
+    "Shared_Hugetlb": 0,
+    "Private_Hugetlb": 0,
+    "Swap": 0,
+    "SwapPss": 0,
+    "Locked": 0
+  },
+  "known_pinned_memfd_backing_bytes": 136492600,
+  "child_rlimit_as_bytes": 1073741824,
+  "child_measurement_artifact": ".runtime/sql-image-stage/resource-probe.json",
+  "note": "Unmapped memfd backing pages are additional system shmem, not all represented in proxy RSS. Child AS is independent of parent/system backing."
+}

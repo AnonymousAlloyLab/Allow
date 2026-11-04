@@ -1,0 +1,63 @@
+{
+  "reviewer": "Sol council seat 2",
+  "review_type": "INDEPENDENT_READ_ONLY_G2_G3_DESIGN_REVIEW",
+  "spec_path": "spec/document-stage-draft.json",
+  "spec_revision": 1,
+  "spec_sha256": "296991c934341ea168586aba6c1e090d0712836771ace0480573ccdbeb33102a",
+  "formal_path": "gates/document/draft/Document.lean",
+  "formal_sha256": "de0a08bd831c9128456becb63f5c7784178bdaec33551e668837838dc5c359fe",
+  "decision": "BLOCKING_DESIGN_GAPS_NO_IMPLEMENTATION_APPROVAL",
+  "scope": "Original G2 and G3 remain open. This initial revision review is not final-hash approval, browser evidence or formal closure. SQL evidence stays frozen; no runtime, script, draft or active formal edits were made.",
+  "findings": [
+    {
+      "id": "DOCUMENT-SOL2-01",
+      "severity": "BLOCKING",
+      "topic": "Expected nominal slots and declaration editors need an executable UX contract",
+      "evidence": "model.ts stores only formula/relation kinds, name references and nested children. TreeView displays only kind. Workbench offers seven operators plus unary signature names, and renderModule invents a fixed model predicate and run command. Draft tag enumeration does not define per-tag fields/roles or how users obtain expected schemas, in-scope declarations and valid destination scopes before insertion.",
+      "resolution": "Freeze closed per-tag wire records and the complete palette/editor matrix before implementation: explicit signature, field, predicate/parameter, fact/assertion and run/check editors; exact child roles and arities; ordered signature-ID column schemas; field owner/range convention; predicate call argument types; explicit finite command options. Show expected nominal schema and in-scope symbols programmatically on each destination before a drop. Specify join slots with partial constraints when the sibling is a hole, without guessing an endpoint or completing the document. A proposed candidate may remain an invalid draft, but cannot become accepted. Renaming, deleting or changing a declaration rechecks every dependency and reports a specific reason. Include output schema-width limits for product/join. Every declared palette tag must have positive and negative end-to-end cases."
+    },
+    {
+      "id": "DOCUMENT-SOL2-02",
+      "severity": "BLOCKING",
+      "topic": "Move/copy and accessible workflow semantics are absent",
+      "evidence": "Current drag payload identifies only a palette operator/name. TreeView has selection buttons but no existing-subtree drag, move/copy, undo/redo or focus restoration protocol. Selection calls setSelected directly and does not increment presentation epoch. The validation list names keyboard operations but omits explicit keyboard copy and a concrete clipboard/remapping contract.",
+      "resolution": "Specify commands for palette create/connect, subtree move/copy, delete and append-only undo/redo with the same server transaction semantics and keyboard equivalents. Use document/revision/node identities for source payloads and expected revision for destination; reject stale payloads. Copy allocates fresh node/occurrence and locally bound binder IDs while preserving external declaration identities; reject external variable capture or escaping references. Move preserves eligible identities but rechecks destination scope and whole module; reject moving into descendants. Define selection/focus after success, rejection and deletion, live-region messages, and discoverable shortcuts including copy. Register named real-browser keyboard/pointer scenarios and named screen-reader/browser combinations; component/helper tests and axe alone cannot establish WCAG 2.2 AA."
+    },
+    {
+      "id": "DOCUMENT-SOL2-03",
+      "severity": "BLOCKING",
+      "topic": "Accepted and draft state require a real server receipt boundary",
+      "evidence": "Workbench commitCandidate increments a browser revision when a worker returns VALIDATED. changeSource overwrites the same source state used by analysis; no accepted artifact/history is retained in this component. Parser success is not a durable accepted document commit. The supplement correctly distinguishes states but leaves their client protocol and typed projection lifecycle unspecified.",
+      "resolution": "Freeze separate accepted snapshot and draft records, explicit dirty/invalid/hole indicators, draft identity, mode and source hash, and a closed server receipt response. Only an authenticated committed server receipt may advance accepted revision; rejected validation/CAS/persistence leaves accepted source, maps and history byte-identical while retaining the user's draft. Fetch accepted state after restart; uncertain commit retries use the same canonical request/key. TEXT_ONLY acceptance remains distinct from an unaccepted text draft. Undo selects an immutable historical artifact and commits a new revision; it never silently restores browser state. Exercise edited-during-validation, competing commits, lost response/restart and both mode transitions through the actual API and UI."
+    },
+    {
+      "id": "DOCUMENT-SOL2-04",
+      "severity": "BLOCKING",
+      "topic": "Source occurrence projection and freshness need exact identity semantics",
+      "evidence": "Current model/renderExpr has no source occurrences or trivia. sourceHash uses TextEncoder, which replaces lone surrogates rather than rejecting them. TreeView identifies selection by child-index path; replacement can change the referent of that path. The draft discusses shared nodes despite lexical ancestry and budget implications.",
+      "resolution": "Prefer a closed forest in v1: unique owning parent per expression node, explicit declaration roots and references as non-owning ID links; reject shared child IDs. This removes scope-dependent DAG typing and exponential occurrence expansion while retaining distinct repeated expressions. Freeze a path-plus-role occurrence scheme, owner/reference edge distinction, exact alpha/presentation equivalence and offset conversion fixtures. Validate strict Unicode before TextEncoder. Route every selection, bounds, raw/tentative edit, document switch and undo/redo through monotone epoch invalidation. Bind diagnostics to draft ID/epoch/hash and maps to accepted revision/presentation identity; map navigation must check freshness again when activated. Test delayed responses after selection and invalid edits, non-BMP/combining/CRLF offsets, overlapping spans, repeated text, comment copy/move/orphan behavior and current versus historical evidence in the browser."
+    },
+    {
+      "id": "DOCUMENT-SOL2-05",
+      "severity": "BLOCKING",
+      "topic": "Isolated Lean models do not establish full palette or transaction claims",
+      "evidence": "Typed groups operator families and accepts context types including formula and empty relations through ref. ModuleDecls is not connected to Artifact.valid; callValid compares lists of nominal IDs rather than typed argument expressions. ranked_no_two_cycle is not a whole dependency-cycle check. Commit and retry omit scoped receipts, rollback, policy/authorization fencing, history and concurrency. Occurrence proves already-converted numeric bounds, not UTF conversion or correspondence.",
+      "resolution": "Before production edits freeze a closed module/forest model and executable checker with correctness/completeness relative to explicitly scoped typing, all tag distinctions or total tag refinement, declared nonempty schemas, stable lexical elaboration, exact calls and arbitrary finite dependency cycle denial. Add a scoped document/receipt transition model for replay-before-stale, changed-byte rejection, concurrent CAS, rollback/no-success, monotone revision and historical-copy undo. Register precise occurrence/freshness propositions and state unproved parser/printer/UTF/SQL/browser boundaries honestly. Include positive and denial witnesses. Obtain six independent exact-final-hash reviews and two clean registered formal builds first. Differential Java/TypeScript fixtures against the frozen oracle supplement those proofs; helper tests cannot substitute for missing formal propositions or browser runs."
+    },
+    {
+      "id": "DOCUMENT-SOL2-06",
+      "severity": "BLOCKING",
+      "topic": "Finite budgets and inherited implementation discipline must be frozen",
+      "evidence": "The draft permits 10000 nodes, depth 128 and 1 MiB source with provisional resource settings, while G2 inherits 300 ms authoritative diagnostic p95. It leaves budgets open. Its validation list does not explicitly carry the authored Java/TypeScript source-and-test style requirements from implementation-g1/egraph-stage.",
+      "resolution": "A conservative closed-forest starting profile of 256 nodes, depth 32 and 32768 exact UTF-8 source bytes is reasonable but is a proposal, not measured feasibility. Derive bounded request, declaration, edges, occurrences, trivia, diagnostics and rendered output limits consistent with that profile; apply limits to drafts and generated candidates before expansion/allocation. Include maximum-size parse/elaboration/reprint/commit latency and queue tests on the named reference laptop, preserving inherited stricter limits and retaining the p95 obligation. Explicitly inherit AST-based full Javadoc/JSDoc, at most 30 physical lines per authored callable including tests/callbacks, private Java state/minimal interfaces and defensive DTO collections. Require meaningful named documented callbacks and negative style fixtures; do not use dense-line or generated-code exclusions to evade checks."
+    }
+  ],
+  "bounded_gameplan": [
+    "Resolve the closed forest wire schema, full declaration/palette rules, scope remapping, canonical requests/receipts, durable identity and finite budgets as one reviewed freeze; preserve original G2/G3 requirements and frozen SQL evidence.",
+    "Extend only the isolated Lean draft and exact obligation registry; obtain all six final-hash reviews and two clean formal builds before any production edits.",
+    "Implement bounded independent server elaboration and durable atomic append-only document transactions through the reviewed SQL boundary; validate crash, contention, restart and rollback using actual persistence.",
+    "Implement the complete browser nominal-slot/declaration palette and server receipt state machine, then accessible keyboard/pointer copy/move/delete/undo workflows and exact source/trivia projection with freshness checks.",
+    "Run oracle differential and adversarial whole-module fixtures, actual server integration and measured budget checks, browser interaction/late-response scenarios, automated accessibility and named manual assistive-technology runs. Close each original G2/G3 item only with its own evidence; retain canonical profile/proof-checker and certificate differential obligations independently."
+  ],
+  "verification": "Read-only inspection of revision-1 draft, isolated Document.lean, Workbench.tsx, TreeView.tsx, model.ts, model.test.ts, frontend package, original G2/G3 and implementation style specifications. SHA-256 values verified with sha256sum. No builds, runtime tests or browser evidence claimed. Only this review JSON was written."
+}

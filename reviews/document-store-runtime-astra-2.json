@@ -1,0 +1,67 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-store-runtime-astra-2",
+  "review_type": "READ_ONLY_ADVERSARIAL_STORE_RUNTIME_REVIEW",
+  "decision": "REQUEST_CHANGES",
+  "timestamp_utc": "2026-11-03T18:53:12.689812+00:00",
+  "input_hashes": {
+    "db/document/interface.json": "64afb6e372e5aedf5a1b416678a5ce7ebdefcbf00043ad7fd51c78c892486737",
+    "db/document/runtime-evidence.json": "d1feee2645fc8b88f24ee46ed9e142ea58011524246f4968bd32f0a465bc4f02",
+    "db/document/schema-catalog.sql": "4d5e0e917c97e188921f62d572c33f4fe4b020390c204ccee0d4cc86caccbb8d",
+    "retrieval/allow_documents/__init__.py": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+    "retrieval/allow_documents/cli.py": "2f8f7dc5edaaa55f5ea7f6c6da126ce98f45dccf1d32d290e25a478a2d18f5fd",
+    "retrieval/allow_documents/identity.py": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+    "retrieval/allow_documents/migration.py": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+    "retrieval/allow_documents/store.py": "872509da266a2275c796f8dadcde282851463c29d1bb99ea03529e0dbb56db15",
+    "retrieval/allow_documents/wire.py": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+    "retrieval/tests/test_documents.py": "8b2e7ebf378f3849b596c548b33edb3b1708d3ef6b711b2df0fd55c987b9b93d",
+    "scripts/bootstrap_documents.py": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827"
+  },
+  "store_live_hash_at_report": "872509da266a2275c796f8dadcde282851463c29d1bb99ea03529e0dbb56db15",
+  "blocking_findings": [
+    {
+      "id": "STORE-A2-01",
+      "severity": "HIGH",
+      "location": "retrieval/allow_documents/store.py:191-194 Store.finalize",
+      "finding": "Every psycopg.Error having a nonnull sqlstate becomes KnownRollback. Nonnull SQLSTATE does not establish rollback certainty: psycopg exposes TransactionResolutionUnknown(08007) and StatementCompletionUnknown(40003). This implementation turns explicitly uncertain outcomes into a definite rollback report, violating the frozen lost-ack recovery contract.",
+      "reproduction": "Read-only in-memory probe patched receipt to ABSENT and transaction context to raise actual installed psycopg.errors.TransactionResolutionUnknown and StatementCompletionUnknown. finalize returned exception class KnownRollback for both08007 and40003. No database or production changes were made.",
+      "impact": "Coordinator maps KNOWN_ROLLBACK distinctly from UNKNOWN_COMMIT_OUTCOME, so the client can be told a mutation did not commit when resolution is unknown. The same issue applies to a durable denial receipt.",
+      "resolution": "Use an explicit narrow known-rollback classification based on transaction rejection certainty; uncertain connection/transaction/completion SQLSTATEs must always raise UncertainCommit. Default conservatively to uncertain unless rollback is established. Add direct real-psycopg exception regression cases for08007/40003 and retain existing postcommit success/denial lost-ack and forced-rollback tests."
+    }
+  ],
+  "positive_assessments": [
+    "Store.transaction is the sole runtime PostgreSQL connection path and reuses sql_connections.connect; migration/bootstrap likewise use the existing parser-proxy admin path. No direct DSN, SQL or caller scope is accepted by bridge dispatch.",
+    "Workspace-before-document locking serializes reservations, policy changes and final CAS. Scoped receipt lookup precedes final artifact/outcome validation and is repeated under lock. Exact original method/route/body equality, rather than digest equality, governs replay/conflict.",
+    "CREATE reserves document and revision0 capacity; final success/denial atomically settles counters with immutable receipt, and history/artifact writes occur in the same transaction. Failed append/settlement rolls back all writes through the transaction context.",
+    "RLS is enabled/forced with owner/workspace/purpose predicates; immutable tables lack UPDATE/DELETE app grants and composite foreign keys bind artifact/revision scope.",
+    "Nonce rotation retains reservations and fences old finalizers. Live-supervisor recover checks exact owner PID/start and requires dead worker identity or trusted no-worker-start evidence; the latter is explicitly coordinator TCB, not a browser authority bit.",
+    "Historical restore verifies exact source/module/occurrence/trivia content against same-document target including0, then appends a fresh artifact under current policy.",
+    "Private durable metadata rejects unsafe permissions/symlinks; bootstrap refuses provisioning missing identity over a nonempty document store. Source/corpus schema and model metadata are not mutated by reviewed store paths."
+  ],
+  "evidence_assessment": {
+    "recorded_evidence_path": "db/document/runtime-evidence.json",
+    "recorded_tests": 17,
+    "current_test_definitions": 18,
+    "current_source_evidence_mismatches": [
+      "retrieval/allow_documents/store.py",
+      "retrieval/allow_documents/wire.py",
+      "retrieval/tests/test_documents.py"
+    ],
+    "interpretation": "The prior17-test PASS is historical, not exact-current-hash acceptance. The added route test and current source changes require refreshed evidence after the uncertainty repair. Existing tests exercise real proxy SQL, but this review did not rerun them.",
+    "proxy_boundary": "Reported allow-app counter delta is positive; migration delta in that test interval is zero. This does not establish a failed migration, but separate bootstrap/migration admitted-endpoint evidence is needed for that path.",
+    "remaining_scope": "Database restart, full backup/restore, parser/coordinator binding and browser behavior are explicitly outside these store-only tests; do not convert store PASS into G2/G3 closure."
+  },
+  "nonblocking_implementation_boundaries": [
+    "Artifact typing/parser acceptance and exact HTTP outcome correctness are trusted server-frame obligations; Python validates shape/bounds/source hash, not full Alloy semantics. Synthetic store fixtures intentionally bypass parser validity, so they prove persistence behavior only.",
+    "Observed process-incarnation/recovery evidence must come from the trusted coordinator. A guessed dead PID or browser noWorkerStarted flag must never reach that trusted bridge operation.",
+    "Exact receipt request bytes retain whitespace/order; encoded route identity remains literal, and changed encoding under the same key conflicts."
+  ],
+  "verification_performed": [
+    "Read all allow_documents modules, migration/schema catalog, bootstrap, bridge interface and18 current test definitions.",
+    "Inspected current17-test recorded evidence and compared its source hashes with current files.",
+    "Confirmed installed psycopg SQLSTATE classes in local errors.py and ran side-effect-free mocked classification probe showing08007/40003 -> KnownRollback.",
+    "No production edits, SQL mutations, corpus changes, full test rerun or database restart performed."
+  ],
+  "production_edits": false,
+  "approval_scope": "One concrete uncertainty-classification blocker. Other reviewed store mechanisms are coherent under the explicit coordinator TCB; runtime acceptance is pending repair and fresh exact-source evidence, and does not close G2/G3."
+}

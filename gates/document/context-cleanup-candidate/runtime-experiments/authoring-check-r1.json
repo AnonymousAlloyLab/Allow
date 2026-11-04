@@ -1,0 +1,21 @@
+{
+  "classification": "HARNESS_AUTHORING_CHECK_NOT_RUNTIME_ACCEPTANCE",
+  "managed_python_tests": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0
+  },
+  "initial_ambient_python_failure": {
+    "interpreter": "ambient conda Python3.10",
+    "reason": "os.pidfd_open unavailable",
+    "failed_tests": 2,
+    "preserved_interpretation": "No database or proxy was started; two harmless15-second child fixtures were allowed to exit naturally. Added capability preflight before launching fixture children or services."
+  },
+  "initial_child_processes_now_absent": true,
+  "files": {
+    "experiment.py": "e8e2ca9bfe252208c5526b9cba3d9535da56a86b9a6f0517a90fa2656e2f40e2",
+    "probe_child.py": "4a249134057f8db6d35781b7e3070cb1545cb380dc6cae086ab7d84e761803ce",
+    "probe_runtime.py": "270b384ebf372f8f0bd1bc26f7111a60bb39b213ad2267c18013adddd4eeaf82",
+    "test_harness.py": "6b743e27942517f2989015a81739ffff045711bc85a51a33ff1a7b6ac8977ca6"
+  }
+}

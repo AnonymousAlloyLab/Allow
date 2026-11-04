@@ -1,0 +1,178 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-CONTRACT-R1",
+  "status": "CANDIDATE_FOR_IMPLEMENTATION_REVIEW",
+  "date": "2026-11-03",
+  "recommendation": "Use a proxy-owned exclusive context lease and a private cleanup-status channel; preserve the existing fresh Alloy worker. No PID-only termination fallback.",
+  "scope": "Read-only validationContext only. No mutation timeout/receipt changes, migration or backup timeout changes, no new role privileges, no global PostgreSQL timeout setting.",
+  "candidate_constants": {
+    "statement_timeout_ms": 1500,
+    "lock_timeout_ms": 250,
+    "idle_in_transaction_session_timeout_ms": 1000,
+    "context_wall_ms": 3000,
+    "cleanup_observation_budget_ms": 2500,
+    "context_leases_including_retiring": 1,
+    "same_role_observers": 1,
+    "additional_handshake_cancel_handlers": 4,
+    "note": "15 ordinary live handlers +1 context lease +1 persistent observer fit the nominal17 non-superuser slots. Ordinary backend tails after disconnection and other connections are not bounded by the handler count; no actual aggregate backend-count or guaranteed slot-availability claim follows. Exhaustion fails context startup closed, retaining CONNECTING/UNKNOWN when backend identity is uncertain.",
+    "ordinary_sql_sessions": 15
+  },
+  "ownership": {
+    "identity": "Private gateway request UUID; proxy generation UUID; monotone proxy connection generation; exact application_name allow-document-context:<UUID>; database; allow_app role; backend PID; backend_start; BackendKeyData PID+secret; originating CLI peer PID/start identity.",
+    "journal": "Bounded private 0700 directory, 0600 no-follow regular file, closed schema, atomic replace and file+directory fsync before forwarding application SQL. RESERVED entry is persisted before opening the backend connection. KEYED captures BackendKeyData; BOUND captures observer-verified identity. Never emit the secret, model content, document IDs or scope values to logs/status. Include recorded parent PID/start identity solely for liveness fencing; no command line or environment is logged.",
+    "authority": "Existing private local-principal threat boundary. Dynamic application names are schema-validated and normalized to a fixed aggregate counter label; they confer no SQL privilege. Observer uses allow_app, not allow_admin or pg_signal_backend.",
+    "admission": "A live or retiring lease prevents a second context connection. Its resource reservation is independent of Java WorkerCapacity, which can release only the bridge/worker resources it actually owns. A new advisory worker still requires a successful fresh context, and cannot bypass the proxy lease. This is an explicit implementation amendment, not a claim that Java's semaphore persists across death.",
+    "parent_liveness": "At registration capture the CLI kernel peer PID/start and its then-parent PID/start from /proc, not caller fields. The parent must have PID>1 and a stable readable identity; either peer or recorded parent disappearance/reuse retires and poisons the lease. Poll boundedly during the3sworkwindow and before normal success receipt. Direct internal tests use their own legitimate parent; no browser-supplied process authority. Linuxprocessobservation is trustedruntimeevidence, not proved bytheabstractOwner tuple."
+  },
+  "normal_algorithm": [
+    "CLI receives its already validated request UUID. Connect to a private bounded Unix control socket and register the UUID/CLI process identity; obtain the current proxy generation and exclusive lease before opening the SQL connection.",
+    "Proxy persists RESERVED before backend connect. Refuse normal/context capacity exhaustion without opening an unaccounted backend. Context startup tag must exactly match the registered UUID, expected database/role, and originating peer process.",
+    "Relay SCRAM authentication normally. Capture BackendKeyData, persist KEYED before forwarding initial readiness or any SQL. In a reserved same-role observer connection through the canonical SQLeanParser endpoint, find exactly one matching PID/database/user/application_name and capture backend_start. Persist BOUND, then release initial readiness to the CLI. Missing/multiple/mismatched identity retires the lease.",
+    "Begin the monotonic context deadline at registration, not after a slow query. Require the exact BEGIN, SET TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY, three fixed SET LOCAL timeouts, three scope SELECTs, head/base/history SELECTs, and COMMIT/ROLLBACK lifecycle. The first scope SELECT remains the data snapshot point; observer queries occur on another connection. All SQL bytes still pass ParserGate first. Preserve unnamed extended protocol Bind parameters; prohibit a context from changing settings, transaction mode, application_name or issuing other SQL.",
+    "Read/validate all history as before. Stage the result in CLI memory. Closing libpq is not a cleanup certificate. Proxy transitions RETIRING, forwards Terminate or closes the owned stream, and independently observes the exact backend identity absent using fresh autocommit observation snapshots.",
+    "After observed absence and closed owned transport, persist CLEAN and release the exclusive lease. CLI awaits a nonce+proxy-generation-bound CLEAN receipt on the private control socket before returning the original closed context envelope. No successful context or Alloy worker launch precedes CLEAN. Receipt retention and concurrent waiters must have fixed small caps and expiry; receipt expiry never clears an active lease."
+  ],
+  "failure_algorithm": [
+    "On context deadline, parser failure, client EOF, cancellation, protocol error or parent death detection, mark RETIRING and suppress publication before cleanup.",
+    "Send CancelRequest only using the captured owned PID+secret. Maintain cancellation authority until cleanup completes. A CancelRequest has no success reply and its socket EOF is not proof of cancellation.",
+    "Close/terminate the owned transport, then observe exact identity absence using fresh observer transactions within the fixed cleanup budget. Cancellation followed by transport EOF plus absence is the intended normal cleanup evidence.",
+    "If the observer, parser or backend is unavailable, or identity/termination cannot be established, persist UNKNOWN and retain the context lease and its normal/live resource reservation. Return UNAVAILABLE; admit no replacement context. A bounded background reconciler may retry read-only observation, but must not create unbounded observer sessions or query queues.",
+    "Do not call pg_terminate_backend(pid) or pg_cancel_backend(pid). Filtering pg_stat_activity by backend_start and application_name before those PID-only signal functions still has a lookup-to-signal PID-reuse race. Secret-bound CancelRequest plus fail-closed reservation is narrower.",
+    "Proxy restart loads the journal before enabling context admission. For BOUND entries, observe exact identity and use retained secret cancellation if still present. For KEYED entries, bind the recorded PID/secret and unique name to fresh observed identity before cleanup; never weaken to PID-only authority. A changed or corrupt journal is UNKNOWN, not permission to forget old ownership."
+  ],
+  "explicit_unresolved_startup_case": {
+    "case": "Proxy SIGKILL after backend connect but before BackendKeyData is durably recorded.",
+    "fact": "Installed PostgreSQL16.15 postinit.c authenticates before pgstat_bestart publishes normal backend activity. Therefore one empty application-name lookup cannot establish that a pending authentication backend does not exist or will not later appear.",
+    "safe_behavior": "Retain RESERVED/UNKNOWN and block context admission. Reconciliation can observe a subsequently published exact unique session and wait for it to disappear; an empty snapshot alone does not release this reservation.",
+    "promotion_limit": "This safety behavior is implementable, but it does not prove prompt automatic cleanup for every startup crash. The contract and runtime matrix must label the unresolved case explicitly, or provide a separately reviewed stronger backend-ownership/restart mechanism before claiming the entire P1 availability gate closed. Do not substitute a guessed sleep or authentication_timeout for observed ownership/termination."
+  },
+  "control_transport": {
+    "path": "Private Unix socket adjacent to the canonical SQL socket, in the same 0700 runtime directory.",
+    "operations": "Closed small register/awaitLease/status frames only; no SQL, connection route, query body, arbitrary PID, kill command or user source.",
+    "identity": "Use Linux SO_PEERCRED plus recorded CLI PID/start identity and UUID; replies bind proxy generation. Cap message bytes, outstanding requests, wait duration and receipt retention. A different generation cannot certify success for an in-flight context.",
+    "observer": "One reserved same-role canonical proxy connection at a time, with fixed metadata-only SELECTs and 500ms statement deadlines. Reserved dynamic tag allow-context-observer:<proxy-generation UUID> is accepted only from the current proxy kernel PID/UID. Synchronous psycopg runs in one owned thread outside asyncio to avoid self-connection deadlock. Its separate durable reservation is retained until its recorded backend Linux identity is absent; pre-key uncertainty blocks replacement.",
+    "shutdown": "Graceful shutdown stops admissions, shields bounded cleanup from repeated task cancellation, and persists unresolved leases. SIGKILL recovery relies on the durable journal, not finally blocks.",
+    "frame_limit_bytes": 8192,
+    "max_control_handlers": 4,
+    "max_clean_receipts": 64,
+    "receipt_ttl_seconds": 60,
+    "control_read_seconds": 2,
+    "await_seconds": 6,
+    "registration_fields": [
+      "protocol",
+      "operation",
+      "nonce"
+    ],
+    "await_fields": [
+      "protocol",
+      "operation",
+      "nonce",
+      "generation",
+      "leaseGeneration"
+    ],
+    "status_fields": [
+      "protocol",
+      "operation"
+    ],
+    "credential_rule": "All frames require same effective UID and kernel peer PID/start identity; register uses current process identity, never a caller-supplied PID. Await requires the same recorded PID/start and nonce/generation. status is bounded aggregate only with no backendPID/key/source. Application_name dynamic nonce matches registered owner. No caller chooses database, scope, SQL or backend route.",
+    "registration_reply": "Closed reply includes protocol/status/generation/leaseGeneration/nonce; await reply includes these plus successPermitted only on CLEAN. Values are validated by client, never inferred from elapsed time or socket closure."
+  },
+  "sql_policy": {
+    "new_exact_statements": [
+      "SET LOCAL statement_timeout = 1500",
+      "SET LOCAL lock_timeout = 250",
+      "SET LOCAL idle_in_transaction_session_timeout = 1000",
+      "SET statement_timeout = 500"
+    ],
+    "metadata_query": "SELECT pid, backend_start, datname, usename, application_name FROM pg_catalog.pg_stat_activity WHERE pid = $1 AND datname = $2 AND usename = $3 AND application_name = $4",
+    "reconcile_query": "SELECT pid, backend_start FROM pg_catalog.pg_stat_activity WHERE datname = $1 AND usename = $2 AND application_name = $3",
+    "rule": "Freeze the new policy generation. Add only these nonzero LOCAL forms; no generic timeout set_config, startup options, PostgreSQL18 transaction_timeout dependency or disabling the existing mandatory parser. Context and observer protocol policies additionally restrict their exact statement sequence; ordinary clients preserve existing SQL behavior. Observer session SET=500 is admitted only in the own-process observer protocol prelude; context LOCALforms are accepted only in the exact read-onlycontext prelude, not a generic setting bypass.",
+    "exploratory_probe": "Fresh isolated ParserGate on2026-11-03 accepted both metadata SELECTs and current_setting logging-preflight SELECT. All three SET LOCAL forms reached the policy classifier and were denied specifically as unreviewed setting, establishing grammar feasibility but not new-policy/runtime acceptance. No production bytes or PostgreSQL queries were changed/executed by this parser-only probe."
+  },
+  "logging_privacy": {
+    "preflight": "Read actual settings through the canonical parser route. Require log_parameter_max_length_on_error=0 and either log_parameter_max_length=0 or all non-error parameter-bearing statement logging disabled. Check log_statement, log_min_duration_statement, log_min_duration_sample and log_transaction_sample_rate. Fail context readiness if privacy cannot be established; do not silently rewrite global database configuration.",
+    "queries": "Use constant SQL with bound identifiers; select identity/status only from pg_stat_activity, never query text. Current timeout error statement logging can disclose SQL, so verify fixed SQL contains no source or interpolated secrets. Log only bounded category codes and aggregate counters. Keep control receipts and journal private, do not publish BackendKeyData or raw PG error details."
+  },
+  "file_map": {
+    "retrieval/allow_retrieval/sql_context_lease.py": "New bounded lease/journal/cleanup state machine and identity observations.",
+    "retrieval/allow_retrieval/sql_context_control.py": "New bounded private control socket server/client and peer checks.",
+    "retrieval/allow_retrieval/sql_proxy.py": "Dedicated context/observer tags, ingress capacities, registration/readiness fence, session lifecycle hooks and restart reconciliation. Fix active decrement to occur only after context cleanup or retained ownership transfer; ordinary current finally decrements too early.",
+    "retrieval/allow_retrieval/sql_connections.py": "Canonical validated dynamic context client tag and private observer tag; preserve sole psycopg.connect implementation and route checks.",
+    "retrieval/allow_retrieval/sql_guard.py": "Exact three LOCAL deadline admission forms and narrow context/observer sequence checks as applicable.",
+    "retrieval/allow_documents/cli.py": "Pass existing validated request UUID privately to validationContext lifecycle without changing public arguments.",
+    "retrieval/allow_documents/store.py": "Use context lifecycle connection, exact timeout prelude, stage results until CLEAN receipt; unchanged full-history scanning and scope rules.",
+    "backend/src/main/java/dev/allow/backend/DocumentGateway.java": "Optional validationContext-only whole bridge budget adjustment after measured handshake+context+cleanup budget. No new SQL route or direct PG authority.",
+    "backend/src/main/java/dev/allow/backend/WorkerCapacity.java": "Document exact separation of Java process ownership and proxy SQL lease; do not claim it proves backend reap.",
+    "scripts/bootstrap_corpus.py": "Bind newly loaded proxy modules to installation identity, verify actual capacity/privacy prerequisites, wait for reconciled context readiness without changing mutator uncertainty behavior.",
+    "config/sqlean-parser-lock.json": "Pinned grammar/executable unchanged. Policy generation lives in sql_image_config.py; no lockfile policy field is invented.",
+    "retrieval/allow_retrieval/sql_image_config.py": "Advance reviewed policy generation to sql-routing-v8-context-leases, preserving sealed parser semantics."
+  },
+  "minimum_runtime_matrix": [
+    "Normal valid, empty-ID, maximal4096-ID and4096-history/near256MiB context; result appears only after receipt and exact backend absence; durable snapshots identical.",
+    "Statement sleep, blocked lock, idle-in-transaction, total wall deadline during history decoding, parser failure, client EOF, CLI SIGKILL and Java SIGKILL; no successful result or worker launch after retirement.",
+    "Proxy graceful shutdown and SIGKILL at RESERVED, KEYED, BOUND, reading, COMMIT, transport-close, observation and receipt publication; preserve UNKNOWN where identity is not established and distinguish safety from availability.",
+    "Cancel wrong secret, stale generation, nonce mismatch, PID reuse simulation, foreign application_name/database/user, malformed journal and missing observer visibility; no foreign signal and no early release.",
+    "Saturate ordinary SQL capacity while context cleanup runs; observer remains admitted; no unbounded control/observation queues or replacement observer leaks.",
+    "Timeout/query errors with private parameter marker; actual PG/proxy/CLI logs contain no marker; metadata observers never request query text.",
+    "Existing SQL routing, durable operations, bootstrap, dump/restore, recovery and52 SQL tests retain exact semantics; no bypass connection or general timeout-setting escape.",
+    "Ordinary disconnected long-running backend churn and PostgreSQL slot exhaustion: already-open observer stays owned; context failures remain failclosed, and startup uncertainty retains lease. Report availability failure, never inferactual15backendbound fromhandlercounter.",
+    "Actual PostgreSQL protocol frames reject repeated Bind/Execute, rebind, delayed/omitted Sync, named objects, maxRows>0, Parse-only sequence spoofing, pipelined Parse/Q and out-of-order prelude; success requires COMMIT CommandComplete+Ready(I)+normal Terminate without prior failure."
+  ],
+  "primary_sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html#PROTOCOL-FLOW-CANCELING-REQUESTS",
+    "https://www.postgresql.org/docs/16/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL",
+    "https://www.postgresql.org/docs/16/monitoring-stats.html",
+    "https://www.postgresql.org/docs/16/runtime-config-logging.html",
+    "/home/augustus/Allow/.tools/retrieval/src/postgresql-16.15/src/backend/utils/init/postinit.c:915",
+    "/home/augustus/Allow/.tools/retrieval/src/postgresql-16.15/src/backend/utils/init/postinit.c:1237"
+  ],
+  "revision": "r1",
+  "extends": [
+    "spec/document-validation-context.json",
+    "spec/sql-stage.json",
+    "gates/planning/performance-remediation-20261103/contract.json"
+  ],
+  "production_policy": "sql-routing-v8-context-leases",
+  "formal": {
+    "file": "ContextCleanup.lean",
+    "boundary": "Inactive guarded lifecycle model first; actual SQL/kernel/process/peer credentials/clock/journal/fsync/observer interpretation remain runtime obligations. This increment does not implement or claim warm JVM reuse.",
+    "active_inherited_propositions": 309,
+    "activation": "Install the exact reviewed model and contract only after all6 exact-root approvals and2isolated matching clean model builds; then edit production. Active309 source/type anchors are preserved, not silently re-certified by a standalone model run."
+  },
+  "capacity_clarification": "Open and retain the dedicated observer before context readiness. Limit ordinary live SQL handlers to15; context lease atmost1 and observer owned atmost1. Handler arithmetic is not an actual backend-count proof: disconnected ordinary backend tails or other same-role sessions can exhaust PostgreSQL17non-superuser capacity. Such exhaustion causes contextUNAVAILABLE and mayleaveUNKNOWN atstartup; neverforgetunidentifiedbackendownership. No actual17backendaggregatebound or guaranteedcontextstartup is claimed. If observeris lost, retainitsreservation anddisablecontextuntilreconciled; no repeatedreplacement. 4extra boundedhandshake/cancelhandlers do notgrant additionalordinarybackendadmission.",
+  "journal_details": {
+    "version": 1,
+    "max_bytes": 65536,
+    "paths": "context-state.json plus context-initialized marker inside private sql-proxy directory; no public path argument",
+    "io": "lstat/no-follow owner-mode checks; duplicate-free closed JSON; atomic unique0600 temp+fsync+replace+directory fsync. Persist marker before first registration; missing journal with initialized marker, corruption, symlink, impossible phase or unknown identity is DEGRADED. No same-user tamper resistance is claimed beyond inherited OS/private-workspace TCB.",
+    "entry": "proxy generation UUID, connection generation, nonce, owner PID/start, fixed database/user/application name, phase, backend PID/key/start when observed; no source/document/scope values. Journal top level has separate bounded context and observer entries, with independent phase/identity and conservative reservations; observer entry binds proxy generation, BackendKeyData and captured Linux boot_id/PID/start_ticks. File is initialized with empty entries before marker creation; journal without marker is validated conservatively, never overwritten. Marker without journal is DEGRADED.",
+    "ordering": "Persist RESERVED before any backend-open attempt, CONNECTING before connect, KEYED before exposing initial readiness, BOUND only after exact metadata observation. No client SQL before BOUND. CLEAN persisted before release/receipt. Cancellation can clear a never-connected RESERVED entry only when no backend-open attempt was ever begun; CONNECTING uncertainty cannot use that branch.",
+    "recovery": "BOUND exact absence permitscleanup. KEYED only binds currently observable matching metadata; absent or ambiguous incompleteidentity remains UNKNOWN. RESERVED/CONNECTING cannot be freed from elapsedtime/emptylookup. If stronger restart availability is required, it is a separate change. An existing UNKNOWN generation may become CLEAN only after positive exactidentity was established thenabsence observed; status/receipt expiration never releases it. Observer reservation recovery follows observer_details and may use recorded Linux process-identity absence, never an unowned PID signal. Context absence remains exact PostgreSQL metadata observation as specified."
+  },
+  "observer_details": {
+    "client_tag": "allow-context-observer:<canonical proxy-generation UUID>",
+    "peer_gate": "Reserved observer tag only when kernel peer PID equals current proxy PID and UID matches; normal clients cannot self-assert reserved capacity. Use canonical sql_connections.connect in a single owned thread. Never raw/direct psycopg.connect elsewhere.",
+    "autocommit": true,
+    "statement_timeout_ms": 500,
+    "query_limit": "Metadata SELECT returns at most1 identity row by PID or at most2 unique-name rows to detectambiguity. Each observation is a fresh autocommit transaction; no stale stats transaction reused.",
+    "replacement": "Persist separate observer RESERVED then CONNECTING before opening. Persist KEYED with BackendKeyData and Linux boot_id/PID/start_ticks before exposing initial readiness. A same PID with different start_ticks or a new boot establishes old identity absence; missing/unreadable process metadata is UNKNOWN unless ENOENT positively establishes absence. Observe start identity around own metadata binding, retaining ownership if ambiguous. On failure or restart, close owned client/relay transports, send only secret-bound CancelRequest if appropriate, and require recorded Linux identity absence before replacement. A prior observer CONNECTING/pre-key record or unidentified kernel identity keeps context DEGRADED and prevents any replacement observer; no inferred release from empty pg_stat_activity, elapsed time, or EOF. The read-only Linux process observation is explicit trusted evidence, not a PostgreSQL query or PID-only signal. Normal clean shutdown also waits for exact kernel identity absence before recording observer CLEAN.",
+    "privacy": "Actual current settings must pass preflight before READY: log_parameter_max_length_on_error=0, and either log_parameter_max_length=0 or all statement/duration/sample parameter logging disabled. Fixed SQL and bind values never appear in publicerror/status output.",
+    "startup_recovery": "Load and reconcile both context and observer journal reservations before opening a new observer. A BOUND context requires SQL absence evidence from the new observer, which can be opened only after old observer reservation was safely cleared. Unidentified prior observer blocks this path without blocking ordinary SQL readiness. Never clear an unresolved context to make observer startup succeed."
+  },
+  "sql_protocol": {
+    "context": "Restrict tag to unnamed simple/extended protocol with exact fixed SQL templates copied from Store context path: BEGIN; isolation;1500/250/1000LOCALtimeouts;tenant/project/purpose set_configSELECTs;head; exactbase; optionalfullhistory; COMMIT. PermitROLLBACK onfailures. Disallow named/nativePREPARE/COPY/pipeline/otherSQL/reset/appnamechange/timeoutchange. Normal protocolstate and SQLeanParser acceptance still apply before forwarding. Parameter formats remain bounddata, trustedStore supplies scope.",
+    "observer": "Only its fixed500msdeadlineSET, fixed metadataqueries and exact fixed configurationpreflightquery; no arbitrarySQL or querytext fields. Preserve normalSQLclients currentpolicy exceptnormalcapacity.",
+    "execution_fence": "Advance the expected SQL-sequence cursor only after the actual admitted statement executed and produced CommandComplete then ReadyForQuery in the expected transaction state, with no ErrorResponse. For simple Q, permit exactly one fixed complete statement and no other SQL/control execution until its Ready. For extended protocol use unnamed Parse then exactly one unnamed Bind, optional one unnamed portal Describe, exactly one unlimited Execute(maxRows=0), exactly one Sync, then wait for backend Ready before the next Parse/Q. A Parse acceptance is not execution. Reject repeated/reordered Bind or Execute, rebinding, second Parse before completion, named statement/portal, nonzero Execute rowlimit, Close/nativePREPARE/COPY/Flush/pipeline and arbitrary control frames. Permit Terminate on any state only as failure unless complete successful COMMIT has reached Ready(I). ROLLBACK is a failure outcome and cannot enable successPermitted. Observer similarly allows only single in-flight fixed simple query or unnamed extended execution per complete Ready cycle. Existing ProtocolState and ParserGate remain additional mandatory gates."
+  },
+  "success_fence": "CLI validationContext passes existing validated private requestId as operational nonce (notpublic args). Register/getgeneration, open scopedcontext, execute full read-onlysnapshot withdeadlineprelude, stage result, closecontext, awaitowned CLEANreceipt, thenreturn exactoriginal5-fieldcontext envelope. Any nonCLEAN/mismatched/expired/unknownreceipt becomesUNAVAILABLE beforeAlloy worker. This doesnotadd authorityfieldsto publicwire. CLEAN is a resource-cleanup receipt, not sufficient for success after failure. Receipt also carries successPermitted, true only after a complete legal read-only transaction, client Terminate, no PG ErrorResponse, no parser/protocol failure and no deadline retirement. Failure is sticky per lease generation; cleanup after failure may free capacity but must return successPermitted=false. CLI requires successPermitted=true, staged result, exact owner/nonce/proxy+connection generation and CLEAN. Timer checks occur before every SQL forwarding and before normal termination; deadline can never be reset by client frames.",
+  "deadline_scope": "Registration starts3smonotonic context work deadline, including connection/init/query/historydecoding untilclientcloses. Triggeringdeadline marksretiring andrejectsallfurtherSQL/output; cleanup has separate2.5sobservation budget. Gate subprocess cleanup and OSreap canretainownership beyondthatbudget; reportUNAVAILABLE/UNKNOWN ratherthanclaim hardwall cleanup. ExistingJava20sbridgecap remains untilmeasured narrowerbudgetisreviewed. NoSQLwork deadline is represented as a proof of backendexit.",
+  "startup_and_shutdown": "Start SQL listener for ordinarybootstrap/control first, thenlazy ownedobserver/privacy/capacitypreflight once configured allow_app DBexists. Contextregistration isunavailable untilcontextreadiness; no bootstrapdeadlock. Gracefulstopstopsnewregistrations, retirescontext withboundedshieldedcleanup andpersistsUNKNOWN ifunfinished. SIGKILL reliesonjournal. Shared liveproxywillberestarted onlyafterapprovedbuild/tests andoldstateevidencearchived; do not run old loadedsource againstnewidentityclaim.",
+  "scope_limitations": [
+    "Pre-key proxydeath maycausepersistentDEGRADED contextavailability. This is fail-closed intendedbehavior and not completion of promptautomaticrestartavailability. No operator override converting UNKNOWN toCLEAN.",
+    "DBlease remainsproxy-owned evenifJava WorkerCapacity releasesafterownchildreap; replacementadvisory SQL/Alloy cannot bypassfreshcontext+receipt. Unrelateddurable/solver pathskeep their existingcontracts.",
+    "No newroleprivileges,adminobserver,PID-onlysignalfunction,directDBroute,outcomecacheorwarmJVM is introduced.",
+    "Actual4vCPU/8GiBtargetacceptance remains independent; testlocaldeadline behavior andfullquota beforeclaimingdeploymentperformance.",
+    "Linux /proc boot/process identity observation is trusted only for the dedicated observer resource; pre-key observer crash is explicitly DEGRADED availability, not a completed automatic-restart guarantee.",
+    "15ordinarylivehandlers doesnotbound disconnectedordinarybackendtails. Actualaggregate backendcapacity and guaranteedcontextslotavailability are notproved; PostgreSQLslotexhaustion is an explicitUNAVAILABLE/possibleUNKNOWN outcome."
+  ],
+  "runtime_status": "NOT_IMPLEMENTED_NOT_EXECUTED"
+}

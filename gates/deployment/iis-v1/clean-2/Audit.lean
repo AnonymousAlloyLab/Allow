@@ -1,0 +1,23 @@
+import IisDeployment
+#print axioms Allow.IisDeployment.route_exact
+#print axioms Allow.IisDeployment.api_requires_exact_capability
+#print axioms Allow.IisDeployment.hostile_or_duplicate_host_rejected
+#print axioms Allow.IisDeployment.hostile_or_duplicate_origin_rejected
+#print axioms Allow.IisDeployment.absent_invalid_duplicate_capability_rejected
+#print axioms Allow.IisDeployment.forwarded_authority_irrelevant
+#print axioms Allow.IisDeployment.forwarded_authority_cannot_bypass
+#print axioms Allow.IisDeployment.browser_admissible
+#print axioms Allow.IisDeployment.capability_client_admissible
+#print axioms Allow.IisDeployment.unknown_config_rejected
+#print axioms Allow.IisDeployment.closed_config_values
+#print axioms Allow.IisDeployment.advisory_tier1_selected
+#print axioms Allow.IisDeployment.local_default_preserved
+#print axioms Allow.IisDeployment.durable_default
+#print axioms Allow.IisDeployment.solver_default
+#print axioms Allow.IisDeployment.tier1_only_advisory
+#print axioms Allow.IisDeployment.pool_disabled
+#print axioms Allow.IisDeployment.profile_selection_does_not_accept
+#print axioms Allow.IisDeployment.acceptance_requires_evidence
+#print axioms Allow.IisDeployment.private_payload_excluded
+#print axioms Allow.IisDeployment.eligible_contains_no_private_payload
+#print axioms Allow.IisDeployment.package_positive_witness

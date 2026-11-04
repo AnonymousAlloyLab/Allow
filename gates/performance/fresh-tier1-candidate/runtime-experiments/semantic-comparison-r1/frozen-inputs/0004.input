@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-FRESH-TIER1-EXPERIMENT-R1",
+  "status": "PREREGISTERED_DESIGN_CONCRETE_RUNTIME_MANIFEST_REQUIRED",
+  "basis": "gates/performance/fresh-jvm-20261103/protocol-candidate.json; this narrows its six proposed variants to F0/F1 only. All packaging and AppCDS variants are deferred.",
+  "schedule": "Root releases scheduling hold only after concurrent SQL/P1/reference probes finish. No performance run while other agent load is active; record host background load and stop/repeat as a new run if containment/input validity fails, retaining original failure evidence.",
+  "isolation": {
+    "root": "Unique new mode0700 copied installation under this candidate runtime-experiments; reject mutable-file symlink/hardlink aliases to live installation. Never use live .runtime/database.json/launch.url/bearer/socket/data files.",
+    "stack": "Fresh synthetic PostgreSQL cluster, copied parser proxy and context control, Spring, all helpers and workers under one unique transient user service and supervised cleanup owner. Load driver outside measured server group. Every SQL query, including admin/bootstrap/observation, goes through the copied SQLeanParser proxy.",
+    "effective_limits": {
+      "cpu_max": "400000 100000",
+      "memory_high_bytes": 5368709120,
+      "memory_max_bytes": 6442450944,
+      "memory_swap_max_bytes": 0,
+      "pids_max": 512,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_mode": "control-group"
+    },
+    "preflight": "Small owned transient-service probe verifies effective cgroup limits, descendant cgroup/affinity and cleanup populated=0 before workload. cpuset is not delegated; affinity is observed scheduling placement, not security containment. Reject uncontained fallback.",
+    "cleanup": "Stop only the uniquely owned unit; require cgroup.events populated=0 and owned process identities absent. Parent exit, timeout and EOF alone are not cleanup evidence. Preserve UNKNOWN/degraded evidence.",
+    "profile_limitation": "Four CPU quota and6GiB ceiling screen a powerful workstation, not slower server CPU/cache/storage/provider contention. Actual4vCPU/8GiB target-host acceptance remains OPEN."
+  },
+  "component_budgets": {
+    "spring": [
+      "-Xms128m",
+      "-Xmx1024m",
+      "-XX:MaxMetaspaceSize=256m",
+      "-XX:ReservedCodeCacheSize=128m",
+      "-XX:ActiveProcessorCount=4",
+      "server.tomcat.threads.max=16",
+      "server.tomcat.threads.min-spare=2",
+      "server.tomcat.max-connections=32",
+      "server.tomcat.accept-count=8"
+    ],
+    "postgres": {
+      "max_connections": 20,
+      "shared_buffers": "128MB",
+      "work_mem": "4MB",
+      "maintenance_work_mem": "64MB",
+      "max_parallel_workers": 0
+    },
+    "worker": "Exact contract.json current budgets; tier1 adds only its one compiler argument.",
+    "bridge": "Keep current address-space2GiB/CPU20s and reviewed P1 context cleanup policy. Same code and settings in F0/F1; no reduced-history fixture shortcut."
+  },
+  "freeze_before_execution": [
+    "All source/build/tool/JDK identities, java/libjvm/modules/defaultCDS bytes, native libraries, ordered dependencies, copied target resources and exact launcher bytecode delta.",
+    "Exact complete synthetic request fixture files with unique IDs,count,bytes,SHA256,expected class and path; concrete manifest must cover every required family below.",
+    "Full response comparator and adversarial comparator fixtures, independent oracle expectations, finite row-by-row result schema.",
+    "Copied-stack launch/containment/cleanup runner, HTTP harness, stage instrumenter and deterministic percentile/error verifier with implementation hashes.",
+    "Runtime claim set and expected PASS/BLOCK predicates; each result binds run/profile/variant/input root/verifier hashes.",
+    "No environment- or request-driven JVM options; probe uses actual constructor+launch and FrameProcess exchange/reaping."
+  ],
+  "finite_semantics": {
+    "source_fixtures": "Only authored synthetic fixtures and existing public repo tests; never private profile input. Include all46 constructor forms from current finite corpus in eligible BLOCK_SUPPORTED/SOURCE paths. Materialize exact files before execution; a category list is not completed evidence.",
+    "families": [
+      "All46 constructors with known existing IDs and fresh IDs",
+      "SOURCE valid/supportable, TEXT_ONLY, syntax/type/unbound/unsupported import and fragment",
+      "Mixed old/new ID, missing/foreign/wrong-kind inventory, source roundtrip and comment/trivia offsets",
+      "Node511/512/513, ASTdepth31/32/33, UTF8source32767/32768/32769, private frame and output boundaries",
+      "REVALIDATE exact historical artifact, invalid private context, malformed/trailing output, interruption/timeout, changed class/dependency/Alloy identity, owned reap",
+      "Representative solver-heavy SAT/UNSAT bounded workloads and existing document revalidation regressions; keep WorkerMain deployable flags unchanged and report cost/tradeoffs separately"
+    ],
+    "comparison": "For each frozen input run F0 and F1 separately; compare exit/framing and complete decoded private response: protocol/requestId/status/data, source bytes/hash, module, diagnostics, command, occurrences, trivia, idRemapping and every field. Preserve nonce/input and expected server IDs; do not compare status alone.",
+    "ids": "For generated UUIDs only, derive and validate injective kind-preserving bijection from idRemapping or frozen typed traversal; apply only schema-declared ID slots/keys. Existing IDs, source literals/bytes and diagnostics never normalized. Reject changed edges, duplicate/missing mappings, unexpected fields and UUID-looking literal replacement.",
+    "comparator_negative_cases": [
+      "changed source/hash",
+      "changed diagnostic",
+      "changed trivia offset",
+      "removed/extra field",
+      "swapped same-kind IDs/reference edge",
+      "alias collision",
+      "bad UUID syntax",
+      "raw generated ID outside approved paths"
+    ],
+    "pass": "Every concrete fixture equals F0 after this strictly validated normalization, independently satisfies existing contract tests, and reaps its worker. Any mismatch blocks performance/selection. Finite testing does not establish universal semantic equivalence."
+  },
+  "measurement": {
+    "paired_runs": 3,
+    "order": [
+      "F0 then F1",
+      "F1 then F0",
+      "F0 then F1"
+    ],
+    "restart": "Each variant/run gets an independent complete supervisor/stack start with identical fresh synthetic fixture construction; no shared warmed server or database state.",
+    "http": {
+      "fixture": "gates/document/headless-preview-fixture.json",
+      "nodes": 500,
+      "warmups": 100,
+      "measured": 1000,
+      "request_mode": "Original serial real HTTP distinct validation edits, full authorized context/identity checks/fresh sandbox/response/reap included",
+      "percentile": "nearest-rank: sorted samples[ceil(n*q)-1]",
+      "p95_strict_less_than_ms": 300,
+      "failures_required": 0,
+      "peak_memory_at_most_bytes": 5368709120
+    },
+    "sample_policy": "Retain every warmup and measured request including errors/timeouts/rejections; no dropped outliers or adaptive fixture changes. Measure successes and failures; any error blocks that run. No average can rescue a failed run.",
+    "components": "Separate instrumented runs report constructor full hash, launch hash, boot/classload, validation, serialization/decode/reap, wall total, CPU and process/group RSS. Diagnostic logging is excluded from accepted timing or enabled equally across both variants. Component speed alone cannot select F1.",
+    "solver_tradeoff": "Report CPU, elapsed p95/p99, maximum, timeout and output equality for the finite heavy corpus under default vs tier1 document regression probe; any new timeout or output mismatch blocks F1. Default WorkerMain solver argv must remain byte-identical; no solver performance claim inferred from advisory gains.",
+    "reported": [
+      "all raw timings and errors",
+      "cold process/stack first-ready/first-request separately",
+      "cpu.stat throttling and pressure",
+      "memory.current/peak/events/swap",
+      "pids.current/peak/events",
+      "descendant ownership and affinity",
+      "JDK+artifact+profile hashes",
+      "host pressure and storage identity",
+      "all cleanup failures"
+    ],
+    "target_acceptance": "Repeat original500node100+1000 zero-error strictp95<300 protocol for3 independent starts on the intended pinned4vCPU/8GiB server/VM. Workstation screening remains TESTED_SCREEN_ONLY; target acceptance stays OPEN until actual host is supplied."
+  },
+  "stop_conditions": [
+    "Any output/comparator mismatch",
+    "artifact/source/identity mutation or fence bypass",
+    "missing containment or escaped descendant",
+    "OOM,pids exhaustion,unreaped owner",
+    "new timeout or lost cleanup authority",
+    "live credential/runtime path detected",
+    "unregistered fixture/verifier",
+    "existing P1/runtime regression failure"
+  ],
+  "future_runtime_closure": "Create new frozen runtime manifest/claim/verifier registration before experiments. This package registers only the standalone Lean checker, not a nonexistent performance verifier. Report unresolved runtime claims as BLOCKED, never promote authoring or model results to measured acceptance."
+}

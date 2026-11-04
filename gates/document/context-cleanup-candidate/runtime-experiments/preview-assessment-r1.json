@@ -1,0 +1,48 @@
+{
+  "loaded_policy": "sql-routing-v7-sealed-image",
+  "loaded_has_context_status": false,
+  "loaded_input_count": 6,
+  "current_identity": {
+    "status": "STALE_RUNTIME",
+    "reasons": [
+      "daemon_sealed_snapshot_mismatch",
+      "daemon_snapshot_digest_mismatch",
+      "daemon_loaded_inputs_mismatch"
+    ],
+    "pid": 826907,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "retrieval/allow_retrieval/sql_connections.py": "0cd8c1b69676210b90e2b88a09a2a7e398afc9856fd199d5bf556b61a0f606cb",
+      "retrieval/allow_retrieval/sql_proxy.py": "3ca762285c67be824da1a1b0cc12906634a81eee6002c2a499806ce79d617182",
+      "retrieval/allow_retrieval/sql_guard.py": "d6f4199e95206f21c051eaa214ff8444e404a0b7d22b67bedaf3a62ac86302a7",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_image_config.py": "a9ac70f88cc9e414dd45a0b79a3e241e2ee16d930fbb857c470bdc7b9d10c8d7",
+      "retrieval/allow_retrieval/sql_inventory.py": "29f1a73c8ea0b5e201a3196a09771c37920e8021fedec5e685948a60ee707287",
+      "retrieval/allow_retrieval/sql_context_protocol.py": "416401795f38d12cc6484e6146c8f7b21f998151ef9374ddc414d9d06d456d0e",
+      "retrieval/allow_retrieval/sql_context_journal.py": "a226960499093131bfd286900a44dc2f655b00b374e23232d06852f8ba81c34d",
+      "retrieval/allow_retrieval/sql_context_identity.py": "b518791337101011ffb072f47fa880942ba81c3be14b8629d1ffac087c34e31d",
+      "retrieval/allow_retrieval/sql_context_observer.py": "02d821ac165bf470a6218f81aa2a046f64623577064b68950714af97a9a5c674",
+      "retrieval/allow_retrieval/sql_context_lease.py": "11bf9c712bc84a8509490682d1652363e831d1d094b9ff1e2d1e47abeaa561c1",
+      "retrieval/allow_retrieval/sql_context_control.py": "2ab81d87ebe613d31ce04735bbcb5a4053427a3939d0f94df77e189939424b9d",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/requirements-ml.lock": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "disk_binary_matches_pin": true,
+    "disk_binary_audit_error": null,
+    "disk_identity_scope": "Restart readiness only; live sealed-image identity checked separately"
+  },
+  "control_socket_exists": false,
+  "current_helper_control_path": "FileNotFoundError",
+  "http_get_/": {
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8"
+  },
+  "http_get_/api/config": {
+    "exception": "HTTPError",
+    "http_status": 403
+  }
+}

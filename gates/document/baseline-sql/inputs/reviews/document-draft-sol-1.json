@@ -1,0 +1,66 @@
+{
+  "reviewer": "Sol council seat 1",
+  "review_type": "INITIAL_READ_ONLY_ADVERSARIAL_DRAFT_REVIEW",
+  "spec_path": "spec/document-stage-draft.json",
+  "spec_revision": 1,
+  "spec_sha256": "296991c934341ea168586aba6c1e090d0712836771ace0480573ccdbeb33102a",
+  "formal_path": "gates/document/draft/Document.lean",
+  "formal_sha256": "de0a08bd831c9128456becb63f5c7784178bdaec33551e668837838dc5c359fe",
+  "decision": "BLOCKING_DESIGN_GAPS_NO_IMPLEMENTATION_APPROVAL",
+  "scope": "Initial revision 1 only. Original API and G2/G3 obligations remain binding. This is not a final frozen-hash council approval or gate closure.",
+  "findings": [
+    {
+      "id": "DOCUMENT-SOL1-01",
+      "severity": "BLOCKING",
+      "topic": "Closed executable wire contract and full palette",
+      "evidence": "The draft lists tags and prose arity but supplies no per-tag closed fields, child roles, cardinalities, command options, field owner/range convention or precise parser equivalence. Product can exceed schema_columns despite both input schemas satisfying it. Shared DAG nodes with lexical variable references can have distinct ancestry at each occurrence.",
+      "resolution": "Before freeze define a versioned closed JSON schema and per-tag typing table for every listed tag, including signature/field schema (explicitly whether owner is included), singleton parameter semantics, run/check target kinds and bounded command options. Apply output schema/depth/occurrence budgets during elaboration, not only to input declarations. Either prohibit sharing scope-sensitive subtrees or typecheck every occurrence under its lexical environment and specify environment-compatible sharing. Define alpha/presentation equivalence and node/occurrence identity behavior for copy/move. Include positive and negative fixtures per constructor. Keep the complete declared v1 palette; do not ship a kind-only subset under full-palette claims."
+    },
+    {
+      "id": "DOCUMENT-SOL1-02",
+      "severity": "BLOCKING",
+      "topic": "Formal propositions do not model promised document contract",
+      "evidence": "Typed.ref accepts arbitrary Ty from a positional context, including an empty relation or formula; quantifiers need not name a declared signature. Artifact.valid checks only a formula body and never source, module declarations, graph, stable binder resolution, multiplicity or maps. Receipt lacks scope, key, exact request bytes, expiration and state. Commit has no receipt/authorization/policy state, concurrent histories, persistence failure or undo provenance. ranked_no_two_cycle is not a complete graph acyclicity/elaboration theorem. Occurrence proves numeric bounds only.",
+      "resolution": "Extend the isolated formal design before active-code changes: closed module/operator representation or explicit total tag-to-family refinement; well-formed nonempty schemas; stable binder elaboration with destination scope; exact declaration/call and dependency validation; scoped receipt/document transition system with replay-before-stale, collision denial, atomic success/rollback, monotone revision and historical-copy undo. Model time/retention and policy versions explicitly. Register finite acceptance and denial witnesses and exact propositions. State parsing, storage isolation, UTF conversion and printer correspondence as adapter trust unless actually proved. Require two clean registered builds and six exact-final-hash reviews; current small lemmas cannot authorize implementation of these missing obligations."
+    },
+    {
+      "id": "DOCUMENT-SOL1-03",
+      "severity": "BLOCKING",
+      "topic": "Canonical request, receipt lifetime and replay ordering",
+      "evidence": "The draft explicitly leaves canonical serialization, failure receipt policy and active-window lifecycle open. Validation occurs before the transaction, but identical successful retries must still return an original outcome if the old source fails a newly installed parser or current resource budget. Two-megabyte canonical bytes may also exceed MAX_SQL if interpolated instead of bound.",
+      "resolution": "Specify strict decoding (duplicate JSON keys, numeric ranges and unknown fields), one canonical serialization with exact byte equality plus digest, and inclusion of operation, expected revision, target/provenance, source/IR and dependency policy identity. After current authentication/authorization and bounded envelope decoding, do an initial scoped receipt lookup before revalidation; repeat receipt serialization/lookup in the final transaction to close races. Existing successful identical receipts return the stored outcome without parser revalidation. Choose and document deterministic rejection receipt behavior. Define durable retry registration/renewal/closure with server/database-time lease bounds, crash recovery, cleanup locks and receipt retention at max(commit+24h, registered active window); no receipt deletion while an in-flight registered retry can commit. Bind large artifact/request values as parameters."
+    },
+    {
+      "id": "DOCUMENT-SOL1-04",
+      "severity": "BLOCKING",
+      "topic": "Stable principal provisioning is not launch bearer authentication",
+      "evidence": "LaunchAuthority currently only compares a per-launch bearer and overwrites .runtime/token for direct development. No durable principal, recoverable logical-launch ID or workspace/document ownership registry is present. Merely reading a client-supplied stable ID would allow receipt scope substitution.",
+      "resolution": "Define atomic private metadata creation under a canonical trusted workspace root, restrictive modes, no symlink following, owner checks and a versioned integrity/recovery policy. Bind each fresh launch bearer server-side to the durable principal and authorized workspace/logical launch; never take those identities from request fields or bearer-derived hashes. Specify explicit resume versus new-launch behavior and deny missing/corrupt metadata rather than regenerating an identity that strands receipts. Test fresh bearer after restart, independent launch isolation, copied metadata/foreign workspace denial and concurrent first initialization."
+    },
+    {
+      "id": "DOCUMENT-SOL1-05",
+      "severity": "BLOCKING",
+      "topic": "Concrete database schema, RLS and commit serialization",
+      "evidence": "No document migration or RLS contract is specified. Existing retrieval policy scopes tenant/project with transaction-local settings; sql_guard SAFE_CONFIG currently permits only allow.tenant, allow.project, allow.purpose and search_path. Adding allow.principal/document settings blindly will be denied. Existing app grants are broad and must not imply mutability of accepted document history.",
+      "resolution": "Freeze tables, unique keys and composite scoped foreign keys for ownership, documents, immutable revisions/artifacts, receipts and retry registrations. Define FORCE RLS with both USING/WITH CHECK and non-owner/non-bypass app role; scope receipts as strictly as artifacts. Map durable principal/workspace to existing reviewed settings where semantically exact, or separately review a bounded guard-setting extension. Specify an isolation/locking algorithm (for example scoped key row/upsert serialization then document row lock), lock order, deadlock/serialization retry behavior, cleanup interlocks and same-key concurrent loser reread. Enforce append-only history and nonnegative monotone revision with restricted grants or reviewed database invariants. Test cross-scope FK insertion, read/update/delete and cleanup denial."
+    },
+    {
+      "id": "DOCUMENT-SOL1-06",
+      "severity": "BLOCKING",
+      "topic": "Validation-to-CAS trusted handoff and undo policy",
+      "evidence": "The draft correctly requires validation outside a SQL transaction and policy/version recheck, but does not say where checked candidates live or how a mutable request cannot replace one between Java validation and Python persistence. Historical artifact retention and exact policy/dependency reconstruction are unspecified.",
+      "resolution": "Define a bounded immutable server-owned checked-candidate record binding canonical request bytes, exact artifact/source/maps bytes, base revision, principal/scope/document and parser/policy/dependency versions. The write bridge accepts only this internal frame from the authenticated server path; it must not accept browser checked=true authority. Final transaction rechecks all bindings and current authorization/version fence before atomically inserting revision and receipt. Concurrent policy installation must share an explicit fence/lock or immutable version comparison. Undo/redo selects an authorized retained immutable revision, revalidates its exact content against a precisely defined current policy and frozen dependencies, and records source revision and direction in a newly appended revision. Specify history retention and unavailable-target response. Exercise death before commit, committed-but-lost response and policy change during validation."
+    }
+  ],
+  "architecture_recommendation": {
+    "choice": "Use a dedicated narrow document Python persistence bridge over existing canonical psycopg connection helper; keep Spring as authentication/document validation orchestrator.",
+    "actual_repository_basis": "CorpusGateway already supervises a bounded fixed-argv Python child with request nonce, parallel pipe drains, limits and reaping. retrieval/allow_retrieval/sql_connections.py centrally enforces private proxy socket, allow_app role, UTF8, no ambient routes and prepare_threshold=None. backend/pom.xml has no PostgreSQL JDBC driver. A new JDBC path would require pinned dependency/license, proxy startup/options support, all driver-generated SQL admission and endpoint/bypass evidence, without eliminating the parser trust boundary.",
+    "constraints": "Do not repurpose read-only CorpusGateway operations as a public arbitrary write/SQL endpoint. Add a separate closed internal document protocol with strict bounded frames and operation allowlist, fixed launcher root, no SQL/client-supplied DSN, and nonce plus document/request identity checks. Every transaction statement, migration, cleanup, health/recovery and test path must use the same SQLean proxy; never use a direct backend socket on error. Guard changes or new client tags require their own frozen SQL evidence. Reuse connection plumbing, not retrieval semantic authorization. A supervised child per request is acceptable for bounded local v1 after measured latency/capacity; a persistent helper is a later measured optimization, not required for correctness."
+  },
+  "nonblocking_assessment": [
+    "The bounded nominal self-contained slice is a manageable v1 if its complete palette ships and unsupported parser-accepted syntax remains explicit TEXT_ONLY.",
+    "Append-only undo, independent validation and CAS, exact bytes plus digest, source occurrence identity and conservative trivia preservation are sound design directions once their missing contracts are frozen.",
+    "Projection, full keyboard workflows and manual named browser/screen-reader evidence remain G2/G3 exit work; formal builds alone cannot close them."
+  ],
+  "verification": "Read-only review of stated files plus LaunchAuthority.java, backend/pom.xml, sql_guard.py and retrieval migration policy. No production/formal/script edits or test/build claims. Only this review artifact was written."
+}

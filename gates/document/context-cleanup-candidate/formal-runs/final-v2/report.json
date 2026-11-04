@@ -1,0 +1,111 @@
+{
+  "closure_id": "ALLOW-CONTEXT-CLEANUP-MODEL-final-v2",
+  "timestamp": "2026-11-04T04:54:59.537827+00:00",
+  "status": "VERIFIED",
+  "classification": "INACTIVE_ABSTRACT_CONTEXT_CLEANUP_MODEL_ONLY",
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "builds": [
+    {
+      "status": "PASS",
+      "exit_code": 0,
+      "artifacts": {
+        "ContextCleanup.olean": "6bcb40ea5665c6cd54b973cd6e8a7822da6ee22ddd849885c77b169db2f63a60",
+        "Audit.olean": "757527ec778e0410d57f31bf7116759ea310a82fa86178b90d02b6dded3e45f3"
+      },
+      "audit_sha256": "a4f5848d7b3add69c2a4cc7428b0ce8c73db1b18c41842b2d81a1d871c08f767",
+      "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)"
+    },
+    {
+      "status": "PASS",
+      "exit_code": 0,
+      "artifacts": {
+        "ContextCleanup.olean": "6bcb40ea5665c6cd54b973cd6e8a7822da6ee22ddd849885c77b169db2f63a60",
+        "Audit.olean": "757527ec778e0410d57f31bf7116759ea310a82fa86178b90d02b6dded3e45f3"
+      },
+      "audit_sha256": "a4f5848d7b3add69c2a4cc7428b0ce8c73db1b18c41842b2d81a1d871c08f767",
+      "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)"
+    }
+  ],
+  "execution_environment": {
+    "python": "3.10.11",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "verifier_sha256": "bc056dc97f710c41834fb161cbb08ddf6e6300eb000c96b438f77bbdd0bbbd8c",
+  "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849",
+  "reviews": [
+    {
+      "seat": "astra-1",
+      "path": "reviews/context-cleanup-astra-1.json",
+      "sha256": "9304fab50bba9387f0472d4bfe0695e12c9fafead8019b9e6101a5ac1cc7996c"
+    },
+    {
+      "seat": "astra-2",
+      "path": "reviews/context-cleanup-astra-2.json",
+      "sha256": "fa35b44a17b8395dcf47f8a3ca0a8d1956657df3d6ee838b3269442ea2e1b0da"
+    },
+    {
+      "seat": "sol-1",
+      "path": "reviews/context-cleanup-sol-1.json",
+      "sha256": "043b2b80cfb0fe60f0dcef3e38ae44241ab767313cb83fa7a7e22f093c842bba"
+    },
+    {
+      "seat": "sol-2",
+      "path": "reviews/context-cleanup-sol-2.json",
+      "sha256": "69543d26e8e77d92552e3a1d5ddab86141e219aba80059e9b0103bfe71855df0"
+    },
+    {
+      "seat": "terra-1",
+      "path": "reviews/context-cleanup-terra-1.json",
+      "sha256": "d76cf062f4810923b71b998e4a9d2f0ea74d03863a6f4516740c9e791c59553c"
+    },
+    {
+      "seat": "terra-2",
+      "path": "reviews/context-cleanup-terra-2.json",
+      "sha256": "e9f88157c9de52eaea8ba0f6414c8dfc38395f43e076067be8a0ed2ca2f2a154"
+    }
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+    "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+    "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+    "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+  ],
+  "excluded": [
+    "Production activation and re-proving the inherited309 theorem inventory",
+    "Actual PostgreSQL authentication/metadata visibility/backend termination, SQL parsing or query cancellation",
+    "Actual Unix peer credentials/PID-start identity, fsync durability, transport closure and cgroup/process behavior",
+    "Runtime clock/deadline enforcement, memory/resource capacity, latency and commercialization",
+    "Universal Java/Python/SQL implementation correspondence",
+    "Observer lifecycle, crash/restart reservation and same-role permission enforcement; observer<=1 is a capacity premise",
+    "Ordinary PostgreSQL backend bound from live-handler admission: disconnected backend tails can exhaust slots; no observer/context slot availability guarantee"
+  ],
+  "inherited_baseline": {
+    "status": "UNCHANGED_ANCHORS_CHECKED_NOT_REPROVED",
+    "propositions": 309,
+    "report_path": "gates/document/validation-context-candidate/formal-runs/final-309-v1/report.json",
+    "report_input_root_hash": "194f3ef739b928bb3dbed5c9628f8745d0fe2dfe35b12feecce6b91884ab874e",
+    "anchor_count": 23
+  },
+  "correspondence": {
+    "status": "OUT_OF_SCOPE",
+    "reason": "No production implementation is proved or activated."
+  },
+  "claims": {
+    "total": 28,
+    "passed": 28,
+    "blocked": 0,
+    "unresolved": 0
+  },
+  "determinism": "PASS",
+  "witnesses": {
+    "required": 2,
+    "valid": 2
+  },
+  "provenance": {
+    "public_claims": 28,
+    "fully_bound": 28,
+    "orphan_claims": 0
+  },
+  "active_formal_count": "UNCHANGED_309_NOT_REPROVED_BY_THIS_RUN"
+}

@@ -1,0 +1,85 @@
+{
+  "id": "ALLOW-DOCUMENT-UX-0.1",
+  "revision": 1,
+  "status": "DRAFT_NOT_AUTHORIZED_FOR_IMPLEMENTATION_OR_GATE_CLOSURE",
+  "extends": [
+    "spec/document-stage-draft.json",
+    "spec/document-wire-draft.json"
+  ],
+  "state": {
+    "accepted": "An immutable server receipt/read supplies documentId, revision, artifact, mode, sourceHash, policyVersion and provenance. Only successful COMMITTED receipt or authorized GET updates accepted snapshot; parser diagnostics never do. Keep historical accepted snapshots distinct from current head.",
+    "draft": "Separate immutable draftId, monotone draftEpoch, baseRevision, mode, candidate, selectedNodeId/role, diagnostics, dirty indicator and pending exact request bytes/key. Browser-only holes never enter wire accepted module. Preserve draft after rejection, stale response or availability. Invalid text never replaces accepted source.",
+    "pending": "Before sending a mutation retain exact serialized UTF-8 body, method,route,key and originating draft epoch. In-session uncertain retry resends byte-identical body/key. On browser restart fetch authorized head; unresolved pending request is recovered only if exact bytes were retained, otherwise show receipt recovery status without fabricating resubmission. Local storage of private model bodies is opt-in; server durable receipts remain authority.",
+    "freshness": "Every edit, selection, bounds change, document switch and undo/redo increments epoch. Diagnostic application requires document/draftId/epoch/source hash equality; selected source navigation rechecks identity at activation. A late commit may update known history/head but never replace newer draft or revalidate its evidence. When response base is older than known head, fetch head; never lower accepted revision."
+  },
+  "palette": {
+    "declarations": [
+      "signature",
+      "field",
+      "predicate",
+      "parameter",
+      "fact",
+      "assertion",
+      "run",
+      "check"
+    ],
+    "expressions": [
+      "signature_ref",
+      "field_ref",
+      "variable_ref",
+      "predicate_call",
+      "not",
+      "some_test",
+      "no_test",
+      "one_test",
+      "lone_test",
+      "transpose",
+      "and",
+      "or",
+      "implies",
+      "iff",
+      "equal",
+      "subset",
+      "union",
+      "intersection",
+      "difference",
+      "join",
+      "product",
+      "all_quant",
+      "some_quant"
+    ],
+    "editors": "Named declaration editors use exact server/draft IDs, names, multiplicities, field owner/range columns, ordered set-valued parameters, body roots and explicit command options. Signature picker lists known nominal types; variable picker lists only lexical ancestors and current predicate parameters. Parameter arity and all dependent uses are recomputed after edits. Every palette item has pointer and keyboard insertion with a visible label.",
+    "slots": "Each destination displays formula or exact ordered nominal schema where known. Unknown constraints display a specific relation constraint, never a guessed type: union/intersection/difference/equality/subset require equality to resolved sibling; product concatenates schemas; join reports left-last=right-first and result nonempty/width<=8. A hole is an explicit unresolved draft constraint. Preview may allow unresolved constraints but must reject known contradictions, out-of-scope variables, moving into descendants and stale source payloads. Completion revalidates whole module.",
+    "errors": "Show failing node/role and reason including expected/actual nominal schema or missing binder/declaration. Declaration changes may invalidate multiple dependents; retain draft and list bounded diagnostics. No forced cast, silent deletion, implicit variable capture or parser-success accepted badge."
+  },
+  "operations": {
+    "create_connect": "Select a declaration body/child slot, choose or drag a compatible palette item and fill explicit fields. Browser allocates draft UUIDs. New holes keep draft incomplete. Accepted save disabled while any hole or known contradiction remains; server independently validates all complete candidates.",
+    "move": "Drag or Cut then Paste an existing owned subtree using documentId, baseRevision,draftId,epoch,nodeId identity. Preserve node/binder IDs, reject stale payloads/descendant cycles and variable escape/capture, then revalidate destination and every dependent. Movement modifies draft only until server commit.",
+    "copy": "Copy then Paste allocates fresh draft IDs for every owned expression/binder, remaps internal bound references capture-avoidably and preserves external declaration references. External bound variable references must remain in scope. Attach explicit presentationCopies for each old expression to new expression so server transfers comments; compatible-kind mapping authorizes comments only.",
+    "delete": "Replace expression with browser-only hole or delete selected declaration explicitly. Retain dependency failures visibly; server prevents invalid accepted modules. Comments deleted by block changes become server-visible trailing orphans.",
+    "history": "Undo/Redo selects explicit retained target revision; submit history-copy with current head expectedRevision, new idempotency key and direction. Server revalidates as fresh artifact/revision. Show preview of target before explicit action when unsaved draft would be replaced; retain newer unsaved draft on late success. Navigation never mutates previous history.",
+    "rename": "Change display name through declaration editor; declaration identities/types remain explicit. Reprint and reparse full source server-side; names/UUIDs never enter canonical embeddings.",
+    "text": "Edit exact source independently. Validate and save supported source to BLOCK_SUPPORTED with new mapped IDs, unsupported parser-accepted source to TEXT_ONLY. Show text-only status clearly; no fabricated blocks. Switching to blocks requires actual supported elaboration or explicit complete block candidate."
+  },
+  "accessibility": {
+    "controls": "Use native labeled buttons, inputs, selects and landmarks; keyboard insertion and list navigation never depend on dragging. Focus selected node/slot after successful draft operation, nearest surviving parent or declaration after delete, and failed control after rejection. Report operation/constraint/commit outcomes in a polite live region; errors are programmatically associated.",
+    "shortcuts": "Offer visible Copy, Cut, Paste, Delete, Undo and Redo buttons plus Ctrl/Cmd+C/X/V, Delete, Ctrl/Cmd+Z and Ctrl/Cmd+Shift+Z while focus is in the block editor. Do not intercept typing, native text selection or input undo in source/name fields. Escape cancels pending move/palette interaction. Standard Tab/Shift+Tab access every action.",
+    "manual_scenarios": [
+      "Keyboard-only create signatures/field/predicate/parameters and each operator family; fill/drop typed slots with visible constraints.",
+      "Pointer and keyboard move/copy a quantified subtree: fresh binders for copy, preserved IDs for move, denied escaping variable.",
+      "Save, concurrent stale edit, lost acknowledgement/retry and restart: accepted revision authority distinct from preserved draft.",
+      "Repeated references, non-BMP and CRLF source-map navigation; delayed validation after selection/edit cannot move current focus or badge evidence.",
+      "Copy/move/delete comments and visible orphan notices; undo/redo as new revision preserves historical source.",
+      "TEXT_ONLY to supported source and back; invalid drafts leave accepted artifact visible."
+    ],
+    "named_assistive_technology": "Firefox ESR with Orca on Linux, plus Chromium keyboard-only; record actual browser/AT versions and observed outcomes. These are required manual scenarios, not evidence from component tests.",
+    "automation": "Automated accessibility scans and component behavior tests supplement named manual runs. Browser extension availability does not establish WCAG compliance."
+  },
+  "performance": {
+    "fixture": "Deterministic balanced forest with500 expression nodes, exact nominal declarations, depth<=32 and32768-byte source bound;1000 edits with warmup defined before measurement.",
+    "targets": "Inherited p95 preview<50ms, authoritative diagnostics<300ms. Record p50/p95/p99, reference CPU/RAM/OS/JDK/browser versions, sample count, cold/warm distinction and worker startup included/excluded.",
+    "decision": "Failure remains explicit gate failure; optimize or justify scope/target revision with evidence. A512-node cap or unit test is no substitute for latency measurement."
+  },
+  "discipline": "All authored Java/JS/TS production/tests/callbacks have meaningful Javadoc/JSDoc and<=30physical lines per callable; private encapsulated Java state, immutable/defensive DTO collections. Run existing AST style guards without dense-line/generated-code evasion.",
+  "release": "OriginalG2/G3 claims close only with their own evidence. Browser/manual AT, commercial rights and market validation remain separately open."
+}

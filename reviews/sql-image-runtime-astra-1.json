@@ -1,0 +1,48 @@
+{
+  "reviewer": "astra-1",
+  "decision": "REQUEST_CHANGES",
+  "status": "INTERIM_OBSERVED_BYTES_AUTHOR_NOT_YET_FROZEN",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_guard.py": "b467d83f3bf3f43a7a1d7d368e87a1973e020e43d62803b0b1269afd76ddd81c",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+    "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_proxy.py": "b74f9e61b41ff31f1171282d158c1fd64806fb2a25aca8b872e24f3fd4cfb6bc",
+    "gates/sql/immutable-image-candidate/contract.json": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+    "gates/sql/immutable-image-candidate/contract.md": "ad9f4a9fcb4591d17a627c505ccb83e566127dc6f40e848db8a24e0a17d2613d",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "c49a8f53884a28b5ac5d90926ce42feda7895418be658976e6b46cacb3e10b42",
+    "gates/sql/immutable-image-candidate/formal-runs/final-287-v2/report.json": "d9c471c0ee68550ad110649bdb8f86c3e581ecf30a1acb2cf25aabe696c31c4a"
+  },
+  "scope": "Read-only staged source review plus isolated in-process fake-worker cancellation reproduction. No active proxy, DB, HTTP, browser, production modification or full runtime-suite execution.",
+  "findings": [
+    {
+      "id": "SQLIRA1-01",
+      "severity": "medium",
+      "location": "gates/sql/immutable-image-candidate/implementation/allow_retrieval/sql_proxy.py:554",
+      "problem": "A second cancellation during the cleanup await asyncio.shield(work) escapes the first CancelledError handler because CancelledError is not caught by except Exception. The outer finally then releases parser_slots while the to_thread worker can still own a running child/reservation or blocked cleanup. This violates the new explicit guarantee to retain that slot until worker cleanup completes, and repeated cancellation permits more outstanding worker work than this outer bound advertises.",
+      "reproduction": "Instantiate ProxyServer and ParserGate without constructors, substitute validate with a threading.Event-blocked callable, launch admit, cancel once, then cancel again before releasing worker. Observed after_first_cancel: semaphore value1, worker done False. Observed after_second_cancel: semaphore value2, worker done False, admit task done True. No parser/database process required.",
+      "required_fix": "Make worker-drain cleanup resilient to repeated cancellation: retain the slot and work reference, remember cancellation, continue awaiting the shielded work until completion despite further CancelledError, then propagate cancellation. Preserve non-cancellation worker failure handling without unhandled detached task exceptions. Add deterministic repeated-cancel test with worker blocked through both cancellation requests; release slot only after worker signals cleanup complete."
+    }
+  ],
+  "reviewed_boundaries": [
+    "Current transient duplicate cleanup marks lifecycle failed/sticky on close failures; Terra2 finding appears addressed in observed source.",
+    "SCM_RIGHTS receipt requests MSG_CMSG_CLOEXEC, bounds ancillary bytes, collects complete received fd integers before validation, denies truncation/extra descriptors and closes collected descriptors on failure.",
+    "Initializer enforces regular non-follow/nonblocking source, exact total bytes plus excess probe, four seals then final destination hash. Parent publishes only after valid transfer and successful helper exit. Kernel-blocked teardown remains documented trust.",
+    "Reservations are acquired only after slots, exclusively owned until completion, and closed in finally. Child launch registration is under lifetime lock; close waits outside lock and completion rechecks live snapshot before admission/cache insertion.",
+    "Executable object is inherited through explicit pass_fds and /proc/self/fd execution with sanitized environment; no disk-executable fallback observed. Classifier still uses pinned immutable production mapping and existing SQL/report policy checks.",
+    "Seven new and280 retained formal propositions remain model evidence; they do not establish runtime cancellation or OS behavior."
+  ],
+  "validation": {
+    "isolated_reproducer": "PASS: double-cancellation reproduces premature outer-slot release",
+    "observed_output": [
+      "after_first_cancel 1 False",
+      "after_second_cancel 2 False True"
+    ],
+    "full_suite": "NOT_RUN_BY_THIS_REVIEWER",
+    "freeze": "Author still finalizing; re-review any changed source before approval."
+  },
+  "notifications": [
+    "Actionable finding sent to root and sql_image_candidate author."
+  ]
+}

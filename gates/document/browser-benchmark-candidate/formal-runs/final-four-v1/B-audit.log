@@ -1,0 +1,10 @@
+trace_event_count : 100 * oneEdit.length + 1000 * oneEdit.length = 4400
+'trace_event_count' does not depend on any axioms
+edit_order : oneEdit = [Event.dispatch, Event.commit, Event.firstFrame, Event.secondFrame]
+'edit_order' does not depend on any axioms
+incomplete_not_pass (run : Run) (valid : Bool) (p95Micros : Nat) (h : ¬complete run) :
+  classify run valid p95Micros = Classification.incomplete
+'incomplete_not_pass' depends on axioms: [propext]
+pass_iff (run : Run) (valid : Bool) (p95Micros : Nat) :
+  classify run valid p95Micros = Classification.pass ↔ complete run ∧ valid = true ∧ p95Micros < 50000
+'pass_iff' depends on axioms: [propext]

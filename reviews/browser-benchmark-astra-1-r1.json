@@ -1,0 +1,46 @@
+{
+  "reviewer": "astra-1",
+  "decision": "REQUEST_CHANGES",
+  "input_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "63d9c6c32153d8b2324eb977126f039a5acf05a311ced441801838bba93f9c5a",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "06eaf65eb9d785f5481f5c4e9ea8c0ad74555de84ecf611147cb02f8bc4b069c"
+  },
+  "scope": "Adversarial test-only gameplan review. No browser run, production modification, runtime proof, or acceptance closure.",
+  "findings": [
+    {
+      "id": "A1-01",
+      "severity": "high",
+      "location": "protocol.json:harness.dom_caveat; acceptance.classification",
+      "problem": "The fallback permits PASS without showing that the changed reference reached the actual DOM. This is unnecessary for the pinned fixture: checker.reference assigns signature_ref the target signature ID as its nominal type; model.typeLabel resolves that ID to A or B; ExpressionEditor Branch renders that type in the real block button. Generation plus 500 buttons could pass an implementation with stale block labels.",
+      "required_fix": "Require each edited block button to display the independently expected A/B nominal type, with its exact fixture node ID, after the matching commit and frames. Require the opposite pre-edit target and expected post-edit target in committed state. Missing or mismatched target-specific DOM evidence makes the series INCOMPLETE; do not substitute a caveat and PASS. No fake labels or production edits are needed.",
+      "evidence": [
+        "frontend/src/document/checker.ts:96",
+        "frontend/src/document/model.ts:46",
+        "frontend/src/document/ExpressionEditor.tsx:79"
+      ]
+    },
+    {
+      "id": "A1-02",
+      "severity": "high",
+      "location": "protocol.json:harness.binding and event_interval",
+      "problem": "The protocol does not define freshness and identity of the matching React commit sufficiently to prevent stale notifications, controller-ref observations, or another draft with the same generation from ending the interval. publish synchronously updates controller.current before React commits.",
+      "required_fix": "Specify a commit-phase marker from the rendered Workbench view (for example a layout effect), arm it before dispatch, and match a fresh commit to workbench mount identity, documentId, baseRevision, draftId and exactly previous contentGeneration + 1. Schedule the first rAF only after that commit and the second only inside the first; end with a fresh monotonic performance.now read in callback two, rather than reusing the rAF frame timestamp. Reject unmount, missing commit, identity/content replacement and timeout as INCOMPLETE. Preserve ordinary advisory behavior and evidence.",
+      "evidence": [
+        "frontend/src/document/controller.ts:12",
+        "frontend/src/document/controller.ts:79",
+        "frontend/src/DocumentWorkbench.tsx:22"
+      ]
+    }
+  ],
+  "refinements": [
+    "Pin and report initial and post-edit unique owned-node ID sets, not just button counts. Check all 1100 edits alter exactly one signature_ref target with no ID/count changes, and check depth and source bound before mounting. Exact fixture/file and compact edit hashes currently match; inspected file has 500 nodes, 1100 edits and 2565 UTF-8 source bytes.",
+    "Explicitly use nearest-rank measured indexes 499, 949 and 989 after numeric sorting of 1000 finite nonnegative millisecond samples. Apply strict p95 < 50 to unrounded values; displayed rounding must not affect classification. Preserve failed runs and invalidation evidence.",
+    "Record foreground/visibility transitions and callback timeouts. Do not erase slow samples or rerun only unfavorable events; uninterrupted valid slow runs remain FAIL. Record worker startup included/excluded as requested by spec even though this browser-only interval excludes authoritative diagnostic startup.",
+    "Lean classify is count-and-external-threshold classification only: it neither derives p95 from samples nor models validity. Its constructed ordering trace has one frameOpportunity abstract event, not evidence of two runtime callbacks. Keep that abstraction explicit; any formal-build success cannot certify runtime correspondence or visual correctness."
+  ],
+  "accepted_boundaries": [
+    "Actual AllowApp and accepted-document setup are feasible; DocumentBody mounts only when accepted is present. Test-only source transform must be exact and fail closed.",
+    "100 warmups then 1000 sequential actual changeModule edits, real React commit plus two rAF callbacks, strict warm p95 < 50 ms is a defensible declared preview interval once the blocking validity rules are tightened.",
+    "No physical paint, server diagnostics, solver, manual assistive-technology, commercial-rights or market acceptance claims follow from this benchmark."
+  ]
+}

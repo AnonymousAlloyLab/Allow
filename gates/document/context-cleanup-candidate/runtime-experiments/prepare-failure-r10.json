@@ -1,0 +1,19 @@
+{
+  "run_id": "r10-regressions",
+  "status": "INPUT_MUTATION",
+  "time": "2026-11-04T05:51:08.832505+00:00",
+  "copy_created": false,
+  "services_started": false,
+  "mismatches": [
+    {
+      "path": "scripts/check-code-style.mjs",
+      "frozen_sha256": "50f4ffcec97bfa78272a63d282d517a3c2c5915d80938655a0b6e21e95a27e3f",
+      "current_sha256": "ab2b06f823d94b6b1934f412bfcf33aad9d65e9d04c08e168d95cabf03ca327e"
+    },
+    {
+      "path": "scripts/test-code-style.mjs",
+      "frozen_sha256": "e6e3f4000237572085e4519fcc594633aa80576eed585464897ded9f24da79a5",
+      "current_sha256": "4ba6394581a2c5762ef5e2ae5d98656beab82222c248900bd026bb2dece57c04"
+    }
+  ]
+}

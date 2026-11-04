@@ -1,0 +1,28 @@
+{
+  "reviewer": "terra-2",
+  "seat": "sql-r5-terra-2",
+  "review_type": "INCREMENTAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 5,
+  "spec_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "blocking_design_findings": [],
+  "basis": [
+    "Read revision 5 native SQL and lexical-barrier policy, the complete 28-proposition SQL inventory and the added cycle model. An effect marks the barrier before forwarding; an acknowledged validated cycle removes only effects at or before it, retaining newer effects. The policy conservatively closes on a rejected Q/P as required by its existing fail-closed rule.",
+    "The native SQL design remains subject to the prior revision 4 review: exact full-request admission, one top-level statement, and connection-local accepted target provenance are required. Cached classifications do not create connection-local state.",
+    "No new unresolved blocking design finding; conservative rejection can resolve protocol-name collisions described below."
+  ],
+  "implementation_acceptance_notes": [
+    "PostgreSQL 16 prepared_queries uses NAMEDATALEN=64 and HASH_STRINGS; its string hash and comparison operate on at most the first 63 bytes. Distinct overlong protocol statement names can alias SQL and other protocol names despite an exact-string proxy table. Conservatively reject overlong protocol statement names for Parse, Bind and Close or model backend truncation and collisions exactly; test both cross-protocol directions and 63-byte-prefix collisions.",
+    "For native SQL classification require the first real token PREPARE or EXECUTE and exactly one ordered statement family, together with production-wide opaque/mode/function restrictions; family alone can misclassify CREATE TABLE AS EXECUTE. Extract body spans with checked UTF-8 byte offsets and preserve the exact original bytes.",
+    "Mark every forwarded Q/E before forwarding; associate ReadyForQuery with ordered Q/Sync boundaries and do not release a newer effect on an older Ready. Inspect ParameterStatus before release; test indirect pg_settings changes, multiple E, Sync ordering, failure/connection closure, and successful completion in a non-rejected session.",
+    "Run two clean proof builds bound to this exact final revision and the model hash, followed by independent real protocol, full backup/restore and runtime acceptance. Review did not run Lean builds or change runtime code."
+  ],
+  "formal_limits": [
+    "Cycle proofs assume correct cycle numbering, Q/Sync to ReadyForQuery association and truthful lexical-status validation; they do not prove the actual frontend/backend implementation or PostgreSQL behavior.",
+    "Native bodyPart proves a nonempty substring, not its semantic body classification; SQL parser name and token span extraction remain trusted runtime adapter obligations."
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 5 bounded design only; proof build, implementation and runtime/recovery acceptance remain separate."
+}

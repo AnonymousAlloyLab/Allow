@@ -1,0 +1,582 @@
+{
+  "checks": {
+    "PUBLIC-NESTING": {
+      "evidence": {
+        "builds": [
+          {
+            "build": 1,
+            "class_sha256": {
+              "dev/allow/backend/DocumentJson.class": "d13cc033b2637563c008b2ebef4acdc61885cb4801ef6d20c2d340f6233bd921",
+              "dev/allow/backend/PublicNestingProbe.class": "c701e5e77494ae68f819ea5ae045ddd3019c0a2079cd3622d84dfffff9c34cbf",
+              "dev/allow/worker/JsonWire.class": "a475315eb784c68c23024926e05152c055b8ae79da0541e805c03b6f4514e615"
+            },
+            "compile_exit": 0,
+            "execution_exit": 0,
+            "stdout": "depth=95 decoded=true shapeRejected=true\ndepth=96 decoded=true shapeRejected=true\ndepth=97 decoded=true shapeRejected=true\ndepth=299 decoded=true shapeRejected=true\ndepth=300 decoded=true shapeRejected=true\ndepth=301 decoded=false shapeRejected=false\n"
+          },
+          {
+            "build": 2,
+            "class_sha256": {
+              "dev/allow/backend/DocumentJson.class": "d13cc033b2637563c008b2ebef4acdc61885cb4801ef6d20c2d340f6233bd921",
+              "dev/allow/backend/PublicNestingProbe.class": "c701e5e77494ae68f819ea5ae045ddd3019c0a2079cd3622d84dfffff9c34cbf",
+              "dev/allow/worker/JsonWire.class": "a475315eb784c68c23024926e05152c055b8ae79da0541e805c03b6f4514e615"
+            },
+            "compile_exit": 0,
+            "execution_exit": 0,
+            "stdout": "depth=95 decoded=true shapeRejected=true\ndepth=96 decoded=true shapeRejected=true\ndepth=97 decoded=true shapeRejected=true\ndepth=299 decoded=true shapeRejected=true\ndepth=300 decoded=true shapeRejected=true\ndepth=301 decoded=false shapeRejected=false\n"
+          }
+        ],
+        "deterministic": true,
+        "style_exit": 0,
+        "temporary_outputs_removed": true
+      },
+      "status": "PASS"
+    },
+    "RP01": {
+      "evidence": {
+        "cases": [
+          {
+            "bytes_including_newline": 3145727,
+            "guard": "closed_fields",
+            "input_sha256": "0e82606cf7ef63823ef896a3150a7ba54320280536a2325de12eb1de0691c24e",
+            "literal_cli": {
+              "output_bytes": 119,
+              "pid": 1004051,
+              "reaped": true,
+              "start_ticks": "5936996",
+              "telemetry": null
+            },
+            "nonce_captured": true,
+            "observed_cli": {
+              "output_bytes": 119,
+              "pid": 1004052,
+              "reaped": true,
+              "start_ticks": "5937004",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          },
+          {
+            "bytes_including_newline": 3145728,
+            "guard": "closed_fields",
+            "input_sha256": "c5b257efb769fbb26625850bd45826d55902585bd664c67f5216f16b84e055b8",
+            "literal_cli": {
+              "output_bytes": 119,
+              "pid": 1004054,
+              "reaped": true,
+              "start_ticks": "5937013",
+              "telemetry": null
+            },
+            "nonce_captured": true,
+            "observed_cli": {
+              "output_bytes": 119,
+              "pid": 1004055,
+              "reaped": true,
+              "start_ticks": "5937021",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          },
+          {
+            "bytes_including_newline": 3145729,
+            "guard": "input_limit_before_nonce",
+            "input_sha256": "9be0c327e38bd63e5a3efd51d5d36087afefc6407ff393fe90e0eefd43690424",
+            "literal_cli": {
+              "output_bytes": 85,
+              "pid": 1004056,
+              "reaped": true,
+              "start_ticks": "5937030",
+              "telemetry": null
+            },
+            "nonce_captured": false,
+            "observed_cli": {
+              "output_bytes": 85,
+              "pid": 1004057,
+              "reaped": true,
+              "start_ticks": "5937038",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          }
+        ],
+        "fixture": "structurally adversarial extra-field frame; not valid context args",
+        "java_gateway_guard": "encoded bytes >=3145728 denied; FrameProcess adds one newline"
+      },
+      "status": "PASS"
+    },
+    "RP02": {
+      "evidence": {
+        "cases": [
+          {
+            "bytes_including_newline": 373,
+            "decoded": true,
+            "decoder_reason": null,
+            "independent_depth": 95,
+            "input_sha256": "f2dab4f9dcc7a80307370e563de7fb28d91e20b1a42d71f98eca611cba648bcf",
+            "literal_cli": {
+              "output_bytes": 119,
+              "pid": 1004058,
+              "reaped": true,
+              "start_ticks": "5937046",
+              "telemetry": null
+            },
+            "nonce_captured": true,
+            "observed_cli": {
+              "output_bytes": 119,
+              "pid": 1004059,
+              "reaped": true,
+              "start_ticks": "5937053",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          },
+          {
+            "bytes_including_newline": 375,
+            "decoded": true,
+            "decoder_reason": null,
+            "independent_depth": 96,
+            "input_sha256": "3cb64611a764b865d56013e6a16bc3f51e41aeb2eb6aba31e29a46948a263081",
+            "literal_cli": {
+              "output_bytes": 119,
+              "pid": 1004060,
+              "reaped": true,
+              "start_ticks": "5937061",
+              "telemetry": null
+            },
+            "nonce_captured": true,
+            "observed_cli": {
+              "output_bytes": 119,
+              "pid": 1004061,
+              "reaped": true,
+              "start_ticks": "5937069",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          },
+          {
+            "bytes_including_newline": 377,
+            "decoded": false,
+            "decoder_reason": "json_depth",
+            "independent_depth": 97,
+            "input_sha256": "eb170df6579d0422b1708fe185cc63c5a44cb5481505863cde4dc1d3f9ab0787",
+            "literal_cli": {
+              "output_bytes": 85,
+              "pid": 1004062,
+              "reaped": true,
+              "start_ticks": "5937078",
+              "telemetry": null
+            },
+            "nonce_captured": false,
+            "observed_cli": {
+              "output_bytes": 85,
+              "pid": 1004063,
+              "reaped": true,
+              "start_ticks": "5937085",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          }
+        ],
+        "dictionary_keys_counted": true,
+        "malformed": {
+          "bom": {
+            "bytes_including_newline": 6,
+            "input_sha256": "ec2f00596f643c3181e6f3c6bfb64bb07cf8994f019df013681c886bee0d8b6a",
+            "literal_cli": {
+              "output_bytes": 85,
+              "pid": 1004066,
+              "reaped": true,
+              "start_ticks": "5937110",
+              "telemetry": null
+            },
+            "nonce_captured": false,
+            "observed_cli": {
+              "output_bytes": 85,
+              "pid": 1004067,
+              "reaped": true,
+              "start_ticks": "5937117",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          },
+          "duplicates": {
+            "bytes_including_newline": 69,
+            "input_sha256": "151bb7ce4f65500b32d05530e01e6496f9cf138cd3c67e4c8d6420c995688943",
+            "literal_cli": {
+              "output_bytes": 85,
+              "pid": 1004068,
+              "reaped": true,
+              "start_ticks": "5937126",
+              "telemetry": null
+            },
+            "nonce_captured": false,
+            "observed_cli": {
+              "output_bytes": 85,
+              "pid": 1004071,
+              "reaped": true,
+              "start_ticks": "5937133",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          },
+          "utf8": {
+            "bytes_including_newline": 2,
+            "input_sha256": "e4688624e5f1ad0629505e6768e3bb36244f2f3e33e751215afa820334a76ed3",
+            "literal_cli": {
+              "output_bytes": 85,
+              "pid": 1004064,
+              "reaped": true,
+              "start_ticks": "5937094",
+              "telemetry": null
+            },
+            "nonce_captured": false,
+            "observed_cli": {
+              "output_bytes": 85,
+              "pid": 1004065,
+              "reaped": true,
+              "start_ticks": "5937101",
+              "telemetry": {
+                "sql_connect_attempts": 0,
+                "subprocess_launches": 0
+              }
+            },
+            "status": "ERROR"
+          }
+        },
+        "public_codec": "separate Java probe; Jackson container cap300 is not Python scalar-edge cap96",
+        "root_depth": 0
+      },
+      "status": "PASS"
+    },
+    "RP03": {
+      "evidence": {
+        "cases": [
+          {
+            "context_pid": 1004257,
+            "context_reaped": true,
+            "context_start_ticks": "5937303",
+            "durable_unchanged": true,
+            "isolated_counters": {},
+            "mode": "service-stop",
+            "mutation_uncertainty": false,
+            "owned_parser_shutdown_complete": true,
+            "parser_child": null,
+            "partial_context": false,
+            "proxy_pid": 1004252,
+            "proxy_reaped": true,
+            "proxy_start_ticks": "5937283",
+            "status": "UNAVAILABLE",
+            "telemetry": {
+              "alternate_routes": 0,
+              "connection_attempts": [
+                {
+                  "client": "allow-recovery",
+                  "endpoint": "owned isolated parser -> canonical parser"
+                }
+              ]
+            },
+            "worker_nonlaunch": "CLI contains no worker factory; inherited Java context-failure ordering is composition, not new HTTP trace"
+          },
+          {
+            "context_pid": 1004261,
+            "context_reaped": true,
+            "context_start_ticks": "5937329",
+            "durable_unchanged": true,
+            "isolated_counters": {
+              "Q": 1,
+              "accepted": 1,
+              "auth": 2,
+              "connections": 1,
+              "parser_category_parserFailure": 1,
+              "parser_reason_parser_rejected": 1,
+              "protocol_error": 1,
+              "rejected": 1
+            },
+            "mode": "child-kill",
+            "mutation_uncertainty": false,
+            "owned_parser_shutdown_complete": true,
+            "parser_child": {
+              "exact_target_sha256": "536900a16f8e0e3b41ae2b5e50b32be256a56180d59389694215738d971b0d56",
+              "pid": 1004268,
+              "sealed_executable": true,
+              "start_ticks": "5937340",
+              "uncached": true
+            },
+            "partial_context": false,
+            "proxy_pid": 1004259,
+            "proxy_reaped": true,
+            "proxy_start_ticks": "5937312",
+            "status": "UNAVAILABLE",
+            "telemetry": {
+              "alternate_routes": 0,
+              "connection_attempts": [
+                {
+                  "client": "allow-recovery",
+                  "endpoint": "owned isolated parser -> canonical parser"
+                }
+              ]
+            },
+            "worker_nonlaunch": "CLI contains no worker factory; inherited Java context-failure ordering is composition, not new HTTP trace"
+          }
+        ],
+        "durable_before": {
+          "column_acl": [
+            {
+              "attacl": "{allow_app=w/allow_owner}",
+              "attname": "head_revision",
+              "relname": "document"
+            },
+            {
+              "attacl": "{allow_app=w/allow_owner}",
+              "attname": "title",
+              "relname": "document"
+            }
+          ],
+          "preexisting_cluster_roles": [
+            {
+              "rolbypassrls": false,
+              "rolcanlogin": true,
+              "rolname": "allow_app",
+              "rolsuper": false
+            },
+            {
+              "rolbypassrls": false,
+              "rolcanlogin": false,
+              "rolname": "allow_owner",
+              "rolsuper": false
+            }
+          ],
+          "schema_owner_acl": [
+            {
+              "nspacl": "{allow_owner=UC/allow_owner,allow_app=U/allow_owner}",
+              "nspname": "documents",
+              "rolname": "allow_owner"
+            },
+            {
+              "nspacl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner}",
+              "nspname": "public",
+              "rolname": "pg_database_owner"
+            }
+          ],
+          "table_owner_rls_acl": [
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "admission",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "admission_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "artifact",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "artifact_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "document",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "document_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "logical_launch",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "logical_launch_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "receipt",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "receipt_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=ar/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "revision",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "revision_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": "{allow_owner=arwdDxt/allow_owner,allow_app=arw/allow_owner}",
+              "relforcerowsecurity": true,
+              "relkind": "r",
+              "relname": "workspace",
+              "relrowsecurity": true,
+              "rolname": "allow_owner"
+            },
+            {
+              "nspname": "documents",
+              "relacl": null,
+              "relforcerowsecurity": false,
+              "relkind": "i",
+              "relname": "workspace_pkey",
+              "relrowsecurity": false,
+              "rolname": "allow_owner"
+            }
+          ],
+          "tables": {
+            "admission": {
+              "count": 1,
+              "sha256": "101dc1b8b2b1b1c565e361c5d50b855851eb7d47c409b14c0ee357db42bca9ea"
+            },
+            "artifact": {
+              "count": 1,
+              "sha256": "bc45cccd624f6fe7091d8d849fa7d06999dee829e22405bbe7fec8ffe410be06"
+            },
+            "document": {
+              "count": 1,
+              "sha256": "df6c52eb2a0d53228bfbbb1813c1ff425a9573d81858591e6d78f2da7ad34fac"
+            },
+            "logical_launch": {
+              "count": 1,
+              "sha256": "331cd02481daaea6134dcc8cf51714373a3cb4a9f7dc21153d53286b7f977c56"
+            },
+            "receipt": {
+              "count": 1,
+              "sha256": "cad7403fdb062ade6aab94716ff76f1382424fd007120eba28841a7c5316739b"
+            },
+            "revision": {
+              "count": 1,
+              "sha256": "b6e7ca54bec2dd6fdd7fa34e911754e7a81690ad6a04459f16807e0b9a6bb2b1"
+            },
+            "workspace": {
+              "count": 1,
+              "sha256": "e06dc2f0eea194e6b52e8bcb1c5af26210fb024106b27fcdbe85fc0421fdd4a6"
+            }
+          }
+        },
+        "owned_fixture_database_dropped": true,
+        "positive_control": "actual Store context succeeds before faults"
+      },
+      "status": "PASS"
+    }
+  },
+  "finished_at": "2026-11-04T04:34:03.674874+00:00",
+  "input_root_sha256": "fe93c0d38307431a82e39e2884da59a2aba4e6d1e4d883b7a5c6d963913a227b",
+  "inputs_unchanged": true,
+  "main_test_counts": {
+    "java": 189,
+    "python": 186
+  },
+  "shared_proxy_identity": {
+    "loaded_inputs": {
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "retrieval/allow_retrieval/sql_guard.py": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+      "retrieval/allow_retrieval/sql_image.py": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "retrieval/allow_retrieval/sql_image_config.py": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+      "retrieval/allow_retrieval/sql_image_init.py": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "retrieval/allow_retrieval/sql_proxy.py": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0"
+    },
+    "parser": {
+      "binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+      "configuration_sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "generation": 1,
+      "identity_mode": "sealed-image",
+      "mapping_sha256": "679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb",
+      "policy": "sql-routing-v7-sealed-image",
+      "profile": "postgresql-16.15-grammar-v0.1",
+      "snapshot_sha256": "a67fa104458af1032b94da580ecae7c7bd0c4163bdaf584fefa1c20b6051e858"
+    },
+    "pid": 826907,
+    "started": 1793740356.105792
+  },
+  "shared_proxy_identity_unchanged": true,
+  "status": "PASS",
+  "verifier_sha256": "1f6510ea71f2c475e75c044e2ad0e082629b7c26de59cf6a2122c45eaeb789a7"
+}

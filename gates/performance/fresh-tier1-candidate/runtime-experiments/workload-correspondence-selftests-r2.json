@@ -1,0 +1,28 @@
+{
+  "id": "ALLOW-WORKLOAD-CORRESPONDENCE-SELFTESTS-R2",
+  "created_utc": "2026-11-04T06:55:21.665557+00:00",
+  "status": "PASS",
+  "test_methods": 13,
+  "exit_code": 0,
+  "scope": "Offline finite adversarial tests only; no service launch, no timing acceptance.",
+  "supersedes": "workload-correspondence-selftests-r1.json; adds fresh UUID disjointness test, old report retained.",
+  "files": [
+    {
+      "path": "workload_correspondence.py",
+      "sha256": "122c3c9dc3760b92c5bdffed1ccf1780480a5b675ee689362d1dc486d906e252"
+    },
+    {
+      "path": "test_workload_correspondence.py",
+      "sha256": "6f27b49e6c9c63aad7846e3c24495176bfe34050dd0bca34ebce6cd6c22abd1d"
+    },
+    {
+      "path": "compare_responses.py",
+      "sha256": "adcb4f837148eeb2d3750ba836eb93d9f031e406c0a695ec311801edef2a30bf"
+    }
+  ],
+  "fixture": {
+    "path": "gates/document/headless-preview-fixture.json",
+    "sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c"
+  },
+  "log_sha256": "daf989597499a9d48a2a1db124018df531ee8307748d2b46e0d90a74c1c265ff"
+}

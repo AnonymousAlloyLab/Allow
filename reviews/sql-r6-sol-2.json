@@ -1,0 +1,49 @@
+{
+  "reviewer": "Sol council seat 2",
+  "seat": "sql-r6-sol-2",
+  "review_type": "INCREMENTAL_ADVERSARIAL_FINAL_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 6,
+  "spec_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "approved_exact_hash": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "types_file_sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac",
+  "blocking_design_findings": [],
+  "review_basis": [
+    "Read revision 6 lexical/native policy, preserved Astra revision 5 counterexample and unchanged generic Lean cycle model. Matched all 28 SQL obligations exactly against the type inventory.",
+    "The registered revision 3 production comparison returned an empty delta; this review made no runtime changes.",
+    "Checked pinned PostgreSQL Parse/Bind/Describe execution paths and portal hash-table source. Existing official protocol references from the revision 5 review remain applicable."
+  ],
+  "approval_basis": [
+    "Marking Q/P/B/D/E/C/S before forwarding repairs the pre-Execute planning gap without assuming immutable functions or analysis/type-input hooks are effect-free.",
+    "Q/Sync append ordered cycle boundaries and advance the generation; a later Q/P is denied while any older effect remains pending. Already admitted B/E and completion controls can still progress to the matching Ready.",
+    "Only validated Ready for an actually queued Q/Sync boundary may release that cycle and older effects. An older acknowledgement retains newer P/B/D/E/C/S effects; unsolicited later Ready is rejected.",
+    "COPY payload/completion belongs to its initiating Q/E effect. It does not create an orphan next-cycle barrier that would prevent valid completion or tempt synthetic acknowledgement.",
+    "Native PREPARE/EXECUTE admission and the previously approved exact-source/shared-namespace restrictions are retained. The generic Lean model remains correctly scoped to pending-ID facts with effect classification and wire correspondence supplied by the adapter."
+  ],
+  "required_implementation_acceptance_conditions": [
+    "Mark every forwarded Q/P/B/D/E/C/S in the current cycle before forwarding. Q and Sync must append that same cycle to the Ready queue before incrementing. Startup Ready is a separate one-time state; reject subsequent Ready with no queued boundary, malformed Ready status, and invented acknowledgements for skipped messages.",
+    "Exercise P then P without Sync, P/B then new P before Execute, D then new Q/P, and C or S followed by new source. Verify denied source never reaches the backend, while P/D/B/E/S and explicit transaction progress remain usable. Consecutive Parse tests must add Sync; portal-lifetime tests may use BEGIN to preserve named portals across idle synchronization.",
+    "For P0/B0/E0/Sync0 followed by a permitted E1 or other effect in cycle 1, delayed Ready0 must leave cycle 1 pending. Test both rejected later Q/P and successful completion followed by later SQL on a separate non-rejected session.",
+    "Preserve fragmented/delayed ParameterStatus validation before release, I/T/E transaction statuses, backend errors and skip-until-Sync, COPY data/end and cancellation. A rejected session remains closed, and committed autocommit effects are not described as rolled back.",
+    "Apply conservative 63-byte UTF-8 bounds to protocol statement AND portal names/references, or exactly model PostgreSQL aliasing. Pinned portalmem.c defines MAX_PORTALNAME_LEN as NAMEDATALEN and creates its portal hash with HASH_STRINGS too; statement-only limits leave portal-prefix collisions. Test 63/64-byte boundaries and equal prefixes across Parse, Bind, Execute and Close/Describe.",
+    "Retain full grammar acceptance, leading-token plus singleton ordered family checks, nested restrictions and native body/argument mode checks. Test SQL versus protocol case handling, both cross-protocol directions, unknown targets, cache noncreation, backend-error optimism and state limits.",
+    "After the final proof/release gate, run the expanded independent wire and real PostgreSQL checks, loaded-source/PID/parser freshness checks, unchanged full ACL-bearing pg_dump/pg_restore, migration repair and retrieval/HTTP checks. Earlier runtime success is historical evidence."
+  ],
+  "formal_limits": [
+    "The unchanged forwardEffect model can represent the broader message set, but does not prove that this set is exhaustive or correctly implemented. Correct cycle numbering, queue association, status validation and event order remain trusted/tested adapter obligations.",
+    "bodyPart still proves nonempty substring membership only. Native classification, body span, name handling, backend object identity/success and implementation correspondence remain outside the Lean claims.",
+    "This seat did not execute Lean or PostgreSQL queries. No runtime or test changes were made before release. Local execution authorization does not clear redistribution/commercial provenance."
+  ],
+  "sources": [
+    "reviews/sql-r5-astra-2.json",
+    "reviews/sql-r5-sol-2.json",
+    "formal/Allow/SqlRouting.lean",
+    ".tools/retrieval/src/postgresql-16.15/src/backend/tcop/postgres.c",
+    ".tools/retrieval/src/postgresql-16.15/src/backend/utils/mmgr/portalmem.c",
+    "https://www.postgresql.org/docs/16/protocol-flow.html"
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 6 bounded implementation design. Final implementation/runtime/recovery acceptance is separate and subject to the explicit conditions above."
+}

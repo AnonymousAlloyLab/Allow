@@ -1,0 +1,837 @@
+{
+  "status": "PASS",
+  "classification": "DEVELOPMENT_BUILD_NOT_RUNTIME_ACCEPTANCE",
+  "command": [
+    "/home/augustus/Allow/.tools/apache-maven-3.9.11/bin/mvn",
+    "-B",
+    "-o",
+    "verify"
+  ],
+  "exit_code": 0,
+  "source_manifest": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/development-full-r7.json",
+    "sha256": "b5cd06478f8cfe18a3e408cf0e5325b757287e510166aaecf351b54b003bfce3",
+    "size": 141038,
+    "mode": 384
+  },
+  "log": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/development-full-r7.log",
+    "sha256": "6fc2acad122821ea691026344b9efeaee5ae1a22088eb740047001027db8eff8",
+    "size": 40265,
+    "mode": 384
+  },
+  "execution": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/implementation/development-full-r7-execution.json",
+    "sha256": "a94f66c1866a0ff297e8b79060959313b2fb6c958376087bbf3b2ebe109d8fed",
+    "size": 329,
+    "mode": 384
+  },
+  "limitations": [
+    "No runtime or performance acceptance",
+    "Historical semantic r3 retains its original r4 gate source root"
+  ],
+  "counts": {
+    "tests": 307,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "name": "dev.allow.backend.BuildIdentityTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.BuildIdentityTest.xml",
+        "sha256": "4c98fd865e0f3911b6eb5999cb81c693903881c3a723bd7d7cd5b6a8990117ff",
+        "size": 17445,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.DocumentBoundaryTest",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentBoundaryTest.xml",
+        "sha256": "efed04f73befe62bed639de289d7e318b67337a03e33591a3638969bb5bebb95",
+        "size": 18252,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.DocumentContextTransportTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentContextTransportTest.xml",
+        "sha256": "1eaf3cfb15cc70fcfd235304f60895de80698df9b1ebf745a0d028a3c4b5f5d7",
+        "size": 17749,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.DocumentMutationCoordinatorTest",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentMutationCoordinatorTest.xml",
+        "sha256": "ffb64d9d6cbb75c71f2a14eba5ab1269c27f6521334c57a16d2a6ccf0e1aef86",
+        "size": 18603,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.DocumentValidationContextTest",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentValidationContextTest.xml",
+        "sha256": "5038eae863f2513f505d54027379d583b9da983aa895512fecbbbbea4c35a888",
+        "size": 19171,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.DocumentWorkerLifecycleTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.DocumentWorkerLifecycleTest.xml",
+        "sha256": "0cc501f5cf6a316654f08406a63a594246606b82271a7abb92e58c22260138db",
+        "size": 17618,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.FreshTier1DeadlineTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.FreshTier1DeadlineTest.xml",
+        "sha256": "a8e54b2a8607a4a1cb7ee697466440373cc40ecb4b97aac59ef52e026fb54c42",
+        "size": 17578,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.FreshTier1SafetyTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.FreshTier1SafetyTest.xml",
+        "sha256": "3ae6e8cc293e1b8f21c70e95c0fa458337d26df3ec0b39a3c0bcc7e78e2634cf",
+        "size": 18113,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.FreshTier1SolverBaselineTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.FreshTier1SolverBaselineTest.xml",
+        "sha256": "6b37e3c41f7975fa3b6dd20f6397abb6febeb39a5959b855bbaede8297c59408",
+        "size": 17765,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.HttpBoundaryTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.HttpBoundaryTest.xml",
+        "sha256": "cda5be1f96efdc2ffe56efee883c0c9a1d3d44a1bafd358edbc5b9110dc416e1",
+        "size": 17946,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.JobServiceTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.JobServiceTest.xml",
+        "sha256": "ee9596d4af411329ed566021151ec3e2a0e26747950c0bd05a5a80c784a42f40",
+        "size": 17420,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.OwnedWorkerRecoveryTest.xml",
+        "sha256": "a892ddcdc1b4d4db79c8672511fe68d5f7bf6828b448ae80fc2fba8b61cf99ea",
+        "size": 17634,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.ProcessRunnerTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.ProcessRunnerTest.xml",
+        "sha256": "e0eb5c95da458a2c6f2168103300dfc1ccea2fa8c166ecd1e1fa9427354652ab",
+        "size": 17633,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.SandboxBoundaryTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.SandboxBoundaryTest.xml",
+        "sha256": "a8376fed4233d8c5ec4dca4e7976deffa997dcdc74e0f0217137a073a2128ead",
+        "size": 17336,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmAdmissionDeadlineTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmAdmissionDeadlineTest.xml",
+        "sha256": "5fa3511cedab88d865ec4af8fd97c84528f40ec13e79d03067d555962e9931f3",
+        "size": 17490,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmContextPermitTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmContextPermitTest.xml",
+        "sha256": "756078ce90e6f020af751eb9d277de8117e5292cf968685cd028b8daa21206d7",
+        "size": 17955,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmCoordinatorTest.xml",
+        "sha256": "0991682acdc5fbe90eb34b0fe8ec498531ad75cc70a2d6ebda3bb2bf7327798d",
+        "size": 19225,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmDeadlineTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmDeadlineTest.xml",
+        "sha256": "a43cf0b47cf61c21f180fa96694cce334391e7499cad6bc19af30856e45b5259",
+        "size": 17647,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmGatewayDeadlineTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmGatewayDeadlineTest.xml",
+        "sha256": "9ea97998500badf86cc9452af6b88c93167b07f52d1d9b235186987cf6c6fd10",
+        "size": 17585,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmPoolShutdownTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmPoolShutdownTest.xml",
+        "sha256": "be935c875c0d77c1cb8b7418a2d18a02ca15b974f873c8f7659d64fa70361e49",
+        "size": 17483,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmRuntimeOwnershipTest.xml",
+        "sha256": "603cd54d7e24198ab9dea277799736a641657c6b1107272179aaf2fc515b5c64",
+        "size": 18324,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmSemanticProtocolTest",
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmSemanticProtocolTest.xml",
+        "sha256": "ba246960d3b83d1ec79ee295f97487cb0dcbc100514dd227ffb6974391448662",
+        "size": 17816,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WarmTransportTest",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WarmTransportTest.xml",
+        "sha256": "b16bae0c1896706fe5e0560db95f9c3e7250f67bbd2a1a6e8970cdc73d7eac09",
+        "size": 18943,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WorkerCreationFailureTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerCreationFailureTest.xml",
+        "sha256": "498c503d1cd404a0804a2a9de93dbcdf059cdd84259236d2a40106b40d6ac211",
+        "size": 18313,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WorkerIntegrationTest",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerIntegrationTest.xml",
+        "sha256": "6e9c67126fc2c6afcbd307fc87be2c514a194038e367905d3feb4bfbbc0cc9b9",
+        "size": 17914,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerJournalTest.xml",
+        "sha256": "d77303a6d44355392b924035f7939eb780dce903de0e5650ae22f1f6890f1e07",
+        "size": 19054,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WorkerLaunchProfileTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerLaunchProfileTest.xml",
+        "sha256": "f88380c6cb2e4fbcd9e9502441318e71bc50761a66925dba943060becc487693",
+        "size": 18209,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.backend.WorkerReservationTest.xml",
+        "sha256": "7b9c0d16045aa828acb4a21a38bb6f5ce8a1a145b30181f4cdc616a3ac9a9134",
+        "size": 17961,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.canonical.CanonicalizerTest",
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.canonical.CanonicalizerTest.xml",
+        "sha256": "f7394529fb97718438da69b35838deae447b8d9639c7c1806b3b2f18832e422c",
+        "size": 18538,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.canonical.IslandAdapterTest",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.canonical.IslandAdapterTest.xml",
+        "sha256": "9bb4697aac1a5ecb7c85710b69a36272ed5afd67d3f0a8ee729d0223c614c57f",
+        "size": 19376,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.canonical.SlotBoundaryTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.canonical.SlotBoundaryTest.xml",
+        "sha256": "d9c0906d9a374870dfc33f29d275a17864090f7de91d16299e959749d5c26a09",
+        "size": 17906,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.corpus.CorpusEngineTest",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.corpus.CorpusEngineTest.xml",
+        "sha256": "74ca93f67512bfc54e7c5fd53ca184241285b88424d0886d4e338ee7ebd3c2e7",
+        "size": 41896,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.document.AlloySemanticsTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.document.AlloySemanticsTest.xml",
+        "sha256": "ce33d5f6496e6f39d4948d0e9ce19ee9e5ab4029345777dac4b064c6b0c2dc58",
+        "size": 22978,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.document.AssociativityTest",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.document.AssociativityTest.xml",
+        "sha256": "7a2b8bc16aa1de6603f404d9226121c3735546cbd58fac8435c234361cc2f474",
+        "size": 17686,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.document.DocumentTypeAgreementTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.document.DocumentTypeAgreementTest.xml",
+        "sha256": "56152b3119b2df90bd35b57e45c7d024da5bb4d1d6b76e7dd4344c06abdc7871",
+        "size": 17359,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.document.ModuleCheckerTest",
+      "tests": 55,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.document.ModuleCheckerTest.xml",
+        "sha256": "92e4fc597c2f80bbc10fd3bc60bc5c43e0957c1eceb616b2b5f892b67722c7f1",
+        "size": 23594,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.egraph.CertificateSliceTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.egraph.CertificateSliceTest.xml",
+        "sha256": "93aa9b016dc4cad7b29ad7fc60d33f5854fa07fde42b846d0b5b28562d9c76b4",
+        "size": 17350,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.egraph.EGraphEngineTest",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.egraph.EGraphEngineTest.xml",
+        "sha256": "25aa4935e1f62d4830cda2127babcdcef36f91a0f38765517e02e18c23836430",
+        "size": 18235,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.egraph.EGraphMechanicsTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.egraph.EGraphMechanicsTest.xml",
+        "sha256": "8dbde1bdd4c37a4e80cbffd8679af9cfe47c3f97c1d8eac49288d92d6e77c0fa",
+        "size": 17896,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.egraph.RuleCatalogTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.egraph.RuleCatalogTest.xml",
+        "sha256": "96db4958eb7c42427fccea1db1d8e0af7b3d3e34d986d5986a84ccb17db49727",
+        "size": 17584,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.worker.JsonWireEGraphTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.worker.JsonWireEGraphTest.xml",
+        "sha256": "63445b65c5065ff21b40c367e738b1b38d80c6f316cc28393382f16917a0b9ef",
+        "size": 17579,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.worker.JsonWireStrictTest",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.worker.JsonWireStrictTest.xml",
+        "sha256": "3d46dbe709f6ec4475d5f3fda8696f32e98823733f53f9538be9122f72242d2f",
+        "size": 17328,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.worker.SourcePolicyTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.worker.SourcePolicyTest.xml",
+        "sha256": "c9347dd7bcda8d0038b51b06cd876275d4c9dfab8f8f1df4b920046d288968ab",
+        "size": 17452,
+        "mode": 436
+      }
+    },
+    {
+      "name": "dev.allow.worker.WarmDocumentWorkerMainTest",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "artifact": {
+        "path": "/tmp/allow-warm-full-r7-wzcgtb54/backend/target/surefire-reports/TEST-dev.allow.worker.WarmDocumentWorkerMainTest.xml",
+        "sha256": "1462c22bbfefcaf5b6e6d49e38d4355b8704fbe2084b75f376433f949705d745",
+        "size": 17960,
+        "mode": 436
+      }
+    }
+  ],
+  "production_sources_unchanged": true,
+  "production_target_bytes_unchanged": true,
+  "production_compiled_files": 208,
+  "build_identity": {
+    "value": "2734e593a897e215b37b25a755fb301e0b41829464a462789b5e041f9acd3167",
+    "java_runtime_version": "17.0.20.1+1-1-24.04-Ubuntu",
+    "ordered_paths": [
+      "classes/application.properties",
+      "classes/dev/allow/backend/AllowApplication.class",
+      "classes/dev/allow/backend/ApiController.class",
+      "classes/dev/allow/backend/AuthorityFilter.class",
+      "classes/dev/allow/backend/BoundedCapture.class",
+      "classes/dev/allow/backend/BubblewrapLauncher.class",
+      "classes/dev/allow/backend/BuildIdentity.class",
+      "classes/dev/allow/backend/CorpusController$Search.class",
+      "classes/dev/allow/backend/CorpusController.class",
+      "classes/dev/allow/backend/CorpusGateway.class",
+      "classes/dev/allow/backend/DocumentArtifacts.class",
+      "classes/dev/allow/backend/DocumentAttempt.class",
+      "classes/dev/allow/backend/DocumentController.class",
+      "classes/dev/allow/backend/DocumentGateway.class",
+      "classes/dev/allow/backend/DocumentJson.class",
+      "classes/dev/allow/backend/DocumentMutationFrames.class",
+      "classes/dev/allow/backend/DocumentMutationValidation.class",
+      "classes/dev/allow/backend/DocumentMutationWorkers$Factory.class",
+      "classes/dev/allow/backend/DocumentMutationWorkers.class",
+      "classes/dev/allow/backend/DocumentMutations.class",
+      "classes/dev/allow/backend/DocumentQueries.class",
+      "classes/dev/allow/backend/DocumentReplies.class",
+      "classes/dev/allow/backend/DocumentRequest.class",
+      "classes/dev/allow/backend/DocumentRuntime.class",
+      "classes/dev/allow/backend/DocumentValidationContext.class",
+      "classes/dev/allow/backend/DocumentWorker.class",
+      "classes/dev/allow/backend/FrameProcess$Completion.class",
+      "classes/dev/allow/backend/FrameProcess$Writer.class",
+      "classes/dev/allow/backend/FrameProcess.class",
+      "classes/dev/allow/backend/JobControl.class",
+      "classes/dev/allow/backend/JobRecord.class",
+      "classes/dev/allow/backend/JobRunner.class",
+      "classes/dev/allow/backend/JobService$JobTask.class",
+      "classes/dev/allow/backend/JobService.class",
+      "classes/dev/allow/backend/LaunchAuthority.class",
+      "classes/dev/allow/backend/LoopbackBinding.class",
+      "classes/dev/allow/backend/OwnedWorkerRun.class",
+      "classes/dev/allow/backend/ProcessIdentity$Reader.class",
+      "classes/dev/allow/backend/ProcessIdentity.class",
+      "classes/dev/allow/backend/ProcessRunner$FrameWriter.class",
+      "classes/dev/allow/backend/ProcessRunner.class",
+      "classes/dev/allow/backend/SandboxLauncher.class",
+      "classes/dev/allow/backend/WarmConfiguration.class",
+      "classes/dev/allow/backend/WarmContextPermit.class",
+      "classes/dev/allow/backend/WarmDeadline.class",
+      "classes/dev/allow/backend/WarmImageLauncher.class",
+      "classes/dev/allow/backend/WarmRequestBinding.class",
+      "classes/dev/allow/backend/WarmResultLease.class",
+      "classes/dev/allow/backend/WarmRuntime.class",
+      "classes/dev/allow/backend/WarmStandby.class",
+      "classes/dev/allow/backend/WarmTransport$FailureSink.class",
+      "classes/dev/allow/backend/WarmTransport$Phase.class",
+      "classes/dev/allow/backend/WarmTransport$Writer.class",
+      "classes/dev/allow/backend/WarmTransport.class",
+      "classes/dev/allow/backend/WarmWorkerMode.class",
+      "classes/dev/allow/backend/WarmWorkerPool$PoolThreadFactory.class",
+      "classes/dev/allow/backend/WarmWorkerPool.class",
+      "classes/dev/allow/backend/WorkerCapacity.class",
+      "classes/dev/allow/backend/WorkerCgroup.class",
+      "classes/dev/allow/backend/WorkerJournal.class",
+      "classes/dev/allow/backend/WorkerLaunchProfile.class",
+      "classes/dev/allow/backend/WorkerPoolLedger.class",
+      "classes/dev/allow/backend/WorkerReservation$Phase.class",
+      "classes/dev/allow/backend/WorkerReservation.class",
+      "classes/dev/allow/canonical/AnonymizedArtifact.class",
+      "classes/dev/allow/canonical/CanonicalDigest.class",
+      "classes/dev/allow/canonical/CanonicalNodes.class",
+      "classes/dev/allow/canonical/CanonicalView.class",
+      "classes/dev/allow/canonical/Canonicalizer.class",
+      "classes/dev/allow/canonical/CorpusProjection$Rejected.class",
+      "classes/dev/allow/canonical/CorpusProjection$Result.class",
+      "classes/dev/allow/canonical/CorpusProjection.class",
+      "classes/dev/allow/canonical/EgraphView.class",
+      "classes/dev/allow/canonical/EmbeddingEncoder.class",
+      "classes/dev/allow/canonical/ExpressionEncoder.class",
+      "classes/dev/allow/canonical/IslandAdapter$CappedOutput.class",
+      "classes/dev/allow/canonical/IslandAdapter.class",
+      "classes/dev/allow/canonical/IslandCapture.class",
+      "classes/dev/allow/canonical/IslandLimit.class",
+      "classes/dev/allow/canonical/IslandLowering.class",
+      "classes/dev/allow/canonical/IslandTypes.class",
+      "classes/dev/allow/canonical/ModuleEncoder.class",
+      "classes/dev/allow/canonical/OperatorPolicy.class",
+      "classes/dev/allow/canonical/SlotRegistry.class",
+      "classes/dev/allow/canonical/UnsupportedCanonical.class",
+      "classes/dev/allow/corpus/CorpusAugmentMain$Request.class",
+      "classes/dev/allow/corpus/CorpusAugmentMain.class",
+      "classes/dev/allow/corpus/CorpusEngine.class",
+      "classes/dev/allow/corpus/CorpusRequest.class",
+      "classes/dev/allow/corpus/CorpusResponse.class",
+      "classes/dev/allow/corpus/CorpusWorkerMain.class",
+      "classes/dev/allow/corpus/InstanceCanonicalizer.class",
+      "classes/dev/allow/corpus/PoolBuilder$Pool.class",
+      "classes/dev/allow/corpus/PoolBuilder.class",
+      "classes/dev/allow/corpus/TrainingVariant$Variant.class",
+      "classes/dev/allow/corpus/TrainingVariant.class",
+      "classes/dev/allow/document/AlloyExpressionReader$1.class",
+      "classes/dev/allow/document/AlloyExpressionReader.class",
+      "classes/dev/allow/document/AlloyModuleReader.class",
+      "classes/dev/allow/document/AlloySchemaReader$1.class",
+      "classes/dev/allow/document/AlloySchemaReader.class",
+      "classes/dev/allow/document/ArtifactIntegrity.class",
+      "classes/dev/allow/document/BlockValidation.class",
+      "classes/dev/allow/document/CommandDescriptors.class",
+      "classes/dev/allow/document/CommandTokenCounter.class",
+      "classes/dev/allow/document/CopyValidator.class",
+      "classes/dev/allow/document/DocumentEngine.class",
+      "classes/dev/allow/document/DocumentValidationException.class",
+      "classes/dev/allow/document/EngineData.class",
+      "classes/dev/allow/document/HistoryValidation.class",
+      "classes/dev/allow/document/IdentityRemapper.class",
+      "classes/dev/allow/document/ModuleChecker.class",
+      "classes/dev/allow/document/ModuleEquivalence$Side.class",
+      "classes/dev/allow/document/ModuleEquivalence.class",
+      "classes/dev/allow/document/ModulePrinter.class",
+      "classes/dev/allow/document/SourceFragmentGuard.class",
+      "classes/dev/allow/document/SourceLexer$Token.class",
+      "classes/dev/allow/document/SourceLexer.class",
+      "classes/dev/allow/document/SourceParser.class",
+      "classes/dev/allow/document/SourceReferenceMapper.class",
+      "classes/dev/allow/document/SourceTriviaAttacher.class",
+      "classes/dev/allow/document/SourceValidation.class",
+      "classes/dev/allow/document/TextTriviaScanner.class",
+      "classes/dev/allow/document/TriviaTransport$Placement.class",
+      "classes/dev/allow/document/TriviaTransport.class",
+      "classes/dev/allow/document/Utf8Offsets.class",
+      "classes/dev/allow/dto/AtomView.class",
+      "classes/dev/allow/dto/CommandView.class",
+      "classes/dev/allow/dto/JobRequest.class",
+      "classes/dev/allow/dto/JobView.class",
+      "classes/dev/allow/dto/RelationView.class",
+      "classes/dev/allow/dto/StateView.class",
+      "classes/dev/allow/dto/WitnessView.class",
+      "classes/dev/allow/dto/WorkerRequest.class",
+      "classes/dev/allow/dto/WorkerResponse.class",
+      "classes/dev/allow/egraph/Certificate.class",
+      "classes/dev/allow/egraph/CertificateSlice.class",
+      "classes/dev/allow/egraph/Context.class",
+      "classes/dev/allow/egraph/EGraph$Edge.class",
+      "classes/dev/allow/egraph/EGraph$Key.class",
+      "classes/dev/allow/egraph/EGraph$Path.class",
+      "classes/dev/allow/egraph/EGraph.class",
+      "classes/dev/allow/egraph/EGraphEngine$Application.class",
+      "classes/dev/allow/egraph/EGraphEngine$Run.class",
+      "classes/dev/allow/egraph/EGraphEngine.class",
+      "classes/dev/allow/egraph/EngineInput.class",
+      "classes/dev/allow/egraph/Extractor.class",
+      "classes/dev/allow/egraph/IslandResult.class",
+      "classes/dev/allow/egraph/Matcher.class",
+      "classes/dev/allow/egraph/ProofChecker$Visit.class",
+      "classes/dev/allow/egraph/ProofChecker.class",
+      "classes/dev/allow/egraph/ProofStep.class",
+      "classes/dev/allow/egraph/ProofStore.class",
+      "classes/dev/allow/egraph/RuleCatalog$Rewrite.class",
+      "classes/dev/allow/egraph/RuleCatalog.class",
+      "classes/dev/allow/egraph/RunBudget$Limit.class",
+      "classes/dev/allow/egraph/RunBudget.class",
+      "classes/dev/allow/egraph/Sort.class",
+      "classes/dev/allow/egraph/Term.class",
+      "classes/dev/allow/egraph/Wire$Counter.class",
+      "classes/dev/allow/egraph/Wire.class",
+      "classes/dev/allow/worker/AlloyEngine.class",
+      "classes/dev/allow/worker/AstPolicy$Entry.class",
+      "classes/dev/allow/worker/AstPolicy.class",
+      "classes/dev/allow/worker/DocumentWorkerMain.class",
+      "classes/dev/allow/worker/Hashes.class",
+      "classes/dev/allow/worker/JsonWire.class",
+      "classes/dev/allow/worker/SourcePolicy.class",
+      "classes/dev/allow/worker/WarmDocumentWorkerMain.class",
+      "classes/dev/allow/worker/WitnessProjector.class",
+      "classes/dev/allow/worker/WorkerMain.class",
+      "classes/dev/allow/worker/WorkerPolicy.class",
+      "classes/profiles/egraph-rules.json",
+      "dependency/jackson-annotations-2.21.jar",
+      "dependency/jackson-core-2.21.4.jar",
+      "dependency/jackson-databind-2.21.4.jar",
+      "dependency/jackson-datatype-jdk8-2.21.4.jar",
+      "dependency/jackson-datatype-jsr310-2.21.4.jar",
+      "dependency/jackson-module-parameter-names-2.21.4.jar",
+      "dependency/jakarta.annotation-api-2.1.1.jar",
+      "dependency/jul-to-slf4j-2.0.18.jar",
+      "dependency/log4j-api-2.24.3.jar",
+      "dependency/log4j-to-slf4j-2.24.3.jar",
+      "dependency/logback-classic-1.5.34.jar",
+      "dependency/logback-core-1.5.34.jar",
+      "dependency/micrometer-commons-1.15.12.jar",
+      "dependency/micrometer-observation-1.15.12.jar",
+      "dependency/slf4j-api-2.0.18.jar",
+      "dependency/snakeyaml-2.4.jar",
+      "dependency/spring-aop-6.2.19.jar",
+      "dependency/spring-beans-6.2.19.jar",
+      "dependency/spring-boot-3.5.16.jar",
+      "dependency/spring-boot-autoconfigure-3.5.16.jar",
+      "dependency/spring-boot-starter-3.5.16.jar",
+      "dependency/spring-boot-starter-json-3.5.16.jar",
+      "dependency/spring-boot-starter-logging-3.5.16.jar",
+      "dependency/spring-boot-starter-tomcat-3.5.16.jar",
+      "dependency/spring-boot-starter-web-3.5.16.jar",
+      "dependency/spring-context-6.2.19.jar",
+      "dependency/spring-core-6.2.19.jar",
+      "dependency/spring-expression-6.2.19.jar",
+      "dependency/spring-jcl-6.2.19.jar",
+      "dependency/spring-web-6.2.19.jar",
+      "dependency/spring-webmvc-6.2.19.jar",
+      "dependency/tomcat-embed-core-10.1.55.jar",
+      "dependency/tomcat-embed-el-10.1.55.jar",
+      "dependency/tomcat-embed-websocket-10.1.55.jar",
+      "solver/alloy.jar"
+    ],
+    "interpretation": "Independent POSIX byte transcription, not semantic refinement"
+  },
+  "probe_class_count": 22,
+  "changed_test_sources": [
+    "backend/src/test/java/dev/allow/backend/WarmLatencySeries.java"
+  ],
+  "post_source_identity": "PASS",
+  "checkstyle": "PASS"
+}

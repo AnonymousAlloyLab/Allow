@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "sol-2",
+  "package_root_sha256": "245fc5201c5657b049d730daba8b237aa6f4538b71813221bc4d9fc50391a209",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "readiness_verdict": "CONTRACT_APPROVED_ONLY_REGISTERED_TWO_BUILD_MODEL_CLOSURE_STILL_REQUIRED_BEFORE_IMPLEMENTATION",
+  "independence": "Independent review of the frozen package and prior rejected validator-session evidence; no other warm-pool council review was used.",
+  "blocking_findings": [],
+  "findings": [
+    {
+      "id": "WP-S2-01",
+      "severity": "informational",
+      "surface": "Single-use protocol and publication authority",
+      "finding": "The design avoids cross-request JVM and classloader reset claims. A generation accepts exactly one VALIDATE frame; READY is public startup evidence, never CLEAN or image-safety authority. Continuous sole-reader STARTUP/IDLE/REQUEST phases, lifetime stderr bounds, nonce/image matching, input closure, complete response staging and owned cleanup prevent a successful response from bypassing the terminal fences. The staged-result lease keeps public envelope construction inside the operation permit and moves the actual final installed-build/Alloy, cancellation and deadline checks to the publication method. This addresses cancellation after staging or after an earlier fence without claiming that bytes already published can be retracted.",
+      "evidence": [
+        "gates/performance/warm-pool-candidate/contract.json:protocol",
+        "gates/performance/warm-pool-candidate/experiment.json:WP-T01",
+        "gates/performance/warm-pool-candidate/WarmPool.lean:LocalStep.handoff/stage/observe/fence/publish",
+        "gates/performance/warm-pool-candidate/WarmPool.lean:cancellation_after_fence_witness"
+      ],
+      "boundary": "Parent transport phase linearization, EOF/exit validation, exact context-permit binding and actual cancellation observation remain runtime correspondence obligations. The abstract CleanContext does not independently authenticate PostgreSQL cleanup."
+    },
+    {
+      "id": "WP-S2-02",
+      "severity": "informational",
+      "surface": "Capacity, ownership and failure accounting",
+      "finding": "The enabled-mode shared two-slot ledger covers warm and fresh DocumentWorker/ProcessRunner trees, including STARTING, READY, BUSY, RETIRING and UNKNOWN. The existing one-operation permit remains separate. Fresh solver/durable/revalidation launches explicitly use the same gated join and generation-owned cgroup cleanup adapter, rather than merely obtaining a semaphore token. Reservation persistence precedes spawn; parent death, uncertain spawn, missing groups and stale receipts cannot establish release. Release requires the exact generation, direct-child reap and positive captured-group emptiness; uncertainty retains capacity and cannot silently switch an enabled incarnation to the uncontained fresh path.",
+      "evidence": [
+        "gates/performance/warm-pool-candidate/contract.json:ownership",
+        "gates/performance/warm-pool-candidate/contract.json:protocol.bootstrap_schema",
+        "gates/performance/warm-pool-candidate/experiment.json:WP-L01/WP-P01",
+        "gates/performance/warm-pool-candidate/WarmPool.lean:active/unassigned/LocalStep.release",
+        "gates/performance/warm-pool-candidate/WarmPool.lean:ready_and_fresh_coexist_witness"
+      ],
+      "boundary": "The fixed two-record model proves reservation arithmetic only. Actual process-tree refinement, pre-join parent-death races, descriptor inventories, journal durability and restart reconciliation require the preregistered actual helper/cgroup fault evidence."
+    },
+    {
+      "id": "WP-S2-03",
+      "severity": "informational",
+      "surface": "Deadlines, refill and performance interpretation",
+      "finding": "Startup begins at reservation and includes image capture; idle expiry begins at READY; the candidate request deadline begins at operation admission and includes context, cold wait, validation, cleanup and final publication fences. Deadline expiry suppresses success but never proves cleanup or frees capacity. Cold misses have no fresh bypass, idle expiry alone does not refill, and consumption-triggered replacement remains within the measured whole-stack group. The paired HTTP and open-loop sustained plans include actual misses/refills, all failures and driver lateness, with an unchanged strict sub-300ms p95 gate and early rejection on the first failed W1 run.",
+      "evidence": [
+        "gates/performance/warm-pool-candidate/contract.json:scheduling",
+        "gates/performance/warm-pool-candidate/experiment.json:promotion",
+        "gates/performance/warm-pool-candidate/WarmPool.lean:admission_deadline_not_reset/time_does_not_release",
+        "gates/performance/fresh-tier1-candidate/runtime-experiments/runs/comparison-r2-history/selection.json"
+      ],
+      "boundary": "No bounded successful response under a stalled OS, throughput promise or measured warm-pool speedup is established. The earlier KEEP_F0 evidence is unchanged. Workstation quotas do not close actual 4vCPU/8GiB host acceptance."
+    },
+    {
+      "id": "WP-S2-04",
+      "severity": "informational",
+      "surface": "Sealed image and file-limit feasibility",
+      "finding": "The frozen r4 observation records 191 files totaling 43404937 bytes, matching Java and sealed logical identities, 191 equal mounted hashes, write/grow/shrink denial checks, image FD closure and owned-scope cleanup. Trusted setup uses FS64MiB; a fixed in-sandbox prlimit lowers both hard and soft file limits to 8388608 before the final public executable. The contract retains AS2GiB, per-process CPU12s and finite FD1024 from helper startup, and correctly distinguishes per-process CPU limits from aggregate cgroup accounting. Earlier failed data/fd/final-limit attempts remain preserved.",
+      "evidence": [
+        "gates/performance/warm-one-use-feasibility-20261104/image-probe-r4/report.json",
+        "gates/performance/warm-one-use-feasibility-20261104/image-probe-r4/final-executable-observation.json",
+        "gates/performance/warm-one-use-feasibility-20261104/image_probe_child_r4.py",
+        "gates/performance/warm-one-use-feasibility-20261104/image-probe-r1/report.json",
+        "gates/performance/warm-one-use-feasibility-20261104/image-probe-r2/report.json",
+        "gates/performance/warm-one-use-feasibility-20261104/image-probe-r3/report.json",
+        "gates/performance/warm-pool-candidate/contract.json:amendments.image_setup_file_limit/immutable_image"
+      ],
+      "boundary": "The mounted executable was sha256sum with fixed empty public stdin, not the proposed Java entrypoint. This is byte/seal/limit transport feasibility only; classpath/resource initialization, READY, private validation, production helper lineage and crash behavior remain untested."
+    },
+    {
+      "id": "WP-S2-05",
+      "severity": "informational",
+      "surface": "Model/verifier and prior rejected proposal",
+      "finding": "The model now uses explicit guarded LocalStep/Step/Reachable relations, generation changes only on vacant reservation, sticky poison and attempt state, cleanup-gated release, monotone time and successful/cancelled/fresh-coexistence witnesses. The registered verifier freezes complete elaborated theorem types and axiom output rather than splitting declarations at record-update assignments. Its two clean builds compare exact audit output and artifact hashes, recheck reviewed inputs/reviews, and gate execution on the exact six approvals. Prior reusable-loader reset/global-registry obligations are avoided by one use; process/image/semantic/performance obligations are retained rather than claimed solved by that choice.",
+      "evidence": [
+        "gates/performance/warm-pool-candidate/WarmPool.lean",
+        "gates/performance/warm-pool-candidate/types.json",
+        "gates/performance/warm-pool-candidate/claims.json",
+        "gates/performance/warm-pool-candidate/model-closure-config.json",
+        "gates/performance/warm-pool-candidate/verify_warm_model.py",
+        "gates/document/validator-session-candidate/council-disposition.json",
+        "reviews/validator-session-sol-2.json"
+      ],
+      "boundary": "All 36 registered claims are proof-compilation claims about the frozen abstract model. Identity observations, timers, SQL receipts, Java/Python/kernel correspondence and semantic equivalence are explicitly outside the theorem surface. Council approval is not mechanical claim discharge; the registered two-build run remains pending."
+    }
+  ],
+  "verification": {
+    "canonical_manifest_encoding": "json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()",
+    "canonical_root_matches": true,
+    "manifest_files": 186,
+    "manifest_sorted_unique": true,
+    "live_file_hashes_matched": 186,
+    "snapshot_file_hashes_matched": 186,
+    "snapshot_root": "gates/performance/warm-pool-candidate/review-rounds/r1/inputs",
+    "model_and_contract_twins_match": true,
+    "all_inherited_and_source_evidence_anchors_pinned": true,
+    "static_registered_inventory_check": "PASS: 36 theorem/type/claim entries, exact Audit command inventory, allowed recorded axioms, three declared witness theorems",
+    "lean_builds_executed_by_this_review": 0,
+    "runtime_database_browser_benchmark_work": "NONE",
+    "files_written": ["reviews/warm-pool-sol-2.json"]
+  },
+  "approval_scope": "Approve this exact inactive implementation contract for the required registered model closure, followed only on success by the disabled copied-installation candidate and source-bound safety/differential work in the specified order. Preserve documented methods of at most 30 physical lines, SQLeanParser-only SQL, fixed trusted policy and unchanged live fresh DEFAULT until all promotion gates pass. No production implementation, model VERIFIED status or runtime acceptance is granted by this review.",
+  "commercial_boundary": "Commercial release remains NO_GO. No dependency or dataset redistribution rights, manual accessibility acceptance, customer security acceptance, operations/support readiness, production activation or actual 4vCPU/8GiB target-host acceptance is established."
+}

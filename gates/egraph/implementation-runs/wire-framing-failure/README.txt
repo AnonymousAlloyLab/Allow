@@ -1,0 +1,1 @@
+Historical failed assembled build: generic preview maps changed worker re-serialization order. Fixed by deterministic record/map key ordering with a regression test. This log is not evidence for the final source root.

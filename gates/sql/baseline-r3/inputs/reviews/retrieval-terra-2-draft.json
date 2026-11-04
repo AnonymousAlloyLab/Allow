@@ -1,0 +1,54 @@
+{
+  "seat": "retrieval-terra-2",
+  "status": "DESIGN_REVIEW_ONLY_AWAIT_FORMAL_VERIFICATION",
+  "production_edits": false,
+  "architecture_findings": [
+    "WorkerMain is one-shot framed strict JSON; AlloyEngine selects and executes an existing command once. It does not support separately bound nullary predicate queries or enumeration. WitnessProjector is display-oriented and must not become pool evidence.",
+    "Canonicalizer and ModuleEncoder encode the whole module, including all function bodies and selected command. Existing slot IDs and egraph root paths depend on one traversal; do not independently canonicalize target, context and proof with reset binder slots or mutate v1 output. Add a distinct versioned retrieval context encoder that replaces only the selected target body with a typed marker and omits the selected command while retaining the target declaration, all other declarations/functions/facts, ordered slots and explicit frozen bounds. If another retained body/fact calls the target, context is syntactically stable but its semantics depends on the target: never assume facts are independent of P, and reject cyclic/unrepresentable call graphs.",
+    "Canonicalizer.analyze may return unavailable or an egraph with zero islands, incomplete output or failed certificates. Demand a CHECKED certificate for the exact target root bound to the exact traversal context, input, inventory and rules digest; a non-null egraph or certificate on another root is insufficient. Checked extraction supports only that local rewrite, not cross-target equivalence. Distinct outputs do not imply difference."
+  ],
+  "proposed_owned_files": {
+    "new": [
+      "backend/src/main/java/dev/allow/corpus/CorpusWorkerMain.java: dedicated one-shot strict length-bounded protocol and stdout-only frame; execute only under existing sandbox supervisor, isolated temporary directory, wall/memory limits and pinned classpath.",
+      "backend/src/main/java/dev/allow/corpus/CorpusRequest.java and CorpusResponse.java: versioned immutable record DTOs, strict tagged status union and bounded fields.",
+      "backend/src/main/java/dev/allow/corpus/CorpusEngine.java: parse once, validate admission, bind resolved nullary target, construct and solve two commands using one exact bounds/options object, collect full solutions and typed explicit terminal states.",
+      "backend/src/main/java/dev/allow/corpus/InstanceCanonicalizer.java: canonical complete instance bytes with single global type-preserving permutation; budgeted deterministic enumeration; no partial key on exhaustion.",
+      "backend/src/main/java/dev/allow/corpus/PoolBuilder.java: exact-byte deduplication, bounded enumeration and immutable per-witness provenance; no padding.",
+      "backend/src/main/java/dev/allow/canonical/RetrievalContextEncoder.java plus narrow capture facade: preserve existing v1 output and same traversal identity; typed target hole and egraph target occurrence binding.",
+      "backend/src/test/java/dev/allow/corpus/*: fixture, protocol, adversarial canonicalization, limits and process isolation tests."
+    ],
+    "existing": "Only narrowly scoped additive canonical package capture access and build/launcher wiring if required; do not modify public job DTO, egraph semantics, original solver behavior or frozen v1 encoder bytes. Implement only after formal VERIFIED announcement."
+  },
+  "wire_contract": {
+    "request": "protocol and profile versions; bounded exact source bytes plus recomputed digest; immutable source provenance ID/revision; selected declaration by resolved stable occurrence index plus expected predicate declaration fingerprint; exact bounds object including overall and every explicit per-signature exactness/scope, bitwidth, maxseq, overflow behavior and solver options; desired cardinality N in 3..5 distinct from solver scope; canonicalization/enumeration caps with frozen server-side maxima. No client-chosen paths or executable, and no arbitrary imported files.",
+    "response": "identity echo and build/dependency/profile digests; admission reason; exact target declaration identity, environment anonymous canonical bytes/key and checked egraph evidence bound to target; frozen scope/options; positive and negative PoolOutcome. Each outcome separately records immutable SAT-existence, distinct canonical member bytes plus digest and exact own-run provenance, attempts/enumeration count, and stop reason EXHAUSTED|TARGET_REACHED|ENUM_LIMIT|CANON_LIMIT|TIMEOUT|ERROR. Store UNKNOWN rather than UNSAT unless solver reports unsat on initial query. Complete pool requires N distinct canonical instances; incomplete pool remains partial and produces no embedding. Empty exhausted pool is not evidence that N is satisfied.",
+    "query": "Construct semantic query from parsed resolved AST as facts \u2227 P and facts \u2227 \u00acP, using Alloy's normal implicit facts exactly once and no inherited selected-command formula/check negation. Verify AST construction and actual TranslateAlloyToKodkod semantics with fact-sensitive fixtures. Identical bound object and SAT4J noOverflow options for both; do not derive negative by negating whole command. Preserve solver existence after later enumeration errors and atom canonicalization failures.",
+    "provenance": "Store immutable original-source hash, dataset origin and source revision/occurrence, query polarity, canonical environment/context bytes and exact bounds, worker/Alloy/SAT4J versions, options, run ID, and full witness bytes. Source identity stays separate from anonymous keys. Hash is an index; compare exact canonical bytes after digest match. Validate every worker response identity before accepting results."
+  },
+  "canonical_instance": [
+    "Model the complete finite structure, not rendered witness: enumerate every ordinary atom, all signature memberships including empty/subset/overlap if admitted, all declared field tuples including empty relations, fixed integer values and builtins needed by supported semantics; preserve exact anonymous relation identity, ordered tuple columns and universe membership. Enforce admission to precisely the classes actually represented. Never use transient Alloy atom labels as semantic colors.",
+    "Use one bijection simultaneously across all relations and memberships, within structural type/membership-compatible classes; order fixed numeric integers by value. Choose lexicographically least unambiguous versioned serialization over all allowed permutations; prove partition pruning cannot exclude a valid isomorphism. Account all candidate bijections including initial identity: if total ordinary atoms exceed 8 or explored permutations exceed 100000, return UNKNOWN/CANON_LIMIT and do not expose a key. Signature-independent per-relation sorting and name-based partitioning are unsound.",
+    "At most 64 solver enumeration results per polarity, independent of unique member count; Alloy symmetry breaking and next() do not establish exhaustive isomorphism classes beyond actual solver behavior. On UNKNOWN or timeout, retain validated preceding members but never claim target count, inequivalence or exhaustion. Distinguish stop-on-N from genuine unsat/exhaustion."
+  ],
+  "acceptance": [
+    "Both polarities inherit facts: inconsistent facts yield no witnesses, and negating facts-and-P must not produce a negative member.",
+    "Same unlabelled cyclic graph under atom/tuple reorder canonicalizes equally; same degree sequence nonisomorphic graphs differ; overlapping memberships, relation argument order, empty relation, fixed integers and joint permutation are preserved.",
+    "At atom/permutation/64-enumeration boundaries, return explicit partial/unavailable with no hash for an uncanonicalized instance, no false exhaustion and no embedding when either pool has fewer than N distinct members.",
+    "Mutate target body only: environment key stays equal; mutate retained fact, other function, signature, bound or bitwidth: relevant identity changes. Separate exact source/provenance hash changes even for alpha-equivalent inputs. Retained calls to target and facts referring to target get solver semantic fixtures.",
+    "Missing, failed, or unrelated egraph target certificate prevents admission; tampered input/inventory/rules/context fails replay. A proof of the target rewrite does not label two target predicates equivalent.",
+    "Reject temporal, parameterized, imported, unsupported syntax and schema, ambiguous target occurrence, malformed/oversize frames; kill/timeouts must not yield UNSAT. Concurrent isolated runs cannot clobber /tmp/model.als."
+  ],
+  "next_step": "Await retrieval-stage.json and adversarially review it. Formal verification must precede any production edits.",
+  "revision_1_review": {
+    "status": "BLOCKED_PENDING_SPEC_CLARIFICATIONS",
+    "spec": "spec/retrieval-stage.json revision 1",
+    "blockers": [
+      "Require successful independent CHECKED replay for exact selected function-body root, trusted traversal context, original input, inventory and rules; missing, failed or unrelated certificates reject admission and vector publication.",
+      "Freeze complete effective scope vector, exactness, bitwidth, maxseq and solver options; specify original command scope is ignored or exactly how selected and bind both generated queries to the identical bounds.",
+      "Specify one joint bijection on all ordinary atoms and all memberships, including complete universe and empty declared relations; define 8 total atoms and 100000 complete candidate permutations, with cap yielding unknown and no canonical bytes.",
+      "Distinguish immutable initial SAT/UNSAT/UNKNOWN from per-polarity enumeration EXHAUSTED, TARGET_REACHED, LIMIT, TIMEOUT or ERROR, preserving earlier validated witnesses on interruption.",
+      "Retained facts and other functions may invoke selected predicate: F can change with target body. Execute in exact original resolved world, establish implicit-fact semantics with fixtures, and do not infer context equivalence or P independence from the target-body hole.",
+      "Explicitly exclude entire selected command, keep target declaration and capture root/context without resetting slots or modifying v1 output; isolate temp filesystem between workers and bind strict response to request identity."
+    ]
+  }
+}

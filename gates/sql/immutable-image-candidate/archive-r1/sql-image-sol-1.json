@@ -1,0 +1,30 @@
+{
+  "reviewer": "sol-1",
+  "decision": "REQUEST_CHANGES",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "c415800433f00480506fb44b9e256e01e97c3da3f6393ddf7437dffa7f0cb25d",
+    "gates/sql/immutable-image-candidate/contract.md": "19316bc6140a4c47fe7dd0f835e4581f50254945fe8b1d2c8ea1cfe2be2241a9",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "73f634b039ffdb0092f2f8214d2a4aa696d5c71baeb07eac9ba812915ddfeca8"
+  },
+  "findings": [
+    {
+      "id": "SQLIM-S1-01",
+      "severity": "medium",
+      "location": "contract.md private lifetime/admission/launch paragraphs; runtime tests IM12/14/24/29",
+      "issue": "The plan reserves a duplicate for each operation but specifies neither a bound on simultaneously held reserved duplicates nor their release ownership across slot waits, cache hits, cancellation, launch failure and gate shutdown. Two parser slots bound children only. Duplicating before waiting on those slots can accumulate descriptors indefinitely under concurrent misses; an inherited duplicate also needs exclusive lifetime until child creation to prevent numeric descriptor reuse at /proc/self/fd/N. Existing IM12 tests only close versus admitted handle use, rather than reservation cleanup and the wait/launch boundary.",
+      "requested_change": "Define exactly which operation owns each duplicate and require finally/RAII release on every exit. Bound reserved execution duplicates (e.g. acquire parser slot before duplicating under lifetime lock, then recheck live generation); cache hits should not retain duplicates after identity check. Prohibit concurrent close/reuse of the reserved duplicate until subprocess inheritance is complete. Add deterministic concurrent-slot-wait/cache-hit/cancel/launch-error/close tests showing descriptor count returns to baseline, shutdown waiters deny, and no stale descriptor is executed."
+    }
+  ],
+  "assessment": [
+    "Sealed destination hashing after all four seals addresses source-copy races without claiming mutable source integrity. Per-admission fstat object/size plus seals is materially stronger than stat-only memoization.",
+    "Inherited reserved descriptor through absolute prlimit and actual /proc/PID/exe identity witnesses are appropriate; no pathname fallback and actual ELF checks are mandatory.",
+    "Exact SQL/image/profile/commit/policy/generation cache identity and failure noncaching preserve SQLeanParser routing and prepared provenance. Runtime still must recheck live generation before publishing or returning completion after close.",
+    "Running old pinned image after disk replacement is an explicit deliberate policy revision; restart checks disk anew and status must not claim live-path verification.",
+    "Immutable lock snapshot must include digest, expected size and defensive production mapping; use one snapshot for initialization, report decoding and cache identity. No late config reload or mutable public mapping may silently change interpretation. Existing sourcepath ownership and duplicate-key validation must remain.",
+    "Initial snapshot capacity/deadline finding from Terra1 remains separate and is not duplicated here."
+  ],
+  "lean_limit": "Seven conditional abstract propositions do not establish Linux sealing, fstat/seal correspondence, fd lifetime, subprocess inheritance, cache synchronization or end-to-end SQL execution. Existing280 models remain distinct and require exact registry preservation.",
+  "validation": "Read all five frozen candidate inputs and current retrieval/allow_retrieval/sql_guard.py execution/cache design. Recorded exact hashes. No candidate, production or browser edits and no runtime/Lean execution."
+}

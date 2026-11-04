@@ -1,0 +1,28 @@
+{
+  "reviewer": "sol-2",
+  "candidate_revision": "r2",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_root_sha256": "4704a9190a7df708ff7cfb528d94475b173de0d9875e52ee91fd2edea18a798c",
+  "input_hashes": {
+    "gates/sql/immutable-image-candidate/contract.json": "e2acee65e2286422eaa735660a1f24cad8b09bb547d567e1787381716200bc73",
+    "gates/sql/immutable-image-candidate/contract.md": "ad9f4a9fcb4591d17a627c505ccb83e566127dc6f40e848db8a24e0a17d2613d",
+    "gates/sql/immutable-image-candidate/ImmutableImage.lean": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+    "gates/sql/immutable-image-candidate/candidate-type-inventory.json": "21b2f1a8c79d40bd314e0ab5632b66e53551cfb006345e815870bf66a4b77f6b",
+    "gates/sql/immutable-image-candidate/runtime-test-plan.json": "c49a8f53884a28b5ac5d90926ce42feda7895418be658976e6b46cacb3e10b42",
+    "gates/sql/immutable-image-candidate/input-manifest.json": "28434c9d5ef8ee35e4d363d42c98494f6da02f645a8c12f410bd0462936b38f5",
+    "gates/sql/immutable-image-candidate/existing-type-inventory.json": "bd7f8d0b7816f9e2236e5683008d841fc3095c2e05cd5cd3ed0ae17d398cd9ea",
+    "gates/sql/immutable-image-candidate/probe-result.json": "9f921847818c9327b7a328e071385682456326f03798a707faf6413f06500096",
+    "gates/sql/immutable-image-candidate/findings.md": "9c5a5bd70773f369d25e596c7101496cbbcee0d4ff39466635599f482f10b91f"
+  },
+  "findings": [],
+  "assessment": [
+    "Bounded supervised initialization is coherent: trusted expected size is independent of source fstat, source is regular/no-follow/nonblocking, reads are explicitly bounded with one-byte excess probe, short writes and EOF fail closed, final destination is sealed before hashing, and strict single-descriptor private transfer precedes atomic publication. Helper/transfer/supervision are explicit runtime TCB. The kernel teardown caveat honestly limits the five-second startup claim.",
+    "All SQL remains subject to the pinned SQLeanParser report, source, profile, derivation, commit and classification checks. Executing the reserved inherited descriptor through reviewed absolute prlimit avoids pathname re-resolution for the ELF; unsupported procfs/MFD_EXEC/noexec denies without fallback or host-policy weakening. Dynamic libraries/loader remain an explicit separate trust boundary.",
+    "Descriptor reservations are now bounded to two slot-owned execution duplicates and one transient lifetime-check duplicate. Waiters hold no fd. Exclusive owners retain reserved descriptors through child completion, clean every path and are never raced by gate.close closing their numeric descriptors. Completion rechecks live generation/snapshot; shutdown releases the lifetime lock before awaiting owners and cannot report complete while cleanup remains pending.",
+    "One deeply immutable validated config snapshot includes size, binary digest, profile, commit, ordered mapping and mapping digest, policy and generation. The same snapshot interprets reports, builds decisions, keys cache and reports atomic lifecycle status. Independent mapping/profile/commit/policy mutation tests prevent generation-only or mutable-alias cache laundering.",
+    "The policy change is explicit and acceptable as a proposed contract revision: a live gate continues the old pinned sealed image after disk removal/replacement; a new gate checks current disk again. This approval does not assert revision6 live-path tamper denial. Status must report frozen-until-new-generation and restart-check-only.",
+    "The 56 planned finite checks cover seal/object failures, source races and limits, initializer transfer/deadline, descriptor wait/launch/cancel/shutdown, stale completions, independent config cache negatives, exact report validation, prepared provenance and aggregate memory reporting. Full existing SQL suites and correctness precede comparative benchmarks; the single probe is capability evidence only."
+  ],
+  "lean_limit": "Seven candidate conditional propositions and the preserved 280 existing propositions remain model facts only. In particular stable_image assumes after=before; checked observations assume real object/byte correspondence, and reuse_exact relies on prior SqlRouting semantics. They do not prove Linux seals, fd ownership, SCM_RIGHTS validation, dynamic dependencies, mutable configuration exclusion, runtime cache locking or end-to-end database routing. Existing inventory group counts independently read as112+125+14+16+13=280; no new build or axiom audit is claimed.",
+  "validation": "Read all nine frozen inputs and inspected existing SQL guard cache/execution seam and prior reservation finding. Independently verified nine SHA256 values and reconstructed root as canonical sorted-key compact JSON of files list. No production/candidate edits, HTTP/browser use, runtime probe or build performed. This is independent gameplan approval only; all promotion prerequisites remain outstanding."
+}

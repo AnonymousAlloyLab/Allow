@@ -1,0 +1,74 @@
+{
+  "reviewer": "Sol council seat 1",
+  "scope": "SQLean local interfaces, PostgreSQL coverage and client/migration/recovery routing design",
+  "artifact": "spec/sql-stage.json",
+  "revision": 3,
+  "sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "decision": "APPROVE",
+  "approved_exact_hash": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "remaining_design_blockers": [],
+  "local_parser_audit": {
+    "root": "/home/augustus/SQLeanParser",
+    "source_commit": "ad15c585155ff7fc2c5fc4c9746905e4959ff5eb",
+    "observed_existing_binary_sha256": "e4206ba66b3aeb6cf631536203badcc208fcd93429bed3bd03f6c2f02a69dc8f",
+    "entrypoint": ".lake/build/bin/sqlean_pg_grammar",
+    "toolchain": "leanprover/lean4:v4.34.0",
+    "interfaces": [
+      "SQL via stdin",
+      "single SQL argument or --file",
+      "JSONL {id,sql} via --jsonl"
+    ],
+    "report_profile": "postgresql-16.15-grammar-v0.1",
+    "report_assurance": "In-process proof-carrying context-free derivation and exact reconstruction; static validity and PostgreSQL C semantic actions explicitly not checked. JSON is not an independently replayable serialized proof.",
+    "read_only_probes": {
+      "numbered_parameters": "grammar-accepted and exact source retained",
+      "psycopg_percent_template": "grammar-rejected; wire proxy avoids application normalization",
+      "vector_custom_type": "grammar-accepted",
+      "session_set_config": "grammar-accepted",
+      "transaction_controls": "grammar-accepted",
+      "role_database_utility": "grammar-accepted",
+      "COPY": "grammar-accepted",
+      "complete_current_migration": "grammar-accepted; opaque DO bodies separately remain unacceptable",
+      "deliberately_invalid_inner_DO_body": "outer grammar-accepted, demonstrating the need for the explicit opaque-production ban"
+    },
+    "license_inventory": [
+      "fixtures/postgresql_grammar/source/COPYRIGHT: upstream PostgreSQL notice",
+      "fixtures/factor_sources/sources/readyset/LICENSE: fixture upstream license"
+    ],
+    "own_project_license": "No top-level own-project LICENSE/COPYING found; explicit user local authorization permits the requested local engineering. Redistribution/commercial clearance remains unresolved."
+  },
+  "approval_basis": [
+    "Wire inspection of Q and P covers real driver-numbered SQL plus implicit BEGIN/COMMIT, psql, pg_dump and pg_restore paths; execute-site wrappers alone do not.",
+    "Exact source equality, pinned executable/profile/commit, bounded subprocess, success-only exact cache and no direct fallback define an enforceable finite admission boundary.",
+    "UTF-8 and standard_conforming_strings=on are pinned before forwarding; safe fixed setting templates avoid parameterized set_config changing lexer modes.",
+    "Nested production denial addresses opaque SQL bodies and EXECUTE under wrappers such as EXPLAIN. Bind/COPY bytes remain data.",
+    "Connection-local immutable portal snapshots, explicit object/frame/memory/deadline limits, reserved cancellation capacity and independent per-client evidence are specified.",
+    "Migration rewrite preserves existing records/vectors/journal and independently checks constraints rather than letting a partially installed sibling suppress repair."
+  ],
+  "client_inventory": {
+    "retrieval/allow_retrieval/database.py": "Repository psycopg connect; 56 explicit execute sites, plus implicit transaction commands. Fixed literal Allow scope setting templates replace dynamic setting-key parameters.",
+    "retrieval/allow_retrieval/ranking.py": "2 execute sites through Repository transaction",
+    "retrieval/allow_retrieval/manage.py": "1 execute site through Repository transaction",
+    "retrieval/allow_retrieval/importer.py": "2 execute sites through Repository transaction",
+    "retrieval/tests/test_repository.py": "19 execute sites and direct/raw connection negative controls; all database-facing cases must move to proxy DSNs.",
+    "scripts/bootstrap_corpus.py": "psql helper, role/database/catalog/bootstrap queries, extension installation, migration script execution, and readiness SQL currently address original socket.",
+    "scripts/retrieval_recovery_test.py": "2 direct connects, 7 execute sites, actual pg_dump and pg_restore clients; temporary database name may vary while proxy endpoint stays fixed.",
+    "driver_hidden_sql": "psycopg implicit BEGIN/COMMIT/ROLLBACK and prepared-statement lifecycle; psql/libpq and dump/restore session/catalog SQL.",
+    "engine_not_client_queries": "Native initdb/bootstrap internals and reviewed extension implementation remain explicitly engine-trusted, not falsely claimed as intercepted frontend SQL."
+  },
+  "concrete_implementation_plan": [
+    "Root owns bounded PostgreSQL protocol proxy and pinned parser runner. Rebuild from a hashed local source snapshot without editing the reference repository; preserve source/binary/toolchain/notice evidence.",
+    "Replace migration DO/EXECUTE bodies with explicit statement lists and independently scoped catalog checks. Keep original migration frozen as historical baseline, and test fresh, existing and partial migration repair.",
+    "Route private app/admin configuration, bootstrap psql, all Repository connections and dump/restore clients exclusively to the canonical private proxy socket. Disable backend TCP; keep backend socket details only in proxy configuration.",
+    "Validate explicit/env DSNs before any connection. Reject service/hostaddr/multihost/direct endpoints; permit only documented recovery database-name variation.",
+    "Change scope setters to fixed reviewed literal keys allow.tenant, allow.project, allow.purpose with only values parameterized.",
+    "Measure separate admitted-query counter deltas and endpoints for each client path, including driver transaction controls and real backup recovery. Include malformed/fragmented packets, parser absence/tamper and pipelined unsafe setting tests."
+  ],
+  "implementation_obligations_not_design_blockers": [
+    "Classify all PREPARE forms conservatively, including two-phase transaction controls, so disconnect behavior cannot be confused with a transaction already prepared/committed.",
+    "Never retain parser SQL/token reports in logs: bootstrap role SQL may contain a private password. Cache remains bounded memory-only.",
+    "Avoid claiming grammar acceptance enforces tenant rights or prevents SQL effects. PostgreSQL execution/RLS and the trusted local application retain their own obligations.",
+    "Re-run retrieval, real restore/journal, runtime and HTTP checks after routing; pre-routing success is historical evidence only."
+  ],
+  "limits": "Read-only assessment and parser-only probes; no PostgreSQL SQL execution, SQL mutation, source import, installation or production change performed for this review. Earlier G2/G3 inventory was paused at root request; document-stage formal/production work remains unstarted."
+}

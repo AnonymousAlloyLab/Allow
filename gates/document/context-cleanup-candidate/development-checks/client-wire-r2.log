@@ -1,0 +1,47 @@
+test_cleanup_receipt_matches_all_registration_identity (test_context_lease_client.ContextLeaseClientTests.test_cleanup_receipt_matches_all_registration_identity)
+A new proxy, reused nonce or different lease cannot discharge old ownership. ... ok
+test_cleanup_success_flag_is_required (test_context_lease_client.ContextLeaseClientTests.test_cleanup_success_flag_is_required)
+CLEAN without the explicit Boolean publication flag is not a success receipt. ... ok
+test_control_request_has_no_pid_route_or_scope (test_context_lease_client.ContextLeaseClientTests.test_control_request_has_no_pid_route_or_scope)
+Only operational nonce and generation fields cross the private control channel. ... ok
+test_original_request_failure_survives_confirmed_cleanup (test_context_lease_client.ContextLeaseClientTests.test_original_request_failure_survives_confirmed_cleanup)
+A missing document stays a request error after its failed lease is cleaned. ... ok
+test_poisoned_cleanup_never_becomes_success (test_context_lease_client.ContextLeaseClientTests.test_poisoned_cleanup_never_becomes_success)
+A failed lease can be clean without permitting validation publication. ... ok
+test_private_control_socket_modes_are_required (test_context_lease_client.ContextLeaseClientTests.test_private_control_socket_modes_are_required)
+Wrong modes and symlinks fail before connecting to any endpoint. ... ok
+test_real_control_duplicate_and_oversize_replies (test_context_lease_client.ContextLeaseClientTests.test_real_control_duplicate_and_oversize_replies)
+Duplicate-key, invalid UTF8 and oversized output cannot become a receipt. ... ok
+test_real_control_eof_and_exact_reply (test_context_lease_client.ContextLeaseClientTests.test_real_control_eof_and_exact_reply)
+The real socket path sends a complete frame before parsing its response. ... ok
+test_real_control_exact_byte_limit_is_inclusive (test_context_lease_client.ContextLeaseClientTests.test_real_control_exact_byte_limit_is_inclusive)
+A valid response padded to exactly8192 bytes retains its closed fields. ... ok
+test_registration_failure_never_connects (test_context_lease_client.ContextLeaseClientTests.test_registration_failure_never_connects)
+No backend is opened without a proxy-issued exclusive reservation. ... ok
+test_registration_is_closed_and_nonce_bound (test_context_lease_client.ContextLeaseClientTests.test_registration_is_closed_and_nonce_bound)
+Reject coercions and stale fields before accepting a control capability. ... ok
+test_success_waits_for_transport_close_and_receipt (test_context_lease_client.ContextLeaseClientTests.test_success_waits_for_transport_close_and_receipt)
+Staged output cannot return between connection closure and confirmed cleanup. ... ok
+test_unconfirmed_cleanup_overrides_request_error (test_context_lease_client.ContextLeaseClientTests.test_unconfirmed_cleanup_overrides_request_error)
+Unresolved ownership is unavailable even when the original request was invalid. ... ok
+test_cli_dispatch_has_one_context_call (test_validation_context.ValidationContextWireTests.test_cli_dispatch_has_one_context_call)
+VC03: empty-ID requests dispatch the mandatory context operation once. ... ok
+test_closed_cli_shape_and_strict_json (test_validation_context.ValidationContextWireTests.test_closed_cli_shape_and_strict_json)
+VC01: malformed framing and extra private fields fail before Store. ... ok
+test_context_accepts_safe_integer_and_id_count_boundaries (test_validation_context.ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries)
+VC13: the private safe-integer and4096-identity boundaries are inclusive. ... ok
+test_context_arguments_reject_before_connection (test_validation_context.ValidationContextWireTests.test_context_arguments_reject_before_connection)
+VC01/13: invalid identity/revision/set/shape never reaches SQL. ... ok
+test_full_cli_output_boundary_and_nonce (test_validation_context.ValidationContextWireTests.test_full_cli_output_boundary_and_nonce)
+VC12: size the whole transport envelope, including combined data fields. ... ok
+test_legacy_mutation_uncertainty_remains (test_validation_context.ValidationContextWireTests.test_legacy_mutation_uncertainty_remains)
+VC21: the new path does not relabel existing mutator uncertainty. ... ok
+test_read_failure_never_invents_mutation_uncertainty (test_validation_context.ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty)
+VC14: corrupt/dead read paths cannot produce mutation outcome claims. ... ok
+test_transaction_exit_failure_discards_complete_context (test_validation_context.ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context)
+VC14/15: a result formed before failed transaction exit is not published. ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.025s
+
+OK

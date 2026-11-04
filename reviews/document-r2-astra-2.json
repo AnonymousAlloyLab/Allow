@@ -1,0 +1,114 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-r2-astra-2",
+  "review_type": "INCREMENTAL_SECURITY_STATE_COHERENCE_REVIEW",
+  "decision": "REQUEST_TARGETED_CHANGES_BEFORE_FINAL_FREEZE",
+  "timestamp_utc": "2026-11-03T18:01:21.299595+00:00",
+  "spec_revision": 2,
+  "spec_sha256": "d68732232213cdde332c87e5b5b6db3071c4944d19e73144d41f85b604f92eb9",
+  "wire_revision": 2,
+  "wire_sha256": "8cdd8964e1bac48392847c6a2fefc8400d9a0e760b1d54ad080307ca0db0b1f1",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "d68732232213cdde332c87e5b5b6db3071c4944d19e73144d41f85b604f92eb9",
+    "spec/document-wire-draft.json": "8cdd8964e1bac48392847c6a2fefc8400d9a0e760b1d54ad080307ca0db0b1f1",
+    "reviews/document-parser-spike.json": "521c44620079754b357eb5d677e4c679a0a8a484360fc1fb4366a55331ea8686"
+  },
+  "formal_hash_frozen": false,
+  "formal_reason": "Document.lean actively changes during this review. Observations are intermediate integration findings, not final formal-source approval.",
+  "resolved_initial_findings": [
+    {
+      "id": "D-A2-01",
+      "resolution": "Known rollback is distinguished from UNKNOWN_COMMIT_OUTCOME, with original-key receipt recovery before retry."
+    },
+    {
+      "id": "D-A2-02",
+      "resolution": "Private durable metadata, owner/mode/symlink checks, missing-store failure and fresh bearer mapped to stable principal/workspace/launch are specified."
+    },
+    {
+      "id": "D-A2-03",
+      "resolution": "Exact raw HTTP bytes plus method/route replace ambiguous canonical serialization; deterministic rejection receipts and indefinite retention avoid expiration/cleanup races. Existing authorized receipt lookup precedes validation and quota."
+    },
+    {
+      "id": "D-A2-04",
+      "resolution": "Workspace row serializes policy installation, reservation and final CAS. Final nonce and policy checks fence stale validation frames; policy mismatch requires fresh validation."
+    },
+    {
+      "id": "D-A2-05",
+      "resolution": "Closed ownership forest separates declaration references from syntax edges; explicit set-valued parameters and owner/range convention resolve cardinality/schema ambiguity."
+    },
+    {
+      "id": "D-A2-08",
+      "resolution": "Dedicated operation-only Python bridge, existing proxy connection plumbing, scoped composite FKs and forced RLS preserve SQL routing and document ownership boundaries."
+    },
+    {
+      "id": "D-A2-10",
+      "resolution": "Canonical/retrieval profiles remain independent from document acceptance and presentation UUIDs, with no automatic CorpusPair or commercial claim."
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "D2-A2-01",
+      "severity": "HIGH",
+      "location": "wire receipts.quota; workspace fields; admission/finalization protocol",
+      "finding": "The64-document hard limit has no reserved_documents counter or explicit final count rejection. With63 existing documents, two CREATE requests can both reserve revision/receipt/byte capacity before either commits.",
+      "resolution": "Reserve one document slot for each admitted CREATE under workspace lock, preserving it across takeover and releasing on known terminal outcome, or specify final document_count recheck with a defined deterministic quota outcome. Include revision0 in the4096-revision count; charge exact stored bytes/metadata once and settle reservations atomically. Test63 existing plus two concurrent creates and full-quota replay."
+    },
+    {
+      "id": "D2-A2-02",
+      "severity": "HIGH",
+      "location": "wire Candidate.block and projection.trivia",
+      "finding": "The full-module-only candidate carries no copy lineage/trivia transfer. Stable IDs identify retained or moved nodes, but fresh IDs alone cannot identify which old comments should be duplicated by a copy. The required copy-comment behavior is underdetermined.",
+      "resolution": "Add a closed bounded presentation lineage/map tied to expectedRevision, with explicit source-node to fresh-node copy relationships verified by server and no authority claims, or another concrete complete trivia transport. Define SOURCE-to-BLOCK handling from authoritative source and preserve exact comments through copy/move/delete tests. Do not infer copy from equal text or structurally equal nodes."
+    },
+    {
+      "id": "D2-A2-03",
+      "severity": "MEDIUM",
+      "location": "main and wire projection map identity; history-copy",
+      "finding": "Stored maps still variously bind artifact/revision while revision rows reference immutable artifacts. Copying a historical artifact to a new revision must not retain an authoritative old revision binding or mutate old map bytes.",
+      "resolution": "Freeze maps as artifact/source-bound immutable content with revision in the referencing envelope. History-copy revalidates and creates a current-policy checked artifact/new revision, preserving exact span contents when source unchanged, and never rewrites prior artifact maps. Align all main/wire language."
+    },
+    {
+      "id": "D2-A2-04",
+      "severity": "HIGH",
+      "location": "intermediate Document.lean / final registry",
+      "finding": "The actively edited model is not ready for final review. An observed intermediate Step.deniedReceipt allowed policy mismatch to create a terminal denial, contrary to wire revalidation; other intermediate bounds retained1MiB source/30000 occurrences rather than32768/1024. No final claim is made about still-changing code.",
+      "resolution": "Finish connected CandidateValid/module/scope/source/map model and align every transition, bounds and policy mismatch behavior with frozen wire. Explicitly model nonce/authority/receipt ownership properties or register them as runtime trust with exact narrow theorem claims. Final exact-hash six-seat review and two clean registered proof builds remain mandatory before production."
+    },
+    {
+      "id": "D2-A2-05",
+      "severity": "MEDIUM",
+      "location": "main/wire resource budgets and parser-spike limitations",
+      "finding": "Two validation workers and1024MiB memory remain alongside inherited stricter per-user concurrency1 and512MiB heap. The spike needed8GiB address space and therefore does not validate deployment limits; a numeric memory budget without heap/address-space distinction is ambiguous.",
+      "resolution": "Specify global versus per-principal concurrency and shared solve/validate permit accounting, zero queue behavior, heap versus address-space/process bounds and full request/response serialization ceilings. Reuse existing isolated worker policy without relaxing inherited limits. Measure under the actual launcher before claiming budget acceptance; keep500-node latency target open under256-node profile."
+    }
+  ],
+  "nonblocking_implementation_requirements": [
+    "Preserve method/route/API version identity in active admissions as well as final receipts and checked frames; final nonce checks must also bind operation identity.",
+    "Reserve4MiB only after all component ceilings are enforced; artifact1MiB does not imply a1MiB response containing artifact plus JSON/envelope/remapping fits. Construct/bound the complete stored outcome before final transaction.",
+    "Availability may leave durable admissions/reservations. Provide explicit retry recovery after verified old worker/process exit, install a fresh nonce under locks and always inspect receipt first. Never use elapsed time as death proof; uncertain old transaction resolution is serialized by the same workspace lock.",
+    "Treat all terminal admissions and retained request copies as accounted storage. At quota, GET and existing receipt recovery must remain possible; new mutation rejection is an intentional availability limit.",
+    "Replay reports historical receipt success only and never grants current-policy analysis/canonical eligibility. Authorization remains mandatory before receipt disclosure.",
+    "Bridge process accepts only server-owned fixed operations/frames; no browser-supplied trusted candidate, DSN, SQL or principal. Inventory migration/create/commit/recovery SQL paths and assert per-client proxy evidence."
+  ],
+  "parser_spike_assessment": {
+    "artifacts_verified": [
+      "Probe.java",
+      "Probe.class",
+      "results.txt",
+      "alloy.jar"
+    ],
+    "all_recorded_hashes_match": true,
+    "evidence_read": "Actual results show set tuple field types, predicate set parameters, normalization/expanded commands and Unicode/CRLF UTF16 positions described in report.",
+    "limits": "No independent rerun, full elaborator/printer proof, file-reader coordinate verification, performance acceptance or solver semantic correspondence inferred."
+  },
+  "bounded_final_gameplan": [
+    "Resolve document-slot reservation, copy-trivia transport, artifact map identity and precise resource-policy definitions in companion/main.",
+    "Finish connected formal model, exact proposition registry and witnesses; final reviews bind one coherent main/wire/formal bundle, then two clean builds before production.",
+    "Implement isolated validation plus narrow proxy-only store after approval; test admission/nonce/policy/quota/crash/commit uncertainty and exact-byte replay first.",
+    "Add full forest/parser projection and UI workflows; test all constructor failures, copy/move/undo source fidelity and late-response freshness.",
+    "Re-run inherited finite gates independently; preserve previous309-source baseline and SQL/retrieval evidence, keep unfulfilled accessibility/performance/commercial gates open."
+  ],
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Architecture coherence review only, not production authorization, formal closure or G2/G3 completion."
+}

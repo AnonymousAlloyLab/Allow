@@ -1,0 +1,104 @@
+{
+  "status": "ARCHIVAL_COMPLETE",
+  "plan_sha256": "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+  "retired": [
+    {
+      "run_id": "r11-regressions",
+      "model_directory_absent": true,
+      "receipt_path": "/tmp/allow-cc-3ygujdha/.tools/retrieval/models.ARCHIVED-INPUT.json",
+      "receipt_sha256": "f6346b19b25d97990b2ccccef3b192b352fd0f40252f1ad3d9da59717917bf74",
+      "removed_allocated_bytes": 436793344
+    },
+    {
+      "run_id": "r12-regressions",
+      "model_directory_absent": true,
+      "receipt_path": "/tmp/allow-cc-alh5blo3/.tools/retrieval/models.ARCHIVED-INPUT.json",
+      "receipt_sha256": "ea09a8b11f5ee43d5d62501d34d340d7a813c0fb809a417a2efe3dd3d0cf7646",
+      "removed_allocated_bytes": 436801536
+    },
+    {
+      "run_id": "r13-regressions",
+      "model_directory_absent": true,
+      "receipt_path": "/tmp/allow-cc-0gm3s7l_/.tools/retrieval/models.ARCHIVED-INPUT.json",
+      "receipt_sha256": "c3a28f895eb0d22a7ae3545fc16165096a493844eb43a92bf38fd2f52d480bb1",
+      "removed_allocated_bytes": 436801536
+    },
+    {
+      "run_id": "r14-regressions",
+      "model_directory_absent": true,
+      "receipt_path": "/tmp/allow-cc-xgmbaoxk/.tools/retrieval/models.ARCHIVED-INPUT.json",
+      "receipt_sha256": "30ab56b7014c234fc9d10c962249bc445c12684b89e1c7d8196bbed69e283a66",
+      "removed_allocated_bytes": 436797440
+    }
+  ],
+  "verification_copy_cleanup": {
+    "status": "AUTHORIZED_VERIFICATION_COPY_REMOVED",
+    "path": "/tmp/allow-model-restore-check-bs5m55_o",
+    "verification_receipt_sha256": "ccd3a647eb783b3af951bb897fed5c1800745bad6bdcfddec5b1eaa3c608d254",
+    "removed_allocated_bytes": 436797440,
+    "absence": true
+  },
+  "r15_physically_retained": true,
+  "private_archive_retained": true,
+  "canonical_model_touched": false,
+  "active_runtime_touched": false,
+  "all_five_original_manifests_and_reports_unchanged": true,
+  "removed_allocated_bytes": 2183991296,
+  "free_bytes_before": 2443280384,
+  "free_bytes_after": 4627017728,
+  "free_delta_caveat": "Concurrent benchmark preparation may also consume disk; removed_allocated_bytes measures only this authorized action.",
+  "restore_instructions": {
+    "r11-regressions": [
+      "/home/augustus/Allow/.tools/retrieval-venv/bin/python",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model_retention.py",
+      "restore",
+      "--plan",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/plan.json",
+      "--plan-sha256",
+      "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+      "--run-id",
+      "r11-regressions",
+      "--receipt",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/r11-regressions-restoration-receipt.json"
+    ],
+    "r12-regressions": [
+      "/home/augustus/Allow/.tools/retrieval-venv/bin/python",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model_retention.py",
+      "restore",
+      "--plan",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/plan.json",
+      "--plan-sha256",
+      "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+      "--run-id",
+      "r12-regressions",
+      "--receipt",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/r12-regressions-restoration-receipt.json"
+    ],
+    "r13-regressions": [
+      "/home/augustus/Allow/.tools/retrieval-venv/bin/python",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model_retention.py",
+      "restore",
+      "--plan",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/plan.json",
+      "--plan-sha256",
+      "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+      "--run-id",
+      "r13-regressions",
+      "--receipt",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/r13-regressions-restoration-receipt.json"
+    ],
+    "r14-regressions": [
+      "/home/augustus/Allow/.tools/retrieval-venv/bin/python",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model_retention.py",
+      "restore",
+      "--plan",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/plan.json",
+      "--plan-sha256",
+      "c01e3fed82e2817eb60cc699d3df1be8b98314c70703292157ea44fd7852748d",
+      "--run-id",
+      "r14-regressions",
+      "--receipt",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/model-retention-r1/r14-regressions-restoration-receipt.json"
+    ]
+  }
+}

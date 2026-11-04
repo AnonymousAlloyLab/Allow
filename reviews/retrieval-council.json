@@ -1,0 +1,40 @@
+{
+  "classification": "ADVISORY_REVIEW_NOT_PROOF",
+  "stage_revision": 4,
+  "stage_sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "seats": {
+    "terra-1": {
+      "requested_model": "gpt-6.1-terra",
+      "report": "reviews/retrieval-terra-1.json",
+      "sha256": "2f857d4171dc8685b79cf06e963a13595a6eb919fe3f5820c99002b542f89818"
+    },
+    "terra-2": {
+      "requested_model": "gpt-6.1-terra",
+      "report": "reviews/retrieval-terra-2.json",
+      "sha256": "e79ab34aaa153b94dd85f504d814b8dbbdb8acd8fdc3feed1a2bdf3222855aed"
+    },
+    "sol-1": {
+      "requested_model": "gpt-6.1-sol",
+      "report": "reviews/retrieval-sol-1.json",
+      "sha256": "f2c0b1d0e00c3559829770efa4478b94e9d7ce1b94ef09171a3223ed1f271672"
+    },
+    "sol-2": {
+      "requested_model": "gpt-6.1-sol",
+      "report": "reviews/retrieval-sol-2.json",
+      "sha256": "d72a796ccc4a5f808949bb28fc87db3ec2c5f20d115c2e8a1c0810c112d06205"
+    },
+    "astra-1": {
+      "requested_model": "gpt-6-astra",
+      "report": "reviews/retrieval-astra-1.json",
+      "sha256": "0b8810a59bd733f96c3d82e068d589b84e7d2b39b483d9b190812a74e8998f05"
+    },
+    "astra-2": {
+      "requested_model": "gpt-6-astra",
+      "report": "reviews/retrieval-astra-2.json",
+      "sha256": "c5b385a4d2b0bf4015849de62bd07c49e2bbab4d79dda29b5df45683b693a49c"
+    }
+  },
+  "formal_report": "gates/retrieval/formal-report.json",
+  "sequence": "All six design reports and two clean Lean builds completed before production implementation",
+  "trust": "Requested dispatch model identities recorded; provider internals not independently attested. Formal author is Terra1 seat. Reviews are advisory, not proof."
+}

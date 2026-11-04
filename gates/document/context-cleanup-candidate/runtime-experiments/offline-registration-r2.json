@@ -1,0 +1,56 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-OFFLINE-REGRESSIONS-R2",
+  "active_root": "/home/augustus/Allow",
+  "copied_root": "/tmp/allow-cc-uvy_vjpi",
+  "output": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/offline-regressions-r2",
+  "source_ready": "/home/augustus/Allow/gates/document/context-cleanup-candidate/source-ready-r5.json",
+  "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+  "driver_sha256": "7228d9d5d959d0cf8931c6a98e43f1d5e64b01d060758d3cbd39020efe6a6173",
+  "selection": [
+    "test_context_lease_client",
+    "test_context_leases",
+    "test_sql_context_protocol",
+    "test_sql_connections.ConnectionPolicyTests",
+    "test_sql_guard",
+    "test_sql_proxy",
+    "test_sql_image",
+    "test_sql_image_consumers",
+    "test_validation_context.ValidationContextWireTests",
+    "test_documents.WireTests",
+    "test_repository.RankingTests",
+    "test_repository.SourceTests",
+    "test_repository.JournalTests",
+    "test_luna_adversarial",
+    "test_harness"
+  ],
+  "excluded": [
+    "test_documents.DocumentSQLTests: actual PostgreSQL mutations",
+    "test_validation_context.ValidationContextSQLTests: actual PostgreSQL mutations",
+    "test_sql_connections.ExplicitMigrationTests: creates database",
+    "test_repository.PostgresTests: real repository SQL",
+    "test_repository.SandboxTests: Java worker not included in P1 offline selection",
+    "test_luna_semantic: production Java/encoder outside P1 offline scope",
+    "test_ml: encoder/training outside P1 offline scope"
+  ],
+  "boundary": "Finite selected offline Python/parser/wire regressions with real psycopg.connect denied; no active DB, Spring, Java/frontend build, HTTP/restart/backup/recovery, production promotion or full33 closure.",
+  "additional_inputs": [
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/test_harness.py",
+      "sha256": "7284f88b27c955c2775cb5bf5ea456af774d66192defba710d75d3b244ae4a79"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/experiment.py",
+      "sha256": "2bff23bfd12ba36c0286179c2611b38ecfec912a5a3c0ae3409aa7645a378b32"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r9-quota-memory/manifest.json",
+      "sha256": "d72b01f5ef4103ca22b0ca45e89f4c1a835a3e385ccdf313513a3b8f22639648"
+    },
+    {
+      "path": "/home/augustus/Allow/.tools/retrieval-venv/bin/python",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f"
+    }
+  ],
+  "supersedes": "offline-registration-r1.json",
+  "reason": "Pin additional active gate-local harness helpers and r9 tooling manifest before rerun; preserve previous 203 finite passes."
+}

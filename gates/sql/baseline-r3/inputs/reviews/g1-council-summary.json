@@ -1,0 +1,44 @@
+{
+  "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+  "members": {
+    "terra-1": {
+      "dispatch_model": "gpt-6.1-terra",
+      "report": "reviews/g1-terra-1.json",
+      "sha256": "168a6bb7bc9d4aed415e56225e6e62524f01c6df874f48a4e1bcd8329111717c",
+      "verdict": "ACCEPT_WITH_STATED_BOUNDARIES"
+    },
+    "terra-2": {
+      "dispatch_model": "gpt-6.1-terra",
+      "report": "reviews/g1-terra-2.json",
+      "sha256": "3ff1a0618717a7bb90156fda28e284dff892fe1f96a9032e456297289d5ae447",
+      "verdict": "ACCEPT_WITH_EXPLICIT_TRUST_BOUNDARIES"
+    },
+    "sol-1": {
+      "dispatch_model": "gpt-6.1-sol",
+      "report": "reviews/g1-sol-1.json",
+      "sha256": "2e15df889297f27983ebcaca87bc5a30e77b5a01e75f02f4853669dd43125a62",
+      "verdict": "ACCEPT_IMPLEMENTATION_PLAN_SUBJECT_TO_PROOFGATE"
+    },
+    "sol-2": {
+      "dispatch_model": "gpt-6.1-sol",
+      "report": "reviews/g1-sol-2.json",
+      "sha256": "359dd40ec0d2e47617af1895a110e6a3b0069517a3f2a0dfe62167e82d6eab12",
+      "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES"
+    },
+    "astra-1": {
+      "dispatch_model": "gpt-6-astra",
+      "report": "reviews/g1-astra-1.json",
+      "sha256": "e581a5b01371aea94da19e6310b23690184f998b8ca38b682d8e547b3e22f565",
+      "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES"
+    },
+    "astra-2": {
+      "dispatch_model": "gpt-6-astra",
+      "report": "reviews/g1-astra-2.json",
+      "sha256": "09c2b0ba9a836c80c6daf0dae274f3113a400c173a0f5b33010e48578d9cb960",
+      "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES"
+    }
+  },
+  "classification": "ADVISORY_REVIEW_NOT_PROOF",
+  "production_authorization": "User authorized first gates; proof supplement passed before source creation",
+  "runtime_model_identity": "Dispatch models recorded; provider internals not independently attested"
+}

@@ -1,0 +1,79 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-r4-astra-2",
+  "review_type": "FINAL_SIX_FILE_CANDIDATE_SECURITY_AND_STATE_REVIEW",
+  "decision": "APPROVE_GAMEPLAN_CONDITIONAL_ONLY_ON_KNOWN_ADMITTED_COLLISION_FIX_AND_FINAL_HASH_CHECK",
+  "timestamp_utc": "2026-11-03T18:23:53.568872+00:00",
+  "manifest_path": "gates/document/review-candidate-r4/manifest.json",
+  "manifest_sha256": "43998b56dda88c797d2a03b4799a4992c863ef23047c966fe770857e609151f3",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "b8fe8a869e93940f0d08c376e5835ae0413a42a6d7d5af2620c70dc38442a87c",
+    "gates/document/draft/types.json": "9071ff7c89a564ee43e94cc63d4cf50b8061ce239fde6026d2345b8d1c1e8815"
+  },
+  "all_six_snapshot_hashes_verified": true,
+  "new_blocking_findings": [],
+  "known_fix_pending_final_hash": [
+    {
+      "id": "D4-ADMITTED-COLLISION",
+      "status": "ALREADY_IDENTIFIED_AND_AUTHORIZED_FIX_PENDING_EXACT_HASH_REVIEW",
+      "finding": "Snapshot AdmittedStep has replay and fresh constructors; fresh requires receipt absence, so the existing Step.collision cannot be lifted for an existing changed-byte key. This is a missing admitted outcome, not a new runtime design flaw.",
+      "required_resolution": "Add explicit authenticated exact-wire inequality collision constructor retaining state, with theorem and concrete witness independent of parser/decoder/frame availability. Regenerate types from exact resulting source and verify final six-file manifest. No additional main/wire/UI/adapter change needed for this repair."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "D3-A2-01",
+      "resolution": "Payload now contains client intent only; policy/artifact are excluded. CheckedFrameBinding is separate, and authorized AdmittedStep.replay bypasses decoder/parser/frame. Same-wire determinism no longer constrains randomized remapping or current policy."
+    },
+    {
+      "id": "D3-A2-02",
+      "resolution": "OperationValid uses history[target] including revision0 and SameContent excluding parser report. HistoricalStep appends fresh current-policy artifact. RevisionConsistent and initial/revision0/policy4 restoration witnesses document proper indexing."
+    },
+    {
+      "id": "D3-A2-N1",
+      "resolution": "CheckedModule now includes concatenated declaration/binder allIdentitiesUnique and cross-category theorem; source expression UUID ownership remains an explicit adapter obligation."
+    },
+    {
+      "id": "D3-A2-N2",
+      "resolution": "Applied lost success and lost denial are separate abstract branches; runtime maps both to UNKNOWN_COMMIT_OUTCOME and explicitly resolves actual commit certainty via receipt/database recovery. No universal no-commit unknown theorem claimed."
+    }
+  ],
+  "admitted_state_assessment": {
+    "success": "Fresh acceptance requires deterministic intent decoding, no prior scoped receipt, trusted parser admission and exact checked-frame binding, current policy/base, admitted bounds, operation validity and CandidateValid. Registered proof claims remain abstract and accurately bounded.",
+    "replay": "Existing authorized identical wire returns stored outcome without candidate decoding, parser or capacity; stored exact response bytes/requestId remain authoritative. Same-key different bytes must use the known pending collision branch.",
+    "policy": "Policy mismatch cannot enter terminal rejection under Step.deniedReceipt; runtime workspace row fence serializes policy installation and finalization.",
+    "denial": "Rejected receipt preserves accepted head/history. Its semantic diagnostic correctness and nonce-bound association to original request remain concrete trusted adapter obligations; no universal inference-correctness proof is claimed. Lost denial acknowledgement is now modeled and recoverable.",
+    "scope_and_concurrency": "Auth is a supplied scoped server proposition and State is one-document serialized state. RLS, composite foreign keys, shared locks, durable reservations and owner-nonce recovery are explicitly runtime tested obligations, not asserted Lean linearizability.",
+    "history": "Fresh restore preserves modeled exact content and old history, checks current report policy and admits target0. Runtime additionally binds trivia/dependencies/artifact IDs not represented by the model."
+  },
+  "runtime_gameplan_assessment": [
+    "Private owner metadata and ephemeral bearer separation, logical launch receipt scoping and old-token rejection remain coherent.",
+    "Indefinite bounded receipt/history retention avoids24h cleanup races;4MiB admission reservation, CREATE document/revision slots and atomic counter settlement are specified. Existing replay remains available at quota.",
+    "Known rollback, physical-capacity failure and uncertain commit acknowledgement remain distinct; nonce fencing and verified process exit prevent stale owners from finalizing or releasing current reservations.",
+    "All SQL uses dedicated narrow bridge and existing SQLean proxy helper; no JDBC bypass or public arbitrary write channel.",
+    "Adapter profile fixes per-tag mapping, exact source/UTF16 span semantics, no synthetic command reconstruction, read-only canonical separation and explicit unsupported behavior.",
+    "UI separates accepted state/drafts, preserves exact retry bytes, validates response identity, copies comments with accepted-base provenance and provides keyboard/manual AT scenarios. These are implementation requirements, not passed tests."
+  ],
+  "required_runtime_evidence": [
+    "Fresh/restarted bearer auth; foreign scope/key/object rejection and exact receipt disclosure authorization.",
+    "Concurrent same-key and different-key CAS, forced digest collision, policy change during validation/finalization, stale nonce output and release attempts.",
+    "Lost COMMIT acknowledgement for success and denial; process/database restart; reserved CREATE contention at63documents; quota-full replay and physical storage failures.",
+    "Actual sandbox start under deployment limits, worker queue/permit and output bounds, whole-palette checker/parser/roundtrip fixtures and immutable artifact maps.",
+    "Proxy-only per-client migration/transaction/recovery coverage, complete inherited G2/G3 checks and named keyboard/screen-reader evidence."
+  ],
+  "commercial_boundary": "Approval concerns the implementable local engineering gameplan only. No inference of full Alloy correctness, production/G2/G3 completion, SQL parser redistribution rights, corpus rights or commercial release. Anonymous egraph/canonical/retrieval admission stays independent.",
+  "final_gate": "After the tiny admitted-collision change, compare final hash/diff and regenerated types; require final council approvals and two clean exact registered proof builds before production. No demand for proving the entire parser/database implementation.",
+  "verification_performed": [
+    "Verified all six preserved review-candidate-r4 files against manifest hashes.",
+    "Inspected full admitted transition definitions, source/module validity, historical transition, retention/retry/policy theorems and declared trust limits.",
+    "Read main/wire accepted-state protocol and full adapter/UI companions.",
+    "No independent Lean build or production test run in this review."
+  ],
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Conditional gameplan/design approval; the already-known collision repair still needs exact final hash verification and formal gates. No other concrete freeze blocker found."
+}

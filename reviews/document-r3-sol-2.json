@@ -1,0 +1,55 @@
+{
+  "reviewer": "Sol council seat 2",
+  "review_type": "READ_ONLY_UX_SCHEMA_TEST_GAMEPLAN_REVIEW",
+  "observed_inputs": {
+    "spec/document-stage-draft.json": {"revision": 3, "sha256": "2a2c3561b345f2f21c71c96aab760bcf9b8f0698b13ce1968932ff255c7e6282"},
+    "spec/document-wire-draft.json": {"revision": 4, "sha256": "1eebb58f52a9e19bf50b242f5f274faabaa13d0eec1cee13122c78263321211d"},
+    "spec/document-ui-draft.json": {"revision": 1, "sha256": "be47cf6adefdcfe4e3600e36be2fba2d038f55f29ede7b1950dc91570710b121"}
+  },
+  "observed_formal_hashes_not_an_approval_of_changing_model": {
+    "gates/document/draft/Document.lean": "60e9134b08fe7d91512347f984427a3f052a1eb03702b0ee78b5de08b76ee7a3",
+    "gates/document/draft/types.json": "fd3d36b14f259536ac5edc7b7ba4cb9859db7a42b50c60d6905d24f9c6b37397"
+  },
+  "decision": "APPROVE_UX_SCHEMA_TEST_GAMEPLAN_WITH_BOUNDED_CLARIFICATIONS_NO_IMPLEMENTATION_APPROVAL",
+  "scope": "The reviewed gameplan coherently resolves this seat's initial nominal-slot, palette, keyboard operation, accepted/draft, source freshness, 500-node and style planning findings. This is design-plan approval only. Final exact-hash council approval and two clean registered formal builds remain prerequisites to production work. No browser, performance, accessibility, full formal refinement or G2/G3 acceptance is asserted. The changing formal model and known raw-decoder/restore-zero/policy issues are outside this targeted follow-up review.",
+  "resolved_initial_findings": [
+    {"id": "DOCUMENT-SOL2-01", "assessment": "Closed declarations and all23 expression tags now specify exact roles, arity, ordered nominal schemas, field owner/range and multiplicity restrictions, set-valued parameters and command targets/options. UI explicitly exposes unresolved sibling/join constraints rather than inventing types; completion independently checks whole module."},
+    {"id": "DOCUMENT-SOL2-02", "assessment": "Pointer and keyboard create/connect/copy/cut/paste/move/delete/history operations, fresh copied binder IDs, preserved moved IDs, destination scope checks, descendant denial, focus behavior, visible actions and native text-input shortcut exclusions are planned. Named Firefox ESR/Orca and Chromium scenarios remain actual execution obligations."},
+    {"id": "DOCUMENT-SOL2-03", "assessment": "Separate accepted receipt/read state, immutable draft identity/epoch, exact retry bytes, retained rejected drafts and monotone accepted revision address the browser-local commit problem. Late success updates knowledge without overwriting a newer draft. History-copy uses explicit targets and new revisions with unsaved-draft preview."},
+    {"id": "DOCUMENT-SOL2-04", "assessment": "Unique ownership forest removes scope-dependent sharing. Artifact/source-bound node-role occurrences, explicit presentation envelope, strict Unicode, activation-time freshness checks, exact authored source and explicit comment transfer/orphans provide a coherent projection plan."},
+    {"id": "DOCUMENT-SOL2-05", "assessment": "The plan preserves formal-before-production order and explicitly limits proof claims. Current changing model is not approved by this UX review; final exact proposition and hash review remains required."},
+    {"id": "DOCUMENT-SOL2-06", "assessment": "512-node cap retains the inherited500-node fixture rather than reducing it to256. Depth32/source32768 are explicit bounds, not latency evidence. Warm local-server1000-edit p50/p95/p99 benchmark, separate solver timing, actual launcher constraints and existing Java/JS/TS source/test/callback style requirements remain binding."}
+  ],
+  "bounded_clarifications_for_final_freeze": [
+    {
+      "id": "DOCUMENT-R3-SOL2-C1",
+      "severity": "NONBLOCKING_PLAN_CLARIFICATION",
+      "topic": "Copying an already edited or fresh draft subtree",
+      "evidence": "UI copy says presentationCopies attaches each old expression to a new expression; wire permits sourceNodeId only from exact accepted base and targets only fresh draft IDs. A user can copy a new draft expression or copy a previously pasted expression before any save.",
+      "resolution": "State that browser clipboard retains optional accepted-base comment provenance per node, separate from semantic IDs. Copying draft-only content with no base comment provenance emits no transfer entry. Recopying a pasted node may propagate its original accepted-base source ID to a new unique destination; never send a draft ID as sourceNodeId. A baseRevision change requires explicit provenance rebasing or clearing with a visible notice, never guessing by text. Add tests for fresh-draft copy, copy-of-copy before save, modified copy and base refresh. The wire comment-only authority is sufficient; no new semantic copy endpoint is needed."
+    },
+    {
+      "id": "DOCUMENT-R3-SOL2-C2",
+      "severity": "NONBLOCKING_PLAN_CLARIFICATION",
+      "topic": "Cut/copy payload lifetime with selection epochs",
+      "evidence": "Payload binds draft epoch, while choosing a destination necessarily changes selection and increments that epoch. Applying strict equality to the original clipboard epoch on Paste would make ordinary keyboard Cut/Copy then select-destination then Paste unusable.",
+      "resolution": "Define a separate immutable content-generation or source-snapshot marker for clipboard validity. Keep presentation epoch increments for selection/freshness, but permit destination selection changes while verifying the source node/content/base is unchanged. Alternatively explicitly advance a pending clipboard token through selection-only transitions. Any actual source mutation, source deletion, accepted-base change or document switch invalidates/rechecks the token. Tests must exercise real Copy/Cut, destination selection and Paste, plus a source edit between those steps. No relaxation of diagnostic/evidence epoch matching follows."
+    },
+    {
+      "id": "DOCUMENT-R3-SOL2-C3",
+      "severity": "NONBLOCKING_PLAN_CLARIFICATION",
+      "topic": "Deterministic history navigation and benchmark definition",
+      "resolution": "History buttons should identify their exact target revision/artifact in a visible preview; after a history-copy commit keep the explicitly selected navigation cursor distinct from latest head so Redo cannot infer an inverse from global state. Freeze the deterministic500-expression fixture, edit sequence, warmup count, server/browser timing endpoints and command-independent preview path before measurements. Source hashes, UUIDs, schema width and declaration limits must remain valid for the fixture. These are test-plan details, not evidence presently obtained."
+    }
+  ],
+  "required_execution_matrix": [
+    "Every palette tag/declaration: valid construction plus known nominal mismatch, arity/direction, unknown binding, dependency invalidation and server-side forged request denial; include partial constraints with holes and no accepted-save authority.",
+    "Actual browser keyboard and pointer copy/move including nested quantifiers, fresh/internal remapping, external references, descendant denial, ordinary destination selection, draft-only copy, comment copy-of-copy, rejection focus and live announcements.",
+    "Actual API/persistence accepted-state tests: concurrent revisions, lost acknowledgement, exact-byte retry, restart, full quota existing receipt, history-copy under current policy and unchanged accepted artifact on known rejection. Then browser delayed-success/newer-draft tests.",
+    "Source/mode/map fixtures: repeated expressions, nested spans, tabs/EOF, supplementary and combining Unicode, CRLF, invalid surrogate denial, comments/orphans, SOURCE/BLOCK_SUPPORTED/TEXT_ONLY transitions and stale activation after selection or edit.",
+    "Automated accessibility plus recorded named manual Firefox ESR/Orca and Chromium keyboard scenarios; report exact versions and observed outcomes. Unit/component helper success cannot replace this evidence.",
+    "Reference-host500-node/1000-edit latency samples with p50/p95/p99 and warmup defined; actual bounded worker startup/resource checks; existing AST documentation/private-state/30-line guards across all authored source and tests. Report unmet thresholds rather than silently reducing fixture.",
+    "Preserve independently required canonical proof checker, Lean-oracle Java/certificate differential tests and complete versus budget-limited profile distinctions. Plan approval does not close these original G3 items."
+  ],
+  "verification": "Read-only review of the three observed JSON contracts and inherited original UX/performance obligations; sha256sum observed input/formal hashes. Only this review artifact was written. No runtime/scripts/production/active formal edits, tests, formal builds or browser/manual claims."
+}

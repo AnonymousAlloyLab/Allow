@@ -1,0 +1,20 @@
+{
+  "scope": "isolated capability witness, not production validation",
+  "size": 136492600,
+  "sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+  "seals": 15,
+  "mutation_denials_errno": {
+    "write": 1,
+    "shrink": 1,
+    "grow": 1
+  },
+  "prlimit_inherited_fd_execution": true,
+  "actual_parser_proc_exe_inode_matches_memfd": true,
+  "parser_returncode": 0,
+  "single_execution_seconds": 0.020014167999761412,
+  "limitations": [
+    "not a latency distribution",
+    "no closed/reused-fd/concurrency/race suite",
+    "dynamic loader remains trusted"
+  ]
+}

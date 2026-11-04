@@ -1,0 +1,414 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-READINESS-R2",
+  "created_utc": "2026-11-04T05:58:45.336777+00:00",
+  "status": "BLOCKED",
+  "implementation": "P1 source implemented, finite isolated subcases and selected offline tests pass; not activated in shared runtime.",
+  "source_ready_sha256": "ecbc8a87de9496ea7700a8ce34018a107d8d4a652f97503a7f07e0106995d783",
+  "source_ready_file_count": 133,
+  "source_delta": {
+    "path": "source-delta-r2.json",
+    "sha256": "fc21232a68da52b00020436b1014c20bae87d059f21f670773e668c8cb657ce8",
+    "changed_P1_baseline_intersection_count": 13,
+    "new_context_files_not_in_baseline_count": 11,
+    "additional_root_authorized_style_changes": 2,
+    "active_style_changes_after_freeze": [
+      {
+        "path": "scripts/check-code-style.mjs",
+        "frozen_sha256": "ab2b06f823d94b6b1934f412bfcf33aad9d65e9d04c08e168d95cabf03ca327e",
+        "current_sha256": "4dd407c3134c9ac7a9896f47c230b3ff42ef32c8e280e11b0c37078cec604dbc"
+      },
+      {
+        "path": "scripts/test-code-style.mjs",
+        "frozen_sha256": "4ba6394581a2c5762ef5e2ae5d98656beab82222c248900bd026bb2dece57c04",
+        "current_sha256": "c2733145c51b1230c0df3e82ade2325b28dfe63255360d7dbdfa6612f926ac38"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "run_id": "r6",
+      "report_sha256": "e0e03475b06283d4b0b33466d1bb3124c1af664265af8115c9109b8e73d18de5",
+      "manifest_sha256": "b8193722af49bb05ed3d66655fd3990db1e3a7711b4fa56cb55ed1cd4a8eb2f1",
+      "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "passed_subcases": [
+        "normal-empty",
+        "normal-owned",
+        "normal-4096-ids",
+        "actual-lock-timeout",
+        "wall-before-connect",
+        "wall-during-connected-work",
+        "wall-after-decode",
+        "cli-kill-after-decode"
+      ],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    },
+    {
+      "run_id": "r8-quota",
+      "report_sha256": "4232e0b251436075224ba3c663a2db8397cad6c4be332e0287b6d13ef0d8226a",
+      "manifest_sha256": "fe6bc65cd1b6814a91e62bb612efaeb4401fcc19745f7bb3ea4b911479c06b85",
+      "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "passed_subcases": [
+        "empty-0",
+        "empty-1",
+        "empty-2",
+        "full-0",
+        "full-1",
+        "full-2",
+        "reference-full",
+        "late-conflict"
+      ],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    },
+    {
+      "run_id": "r9-quota-memory",
+      "report_sha256": "ff5f5af0c158dda57e6cb8a3dfc1621c6ea53eab2f4ca4973caa046aa463072d",
+      "manifest_sha256": "d72b01f5ef4103ca22b0ca45e89f4c1a835a3e385ccdf313513a3b8f22639648",
+      "input_root_sha256": "353340d7549568299c389f3fc185ccc5ab9f87d51f739a307992574b97cad346",
+      "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+      "passed_subcases": [
+        "empty-0",
+        "empty-1",
+        "empty-2",
+        "full-0",
+        "full-1",
+        "full-2",
+        "reference-full",
+        "late-conflict"
+      ],
+      "harness_cleanup": [
+        {
+          "service": "proxy",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        },
+        {
+          "service": "postgres",
+          "emergency_escalation": false,
+          "owned_identity_absent": true
+        }
+      ]
+    }
+  ],
+  "latest_distinct_subcase_count": 16,
+  "historical_quota_repeat_is_not_added_coverage": true,
+  "offline_regressions": {
+    "report": "offline-regressions-r2/report.json",
+    "sha256": "d96af7f45717bb80415cd38678257810deb3608a4166fbd5fab044de9af052bf",
+    "tests": 203,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "module_counts": {
+      "test_context_lease_client": 13,
+      "test_context_leases": 32,
+      "test_sql_context_protocol": 17,
+      "test_sql_connections": 4,
+      "test_sql_guard": 8,
+      "test_sql_proxy": 39,
+      "test_sql_image": 58,
+      "test_sql_image_consumers": 3,
+      "test_validation_context": 8,
+      "test_documents": 2,
+      "test_repository": 4,
+      "test_luna_adversarial": 9,
+      "test_harness": 6
+    },
+    "source_ready_files_unchanged": true,
+    "additional_inputs_unchanged": true,
+    "separate_harness_tests": 6,
+    "real_postgresql_denied": true
+  },
+  "sql_client_inventory": {
+    "path": "offline-regressions-r2/sql-client-inventory.json",
+    "sha256": "3e2529db762a05e8c51570d74c31c767e2aa4ba2565181c6b0a6efec203a4b2b",
+    "status": "PASS",
+    "scanned_files": 65,
+    "raw_driver_calls": 1,
+    "helper": "retrieval/allow_retrieval/sql_connections.py:125"
+  },
+  "quota_fixture": {
+    "fixture_kind": "storage-shaped-not-Alloy-admissions",
+    "revisions": 4096,
+    "target_accounted_bytes": 268435456,
+    "unused_target_bytes": 674,
+    "source_padding_bytes": 27559,
+    "expected_text_bytea_bytes": 230655922,
+    "raw_row_bytes_status": "EXPECTED_ONLY_UNTIL_ACTUAL_LIBPQ_TELEMETRY",
+    "requested_ids": 4096,
+    "known_requested_ids": 4095,
+    "absent_requested_ids": 1,
+    "actual_database_counts_and_bytes": {
+      "documents": 1,
+      "revisions": 4096,
+      "artifacts": 4096,
+      "receipts": 4096,
+      "admissions": 4096,
+      "artifact_bytes": 115323865,
+      "receipt_request_bytes": 1525083,
+      "outcome_bytes": 116506319,
+      "admission_request_bytes": 1525083,
+      "accounted_bytes": 268434782,
+      "head_revision": 4095
+    },
+    "setup_elapsed_seconds": 9.454707409000548,
+    "setup_deadline_seconds": 600,
+    "artifact_bytes": 115323865,
+    "request_bytes_once": 1525083,
+    "outcome_bytes": 116506319,
+    "accounted_bytes": 268434782
+  },
+  "quota_metrics": [
+    {
+      "subcase": "empty-0",
+      "status": "PASS",
+      "elapsed_ms": 297.503715,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 82771968,
+        "VmSize_bytes": 79622144,
+        "VmHWM_bytes": 39723008,
+        "VmRSS_bytes": 39723008
+      },
+      "cpu_seconds": 0.07506499999999999
+    },
+    {
+      "subcase": "empty-1",
+      "status": "PASS",
+      "elapsed_ms": 102.361247,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 82771968,
+        "VmSize_bytes": 79622144,
+        "VmHWM_bytes": 39862272,
+        "VmRSS_bytes": 39862272
+      },
+      "cpu_seconds": 0.07458
+    },
+    {
+      "subcase": "empty-2",
+      "status": "PASS",
+      "elapsed_ms": 106.148874,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 82771968,
+        "VmSize_bytes": 79622144,
+        "VmHWM_bytes": 39718912,
+        "VmRSS_bytes": 39718912
+      },
+      "cpu_seconds": 0.077481
+    },
+    {
+      "subcase": "full-0",
+      "status": "PASS",
+      "elapsed_ms": 727.579806,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 313044992,
+        "VmSize_bytes": 313044992,
+        "VmHWM_bytes": 273043456,
+        "VmRSS_bytes": 273043456
+      },
+      "cpu_seconds": 0.382084
+    },
+    {
+      "subcase": "full-1",
+      "status": "PASS",
+      "elapsed_ms": 659.878675,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 313044992,
+        "VmSize_bytes": 313044992,
+        "VmHWM_bytes": 273010688,
+        "VmRSS_bytes": 273010688
+      },
+      "cpu_seconds": 0.376866
+    },
+    {
+      "subcase": "full-2",
+      "status": "PASS",
+      "elapsed_ms": 707.080572,
+      "post_exec_final_memory": {
+        "VmPeak_bytes": 313044992,
+        "VmSize_bytes": 313044992,
+        "VmHWM_bytes": 273018880,
+        "VmRSS_bytes": 273018880
+      },
+      "cpu_seconds": 0.409955
+    },
+    {
+      "subcase": "reference-full",
+      "status": "PASS",
+      "elapsed_ms": 593.368435,
+      "post_exec_final_memory": null,
+      "cpu_seconds": null
+    },
+    {
+      "subcase": "late-conflict",
+      "status": "PASS",
+      "elapsed_ms": 527.985661,
+      "post_exec_final_memory": null,
+      "cpu_seconds": null
+    }
+  ],
+  "memory_interpretation": "VmPeak/VmHWM are observed post-exec per-process peaks, not whole-stack physical memory; getrusage lifetime highwater is separately recorded and must not be used as post-exec CLI RSS. Proc RSS accounting is approximate.",
+  "case_map": {
+    "path": "case-readiness-r2.json",
+    "sha256": "c21c48312d21e7d476536fd34dbab2dff4136052283152ede8962e4597e342af",
+    "cases": 33,
+    "whole_case_verified": 0
+  },
+  "preview": {
+    "path": "preview-assessment-r1.json",
+    "sha256": "c98dac0698fbd479b03b03e8825862886df227703140e98ab104631fb205c119",
+    "assessment": "Root page200, unauthenticatedconfig403. Actual loadedproxyv7, no privatecontextsocket, currentv8identitySTALE_RUNTIME. Validationcontextfailure inferred from missing mandatorycontrolsocket and freshCLIlaunchpath; no document mutation or authenticated API action performed.",
+    "options": [
+      "Complete candidate acceptance before coordinated promotion; do not restart proxy alone as a shortcut.",
+      "If immediate stable preview is required, prepare a complete baseline copy with baseline Python/Java build and a fresh owned synthetic cluster/identity; route browser to its distinct port after read-only health checks.",
+      "Restoring baseline helper files in active tree is a scoped rollback that would invalidate current source freeze and needs separate root-managed artifact and recovery plan; not performed."
+    ]
+  },
+  "blockers": [
+    "Complete 33-case runtime matrix and final executable binder not executed; all case-level closure remains BLOCKED.",
+    "Two clean final implementation builds and type/inventory comparison absent for P1 runtime acceptance.",
+    "Pre-key automatic recovery availability remains explicitly OPEN even if fail-closed safety passes.",
+    "R6 manifest records suite but original input-root hash omitted that selector; preserve evidence and rerun under current harness or preregister explicit final binding.",
+    "Whole-stack4vCPU/6GiB containment and actual4vCPU/8GiB production hardware acceptance not assessed by these P1 tests.",
+    "Shared preview is mixed v7 proxy/v8 source and fails closed for new validationContext; no shared services promoted/restarted.",
+    "Full Python/SQL/backup/HTTP regressions now PASS; parent frontend/latest style and final all-case/two-build bindings remain separate. No P1 shared activation performed."
+  ],
+  "preserved_failures": [
+    "prepare-failure-r1.json",
+    "prepare-failure-r4.json",
+    "runs/r2/report.json",
+    "runs/r3/report.json",
+    "runs/r5/report.json",
+    "runs/r7-quota/report.json",
+    "authoring-check-r1.json",
+    "prepare-failure-r10.json"
+  ],
+  "boundary": "Finite evidence index and readiness assessment, not formal implementation refinement, not all33 runtime closure, not commercialization/deployment acceptance.",
+  "supersedes": "readiness-report-r1.json",
+  "full_current_regressions": {
+    "status": "PASS",
+    "bindings": {
+      "manifest.json": {
+        "path": "runs/r11-regressions/manifest.json",
+        "sha256": "1ab0cf6773662e15b9d4d05d16bf6a7fa31ce2bd3c2dac4c813e2c6965cd304e"
+      },
+      "report.json": {
+        "path": "runs/r11-regressions/report.json",
+        "sha256": "8f54ae9ef02ee9fc7c1f641d76dd810494e65e20c85feaae9e7e84f6c58389f5"
+      },
+      "python-tests.json": {
+        "path": "runs/r11-regressions/python-tests.json",
+        "sha256": "d47a92d3c7fd2c554a09f11920015f3742d9192905dab095b626f957b026a528"
+      },
+      "python-tests.log": {
+        "path": "runs/r11-regressions/python-tests.log",
+        "sha256": "f634fa4cb91fa7212e44ba11416e00403593b31a10315a7cd1661a7f414976b2"
+      },
+      "sql-runtime.json": {
+        "path": "runs/r11-regressions/sql-runtime.json",
+        "sha256": "8767d149fea624711d27b1a1b55888166d40bf7a3ec614423a6d00e690439ae2"
+      },
+      "sql-runtime.log": {
+        "path": "runs/r11-regressions/sql-runtime.log",
+        "sha256": "157d9225fd050511632dc631605f49fd718ed0db281e941ae448ed6cf67ae216"
+      },
+      "client-coverage.json": {
+        "path": "runs/r11-regressions/client-coverage.json",
+        "sha256": "3496c4584c990c18ff1706cb07c82c5ae94e86265eb7568375fc636c4ff05efb"
+      },
+      "recovery-report.json": {
+        "path": "runs/r11-regressions/recovery-report.json",
+        "sha256": "7a2a811933d84983f82895f53d7d85d3f5fada030563998437c70dff8285ff32"
+      },
+      "document-recovery-report.json": {
+        "path": "runs/r11-regressions/document-recovery-report.json",
+        "sha256": "864190605992179f4a18a2c74992103740839ee97afbf81b09841ebbac8ffed8"
+      },
+      "http-smoke.json": {
+        "path": "runs/r11-regressions/http-smoke.json",
+        "sha256": "096f5cc76cacb5fecbccaec5144b70c7d841052cbff015559d78f40292f5957a"
+      },
+      "restart-report.json": {
+        "path": "runs/r11-regressions/restart-report.json",
+        "sha256": "11f12960884132997b3deb7fef087e54bad7c60b7408b422cedd165b2045c5ac"
+      }
+    },
+    "input_root_sha256": "7ed06c713113bde9d755188f9621d5fc85221b7b21d3c9ea607bd16462ccacca",
+    "python": {
+      "tests": 250,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "sql": {
+      "tests": 52,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "http_smoke_checks": 8,
+    "http_restart_checks": 6,
+    "retrieval_backup_restore": "PASS",
+    "document_backup_restore": "PASS",
+    "client_routes": "PASS",
+    "copied_source_unchanged": true,
+    "active_current_P1_python_matches": true,
+    "active_whole133_file_receipt_matches": false,
+    "active_style_changes_after_freeze": [
+      {
+        "path": "scripts/check-code-style.mjs",
+        "frozen_sha256": "ab2b06f823d94b6b1934f412bfcf33aad9d65e9d04c08e168d95cabf03ca327e",
+        "current_sha256": "4dd407c3134c9ac7a9896f47c230b3ff42ef32c8e280e11b0c37078cec604dbc"
+      },
+      {
+        "path": "scripts/test-code-style.mjs",
+        "frozen_sha256": "4ba6394581a2c5762ef5e2ae5d98656beab82222c248900bd026bb2dece57c04",
+        "current_sha256": "c2733145c51b1230c0df3e82ade2325b28dfe63255360d7dbdfa6612f926ac38"
+      }
+    ],
+    "default_target_file_count": 191,
+    "target_profile": "DEFAULT",
+    "extra_gate_harness_tests_in_250_count": 0,
+    "owned_services_absent": true,
+    "emergency_cleanup_escalation": false,
+    "whole_stack_cgroup": "NOT_ASSESSED",
+    "production_hardware_acceptance": "NOT_ASSESSED",
+    "no_performance_selection": true
+  },
+  "external_parent_java_evidence": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/implementation-report.json",
+    "sha256": "6e3a9ddad06d9666a6e5d27121e05a0a8130ee341c0429b2de443640b49bd574",
+    "classification": "JAVA_PLUMBING_AND_FINITE_DEVELOPMENT_TESTS_NOT_RUNTIME_CLOSURE",
+    "tests": {
+      "tests": 204,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "target": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/build-r1/backend/target",
+    "executed_by_this_agent": false
+  },
+  "next_registered_work": "Finish remaining33-case fault variants and final binder; parent may run separately authorized constrained fresh-JVM semantic screening without claiming P1 closure."
+}

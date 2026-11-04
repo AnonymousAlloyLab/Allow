@@ -1,0 +1,140 @@
+'Allow.infer_sound' depends on axioms: [propext]
+'Allow.typed_hole_free' depends on axioms: [propext]
+'Allow.checkSlot_sound' depends on axioms: [propext]
+'Allow.reject_preserves' depends on axioms: [propext]
+'Allow.commit_preserves' depends on axioms: [propext]
+'Allow.commit_revision' depends on axioms: [propext]
+'Allow.visible_is_current' depends on axioms: [propext]
+'Allow.canonical_eq_iff' depends on axioms: [propext, Quot.sound]
+'Allow.certificate_sound' depends on axioms: [propext]
+'Allow.certified_merge_canonical' depends on axioms: [propext, Quot.sound]
+'Allow.no_unbounded_claim' depends on axioms: [propext]
+'Allow.unknown_is_not_unsat' depends on axioms: [propext]
+'Allow.retrieval_is_authorized' depends on axioms: [propext]
+'Allow.pair_admission_bound' depends on axioms: [propext]
+'Allow.contract_has_witness' does not depend on any axioms
+'Allow.empty_domain_counterexample' does not depend on any axioms
+'Allow.canonical_idempotent' depends on axioms: [propext, Quot.sound]
+'Allow.distinct_inventories_distinct_keys' depends on axioms: [propext]
+'Allow.edit_hides_old' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.accepted_formula_witness' depends on axioms: [propext]
+'Allow.rejected_bad_drop_witness' depends on axioms: [propext]
+'Allow.accepted_commit_witness' depends on axioms: [propext]
+'Allow.visible_evidence_witness' does not depend on any axioms
+'Allow.admitted_pools_witness' does not depend on any axioms
+'Allow.nontrivial_canonical_witness' depends on axioms: [propext]
+'Allow.Slots.names_do_not_affect_payload' does not depend on any axioms
+'Allow.Slots.names_do_not_affect_embedding' does not depend on any axioms
+'Allow.Slots.distinct_slots_remain_distinct' does not depend on any axioms
+'Allow.Slots.embedding_has_no_presentation' does not depend on any axioms
+'Allow.Foundation.admission_bounded' depends on axioms: [propext, Quot.sound]
+'Allow.Foundation.terminal_is_final' does not depend on any axioms
+'Allow.Foundation.cancel_is_not_unsat' does not depend on any axioms
+'Allow.Foundation.accepted_style_bounded' depends on axioms: [propext]
+'Allow.EGraph.rule_sound' depends on axioms: [propext]
+'Allow.EGraph.derivation_sound' depends on axioms: [propext]
+'Allow.EGraph.merge_preserves_key' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.class_sound' depends on axioms: [propext]
+'Allow.EGraph.extraction_sound' depends on axioms: [propext]
+'Allow.EGraph.bounded_run_no_false_saturation' depends on axioms: [propext]
+'Allow.EGraph.rel_rule_sound' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.rel_derivation_sound' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.rel_merge_sound' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.rel_extraction_sound' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.rel_nonempty_congruence' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.rel_empty_congruence' depends on axioms: [propext, Quot.sound]
+'Allow.EGraph.implication_lowering' does not depend on any axioms
+'Allow.EGraph.iff_lowering' does not depend on any axioms
+'Allow.EGraph.witness_boolean_absorption' depends on axioms: [propext]
+'Allow.EGraph.witness_relation_absorption' depends on axioms: [propext]
+'Allow.EGraph.witness_relation_difference' depends on axioms: [propext]
+'Allow.EGraph.witness_budget_stop' does not depend on any axioms
+'Allow.EGraph.eval_substB' depends on axioms: [propext]
+'Allow.EGraph.mixed_sound' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.ready_bounds' does not depend on any axioms
+'Allow.Retrieval.ready_positive_size' does not depend on any axioms
+'Allow.Retrieval.ready_negative_size' does not depend on any axioms
+'Allow.Retrieval.ready_positive_distinct' does not depend on any axioms
+'Allow.Retrieval.ready_negative_distinct' does not depend on any axioms
+'Allow.Retrieval.ready_positive_admitted' does not depend on any axioms
+'Allow.Retrieval.ready_negative_admitted' does not depend on any axioms
+'Allow.Retrieval.below_range_not_ready' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.above_range_not_ready' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.partial_not_ready' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.positive_query' does not depend on any axioms
+'Allow.Retrieval.negative_query' does not depend on any axioms
+'Allow.Retrieval.opposite_polarities_disjoint' does not depend on any axioms
+'Allow.Retrieval.finite_samples_incomplete' depends on axioms: [propext]
+'Allow.Retrieval.opposing_witness_refutes_equivalence' depends on axioms: [propext]
+'Allow.Retrieval.pack4_context' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.pack4_predicate' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.pack4_positive' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.pack4_negative' depends on axioms: [propext, Quot.sound]
+'Allow.Retrieval.vector_width' does not depend on any axioms
+'Allow.Retrieval.four_blocks_width' does not depend on any axioms
+'Allow.Retrieval.score_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.Retrieval.score_zero' does not depend on any axioms
+'Allow.Retrieval.score_max' does not depend on any axioms
+'Allow.Retrieval.incompatible_overlap_zero' does not depend on any axioms
+'Allow.Retrieval.commit_current' depends on axioms: [propext]
+'Allow.Retrieval.stale_cannot_commit' depends on axioms: [propext]
+'Allow.Retrieval.partial_cannot_commit' depends on axioms: [propext]
+'Allow.Retrieval.revoked_invisible' depends on axioms: [propext]
+'Allow.Retrieval.admitted_evidence' depends on axioms: [propext]
+'Allow.Retrieval.ready_three_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.SqlRouting.exact_request' does not depend on any axioms
+'Allow.SqlRouting.pinned_identity' does not depend on any axioms
+'Allow.SqlRouting.mismatch_denied' does not depend on any axioms
+'Allow.SqlRouting.binary_mismatch_denied' does not depend on any axioms
+'Allow.SqlRouting.profile_mismatch_denied' does not depend on any axioms
+'Allow.SqlRouting.parser_failure_denied' does not depend on any axioms
+'Allow.SqlRouting.isOpaque_denied' does not depend on any axioms
+'Allow.SqlRouting.cache_exact' does not depend on any axioms
+'Allow.SqlRouting.execute_accepted' depends on axioms: [propext, Quot.sound]
+'Allow.SqlRouting.admission_witness' depends on axioms: [propext]
+'Allow.SqlRouting.execution_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.SqlRouting.denial_witness' does not depend on any axioms
+'Allow.SqlRouting.parse_bind_execute' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.SqlRouting.derivation_failure_denied' does not depend on any axioms
+'Allow.SqlRouting.preservation_failure_denied' does not depend on any axioms
+'Allow.SqlRouting.reachable_wellFormed' depends on axioms: [propext, Quot.sound]
+'Allow.SqlRouting.native_execute_provenance' depends on axioms: [propext, Quot.sound]
+'Allow.SqlRouting.native_unknown_denied' does not depend on any axioms
+'Allow.SqlRouting.native_prepare_bind' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.SqlRouting.cache_does_not_prepare' does not depend on any axioms
+'Allow.SqlRouting.native_prepare_witness' depends on axioms: [propext]
+'Allow.SqlRouting.native_execute_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.EGraphCatalog.B_AND_COMM' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_ASSOC' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_IDEM' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_COMM' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_ASSOC' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_IDEM' does not depend on any axioms
+'Allow.EGraphCatalog.B_NOT_NOT' does not depend on any axioms
+'Allow.EGraphCatalog.B_DEMORGAN_AND' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_TRUE' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_FALSE' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_FALSE' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_TRUE' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_ABSORB' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_ABSORB' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_DISTRIB' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_DISTRIB' does not depend on any axioms
+'Allow.EGraphCatalog.B_AND_COMPLEMENT' does not depend on any axioms
+'Allow.EGraphCatalog.B_OR_COMPLEMENT' does not depend on any axioms
+'Allow.EGraphCatalog.B_DEMORGAN_OR' does not depend on any axioms
+'Allow.EGraphCatalog.B_NOT_TRUE' does not depend on any axioms
+'Allow.EGraphCatalog.B_NOT_FALSE' does not depend on any axioms
+'Allow.EGraphCatalog.R_INTER_COMM' does not depend on any axioms
+'Allow.EGraphCatalog.R_INTER_ASSOC' does not depend on any axioms
+'Allow.EGraphCatalog.R_INTER_IDEM' does not depend on any axioms
+'Allow.EGraphCatalog.R_UNION_COMM' does not depend on any axioms
+'Allow.EGraphCatalog.R_UNION_ASSOC' does not depend on any axioms
+'Allow.EGraphCatalog.R_UNION_IDEM' does not depend on any axioms
+'Allow.EGraphCatalog.R_UNION_EMPTY' does not depend on any axioms
+'Allow.EGraphCatalog.R_INTER_EMPTY' does not depend on any axioms
+'Allow.EGraphCatalog.R_INTER_ABSORB' does not depend on any axioms
+'Allow.EGraphCatalog.R_UNION_ABSORB' does not depend on any axioms
+'Allow.EGraphCatalog.R_INTER_DISTRIB' does not depend on any axioms
+'Allow.EGraphCatalog.R_DIFF_SELF' does not depend on any axioms
+'Allow.EGraphCatalog.R_DIFF_EMPTY' does not depend on any axioms

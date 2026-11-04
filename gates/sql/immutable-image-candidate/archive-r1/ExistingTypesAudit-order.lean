@@ -1,0 +1,17 @@
+import Allow
+import Allow.Associativity
+import Allow.PartialTypes
+#check Allow.DocumentOrder.accepts_exact
+#check Allow.DocumentOrder.accepted_ids_preserved
+#check Allow.DocumentOrder.guarded_admitted_replay
+#check Allow.DocumentOrder.guarded_admitted_collision
+#check Allow.DocumentOrder.guarded_admitted_deny_auth
+#check Allow.DocumentOrder.guarded_success_checked
+#check Allow.DocumentOrder.guarded_success_ordered
+#check Allow.DocumentOrder.guarded_unknown_success_ordered
+#check Allow.DocumentOrder.empty_order_accepts
+#check Allow.DocumentOrder.grouped_order_accepts
+#check Allow.DocumentOrder.interleaved_order_denied
+#check Allow.DocumentOrder.unordered_candidate_denied
+#check Allow.DocumentOrder.unordered_candidate_receipt_replay
+#check Allow.DocumentOrder.unordered_candidate_collision

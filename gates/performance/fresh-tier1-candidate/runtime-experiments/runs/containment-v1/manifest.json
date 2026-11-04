@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "kind": "CONTAINMENT_PREFLIGHT",
+  "run_id": "containment-v1",
+  "copied_root": "/tmp/allow-ft1-8ux2y8gj",
+  "unit": "allow-ft1-c92791fe863d4ea18aee4532b0e105ef.service",
+  "files": [
+    {
+      "path": ".gate/harness_common.py",
+      "sha256": "c497082814ca47b833272944812e91e455a8396cf1cbc27553de66c68d1110c9",
+      "size": 5029,
+      "mode": 436
+    },
+    {
+      "path": ".gate/containment.py",
+      "sha256": "272f560bbb88fe82af7b3bb75e1419a6be2197b3f8586ab14de17503d7539779",
+      "size": 8185,
+      "mode": 436
+    },
+    {
+      "path": ".gate/probe_owner.py",
+      "sha256": "f3fd25622dcdf7afede7a3490c6e9bc918306c3ec13c055d88652a7ef3765d8f",
+      "size": 798,
+      "mode": 436
+    },
+    {
+      "path": ".gate/controller.py",
+      "sha256": "2c601d58ebd644ebefff6502af4191d4d5a36ccf6f939378d28b4973b294b1e1",
+      "size": 13449,
+      "mode": 436
+    },
+    {
+      "path": ".gate/installation.py",
+      "sha256": "53196680520607c426bafd8470db364e6a9e71514a4961325a4ec38efd5f647e",
+      "size": 13376,
+      "mode": 436
+    },
+    {
+      "path": ".gate/preflight-registration.json",
+      "sha256": "37208ce7489d1ccaa3c7862816f99d9e74361e49168814fb52262379c37ae9f0",
+      "size": 1578,
+      "mode": 436
+    }
+  ],
+  "tools": [
+    {
+      "path": "/usr/bin/python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+      "size": 8020928,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/systemctl",
+      "sha256": "37ec607113f55f1b385b4fa75588a43402aec0de57927500763b267713f10f63",
+      "size": 1501304,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/systemd-run",
+      "sha256": "de28cc5757d3789efa5f6fed5659893410469f68b42175d4531f5b34d3a09e16",
+      "size": 68392,
+      "mode": 493
+    }
+  ],
+  "registration_sha256": "37208ce7489d1ccaa3c7862816f99d9e74361e49168814fb52262379c37ae9f0",
+  "created_utc": "2026-11-04T05:36:03.752605+00:00",
+  "input_root_sha256": "f4987a44ce9c279424f3f50a5279b4d6d2639d8c5a83a8f19fbadd3d043edd15"
+}

@@ -1,0 +1,139 @@
+{
+  "id": "ALLOW-SQLEAN-QUERY-ROUTING-0.1",
+  "revision": 1,
+  "extends": [
+    "spec/retrieval-stage.json"
+  ],
+  "authorization": "The user explicitly requires all PostgreSQL queries to pass through /home/augustus/SQLeanParser. Local build/use is authorized; no redistribution or commercial license clearance is inferred.",
+  "sequence": [
+    "Freeze pre-routing sources",
+    "Review with two Terra, two Sol and two Astra seats",
+    "Prove the additional Lean policy model in two clean builds",
+    "Implement routing and eliminate opaque application SQL bodies",
+    "Execute protocol, database, recovery, ML-integrity and HTTP checks"
+  ],
+  "boundary": {
+    "required": "Every Allow client-issued PostgreSQL SQL string, including application queries, implicit driver transaction controls, bootstrap and migrations, integration tests, pg_dump catalog queries and pg_restore statements, must receive SQLeanParser grammar acceptance for the exact string before reaching PostgreSQL.",
+    "mechanism": "Workspace-private Unix-socket PostgreSQL wire proxy between all Allow clients and the workspace database. Inspect Simple Query Q and extended-protocol Parse P SQL; forward only accepted exact bytes. Parameter Bind values and COPY data remain data. No percent-placeholder normalization is implemented by Allow; psycopg performs its normal parameter binding before the proxy sees numbered placeholders.",
+    "engine_trust": "PostgreSQL startup/bootstrap internals, engine catalog operations, triggers of built-in types and reviewed extension implementation are engine internals, not client SQL. Do not claim that their C code or server-generated statements traverse the proxy. Host administrator bypass of the owned local proxy is outside the local single-user trust model.",
+    "opaque_sql": "Allow-authored DO blocks, SQL/PLpgSQL function/procedure definitions and dynamic EXECUTE are disallowed at the proxy. Replace current DO/EXECUTE migrations with explicit independently admitted statements and catalog checks. SQL PREPARE/EXECUTE and legacy fast-path function-call protocol are disallowed to avoid untracked executable text. Existing reviewed pgvector extension installation is engine trusted, not an independent grammar check of its internal script."
+  },
+  "parser": {
+    "source": "/home/augustus/SQLeanParser",
+    "entrypoint": "sqlean_pg_grammar",
+    "profile": "postgresql-16.15-grammar-v0.1",
+    "postgres_commit": "f0595c3d839debdb140903621c1b44a4f4d86256",
+    "admission": "Require pinned executable identity, successful bounded subprocess, strict response framing and JSON, status grammar-accepted, evidence context-free-derivation, expected profile/commit, sourcePreservation exact and returned SQL exactly equal to decoded strict UTF-8 input. Reject timeout, inconclusive, malformed output, unsupported profile, changed executable and any byte mismatch. A parser failure never falls back to direct PostgreSQL execution.",
+    "identity": "Build the grammar executable from a preserved hashed local source snapshot using its pinned Lean 4.34.0 toolchain. Record source/build/binary hashes and existing upstream license/notice status. Do not edit the reference repository. Runtime uses the pinned workspace-owned executable.",
+    "cache": "A bounded in-memory cache may reuse a successful parser result only for identical SQL bytes under the identical parser binary/profile and policy version. Changes invalidate entries. Never cache failures as acceptance. SQL source, parameter values, credentials, source models and returned parser tokens are not logged or persisted by the proxy.",
+    "assurance": "The CLI report represents an in-process proof-carrying grammar derivation and exact reconstruction, not a serialized proof independently rechecked by Python. Static SQL validity, PostgreSQL C semantic actions, authorization, isolation and execution correctness are not proved by SQLeanParser grammar acceptance. PostgreSQL remains authoritative for execution and RLS."
+  },
+  "protocol": {
+    "transport": "Private mode0700 Unix socket directory with no unauthenticated TCP listener. Forward startup/SCRAM authentication to the original PostgreSQL socket. Reject SSL/GSS negotiation or respond unsupported before a bounded valid startup; no downgrade of an existing TLS deployment is authorized.",
+    "framing": "Bound startup, SQL, Bind, COPY and generic frames before allocation; reject negative/oversize lengths, invalid UTF-8, embedded NUL in SQL, malformed Parse parameter declarations and unknown frontend messages. Read complete framed packets. Never parse binary parameter payloads as SQL. Preserve accepted wire bytes exactly.",
+    "state": "Track accepted prepared statement names and bound portal names for extended Parse/Bind/Execute, remove on Close, and invalidate unnamed state after Simple Query where required. Execute must resolve to a locally accepted statement in the same connection. Backend errors may remove server objects; forwarding a known accepted object that PostgreSQL rejects is permitted, but acceptance does not create server success. Do not replay or retry mutations.",
+    "fail_closed": "On rejected SQL, protocol error, parser failure or shutdown, send a content-free PostgreSQL error if possible and close both connection sides. An unfinished database transaction therefore rolls back under PostgreSQL semantics. Accepted earlier autocommit statements are not represented as rolled back.",
+    "cancellation": "Route valid PostgreSQL CancelRequest packets to the owned backend endpoint; they contain no SQL. Preserve existing cancellation behavior. Limit sessions and parser concurrency; externally bound parsing CPU/memory/wall time and response bytes."
+  },
+  "limits": {
+    "connections": 20,
+    "sql_bytes": 1048576,
+    "wire_frame_bytes": 8388608,
+    "startup_bytes": 65536,
+    "parser_seconds": 5,
+    "parser_memory_mib": 1024,
+    "parser_transitions": 1000000,
+    "parser_response_bytes": 16777216,
+    "cache_entries": 256,
+    "cache_sql_bytes": 4194304
+  },
+  "integration": {
+    "credentials": "Migrate private app/admin DSNs to the proxy socket while retaining original backend endpoint only in private proxy configuration. Bootstrap SQL, migration helpers and backup/recovery clients must use the proxy endpoint. Never emit DSNs or password-bearing SQL into reports.",
+    "startup": "Start owned PostgreSQL, then pinned parser proxy, then run admitted bootstrap/migrations. Readiness checks perform an admitted SELECT. Explicit stop tears down only owned proxy/database processes. Existing unrelated services remain untouched.",
+    "coverage_check": "Mechanically inventory client connection and SQL execution entry points. Runtime tests use the proxy exclusively and assert aggregate acceptance counters increase for application, implicit transaction and dump/restore paths. A deliberately invalid grammar query must be rejected by the proxy before backend success, and parser absence/tamper must deny service.",
+    "migration": "Preserve existing corpus/records/vectors and independent revocation journal. Rewrite migration application idempotently using explicit statements and catalog checks; verify both fresh database creation and existing database upgrade. Migration failure cannot be reported as success."
+  },
+  "formal_scope": "Lean proves an abstract exact-request admission and prepared-statement/portal routing policy, with explicit accepted/denied witnesses. It does not prove Python wire framing, subprocess correctness, SQL grammar implementation correspondence, database execution or network isolation. Runtime checks separately exercise those finite surfaces.",
+  "formal_obligations": [
+    {
+      "id": "SQ01",
+      "symbol": "Allow.SqlRouting.exact_request",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r → r.sql = p.sql"
+    },
+    {
+      "id": "SQ02",
+      "symbol": "Allow.SqlRouting.pinned_identity",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r → r.binary = p.binary ∧ r.profile = p.profile ∧ r.policy = p.policy"
+    },
+    {
+      "id": "SQ03",
+      "symbol": "Allow.SqlRouting.mismatch_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.sql ≠ p.sql → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ04",
+      "symbol": "Allow.SqlRouting.binary_mismatch_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.binary ≠ p.binary → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ05",
+      "symbol": "Allow.SqlRouting.profile_mismatch_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.profile ≠ p.profile → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ06",
+      "symbol": "Allow.SqlRouting.parser_failure_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.success = false → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ07",
+      "symbol": "Allow.SqlRouting.isOpaque_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.isOpaque = true → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ08",
+      "symbol": "Allow.SqlRouting.cache_exact",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {e : Allow.SqlRouting.CacheEntry}, Allow.SqlRouting.cacheReuse p e → p = e.request ∧ Allow.SqlRouting.admitted p e.report"
+    },
+    {
+      "id": "SQ09",
+      "symbol": "Allow.SqlRouting.execute_accepted",
+      "statement": "∀ {s : Allow.SqlRouting.State} {name : String} {p : Allow.SqlRouting.Portal}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.execute s name = some p → Allow.SqlRouting.admitted p.request p.report"
+    },
+    {
+      "id": "SQ10",
+      "symbol": "Allow.SqlRouting.admission_witness",
+      "statement": "Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest Allow.SqlRouting.sampleReport"
+    },
+    {
+      "id": "SQ11",
+      "symbol": "Allow.SqlRouting.execution_witness",
+      "statement": "Allow.SqlRouting.execute Allow.SqlRouting.sampleState \"p\" = some Allow.SqlRouting.samplePortal"
+    },
+    {
+      "id": "SQ12",
+      "symbol": "Allow.SqlRouting.denial_witness",
+      "statement": "¬ Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest { Allow.SqlRouting.sampleReport with isOpaque := true }"
+    },
+    {
+      "id": "SQ13",
+      "symbol": "Allow.SqlRouting.parse_bind_execute",
+      "statement": "∀ (s : Allow.SqlRouting.State) (st : Allow.SqlRouting.Statement) (name : String), Allow.SqlRouting.Reachable s → Allow.SqlRouting.admitted st.request st.report → Allow.SqlRouting.Reachable (Allow.SqlRouting.bind (Allow.SqlRouting.parse s st) name st) ∧ Allow.SqlRouting.execute (Allow.SqlRouting.bind (Allow.SqlRouting.parse s st) name st) name = some ⟨name, st.request, st.report⟩"
+    },
+    {
+      "id": "SQ14",
+      "symbol": "Allow.SqlRouting.derivation_failure_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.derivation = false → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ15",
+      "symbol": "Allow.SqlRouting.preservation_failure_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.preserved = false → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ16",
+      "symbol": "Allow.SqlRouting.reachable_wellFormed",
+      "statement": "∀ {s : Allow.SqlRouting.State}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.wellFormed s"
+    }
+  ]
+}

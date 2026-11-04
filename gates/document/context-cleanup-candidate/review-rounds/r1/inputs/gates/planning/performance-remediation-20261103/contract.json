@@ -1,0 +1,195 @@
+{
+  "id": "ALLOW-PERFORMANCE-REMEDIATION-PLAN-R1",
+  "status": "DRAFT_GAMEPLAN_NOT_PRODUCTION_AUTHORIZATION",
+  "date": "2026-11-03",
+  "purpose": "Close the measured runtime, cleanup and acceptance gaps and select a safe validation architecture for the user-confirmed 4-vCPU/8-GiB production baseline.",
+  "scope": {
+    "this_change": "Repository gameplan, inactive Lean model supplement, six-seat adversarial review and documentation cleanup only.",
+    "implementation_rule": "Each selected implementation increment first freezes its exact contract, actual elaborated Lean types, runtime acceptance cases and council-reviewed inputs. Run two isolated clean formal builds before production edits. A plan approval is not acceptance of an unmeasured worker design.",
+    "active_formal_surface": 309,
+    "new_model": "PerformancePlan.lean is an inactive lifecycle/planning supplement. It is not imported by formal/Allow.lean and proves no JVM reset, PostgreSQL cleanup, timing or universal implementation refinement.",
+    "standing_rules": [
+      "Spring/Java17 and React/TypeScript",
+      "All PostgreSQL queries, including cleanup/control and migrations, through SQLeanParser",
+      "Full Javadoc/JSDoc, private class state and <=30 physical lines per Java/JS/TS callable",
+      "Presentation names excluded from canonical embeddings",
+      "Anonymized context/predicate/e-graph plus complete N=3..5 positive and negative pools in3072 dimensions",
+      "No result or authorization cache introduced by this plan"
+    ]
+  },
+  "baseline": {
+    "evidence": "gates/document/implementation-report.json",
+    "runtime_audit": "gates/document/validation-context-candidate/runtime-closure/runs/final-v2/report.json",
+    "java_tests": 189,
+    "frontend_tests": 164,
+    "python_tests": 186,
+    "sql_tests": 52,
+    "warm_browser_p95_ms": 12.5,
+    "warm_browser_target_ms": 50,
+    "http_p95_ms": 392.298835,
+    "http_target_ms": 300,
+    "historical_http_p95_ms": 468.348787,
+    "remaining_runtime_cases": [
+      "VC01-PRIVATE-WIRE-BOUNDS",
+      "VC13-JSON-NESTING",
+      "VC14-PARSER-STOP"
+    ],
+    "cleanup_failure": "The deliberately sleeping PostgreSQL query remained after the private CLI was killed/reaped at20 seconds; the test explicitly cancelled its owned backend. Durable state was unchanged, but automatic backend cleanup is not established.",
+    "prior_reusable_proposal": "gates/document/validator-session-candidate/council-disposition.json remains NOT_APPROVED_FOR_IMPLEMENTATION; the new plan does not revive it."
+  },
+  "deployment_profile": {
+    "selected_by_user": {
+      "vcpus": 4,
+      "ram_gib": 8
+    },
+    "workload_scope": "Existing local/private single-principal application. This plan does not authorize a multi-tenant public service or establish production corpus-scale retrieval.",
+    "acceptance_host": "Actual intended server or a pinned4-vCPU/8-GiB VM matching its CPU generation/provider class, OS, JDK and storage. Freeze those details before measurement; if unavailable, target-hardware acceptance stays incomplete.",
+    "workstation_screening": "Dedicated whole-stack cgroup with cpu.max400000/100000,4 permitted CPUs where available, memory.max6GiB, memory.high5GiB and swap.max0. This is synthetic stress on the workstation, not equivalent to slower cores, cache or storage.",
+    "proposed_service_budget": "Apply the same whole-stack6-GiB hard ceiling on the8-GiB target, leaving nominal2GiB for OS/agent overhead. Include Spring, PostgreSQL, proxy, all bridges, warmup/refill helpers and workers; load generator and browser live outside the server group and are separately identified. Require peak group memory<=5GiB, no OOM and no unexplained group membership gaps in acceptance runs.",
+    "component_settings": "Freeze explicit Spring heap/thread pools and PostgreSQL memory/connection limits after profiling. Retain worker512MiB heap/2GiB AS/12 CPU seconds and bridge2GiB AS/20 CPU seconds as inherited per-process ceilings. Whole-tree CPU/memory accounting is additional; ActiveProcessorCount is not a CPU quota.",
+    "embedding": "Keep ONNX ingestion/training offline and separately budgeted. Existing interactive stored-corpus retrieval does not require an always-resident embedding runtime.",
+    "stress_only": "2-vCPU/4-GiB is an optional degradation profile, not the selected acceptance baseline. No host settings are changed by drafting this plan."
+  },
+  "delivery_order": [
+    {
+      "id": "P0",
+      "title": "Close the three missing finite checks",
+      "depends_on": [],
+      "output": "New preregistered gate-local probes and a new26-case binder; preserve the old BLOCKED runs.",
+      "exit": "Exact CLI frame and96/97 nesting boundaries plus isolated parser-service/subprocess shutdown executed with no SQL bypass or worker launch on failure."
+    },
+    {
+      "id": "P1",
+      "title": "Bound database work and own cancellation",
+      "depends_on": [
+        "P0"
+      ],
+      "output": "Separate SQL-policy/contract/Lean amendment and read-only context lifecycle implementation.",
+      "exit": "Owned backend query/transaction termination observed after cancellation, timeout, proxy failure and parent death; no manual cleanup needed for a passing run; exact durable tables unchanged."
+    },
+    {
+      "id": "P2",
+      "title": "Measure the constrained complete path",
+      "depends_on": [
+        "P0"
+      ],
+      "output": "Frozen4-vCPU/8-GiB profile and source-bound phase/CPU/allocation traces.",
+      "exit": "Attribute elapsed and CPU time to context connection/query/decoding, build fences, process bootstrap/class loading, validation, encoding and reap without subtracting unrelated percentiles."
+    },
+    {
+      "id": "P3",
+      "title": "Compare warm and fresh worker candidates",
+      "depends_on": [
+        "P1",
+        "P2"
+      ],
+      "output": "Isolated prototypes, differential correctness/resource evidence and a measured branch-selection record.",
+      "exit": "Select only a candidate that meets its isolation/lifecycle checks and the performance-selection margin. Otherwise revise the architecture and keep the300-ms gate failed."
+    },
+    {
+      "id": "P4",
+      "title": "Implement the selected reviewed design",
+      "depends_on": [
+        "P3"
+      ],
+      "output": "Exact implementation contract, new Lean supplement, six reviews, two clean formal builds, then production code and rollback path.",
+      "exit": "Current full regression, SQL routing, recovery, bounded ownership and3 independent target-host performance runs pass."
+    },
+    {
+      "id": "P5",
+      "title": "Finish browser and release acceptance",
+      "depends_on": [
+        "P4"
+      ],
+      "output": "Cold/warm browser evidence, pointer/keyboard matrix, Firefox ESR/Orca results and commercial readiness decision.",
+      "exit": "Technical gates close only for their measured surfaces; redistribution rights, consenting customer pilot and support economics are separately resolved before commercialization."
+    }
+  ],
+  "database_cleanup_design": {
+    "scope": "Only the new read-only validation-context route initially. Do not change mutator uncertainty/receipt semantics or migrations/backups by applying a blanket global timeout.",
+    "candidate_limits": {
+      "statement_timeout_ms": 1500,
+      "lock_timeout_ms": 250,
+      "idle_in_transaction_session_timeout_ms": 1000,
+      "context_wall_ms": 3000,
+      "cleanup_observation_budget_ms": 2500
+    },
+    "limit_status": "Initial experiment constants, not measured production guarantees. Keep them fixed during a registered run; failure at permitted history/quota blocks promotion. Any revision is a new contract/run, not a silent threshold change.",
+    "sql_order": "BEGIN; exact SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY; explicitly admitted fixed SET LOCAL deadline statements; all three transaction-local scope SELECTs; exact base/history reads; COMMIT. The first scope SELECT still establishes the snapshot. No set_config escape for arbitrary timeout values.",
+    "policy_change": "Current SQL guard permits timeout SET=0 forms. Add only reviewed exact nonzero LOCAL forms needed by this operation, with grammar acceptance and source-preservation checks; freeze a new policy generation and regression-test bootstrap/backup/durable routes. PostgreSQL16 has no transaction_timeout feature to rely upon.",
+    "ownership": "Track the actual bridge process and exact owned PostgreSQL session using proxy connection generation, backend cancellation key, PID/backend-start identity and private operation nonce. A CancelRequest is protocol control and must retain its existing owned-key check; any SQL observation/cancel/termination control still traverses SQLeanParser. No shared-session kill, exposed backend secret or broad unqualified termination query.",
+    "failure_path": "Deadline or cancellation marks the operation retiring before discarding result publication. Send owned cancellation, wait for independently observed query/transaction completion, then close/reap bridge. If necessary use a narrowly owned backend termination path with the same identity checks. A cancellation acknowledgement or closed client pipe is insufficient evidence of backend termination.",
+    "uncertain_cleanup": "Retain the operation/live-resource admission reservation and report UNAVAILABLE/degraded if backend ownership/termination cannot be confirmed. No replacement warm work is admitted against that reservation. Restart reconciliation must account for prior owned read-only sessions before enabling admissions; database deadlines are a backstop, not proof of immediate cleanup.",
+    "privacy": "Audit timeout logging: PostgreSQL error logging can include SQL/parameters. Preserve private-source and credential redaction; retain only operation IDs, bounded codes and hashes in public evidence.",
+    "large_history": "Repeat the4096-revision/near256-MiB logical-quota profile on the target. libpq currently buffers all rows; propose bounded server-cursor/binary-transfer work only if measured CPU/RSS justifies it, preserving full-history collision detection and one snapshot. No early-exit inventory or mutable authorization cache."
+  },
+  "performance_candidates": [
+    {
+      "id": "FRESH",
+      "priority": 1,
+      "design": "Fresh isolated JVM with independently tested TieredStopAtLevel=1, deterministic AppCDS packaging and compact advisory reply experiments.",
+      "conditions": "Measure each change alone, then the selected combination. Preserve full validation, source/diagnostic identity, full-result size rejection, process exit before publication, solver pin and build fences. AppCDS binds exact archive/JDK/classpath/flags; use tested -Xshare:auto compatibility handling and report fallback. Do not use -Xshare:on as a production default.",
+      "expected_benefit": "Hypothesis only; current exploratory Tier1 totals skipped a launch fence and cannot establish acceptance."
+    },
+    {
+      "id": "PRESTART",
+      "priority": 1,
+      "design": "Bounded pool with at most one ready prestarted single-use advisory JVM and at most two live worker slots in total, including starting/busy/retiring workers and helpers. Each JVM receives at most one user request, then exits/reaps.",
+      "conditions": "READY is image/generation bound. Start with JVM bootstrap and audited class loading only; synthetic parse/JIT warmup is a separate differential experiment, never private user preloading. No user context is retained before admission. A fresh SQL context is mandatory for every request. Refill consumes the same CPU/memory/slot budget; freeze a single refill owner and no unbounded public queue. Record ready-hit, empty-pool, refill contention and retirement paths separately and in the complete series. Private output is staged; publish the public reply only after exact owned process-tree exit/reap and the final identity fence. Cancellation linearized before publication suppresses that reply.",
+      "expected_benefit": "May shorten an edit's critical path when ready capacity exists, but does not eliminate startup CPU or guarantee sustained throughput. This is prestarted single-use execution, not reuse of a user execution environment."
+    },
+    {
+      "id": "REUSE",
+      "priority": 1,
+      "design": "True reusable advisory-only JVM as a conditional research branch; compare a fresh request classloader and an audited same-loader design explicitly. Commit/history-copy/revalidation/solver jobs initially stay one-shot.",
+      "conditions": "Resolve the old six-reviewer rejection before selecting. Freeze concrete reached classes/resources/global writes, Alloy statics, JDK/provider/thread-local/native registries, reflection/exception disposal and loader escapes. A fresh loader isolates some statics but loses much application-class JIT reuse and does not isolate JDK globals. Same-loader JIT reuse is selectable only after concrete reset/state ownership audit and fresh-worker differential evidence; reset flags/GC/close() alone never discharge it.",
+      "lifetime_experiment": "One in-flight request per session, fixed private scope, monotone generation/sequence and exact request nonce. Whole-process retire after<=64 completed requests,<=120 seconds age,<=30 seconds idle, lifetime CPU ceiling, scope/build/policy change or any timeout/cancel/OOM/stack overflow/unexpected exception/cleanup ambiguity. These initial maxima are ceilings, not evidence that64 requests fit; lower bounds when required by measured resources. Count every retirement/replacement in latency/throughput.",
+      "expected_benefit": "Potential sustained startup/JIT savings, currently unmeasured. If global-state isolation or resource ownership cannot be established, reject this branch without relaxing correctness or relabeling partial checks as full validation."
+    },
+    {
+      "id": "BRIDGE",
+      "priority": 2,
+      "design": "Only if phase traces justify it: replace per-call Python startup with a separately bounded read-only context service or a Java/JDBC adapter through the canonical SQLeanParser endpoint.",
+      "conditions": "Separate architecture/SQL/dependency review. Keep exact one-snapshot scope/base/inventory, closed private frames, per-operation deadlines, no authority cache and all control SQL through parser. A new transport does not inherit old routing or process cleanup evidence. Do not add it merely to compensate for an unsafe JVM design."
+    }
+  ],
+  "worker_promotion_requirements": {
+    "image": "Concrete bounded immutable image adapter must precede PRESTART or REUSE selection. Freeze deterministic jar/resource ordering, full logical BuildIdentity including static files, solver hash, sealed byte objects and descriptor/mount transport. Current payload is approximately42.8MB;64MiB payload/64descriptor initial caps require actual measurement. Read-only mounts of mutable host paths are not an immutable-image proof. Retain current full installed-build fences until a separate exact integrity-policy amendment is approved.",
+    "topology": "Register a worker's private cgroup/slot and cleanup owner before executable user work. Specify helper/bubblewrap/JVM PIDs/start identities, FD owners and parent-death behavior. All starting/ready/busy/resetting/retiring workers consume slots. No new generation or slot reuse until exact old-tree reap/group-empty evidence. Prefer delegated cgroup-v2 subtree termination; absent delegation is an explicit unsupported-pool configuration, not an uncontained fallback.",
+    "publication": "Stage bounded output, then independently check generation, scope/build/policy, exact request identity and required cleanup/reset state. Cancellation wins once retirement starts. No Thread.stop, no concurrent requests within one JVM, no outcome reuse, no public acceptance token from advisory state.",
+    "differential": "Compare complete fresh-worker outputs across existing46 shared cases,23 constructors, SOURCE/BLOCK/TEXT_ONLY,512-node/depth32/source32KiB maxima, ownership failures, malformed/exceptional inputs and private dataset-derived cases. Exercise A/B/A, repeated names, reordered histories and faults. Only predeclared legitimate generated-ID alpha mapping is allowed; source bytes, types, diagnostics, occurrences, commands and trivia remain observable.",
+    "resource_soak": "One-hour target-profile soak with normal startup/refill/retirement and one10,000-request sequence; record live descendants, threads/FDs/tempfiles, retained source reachability audit, CPU, allocation, RSS/metaspace, memory.events and cpu.stat. Stability is finite evidence, not a universal noninterference proof.",
+    "fault_matrix": "Cancel/timeout at spawn/register/READY/context/read/write/parse/reset/publish/retire; kill parent and helper at each topology stage; mutate copied image/install; malformed/late/duplicate frames; exhaust CPU/memory; restart with old cleanup pending. No orphan, premature release or stale publication may pass."
+  },
+  "performance_acceptance": {
+    "original_gate": "Keep exact500-node workload,100warmups+1000measured actual HTTP requests and unrounded nearest-rank p95<300ms. No cache, omitted fence, changed debounce, reduced validation or hidden replacement costs. Every error makes that run fail; do not report only successful latencies.",
+    "selection_margin": "Engineering selection objective p95<=240ms on the4-vCPU/8-GiB target, leaving20% headroom below300ms. It is an objective, not an observed result or replacement for the original strict gate.",
+    "repeats": "Three independent process-start runs of the original protocol on the frozen target profile. Every run must pass independently; retain all raw samples and failures, no pooling away a failed run. Repeat after material changes.",
+    "cold": "Separate30 server cold-start cycles and30 idle-expiry/empty-pool cycles; report readiness time and first-operation p50/p95/p99. Provisional first-operation p95<1000ms after service READY, maximum<3000ms, and no errors. Startup-to-READY is separately reported with a provisional<10s maximum. Freeze procedure and numbers in the implementation contract before running; do not claim existing warm evidence covers them.",
+    "sustained": "Open-loop single-principal2 requests/second for30minutes with actual distinct edits and no benchmark-only refill schedule; include rejected/time-out/failed requests. At this offered load require no capacity rejection or failure, p95<300ms and p99<600ms. Separately sweep offered load to saturation, report success throughput and BUSY rate, and test bursts of2/4/8 with bounded explicit overload behavior rather than promises beyond one active principal operation.",
+    "resources": "All runs include whole-stack CPU/memory and refill/retirement accounting. No OOM, orphaned SQL query/worker, unbounded queue or steady retained-source growth; peak group memory<=5GiB under6GiB ceiling. Throughput claims bind workload/profile; browser client CPU is separate.",
+    "attribution": "Use wall/CPU traces to prioritize changes. Component subtraction or a strong-workstation quota run cannot certify low-server p95. Compare identical workload/policy/build fences and declare all instrumentation overhead."
+  },
+  "browser_and_commercial": {
+    "browser": "Preserve successful12.5ms warm report as its exact historical run. Rebind/rerun after implementation/static changes. Register a separate30-reload cold preview protocol, original500-node first edit, visible foreground frame/identity checks and no warmups. Proposed cold preview p95<50ms after UI readiness; measure readiness separately. Execute actual pointer positive/negative drop, move/copy, all23 constructors, focus recovery, keyboard-only and named Firefox ESR/Orca task cases. Existing automation with no observed drop is inconclusive.",
+    "rights": "Reconcile Alloy/Kodkod/SAT4J, SQLeanParser, model/checkpoint and dataset rights with an evidence inventory and qualified review where necessary. No redistribution of private corpora/checkpoints by default.",
+    "pilot": "After technical acceptance, run a consenting customer task pilot and measure task completion, failures, support time, p95/throughput and cost per active editing session on the chosen host. Freeze success/stop criteria before recruitment. Current decision stays NO_GO until these independent gates close."
+  },
+  "documentation_policy": {
+    "current_index": "docs/current-status.md owns current evidence/navigation. Stage documents describe operations and clearly dated/historical milestones.",
+    "cleanup": "Archive exact pre-edit README/stage docs and whole-source implementation report/manifest before cleanup. Fix stale no-browser/112-or267-latest/128D-primary/sealed-image wording and installation guidance. Keep useful older notes labeled historical; preserve failed/rejected runs and all proof/evidence bytes.",
+    "binding": "Documentation edits change the old whole-source manifest. Keep that report historical; record exact old/new doc hashes and verify unchanged prior non-document inputs. Do not rewrite old generated proof/test reports or claim a fresh runtime test from documentation cleanup."
+  },
+  "council": {
+    "seats": [
+      "GPT-6.1 Terra 1",
+      "GPT-6.1 Terra 2",
+      "GPT-6.1 Sol 1",
+      "GPT-6.1 Sol 2",
+      "GPT-6 Astra 1",
+      "GPT-6 Astra 2"
+    ],
+    "decision_scope": "Adversarial approval of a coherent implementation gameplan, including explicit experiment/rejection criteria; not approval of an unimplemented warm worker or commercialization.",
+    "revision_rule": "Any material contract/model change produces a new frozen root and six-seat re-review; preserve prior findings."
+  }
+}

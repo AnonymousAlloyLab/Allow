@@ -1,0 +1,70 @@
+{
+  "python": {
+    "tests": 186,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true
+  },
+  "sql": {
+    "tests": 52,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true,
+    "real_proxy_coverage": true,
+    "daemon_pid_stable": true
+  },
+  "clients": {
+    "source_unchanged": true,
+    "each_registered_tag_accepted": true,
+    "live_corpus_unchanged": true
+  },
+  "retrieval_recovery": {
+    "source_unchanged": true,
+    "live_corpus_modified": false
+  },
+  "document_recovery": {
+    "source_unchanged": true,
+    "actual_pg_dump_restore": true,
+    "live_database_targeted": false,
+    "restored_rows_owners_rls_and_acls_equal": true,
+    "fresh_process_exact_receipt_recovery": true,
+    "private_metadata_unchanged": true
+  },
+  "inventory": {
+    "source_unchanged": true
+  },
+  "document_tests": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true
+  },
+  "null_start": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true
+  },
+  "all_statuses": "PASS",
+  "exact_current_inventories": [
+    "fullPython",
+    "SQLruntime",
+    "client",
+    "documentRecovery",
+    "staticInventory"
+  ],
+  "context_tests": 22,
+  "model_propositions": 309,
+  "proxy_pid": 826907,
+  "proxy_generation": 1,
+  "trust": [
+    "Registered test executables and truthful instrumentation",
+    "Lean4.34.1 finite-model checker and allowed axioms",
+    "Python/SHA256",
+    "OS/kernel/PostgreSQL/processes/hardware"
+  ]
+}

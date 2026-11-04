@@ -1,0 +1,68 @@
+{
+  "classification": "READ_ONLY_SOURCE_AND_BYTECODE_OBSERVATIONS_NOT_RUNTIME_SEMANTIC_PROOF",
+  "files": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "4502e4da14b8002b309c597a9709b93505c5ed35458b4aeef436ca7e06e657ab"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "sha256": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "sha256": "18f3bff9f362690b4f040d380bc2fbdec5c6d1b4fa679a4ce4350f876e1d8c66"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+      "sha256": "2c0dcdbe87700bd9695efd3cb11a0462cefe606d6cdcc719a0c5ad8e0df3487c"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+      "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+      "sha256": "984d42f9ab6aba4e308636ae966fdb3ef0d7f00b825cbc18233c6f1a139b2498"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+      "sha256": "f79d5bc24568ca1616f4054b3d3db199e292821ff1a3fe920ee3ac8619ae4986"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/DocumentEngine.java",
+      "sha256": "ad94dbdecff44f80bf35d71842314ba41df19375a6baa1d28a8d7d570012f04b"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceParser.java",
+      "sha256": "458bdf4e9f302f30cc6867d334b3f3298d6d1416c63e9ff5f812ca1a5f187008"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/BlockValidation.java",
+      "sha256": "31e7fd552e51907d963758e7be69d6d3721b027d42c6e16ec9ba055764c135b8"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/document/SourceValidation.java",
+      "sha256": "9a9b45a5225ed4556cd1363c6be2a981bf0ba684b87e0dd5ba2df3dbbc196282"
+    },
+    {
+      "path": "retrieval/allow_documents/store.py",
+      "sha256": "603927abb982c337418769cfd82c8be28c819adb5223601a875de18529337942"
+    },
+    {
+      "path": "spec/document-stage-draft.json",
+      "sha256": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368"
+    },
+    {
+      "path": "spec/document-wire-draft.json",
+      "sha256": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a"
+    },
+    {
+      "path": "backend/target/solver/alloy.jar",
+      "sha256": "6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d"
+    }
+  ],
+  "bytecode_inventory_command": "javap -private -classpath backend/target/solver/alloy.jar edu.mit.csail.sdg.ast.Sig edu.mit.csail.sdg.ast.Type edu.mit.csail.sdg.ast.Sig$PrimSig",
+  "bytecode_inventory": "Compiled from \"Sig.java\"\npublic abstract class edu.mit.csail.sdg.ast.Sig extends edu.mit.csail.sdg.ast.Expr implements edu.mit.csail.sdg.ast.Clause {\n  public static final edu.mit.csail.sdg.ast.Sig$PrimSig UNIV;\n  public static final edu.mit.csail.sdg.ast.Sig$PrimSig SIGINT;\n  public static final edu.mit.csail.sdg.ast.Sig$PrimSig SEQIDX;\n  public static final edu.mit.csail.sdg.ast.Sig$PrimSig STRING;\n  public static final edu.mit.csail.sdg.ast.Sig$PrimSig NONE;\n  public static final edu.mit.csail.sdg.ast.Sig$PrimSig GHOST;\n  public final edu.mit.csail.sdg.alloy4.ConstList<edu.mit.csail.sdg.ast.Attr> attributes;\n  public final boolean builtin;\n  public final edu.mit.csail.sdg.alloy4.Pos isAbstract;\n  public final edu.mit.csail.sdg.alloy4.Pos isSubsig;\n  public final edu.mit.csail.sdg.alloy4.Pos isSubset;\n  public final edu.mit.csail.sdg.alloy4.Pos isLone;\n  public final edu.mit.csail.sdg.alloy4.Pos isOne;\n  public final edu.mit.csail.sdg.alloy4.Pos isSome;\n  public final edu.mit.csail.sdg.alloy4.Pos isPrivate;\n  public final edu.mit.csail.sdg.alloy4.Pos isEnum;\n  public final edu.mit.csail.sdg.alloy4.Pos isMeta;\n  public final edu.mit.csail.sdg.alloy4.Pos isVariable;\n  public final edu.mit.csail.sdg.alloy4.Pos labelPos;\n  public final java.lang.String label;\n  public final edu.mit.csail.sdg.ast.Decl decl;\n  private final edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Expr> facts;\n  private final edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Decl> fields;\n  private final edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Sig$Field> realFields;\n  private static final edu.mit.csail.sdg.ast.Sig$PrimSig mkGhostSig();\n  public final java.lang.String toString();\n  public java.lang.String toExtendedString();\n  public final void toString(java.lang.StringBuilder, int);\n  public final edu.mit.csail.sdg.alloy4.Pos span();\n  public edu.mit.csail.sdg.ast.Expr resolve(edu.mit.csail.sdg.ast.Type, java.util.Collection<edu.mit.csail.sdg.alloy4.ErrorWarning>);\n  public final <T> T accept(edu.mit.csail.sdg.ast.VisitReturn<T>) throws edu.mit.csail.sdg.alloy4.Err;\n  public final boolean isTopLevel();\n  private edu.mit.csail.sdg.ast.Sig(java.lang.String, boolean);\n  private edu.mit.csail.sdg.ast.Sig(edu.mit.csail.sdg.ast.Type, edu.mit.csail.sdg.alloy4.Pos, java.lang.String, edu.mit.csail.sdg.ast.Attr...) throws edu.mit.csail.sdg.alloy4.Err;\n  public boolean isSame(edu.mit.csail.sdg.ast.Expr);\n  public abstract boolean isSameOrDescendentOf(edu.mit.csail.sdg.ast.Sig);\n  public boolean isEnumMember();\n  public int getDepth();\n  public void addFact(edu.mit.csail.sdg.ast.Expr) throws edu.mit.csail.sdg.alloy4.Err;\n  public edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Expr> getFacts();\n  public final java.lang.String getHTML();\n  public final java.util.List<? extends edu.mit.csail.sdg.ast.Browsable> getSubnodes();\n  public final edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Decl> getFieldDecls();\n  public final edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Sig$Field> getFields();\n  public final edu.mit.csail.sdg.ast.Sig$Field addField(java.lang.String, edu.mit.csail.sdg.ast.Expr) throws edu.mit.csail.sdg.alloy4.Err;\n  public final edu.mit.csail.sdg.ast.Sig$Field[] addTrickyField(edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, java.util.List<? extends edu.mit.csail.sdg.ast.ExprHasName>, edu.mit.csail.sdg.ast.Expr) throws edu.mit.csail.sdg.alloy4.Err;\n  public final edu.mit.csail.sdg.ast.Sig$Field addDefinedField(edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.alloy4.Pos, java.lang.String, edu.mit.csail.sdg.ast.Expr) throws edu.mit.csail.sdg.alloy4.Err;\n  public java.lang.String explainOld();\n  public java.lang.String explain();\n  private java.lang.String lambda$explain$0(edu.mit.csail.sdg.ast.Sig$Field);\n  static {};\n}\nCompiled from \"Type.java\"\npublic final class edu.mit.csail.sdg.ast.Type implements java.lang.Iterable<edu.mit.csail.sdg.ast.Type$ProductType>, edu.mit.csail.sdg.ast.Clause {\n  public static final edu.mit.csail.sdg.ast.Type EMPTY;\n  private static edu.mit.csail.sdg.ast.Type SMALL_INT;\n  public static final edu.mit.csail.sdg.ast.Type FORMULA;\n  public static final edu.mit.csail.sdg.ast.Type INTANDFORMULA;\n  private boolean is_small_int;\n  public final boolean is_bool;\n  private final int arities;\n  private final edu.mit.csail.sdg.alloy4.ConstList<edu.mit.csail.sdg.ast.Type$ProductType> entries;\n  public boolean is_int();\n  public boolean is_small_int();\n  private boolean checkIntType();\n  public static edu.mit.csail.sdg.ast.Type smallIntType();\n  public java.util.Iterator<edu.mit.csail.sdg.ast.Type$ProductType> iterator();\n  private static int add(edu.mit.csail.sdg.alloy4.ConstList$TempList<edu.mit.csail.sdg.ast.Type$ProductType>, int, edu.mit.csail.sdg.ast.Type$ProductType);\n  private edu.mit.csail.sdg.ast.Type(boolean, edu.mit.csail.sdg.alloy4.ConstList<edu.mit.csail.sdg.ast.Type$ProductType>, int);\n  private static edu.mit.csail.sdg.ast.Type make(boolean, edu.mit.csail.sdg.alloy4.ConstList<edu.mit.csail.sdg.ast.Type$ProductType>, int);\n  static edu.mit.csail.sdg.ast.Type make(edu.mit.csail.sdg.ast.Type$ProductType);\n  static edu.mit.csail.sdg.ast.Type make(java.util.List<edu.mit.csail.sdg.ast.Sig$PrimSig>, int, int);\n  static edu.mit.csail.sdg.ast.Type make(edu.mit.csail.sdg.ast.Sig$PrimSig);\n  static edu.mit.csail.sdg.ast.Type make2(edu.mit.csail.sdg.ast.Sig$PrimSig);\n  static edu.mit.csail.sdg.ast.Type makeBool(edu.mit.csail.sdg.ast.Type);\n  public static edu.mit.csail.sdg.ast.Type removesBoolAndInt(edu.mit.csail.sdg.ast.Type);\n  public boolean equals(java.lang.Object);\n  public int hashCode();\n  public boolean hasNoTuple();\n  public boolean hasTuple();\n  public int size();\n  public boolean hasArity(int);\n  public int arity();\n  public boolean firstColumnOverlaps(edu.mit.csail.sdg.ast.Type);\n  public boolean canOverride(edu.mit.csail.sdg.ast.Type);\n  public boolean hasCommonArity(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type product(edu.mit.csail.sdg.ast.Type);\n  public boolean intersects(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type intersect(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type intersect(edu.mit.csail.sdg.ast.Type$ProductType);\n  public edu.mit.csail.sdg.ast.Type merge(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type merge(edu.mit.csail.sdg.ast.Type$ProductType);\n  public edu.mit.csail.sdg.ast.Type merge(edu.mit.csail.sdg.ast.Type$ProductType, int, int);\n  public edu.mit.csail.sdg.ast.Type merge(java.util.List<edu.mit.csail.sdg.ast.Sig$PrimSig>);\n  public edu.mit.csail.sdg.ast.Type unionWithCommonArity(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type pickCommonArity(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type pickUnary();\n  public edu.mit.csail.sdg.ast.Type pickBinary();\n  public edu.mit.csail.sdg.ast.Type transpose();\n  public boolean isSubtypeOf(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type join(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type domainRestrict(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type rangeRestrict(edu.mit.csail.sdg.ast.Type);\n  public edu.mit.csail.sdg.ast.Type extract(int);\n  public edu.mit.csail.sdg.ast.Type closure();\n  edu.mit.csail.sdg.ast.Type __closure_old_bug();\n  public edu.mit.csail.sdg.ast.Expr toExpr() throws edu.mit.csail.sdg.alloy4.Err;\n  private static java.util.List<edu.mit.csail.sdg.ast.Sig$PrimSig> fold(java.util.ArrayList<java.util.List<edu.mit.csail.sdg.ast.Sig$PrimSig>>, java.util.List<edu.mit.csail.sdg.ast.Sig$PrimSig>, int);\n  public java.util.List<java.util.List<edu.mit.csail.sdg.ast.Sig$PrimSig>> fold();\n  public java.lang.String toString();\n  public edu.mit.csail.sdg.alloy4.Pos pos();\n  public java.lang.String explain();\n  static {};\n}\nCompiled from \"Sig.java\"\npublic final class edu.mit.csail.sdg.ast.Sig$PrimSig extends edu.mit.csail.sdg.ast.Sig {\n  private final edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Sig$PrimSig> children;\n  public final edu.mit.csail.sdg.ast.Sig$PrimSig parent;\n  public final edu.mit.csail.sdg.alloy4.Pos parentRefPos;\n  private edu.mit.csail.sdg.ast.Expr parentRef;\n  static final boolean $assertionsDisabled;\n  public edu.mit.csail.sdg.alloy4.SafeList<edu.mit.csail.sdg.ast.Sig$PrimSig> children() throws edu.mit.csail.sdg.alloy4.Err;\n  public java.lang.Iterable<edu.mit.csail.sdg.ast.Sig$PrimSig> descendents() throws edu.mit.csail.sdg.alloy4.Err;\n  public edu.mit.csail.sdg.ast.Expr parentRef();\n  private edu.mit.csail.sdg.ast.Sig$PrimSig(java.lang.String, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.ast.Sig$PrimSig, boolean, boolean);\n  public edu.mit.csail.sdg.ast.Sig$PrimSig(edu.mit.csail.sdg.alloy4.Pos, java.lang.String, edu.mit.csail.sdg.alloy4.Pos, edu.mit.csail.sdg.ast.Sig$PrimSig, edu.mit.csail.sdg.ast.Attr...) throws edu.mit.csail.sdg.alloy4.Err;\n  public edu.mit.csail.sdg.ast.Sig$PrimSig(java.lang.String, edu.mit.csail.sdg.ast.Attr...) throws edu.mit.csail.sdg.alloy4.Err;\n  public boolean isSameOrDescendentOf(edu.mit.csail.sdg.ast.Sig);\n  public edu.mit.csail.sdg.ast.Sig$PrimSig intersect(edu.mit.csail.sdg.ast.Sig$PrimSig);\n  public boolean intersects(edu.mit.csail.sdg.ast.Sig$PrimSig);\n  public edu.mit.csail.sdg.ast.Sig$PrimSig leastParent(edu.mit.csail.sdg.ast.Sig$PrimSig);\n  static {};\n}\n",
+  "interpretation": "Static singleton/mutable-state presence establishes need for isolation audit. It does not prove retained user state, memory leakage, type contamination or performance cause. Fresh process profile remains pending."
+}

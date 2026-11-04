@@ -1,0 +1,29 @@
+{
+  "reviewer": "astra-1",
+  "decision": "APPROVE_RECHECK",
+  "scope": "Focused read-only Python runtime implementation review against approved validation-context contract. No whole-system acceptance or formal-to-runtime refinement claim.",
+  "input_hashes": {
+    "retrieval/allow_documents/store.py": "f43df582a6d41b07fcc9f434548653b8b6d60c95a05e27138c288df9e961133a",
+    "retrieval/allow_documents/cli.py": "b6f2266b4424a780f001b60a8c6a931750dd168271f037f801298cd89b3dec67",
+    "retrieval/tests/test_validation_context.py": "34953bcacd486dae749113076446102fe07f354f3b88c8082c633eab814d3539"
+  },
+  "findings": [],
+  "assessment": [
+    "Dedicated _validation_snapshot uses canonical allow-app connection with default autocommit false and executes exact SET TRANSACTION REPEATABLE READ, READ ONLY before three set_config SELECTs. Legacy transaction remains unchanged. No data SELECT or mutation precedes mode setup in this new path.",
+    "validation_context performs exact authorized _read and complete requested history projection on the same supplied connection. Nonempty requested sets scan every row; repeated kinds collapse and conflicting requested kinds raise. Empty IDs skip history only after mandatory exact-base authorization. No fallback lookup, new transaction, cache or early found-all exit exists.",
+    "Context result is returned after leaving the connection context; transaction/close failure prevents return. Data/decode failures become unavailability; missing document/base remain request errors. KnownRollback/UncertainCommit are explicitly converted for this read-only path, preserving legacy mutation classification.",
+    "Strict argument fields/revision/ID canonicality/count/encoded size are checked before opening SQL. Closed artifact outer shapes and strict stored JSON decode retain independent fresh-worker semantic validation responsibilities.",
+    "CLI measures complete encoded envelope before output, preserving nonce and producing bounded UNAVAILABLE on oversize. New path does not update counters, admissions, receipts or revisions; only transaction control, scope settings and SELECTs are used."
+  ],
+  "evidence": {
+    "files": "All three observed hashes match request and recorded evidence.",
+    "logs": "Verified both recorded log hashes; logs show22 new and22 legacy tests passing with zero failures/errors/skips. These are author-run results, not independently rerun DB tests.",
+    "coverage": "Read actual read-only/mode observations, concurrent-snapshot barriers, full history collision/malformed-row tests, close-before-return and failed-exit tests, CLI combined-envelope boundaries and unchanged legacy coverage.",
+    "reviewer_execution": "Source and evidence reads/hash checks only; no new database, HTTP or active-service operations."
+  },
+  "remaining_scope": [
+    "Maximum4096-revision/256MiB buffering/RSS/AS profile remains explicitly pending; logical quota-full test does not establish this memory bound.",
+    "Java closed-reply validation, worker/bridge reaping sequence, complete proxy trace, HTTP/browser/fresh-Alloy regression and unchanged performance benchmark remain root integration obligations.",
+    "309-model closure is separate formal evidence and is not relabeled runtime correspondence. Commercial/deployment/rights/accessibility guarantees remain excluded."
+  ]
+}

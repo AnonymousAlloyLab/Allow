@@ -1,0 +1,6 @@
+{
+  "trace_event_count": "trace_event_count : 100 * oneEdit.length + 1000 * oneEdit.length = 4400",
+  "edit_order": "edit_order : oneEdit = [Event.dispatch, Event.commit, Event.firstFrame, Event.secondFrame]",
+  "incomplete_not_pass": "incomplete_not_pass (run : Run) (valid : Bool) (p95Micros : Nat) (h : ¬complete run) :\n  classify run valid p95Micros = Classification.incomplete",
+  "pass_iff": "pass_iff (run : Run) (valid : Bool) (p95Micros : Nat) :\n  classify run valid p95Micros = Classification.pass ↔ complete run ∧ valid = true ∧ p95Micros < 50000"
+}

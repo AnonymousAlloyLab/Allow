@@ -1,0 +1,155 @@
+{
+  "reviewer": "astra-2",
+  "requested_model": "gpt-6-astra",
+  "provider_attestation": "Requested seat/model supplied by orchestrator; no independent provider/model attestation available.",
+  "phase": "Final revision 2 frozen specification and calculus review",
+  "verdict": "ACCEPTED_FOR_IMPLEMENTATION_AFTER_FORMAL_GATE",
+  "production_files_edited": false,
+  "files_sha256": {
+    "spec/allow-contract.json": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "spec/egraph-stage.json": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+    "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+    "spec/egraph-types.json": "229a1d3b92b6713fa4f51291b16c353cf52df1370a41f3d9f860e0c79d01b5ed",
+    "formal/Allow/EGraph.lean": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab",
+    "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+    "gates/egraph/baseline-g1/dependencies.json": "ef00e6b9bd4eaf367f717cb904d4ae5a0eecdd7b9ccada25f58849d9fe47df16"
+  },
+  "independent_checks": {
+    "catalog_rules": 34,
+    "finite_pointwise_assignments_checked": 272,
+    "all_passed": true,
+    "rhs_variables_bound": true,
+    "unique_rule_ids_and_lean_constructor_names": true,
+    "limitations": "Finite independent interpretation catches catalog mistakes; it is not Lean build evidence or Java correctness evidence."
+  },
+  "findings": [
+    {
+      "id": "EG-A2-01",
+      "severity": "BLOCKER_BEFORE_IMPLEMENTATION",
+      "status": "RESOLVED_IN_FROZEN_REVISION_2",
+      "finding": "Mixed SOME/NO terms under Boolean congruence require a compositional mixed calculus, beyond separate relation nonemptiness propositions and pure Formula derivations. Bind final mixed soundness obligations and concrete witness in two clean exact-proposition builds.",
+      "resolution": "MixedFormula, substitution semantics, MixedDerivation and mixed_sound cover Boolean rule instances, Boolean congruence, and SOME/NO relation congruence. EG19/EG20 register the exact propositions. NOT constants are explicit Rule constructors with soundness cases."
+    },
+    {
+      "id": "EG-A2-02",
+      "severity": "BLOCKER_BEFORE_IMPLEMENTATION",
+      "status": "RESOLVED_IN_FROZEN_REVISION_2",
+      "finding": "Certificate checker must enforce exact atom payload/sort membership in fixed inventory, bounded term depth before recursive operations, and explicit output/certificate exhaustion semantics. Parent reports these precision fixes in progress.",
+      "resolution": "Inventory membership is bound to trusted adapter input, term/proof depths are explicitly capped at 128, and OUTPUT_LIMIT plus honest incomplete/unavailable behavior is specified."
+    },
+    {
+      "id": "EG-A2-03",
+      "severity": "BLOCKER_BEFORE_IMPLEMENTATION",
+      "status": "RESOLVED_IN_FROZEN_REVISION_2",
+      "finding": "Current EG15/16/17 declarations are universally quantified witnesses, but observed Lean witnesses instantiate concrete Fin 2/Fin 1 terms. Exact-proposition audit must bind actual intended concrete statements before gate approval.",
+      "resolution": "EG15/16/17 now state the concrete Fin 2/Fin 1 witnesses present in Lean."
+    },
+    {
+      "id": "EG-A2-04",
+      "severity": "IMPLEMENTATION_ACCEPTANCE",
+      "status": "CONTRACT_COVERS_TEST_PENDING",
+      "finding": "Matcher operates modulo eclass equality while RULE certificates require concrete syntactic instantiation. For AND(a,b) where a=b is certified, repeated-variable idempotence requires child-congruence conversion to AND(a,a) before RULE or an equivalent explicit derivation. UF membership is not a certificate premise. Test this case, multi-level collision rebuild, historical endpoints after path compression, and forged equality without a derivation.",
+      "resolution": "Revision 2 checker explicitly requires concrete substitution and congruence; acceptance explicitly includes certified AND(a,b) repeated-variable regression."
+    },
+    {
+      "id": "EG-A2-05",
+      "severity": "IMPLEMENTATION_ACCEPTANCE",
+      "status": "CONTRACT_COVERS_TEST_PENDING",
+      "finding": "Cycles and distributive expansion can exhaust matches/proofs before node budget; extraction must maintain finite positive-cost witnesses and root derivation, never serialize class cycles. Test cyclic x=AND(x,TRUE), duplicate unsuccessful matches, capped rebuilding, checked extraction during incomplete saturation, and proof replay cancellation."
+    },
+    {
+      "id": "EG-A2-06",
+      "severity": "TRUST_BOUNDARY",
+      "status": "ACCEPTED_EXPLICIT_BOUNDARY",
+      "finding": "Graph.justified assumes every class equality has derivation; extraction_sound follows this premise and does not establish actual Java union-find/rebuild/extractor correctness. Runtime full-schema mapping and fixed context/root binding remain trusted adapters. UI must preserve this distinction and solver analysis of original source."
+    }
+  ],
+  "commercialization": {
+    "verdict": "NO_COMMERCIAL_RELEASE_AUTHORIZED",
+    "basis": "Inherited contract and local baseline inventory, not independent legal clearance. Stage expressly disables commercial release, publication, dataset ingestion and external dependencies for egraph implementation.",
+    "cost_limits": "One-second egraph and ten-second worker limits are proposed operational ceilings, not measured latency, throughput, support cost, or margin evidence. Sixteen islands and per-island certificate limits require the global output cap and cooperative checks across proof construction/replay; external process deadline remains necessary.",
+    "rights": "Original Java implementation avoids introducing an external egraph library license. Existing exact Alloy/component redistribution and corpus rights remain release gates; no legal conclusion or license clearance is made.",
+    "later_business_gate": "Measure solver/egraph CPU and memory, failure rates, support effort and customer task benefit before commercial claims; no market or revenue estimates supported."
+  },
+  "conditional_final_verdict": "Revision 2 design and formal contract accepted for local implementation. Root must independently require successful two-clean-build exact-proposition audit for these frozen hashes before production edits. This review does not assert that running build gate has passed. Runtime tests, connected-browser UX acceptance and commercial release gates remain separate.",
+  "history": [
+    {
+      "reviewer": "astra-2",
+      "requested_model": "gpt-6-astra",
+      "provider_attestation": "Requested seat/model supplied by orchestrator; no independent provider/model attestation available.",
+      "phase": "Pre-implementation contract and calculus review; final frozen revision pending",
+      "verdict": "CONDITIONAL_ACCEPT_PENDING_FORMAL_FREEZE_AND_PRECISION_FIXES",
+      "production_files_edited": false,
+      "files_sha256": {
+        "spec/allow-contract.json": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+        "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+        "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+        "spec/egraph-stage.json": "a5db63eae2434211fe3ab7709b4dbe4c470f8cd9720ef2e42fad78844e1c76de",
+        "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+        "spec/egraph-types.json": "54d82295c8133585177604bc3f82f731a4fa294f754aa29af0ed05c2fbb089e1",
+        "formal/Allow/EGraph.lean": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab",
+        "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+        "gates/egraph/baseline-g1/dependencies.json": "ef00e6b9bd4eaf367f717cb904d4ae5a0eecdd7b9ccada25f58849d9fe47df16"
+      },
+      "independent_checks": {
+        "catalog_rules": 34,
+        "finite_pointwise_assignments_checked": 272,
+        "all_passed": true,
+        "rhs_variables_bound": true,
+        "unique_rule_ids_and_lean_constructor_names": true,
+        "limitations": "Finite independent interpretation catches catalog mistakes; it is not Lean build evidence or Java correctness evidence."
+      },
+      "findings": [
+        {
+          "id": "EG-A2-01",
+          "severity": "BLOCKER_BEFORE_IMPLEMENTATION",
+          "status": "KNOWN_PENDING_FORMAL_AGENT",
+          "finding": "Mixed SOME/NO terms under Boolean congruence require a compositional mixed calculus, beyond separate relation nonemptiness propositions and pure Formula derivations. Bind final mixed soundness obligations and concrete witness in two clean exact-proposition builds."
+        },
+        {
+          "id": "EG-A2-02",
+          "severity": "BLOCKER_BEFORE_IMPLEMENTATION",
+          "status": "KNOWN_PENDING_ROOT",
+          "finding": "Certificate checker must enforce exact atom payload/sort membership in fixed inventory, bounded term depth before recursive operations, and explicit output/certificate exhaustion semantics. Parent reports these precision fixes in progress."
+        },
+        {
+          "id": "EG-A2-03",
+          "severity": "BLOCKER_BEFORE_IMPLEMENTATION",
+          "status": "REPORTED_TO_PARENT",
+          "finding": "Current EG15/16/17 declarations are universally quantified witnesses, but observed Lean witnesses instantiate concrete Fin 2/Fin 1 terms. Exact-proposition audit must bind actual intended concrete statements before gate approval."
+        },
+        {
+          "id": "EG-A2-04",
+          "severity": "IMPLEMENTATION_ACCEPTANCE",
+          "status": "CONTRACT_COVERS_TEST_PENDING",
+          "finding": "Matcher operates modulo eclass equality while RULE certificates require concrete syntactic instantiation. For AND(a,b) where a=b is certified, repeated-variable idempotence requires child-congruence conversion to AND(a,a) before RULE or an equivalent explicit derivation. UF membership is not a certificate premise. Test this case, multi-level collision rebuild, historical endpoints after path compression, and forged equality without a derivation."
+        },
+        {
+          "id": "EG-A2-05",
+          "severity": "IMPLEMENTATION_ACCEPTANCE",
+          "status": "CONTRACT_COVERS_TEST_PENDING",
+          "finding": "Cycles and distributive expansion can exhaust matches/proofs before node budget; extraction must maintain finite positive-cost witnesses and root derivation, never serialize class cycles. Test cyclic x=AND(x,TRUE), duplicate unsuccessful matches, capped rebuilding, checked extraction during incomplete saturation, and proof replay cancellation."
+        },
+        {
+          "id": "EG-A2-06",
+          "severity": "TRUST_BOUNDARY",
+          "status": "ACCEPTED_EXPLICIT_BOUNDARY",
+          "finding": "Graph.justified assumes every class equality has derivation; extraction_sound follows this premise and does not establish actual Java union-find/rebuild/extractor correctness. Runtime full-schema mapping and fixed context/root binding remain trusted adapters. UI must preserve this distinction and solver analysis of original source."
+        }
+      ],
+      "commercialization": {
+        "verdict": "NO_COMMERCIAL_RELEASE_AUTHORIZED",
+        "basis": "Inherited contract and local baseline inventory, not independent legal clearance. Stage expressly disables commercial release, publication, dataset ingestion and external dependencies for egraph implementation.",
+        "cost_limits": "One-second egraph and ten-second worker limits are proposed operational ceilings, not measured latency, throughput, support cost, or margin evidence. Sixteen islands and per-island certificate limits require the global output cap and cooperative checks across proof construction/replay; external process deadline remains necessary.",
+        "rights": "Original Java implementation avoids introducing an external egraph library license. Existing exact Alloy/component redistribution and corpus rights remain release gates; no legal conclusion or license clearance is made.",
+        "later_business_gate": "Measure solver/egraph CPU and memory, failure rates, support effort and customer task benefit before commercial claims; no market or revenue estimates supported."
+      },
+      "conditional_final_verdict": "Approve local implementation planning only after known formal/precision changes are frozen, all review hashes refreshed, and two clean exact-proposition Lean gates pass. Product acceptance additionally requires implementation, adversarial tests and genuine connected-browser UX evidence. No current runtime or commercial approval."
+    }
+  ],
+  "stage_revision": 2,
+  "open_design_blockers": [],
+  "gate_observation": "Two clean builds reported running by parent; this reviewer did not execute or observe their completed report."
+}

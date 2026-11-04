@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "FROZEN_FINITE_RUNTIME_CLAIMS",
+  "claims": [
+    {
+      "id": "WP-H01",
+      "kind": "CHECKED",
+      "predicate": "scope Delegate=yes; exact aggregate kernel limits; caller security preserved; root empty; supervisor control leaf; every observed live thread affinity0-3"
+    },
+    {
+      "id": "WP-H02",
+      "kind": "CHECKED",
+      "predicate": "copied immutable source/build/tool/probe inputs equal before and after; config root dev/inode matches actual scope"
+    },
+    {
+      "id": "WP-H03",
+      "kind": "TESTED",
+      "predicate": "every registered concrete probe case returns exact expected classification and cleanup receipt, with independently checked raw hashes and observed incarnation absence"
+    },
+    {
+      "id": "WP-H04",
+      "kind": "CHECKED",
+      "predicate": "whole-scope positive empty, all tracked identities absent, terminal counters complete, zero OOM/pids exhaustion and peak<=5GiB"
+    }
+  ],
+  "trusted": [
+    "Linux cgroup/procfs/PID identity and syscall semantics",
+    "systemd255 user scope manager",
+    "pinned JDK/Python/native runtime",
+    "hash and filesystem implementation",
+    "registered Java probe as finite evidence generator, not universal proof"
+  ],
+  "excluded": [
+    "comparative performance",
+    "target4vCPU8GiB acceptance",
+    "SQL CLEAN proof from synthetic frames",
+    "full contract fault coverage",
+    "semantic equivalence before190 row differential",
+    "commercial release"
+  ]
+}

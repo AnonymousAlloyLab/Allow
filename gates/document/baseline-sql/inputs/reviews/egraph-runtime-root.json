@@ -1,0 +1,62 @@
+{
+  "classification": "IMPLEMENTATION_REVIEW_AND_TEST_RESOLUTION_NOT_FORMAL_PROOF",
+  "findings": [
+    {
+      "id": "EG-R01",
+      "finding": "Record-valued preview data changed byte order after cross-JVM generic-map reconstruction",
+      "resolution": "Alphabetical property and map serialization; strict canonical-frame equality retained",
+      "tests": [
+        "JsonWireEGraphTest.genericPreviewRoundTripKeepsCanonicalFrame",
+        "WorkerIntegrationTest"
+      ]
+    },
+    {
+      "id": "EG-R02",
+      "finding": "Original wire depth140 could reject valid term depth100 because arrays and objects each add nesting",
+      "resolution": "Transport depth300, with independent term/proof depth128 and byte caps retained",
+      "tests": [
+        "JsonWireEGraphTest.admittedProofDepthSurvivesTransport",
+        "JsonWireEGraphTest.excessiveWireNestingStillRejects"
+      ]
+    },
+    {
+      "id": "EG-R03",
+      "finding": "Registry was self-hashed but not checked against the proved catalog pin before parsing",
+      "resolution": "Exact private approved SHA-256 pin checked before parser; tampered-byte regression",
+      "tests": [
+        "RuleCatalogTest"
+      ]
+    },
+    {
+      "id": "EG-R04",
+      "finding": "Public Rewrite constructor could retain caller-owned mutable pattern nodes",
+      "resolution": "Defensive copies on constructor inputs and accessor outputs",
+      "tests": [
+        "RuleCatalogTest"
+      ]
+    },
+    {
+      "id": "EG-R05",
+      "finding": "Graph preview boundary counted an omitted node, hiding truncation at49nodes",
+      "resolution": "Count only added nodes; explicit preview truncation",
+      "tests": [
+        "EGraphEngineTest",
+        "HTTP graph preview inspection"
+      ]
+    },
+    {
+      "id": "EG-R06",
+      "finding": "Nested IFF lowering and aggregate output sizing needed limits before expansion/allocation",
+      "resolution": "Occurrence-cost guard and capped aggregate output sink with OUTPUT_LIMIT sentinel",
+      "tests": [
+        "IslandAdapterTest"
+      ]
+    }
+  ],
+  "related_review": "reviews/egraph-runtime-astra-1.json",
+  "remaining": [
+    "Browser extension unavailable; no manual keyboard/drop/visual QA",
+    "No Java/parser/OS refinement proof or commercial clearance"
+  ],
+  "execution_authority": "gates/egraph/implementation-report.json and its bound test evidence"
+}

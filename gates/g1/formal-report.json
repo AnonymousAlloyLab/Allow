@@ -1,0 +1,469 @@
+{
+  "closure_id": "allow-g1-supplement-r4",
+  "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+  "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+  "status": "VERIFIED",
+  "verifier_id": "V-G1-FORMAL",
+  "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+  "environment": {
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "trusted": [
+    "Lean 4.34.1 kernel/compiler and bundled libraries",
+    "propext, Quot.sound, Classical.choice",
+    "Lake",
+    "Python runtime and this verifier",
+    "SHA-256 and collision resistance",
+    "OS/filesystem/process semantics",
+    "hardware",
+    "interpretation of formal model vs requirements prose"
+  ],
+  "propositions": 33,
+  "supplement_obligations": 8,
+  "builds": [
+    {
+      "artifacts": {
+        ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+        ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+        ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+        ".lake/build/lib/lean/Allow/Foundation.olean": "7f07b1a20633b22da798fe9b4bfbd71080ce9cc03bc4d4c60ae991187514c5ea",
+        ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+        ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+        ".lake/build/lib/lean/Allow/Slots.olean": "155f649a33d00867388d114656fe37ee8b0a7fab731f949154d4d64f150cc8a5",
+        ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+        ".lake/build/lib/lean/Allow.olean": "8c514fd6da1cf74aa9cd927d244790f7bbf392ae8adb8e81f669a4e6d6d48a41"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "audit_sha256": "7afe8ca24ca0f6f7598ab1659e8632ac5796f68791b313fc7f0dfd8cfe3792a9",
+      "exit_code": 0
+    },
+    {
+      "artifacts": {
+        ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+        ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+        ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+        ".lake/build/lib/lean/Allow/Foundation.olean": "7f07b1a20633b22da798fe9b4bfbd71080ce9cc03bc4d4c60ae991187514c5ea",
+        ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+        ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+        ".lake/build/lib/lean/Allow/Slots.olean": "155f649a33d00867388d114656fe37ee8b0a7fab731f949154d4d64f150cc8a5",
+        ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+        ".lake/build/lib/lean/Allow.olean": "8c514fd6da1cf74aa9cd927d244790f7bbf392ae8adb8e81f669a4e6d6d48a41"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "audit_sha256": "7afe8ca24ca0f6f7598ab1659e8632ac5796f68791b313fc7f0dfd8cfe3792a9",
+      "exit_code": 0
+    }
+  ],
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "boundary": "Fixed finite Lean propositions, including six concrete witnesses; no implementation refinement.",
+  "production_sources_at_freeze": 0,
+  "claims": [
+    {
+      "symbol": "Allow.infer_sound",
+      "expected_proposition": "∀ {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty}, Allow.inferType Γ e = some t → Allow.HasType Γ e t",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.typed_hole_free",
+      "expected_proposition": "∀ {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty}, Allow.HasType Γ e t → Allow.HoleFree e",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.checkSlot_sound",
+      "expected_proposition": "∀ {Γ : List Allow.Ty} {t : Allow.Ty} {e : Allow.Raw}, Allow.checkSlot Γ t e = true → Allow.HasType Γ e t",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.reject_preserves",
+      "expected_proposition": "∀ (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw), ¬ (base = s.revision ∧ Allow.checkSlot Γ Allow.Ty.formula e = true) → Allow.commit s base Γ e = s",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.commit_preserves",
+      "expected_proposition": "∀ (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw), s.Valid → (Allow.commit s base Γ e).Valid",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.commit_revision",
+      "expected_proposition": "∀ (s : Allow.State) (Γ : List Allow.Ty) (e : Allow.Raw), Allow.checkSlot Γ Allow.Ty.formula e = true → (Allow.commit s s.revision Γ e).revision = s.revision + 1",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.visible_is_current",
+      "expected_proposition": "∀ {p : Allow.Presentation} {e : Allow.Evidence}, Allow.visible p e = true → e.key = p.key ∧ e.epoch = p.epoch ∧ p.draftHash = p.key.sourceHash",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.canonical_eq_iff",
+      "expected_proposition": "∀ {n : Nat} (a b : Allow.Formula n), Allow.canonical a = Allow.canonical b ↔ ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.certificate_sound",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.Certificate a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.certified_merge_canonical",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.ContextualFormula n}, Allow.CertifiedMerge a b → Allow.canonicalKey a = Allow.canonicalKey b",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.no_unbounded_claim",
+      "expected_proposition": "∀ (k : Allow.CommandKind) (s : Allow.SolverStatus), Allow.report k s ≠ Allow.Conclusion.unboundedValidity",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.unknown_is_not_unsat",
+      "expected_proposition": "∀ (k : Allow.CommandKind) (s : Allow.SolverStatus), s = Allow.SolverStatus.UNKNOWN ∨ s = Allow.SolverStatus.TIMEOUT ∨ s = Allow.SolverStatus.CANCELLED ∨ s = Allow.SolverStatus.ERROR → ¬ Allow.Absence (Allow.report k s)",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.retrieval_is_authorized",
+      "expected_proposition": "∀ {s : Allow.RetrievalScope} {rows : List Allow.Row} {r : Allow.Row}, r ∈ Allow.retrieve s rows → r.scope = s ∧ r.deleted = false ∧ r.permitted = true",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.pair_admission_bound",
+      "expected_proposition": "∀ {target : Allow.TargetContext} {pool : Allow.Polarity} {run : Allow.Run} {w : Allow.Witness}, Allow.admitPair target pool run w = true → run.query.target = target ∧ run.query.polarity = pool ∧ w.ownQuery = run.query ∧ run.status = Allow.SolverStatus.SAT ∧ w.validated = true",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.contract_has_witness",
+      "expected_proposition": "∃ c : Allow.KernelConfig, c = Allow.generatedKernel ∧ Allow.Coherent c",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.empty_domain_counterexample",
+      "expected_proposition": "((∃ _ : Empty, True) ∨ True) ∧ ¬ (∃ _ : Empty, True ∨ True)",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.canonical_idempotent",
+      "expected_proposition": "∀ {n : Nat} (t : Allow.Table n), Allow.tabulate n (Allow.lookup t) = t",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.distinct_inventories_distinct_keys",
+      "expected_proposition": "∀ {n : Nat} (a b : Allow.ContextualFormula n), a.inventory ≠ b.inventory → Allow.canonicalKey a ≠ Allow.canonicalKey b",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.edit_hides_old",
+      "expected_proposition": "∀ (p : Allow.Presentation) (e : Allow.Evidence) (draft : String), e.epoch = p.epoch → Allow.visible (Allow.edit p draft) e = false",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.accepted_formula_witness",
+      "expected_proposition": "Allow.inferType [] (.existsRel 7 (.someRel (.ref 0))) = some .formula",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.rejected_bad_drop_witness",
+      "expected_proposition": "Allow.inferType [.relation 7 []] (.and (.ref 0) .truth) = none",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.accepted_commit_witness",
+      "expected_proposition": "(Allow.commit ⟨[], .truth, 0⟩ 0 [] (.not .truth)).revision = 1",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.visible_evidence_witness",
+      "expected_proposition": "Allow.visible ⟨Allow.sampleKey, 4, \"source\"⟩ ⟨Allow.sampleKey, 4⟩ = true",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.admitted_pools_witness",
+      "expected_proposition": "Allow.admitPair Allow.sampleTarget .positive ⟨Allow.positiveQuery, .SAT⟩ ⟨Allow.positiveQuery, \"instanceA\", true⟩ = true ∧ Allow.admitPair Allow.sampleTarget .negative ⟨Allow.negativeQuery, .SAT⟩ ⟨Allow.negativeQuery, \"instanceB\", true⟩ = true ∧ Allow.positiveQuery ≠ Allow.negativeQuery",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.nontrivial_canonical_witness",
+      "expected_proposition": "Allow.canonical (Allow.Formula.truth : Allow.Formula 1) ≠ Allow.canonical Allow.Formula.falsity",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Slots.names_do_not_affect_payload",
+      "expected_proposition": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String), Allow.Slots.anonymous {p with names := labels} = Allow.Slots.anonymous p",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Slots.names_do_not_affect_embedding",
+      "expected_proposition": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String) (source origin : String), Allow.Slots.embedding {p with names := labels, source := source, origin := origin} = Allow.Slots.embedding p",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Slots.distinct_slots_remain_distinct",
+      "expected_proposition": "∀ (a b : Allow.Slots.Slot), a ≠ b → Allow.Slots.Tree.reference a ≠ Allow.Slots.Tree.reference b",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Slots.embedding_has_no_presentation",
+      "expected_proposition": "∀ (p : Allow.Slots.Presented), Allow.Slots.embedding p = (⟨1, p.resolved⟩ : Allow.Slots.EmbeddingInput)",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Foundation.admission_bounded",
+      "expected_proposition": "∀ {active capacity next : Nat}, Allow.Foundation.admit active capacity = some next → next ≤ capacity",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Foundation.terminal_is_final",
+      "expected_proposition": "∀ (prior incoming : Allow.SolverStatus), Allow.Foundation.finish (.terminal prior) incoming = .terminal prior",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Foundation.cancel_is_not_unsat",
+      "expected_proposition": "Allow.Foundation.cancel .running = .terminal .CANCELLED ∧ ∀ incoming, Allow.Foundation.finish (Allow.Foundation.cancel .running) incoming = .terminal .CANCELLED",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    },
+    {
+      "symbol": "Allow.Foundation.accepted_style_bounded",
+      "expected_proposition": "∀ {m : Allow.Foundation.MethodMetadata}, Allow.Foundation.acceptable m = true → m.lines ≤ 30 ∧ m.documented = true ∧ m.encapsulated = true",
+      "status": "PASS",
+      "input_root_hash": "39f1e9529ee5aaf99dd410a95b50ae3b63c6bfbd77f42db31ee3fa9a163abc54",
+      "verifier_sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ],
+      "classification": "PROVED_MODEL"
+    }
+  ],
+  "determinism": "PASS"
+}

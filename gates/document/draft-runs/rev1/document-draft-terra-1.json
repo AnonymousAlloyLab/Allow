@@ -1,0 +1,45 @@
+{
+  "reviewer": "Terra council seat 1",
+  "review_type": "INDEPENDENT_READ_ONLY_DRAFT_REVIEW",
+  "spec_path": "spec/document-stage-draft.json",
+  "spec_revision": 1,
+  "spec_sha256": "296991c934341ea168586aba6c1e090d0712836771ace0480573ccdbeb33102a",
+  "formal_path": "gates/document/draft/Document.lean",
+  "formal_sha256": "de0a08bd831c9128456becb63f5c7784178bdaec33551e668837838dc5c359fe",
+  "decision": "BLOCKERS_NO_IMPLEMENTATION_OR_GATE_APPROVAL",
+  "findings": [
+    {
+      "id": "DT1-01",
+      "topic": "Module validation and unique environments",
+      "evidence": "Typed is a relation over one expression and an arbitrary positional List Ty; valid uses only that relation. ModuleDecls, uniqueDeclarations, callValid, ranks and occurrence bounds are disconnected from valid. A ref may name formula or empty relation; quant accepts undeclared sorts. No full-module acceptance, unique lookup, declaration dependencies or editable-graph scope theorem follows.",
+      "resolution": "Define a finite closed module with unique declaration and binder IDs, signature and field tables, predicate bodies and ordered commands. Define environment construction only from checked declarations; prove lookup uniqueness and well-formed nonempty declared schemas. Define ModuleValid from all required declaration, graph, scope, type, call, command and acyclicity checks; acceptance requires it. Prove each accepted root is typed in its uniquely determined environment, binder resolution is unique and bound within its lexical ancestry, calls have exact arity/types, dependencies are declared and arbitrary directed cycles are impossible. Include declaration-edit revalidation of all roots."
+    },
+    {
+      "id": "DT1-02",
+      "topic": "Closed operators and forest representation",
+      "evidence": "Grouped bool/test/compare/same/quant erase operator identity and do not define an adapter or operator semantics. The prose lists tags but does not define per-tag fields, arities, field-owner inclusion or command forms. Shared nodes can be reached under different lexical scopes.",
+      "resolution": "Use a finite ordered closed forest: unique node IDs, exactly one parent for each nonroot, distinct roots, no dangling edges, no unreachable nodes, all child edges ranked; stable declaration references are ID leaves, not shared AST child nodes. Keep any e-graph DAG separate and without document scope authority. Explicitly specify copy creates fresh node/binder IDs and capture-avoiding binder remapping, move preserves identity only if free references remain in scope; reject otherwise. Define each closed tag and field/arity, exact field owner-plus-range schema, parameter multiplicity and commands. Keep operators distinct in syntax; if grouped for typing, prove total unambiguous classification covers every tag and inversion for each family. Do not infer singleton cardinality merely from unary nominal schema. Provide witnesses for every tag, mismatched schemas, invalid arity and capture. Forest avoids occurrence-scope ambiguity only if parent uniqueness is enforced over all syntactic edges and roots and declaration/call references are not traversed as child ownership."
+    },
+    {
+      "id": "DT1-03",
+      "topic": "Receipt, atomicity, concurrency and undo",
+      "evidence": "Commit has only success and stale constructors; it cannot express storage failure, transaction state or uncertainty. Receipt stores an artifact and revision only; retry is a standalone equality test without key, scope, request bytes, history, time, policy, authorization or concurrent transitions. No undo exists.",
+      "resolution": "Model serialized atomic transitions over immutable revision history, current revision, scoped receipt map, policy version and time. Request identity includes exact canonical bytes, operation, expected revision and target/direction; key scope includes principal, launch, workspace and document. Define current authorization, receipt-before-stale lookup, byte collision rejection, checked candidate and version fences, success inserting one revision and one receipt atomically, failure as unchanged state, and retry of committed outcome after response loss without revalidation. Prove preservation of prior history, monotonic revision, no effect of denials, same-key replay/no second revision, changed-byte denial, scope isolation and same-base distinct-key at-most-one success. Undo/redo validates a retained authorized target and appends exact artifact with provenance; prove no history mutation and deny unavailable/stale/policy-invalid targets. State sequential serialization abstraction explicitly; database isolation, crash recovery and linearizability of implementation remain trusted and tested, not proven by this model."
+    },
+    {
+      "id": "DT1-04",
+      "topic": "Retention lifecycle and finite verification",
+      "evidence": "The draft leaves serialization, deterministic failure receipts and active retry registration open. The Lean retry function does not express expiry, registration, cleanup or database time; algebraic equality lemmas do not establish lifecycle behavior.",
+      "resolution": "Freeze canonical decode/serialization, failure receipt policy and authenticated registration, renewal, closure, lease/expiry and cleanup interlock. Model logical database time and receipt retention through at least commit+24h and every active retry window, with cleanup unable to delete an eligible receipt; prove replay while retained and expiry behavior under explicit assumptions. Define finite executable checker over bounded closed syntax and state, prove soundness and completeness against the inductive rules for its stated domain, and register nonvacuous positive and negative Lean witnesses including three-node cycles, conflicting simultaneous keys, lost response, active-window boundary and undo. Differentially check every tag and boundary against parser/adapter fixtures and enumerate bounded small instances; finite checks are evidence for adapter behavior, not a proof for all unbounded inputs."
+    },
+    {
+      "id": "DT1-05",
+      "topic": "Projection and inherited obligations",
+      "evidence": "Occurrence only bounds supplied natural numbers; no byte/scalar/UTF-16 conversion or source identity is modeled. Parse/print equivalence lacks ID reconciliation; occurrence path reassignment alone cannot transport trivia after sibling edits. Original G2/G3 require accessibility, source freshness, contextual canonicalization and a complete checker beyond these lemmas.",
+      "resolution": "Define structural alpha equivalence via bijections for declarations and binders preserving every operator and ordered reference, with explicit forest identity policy. Specify edit transport for occurrence and trivia including copy/move/delete; prove or test conversion and bounds against strict UTF-8 scalar boundaries, UTF-16 units and exact source/revision identity. Parser/printer correspondence, occurrence extraction and Java/TypeScript refinement remain explicit adapter trust with positive/negative finite fixtures. Do not claim G2/G3 closure from the formal slice; retain full inherited requirements and separately reported gates."
+    }
+  ],
+  "formal_gameplan": "Freeze exact closed data definitions and propositions first; implement decidable validation and scoped transition model in isolated Lean, prove soundness/completeness and preservation/inversion properties, add acceptance and denial witnesses, register exact artifacts and run two clean builds before production changes. Obtain six independent final exact-hash reviews after revisions. Explicitly distinguish modeled atomic steps and tested external adapters from proved runtime refinement.",
+  "verification": "Read actual draft and Lean before existing reviews, inspected inherited contract requirements and verified SHA-256. No Lean build or runtime test performed; no production, script, or formal changes.",
+  "scope": "Initial revision 1 review only; no final-hash approval or gate closure."
+}

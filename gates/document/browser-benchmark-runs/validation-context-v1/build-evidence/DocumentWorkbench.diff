@@ -1,0 +1,15 @@
+--- production
++++ instrumented
+@@ -1,3 +1,4 @@
++import {useBenchmarkCommit} from '../bench/bridge';
+ import {useEffect,useRef,useState} from 'react';
+ import {initialState} from './document/state';
+ import type {Controller,ViewState} from './document/controller';
+@@ -20,6 +21,7 @@
+ /** Render the complete isolated typed-document workbench. @param props Current bearer held in memory. @returns Document editor. */
+ export function DocumentWorkbench(props:{token:string}) {
+   const {view,controller}=useController(props.token);
++  useBenchmarkCommit(controller,view);
+   return <main className="document-workbench" onKeyDown={historyShortcut.bind(null,controller)}>
+     <header>
+       <h1>Allow</h1>

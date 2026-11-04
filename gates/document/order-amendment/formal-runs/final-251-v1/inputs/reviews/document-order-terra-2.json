@@ -1,0 +1,12 @@
+{
+  "reviewer": "Terra council seat 2",
+  "review_type": "FOCUSED_FIELD_ORDER_AMENDMENT",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0",
+    "gates/document/order-amendment/types.json": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+  },
+  "review": "Owner-grouped field array preserves declaration order in Alloy syntax while flat node registry order is excluded from presentation semantics. The revised abstract guard applies only to successful or committed-unknown transitions; replay, collision and authorization-denial branches remain available without candidate validation. The stated positive, negative and round-trip fixtures are appropriate obligations.",
+  "scope": "Game-plan review only. Implement the acceptance guard only after the required six exact-hash reviews and registered formal verification. No inference of runtime, G2/G3 or commercial approval."
+}

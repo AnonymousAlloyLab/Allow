@@ -1,0 +1,193 @@
+{
+  "reviewer_id": "astra-2",
+  "phase": "G1_FIRST_G2_SUPPLEMENT_REVIEW",
+  "model_identity": {
+    "requested_model": "gpt-6-astra",
+    "dispatch_model_reported_by_parent": "gpt-6-astra",
+    "actual_runtime_model_independently_observable": false,
+    "actual_runtime_model": null
+  },
+  "supplement_revision": 4,
+  "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+  "status": "COMPLETE_SCOPED_PRE_IMPLEMENTATION_REVIEW",
+  "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+  "reviewed_files": [
+    {
+      "path": "spec/implementation-g1.json",
+      "sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654"
+    },
+    {
+      "path": "spec/allow-contract.json",
+      "sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b"
+    },
+    {
+      "path": "formal/lakefile.toml",
+      "sha256": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6"
+    },
+    {
+      "path": "formal/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "formal/lake-manifest.json",
+      "sha256": "58c14e76084b8514765deb185e47743bf95339f17023336e73ce8ee0fe357fa4"
+    },
+    {
+      "path": "formal/Allow/Canonical.lean",
+      "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+    },
+    {
+      "path": "formal/Allow/Contract.lean",
+      "sha256": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10"
+    },
+    {
+      "path": "formal/Allow/Evidence.lean",
+      "sha256": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+    },
+    {
+      "path": "formal/Allow/Foundation.lean",
+      "sha256": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7"
+    },
+    {
+      "path": "formal/Allow/Generated.lean",
+      "sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925"
+    },
+    {
+      "path": "formal/Allow/Kernel.lean",
+      "sha256": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503"
+    },
+    {
+      "path": "formal/Allow/Slots.lean",
+      "sha256": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f"
+    },
+    {
+      "path": "formal/Allow/Typing.lean",
+      "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    {
+      "path": "formal/Allow.lean",
+      "sha256": "2c48425a37c470e584dfb0221b729671f82a1aa6e9d588fcc176a9f391883012"
+    },
+    {
+      "path": "spec/slot-profile.json",
+      "sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4"
+    }
+  ],
+  "scope": [
+    "semantic slot payload and proof boundary",
+    "isolated worker lifecycle and cancellation",
+    "first G2 source/block/diagnostic transitions",
+    "proof-first and six-seat review gates",
+    "coding contract enforcement"
+  ],
+  "findings": [
+    {
+      "id": "G1-A2-01",
+      "severity": "HIGH",
+      "status": "RESOLVED_IN_REVISION3_GRAMMAR",
+      "finding": "An unqualified generic slot tree does not itself preserve declaration multiplicity, signature attributes, integer versus relation operators, command scope and facts.",
+      "concrete_failure_scenario": "A canonicalizer that serializes both sig A and one sig A identically can produce indistinguishable payloads despite distinct instance sets; omitting changed facts or scopes similarly erases semantic context.",
+      "remediation": "Normative constructor/attribute grammar must preserve each supported attribute or reject it; include semantic negative pairs.",
+      "resolution": "Revision3 references spec/slot-profile.json, which explicitly rejects nonplain signature attributes, records field domains/multiplicity and closed operator kinds, includes facts and command scopes, and requires unsupported-attribute rejection. Actual parser adapter tests remain acceptance evidence."
+    },
+    {
+      "id": "G1-A2-02",
+      "severity": "HIGH",
+      "status": "RESOLVED_IN_REVISION3_POLICY",
+      "finding": "Logical job termination and operating-system process lifetime must not share one permit-release event.",
+      "concrete_failure_scenario": "A cancelled job is marked terminal and releases its permit before the Java child exits; the next job starts while the old child still consumes memory/CPU, violating active_workers=1 even though admission_bounded holds over the bookkeeping count.",
+      "remediation": "Keep admission until the complete sandbox process group exits and is reaped; discard late results and test cancellation while a queued successor waits.",
+      "resolution": "Revision3 terminal_policy explicitly requires permit retention until exit/reap, die-with-parent and successor cancellation tests. Strengthened S07 proves CANCELLED equality and preservation under later completion events. Atomic Java bookkeeping and process reaping are still implementation tests."
+    },
+    {
+      "id": "G1-A2-03",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_AS_EXPLICIT_REVISION4_ACCEPTANCE_GATE",
+      "finding": "Sandbox fail-closed prose needs direct negative tests before accepting the worker foundation.",
+      "concrete_failure_scenario": "A launcher catches sandbox startup denial and launches the same worker directly, while normal SAT/import tests continue passing. Alternatively a broad mount exposes private project files despite import-free parser policy.",
+      "remediation": "Test unavailable/denied sandbox produces failure with zero unsandboxed worker child; test worker network/private filesystem access denied; record sandbox invocation/mount and injection-environment policy without secrets.",
+      "verdict": "Retain as explicit G1 test/review obligation; Lean admission/terminal proofs do not discharge it.",
+      "resolution": "Revision4 acceptance expressly requires sandbox denial/unavailability to produce zero unsandboxed JVM launches and requires network/private-filesystem denial tests. Implementation evidence remains pending by design."
+    },
+    {
+      "id": "G1-A2-04",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_IN_REVISION4_AUTHORITY_POLICY",
+      "finding": "A fragment bootstrap token must be erased from the visible location/history entry after extraction to fulfill memory-only authority handling.",
+      "concrete_failure_scenario": "The UI keeps #token in the URL after startup; copying the address or retaining the browser history entry retains the bearer authority despite no query/localStorage use.",
+      "remediation": "Immediately remove the fragment via history replacement after bootstrap; retain token only in memory and keep it out of errors, telemetry and exports. Test bootstrap and cleaned location.",
+      "resolution": "Revision4 mandates immediate fragment consumption/erasure with history.replaceState, no diagnostics/telemetry token echo and invalidation on restart. Implementation test evidence remains pending by design."
+    },
+    {
+      "id": "G1-A2-05",
+      "severity": "LOW",
+      "status": "EXPLICIT_TRUST_BOUNDARY",
+      "finding": "S01-S04 prove fixed-payload projection noninterference. The model embedding function accepts Presented, which contains presentation strings, and therefore does not prove that the implementation feature encoder is architecturally unable to receive those strings.",
+      "concrete_failure_scenario": "An implementation exposes encode(Presented) and accidentally hashes a source/name field; the model theorem stays true because its own embedding definition ignores that field.",
+      "remediation": "Implement encode(AnonymizedArtifact) with no source/name/provenance parameter and structurally separate DTO types. Test exact bytes/vector invariance under alpha-renaming and changed presentation metadata. Optionally factor a payload-only model constructor.",
+      "verdict": "No contradiction in the scoped theorem; implementation refinement remains required."
+    }
+  ],
+  "formal_assessment": {
+    "S01_S04": "Projection and constructor facts over fixed resolved payloads; no universal parser alpha-equivalence, serialization injectivity or structural anonymity proof.",
+    "S05_S07": "Arithmetic admission and abstract terminal-state facts; no proof of Java synchronization, queue byte limits, process lifetime or OS containment.",
+    "S08": "Property of supplied MethodMetadata; does not establish AST checker completeness or meaningful documentation.",
+    "axiom_audit": "S01-S04,S06,S07 have no axioms. S05 uses standard propext/Quot.sound; S08 uses standard propext. No custom axioms or sorryAx observed."
+  },
+  "checks": [
+    {
+      "command": "lake build",
+      "cwd": "/tmp/allow-g1-astra2-3s1s69wp/formal",
+      "result": "PASS; isolated clean source snapshot, 11 jobs."
+    },
+    {
+      "command": "lake env lean Audit.lean",
+      "cwd": "/tmp/allow-g1-astra2-3s1s69wp/formal",
+      "result": "PASS; #check and #print axioms for all S01-S08. Printed propositions reviewed against supplement."
+    },
+    {
+      "method": "manual specification and grammar review",
+      "result": "Reviewed current supplement, base inheritance boundary, slot-profile and Slots/Foundation sources. No product source implemented or reviewed."
+    },
+    {
+      "method": "revision4 delta review and exact hash rebinding",
+      "result": "Reviewed immediate fragment erasure/noecho/restart revocation and explicit sandbox/stylechecker negative acceptance tests. Slots/Foundation and all proof-source hashes are unchanged from the independently built revision3 snapshot; no additional model behavior is claimed."
+    }
+  ],
+  "final_review": {
+    "supplement_revision": 4,
+    "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "spec_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "slot_profile_sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+    "blocking_specification_findings": [],
+    "production_implementation_reviewed": false,
+    "two_clean_builds_independently_attested_by_this_review": false,
+    "note": "This reviewer performed one independent clean build. Root must supply the required two clean builds and six reports before first production source. Acceptance requires the listed implementation evidence, not just proof compilation."
+  },
+  "positive_observations": [
+    "No publication, commercial release, remote embeddings, training or dataset ingestion is authorized.",
+    "Slots derive from AST identity/declaration order with explicit scope restoration; name-derived IDs and scalar encodings are excluded.",
+    "Exact source hashes remain provenance, while only anonymous structural bytes feed the local feature encoder.",
+    "Unknown/invalid/unsupported/error/cancel/timeout remain distinct from UNSAT, and worker protocol requires exact framing, identity, caps and clean exit.",
+    "First G2 text edits clear block projections and current diagnostics; reverse projection is not assumed.",
+    "Every authored Java/JS/TS/TSX method/function/constructor/callback and tests must pass documented physical-line and encapsulation checks."
+  ],
+  "external_actions": {
+    "product_code_written": false,
+    "contacted_anyone": false,
+    "dataset_contents_read_or_exported": false,
+    "remote_calls": false
+  },
+  "previous_final_review_revision3": {
+    "supplement_revision": 3,
+    "supplement_sha256": "7135ce32fda4d63b3d6a33c9ea5dad69ca4c27be08af3161c9161529b89c4337",
+    "spec_sha256": "7135ce32fda4d63b3d6a33c9ea5dad69ca4c27be08af3161c9161529b89c4337",
+    "slot_profile_sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "verdict": "ACCEPT_SCOPED_SUPPLEMENT_WITH_IMPLEMENTATION_GATES",
+    "blocking_specification_findings": [],
+    "production_implementation_reviewed": false,
+    "two_clean_builds_independently_attested_by_this_review": false,
+    "note": "This reviewer performed one independent clean build. Root must supply the required two clean builds and six reports before first production source. Acceptance requires the listed implementation evidence, not just proof compilation."
+  }
+}

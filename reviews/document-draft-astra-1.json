@@ -1,0 +1,93 @@
+{
+  "reviewer": "astra-1",
+  "seat": "document-draft-astra-1",
+  "review_type": "INDEPENDENT_ADVERSARIAL_DRAFT_DESIGN_REVIEW",
+  "decision": "BLOCKERS",
+  "spec_revision": 1,
+  "spec_sha256": "296991c934341ea168586aba6c1e090d0712836771ace0480573ccdbeb33102a",
+  "formal_file_sha256": "de0a08bd831c9128456becb63f5c7784178bdaec33551e668837838dc5c359fe",
+  "timestamp_utc": "2026-11-03T17:35:37.562360+00:00",
+  "blocking_findings": [
+    {
+      "id": "DA1-01",
+      "severity": "BLOCKER",
+      "title": "Closed IR is described but not defined",
+      "location": "scope.ir_contract",
+      "finding": "No per-tag field/arity schema exists. Field columns do not specify whether the owner is included, parameter declarations do not specify atom versus set multiplicity, and command targets/options are prose. These choices affect Alloy elaboration and call soundness.",
+      "bounded_resolution": "Freeze a machine-checkable tagged schema: fields store owner separately and range columns, and field_ref yields [owner] ++ range; bound range arity so total schema fits 8. Freeze predicate parameters to unary one-atom signature parameters and require calls to have one-atom arguments (or explicitly choose set-valued parameters and model that multiplicity). Enumerate allowed run/check target kinds and options. Reject unknown keys and distinguish missing/null. Register positive and denial vectors for every tag."
+    },
+    {
+      "id": "DA1-02",
+      "severity": "BLOCKER",
+      "title": "DAG sharing and lexical scope require an occurrence-sensitive rule",
+      "location": "scope.ir_contract.binders_and_calls",
+      "finding": "Checking a shared node once by node ID is unsound when it appears below distinct binders. A variable reference can be legal on one incoming path and escaping on another. Explicit scope IDs are promised but have no schema or ancestry relation.",
+      "bounded_resolution": "Freeze scope records with unique scope ID, parent ID, owner occurrence and introduced binder IDs. Either forbid sharing any subtree with free variables, or check every occurrence under its exact lexical environment; memoization keys must include environment. Separate child-edge acyclicity from predicate-call dependency acyclicity, require all graph edges covered by a finite rank, and prove no arbitrary-length cycle rather than just self/two cycles. Test a shared variable subtree used once inside and once outside its binder plus a three-predicate cycle."
+    },
+    {
+      "id": "DA1-03",
+      "severity": "BLOCKER",
+      "title": "Round-trip equality has no defined identity reconciliation",
+      "location": "projection.round_trip",
+      "finding": "Parsing printed Alloy cannot recover arbitrary server node/declaration/binder IDs, sharing, or occurrence IDs from source alone. Alpha-renaming and presentation normalization are not an executable equivalence, and grouped Lean operators erase semantically significant tags.",
+      "bounded_resolution": "Define round-trip equality as ordered typed structural equality with explicit bijection for declaration/binder identities and source paths, preserving every operator tag, nominal column order, multiplicity, command option and target. Specify treatment of DAG sharing (tree expansion may preserve occurrence semantics but cannot claim graph identity). Provide a deterministic elaboration/name-to-ID sidecar or explicit fresh-ID bijection. Keep and/or/implies/iff and all/some distinct in the model or prove the exact adapter classification only for typing, never semantics."
+    },
+    {
+      "id": "DA1-04",
+      "severity": "BLOCKER",
+      "title": "Trivia survival is contradicted by structural-path identity",
+      "location": "projection.occurrence_rules and projection.trivia_rules",
+      "finding": "Occurrence IDs are assigned by structural path, while moves must carry comments and surviving occurrences must retain trivia. Inserting a prior sibling changes paths; the old path may now designate a different node, attaching comments to the wrong expression. Overlapping spans also lack a unique ownership rule for a byte slice.",
+      "bounded_resolution": "Freeze an edit transport map from old occurrence IDs to new occurrence IDs, with explicit copy one-to-many and delete-to-orphan outcomes, independent of positional path reuse. Partition source trivia bytes exactly once using a deterministic deepest-boundary ownership and tie rule; distinguish regenerated whitespace from comment payload. Test insertion before identical siblings, move across scopes, duplicate/copy and nested equal-boundary spans; require unchanged byte equality and edited comment preservation in order."
+    },
+    {
+      "id": "DA1-05",
+      "severity": "BLOCKER",
+      "title": "UTF-16 theorem only bounds supplied numbers",
+      "location": "formal_draft and projection.maps",
+      "finding": "Occurrence carries only node/start/stop; spanValid accepts any in-range interval including split supplementary UTF-16 pairs. No decoding, byte-boundary conversion, source identity, occurrence role, uniqueness or correspondence exists in the model. The prose assumes parser byte intervals without a frozen Alloy position adapter.",
+      "bounded_resolution": "Freeze actual parser coordinate convention and a conversion adapter to strict UTF-8 scalar boundaries. Model finite Unicode scalar lists with utf8Width/utf16Width, define prefix conversion and prove bounds, monotonicity and exact prefix mapping. Bind occurrences to revision/source identity and unique occurrence/role; test offsets inside a multi-byte scalar, supplementary characters, CRLF, combining marks and repeated nodes. Retain parser-to-IR correspondence as tested trusted adaptation unless actually proved."
+    },
+    {
+      "id": "DA1-06",
+      "severity": "BLOCKER",
+      "title": "Anonymous Boolean canonical outputs must not acquire document authority",
+      "location": "canonicalization integration / inherited G3",
+      "finding": "The document draft inherits contextual canonical rules but does not define the adapter from its new stable IDs and scopes to exact atom inventories. A complete anonymous truth table with local atom numbers cannot identify a typed document; neither can a successful round-trip modulo alpha equivalence justify cross-context canonical equality.",
+      "bounded_resolution": "Freeze a versioned injective document-context and typed-atom encoding, including signature/declaration/binder identities, exact operator syntax, scope, ordered columns, dependency closure and canonical profile. Permit existing anonymous Boolean certificates/tables only as abstract checks until paired with exact inventory/context bytes. Reject canonical CorpusPair admission for TEXT_ONLY, unsupported atom encoding or budget-unavailable profiles. Add same-table/different-binder, different-field-owner and swapped-column negative vectors."
+    },
+    {
+      "id": "DA1-07",
+      "severity": "BLOCKER",
+      "title": "Draft formal acceptance overstates module and failure coverage",
+      "location": "gates/document/draft/Document.lean",
+      "finding": "valid checks one Expr against an arbitrary context; it never uses uniqueDeclarations, callValid, graph rank or source spans. Commit has no invalid-candidate/persistence-failure transition, so accepted_increments excludes failure by construction. Receipt ignores scope/key, expected revision, direction and policy versions. These proofs cannot serve as registered full-document or concurrency properties.",
+      "bounded_resolution": "Before freeze define one ModuleValid predicate conjoining closed-schema validity, declaration registry, all roots, occurrence-sensitive typing, scope and call resolution plus full-edge ranks. Define rejected transitions for invalid/stale/storage failure and success with a checked complete module. Model full request identity and scoped receipt lookup before stale rejection, with serialized transaction transition and explicit uncertain-response replay. Register narrow theorem statements and positive/negative witnesses; leave PostgreSQL execution refinement explicitly trusted/tested. Do not describe current lemmas as these stronger proofs."
+    },
+    {
+      "id": "DA1-08",
+      "severity": "BLOCKER",
+      "title": "Freshness and map epochs need separate stored-artifact and presentation semantics",
+      "location": "accepted_state.artifact and projection.freshness/maps",
+      "finding": "Accepted maps are immutable and tagged with an epoch, yet selection/bounds changes must increment epoch without a commit. Without a re-presentation rule the accepted map becomes permanently stale or gets relabeled without checking source. Current Workbench analyzes arbitrary drafts and locally increments revisions, so its job/source checks are not sufficient evidence for accepted analysis.",
+      "bounded_resolution": "Persist artifact maps bound to immutable revision and exact source bytes; issue presentation envelopes binding the current document/draft/epoch and map artifact identity only after exact-source agreement. Define reducer guards for diagnostics, commit responses, analysis and map events separately. A late committed response may update authoritative history but must not replace a newer visible draft or restore current evidence. Analysis reads an accepted revision server-side; draft validation yields diagnostics only. Test invalid draft then delayed VALIDATED/SAT, document switch, same source after epoch change, stale commit success and selection/bounds change."
+    }
+  ],
+  "positive_assessments": [
+    "Accepted versus draft separation, TEXT_ONLY exclusion from invented block/canonical artifacts, server-authoritative revision CAS, exact-byte retention and receipt-before-stale ordering are appropriate design directions.",
+    "Full-palette bounded exact nominal schemas and explicit non-release/non-closure status avoid claiming complete Alloy support.",
+    "Existing SQL proof/recovery evidence is outside this review and must remain frozen."
+  ],
+  "formal_assessment": {
+    "independent_lean_run": false,
+    "conclusion": "Read-only proof inspection. Current selected abstract lemmas are not a full module validator, byte conversion proof, printer/parser correspondence or transaction refinement. No proof-build or gate-closure claim.",
+    "required_gate": "Resolve these concrete design choices, register precise propositions and acceptance/denial witnesses, then perform two clean exact-hash builds before production edits."
+  },
+  "verification_performed": [
+    "Read draft revision 1 and isolated Document.lean; computed exact SHA-256.",
+    "Read frontend/src/model.ts and Workbench acceptance/freshness flow.",
+    "Read inherited canonicalization, accepted-state, API, resource limits and G2/G3 obligations."
+  ],
+  "production_edits": false,
+  "approval_scope": "Draft review only. No implementation approval, G2/G3 closure, release approval, or change to frozen SQL evidence."
+}

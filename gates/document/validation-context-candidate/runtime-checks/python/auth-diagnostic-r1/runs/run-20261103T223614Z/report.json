@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "actual_mechanism": "transient per-connection wrong password over canonical proxy",
+      "durable_unchanged": true,
+      "empty_ids": true,
+      "password_rejection_diagnostic_verified": true,
+      "response_bytes": 138,
+      "status": "UNAVAILABLE",
+      "stored_credentials_unchanged": true
+    },
+    {
+      "actual_mechanism": "transient per-connection wrong password over canonical proxy",
+      "durable_unchanged": true,
+      "empty_ids": false,
+      "password_rejection_diagnostic_verified": true,
+      "response_bytes": 138,
+      "status": "UNAVAILABLE",
+      "stored_credentials_unchanged": true
+    }
+  ],
+  "finished_at": "2026-11-03T22:36:14.997113+00:00",
+  "input_root_sha256": "f171504c005a289db3a1142c2175ae386686a86eaf266b0fbdab2c662989ee46",
+  "owned_fixture_database_dropped": true,
+  "proxy_counter_delta": {
+    "B": 28,
+    "D": 28,
+    "E": 28,
+    "P": 28,
+    "Q": 11,
+    "S": 28,
+    "X": 4,
+    "accepted": 39,
+    "auth": 12,
+    "connections": 6,
+    "disconnected": 2,
+    "parser_category_parserFailure": 0,
+    "parser_reason_parser_rejected": 0,
+    "protocol_error": 0,
+    "rejected": 0
+  },
+  "proxy_identity_unchanged": true,
+  "status": "PASS"
+}

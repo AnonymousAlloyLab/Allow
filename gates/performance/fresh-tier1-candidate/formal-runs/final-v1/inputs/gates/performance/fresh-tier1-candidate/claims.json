@@ -1,0 +1,181 @@
+{
+  "classification": "INACTIVE_FINITE_MODEL_CLAIMS_NOT_JVM_SEMANTIC_OR_RUNTIME_CORRESPONDENCE",
+  "claims": [
+    {
+      "id": "FTM01",
+      "theorem": "Allow.FreshTier1.advisory_inserts_only_fixed_flag",
+      "claim_class": "proof_compilation",
+      "public_claim": "advisory inserts only fixed flag",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM02",
+      "theorem": "Allow.FreshTier1.durable_arguments_unchanged",
+      "claim_class": "proof_compilation",
+      "public_claim": "durable arguments unchanged",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM03",
+      "theorem": "Allow.FreshTier1.solver_arguments_unchanged",
+      "claim_class": "proof_compilation",
+      "public_claim": "solver arguments unchanged",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM04",
+      "theorem": "Allow.FreshTier1.argument_delta_exactly_one",
+      "claim_class": "proof_compilation",
+      "public_claim": "argument delta exactly one",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM05",
+      "theorem": "Allow.FreshTier1.step_preserves_invariant",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves invariant",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM06",
+      "theorem": "Allow.FreshTier1.reachable_invariant",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable invariant",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM07",
+      "theorem": "Allow.FreshTier1.at_most_one_launch_and_request",
+      "claim_class": "proof_compilation",
+      "public_claim": "at most one launch and request",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM08",
+      "theorem": "Allow.FreshTier1.delivery_staging_consumption_order",
+      "claim_class": "proof_compilation",
+      "public_claim": "delivery staging consumption order",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM09",
+      "theorem": "Allow.FreshTier1.running_requires_both_identity_checks",
+      "claim_class": "proof_compilation",
+      "public_claim": "running requires both identity checks",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM10",
+      "theorem": "Allow.FreshTier1.delivery_requires_owned_reap",
+      "claim_class": "proof_compilation",
+      "public_claim": "delivery requires owned reap",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM11",
+      "theorem": "Allow.FreshTier1.no_return_to_fresh",
+      "claim_class": "proof_compilation",
+      "public_claim": "no return to fresh",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM12",
+      "theorem": "Allow.FreshTier1.retirement_cannot_resume",
+      "claim_class": "proof_compilation",
+      "public_claim": "retirement cannot resume",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM13",
+      "theorem": "Allow.FreshTier1.step_preserves_identity_and_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "step preserves identity and durable",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM14",
+      "theorem": "Allow.FreshTier1.reachable_preserves_identity_and_durable",
+      "claim_class": "proof_compilation",
+      "public_claim": "reachable preserves identity and durable",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM15",
+      "theorem": "Allow.FreshTier1.step_poison_sticky",
+      "claim_class": "proof_compilation",
+      "public_claim": "step poison sticky",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM16",
+      "theorem": "Allow.FreshTier1.poisoned_trace_cannot_deliver",
+      "claim_class": "proof_compilation",
+      "public_claim": "poisoned trace cannot deliver",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM17",
+      "theorem": "Allow.FreshTier1.selection_requires_complete_comparison",
+      "claim_class": "proof_compilation",
+      "public_claim": "selection requires complete comparison",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM18",
+      "theorem": "Allow.FreshTier1.selection_requires_three_runs",
+      "claim_class": "proof_compilation",
+      "public_claim": "selection requires three runs",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM19",
+      "theorem": "Allow.FreshTier1.selection_requires_every_run_target",
+      "claim_class": "proof_compilation",
+      "public_claim": "selection requires every run target",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM20",
+      "theorem": "Allow.FreshTier1.failed_or_slow_run_blocks_selection",
+      "claim_class": "proof_compilation",
+      "public_claim": "failed or slow run blocks selection",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM21",
+      "theorem": "Allow.FreshTier1.successful_fresh_worker_witness",
+      "claim_class": "witness",
+      "public_claim": "successful fresh worker witness",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    },
+    {
+      "id": "FTM22",
+      "theorem": "Allow.FreshTier1.abstract_selection_witness",
+      "claim_class": "witness",
+      "public_claim": "abstract selection witness",
+      "pass_condition": "Both isolated builds elaborate the exact frozen type and identical allowed-axiom inventory.",
+      "verifier": "verify_fresh_model.py"
+    }
+  ]
+}

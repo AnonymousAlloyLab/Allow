@@ -1,0 +1,314 @@
+test_cleanup_receipt_matches_all_registration_identity (test_context_lease_client.ContextLeaseClientTests.test_cleanup_receipt_matches_all_registration_identity)
+A new proxy, reused nonce or different lease cannot discharge old ownership. ... ok
+test_cleanup_success_flag_is_required (test_context_lease_client.ContextLeaseClientTests.test_cleanup_success_flag_is_required)
+CLEAN without the explicit Boolean publication flag is not a success receipt. ... ok
+test_control_request_has_no_pid_route_or_scope (test_context_lease_client.ContextLeaseClientTests.test_control_request_has_no_pid_route_or_scope)
+Only operational nonce and generation fields cross the private control channel. ... ok
+test_original_request_failure_survives_confirmed_cleanup (test_context_lease_client.ContextLeaseClientTests.test_original_request_failure_survives_confirmed_cleanup)
+A missing document stays a request error after its failed lease is cleaned. ... ok
+test_poisoned_cleanup_never_becomes_success (test_context_lease_client.ContextLeaseClientTests.test_poisoned_cleanup_never_becomes_success)
+A failed lease can be clean without permitting validation publication. ... ok
+test_private_control_socket_modes_are_required (test_context_lease_client.ContextLeaseClientTests.test_private_control_socket_modes_are_required)
+Wrong modes and symlinks fail before connecting to any endpoint. ... ok
+test_real_control_duplicate_and_oversize_replies (test_context_lease_client.ContextLeaseClientTests.test_real_control_duplicate_and_oversize_replies)
+Duplicate-key, invalid UTF8 and oversized output cannot become a receipt. ... ok
+test_real_control_eof_and_exact_reply (test_context_lease_client.ContextLeaseClientTests.test_real_control_eof_and_exact_reply)
+The real socket path sends a complete frame before parsing its response. ... ok
+test_real_control_exact_byte_limit_is_inclusive (test_context_lease_client.ContextLeaseClientTests.test_real_control_exact_byte_limit_is_inclusive)
+A valid response padded to exactly8192 bytes retains its closed fields. ... ok
+test_registration_failure_never_connects (test_context_lease_client.ContextLeaseClientTests.test_registration_failure_never_connects)
+No backend is opened without a proxy-issued exclusive reservation. ... ok
+test_registration_is_closed_and_nonce_bound (test_context_lease_client.ContextLeaseClientTests.test_registration_is_closed_and_nonce_bound)
+Reject coercions and stale fields before accepting a control capability. ... ok
+test_success_waits_for_transport_close_and_receipt (test_context_lease_client.ContextLeaseClientTests.test_success_waits_for_transport_close_and_receipt)
+Staged output cannot return between connection closure and confirmed cleanup. ... ok
+test_unconfirmed_cleanup_overrides_request_error (test_context_lease_client.ContextLeaseClientTests.test_unconfirmed_cleanup_overrides_request_error)
+Unresolved ownership is unavailable even when the original request was invalid. ... ok
+test_closed_shape_and_duplicate_protocol (test_context_leases.ControlTests.test_closed_shape_and_duplicate_protocol) ... ok
+test_control_shutdown_closes_clients_before_server_wait (test_context_leases.ControlTests.test_control_shutdown_closes_clients_before_server_wait) ... ok
+test_deep_json_handler_denies_without_registration (test_context_leases.ControlTests.test_deep_json_handler_denies_without_registration) ... ok
+test_exact_boundary_and_overflow (test_context_leases.ControlTests.test_exact_boundary_and_overflow) ... ok
+test_first_line_without_half_close_does_not_dispatch (test_context_leases.ControlTests.test_first_line_without_half_close_does_not_dispatch) ... ok
+test_two_frames_rejected_before_dispatch (test_context_leases.ControlTests.test_two_frames_rejected_before_dispatch) ... ok
+test_only_actual_failed_ready_completes_error (test_context_leases.FailureCompletionTests.test_only_actual_failed_ready_completes_error)
+Preserve libpq SQLSTATE without manufacturing transaction completion. ... ok
+test_actual_proxy_run_exits_with_live_persistent_connection (test_context_leases.ForwardingFenceTests.test_actual_proxy_run_exits_with_live_persistent_connection) ... ok
+test_error_notification_keeps_only_whitelisted_sqlstate (test_context_leases.ForwardingFenceTests.test_error_notification_keeps_only_whitelisted_sqlstate) ... ok
+test_parser_completion_after_deadline_cannot_forward_sql (test_context_leases.ForwardingFenceTests.test_parser_completion_after_deadline_cannot_forward_sql) ... ok
+test_shutdown_keeps_observer_until_context_cleanup_finishes (test_context_leases.ForwardingFenceTests.test_shutdown_keeps_observer_until_context_cleanup_finishes) ... ok
+test_absolute_deadline_and_parent_loss_are_fences (test_context_leases.LeaseTests.test_absolute_deadline_and_parent_loss_are_fences) ... ok
+test_cleanup_after_failure_cannot_enable_success (test_context_leases.LeaseTests.test_cleanup_after_failure_cannot_enable_success) ... ok
+test_context_mutation_preserves_observer_entry (test_context_leases.LeaseTests.test_context_mutation_preserves_observer_entry) ... ok
+test_deeply_nested_corrupt_journal_degrades_without_crash (test_context_leases.LeaseTests.test_deeply_nested_corrupt_journal_degrades_without_crash) ... ok
+test_duplicate_fields_and_boolean_version_degrade (test_context_leases.LeaseTests.test_duplicate_fields_and_boolean_version_degrade) ... ok
+test_expiry_does_not_drop_unknown_reservation (test_context_leases.LeaseTests.test_expiry_does_not_drop_unknown_reservation) ... ok
+test_invalid_journal_cannot_replace_the_safe_in_memory_schema (test_context_leases.LeaseTests.test_invalid_journal_cannot_replace_the_safe_in_memory_schema)
+Corrupt parsed objects keep ordinary status usable and both reservations unknown. ... ok
+test_journal_and_marker_modes_are_private (test_context_leases.LeaseTests.test_journal_and_marker_modes_are_private) ... ok
+test_missing_initialized_journal_degrades (test_context_leases.LeaseTests.test_missing_initialized_journal_degrades) ... ok
+test_noncanonical_route_never_registers_or_runs_preflight (test_context_leases.LeaseTests.test_noncanonical_route_never_registers_or_runs_preflight) ... ok
+test_observer_binding_cannot_overwrite_concurrent_retirement (test_context_leases.LeaseTests.test_observer_binding_cannot_overwrite_concurrent_retirement) ... ok
+test_other_thread_cannot_mutate_journal (test_context_leases.LeaseTests.test_other_thread_cannot_mutate_journal) ... ok
+test_registration_is_exclusive_and_durable (test_context_leases.LeaseTests.test_registration_is_exclusive_and_durable) ... ok
+test_uncertified_clean_and_impossible_phase_rejected (test_context_leases.LeaseTests.test_uncertified_clean_and_impossible_phase_rejected) ... ok
+test_unknown_observer_cannot_be_overwritten_by_replacement (test_context_leases.LeaseTests.test_unknown_observer_cannot_be_overwritten_by_replacement) ... ok
+test_unknown_survives_restart_and_blocks_replacement (test_context_leases.LeaseTests.test_unknown_survives_restart_and_blocks_replacement) ... ok
+test_wrong_generation_never_receives_clean_receipt (test_context_leases.LeaseTests.test_wrong_generation_never_receives_clean_receipt) ... ok
+test_wrong_process_generation_cannot_await (test_context_leases.LeaseTests.test_wrong_process_generation_cannot_await) ... ok
+test_current_identity_and_reused_generation (test_context_leases.ObserverPrerequisiteTests.test_current_identity_and_reused_generation) ... ok
+test_safe_defaults_and_disabled_parameter_logging (test_context_leases.ObserverPrerequisiteTests.test_safe_defaults_and_disabled_parameter_logging) ... ok
+test_unsafe_settings_fail_closed (test_context_leases.ObserverPrerequisiteTests.test_unsafe_settings_fail_closed) ... ok
+test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt (test_documents.DocumentSQLTests.test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt)
+Injected acknowledgement loss after real commit recovers both outcomes. ... ok
+test_competing_revision_and_terminal_stale_receipt (test_documents.DocumentSQLTests.test_competing_revision_and_terminal_stale_receipt)
+Concurrent bases produce one appended revision and immutable stale denial. ... ok
+test_create_capacity_reserves_pending_documents_and_replay (test_documents.DocumentSQLTests.test_create_capacity_reserves_pending_documents_and_replay)
+63 existing plus pending CREATE rejects another slot; replay ignores quotas. ... ok
+test_create_revision_zero_and_exact_replay_at_stale_base (test_documents.DocumentSQLTests.test_create_revision_zero_and_exact_replay_at_stale_base)
+Exact receipt replay neither revalidates nor appends a second revision. ... ok
+test_encoded_route_preserved_and_encoding_change_collides (test_documents.DocumentSQLTests.test_encoded_route_preserved_and_encoding_change_collides)
+Only literal colon or canonical percent3A route is admitted, never normalized. ... ok
+test_failure_after_append_and_receipt_rolls_back_every_row (test_documents.DocumentSQLTests.test_failure_after_append_and_receipt_rolls_back_every_row)
+A database error after all writes cannot leave partial revision/receipt. ... ok
+test_final_rejection_observed_head_is_locked (test_documents.DocumentSQLTests.test_final_rejection_observed_head_is_locked)
+Denial is not receipted with a stale acceptedRevision response. ... ok
+test_forced_fk_rollback_keeps_previous_head (test_documents.DocumentSQLTests.test_forced_fk_rollback_keeps_previous_head)
+Database rejection atomically rolls back appended artifact and head update. ... ok
+test_live_owner_and_verified_dead_takeover (test_documents.DocumentSQLTests.test_live_owner_and_verified_dead_takeover)
+Process start ticks prevent PID-reuse takeover and new nonce fences old frame. ... ok
+test_live_supervisor_recovery_requires_reap_proof (test_documents.DocumentSQLTests.test_live_supervisor_recovery_requires_reap_proof)
+Same live supervisor rotates nonce only after owned worker death proof. ... ok
+test_locked_historical_fresh_id_collision_and_remapping_denial (test_documents.DocumentSQLTests.test_locked_historical_fresh_id_collision_and_remapping_denial)
+Generated IDs cannot alias unsubmitted historical IDs even of the same kind. ... ok
+test_lost_admission_ack_recovers_same_supervisor_before_worker_start (test_documents.DocumentSQLTests.test_lost_admission_ack_recovers_same_supervisor_before_worker_start)
+A committed admission with lost reply is recoverable without process restart. ... ok
+test_owned_ids_bounded_kinds_and_cross_scope_fk (test_documents.DocumentSQLTests.test_owned_ids_bounded_kinds_and_cross_scope_fk)
+Historical ownership returns stable categories; foreign composite FK denies. ... ok
+test_policy_fence_and_history_zero_fresh_artifact (test_documents.DocumentSQLTests.test_policy_fence_and_history_zero_fresh_artifact)
+Policy changes invalidate checked frames; restore zero appends fresh identity. ... ok
+test_reaped_worker_without_captured_start_ticks_requires_absent_pid (test_documents.DocumentSQLTests.test_reaped_worker_without_captured_start_ticks_requires_absent_pid)
+Null start capture accepts only verified reaped/absent PID, never live reuse. ... ok
+test_receipt_replay_ignores_broken_new_checked_frame (test_documents.DocumentSQLTests.test_receipt_replay_ignores_broken_new_checked_frame)
+Existing receipt is returned before new output/checked artifact validation. ... ok
+test_rejected_receipt_and_nonce_fence (test_documents.DocumentSQLTests.test_rejected_receipt_and_nonce_fence)
+Stale owner cannot finalize; deterministic denial is itself replayable. ... ok
+test_scope_and_immutable_sql_grants (test_documents.DocumentSQLTests.test_scope_and_immutable_sql_grants)
+RLS hides foreign documents and app role cannot rewrite receipts/history. ... ok
+test_simultaneous_exact_key_serializes_and_commits_once (test_documents.DocumentSQLTests.test_simultaneous_exact_key_serializes_and_commits_once)
+Parallel duplicate admissions/finalizers yield one revision and one receipt. ... ok
+test_unknown_sqlstates_never_claim_known_rollback (test_documents.DocumentSQLTests.test_unknown_sqlstates_never_claim_known_rollback)
+Actual psycopg unknown-completion error classes retain uncertainty. ... ok
+test_private_identity_restart_modes_and_symlink (test_documents.WireTests.test_private_identity_restart_modes_and_symlink)
+Durable identity survives load and denies unsafe permissions/symlinks. ... ok
+test_strict_duplicate_surrogate_number_and_limit (test_documents.WireTests.test_strict_duplicate_surrogate_number_and_limit)
+Malformed frames fail before database access or large allocation. ... ok
+test_digest_collision_does_not_replace_exact_canonical_bytes (test_luna_adversarial.LunaAdversarialTests.test_digest_collision_does_not_replace_exact_canonical_bytes) ... ok
+test_distance_direction_ranks_near_above_orthogonal_and_opposite (test_luna_adversarial.LunaAdversarialTests.test_distance_direction_ranks_near_above_orthogonal_and_opposite) ... ok
+test_embedding_composition_preserves_declared_block_order_and_rejects_zero (test_luna_adversarial.LunaAdversarialTests.test_embedding_composition_preserves_declared_block_order_and_rejects_zero) ... ok
+test_invalid_weights_rejected (test_luna_adversarial.LunaAdversarialTests.test_invalid_weights_rejected) ... ok
+test_overlap_deduplicates_and_normalizes_by_larger_unique_pool (test_luna_adversarial.LunaAdversarialTests.test_overlap_deduplicates_and_normalizes_by_larger_unique_pool) ... ok
+test_polarity_pools_are_compared_only_with_same_polarity (test_luna_adversarial.LunaAdversarialTests.test_polarity_pools_are_compared_only_with_same_polarity) ... ok
+test_same_instance_in_different_context_gets_no_overlap (test_luna_adversarial.LunaAdversarialTests.test_same_instance_in_different_context_gets_no_overlap) ... ok
+test_valid_weights_keep_score_bounded (test_luna_adversarial.LunaAdversarialTests.test_valid_weights_keep_score_bounded) ... ok
+test_vector_dimension_nonfinite_zero_and_database_order_are_checked (test_luna_adversarial.LunaAdversarialTests.test_vector_dimension_nonfinite_zero_and_database_order_are_checked) ... ok
+test_frozen_weighted_scores_and_context_gate (test_luna_semantic.LunaSemanticProductionTests.test_frozen_weighted_scores_and_context_gate) ... ok
+test_worker_pools_are_full_and_both_negative_queries_are_sat (test_luna_semantic.LunaSemanticProductionTests.test_worker_pools_are_full_and_both_negative_queries_are_sat) ... ok
+test_cached_evaluation_and_grid (test_ml.MLTests.test_cached_evaluation_and_grid) ... ok
+test_checked_variant_endpoint_binding (test_ml.MLTests.test_checked_variant_endpoint_binding) ... ok
+test_invalid (test_ml.MLTests.test_invalid) ... ok
+test_layout (test_ml.MLTests.test_layout) ... ok
+test_macro (test_ml.MLTests.test_macro) ... ok
+test_original_cache_corruption_rejected (test_ml.MLTests.test_original_cache_corruption_rejected) ... ok
+test_original_manifest_hash_rejected (test_ml.MLTests.test_original_manifest_hash_rejected) ... ok
+test_pool_order_and_coverage (test_ml.MLTests.test_pool_order_and_coverage) ... ok
+test_promotion_rejects_family_leak (test_ml.MLTests.test_promotion_rejects_family_leak) ... ok
+test_real_training (test_ml.MLTests.test_real_training) ... ok
+test_training_rejects_holdout (test_ml.MLTests.test_training_rejects_holdout) ... ok
+test_chain_missing_corrupt_and_truncation (test_repository.JournalTests.test_chain_missing_corrupt_and_truncation) ... ok
+test_01_nonbypassrls_exact_and_langgraph (test_repository.PostgresTests.test_01_nonbypassrls_exact_and_langgraph) ... ok
+test_025_lease_owner_and_expired_claim (test_repository.PostgresTests.test_025_lease_owner_and_expired_claim) ... ok
+test_02_atomic_failure_and_full_gate (test_repository.PostgresTests.test_02_atomic_failure_and_full_gate) ... ok
+test_03_lineage_revoke_restore_and_retries (test_repository.PostgresTests.test_03_lineage_revoke_restore_and_retries) ... ok
+test_exact_overlap_and_wrong_context (test_repository.RankingTests.test_exact_overlap_and_wrong_context) ... ok
+test_family_alias_duplicate_union (test_repository.RankingTests.test_family_alias_duplicate_union) ... ok
+test_host_sentinel_denied_and_positive_worker (test_repository.SandboxTests.test_host_sentinel_denied_and_positive_worker) ... ok
+test_no_follow_symlink_components (test_repository.SourceTests.test_no_follow_symlink_components) ... ok
+test_bypass_and_ambient_routes_fail_closed (test_sql_connections.ConnectionPolicyTests.test_bypass_and_ambient_routes_fail_closed) ... ok
+test_canonical_route_and_safe_startup (test_sql_connections.ConnectionPolicyTests.test_canonical_route_and_safe_startup) ... ok
+test_database_variation_and_kwargs_are_bounded (test_sql_connections.ConnectionPolicyTests.test_database_variation_and_kwargs_are_bounded) ... ok
+test_private_tags_require_canonical_uuid_app_role_and_database (test_sql_connections.ConnectionPolicyTests.test_private_tags_require_canonical_uuid_app_role_and_database) ... ok
+test_fresh_existing_and_partial_constraint_repair (test_sql_connections.ExplicitMigrationTests.test_fresh_existing_and_partial_constraint_repair) ... ok
+test_backend_reorder_copy_and_wrong_completion_denied (test_sql_context_protocol.ContextProtocolTests.test_backend_reorder_copy_and_wrong_completion_denied) ... ok
+test_error_messages_do_not_disclose_sql_or_parameters (test_sql_context_protocol.ContextProtocolTests.test_error_messages_do_not_disclose_sql_or_parameters) ... ok
+test_error_rollback_and_terminate_never_restore_success (test_sql_context_protocol.ContextProtocolTests.test_error_rollback_and_terminate_never_restore_success) ... ok
+test_external_failure_and_early_terminate_poison_success (test_sql_context_protocol.ContextProtocolTests.test_external_failure_and_early_terminate_poison_success) ... ok
+test_named_objects_and_parameter_mismatch_denied (test_sql_context_protocol.ContextProtocolTests.test_named_objects_and_parameter_mismatch_denied) ... ok
+test_no_next_sql_until_ready_even_after_commandcomplete (test_sql_context_protocol.ContextProtocolTests.test_no_next_sql_until_ready_even_after_commandcomplete) ... ok
+test_no_second_history_or_postcommit_execution (test_sql_context_protocol.ContextProtocolTests.test_no_second_history_or_postcommit_execution) ... ok
+test_normal_transaction_needs_commit_ready_and_terminate (test_sql_context_protocol.ContextProtocolTests.test_normal_transaction_needs_commit_ready_and_terminate) ... ok
+test_observer_requires_own_timeout_and_fixed_metadata_only (test_sql_context_protocol.ContextProtocolTests.test_observer_requires_own_timeout_and_fixed_metadata_only) ... ok
+test_omitted_sync_and_repeated_sync_fail (test_sql_context_protocol.ContextProtocolTests.test_omitted_sync_and_repeated_sync_fail) ... ok
+test_out_of_order_or_modified_sql_denied (test_sql_context_protocol.ContextProtocolTests.test_out_of_order_or_modified_sql_denied) ... ok
+test_parse_does_not_advance_the_sequence (test_sql_context_protocol.ContextProtocolTests.test_parse_does_not_advance_the_sequence) ... ok
+test_private_settings_helper_has_no_variant_escape (test_sql_context_protocol.ContextProtocolTests.test_private_settings_helper_has_no_variant_escape) ... ok
+test_ready_requires_command_and_expected_transaction_state (test_sql_context_protocol.ContextProtocolTests.test_ready_requires_command_and_expected_transaction_state) ... ok
+test_repeated_bind_and_execute_denied (test_sql_context_protocol.ContextProtocolTests.test_repeated_bind_and_execute_denied) ... ok
+test_startup_ready_is_required_exactly_once (test_sql_context_protocol.ContextProtocolTests.test_startup_ready_is_required_exactly_once) ... ok
+test_sync_order_and_limits (test_sql_context_protocol.ContextProtocolTests.test_sync_order_and_limits) ... ok
+test_context_exact_settings_and_observer_metadata_use_real_parser (test_sql_guard.RealParserGateTests.test_context_exact_settings_and_observer_metadata_use_real_parser) ... ok
+test_malformed_and_binary_tamper_after_cache (test_sql_guard.RealParserGateTests.test_malformed_and_binary_tamper_after_cache) ... ok
+test_modes_and_pipeline (test_sql_guard.RealParserGateTests.test_modes_and_pipeline) ... ok
+test_native_decisions_and_cache (test_sql_guard.RealParserGateTests.test_native_decisions_and_cache) ... ok
+test_native_denied_unsafe_or_ambiguous (test_sql_guard.RealParserGateTests.test_native_denied_unsafe_or_ambiguous) ... ok
+test_nested_opaque_and_protocol_state (test_sql_guard.RealParserGateTests.test_nested_opaque_and_protocol_state) ... ok
+test_normal_and_literals (test_sql_guard.RealParserGateTests.test_normal_and_literals) ... ok
+test_pinned_dump_restore_templates (test_sql_guard.RealParserGateTests.test_pinned_dump_restore_templates) ... ok
+test_IM01_initialize_pinned (test_sql_image.ImageTests.test_IM01_initialize_pinned) ... ok
+test_IM02_initialize_mismatch (test_sql_image.ImageTests.test_IM02_initialize_mismatch) ... ok
+test_IM03_copy_race (test_sql_image.ImageTests.test_IM03_copy_race) ... ok
+test_IM04_seal_write (test_sql_image.ImageTests.test_IM04_seal_write) ... ok
+test_IM05_seal_grow (test_sql_image.ImageTests.test_IM05_seal_grow) ... ok
+test_IM06_seal_shrink (test_sql_image.ImageTests.test_IM06_seal_shrink) ... ok
+test_IM07_seal_mmap (test_sql_image.ImageTests.test_IM07_seal_mmap) ... ok
+test_IM08_missing_seal (test_sql_image.ImageTests.test_IM08_missing_seal) ... ok
+test_IM09_wrong_size (test_sql_image.ImageTests.test_IM09_wrong_size) ... ok
+test_IM10_closed_fd (test_sql_image.ImageTests.test_IM10_closed_fd) ... ok
+test_IM11_reused_fd (test_sql_image.ImageTests.test_IM11_reused_fd) ... ok
+test_IM12_lifetime_race (test_sql_image.ImageTests.test_IM12_lifetime_race) ... ok
+test_IM13_duplicate_failure (test_sql_image.ImageTests.test_IM13_duplicate_failure) ... ok
+test_IM14_child_inheritance (test_sql_image.ImageTests.test_IM14_child_inheritance) ... ok
+test_IM15_actual_executable (test_sql_image.ImageTests.test_IM15_actual_executable) ... ok
+test_IM16_procfs_missing (test_sql_image.ImageTests.test_IM16_procfs_missing) ... ok
+test_IM17_noexec_policy (test_sql_image.ImageTests.test_IM17_noexec_policy) ... ok
+test_IM18_parser_success (test_sql_image.ImageTests.test_IM18_parser_success) ... ok
+test_IM19_parser_rejection (test_sql_image.ImageTests.test_IM19_parser_rejection) ... ok
+test_IM20_parser_timeout (test_sql_image.ImageTests.test_IM20_parser_timeout) ... ok
+test_IM21_parser_output (test_sql_image.ImageTests.test_IM21_parser_output) ... ok
+test_IM22_exact_cache (test_sql_image.ImageTests.test_IM22_exact_cache) ... ok
+test_IM23_changed_sql (test_sql_image.ImageTests.test_IM23_changed_sql) ... ok
+test_IM24_changed_generation (test_sql_image.ImageTests.test_IM24_changed_generation) ... ok
+test_IM25_cache_provenance (test_sql_image.ImageTests.test_IM25_cache_provenance) ... ok
+test_IM26_cache_bounds (test_sql_image.ImageTests.test_IM26_cache_bounds) ... ok
+test_IM27_disk_replacement_running (test_sql_image.ImageTests.test_IM27_disk_replacement_running) ... ok
+test_IM28_disk_replacement_restart (test_sql_image.ImageTests.test_IM28_disk_replacement_restart) ... ok
+test_IM29_stopped_gate (test_sql_image.ImageTests.test_IM29_stopped_gate) ... ok
+test_IM30_resource_accounting (test_sql_image.ImageTests.test_IM30_resource_accounting) ... ok
+test_IM33_trusted_size_missing (test_sql_image.ImageTests.test_IM33_trusted_size_missing) ... ok
+test_IM34_source_nonregular (test_sql_image.ImageTests.test_IM34_source_nonregular) ... ok
+test_IM35_source_oversize (test_sql_image.ImageTests.test_IM35_source_oversize) ... ok
+test_IM36_source_growing (test_sql_image.ImageTests.test_IM36_source_growing) ... ok
+test_IM37_source_truncated (test_sql_image.ImageTests.test_IM37_source_truncated) ... ok
+test_IM38_initializer_deadline (test_sql_image.ImageTests.test_IM38_initializer_deadline) ... ok
+test_IM39_initializer_transfer (test_sql_image.ImageTests.test_IM39_initializer_transfer) ... ok
+test_IM40_source_short_write (test_sql_image.ImageTests.test_IM40_source_short_write) ... ok
+test_IM41_slot_wait_no_fd (test_sql_image.ImageTests.test_IM41_slot_wait_no_fd) ... ok
+test_IM42_hit_fd_cleanup (test_sql_image.ImageTests.test_IM42_hit_fd_cleanup) ... ok
+test_IM43_cancel_fd_cleanup (test_sql_image.ImageTests.test_IM43_cancel_fd_cleanup) ... ok
+test_IM44_launch_failure_cleanup (test_sql_image.ImageTests.test_IM44_launch_failure_cleanup) ... ok
+test_IM45_shutdown_reservations (test_sql_image.ImageTests.test_IM45_shutdown_reservations) ... ok
+test_IM46_numeric_fd_reuse (test_sql_image.ImageTests.test_IM46_numeric_fd_reuse) ... ok
+test_IM47_profile_independent (test_sql_image.ImageTests.test_IM47_profile_independent) ... ok
+test_IM48_commit_independent (test_sql_image.ImageTests.test_IM48_commit_independent) ... ok
+test_IM49_policy_independent (test_sql_image.ImageTests.test_IM49_policy_independent) ... ok
+test_IM50_mapping_independent (test_sql_image.ImageTests.test_IM50_mapping_independent) ... ok
+test_IM51_mapping_alias (test_sql_image.ImageTests.test_IM51_mapping_alias) ... ok
+test_IM52_config_disk_change (test_sql_image.ImageTests.test_IM52_config_disk_change) ... ok
+test_IM53_digest_size_independent (test_sql_image.ImageTests.test_IM53_digest_size_independent) ... ok
+test_IM54_status_snapshot_lifecycle (test_sql_image.ImageTests.test_IM54_status_snapshot_lifecycle) ... ok
+test_IM55_stale_completion_shutdown (test_sql_image.ImageTests.test_IM55_stale_completion_shutdown) ... ok
+test_IM56_noexec_no_fallback (test_sql_image.ImageTests.test_IM56_noexec_no_fallback) ... ok
+test_cancel_during_live_child_reaps_owner (test_sql_image.ImageTests.test_cancel_during_live_child_reaps_owner) ... ok
+test_close_failure_is_infrastructure_and_sticky (test_sql_image.ImageTests.test_close_failure_is_infrastructure_and_sticky) ... ok
+test_identity_error_cleanup_failure_sticks (test_sql_image.ImageTests.test_identity_error_cleanup_failure_sticks) ... ok
+test_repeated_proxy_cancellation_retains_slot_until_thread_cleanup (test_sql_image.ImageTests.test_repeated_proxy_cancellation_retains_slot_until_thread_cleanup) ... ok
+test_disk_mismatch_keeps_live_identity (test_sql_image_consumers.ConsumerIdentityTests.test_disk_mismatch_keeps_live_identity) ... ok
+test_live_snapshot_still_checked_if_disk_missing (test_sql_image_consumers.ConsumerIdentityTests.test_live_snapshot_still_checked_if_disk_missing) ... ok
+test_missing_disk_is_restart_audit_only (test_sql_image_consumers.ConsumerIdentityTests.test_missing_disk_is_restart_audit_only) ... ok
+test_idle_before_first_byte_outlasts_frame_deadline (test_sql_proxy.FrameDeadlineTests.test_idle_before_first_byte_outlasts_frame_deadline) ... ok
+test_partial_body_stall_receives_frame_deadline (test_sql_proxy.FrameDeadlineTests.test_partial_body_stall_receives_frame_deadline) ... ok
+test_partial_header_stall_receives_frame_deadline (test_sql_proxy.FrameDeadlineTests.test_partial_header_stall_receives_frame_deadline) ... ok
+test_backend_not_ready_cannot_outlast_overall_deadline (test_sql_proxy.HandshakeDeadlineTests.test_backend_not_ready_cannot_outlast_overall_deadline) ... ok
+test_fragmented_startup_cannot_renew_overall_deadline (test_sql_proxy.HandshakeDeadlineTests.test_fragmented_startup_cannot_renew_overall_deadline) ... ok
+test_ready_session_remains_usable_beyond_handshake_deadline (test_sql_proxy.HandshakeDeadlineTests.test_ready_session_remains_usable_beyond_handshake_deadline) ... ok
+test_backend_parse_error_cannot_execute_failed_pipeline (test_sql_proxy.WireProxyTests.test_backend_parse_error_cannot_execute_failed_pipeline) ... ok
+test_backend_unsafe_initial_mode_never_allows_ready_query (test_sql_proxy.WireProxyTests.test_backend_unsafe_initial_mode_never_allows_ready_query) ... ok
+test_bind_preserves_sql_looking_text_and_binary (test_sql_proxy.WireProxyTests.test_bind_preserves_sql_looking_text_and_binary) ... ok
+test_cancel_packet_routes_without_sql_admission (test_sql_proxy.WireProxyTests.test_cancel_packet_routes_without_sql_admission) ... ok
+test_close_statement_invalidates_dependent_portal (test_sql_proxy.WireProxyTests.test_close_statement_invalidates_dependent_portal) ... ok
+test_copy_data_preserved_only_during_server_copy_stage (test_sql_proxy.WireProxyTests.test_copy_data_preserved_only_during_server_copy_stage) ... ok
+test_each_effect_blocks_both_new_source_message_kinds (test_sql_proxy.WireProxyTests.test_each_effect_blocks_both_new_source_message_kinds) ... ok
+test_execute_requires_connection_local_portal (test_sql_proxy.WireProxyTests.test_execute_requires_connection_local_portal) ... ok
+test_fifteen_live_handlers_reject_overflow_and_preserve_cancel_capacity (test_sql_proxy.WireProxyTests.test_fifteen_live_handlers_reject_overflow_and_preserve_cancel_capacity) ... ok
+test_fragmented_query_preserved (test_sql_proxy.WireProxyTests.test_fragmented_query_preserved) ... ok
+test_idle_transaction_end_invalidates_named_portal (test_sql_proxy.WireProxyTests.test_idle_transaction_end_invalidates_named_portal) ... ok
+test_implicit_transaction_control_admitted (test_sql_proxy.WireProxyTests.test_implicit_transaction_control_admitted) ... ok
+test_injected_parser_failure_has_no_direct_backend_fallback (test_sql_proxy.WireProxyTests.test_injected_parser_failure_has_no_direct_backend_fallback) ... ok
+test_invalid_parse_never_reaches_backend (test_sql_proxy.WireProxyTests.test_invalid_parse_never_reaches_backend) ... ok
+test_invalid_query_never_reaches_backend (test_sql_proxy.WireProxyTests.test_invalid_query_never_reaches_backend) ... ok
+test_invalid_wire_frames_fail_closed (test_sql_proxy.WireProxyTests.test_invalid_wire_frames_fail_closed) ... ok
+test_matching_ready_releases_completed_effect_and_copy_has_no_orphan (test_sql_proxy.WireProxyTests.test_matching_ready_releases_completed_effect_and_copy_has_no_orphan) ... ok
+test_native_and_protocol_share_accepted_namespace_both_directions (test_sql_proxy.WireProxyTests.test_native_and_protocol_share_accepted_namespace_both_directions) ... ok
+test_native_classifier_and_names_are_conservative (test_sql_proxy.WireProxyTests.test_native_classifier_and_names_are_conservative) ... ok
+test_native_prepare_counts_toward_shared_object_capacity (test_sql_proxy.WireProxyTests.test_native_prepare_counts_toward_shared_object_capacity) ... ok
+test_native_prepare_execute_and_cache_cannot_prepare_another_session (test_sql_proxy.WireProxyTests.test_native_prepare_execute_and_cache_cannot_prepare_another_session) ... ok
+test_native_unknown_target_denied (test_sql_proxy.WireProxyTests.test_native_unknown_target_denied) ... ok
+test_old_ready_does_not_release_newer_execute_effect (test_sql_proxy.WireProxyTests.test_old_ready_does_not_release_newer_execute_effect) ... ok
+test_opaque_and_nested_execute_denied (test_sql_proxy.WireProxyTests.test_opaque_and_nested_execute_denied) ... ok
+test_portal_snapshots_unnamed_statement_before_replacement (test_sql_proxy.WireProxyTests.test_portal_snapshots_unnamed_statement_before_replacement) ... ok
+test_prepared_object_capacity_fails_before_forwarding_overflow (test_sql_proxy.WireProxyTests.test_prepared_object_capacity_fails_before_forwarding_overflow) ... ok
+test_protocol_name_lengths_and_prefix_collisions_fail_closed (test_sql_proxy.WireProxyTests.test_protocol_name_lengths_and_prefix_collisions_fail_closed) ... ok
+test_query_and_numbered_parse_admission (test_sql_proxy.WireProxyTests.test_query_and_numbered_parse_admission) ... ok
+test_simple_query_invalidates_unnamed_statement (test_sql_proxy.WireProxyTests.test_simple_query_invalidates_unnamed_statement) ... ok
+test_startup_unsafe_encoding_denied (test_sql_proxy.WireProxyTests.test_startup_unsafe_encoding_denied) ... ok
+test_unsafe_fragmented_status_precedes_barrier_release (test_sql_proxy.WireProxyTests.test_unsafe_fragmented_status_precedes_barrier_release) ... ok
+test_unsafe_mode_change_stops_pipeline_before_forwarding (test_sql_proxy.WireProxyTests.test_unsafe_mode_change_stops_pipeline_before_forwarding) ... ok
+test_unsolicited_ready_after_startup_fails_closed (test_sql_proxy.WireProxyTests.test_unsolicited_ready_after_startup_fails_closed) ... ok
+test_actual_cli_context_and_database_error_envelopes (test_validation_context.ValidationContextSQLTests.test_actual_cli_context_and_database_error_envelopes)
+VC14/22: real SQL success/failure uses the closed nonce-bound CLI codec. ... ok
+test_actual_snapshot_mode_read_only_and_legacy_mode (test_validation_context.ValidationContextSQLTests.test_actual_snapshot_mode_read_only_and_legacy_mode)
+Context setup executes the fixed read-only prelude; writes fail at the gate. ... ok
+test_commit_after_snapshot_is_excluded_from_head_and_inventory (test_validation_context.ValidationContextSQLTests.test_commit_after_snapshot_is_excluded_from_head_and_inventory)
+VC06: snapshot setup freezes both head and history before a concurrent append. ... ok
+test_commit_between_base_and_inventory_cannot_mix_snapshots (test_validation_context.ValidationContextSQLTests.test_commit_between_base_and_inventory_cannot_mix_snapshots)
+VC07: a commit between the two logical reads cannot introduce future IDs. ... ok
+test_complete_history_collision_and_malformed_artifact_fail (test_validation_context.ValidationContextSQLTests.test_complete_history_collision_and_malformed_artifact_fail)
+VC10: a later conflict or malformed row cannot be hidden by an early match. ... ok
+test_connection_closes_before_context_is_returned (test_validation_context.ValidationContextSQLTests.test_connection_closes_before_context_is_returned)
+VC15: the actual successful connection is closed at publication. ... ok
+test_context_matches_legacy_at_quiescence_and_exact_source (test_validation_context.ValidationContextSQLTests.test_context_matches_legacy_at_quiescence_and_exact_source)
+VC04/08: current and historical base content agree with existing reads. ... ok
+test_empty_ids_authorize_base_and_skip_scan (test_validation_context.ValidationContextSQLTests.test_empty_ids_authorize_base_and_skip_scan)
+VC03/05: no requested IDs skips only history, never the mandatory base read. ... ok
+test_future_base_committed_after_snapshot_requires_new_request (test_validation_context.ValidationContextSQLTests.test_future_base_committed_after_snapshot_requires_new_request)
+VC07: a missing revision cannot become visible inside the older snapshot. ... ok
+test_logical_launch_does_not_partition_document_history (test_validation_context.ValidationContextSQLTests.test_logical_launch_does_not_partition_document_history)
+VC05: another private launch in the same owner/workspace sees the same base. ... ok
+test_missing_and_foreign_context_never_reaches_inventory (test_validation_context.ValidationContextSQLTests.test_missing_and_foreign_context_never_reaches_inventory)
+VC05: absent bases/documents and both RLS dimensions deny before inventory. ... ok
+test_proxy_connection_failure_has_no_fallback (test_validation_context.ValidationContextSQLTests.test_proxy_connection_failure_has_no_fallback)
+VC14/22: a failed canonical connection cannot route around the proxy. ... ok
+test_reads_do_not_mutate_and_full_quota_remains_readable (test_validation_context.ValidationContextSQLTests.test_reads_do_not_mutate_and_full_quota_remains_readable)
+VC18/19: repeated context reads preserve all counters/history at full quota. ... ok
+test_requested_kind_inventory_and_text_only (test_validation_context.ValidationContextSQLTests.test_requested_kind_inventory_and_text_only)
+VC09: all8categories,duplicates and references retain exact legacy projection. ... ok
+test_cli_dispatch_has_one_context_call (test_validation_context.ValidationContextWireTests.test_cli_dispatch_has_one_context_call)
+VC03: empty-ID requests dispatch the mandatory context operation once. ... ok
+test_closed_cli_shape_and_strict_json (test_validation_context.ValidationContextWireTests.test_closed_cli_shape_and_strict_json)
+VC01: malformed framing and extra private fields fail before Store. ... ok
+test_context_accepts_safe_integer_and_id_count_boundaries (test_validation_context.ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries)
+VC13: the private safe-integer and4096-identity boundaries are inclusive. ... ok
+test_context_arguments_reject_before_connection (test_validation_context.ValidationContextWireTests.test_context_arguments_reject_before_connection)
+VC01/13: invalid identity/revision/set/shape never reaches SQL. ... ok
+test_full_cli_output_boundary_and_nonce (test_validation_context.ValidationContextWireTests.test_full_cli_output_boundary_and_nonce)
+VC12: size the whole transport envelope, including combined data fields. ... ok
+test_legacy_mutation_uncertainty_remains (test_validation_context.ValidationContextWireTests.test_legacy_mutation_uncertainty_remains)
+VC21: the new path does not relabel existing mutator uncertainty. ... ok
+test_read_failure_never_invents_mutation_uncertainty (test_validation_context.ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty)
+VC14: corrupt/dead read paths cannot produce mutation outcome claims. ... ok
+test_transaction_exit_failure_discards_complete_context (test_validation_context.ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context)
+VC14/15: a result formed before failed transaction exit is not published. ... ok
+
+----------------------------------------------------------------------
+Ran 250 tests in 41.270s
+
+OK

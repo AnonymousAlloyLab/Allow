@@ -1,0 +1,16 @@
+{
+  "id": "ALLOW-DOCUMENT-FIELD-ORDER-1",
+  "status": "DRAFT_REQUIRES_REVIEW_AND_FORMAL_VERIFICATION_BEFORE_GUARD_IMPLEMENTATION",
+  "extends": "gates/document/review-candidate-r5/manifest.json",
+  "reason": "Alloy fields are lexically nested in signatures; global interleaved owner order cannot round-trip through that syntax.",
+  "rule": "BLOCK_SUPPORTED module.fields must equal concatenation, in module.signatures order, of its per-owner subsequences. Preserve within-owner order; do not silently reorder a submitted complete candidate. Invalid order is deterministic INVALID_DRAFT. Source elaboration naturally emits this order. UI field insertion/reassignment explicitly maintains the grouped array; report reorder in draft, never alter accepted history.",
+  "node_array": "module.nodes is an identity-indexed forest registry, so its array storage order is not presentation semantics. Ordered body roots, child slots and call arguments determine expression occurrence order. Structural round-trip compares those ordered trees modulo declared ID bijection; it does not require reconstructing flat registry order. Other declaration arrays retain their documented order.",
+  "scope": "Additional presentation guard; all 237 existing registered claims retained. No change to SQL routing, type rules, semantics, solver budgets, canonical embedding policy or commercial status.",
+  "formal": "gates/document/order-amendment/FieldOrder.lean",
+  "tests": [
+    "Accept empty and multiple-owner grouped fields; reject interleaved owner order on server and browser complete-candidate check.",
+    "Round-trip grouped per-owner order with distinct fieldIDs/ranges/multiplicities; shuffled nodes registry does not change ordered syntax tree.",
+    "UI adds/moves field only by explicit draft transition; source printing retains group/within-owner order."
+  ],
+  "production_gate": "Do not implement this additional acceptance guard until exact Lean check and six council approvals. Existing incomplete engine stays unavailable; unrelated preapproved implementation may proceed."
+}

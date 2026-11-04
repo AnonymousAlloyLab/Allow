@@ -1,0 +1,67 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-r5-astra-2",
+  "review_type": "FINAL_EXACT_SIX_FILE_DESIGN_REVIEW",
+  "decision": "APPROVE_GAMEPLAN_FOR_FORMAL_GATE",
+  "timestamp_utc": "2026-11-03T18:24:26.618501+00:00",
+  "manifest_path": "gates/document/review-candidate-r5/manifest.json",
+  "manifest_sha256": "acda03535d825386234c3b8ce634159a4aaf700f7517ca7faf8163b4414baec2",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07",
+    "gates/document/draft/types.json": "fd0a31b549a8c20d079b960f68b306603b66aaed3facfd2e4a4bc302ea336109"
+  },
+  "all_six_snapshot_hashes_verified": true,
+  "types_source_hash_matches": true,
+  "registered_theorem_types": 125,
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "D4-ADMITTED-COLLISION",
+      "resolution": "Explicit AdmittedStep.collision now handles authorized existing-key byte mismatch independently of decoder/parser/frame; admitted_collision_unchanged preserves state, admitted_digest_collision uses exact wire rather than digest, and a witness uses unavailable adapters."
+    },
+    {
+      "id": "D4-ADMITTED-AUTH",
+      "resolution": "AdmittedStep.denyAuth and admitted_unauthorized reject without requiring successful decoding or a missing receipt. This matches authentication before receipt disclosure."
+    },
+    {
+      "id": "D3-A2-01",
+      "resolution": "Deterministic raw intent excludes randomized checked artifact and current policy; trusted checked-frame association is separate. Authorized replay is independent of decoder/parser availability."
+    },
+    {
+      "id": "D3-A2-02",
+      "resolution": "Revision0 is indexed directly; SameContent preserves historical content while fresh parser report admits current policy. Historical append/revalidation and revision consistency witnesses align with contract."
+    }
+  ],
+  "review_basis": [
+    "Prior full six-file r4 security/state review is preserved in reviews/document-r4-astra-2.json.",
+    "Verified r5 four JSON contracts are hash-identical to reviewed r4 contracts.",
+    "Inspected complete r4-to-r5 Lean diff: only admitted collision/auth-denial branches and corresponding theorems/witness added.",
+    "Verified r5 exact source hash equals types registry source_sha256; existing theorem type entries remain unchanged."
+  ],
+  "coherence_assessment": "The bounded local gameplan is implementable and internally coherent: durable private owner/scope identity, exact authorized receipt replay before validation/quota, indefinite bounded history, reserved CREATE slots, atomic scoped CAS/artifact/receipt settlement, policy lock and owner-nonce fencing, explicit uncertain outcomes and recovery, isolated parser budgets, closed nominal syntax forest and artifact-bound projections. Explicit runtime trust is acceptable; no additional parser/database proof demand is imposed.",
+  "required_before_production": [
+    "Complete final council reconciliation against this exact six-file bundle.",
+    "Register exact propositions and witnesses and run both clean isolated formal builds against the frozen baseline.",
+    "Do not treat this design approval as passed runtime, accessibility, performance or G2/G3 gates."
+  ],
+  "runtime_requirements_retained": [
+    "Exact endpoint and per-client SQLean admission evidence for document migration/create/commit/read/recovery; no direct PostgreSQL fallback.",
+    "Auth/restart/foreign-scope checks; concurrent CAS/replay/collision; policy changes; stale owner nonce; success/denial lost acknowledgements; quota-full receipt recovery and63-document concurrent CREATE scenario.",
+    "Full operator/declaration/scoping and parser/printer adapters, UTF16/comment lineage fixtures, actual deployment sandbox resource tests and immutable historical restoration.",
+    "Freshness reducers, keyboard workflows, named screen-reader/browser checks and500-node performance measurements."
+  ],
+  "trust_and_claim_bounds": [
+    "Lean is a serialized single-document model with trusted scoped authorization and checked-frame/parser adapters, not database linearizability or full implementation refinement.",
+    "Denial diagnostic accuracy, exact response serialization, UUID mapping, policy/nonce execution and aggregate workspace accounting require finite runtime tests.",
+    "Applied unknown success/denial branches do not resolve real commit uncertainty without database recovery.",
+    "Commercial redistribution, corpus rights, full Alloy correctness, canonical/retrieval admission and production readiness remain separately gated."
+  ],
+  "independent_lean_build": false,
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Final engineering design/gameplan approved for the registered formal gate. Production starts only after mandated final council and two clean exact-hash proof builds; runtime acceptance and commercial clearance are not granted."
+}

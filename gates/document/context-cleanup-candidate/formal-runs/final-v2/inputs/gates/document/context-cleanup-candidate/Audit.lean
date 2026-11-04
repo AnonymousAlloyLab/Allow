@@ -1,0 +1,59 @@
+import ContextCleanup
+set_option format.width 1000000
+set_option pp.universes true
+#check @Allow.ContextCleanup.step_preserves_invariant
+#print axioms Allow.ContextCleanup.step_preserves_invariant
+#check @Allow.ContextCleanup.reachable_invariant
+#print axioms Allow.ContextCleanup.reachable_invariant
+#check @Allow.ContextCleanup.application_sql_requires_bound_prelude
+#print axioms Allow.ContextCleanup.application_sql_requires_bound_prelude
+#check @Allow.ContextCleanup.new_application_sql_requires_bound_phase
+#print axioms Allow.ContextCleanup.new_application_sql_requires_bound_phase
+#check @Allow.ContextCleanup.staged_context_requires_application_sql
+#print axioms Allow.ContextCleanup.staged_context_requires_application_sql
+#check @Allow.ContextCleanup.receipt_proves_matching_cleanup
+#print axioms Allow.ContextCleanup.receipt_proves_matching_cleanup
+#check @Allow.ContextCleanup.reachable_clean_has_receipt
+#print axioms Allow.ContextCleanup.reachable_clean_has_receipt
+#check @Allow.ContextCleanup.reachable_clean_is_safe
+#print axioms Allow.ContextCleanup.reachable_clean_is_safe
+#check @Allow.ContextCleanup.release_requires_clean
+#print axioms Allow.ContextCleanup.release_requires_clean
+#check @Allow.ContextCleanup.release_requires_observed_cleanup
+#print axioms Allow.ContextCleanup.release_requires_observed_cleanup
+#check @Allow.ContextCleanup.step_preserves_durable
+#print axioms Allow.ContextCleanup.step_preserves_durable
+#check @Allow.ContextCleanup.advisory_cleanup_preserves_durable
+#print axioms Allow.ContextCleanup.advisory_cleanup_preserves_durable
+#check @Allow.ContextCleanup.context_lease_at_most_one
+#print axioms Allow.ContextCleanup.context_lease_at_most_one
+#check @Allow.ContextCleanup.unknown_retains_capacity
+#print axioms Allow.ContextCleanup.unknown_retains_capacity
+#check @Allow.ContextCleanup.nonfree_retains_capacity
+#print axioms Allow.ContextCleanup.nonfree_retains_capacity
+#check @Allow.ContextCleanup.replacement_requires_vacant
+#print axioms Allow.ContextCleanup.replacement_requires_vacant
+#check @Allow.ContextCleanup.unknown_cannot_be_replaced
+#print axioms Allow.ContextCleanup.unknown_cannot_be_replaced
+#check @Allow.ContextCleanup.unidentified_attempt_cannot_be_clean
+#print axioms Allow.ContextCleanup.unidentified_attempt_cannot_be_clean
+#check @Allow.ContextCleanup.closed_transport_alone_is_insufficient
+#print axioms Allow.ContextCleanup.closed_transport_alone_is_insufficient
+#check @Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup
+#print axioms Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup
+#check @Allow.ContextCleanup.stale_receipt_rejected
+#print axioms Allow.ContextCleanup.stale_receipt_rejected
+#check @Allow.ContextCleanup.accepted_receipt_exact_owner
+#print axioms Allow.ContextCleanup.accepted_receipt_exact_owner
+#check @Allow.ContextCleanup.stale_lease_generation_rejected
+#print axioms Allow.ContextCleanup.stale_lease_generation_rejected
+#check @Allow.ContextCleanup.context_ok_requires_cleanup
+#print axioms Allow.ContextCleanup.context_ok_requires_cleanup
+#check @Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success
+#print axioms Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success
+#check @Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic
+#print axioms Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic
+#check @Allow.ContextCleanup.normal_cleanup_witness
+#print axioms Allow.ContextCleanup.normal_cleanup_witness
+#check @Allow.ContextCleanup.unidentified_crash_witness
+#print axioms Allow.ContextCleanup.unidentified_crash_witness

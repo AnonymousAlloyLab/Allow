@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "status": "MATERIALIZED_RUNTIME_CASES",
+  "classification": "FINITE_OWNERSHIP_PROTOCOL_LIFECYCLE_PREFLIGHT_ONLY",
+  "cases": [
+    {
+      "id": "normal-cold",
+      "kind": "COLD_ONE_USE",
+      "fixture": "fixtures/semantic/source-supported.json",
+      "fixture_sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "normal-ready-hit",
+      "kind": "READY_ONE_USE",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "revalidate-fresh",
+      "kind": "FRESH_REVALIDATE",
+      "fixture": "fixtures/semantic/history-text.json",
+      "fixture_sha256": "a1c8bed6bebd361ed0f2d75fff65439ec2b72e70882293d48f04e53a7ea5f827",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "double-consume",
+      "kind": "SECOND_CONSUMPTION_REJECTED",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "startup-failure",
+      "kind": "STARTUP_FAILURE_CLEANED",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "preattach-failure",
+      "kind": "PREATTACH_FAILURE_CAPACITY_RETAINED",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "UNKNOWN",
+      "expected_capacity_retained": true,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "postattach-unknown",
+      "kind": "UNKNOWN_CAPACITY_RETAINED",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "UNKNOWN",
+      "expected_capacity_retained": true,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "shutdown-ready",
+      "kind": "SHUTDOWN_READY_CLEANED",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true
+    },
+    {
+      "id": "shutdown-starting",
+      "kind": "SHUTDOWN_STARTING_CLEANED",
+      "fixture": "fixtures/semantic/typed-signature_ref-positive-fresh.json",
+      "fixture_sha256": "4011cbe240b1decc80b0907c6ba246648aaa383da98ebac40e1d7046f489979a",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true,
+      "expected_phase_at_shutdown_entry": "STARTING",
+      "expected_attached_at_shutdown_entry": true,
+      "expected_private_handoff": false,
+      "expected_terminal_phase": "RELEASED",
+      "expected_group_count": 1
+    },
+    {
+      "id": "sequence-refill-aba",
+      "kind": "SAME_INCARNATION_ONE_USE_REFILL_ABA",
+      "fixture": "fixtures/semantic/source-supported.json",
+      "fixture_sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+      "expected_mode": "BLOCK_SUPPORTED",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true,
+      "expected_group_count": 4,
+      "steps": [
+        {
+          "fixture": "fixtures/semantic/source-supported.json",
+          "fixture_sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+          "expected_mode": "BLOCK_SUPPORTED"
+        },
+        {
+          "fixture": "fixtures/semantic/source-text-only.json",
+          "fixture_sha256": "88693a721c5e5779c8739bfe51957db8aa73024ad18d3dfe003f347d4ffa603a",
+          "expected_mode": "TEXT_ONLY"
+        },
+        {
+          "fixture": "fixtures/semantic/source-supported.json",
+          "fixture_sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+          "expected_mode": "BLOCK_SUPPORTED"
+        }
+      ]
+    },
+    {
+      "id": "idle-expiry-demand",
+      "kind": "REAL_IDLE_EXPIRY_NO_SELF_REFILL_NEW_DEMAND",
+      "fixture": "fixtures/semantic/source-supported.json",
+      "fixture_sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+      "expected_mode": "BLOCK_SUPPORTED",
+      "expected_cleanup": "PASS",
+      "expected_capacity_retained": false,
+      "physical_cleanup_required": true,
+      "required": true,
+      "expected_group_count": 3,
+      "idle_duration_ns": 30000000000,
+      "quiet_duration_ns": 2000000000,
+      "steps": [
+        {
+          "fixture": "fixtures/semantic/source-supported.json",
+          "fixture_sha256": "f28ead8a7c26b957190178f128e3c8fa4549e7708290ecd19efab4d140df25b7",
+          "expected_mode": "BLOCK_SUPPORTED"
+        }
+      ]
+    }
+  ],
+  "scope": "Production ledger/helper/transport and real cgroups. Synthetic private frames do not independently verify SQL CLEAN. Full contract fault matrix remains separately required.",
+  "probe_source": "backend/src/test/java/dev/allow/backend/WarmPoolProbeMain.java",
+  "context_boundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL",
+  "incarnation_boundary": "Each case has a separate journal/pool incarnation. The ABA case retains one incarnation across three requests; idle-expiry/redemand retains one incarnation across expiry and a later request. Historical empty UNKNOWN directories are not counted as current live trees."
+}

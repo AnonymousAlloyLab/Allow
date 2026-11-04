@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "APPROVED_FINITE_NON_PROMOTING_DIAGNOSTIC",
+  "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+  "policy_proof": {
+    "path": "gates/performance/warm-pool-candidate/latency-diagnostic/policy-proof-report-r2.json",
+    "sha256": "a1f33c2f5a0990556cec58c060f7815bf0673cd709477662c838525148535eda"
+  },
+  "reviews": [
+    {
+      "seat": "Terra1",
+      "model": "gpt-6.1-terra",
+      "agent": "/root/latency_terra_1",
+      "decision": "APPROVE_DIAGNOSTIC",
+      "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+      "blocking_findings": []
+    },
+    {
+      "seat": "Terra2",
+      "model": "gpt-6.1-terra",
+      "agent": "/root/latency_terra_2",
+      "decision": "APPROVE_DIAGNOSTIC",
+      "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+      "blocking_findings": []
+    },
+    {
+      "seat": "Sol1",
+      "model": "gpt-6.1-sol",
+      "agent": "/root/latency_sol_1",
+      "decision": "APPROVE_DIAGNOSTIC",
+      "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+      "blocking_findings": []
+    },
+    {
+      "seat": "Sol2",
+      "model": "gpt-6.1-sol",
+      "agent": "/root/latency_sol_2",
+      "decision": "APPROVE_DIAGNOSTIC",
+      "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+      "blocking_findings": []
+    },
+    {
+      "seat": "Astra1",
+      "model": "gpt-6-astra",
+      "agent": "/root/latency_astra_1",
+      "decision": "APPROVE_DIAGNOSTIC",
+      "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+      "blocking_findings": []
+    },
+    {
+      "seat": "Astra2",
+      "model": "gpt-6-astra",
+      "agent": "/root/latency_astra_2",
+      "decision": "APPROVE_DIAGNOSTIC",
+      "contract_sha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+      "blocking_findings": []
+    }
+  ],
+  "resolved_findings": [
+    "Freeze nonce-free input template; actual fresh nonce binding trusts pinned production serializer/check rather than independent pipe capture.",
+    "R1 Lean pass transition permitted empty/failed accounting; R2 requires all860successful/cleanattempts and supplies constructive860attempt witness. HistoricalproofR1preserved."
+  ],
+  "scope": "Contract approval only. Frozenruntime/preflight stillrequired. Originalpromotion, selectionDISABLED andcommercializationNO_GO unchanged."
+}

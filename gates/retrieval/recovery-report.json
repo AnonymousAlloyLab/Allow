@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "timestamp_utc": "2026-11-03T16:16:31.523849+00:00",
+  "elapsed_seconds": 1.173,
+  "python": "3.12.3",
+  "command": [
+    ".tools/retrieval-venv/bin/python",
+    "scripts/retrieval_recovery_test.py"
+  ],
+  "input_sha256": {
+    "scripts/retrieval_recovery_test.py": "c8c121478362e9df49218f2043c62fca0683be7d7ecdc4381c8d03144aea192c",
+    "db/migrations/004_retrieval.sql": "b9705a00228910947c9a187424ee8d2befe59b0f7b3ee3e14ec5685d062b2fa2",
+    "retrieval/allow_retrieval/database.py": "a87843ec2b89a8d9ca83e55bc9de8794c859850f8ab283489e09d3745b601ed8",
+    "retrieval/allow_retrieval/journal.py": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+    "retrieval/allow_retrieval/corpus.py": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+    "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+    "retrieval/training-runtime-lock.json": "1a68248d584735ccdf327e76e3befce0982f6a22124f7e6189474832dfda2f45"
+  },
+  "inputs_unchanged": true,
+  "worker_identity": "444e6e2094bc6616d8ebdd5146595180c0195eb1bc9f87acdb877dd0a18d6296",
+  "log_sha256": "e80725816c939cfbe85b5a98f8598aabe2e2bb5ac1689f0dae7fabfb3ad7bc46",
+  "checks": {
+    "status": "PASS",
+    "actual_pg_dump_restore": true,
+    "lineage_model_invalidated": true,
+    "all_derived_vectors_removed": true,
+    "restored_outbox_cancelled": true,
+    "missing_and_corrupt_journal_denied": true
+  }
+}

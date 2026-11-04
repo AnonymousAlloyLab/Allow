@@ -1,0 +1,14 @@
+'Allow.DocumentOrder.accepts_exact' depends on axioms: [propext]
+'Allow.DocumentOrder.accepted_ids_preserved' depends on axioms: [propext]
+'Allow.DocumentOrder.guarded_admitted_replay' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.guarded_admitted_collision' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.guarded_admitted_deny_auth' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.guarded_success_checked' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.guarded_success_ordered' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.guarded_unknown_success_ordered' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.empty_order_accepts' does not depend on any axioms
+'Allow.DocumentOrder.grouped_order_accepts' does not depend on any axioms
+'Allow.DocumentOrder.interleaved_order_denied' does not depend on any axioms
+'Allow.DocumentOrder.unordered_candidate_denied' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.DocumentOrder.unordered_candidate_receipt_replay' depends on axioms: [propext, Quot.sound]
+'Allow.DocumentOrder.unordered_candidate_collision' depends on axioms: [propext, Quot.sound]

@@ -1,0 +1,160 @@
+
+added 49 packages in 291ms
+Style inventory: 15 files, 144 callables, 0 violations.
+Style checker self-tests: 53 JS/TS cases and 13 Java cases passed.
+
+> allow-workbench@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /home/augustus/Allow/frontend
+
+
+ Test Files  4 passed (4)
+      Tests  21 passed (21)
+   Start at  08:58:54
+   Duration  126ms (transform 107ms, setup 0ms, import 160ms, tests 26ms, environment 0ms)
+
+
+> allow-workbench@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v6.4.5 building for production...
+transforming...
+✓ 36 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.41 kB │ gzip:  0.29 kB
+dist/assets/index-7Ty6BafU.css    7.72 kB │ gzip:  2.48 kB
+dist/assets/index-D0JW_5Ls.js   218.49 kB │ gzip: 68.52 kB
+✓ built in 394ms
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< dev.allow:allow-backend >-----------------------
+[INFO] Building allow-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (default) @ allow-backend ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ allow-backend ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from ../spec to target/classes/profiles
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ allow-backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 64 source files with javac [debug parameters release 17] to target/classes
+[INFO] /home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java: /home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java uses or overrides a deprecated API.
+[INFO] /home/augustus/Allow/backend/src/main/java/dev/allow/worker/JsonWire.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ allow-backend ---
+[INFO] skip non existing resourceDirectory /home/augustus/Allow/backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ allow-backend ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 18 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- dependency:3.8.1:copy-dependencies (runtime) @ allow-backend ---
+[INFO] org.springframework.boot:spring-boot-starter-web:jar:3.5.16 already exists in destination.
+[INFO] org.springframework.boot:spring-boot-starter:jar:3.5.16 already exists in destination.
+[INFO] org.springframework.boot:spring-boot:jar:3.5.16 already exists in destination.
+[INFO] org.springframework.boot:spring-boot-autoconfigure:jar:3.5.16 already exists in destination.
+[INFO] org.springframework.boot:spring-boot-starter-logging:jar:3.5.16 already exists in destination.
+[INFO] ch.qos.logback:logback-classic:jar:1.5.34 already exists in destination.
+[INFO] ch.qos.logback:logback-core:jar:1.5.34 already exists in destination.
+[INFO] org.apache.logging.log4j:log4j-to-slf4j:jar:2.24.3 already exists in destination.
+[INFO] org.apache.logging.log4j:log4j-api:jar:2.24.3 already exists in destination.
+[INFO] org.slf4j:jul-to-slf4j:jar:2.0.18 already exists in destination.
+[INFO] jakarta.annotation:jakarta.annotation-api:jar:2.1.1 already exists in destination.
+[INFO] org.yaml:snakeyaml:jar:2.4 already exists in destination.
+[INFO] org.springframework.boot:spring-boot-starter-json:jar:3.5.16 already exists in destination.
+[INFO] com.fasterxml.jackson.core:jackson-databind:jar:2.21.4 already exists in destination.
+[INFO] com.fasterxml.jackson.core:jackson-annotations:jar:2.21 already exists in destination.
+[INFO] com.fasterxml.jackson.core:jackson-core:jar:2.21.4 already exists in destination.
+[INFO] com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.21.4 already exists in destination.
+[INFO] com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.21.4 already exists in destination.
+[INFO] com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.21.4 already exists in destination.
+[INFO] org.springframework.boot:spring-boot-starter-tomcat:jar:3.5.16 already exists in destination.
+[INFO] org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.55 already exists in destination.
+[INFO] org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.55 already exists in destination.
+[INFO] org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.55 already exists in destination.
+[INFO] org.springframework:spring-web:jar:6.2.19 already exists in destination.
+[INFO] org.springframework:spring-beans:jar:6.2.19 already exists in destination.
+[INFO] io.micrometer:micrometer-observation:jar:1.15.12 already exists in destination.
+[INFO] io.micrometer:micrometer-commons:jar:1.15.12 already exists in destination.
+[INFO] org.springframework:spring-webmvc:jar:6.2.19 already exists in destination.
+[INFO] org.springframework:spring-aop:jar:6.2.19 already exists in destination.
+[INFO] org.springframework:spring-context:jar:6.2.19 already exists in destination.
+[INFO] org.springframework:spring-expression:jar:6.2.19 already exists in destination.
+[INFO] org.slf4j:slf4j-api:jar:2.0.18 already exists in destination.
+[INFO] org.springframework:spring-core:jar:6.2.19 already exists in destination.
+[INFO] org.springframework:spring-jcl:jar:6.2.19 already exists in destination.
+[INFO] 
+[INFO] --- dependency:3.8.1:copy (isolated-alloy) @ allow-backend ---
+[INFO] Configured Artifact: org.alloytools:org.alloytools.alloy.dist:6.2.0:jar
+[INFO] org.alloytools:org.alloytools.alloy.dist:6.2.0:jar already exists in /home/augustus/Allow/backend/target/solver
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ allow-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.allow.backend.SandboxBoundaryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s -- in dev.allow.backend.SandboxBoundaryTest
+[INFO] Running dev.allow.backend.JobServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in dev.allow.backend.JobServiceTest
+[INFO] Running dev.allow.backend.BuildIdentityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in dev.allow.backend.BuildIdentityTest
+[INFO] Running dev.allow.backend.HttpBoundaryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.806 s -- in dev.allow.backend.HttpBoundaryTest
+[INFO] Running dev.allow.backend.WorkerIntegrationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.362 s -- in dev.allow.backend.WorkerIntegrationTest
+[INFO] Running dev.allow.backend.ProcessRunnerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.732 s -- in dev.allow.backend.ProcessRunnerTest
+[INFO] Running dev.allow.worker.JsonWireEGraphTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in dev.allow.worker.JsonWireEGraphTest
+[INFO] Running dev.allow.worker.JsonWireStrictTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s -- in dev.allow.worker.JsonWireStrictTest
+[INFO] Running dev.allow.canonical.IslandAdapterTest
+[main] INFO kodkod.engine.config.Reporter - detecting symmetries ...
+[main] INFO kodkod.engine.config.Reporter - detected 17 equivalence classes of atoms ...
+[main] INFO kodkod.engine.config.Reporter - optimizing bounds and formula (breaking predicate symmetries, inlining, skolemizing) ...
+[main] INFO kodkod.engine.config.Reporter - translating to boolean ...
+[main] INFO kodkod.engine.config.Reporter - generating lex-leader symmetry breaking predicate ...
+[main] INFO kodkod.engine.config.Reporter - detecting symmetries ...
+[main] INFO kodkod.engine.config.Reporter - detected 17 equivalence classes of atoms ...
+[main] INFO kodkod.engine.config.Reporter - optimizing bounds and formula (breaking predicate symmetries, inlining, skolemizing) ...
+[main] INFO kodkod.engine.config.Reporter - translating to boolean ...
+[main] INFO kodkod.engine.config.Reporter - generating lex-leader symmetry breaking predicate ...
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s -- in dev.allow.canonical.IslandAdapterTest
+[INFO] Running dev.allow.canonical.CanonicalizerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s -- in dev.allow.canonical.CanonicalizerTest
+[INFO] Running dev.allow.canonical.SlotBoundaryTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in dev.allow.canonical.SlotBoundaryTest
+[INFO] Running dev.allow.egraph.CertificateSliceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in dev.allow.egraph.CertificateSliceTest
+[INFO] Running dev.allow.egraph.EGraphMechanicsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.050 s -- in dev.allow.egraph.EGraphMechanicsTest
+[INFO] Running dev.allow.egraph.RuleCatalogTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in dev.allow.egraph.RuleCatalogTest
+[INFO] Running dev.allow.egraph.EGraphEngineTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in dev.allow.egraph.EGraphEngineTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 71, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ allow-backend ---
+[INFO] Building jar: /home/augustus/Allow/backend/target/allow-backend-0.1.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.878 s
+[INFO] Finished at: 2026-11-03T08:59:03-06:00
+[INFO] ------------------------------------------------------------------------
+Local build and tests passed. Run: python3 scripts/run_local.py --show-url

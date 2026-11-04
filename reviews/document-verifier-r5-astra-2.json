@@ -1,0 +1,57 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-verifier-r5-astra-2",
+  "review_type": "READ_ONLY_FINITE_VERIFIER_AND_COMPLETED_EVIDENCE_AUDIT",
+  "timestamp_utc": "2026-11-03T18:27:14.255844+00:00",
+  "decision": "NO_BLOCKING_VERIFIER_DEFECT_FOUND_FOR_RECORDED_FINITE_RUN",
+  "verifier_path": "gates/document/draft/verify_document_candidate.py",
+  "verifier_sha256": "4a2072a32925ab13ff549c441f3c764074a58166276311dbbbb45d7d8839ddcb",
+  "report_path": "gates/document/draft-runs/final-r5/report.json",
+  "report_sha256": "29da0bb27694261eaeb7d81853b426303422e4ccbf39b2b827bd5b512410354b",
+  "recorded_run_status": "VERIFIED",
+  "input_root_hash": "b812108ba5ce720adb74c5d467e8c3b108671703cb5b82fc43475d898eea6bcf",
+  "blocking_findings": [],
+  "mechanical_evidence_checks": {
+    "canonical_manifest_root_recomputed": true,
+    "copied_input_files_rehashed": 222,
+    "all_copied_inputs_match_manifest": true,
+    "recorded_verifier_matches_reviewed_verifier": true,
+    "build_records": 2,
+    "build_records_exactly_equal": true,
+    "both_type_logs_match_exact_registered_text": true,
+    "both_inherited_axiom_logs_rechecked": 112,
+    "both_document_axiom_logs_rechecked": 125,
+    "all_six_log_hashes_match_report": true,
+    "build_logs_show_fresh14_job_success": true
+  },
+  "finite_claim_assessment": [
+    "125 named document theorem declarations exactly match the pinned inventory; exact #check output binds their statements. All125 axiom reports must be present once, with only the declared three axioms.",
+    "112 inherited propositions are pinned and kernel-checked via typed theorem references, then individually axiom audited.",
+    "All23 palette fixture entries require positive and negative registered theorem names. Concrete fixture meaning is frozen in the reviewed type registry; this is finite fixture coverage, not universal executable infer correspondence.",
+    "Both runs create separate TemporaryDirectory worktrees populated from preserved formal sources without .lake artifacts. Each independently runs lake build plus inherited/document-type/document-axiom checking.",
+    "The two records compare inherited olean hashes and exact type/axiom log hashes; timing-bearing build logs are preserved but intentionally not compared. Document source is freshly elaborated in both type and axiom audits; no separate document olean is claimed.",
+    "Six approved reviews are matched to exact frozen six-file hashes and expected council seat filenames. Review presence is a design precondition, not proof evidence.",
+    "Baseline manifest is pinned, frozen production/active-formal files are checked and new files within documented discovery roots detected. Initial and final guards plus input hashes constrain the no-production-before-formal claim within its stated discovery boundary."
+  ],
+  "nonblocking_hardening_notes": [
+    {
+      "item": "Snapshot TOCTOU narrowing",
+      "detail": "Verifier validates live files before copying and rechecks live hashes at end, but does not itself rehash copied snapshots before building. This audit rehashed every preserved input successfully, so no current evidence defect exists. A future verifier revision can hash each copied file immediately and build all generated audit text from those verified copies, reducing concurrent-file mutation windows."
+    },
+    {
+      "item": "Toolchain trust",
+      "detail": "Toolchain is selected by explicit4.34.1 path and trusted bundled libraries, not binary hash closure. This matches declared TCB; do not market it as independently verified compiler supply chain."
+    },
+    {
+      "item": "Report granularity",
+      "detail": "Run report is a compact finite formal audit with named registry and raw logs, not a general-purpose complete implementation closure package. Preserve exact registry/log/report provenance and avoid broadening its public claim."
+    }
+  ],
+  "public_claim_boundary": "Recorded VERIFIED establishes only the237 frozen propositions and23 fixture-family registration checks under declared Lean/OS/Python/toolchain trust, with two matching isolated builds and the stated baseline guard. It establishes no parser/Java/TypeScript/SQL refinement, runtime acceptance, full G2/G3 completion or commercial release.",
+  "method": "Applied mechanical-closure-verification audit guidance, inspected source and completed evidence, and independently rechecked hash/type/axiom log bindings without rerunning Lean builds. LLM assessment is not the authority for proof discharge; the preserved verifier report and logs are.",
+  "production_authorization": "No new design blocker found. Production eligibility remains the parent workflow decision based on final council and recorded formal gate; runtime and commercial gates remain open.",
+  "production_edits": false,
+  "verifier_edits": false,
+  "formal_edits": false,
+  "proof_builds_rerun": false
+}

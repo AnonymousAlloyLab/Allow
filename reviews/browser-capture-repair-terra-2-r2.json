@@ -1,0 +1,24 @@
+{
+  "reviewer": "terra-2",
+  "decision": "APPROVE_RECHECK",
+  "scope": "Focused read-only recheck of BCRT2-01 and BCRT2-02 against revision 2; no active traffic, browser, benchmark or tests.",
+  "input_hashes": {
+    "/home/augustus/Allow/frontend/bench/runner.ts": "cfb9d77877ebaea9ac3d0e4a05d4c7a390227911d4c11a6edab5e0005e899a98",
+    "/home/augustus/Allow/frontend/bench/evidence.ts": "deca4676a8e68d88d7a126c5ad6b476529bb22a6da8e923cd43c73920fc34eaa",
+    "/home/augustus/Allow/frontend/bench/resources.ts": "3608dfe3cb3f6b3304b29dc755a19b4aef9756b583f78b5b922c05aa3af2180d",
+    "/home/augustus/Allow/frontend/bench/bridge.ts": "e86e846170b9181c72d282a6881e05361313c1b3ed3bc5f61bd6c544c3d53346",
+    "/home/augustus/Allow/frontend/bench/vite.config.mjs": "ad06331f328ea4a7014a5f5539af528c1a79bcc3d2195749cf16f24562ade32f",
+    "/home/augustus/Allow/frontend/bench/capture-host.py": "b0ca4b849ef6ca10a341ba5543e9cf28e916b3df88a58147ebf4850a5b58ccc4",
+    "/home/augustus/Allow/gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "/home/augustus/Allow/reviews/browser-capture-repair-terra-2.json": "15422ca51ceaa7752e90b45c0c69920bd4af1558f9b1d3927fce5bc9f26ca611"
+  },
+  "repair_manifest_sha256": "c09a09cc96c2dd8fa00b9967f53f29b68ef8ed713c3b0b39fa73571e68865224",
+  "findings": [],
+  "resolution": {
+    "BCRT2-01": "Bounded buffered observer tracks resource status, observer drops and both buffer limits. Unsupported status/drop information, unknown status, or overflow makes coverage incomplete and prevents COMPLETE.",
+    "BCRT2-02": "The final edit dispatch timestamp is retained as the observation cutoff, and the committed retained validation request is matched to final mount, authority, document, draft, base, epoch and generation. Missing outcome remains INCOMPLETE."
+  },
+  "limitations": [
+    "This is a bounded review of these two findings, not a claim of universal network observation or a benchmark result. Resource Timing does not expose request bodies or establish a server receipt."
+  ]
+}

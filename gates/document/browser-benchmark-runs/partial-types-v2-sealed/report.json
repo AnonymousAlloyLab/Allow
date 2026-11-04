@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "classification": "FINITE_ACTUAL_BROWSER_WARM_PREVIEW_ONLY",
+  "timestamp_utc": "2026-11-03T21:17:09.499472+00:00",
+  "verifier_sha256": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+  "protocol_sha256": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+  "cold_series": "NOT_CONDUCTED",
+  "limitations": [
+    "Hashed harness assertions and browser records are trusted runtime test evidence, not a formal implementation refinement.",
+    "Two sequential animation callbacks do not establish physical display paint.",
+    "Server-host CPU/RAM is recorded separately; browser hardware affinity is not attested.",
+    "No cold-start, authoritative diagnostics, manual accessibility, complete G2/G3 or commercial acceptance claim."
+  ],
+  "nodes": 500,
+  "warmup_events": 100,
+  "measured_events": 1000,
+  "p50_ms": 11.600000001490116,
+  "p95_ms": 12.5,
+  "p99_ms": 12.600000001490116,
+  "target_p95_ms": 50,
+  "source_unchanged": true,
+  "static_restored": true,
+  "input_root_sha256": "b96acfe4c4d4389eeb6b284c8dacceef7e5615256855584c1e8242202e8cc03d",
+  "evidence_sha256": {
+    "browser-result.json": "00528ec31dd4fd638cfd997b4a4000e70f096af4ed783d278768b27a49f3d3ff",
+    "build-evidence/DocumentWorkbench.diff": "25623192ff79683581f831f0bfa69bb6e5146def0be718688c5585859c6da930",
+    "build-evidence/DocumentWorkbench.original.txt": "8cc7349e3665e7e0b1fa1d3dff4c0f3b430ae6e74a22a2a68a0d2268feba445c",
+    "build-evidence/DocumentWorkbench.transformed.txt": "04ad62bbe12b9ee57bcc748e06d435220e54019e87d20ff0a1d35b618a8f0e2a",
+    "build-evidence/asset-manifest.json": "6016844a76e3d524d9410b3062512ce1927a595fe7882ced2efd849348eaee31",
+    "build-evidence/hashes.json": "5a6d42864af3ce2bb08b3a30114d2ba635409fa4073ab2267d096e69fba139d8",
+    "harness-manifest.json": "08e6591e04c6c6b8bf43d787cfec0118c84d36e2667ffb0827201013f9fbd95a",
+    "host.json": "7cf14c0cd3391525990c9ada5e71d0c849e2c998d431e14b346e1316c22443f9",
+    "installation.json": "4a4fbbc316ebe4e7f37bddede83f7e9c49de9fc316132deec3352a7e12b086bd",
+    "protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "registered-verifier.py": "e430b04d491690953c32f1113ca94beccb1ee7c7c9eb7ea797dfdc39f919f69a",
+    "restoration.json": "d65dd020b208d7833cb88422249f89f091c2fba283ca886cfeaf07e2d87ede44",
+    "run-registration.json": "87de52798bf7569d5ce6a328e0132287da6f887752a74ab34d366efa34f5c0c6",
+    "source-manifest.json": "61ae5475e42941794ac9316c5e64520a1719f043f3cca5fe50d64ec6bb19a890",
+    "workbench.png": "1e0b53a4866a89dceda7164d5b385046f353de636f7815d61061d20cb128875b"
+  }
+}

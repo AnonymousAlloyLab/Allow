@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-sql-image-final-287-v2",
+  "required_clean_builds": 2,
+  "manual_override_allowed": false,
+  "unresolved_is_blocking": true,
+  "warning_is_blocking": true,
+  "network_allowed_during_verification": false,
+  "llm_as_verifier": false,
+  "transformation": "Copy candidate to Allow/ImmutableImageCandidate.lean and append import in fresh copied formal tree only",
+  "determinism_required": [
+    "proof_inventory",
+    "correspondence",
+    "provenance_claim_ids",
+    "claim_status",
+    "artifact_sha256",
+    "audit_sha256"
+  ],
+  "nondeterministic_fields": [
+    "timestamps",
+    "temporary paths",
+    "build duration"
+  ]
+}

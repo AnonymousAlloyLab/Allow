@@ -1,0 +1,33 @@
+{
+  "status": "IMPLEMENTATION_INTERFACE_PLAN_ONLY_NOT_FROZEN_FORMAL_INPUT",
+  "interface_file": "gates/document/partial-types-candidate/interfaces.ts",
+  "owner_analysis": [
+    "frontend/src/document/checker.ts",
+    "frontend/src/document/model.ts",
+    "frontend/src/document/types.ts",
+    "new frontend/src/document/partial*.ts helpers",
+    "analysis unit tests"
+  ],
+  "owner_integration": [
+    "frontend/src/document/operations.ts",
+    "frontend/src/document/controller.ts",
+    "frontend/src/document/state.ts",
+    "frontend/src/document/ExpressionEditor.tsx",
+    "frontend/src/DocumentWorkbench.tsx",
+    "integration/controller/state tests"
+  ],
+  "entrypoint": "checkModule(module, obligations = [], limits?) -> Check with complete full violation set, resourceFailure, facts and destinations; old exact types/scopes/diagnostics/complete projections retained",
+  "obligation_storage": "DocumentState.slotObligations readonly array; immutable copy/remap/retention by owning slot address. Never add sidecar to Module/DraftModule wire fields. candidate(state) serializes only existing known Module fields.",
+  "key": "JSON.stringify([ownerId, role, rule, expectedFacts, actualFacts, relatedIds]); ordered canonical fact arrays; no display text; different left/right/argument positions and exact nominal lists distinct.",
+  "caps": {
+    "columnVariables": 4096,
+    "equations": 32768,
+    "violations": 65536,
+    "worklistPops": 262144,
+    "refinements": 262144
+  },
+  "pre_replace_capture": "Integration obtains destination owning slot from before module, captures hole.expected if destination is hole, combines existing slot obligations, then remaps candidate-side slot owner addresses. Preserve these into next immutable state even if replacement is incomplete. Do not persist previous concrete expression inferred type.",
+  "transaction_signature": "newContradiction(before, after, beforeObligations=[], afterObligations=beforeObligations) compares checkModule results; resourceFailure on either side rejects. Same-parent keys and all errors beyond64 are enforced.",
+  "display": "Existing slotConstraints(module, checked) adapter consumes checked.destinations; parent descriptions may retain existing text. Root callers pass state.slotObligations to checkModule.",
+  "partial_schema": "At most8 shapes, one for each possible width1..8; per-column exact ID or null. This enumerates widths only, never nominal schema assignments. Sort is independent of shapes. Known width/endpoint/columns constrain shapes; empty relation shape set is violation, never unresolved success."
+}

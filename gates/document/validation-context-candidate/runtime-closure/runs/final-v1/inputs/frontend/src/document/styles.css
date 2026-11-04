@@ -1,0 +1,26 @@
+.document-workbench {max-width:1800px;margin:auto;padding:24px;color:#182c30;background:#f4f6f3;line-height:1.5}
+.document-workbench section {margin:20px 0;padding:18px;border:1px solid #879b96;border-radius:8px;background:white}
+.document-workbench fieldset {margin:12px 0;padding:12px;border:1px solid #9bafaa;min-width:0}
+.document-workbench label {display:flex;flex-direction:column;gap:5px;margin:8px 0;font-weight:600}
+.document-workbench input,.document-workbench select,.document-workbench textarea {font:inherit;color:#142b2b;background:white;border:1px solid #637c74;padding:9px;border-radius:4px;min-width:0}
+.document-workbench button {font:inherit;color:#153c32;background:#e4f2e9;border:1px solid #4b7665;padding:8px 12px;margin:4px;border-radius:5px;cursor:pointer}
+.document-workbench button:disabled {opacity:.55;cursor:not-allowed}
+.document-workbench :focus-visible {outline:3px solid #184fff;outline-offset:3px}
+.document-workbench button[aria-pressed=true] {border:3px solid #183cab;background:#dce5ff}
+.document-workbench textarea {min-height:220px;width:100%;box-sizing:border-box;font-family:monospace;white-space:pre}
+.document-workbench pre {overflow:auto;max-height:360px;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:#f0f4f1}
+.document-layout {display:grid;grid-template-columns:minmax(240px,.85fr) minmax(360px,1.3fr) minmax(320px,1.1fr);gap:18px}
+.document-actions {display:flex;flex-wrap:wrap;gap:4px}
+.document-children {margin-left:18px;border-left:2px solid #a9beb4;padding-left:8px}
+.document-branch p {font-size:.85rem;margin:3px 0}
+.document-workbench small {display:block;overflow-wrap:anywhere}
+@media(max-width:850px){.document-layout{grid-template-columns:1fr}.document-workbench{padding:10px}}
+
+.document-navigation,.document-savebar {display:flex;align-items:end;gap:12px;flex-wrap:wrap}
+.document-navigation label {flex:1;min-width:180px}
+.document-savebar details {flex-basis:100%}
+.document-source,.document-blocks {min-width:0}
+.document-history {padding:18px;background:white;border:1px solid #879b96;border-radius:8px}
+.document-workbench summary {cursor:pointer;font-weight:600}
+.document-analysis {margin-top:18px}
+@media(max-width:1100px){.document-layout{grid-template-columns:1fr}}

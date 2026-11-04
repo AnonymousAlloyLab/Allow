@@ -1,0 +1,66 @@
+{
+  "reviewer": "Sol council seat 2",
+  "seat": "sql-sol-2",
+  "review_type": "FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 3,
+  "spec_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "approved_exact_hash": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "formal_file_sha256": "228d56de2998e31554d577356ff953ca506fafb40390288175559871bcbd56ad",
+  "blocking_design_findings": [],
+  "review_basis": [
+    "Read the complete revision 3 specification and 16-obligation Lean model; mechanically confirmed that the obligation symbols/statements equal spec/sql-types.json.",
+    "Read the local SQLean grammar CLI, report, derivation definition, generated productions and symbol table, lexer preconditions and toolchain. Conducted parser-only read-only probes against the existing executable.",
+    "Inspected Repository DSN selection, connection and scope-setting code; bootstrap psql and listener configuration; recovery psycopg/pg_dump/pg_restore paths; and all current migration SQL, including RLS and scoped referential integrity additions.",
+    "Checked PostgreSQL 16 protocol documentation for extended-query provenance, unnamed object invalidation, portal lifetime, Close dependencies, pipeline error behavior and Parse framing."
+  ],
+  "parser_observations": {
+    "source_commit": "ad15c585155ff7fc2c5fc4c9746905e4959ff5eb",
+    "existing_executable_sha256": "e4206ba66b3aeb6cf631536203badcc208fcd93429bed3bd03f6c2f02a69dc8f",
+    "toolchain": "leanprover/lean4:v4.34.0",
+    "production_count": 3285,
+    "report_contract": "Successful report exposes grammar-accepted, context-free-derivation, profile, postgresqlCommit, sourcePreservation=exact, reconstructed sql, tokens and all derivation productionIds. JSON is explicitly not a serialized independently replayable proof.",
+    "probe_results": [
+      "Numbered text/bytea parameters and multiline SQL with blank lines are grammar accepted with exact returned SQL.",
+      "EXPLAIN EXECUTE hidden is grammar accepted with outer family ExplainStmt, while productionIds map to ExecuteStmt. Checking outer families alone is insufficient.",
+      "DO with deliberately invalid procedural contents is grammar accepted, confirming that opaque body rejection is necessary.",
+      "CREATE FUNCTION and SQL PREPARE are grammar accepted and identifiable by CreateFunctionStmt and PrepareStmt productions.",
+      "PREPARE TRANSACTION is grammar accepted under TransactionStmt, so two-phase controls need distinct classification.",
+      "Unsafe standard_conforming_strings changes and set_config are grammar accepted; grammar admission does not enforce the required session-mode policy."
+    ],
+    "license_scope": "No root own-project license/notice was found. Preserve upstream notices and unresolved local provenance; this approval relies only on explicit user-authorized local execution and grants no redistribution or commercial clearance."
+  },
+  "approval_basis": [
+    "The private Q/P wire boundary covers application SQL, driver transaction controls, psql bootstrap/migrations and real dump/restore without modifying Bind/COPY data or rewriting psycopg placeholders.",
+    "Exact source equality, pinned binary/profile/commit/policy, bounded subprocess responses, successful exact cache reuse and no direct fallback provide a concrete admission contract.",
+    "All-production opaque-form denial, locked UTF8/string modes before pipelined forwarding, endpoint validation and removal of backend TCP address the identified bypasses.",
+    "Connection-local immutable portal payloads, finite object/frame/concurrency limits and reserved cancellation handlers are specified without claiming backend success or retrying mutations.",
+    "The migration plan preserves data and the independent journal while replacing DO/dynamic EXECUTE with independently admitted statements and separately checking sibling constraints after partial failures."
+  ],
+  "implementation_acceptance_notes": [
+    "Generate and bind the complete forbidden-production mapping to the pinned source/binary. Include nested ExecuteStmt and all function/procedure/DO definitions. Classify PREPARE TRANSACTION separately from PrepareStmt; conservatively reject two-phase transaction controls to preserve the disconnect rollback statement.",
+    "Match real backend object lifetimes conservatively. Closing a prepared statement also closes dependent portals; unnamed replacement, Simple Query invalidation, transaction end, failed Parse/Bind and skip-until-Sync must not let stale metadata be represented as backend success. Test statement-name reuse and dependent portal cleanup, in addition to immutable snapshots across unnamed statement replacement.",
+    "Mode controls must inspect every statement and relevant nested function occurrence before forwarding. Reject arbitrary set_config calls and unresolved Unicode escaped identifiers; literal-key scope/search_path templates and exact reviewed safe settings require their own checks. Initial backend ParameterStatus must be validated before admitting the first SQL.",
+    "Validate canonical endpoints after libpq-compatible DSN parsing and neutralize inherited PG environment overrides for bootstrap/dump/restore. Recovery may change only the authorized temporary database name. Audit the old running cluster too, so disabling direct TCP is effective for an already initialized deployment.",
+    "Expand migration loops into a fixed reviewed table/constraint list. Check run_query_member_identity and membership_own_query independently, with relation-scoped catalog identity, and test restoration of the latter when the former already exists.",
+    "Preserve SQL and parameter privacy across subprocess errors as well as normal logs: bootstrap CREATE ROLE contains a password. Retain only counter/reason evidence; parser tokens and reports remain bounded transient data.",
+    "Collect separate admitted-query counter deltas and endpoint checks for Repository, bootstrap, migration, direct test controls, recovery controls, pg_dump and pg_restore, including implicit transaction SQL. Run the finite framing, injection-as-data, cancellation, tamper, fresh/upgrade/partial migration and retrieval/recovery/HTTP checks after implementation."
+  ],
+  "formal_limits": [
+    "The Lean model establishes abstract accepted-request and portal provenance from assumed report flags and identity. It does not establish parser correctness or correspondence to Python, wire framing, session policy, object lifecycle, subprocess execution, database semantics or isolation.",
+    "The abstract lists permit multiple object names and omit Close, errors, unnamed invalidation and backend status. Those are explicit runtime acceptance obligations, not consequences of the 16 model propositions.",
+    "No Lean build was run in this review. Root must bind the exact final inputs to the required two clean final builds after all six council reviews."
+  ],
+  "sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html",
+    "https://www.postgresql.org/docs/16/protocol-message-formats.html",
+    "/home/augustus/SQLeanParser/PostgresGrammarMain.lean",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Report.lean",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Spec.lean",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Lexer.lean",
+    "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Generated/Symbols.lean"
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 3 bounded implementation design only. Runtime success, final formal-build evidence and rights beyond local authorized use remain separate."
+}

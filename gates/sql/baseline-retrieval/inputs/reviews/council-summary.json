@@ -1,0 +1,53 @@
+{
+  "contract_id": "ALLOW-CONTRACT-0.1.0",
+  "contract_revision": 4,
+  "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+  "classification": "ADVISORY_DESIGN_REVIEW",
+  "dispatch_attestation": "Parent collaboration tool calls supplied these model IDs; runtime backend identity is not independently attested.",
+  "members": {
+    "terra-1": {
+      "dispatch_model": "gpt-6.1-terra",
+      "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "report": "reviews/terra-1.json",
+      "report_sha256": "2b6c811c14690e88bacd8b846d57abcb73f479cf7f509923af4d551f1459d31f",
+      "final_verdict": "ACCEPT_WITH_STATED_BOUNDARIES"
+    },
+    "terra-2": {
+      "dispatch_model": "gpt-6.1-terra",
+      "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "report": "reviews/terra-2.json",
+      "report_sha256": "27eaa90d727211234283ee2ed2cab490d46f8c92a81c11a7aa864da8cb7390d5",
+      "final_verdict": "ACCEPT_WITH_EXPLICIT_TRUST_BOUNDARIES"
+    },
+    "sol-1": {
+      "dispatch_model": "gpt-6.1-sol",
+      "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "report": "reviews/sol-1.json",
+      "report_sha256": "d0f89a3c106367aa8d278d33e7a9118488cba6e6f25b98f746886c7554ebbcaf",
+      "final_verdict": "ACCEPT_SPECIFICATION_WITH_IMPLEMENTATION_GATES"
+    },
+    "sol-2": {
+      "dispatch_model": "gpt-6.1-sol",
+      "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "report": "reviews/sol-2.json",
+      "report_sha256": "e3d31c5605756e458b3e9361d489904eefa76c893c2827356f8576120a60a013",
+      "final_verdict": "ACCEPT_SPECIFICATION_WITH_IMPLEMENTATION_GATES"
+    },
+    "astra-1": {
+      "dispatch_model": "gpt-6-astra",
+      "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "report": "reviews/astra-1.json",
+      "report_sha256": "b379ec678c2cf4af61230560a173f6e83fb557a7b9471cde1f46e3a35795c1d4",
+      "final_verdict": "ACCEPT_SCOPED_SPECIFICATION_AND_MODEL"
+    },
+    "astra-2": {
+      "dispatch_model": "gpt-6-astra",
+      "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+      "report": "reviews/astra-2.json",
+      "report_sha256": "9259b8cbe49ff14d93be7cb3ff156c6ffc3dbee9820b82ec95d77d90cb8f13f1",
+      "final_verdict": "ACCEPT_SCOPED_SPECIFICATION_AND_FORMAL_MODEL"
+    }
+  },
+  "implementation_authorized": false,
+  "commercial_release_cleared": false
+}

@@ -1,0 +1,112 @@
+{
+  "status": "FINAL_REPAIRED_HOLDOUT_MEASURED_QUALITY_PASS_DATABASE_PUBLICATION_PENDING",
+  "fixture": "Self-authored synthetic structural input. No claim these are solver-admitted corpus witnesses.",
+  "model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+  "dimension": 3072,
+  "norm": 1.0,
+  "finite": true,
+  "seconds": 0.5593178272247314,
+  "coverage": [
+    {
+      "tokens": 14,
+      "covered_tokens": 14,
+      "chunks": 1
+    },
+    {
+      "tokens": 13,
+      "covered_tokens": 13,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    }
+  ],
+  "onnx": {
+    "custom_operator_libraries": false,
+    "ir_version": 6,
+    "opsets": {
+      "": 11
+    },
+    "operators": [
+      ":Add",
+      ":Cast",
+      ":Concat",
+      ":Constant",
+      ":Div",
+      ":Erf",
+      ":Gather",
+      ":MatMul",
+      ":Mul",
+      ":Pow",
+      ":ReduceMean",
+      ":Reshape",
+      ":Shape",
+      ":Slice",
+      ":Softmax",
+      ":Sqrt",
+      ":Sub",
+      ":Transpose",
+      ":Unsqueeze"
+    ]
+  },
+  "tests": "Eleven ML tests and the latest 81-test complete retrieval suite passed. Final repaired measurement independently re-encoded all 45 original canonical and exact certificate-bound variant arrays bit-for-bit; one missing test variant added with unchanged checkpoint, weights, records and family splits.",
+  "source_hashes": {
+    "retrieval/allow_retrieval/embedding.py": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+    "retrieval/allow_retrieval/training.py": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+    "retrieval/allow_retrieval/evaluation.py": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+    "retrieval/bootstrap_ml.py": "daf98fb50c936a73e56049499b9acc3160c2048f23b5b8f93330c18c673f3865",
+    "retrieval/tests/test_ml.py": "20a677459164466c2fe1b3de8e39c040c1aaf183c1c1ac51f20d03be91f1d023"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "isolated": true,
+    "torch": "2.14.1+cpu",
+    "onnxruntime": "1.23.2",
+    "onnx": "1.23.2",
+    "langgraph": "1.2.19",
+    "langchain-core": "1.7.4"
+  },
+  "handoff": "retrieval/ML-HANDOFF.md",
+  "final_measurement": {
+    "quality_gate": "PASS",
+    "integrity_passed": true,
+    "evaluation_path": ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/evaluation.json",
+    "evaluation_artifact_sha256": "3d2f9e8828e6f152e4c04ba17447253857482a6ce2f204aa546c3bd887a0b873",
+    "promotion_artifact_sha256": "4d35e9750092d90d681559090bc58dcd5257ac1ffd54dec249a292b262aa5798",
+    "adapter_sha256": "298aea35c56a3a56698af4e58316ccafe22e847995ef1db9494415f212c65026",
+    "validation_decision_sha256": "4de8368c3db4b8c298a364c70ebaed1fc349e6a5d124f383253b94dab73e5f83",
+    "family_components": 13,
+    "test_components": 2,
+    "test_queries": 10,
+    "database_promoted": false,
+    "interpretation": "Technical-repair rerun of an already observed holdout, not a fresh blind test. Known checked structural-variant retrieval only: 13 family components, two test families and 10 test queries. Equal learned and pretrained family-macro MRR@10 satisfies the predeclared non-regression gate; it does not demonstrate improvement or broad semantic generalization. Database publication remains a separate step."
+  },
+  "historical_metadata": "retrieval/history/ml-verification-before-final-repair.json"
+}

@@ -1,0 +1,358 @@
+{
+  "status": "PASS",
+  "input_root_sha256": "3036631b679839ad100e0c55fbddec980615fbf3bb005df6b2e9eea1b17300b6",
+  "run_id": "containment-v8",
+  "verifier_sha256": "540536752be889961a9f469f71a7a649a6dbeed6cdcd986848d37380edbda610",
+  "classification": "TESTED_SCREEN_ONLY_NOT_RUNTIME_CLOSURE",
+  "host": {
+    "kernel": "7.0.0-38-generic",
+    "machine": "x86_64",
+    "logical_cpus": 32,
+    "controller_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "loadavg": [
+      2.07177734375,
+      1.8935546875,
+      1.89453125
+    ],
+    "pressure": {
+      "cpu": "some avg10=0.00 avg60=0.00 avg300=0.00 total=73221886\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+      "memory": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5511777\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5421986",
+      "io": "some avg10=0.00 avg60=0.19 avg300=0.24 total=132610185\nfull avg10=0.00 avg60=0.17 avg300=0.23 total=131119599"
+    },
+    "root_storage_device": {
+      "major": 259,
+      "minor": 7
+    },
+    "cpu_model_lines": [
+      "cpu family\t: 26",
+      "model\t\t: 68",
+      "model name\t: AMD Ryzen 9 9950X3D 16-Core Processor"
+    ],
+    "interpretation": "Workstation screen only; actual 4vCPU/8GiB target acceptance remains OPEN"
+  },
+  "target_acceptance": "OPEN",
+  "snapshots": [
+    {
+      "unit": {
+        "MainPID": "1094569",
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+        "Description": "allow-fresh:3036631b679839ad100e0c55fbddec980615fbf3bb005df6b2e9eea1b17300b6",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "f57239d11b2d4a968ae3cbefc14d1633"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1094569,
+          "start_ticks": "6419424",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+          "threads": [
+            {
+              "tid": 1094569,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "cpu.stat": "usage_usec 7276\nuser_usec 5133\nsystem_usec 2143\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=3\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=3",
+        "memory.current": "5140480",
+        "memory.peak": "5140480",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "1",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=117\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=117"
+      },
+      "observed_monotonic_ns": 64194256046281
+    },
+    {
+      "unit": {
+        "MainPID": "1094569",
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+        "Description": "allow-fresh:3036631b679839ad100e0c55fbddec980615fbf3bb005df6b2e9eea1b17300b6",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "f57239d11b2d4a968ae3cbefc14d1633"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1094569,
+          "start_ticks": "6419424",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+          "threads": [
+            {
+              "tid": 1094569,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1094572,
+          "start_ticks": "6419426",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+          "threads": [
+            {
+              "tid": 1094572,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "cpu.stat": "usage_usec 19808\nuser_usec 14595\nsystem_usec 5212\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5",
+        "memory.current": "10903552",
+        "memory.peak": "10903552",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "2",
+        "pids.peak": "2",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=156\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=156"
+      },
+      "observed_monotonic_ns": 64194309114565
+    },
+    {
+      "unit": {
+        "MainPID": "1094569",
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+        "KillMode": "control-group",
+        "Id": "allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+        "Description": "allow-fresh:3036631b679839ad100e0c55fbddec980615fbf3bb005df6b2e9eea1b17300b6",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "f57239d11b2d4a968ae3cbefc14d1633"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1094569,
+          "start_ticks": "6419424",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+          "threads": [
+            {
+              "tid": 1094569,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "pid": 1094572,
+          "start_ticks": "6419426",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+          "threads": [
+            {
+              "tid": 1094572,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "cpu.stat": "usage_usec 19808\nuser_usec 14595\nsystem_usec 5212\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5",
+        "memory.current": "10903552",
+        "memory.peak": "10903552",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "2",
+        "pids.peak": "2",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=156\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=156"
+      },
+      "observed_monotonic_ns": 64194312150078
+    }
+  ],
+  "benchmark_executed": false,
+  "readiness": {
+    "supervisor": {
+      "pid": 1094569,
+      "start_ticks": "6419424"
+    },
+    "child": {
+      "pid": 1094572,
+      "start_ticks": "6419426"
+    }
+  },
+  "checks_passed_before_cleanup": true,
+  "cleanup": {
+    "status": "PASS",
+    "populated_zero_observed": true,
+    "last_cgroup_events": "populated 0\nfrozen 0\n",
+    "owned_identities_absent": true,
+    "graceful_kill_exit_code": 0,
+    "stop_exit_code": 0,
+    "unit": {
+      "MainPID": "0",
+      "Result": "success",
+      "ControlGroup": "",
+      "KillMode": "control-group",
+      "Id": "allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+      "Description": "allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "InvocationID": ""
+    }
+  },
+  "host_after": {
+    "kernel": "7.0.0-38-generic",
+    "machine": "x86_64",
+    "logical_cpus": 32,
+    "controller_affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "loadavg": [
+      2.07177734375,
+      1.8935546875,
+      1.89453125
+    ],
+    "pressure": {
+      "cpu": "some avg10=0.00 avg60=0.00 avg300=0.00 total=73222555\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+      "memory": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5512034\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5422244",
+      "io": "some avg10=0.00 avg60=0.19 avg300=0.24 total=132610569\nfull avg10=0.00 avg60=0.17 avg300=0.23 total=131119982"
+    },
+    "root_storage_device": {
+      "major": 259,
+      "minor": 7
+    },
+    "cpu_model_lines": [
+      "cpu family\t: 26",
+      "model\t\t: 68",
+      "model name\t: AMD Ryzen 9 9950X3D 16-Core Processor"
+    ],
+    "interpretation": "Workstation screen only; actual 4vCPU/8GiB target acceptance remains OPEN"
+  },
+  "boundary": "Finite sampled containment/ownership evidence; not universal escape prevention or target acceptance."
+}

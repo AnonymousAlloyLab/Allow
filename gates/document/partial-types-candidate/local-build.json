@@ -1,0 +1,8 @@
+{
+  "status": "LOCAL_COMPILE_ONLY_NOT_CLEAN_BUILD_GATE",
+  "command": "cd /home/augustus/Allow/formal && lake env lean ../gates/document/partial-types-candidate/PartialTypes.lean",
+  "exit_code": 0,
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "stderr_stdout": "local-lean-build.log",
+  "claims": "Model theorem compile only; no council, two-clean-build, closure or runtime claim."
+}

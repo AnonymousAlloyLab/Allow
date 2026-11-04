@@ -1,0 +1,46 @@
+{
+  "status": "NOT_APPROVED_FOR_IMPLEMENTATION",
+  "candidate_root_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "recorded_utc": "2026-11-03T21:43:08.266192+00:00",
+  "reviews": [
+    {
+      "path": "reviews/validator-session-astra-1.json",
+      "sha256": "51f6107bb7b9d5fafbdf501d2cefb21ff473bb8ef68f24e58b2b6cd3fa00e5b8",
+      "reviewer": "astra-1",
+      "decision": "REQUEST_CHANGES"
+    },
+    {
+      "path": "reviews/validator-session-astra-2.json",
+      "sha256": "69fd11df8fa5d3f8bef7dc2aa8deb527f09a63f9671af4e627e822f349f5c084",
+      "reviewer": "astra-2",
+      "decision": "REQUEST_CHANGES"
+    },
+    {
+      "path": "reviews/validator-session-sol-1.json",
+      "sha256": "12ad2e806822d105b35e0bf8ecb09224e2447c17924daa266eb6e3dcda83aa70",
+      "reviewer": "sol-1",
+      "decision": "REQUEST_CHANGES"
+    },
+    {
+      "path": "reviews/validator-session-sol-2.json",
+      "sha256": "385c161bb98898d6c92db6d5468ada94577b84cc0a65fe8ea4868d1f2aa58416",
+      "reviewer": "sol-2",
+      "decision": "REQUEST_CHANGES"
+    },
+    {
+      "path": "reviews/validator-session-terra-1.json",
+      "sha256": "c40ce9f9e3980031138ac20907587f8b95ad9b8de71aa93bbf84569f00ccf3e0",
+      "reviewer": "terra-1",
+      "decision": "REQUEST_CHANGES"
+    },
+    {
+      "path": "reviews/validator-session-terra-2.json",
+      "sha256": "acd9846113cdbe239c5e8a286c33368a1d3960188791680087f0a889a5ea1d9f",
+      "reviewer": "terra-2",
+      "decision": "REQUEST_CHANGES"
+    }
+  ],
+  "active_implementation": "UNCHANGED_FRESH_ISOLATED_WORKERS",
+  "resolution": "Retain frozen rejected proposal as design evidence. Select separately specified combined validation-context bridge; no classloader reuse, persistent validator process, cache or isolation weakening.",
+  "commercial_release": "NO_GO"
+}

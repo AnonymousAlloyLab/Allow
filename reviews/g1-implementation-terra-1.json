@@ -1,0 +1,68 @@
+{
+  "reviewer": "terra-1",
+  "requested_model": "gpt-6.1-terra",
+  "actual_model": "Not independently observable; parent reports explicit dispatch.",
+  "verdict": "FIX_APPLIED_TESTS_PENDING",
+  "files_sha256": {
+    "backend/src/main/java/dev/allow/backend/AuthorityFilter.java": "f68575141b6d955aee42fd713a5bc4c290a0e1cddb93581d0cd4d1fd3be7a82c",
+    "backend/src/main/java/dev/allow/backend/JobService.java": "f3c071fde07eba8a8554acc69f8e1771969faa6f253f712604b5d0989ce4c67a",
+    "backend/src/main/java/dev/allow/backend/JobRecord.java": "6b8d64309fc3f3c872b9ca7aec5592eed0401d111cd9008549b1f91136cef473",
+    "backend/src/main/java/dev/allow/backend/JobControl.java": "5c4bd4d47261bd88f6ae7d58d699aef7102d8206a7864ff601f7ff8c5f188a82",
+    "backend/src/main/java/dev/allow/backend/ProcessRunner.java": "3580fff28237aa8baa9f2a1666a718e7a9da4c30034b6c37adb15eb3d250b079",
+    "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java": "a7a10560941b4619068b15f0455237c509f734fad6f21f35ff0e22525eabffe0",
+    "backend/src/main/java/dev/allow/backend/BuildIdentity.java": "d0153ce4e0e262e684994b8f82d1ad7b13f27f2bb429a85028511d04ae8e9042",
+    "backend/src/main/java/dev/allow/worker/JsonWire.java": "900dc97372aa84f93dd04a9e376fbcf41893fdfb297d341d9bf7ef6c7f69050c"
+  },
+  "findings": [
+    {
+      "id": "G1-IMPL-T1-01",
+      "severity": "HIGH",
+      "status": "FIX_APPLIED_TESTS_PENDING",
+      "evidence": "Built pre-fix JsonWire decoded null commandIndex/revision/epoch as zero; 1.9 and 1.5 were truncated and string \"7\" coerced into integer. Reproduced via jshell against target/classes. This violates exact schema and can bind a request to a revision/epoch the caller did not provide.",
+      "remediation": "Configured FAIL_ON_NULL_FOR_PRIMITIVES, disabled ALLOW_COERCION_OF_SCALARS and ACCEPT_FLOAT_AS_INT. Added real HTTP and worker codec negative tests for null, string, fraction, boolean and missing primitive identity fields. Full rebuild and tests are pending parent to avoid simultaneous builds."
+    },
+    {
+      "id": "G1-IMPL-T1-02",
+      "severity": "LOW",
+      "status": "BOUNDARY",
+      "evidence": "BuildIdentity hashes compiled classes, dependency jars and solver artifact but represents JDK by java.runtime.version string, rather than hashing executable and runtime libraries. It therefore distinguishes named runtime versions but does not establish byte-identical Java runtimes.",
+      "remediation": "Avoid claiming exact JDK byte identity; if bit-for-bit runtime provenance is needed, pin and hash the JDK distribution and mounted libraries."
+    }
+  ],
+  "review_observations": [
+    "Host and Origin check on every request; /api/ additionally requires per-launch bearer; source JSON read bounded.",
+    "One executor thread retains worker admission through process reaping; terminal JobRecord state is synchronized and absorbing; cancellation race is handled when attaching the child.",
+    "Sandbox uses a bubblewrap namespace and cleared environment with read-only mounts; no fallback is apparent. Supervisor caps stdout/stderr and checks protocol framing and echoed identity."
+  ],
+  "limitations": "Inspection and narrow jshell pre-fix reproduction only. Did not run rebuild or HTTP/protocol tests after fix because parent full build was running. No claim of OS isolation assurance or absence of other defects.",
+  "final_review": {
+    "verdict": "ACCEPT_WITH_STATED_BOUNDARIES",
+    "file_sha256": {
+      "backend/src/main/java/dev/allow/backend/AuthorityFilter.java": "2f171027ca2371aefb62e76b47c9e1ceaaedd5f87cc493c4d7396c374f9869ed",
+      "backend/src/main/java/dev/allow/backend/JobService.java": "5602d7cdd093117831a8d589420168a9a2e74ff40d474d1539d512e3d241ba30",
+      "backend/src/main/java/dev/allow/backend/JobRecord.java": "bda801932f2df2edd5a72b0fb8a594697d501644c4de740746a417fdfeb74d4d",
+      "backend/src/main/java/dev/allow/backend/JobControl.java": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+      "backend/src/main/java/dev/allow/backend/ProcessRunner.java": "0b09a9f608fcc4fa80402c33b8c2305fe2afa3771ba9d865488fea0402f31646",
+      "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java": "fec9b35af0d3413796bf2df135900b8c958aacd9d02bb9018b3d83118927acef",
+      "backend/src/main/java/dev/allow/backend/BuildIdentity.java": "a6574bd22cd461bab57047d27149df35504ad7e52aa75871abdd80df4f5484e7",
+      "backend/src/main/java/dev/allow/worker/JsonWire.java": "dd4013db81f8d4d8cd5a133d17374984cd5af78da2c919dc7ee4a0b2217476ec",
+      "backend/src/test/java/dev/allow/backend/HttpBoundaryTest.java": "090d41a499cd8b6383ee5cde792c5c3c058829e60de0b199cfeb748bee457a7c",
+      "backend/src/test/java/dev/allow/worker/JsonWireStrictTest.java": "38ea38b316c3f174cbac053a9a76b67e84a7d2ecfd59918d3214a51e4569b030",
+      "docs/implementation-g1.md": "1ae00e20f86d5f4de6f1217e52e6e75a4c6d9adf32e7d0929c115e10bb32e310"
+    },
+    "finding_dispositions": [
+      {
+        "id": "G1-IMPL-T1-01",
+        "status": "RESOLVED",
+        "evidence": "Strict mapper changes and negative HTTP/protocol tests are present. Parent final build log reports HttpBoundaryTest 5/5 and JsonWireStrictTest 1/1, within 37 backend tests, all passing."
+      },
+      {
+        "id": "G1-IMPL-T1-02",
+        "status": "DOCUMENTED_BOUNDARY",
+        "evidence": "docs/implementation-g1.md states the JDK version-string limitation; exact JDK binary hash is not claimed."
+      }
+    ],
+    "verification": "Inspected final build log /tmp/allow-g1-final-build.log, which reports 37 backend tests, zero failures/errors/skips and BUILD SUCCESS. The parent also reports 16 frontend tests and Checkstyle passed. No independent rebuild was performed.",
+    "limitations": "Focused adversarial inspection, not a full security audit or proof of operating system sandbox correctness."
+  }
+}

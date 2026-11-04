@@ -1,0 +1,51 @@
+{
+  "reviewer": "astra-2",
+  "seat": "sql-r5-astra-2",
+  "review_type": "INCREMENTAL_ADVERSARIAL_DESIGN_REVIEW",
+  "decision": "BLOCKED",
+  "spec_revision": 5,
+  "spec_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "timestamp_utc": "2026-11-03T17:11:59.192763+00:00",
+  "incremental_scope": "Native SQL prepared provenance and the new lexical effect-cycle barrier; no production edits.",
+  "blocking_findings": [
+    {
+      "id": "ASTRA2-R5-01",
+      "severity": "high",
+      "title": "Bind can invoke planning-time routines before the Q/E-only effect barrier starts",
+      "evidence": [
+        "protocol.lexical_barrier marks effects only for forwarded Q or Execute E and expressly keeps Bind available.",
+        "Pinned PostgreSQL postgres.c exec_bind_message invokes GetCachedPlan at line 2027. Pinned optimizer/util/clauses.c evaluate_function executes constant immutable function expressions during planning.",
+        "The specification trusts ordinary functions and expressly does not claim arbitrary function effect analysis; it nevertheless says the barrier protects lexical changes through a trusted routine."
+      ],
+      "counterexample": "Given an existing ordinary immutable routine whose execution changes standard_conforming_strings, forward an accepted Parse calling that routine, Bind it (planning can invoke the routine), then pipeline another Parse before any Execute. No Q/E is pending, so the specified barrier permits the later SQL while backend lexical mode may have changed. Async ParameterStatus monitoring cannot prevent already-forwarded bytes. Creating such a routine through the proxy is not required or authorized by this counterexample.",
+      "required_change": "Include all potentially effectful pre-Execute processing in barrier accounting, minimally Bind, and audit Parse analysis/type-input and Describe revalidation paths. A conservative design can mark P/B and relevant Describe as pending before forwarding, continue B/E/Sync progress, and deny subsequent new Q/P until matching validated Ready. Alternatively explicitly restrict and establish effect-freedom for every admitted pre-Execute hook; do not silently assume IMMUTABLE is an enforced side-effect guarantee.",
+      "scope_limit": "This is a design counterexample under the stated ordinary-function trust boundary, not a demonstrated exploit against the current owned database. No database mutation or execution probe was performed."
+    }
+  ],
+  "positive_assessments": [
+    "Exact whole-source native PREPARE/EXECUTE admission, shared accepted-provenance table and cache-state separation retain the revision4 design properties.",
+    "Cycle IDs and validated completion prevent older Ready from clearing newer effects in the abstract model.",
+    "Protocol-name rejection above 63 bytes is an accepted implementation requirement from the parent review context, avoiding mixed native/protocol namespace ambiguity."
+  ],
+  "formal_assessment": {
+    "obligations": 28,
+    "new_cycle_obligations": 6,
+    "conclusion": "Read the entire Lean source. The six new lemmas correctly express list-based pending retention and validated removal, but cycle assignment and which messages can cause effects are trusted adapter inputs; the model cannot discharge the blocker.",
+    "independent_lean_run": false,
+    "limits": "Native body spans, normalization, backend success and Python/wire refinement remain unproved. Two clean final-hash builds and runtime gates remain required."
+  },
+  "runtime_acceptance_required": [
+    "Bind followed by a new Parse before Execute must not forward the new SQL while a planning-time lexical mutation may be pending.",
+    "Preserve all previous native name/classifier, cross-protocol, immutable portal, cache noncreation, state capacity and unchanged full ACL dump/restore tests.",
+    "Test stale Ready, delayed fragmented ParameterStatus and successful later SQL only after matching validated completion."
+  ],
+  "production_edits": false,
+  "sources": [
+    ".tools/retrieval/src/postgresql-16.15/src/backend/tcop/postgres.c:2027",
+    ".tools/retrieval/src/postgresql-16.15/src/backend/optimizer/util/clauses.c:4417",
+    "reviews/sql-r4-astra-1.json",
+    "reviews/sql-r4-astra-2.json",
+    "reviews/sql-runtime-astra-2.json"
+  ]
+}

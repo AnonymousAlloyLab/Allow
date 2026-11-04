@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-spec-2026-11-03-r4-c2",
+  "timestamp": "2026-11-03T12:54:25.142105+00:00",
+  "input_root_hash": "91aae6b0b498cd327a0145a9701029a4c3c3c79825a109ee03524c8ed2a9a57d",
+  "execution_environment": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "jsonschema": "4.17.3",
+    "toolchain": "leanprover/lean4:v4.34.1"
+  },
+  "status": "VERIFIED",
+  "claims": {
+    "total": 25,
+    "passed": 25,
+    "blocked": 0,
+    "unresolved": 0
+  },
+  "correspondence": {
+    "required_objects": 19,
+    "mapped_objects": 19,
+    "unmapped_objects": 0,
+    "ambiguous_objects": 0,
+    "implementation_objects": 0,
+    "interpretation": "JSON constants and theorem inventory; no Java/React implementation exists."
+  },
+  "witnesses": {
+    "required": 6,
+    "valid": 6,
+    "invalid": 0
+  },
+  "builds": {
+    "required": 2,
+    "passed": 2,
+    "records": [
+      {
+        "label": "A",
+        "input_root_hash": "91aae6b0b498cd327a0145a9701029a4c3c3c79825a109ee03524c8ed2a9a57d",
+        "exit_code": 0,
+        "artifacts": {
+          ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+          ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+          ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+          ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+          ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+          ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+          ".lake/build/lib/lean/Allow.olean": "09669f9d57756e9dd10d49c4a127e560a18a786580326fea6d17017e2d4a3f90"
+        },
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "audit_sha256": "33022c8e2a7bd792a4bb20a03c7b1fbd439edefac230a843662e428409c5755a",
+        "projection_sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+        "correspondence_sha256": "ba5f41eb8ec6f3bc314fa9c0907c2d8b00c6fdc2a8f10533222c024f1cbc3360",
+        "metadata_sha256": "b4ea0ec5aaeaf6900b9ffba461beae2decccd4ffc855a1ab15a5cdb61ea2af99"
+      },
+      {
+        "label": "B",
+        "input_root_hash": "91aae6b0b498cd327a0145a9701029a4c3c3c79825a109ee03524c8ed2a9a57d",
+        "exit_code": 0,
+        "artifacts": {
+          ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+          ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+          ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+          ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+          ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+          ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+          ".lake/build/lib/lean/Allow.olean": "09669f9d57756e9dd10d49c4a127e560a18a786580326fea6d17017e2d4a3f90"
+        },
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "audit_sha256": "33022c8e2a7bd792a4bb20a03c7b1fbd439edefac230a843662e428409c5755a",
+        "projection_sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+        "correspondence_sha256": "ba5f41eb8ec6f3bc314fa9c0907c2d8b00c6fdc2a8f10533222c024f1cbc3360",
+        "metadata_sha256": "b4ea0ec5aaeaf6900b9ffba461beae2decccd4ffc855a1ab15a5cdb61ea2af99"
+      }
+    ]
+  },
+  "determinism": {
+    "required": true,
+    "status": "PASS"
+  },
+  "provenance": {
+    "public_claims": 25,
+    "fully_bound": 25,
+    "orphan_claims": 0
+  },
+  "dependencies": {
+    "verified": [
+      "formal model obligations"
+    ],
+    "trusted": [
+      "T-LEAN",
+      "T-LOGIC",
+      "T-LAKE",
+      "T-PYTHON",
+      "T-SCHEMA",
+      "T-VERIFIER",
+      "T-HASH",
+      "T-OS",
+      "T-HARDWARE",
+      "T-INTERPRETATION"
+    ],
+    "undeclared": []
+  },
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "closure_boundary": {
+    "verified_surface": [
+      "19 frozen Lean model propositions and six concrete witnesses",
+      "exact JSON formal_kernel projection",
+      "schema/proof-inventory binding, two clean deterministic builds",
+      "six final council records and specified model dispatches, not subjective approval as proof"
+    ],
+    "trusted_surface": [
+      "T-LEAN",
+      "T-LOGIC",
+      "T-LAKE",
+      "T-PYTHON",
+      "T-SCHEMA",
+      "T-VERIFIER",
+      "T-HASH",
+      "T-OS",
+      "T-HARDWARE",
+      "T-INTERPRETATION"
+    ],
+    "excluded_surface": [
+      "any product implementation or runtime refinement",
+      "full Alloy relational/temporal semantics, parser, printer, SAT4J/Kodkod correctness",
+      "serialization/atom semantic identity, auth and witness validator implementation",
+      "UI, SQL/RLS, performance, process security and deployment",
+      "licensing clearance, market demand and commercial release",
+      "future revisions and unlisted claims"
+    ],
+    "interpretation": "VERIFIED means closure only of the frozen finite specification/model surface under declared trust; not assumption-free correctness or production readiness."
+  },
+  "decision": {
+    "valid_states": [
+      "VERIFIED",
+      "BLOCKED",
+      "INFRASTRUCTURE_FAILURE"
+    ],
+    "manual_override_allowed": false
+  },
+  "evidence_directory": "closure/runs/r4-c2"
+}

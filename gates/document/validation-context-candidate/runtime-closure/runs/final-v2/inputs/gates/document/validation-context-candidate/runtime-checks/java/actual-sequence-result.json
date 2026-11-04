@@ -1,0 +1,47 @@
+{
+  "pre_execution_sha256": "25c680049314975bfe4f4aaeb6edd0264a07fcfea341f739adf37d137f974a2b",
+  "commands": [
+    {
+      "command": [
+        "/usr/bin/java",
+        "-jar",
+        "/home/augustus/Allow/.tools/checkstyle-10.21.2-all.jar",
+        "-c",
+        "/home/augustus/Allow/config/checkstyle.xml",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ActualContextSequenceProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "Starting audit...\nAudit done.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/javac",
+        "-cp",
+        "/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "-d",
+        "/tmp/allow-vc-actual-km4ny25n/output",
+        "/home/augustus/Allow/gates/document/validation-context-candidate/runtime-checks/java/dev/allow/backend/ActualContextSequenceProbe.java"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/java",
+        "-cp",
+        "/tmp/allow-vc-actual-km4ny25n/output:/home/augustus/Allow/backend/target/classes:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.4/jackson-core-2.21.4.jar:/home/augustus/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.4/jackson-databind-2.21.4.jar",
+        "dev.allow.backend.ActualContextSequenceProbe",
+        "/home/augustus/Allow",
+        "/tmp/allow-vc-actual-km4ny25n/target"
+      ],
+      "exit_code": 0,
+      "stdout": "launcher_command=[/usr/bin/prlimit, --as=2147483648, --cpu=12, --fsize=8388608, /usr/bin/bwrap, --unshare-all, --new-session, --die-with-parent, --cap-drop, ALL, --ro-bind, /usr/lib/jvm/java-17-openjdk-amd64, /usr/lib/jvm/java-17-openjdk-amd64, --ro-bind, /lib, /lib, --ro-bind, /lib64, /lib64, --ro-bind, /etc/java-17-openjdk, /etc/java-17-openjdk, --ro-bind, /tmp/allow-vc-actual-km4ny25n/target/classes, /app/classes, --ro-bind, /tmp/allow-vc-actual-km4ny25n/target/dependency, /app/dependency, --ro-bind, /tmp/allow-vc-actual-km4ny25n/target/solver/alloy.jar, /app/solver.jar, --tmpfs, /tmp, --proc, /proc, --dev, /dev, --chdir, /tmp, /usr/lib/jvm/java-17-openjdk-amd64/bin/java, -Xmx512m, -Xss512k, -XX:+UseSerialGC, -XX:ActiveProcessorCount=2, -XX:MaxMetaspaceSize=128m, -XX:CompressedClassSpaceSize=64m, -XX:ReservedCodeCacheSize=48m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djava.io.tmpdir=/tmp, -cp, /app/classes:/app/solver.jar:/app/dependency/*, dev.allow.worker.DocumentWorkerMain]\nbridge_pid=956641 bridge_ticks=3792932 worker_pid=956662 worker_ticks=3792950\nlauncher_command=[/usr/bin/prlimit, --as=2147483648, --cpu=12, --fsize=8388608, /usr/bin/bwrap, --unshare-all, --new-session, --die-with-parent, --cap-drop, ALL, --ro-bind, /usr/lib/jvm/java-17-openjdk-amd64, /usr/lib/jvm/java-17-openjdk-amd64, --ro-bind, /lib, /lib, --ro-bind, /lib64, /lib64, --ro-bind, /etc/java-17-openjdk, /etc/java-17-openjdk, --ro-bind, /tmp/allow-vc-actual-km4ny25n/target/classes, /app/classes, --ro-bind, /tmp/allow-vc-actual-km4ny25n/target/dependency, /app/dependency, --ro-bind, /tmp/allow-vc-actual-km4ny25n/target/solver/alloy.jar, /app/solver.jar, --tmpfs, /tmp, --proc, /proc, --dev, /dev, --chdir, /tmp, /usr/lib/jvm/java-17-openjdk-amd64/bin/java, -Xmx512m, -Xss512k, -XX:+UseSerialGC, -XX:ActiveProcessorCount=2, -XX:MaxMetaspaceSize=128m, -XX:CompressedClassSpaceSize=64m, -XX:ReservedCodeCacheSize=48m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djava.io.tmpdir=/tmp, -cp, /app/classes:/app/solver.jar:/app/dependency/*, dev.allow.worker.DocumentWorkerMain]\nbridge_pid=956682 bridge_ticks=3792967 worker_pid=956688 worker_ticks=3792982\nPASS real context transactions, distinct workers and exact command\n",
+      "stderr": ""
+    }
+  ],
+  "inputs_unchanged": true,
+  "temporary_output_removed": true,
+  "status": "PASS"
+}

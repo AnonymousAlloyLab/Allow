@@ -1,0 +1,158 @@
+{
+  "id": "ALLOW-IMPLEMENTATION-G1-0.1",
+  "revision": 4,
+  "date": "2026-11-03",
+  "supersedes": {
+    "base_contract": "spec/allow-contract.json",
+    "base_revision": 4,
+    "overrides": [
+      "product.implementation_authorized_in_this_phase",
+      "canonicalization representation policy",
+      "initial dependency version candidates"
+    ],
+    "archive": "closure/archives/r4-c2"
+  },
+  "authorization": {
+    "implementation": true,
+    "scope": "G1 local Java/Spring solver foundation and a bounded first G2 typed React workbench; later full G2/G3 acceptance is not implied.",
+    "publish": false,
+    "commercial_release": false,
+    "remote_embeddings": false,
+    "dataset_training": false
+  },
+  "sequence": [
+    "Supplement JSON and Lean model",
+    "compile and audit new Lean obligations in two clean builds",
+    "six-member adversarial gameplan review",
+    "implement only covered foundation behavior",
+    "run production integration and coding-standard checks",
+    "report model proof and tested implementation separately"
+  ],
+  "coding_contract": {
+    "languages": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "TSX"
+    ],
+    "method_limit_physical_lines": 30,
+    "counting": "Declaration/signature through closing body inclusive, excluding preceding Javadoc/JSDoc. Applies to constructors, methods, functions and callbacks in source and tests. Generated/vendor code excluded and never manually edited.",
+    "documentation": "Meaningful Javadoc/JSDoc on every authored function/method/constructor, including parameters, results and relevant failure/side effects. Named documented callbacks; no dense-line evasion.",
+    "encapsulation": "Private state and minimal public interfaces; private final Java fields by default, immutable records/value DTOs allowed with defensive collection copies. No exposed mutable internals.",
+    "check": "AST-based method/constructor/function inventory plus method-length/documentation/private-field checks, build failure on violation. Tests also obey these rules."
+  },
+  "anonymization": {
+    "profile": "allow-slot-ast-v1",
+    "meaning": "Identifier pseudonymization and presentation noninterference, not protection against structural re-identification.",
+    "source_boundary": "Parse and resolve Alloy AST identity first. Assign signature/field/predicate/lexical-binder slots from deterministic declaration/lexical position, never alphabetical name order or name hashes. Reference identity uses the AST object/scope, not its printed spelling.",
+    "canonical_payload": "Closed structural representation: explicit node/operator tags, slot namespace and nonnegative index, ordered children, nominal type/declaration schema, facts and supported predicate bodies. No display/source/comment/path/error string fields. Integer/Boolean constants are structural values; arbitrary string constants are unsupported. Operator tags come from a closed explicit enum; scalar values may arise only from parsed semantic constants. No slot/index/tag/number/traversal order may be derived from display-name characters, spelling hashes, source hashes or provenance. This restriction is an adapter test/review gate; the Lean theorem assumes a fixed resolved payload.",
+    "alpha_policy": "Renaming display labels without changing resolved slot structure leaves canonical payload and embedding input identical. Reordering declarations is not claimed canonical under this profile. Capture-avoiding source alpha-renaming is tested against the parser; its universal correspondence is not proved.",
+    "scope_policy": "Local binder slots are lexical and distinct from declaration slots. Bound and free references, relation operand order, arity, multiplicity and fact context are preserved. An unresolved reference or unsupported AST node produces UNSUPPORTED_CANONICAL, never raw-text fallback. Bound slot index is a globally unique monotonically increasing ordinal allocated in deterministic AST declaration preorder, distinct by namespace from globals. Serialize each binder domain in the preceding scope, allocate that declaration and extend scope for subsequent dependent declarations/body; restore scope on exit. References look up parser object identity. Never allocate by encounter of a reference or by spelling. Reject unrecognized binder constructs and unresolved/free local variables. G1 canonicalization may conservatively reject dependent domains until implemented/tested.",
+    "equality_policy": "Within a context, distinct slots stay distinct. Cross-module structural equality supports retrieval only unless the complete anonymous schema/facts and a validated slot correspondence establish the intended equivalence. Exact source/project/revision identities remain separate provenance fields and never enter embedding input.",
+    "boolean_profile": "Optional complete truth-table normalization remains limited to at most 8 exact anonymous Boolean atom structures with their ordered inventory. Slot AST serialization alone is a structural profile, not complete semantic normalization or e-graph saturation.",
+    "embedding_boundary": "Only an AnonymizedArtifact value may produce EmbeddingInput. The type cannot hold a display-name map, source text, filenames, imported paths or a source hash. The initial local deterministic feature encoder receives this canonical payload only. A remote model, vector database and pooled-witness embeddings remain later gates.",
+    "visual_boundary": "The authenticated local UI retains readable signature/field/binder names and original Alloy source in separate presentation metadata. An anonymous slot view is explanatory and never replaces the user's visible names.",
+    "serialization": "Use canonical JSON arrays of typed tagged values with explicit ordered children, deterministic integer syntax and JSON escaping. Distinguish node tags/namespaces/indices/arity, null/empty and order; UTF-8 output, no whitespace significance. Schema/profile version and complete anonymous declarations/facts/body are encoded. Equality compares bytes and validated context/slot correspondence; digest alone is never semantic evidence.",
+    "grammar": "Normative structural production grammar, supported flags, operator allowlists, local feature algorithm and negative pairs are in spec/slot-profile.json. Any unrepresented semantic attribute rejects canonicalization; solver results may remain available in text-only mode."
+  },
+  "foundation": {
+    "java": "Existing OpenJDK 17, pinned official Alloy 6.2.0 artifact with recorded exact bytes, explicit SATFactory.get(\"sat4j\") and observed SAT4J 2.3.1; no reference snapshot JARs.",
+    "spring": "Supported Java17-compatible Spring Boot pinned at build time; MVC serves REST and built React assets on 127.0.0.1 only.",
+    "worker": "One bounded request per isolated JVM. Linux bubblewrap unshares network/PID/filesystem namespaces, exposes only read-only JDK/runtime/worker dependencies and private tmpfs. Fail closed if sandbox unavailable; no unsandboxed production fallback. Clear inherited launcher and native-library injection environment variables.",
+    "parser_policy": "Initial slice accepts a single import-free module only. Lexically reject imports outside comments/strings before invoking parser, then verify parsed module policy. No ambient corpus/module resolution. Later imports require the base aggregate closure policy.",
+    "protocol": "Versioned bounded JSON frame and exact request identity; job/analysis/source hash, revision and draft epoch are echoed and validated. Status distinguishes SAT, UNSAT, INVALID, UNSUPPORTED, ERROR, TIMEOUT and CANCELLED. Imported success flags are ignored. Include UNKNOWN. Stdout is exactly one newline-terminated compact JSON object and no other bytes; require exact schema/unique keys, matching identity and clean exit. Diagnostics go only to separately drained stderr. Cap stdout at output_bytes and stderr at 65536 bytes independently, stop/reap on overflow; parsing accepts no trailing/duplicate frames. Exceptions/indeterminate outcomes are never UNSAT.",
+    "limits": {
+      "source_utf8_bytes": 32768,
+      "worker_heap_mib": 512,
+      "job_deadline_seconds": 10,
+      "active_workers": 1,
+      "queued_jobs": 4,
+      "max_retained_jobs": 128,
+      "output_bytes": 2097152,
+      "ast_depth": 128,
+      "ast_nodes": 10000
+    },
+    "terminal_policy": "A job has one terminal result. Cancellation/timeout cannot become UNSAT; once terminal, a late worker response is discarded. Acquire/release worker admission atomically and kill/reap the isolated process group. A logical terminal state does not release a worker permit: hold admission until its sandbox process group exits and has been reaped, including cancellation/timeout. Use sandbox die-with-parent and test cancellation while next job waits to prevent overlapping processes.",
+    "authority": "Random per-launch bearer authority kept out of ordinary logs; required for every private API, job read/cancel and export. Exact Host and Origin checks; reject hostile/missing required authority. Static shell carries no private model data. Token bootstrap uses local launch URL fragment and memory only; no URL query/referrer/localStorage persistence. Consume the fragment immediately into memory and erase it with history.replaceState; never echo it in diagnostics/telemetry. A restart invalidates prior launch authority.",
+    "first_g2": "Accessible React text editor and typed Boolean/relation block composer for a declared subset. Source displays original user names, server validates every candidate. Holes and formula/relation type mismatches prevent submission. Typed moves reject without changing accepted expression; raw unsupported text remains text-only. Diagnostics clear immediately on edits, and stale responses are ignored. In this slice, composer edits create one candidate AST/source transaction using readable declaration labels. Accepted source/revision changes only after server validation. Free text edits immediately switch to text-only draft mode and clear the current block projection/status until a fresh validated composer candidate is selected; no unproved reverse projection. Every response checks request revision/epoch/exact source hash. Keyboard construct/submit/invalid-edit/late-result regression is mandatory.",
+    "non_goals": [
+      "full Alloy block palette/reverse round-trip",
+      "complete relational or temporal canonicalization",
+      "e-graph saturation engine",
+      "PostgreSQL/pgvector persistence",
+      "dataset-wide embeddings",
+      "LLM generation",
+      "commercial packaging or redistribution clearance"
+    ]
+  },
+  "datasets": {
+    "roots": [
+      "/home/augustus/\u4e0b\u8f7d/allloy6/2025-07-10-15-42-08",
+      "/home/augustus/\u4e0b\u8f7d/alloy5/2025-07-08-11-09-55",
+      "/home/augustus/ACGN/classified-data"
+    ],
+    "allowed_now": "Read-only local metadata inventory and explicitly selected bounded development evaluation; synthetic independent fixtures are used in portable tests.",
+    "admission": "Inventory does not grant rights. No corpus source copied into repository, uploaded, trained on, embedded or bundled. An eventual importer checks containment and rejects symlinks at open time, hashes selected content, and records origin/rights per purpose.",
+    "privacy": "Inventory reports aggregate file counts, bytes and notice hashes; it avoids per-model content and identifying filenames. No inferred blanket permission from a dataset root or source-repository license."
+  },
+  "formal_obligations": [
+    {
+      "id": "S01",
+      "symbol": "Allow.Slots.names_do_not_affect_payload",
+      "statement": "Changing presentation names on a fixed resolved model cannot change its anonymous payload."
+    },
+    {
+      "id": "S02",
+      "symbol": "Allow.Slots.names_do_not_affect_embedding",
+      "statement": "Embedding input is invariant under changes to presentation names and provenance strings for fixed anonymous structure."
+    },
+    {
+      "id": "S03",
+      "symbol": "Allow.Slots.distinct_slots_remain_distinct",
+      "statement": "Distinct resolved slot namespace/index references remain distinct anonymous tree nodes."
+    },
+    {
+      "id": "S04",
+      "symbol": "Allow.Slots.embedding_has_no_presentation",
+      "statement": "Embedding input is exactly the versioned structural payload projection, with no presentation metadata component."
+    },
+    {
+      "id": "S05",
+      "symbol": "Allow.Foundation.admission_bounded",
+      "statement": "An accepted worker admission cannot exceed its configured concurrency cap."
+    },
+    {
+      "id": "S06",
+      "symbol": "Allow.Foundation.terminal_is_final",
+      "statement": "A terminal job ignores all later completion events."
+    },
+    {
+      "id": "S07",
+      "symbol": "Allow.Foundation.cancel_is_not_unsat",
+      "statement": "Cancelling a running job yields CANCELLED and all later completion events preserve CANCELLED."
+    },
+    {
+      "id": "S08",
+      "symbol": "Allow.Foundation.accepted_style_bounded",
+      "statement": "Accepted method metadata requires documentation, encapsulation and at most 30 physical lines."
+    }
+  ],
+  "proof_boundary": "These supplement proofs concern typed projections and abstract policies. Parser-to-slot correspondence, JSON serialization, Java/React refinement, OS sandbox effectiveness, AST style checker completeness, license clearance and dataset rights require separate tests/review. No universal implementation proof is claimed.",
+  "acceptance": [
+    "Two clean Lean builds before first production source",
+    "Six requested reviewer seats review the supplement",
+    "Pinned dependency hashes/SBOM and unresolved redistribution license records",
+    "Real SAT run, UNSAT run, SAT assertion check, UNSAT assertion check, invalid source/type, timeout, cancel and worker crash tests",
+    "Import/path/authority/Host/Origin/size/queue rejection tests",
+    "Alpha-renaming preserves anonymous payload and local embedding vector; visible names remain separate; different slots/order do not collapse",
+    "No canonical/source fallback for unsupported nodes",
+    "All authored Java/JS/TS and tests pass documentation, method length and encapsulation checks",
+    "Local React/Spring integration tests and browser keyboard/drop/stale-result smoke",
+    "Dataset inventory excludes source content; no bulk ingestion or remote calls",
+    "Nested binders/shadowing/dependent-domain rejection/unbound references and declaration renaming tests",
+    "Injective canonical encoding fixtures for distinct tags, slot namespaces, order and arity; exact embedding bytes checked",
+    "Any selected corpus evaluation reports selection/accepted/rejected/skipped counts and content hashes without bulk source copies",
+    "Sandbox unavailable/denied => zero unsandboxed JVM launch; worker network and private filesystem access denied",
+    "Style checker negative fixtures: constructors/getters/arrow/functions, parse failure, missing docs, mutable fields, 30 versus 31 physical lines; generated/vendor exclusions narrow and explicit"
+  ]
+}

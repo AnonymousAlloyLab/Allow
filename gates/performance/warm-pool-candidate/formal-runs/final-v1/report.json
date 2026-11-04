@@ -1,0 +1,123 @@
+{
+  "closure_id": "ALLOW-WARM-POOL-MODEL-final-v1",
+  "timestamp": "2026-11-04T08:53:56.178427+00:00",
+  "status": "VERIFIED",
+  "classification": "INACTIVE_ABSTRACT_WARM_POOL_MODEL_ONLY",
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "builds": [
+    {
+      "status": "PASS",
+      "exit_code": 0,
+      "artifacts": {
+        "WarmPool.olean": "e6b4e43ad8a42fb565a2ca227b67cf7c608b97019e1d2139ba5f1aec51a5d4fb",
+        "Audit.olean": "9f9b13470de2c98edf4a00ac6a90810e6bd1cf97f8ffa68fa19ed2492ad80671"
+      },
+      "audit_sha256": "82c53c2add566a6f1d453d0ebfadef0ddf4c64e7ac46167e335c99680b443769",
+      "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)"
+    },
+    {
+      "status": "PASS",
+      "exit_code": 0,
+      "artifacts": {
+        "WarmPool.olean": "e6b4e43ad8a42fb565a2ca227b67cf7c608b97019e1d2139ba5f1aec51a5d4fb",
+        "Audit.olean": "9f9b13470de2c98edf4a00ac6a90810e6bd1cf97f8ffa68fa19ed2492ad80671"
+      },
+      "audit_sha256": "82c53c2add566a6f1d453d0ebfadef0ddf4c64e7ac46167e335c99680b443769",
+      "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)"
+    }
+  ],
+  "execution_environment": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "verifier_sha256": "1707f3ce0c750efdb4d12c2c57fd5a50c73b968a69f0ee9be8c52b33906c15ab",
+  "input_root_hash": "245fc5201c5657b049d730daba8b237aa6f4538b71813221bc4d9fc50391a209",
+  "reviews": [
+    {
+      "seat": "astra-1",
+      "path": "reviews/warm-pool-astra-1.json",
+      "sha256": "731d888c1a4dea7e48237f8f5a90761ad23b2257ba2d36fd00871f59fec68f78"
+    },
+    {
+      "seat": "astra-2",
+      "path": "reviews/warm-pool-astra-2.json",
+      "sha256": "b6c5e3c39b710d86ed4672919a09f9d6130ab5ffb9d695c82f6caa36f6e6e52c"
+    },
+    {
+      "seat": "sol-1",
+      "path": "reviews/warm-pool-sol-1.json",
+      "sha256": "61621b0d4a1e848a80fb1cd9bb1d2ab2317a9ca66bc4d30f3723c114fd095a13"
+    },
+    {
+      "seat": "sol-2",
+      "path": "reviews/warm-pool-sol-2.json",
+      "sha256": "33eae972fb68b83c2591dbaadeeddbfc2e042c8ab79b266f91672d9e56ed3524"
+    },
+    {
+      "seat": "terra-1",
+      "path": "reviews/warm-pool-terra-1.json",
+      "sha256": "dc418d97f6a54418a09ccc4105a1a669105fb4ebea1ca6bca7f3d7d9bc8ebe1c"
+    },
+    {
+      "seat": "terra-2",
+      "path": "reviews/warm-pool-terra-2.json",
+      "sha256": "0593a487cc0efb842d593a4f7ee90325b27bfcbc06a47d4b10d0ef4f1b5a65fd"
+    }
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+    "propext, Quot.sound and Classical.choice exactly as recorded per theorem",
+    "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+    "Mapping abstract Owner/CleanContext/Cleanup to exact process/cgroup/image/context observations, monotonic clocks, atomic single-writer transitions and successful build fences; these adapters remain unproved"
+  ],
+  "excluded": [
+    "Java/Python/Lean implementation correspondence and actual semaphore or ledger-to-process-tree refinement",
+    "Actual seals, descriptor inheritance, helper/bubblewrap/JVM topology, cgroup empty observation, cleanup, parent-death propagation, filesystem durability or restart reconciliation",
+    "Alloy/JVM semantic equivalence, class initialization, loaded-resource inventory, private data noninterference, runtime resources or timing guarantees",
+    "Fresh solver/durable results and database mutations; FRESH slots model only shared reservation ownership",
+    "Truth of CLEAN receipt authentication, PostgreSQL cleanup and SQL routing; observations remain assumptions",
+    "Actual4vCPU/8GiBtarget performance, production activation, commercialization and re-proving inherited309 or approved supplements",
+    "Continuous host-file immutability or automatic discovery of unobserved changes; publication uses a trusted current-image observation and observed mismatches disable the pool"
+  ],
+  "inherited_baseline": {
+    "status": "UNCHANGED_ANCHORS_CHECKED_NOT_REPROVED",
+    "propositions": 309,
+    "supplements_checked_not_reproved": [
+      {
+        "path": "gates/planning/performance-remediation-20261103/formal-runs/final-v1/report.json",
+        "claims": 32,
+        "input_root_hash": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a"
+      },
+      {
+        "path": "gates/document/context-cleanup-candidate/formal-runs/final-v2/report.json",
+        "claims": 28,
+        "input_root_hash": "15abdfbf713a47b36828b317e30779835f31c55f72308a4cbd0ee43387e1c849"
+      }
+    ],
+    "report_path": "gates/document/validation-context-candidate/formal-runs/final-309-v1/report.json",
+    "report_input_root_hash": "194f3ef739b928bb3dbed5c9628f8745d0fe2dfe35b12feecce6b91884ab874e",
+    "anchor_count": 27
+  },
+  "correspondence": {
+    "status": "OUT_OF_SCOPE",
+    "reason": "No production implementation is proved or activated."
+  },
+  "claims": {
+    "total": 36,
+    "passed": 36,
+    "blocked": 0,
+    "unresolved": 0
+  },
+  "determinism": "PASS",
+  "witnesses": {
+    "required": 3,
+    "valid": 3
+  },
+  "provenance": {
+    "public_claims": 36,
+    "fully_bound": 36,
+    "orphan_claims": 0
+  },
+  "active_formal_count": "UNCHANGED_309_NOT_REPROVED_BY_THIS_RUN"
+}

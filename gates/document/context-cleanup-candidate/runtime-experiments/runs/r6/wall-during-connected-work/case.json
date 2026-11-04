@@ -1,0 +1,99 @@
+{
+  "claim_id": "CC11",
+  "subcase": "wall-during-connected-work",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r6",
+  "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "a378b72748066bc1b391f67d5d927fcb8d1a964f70c4cc0c8cf0a5b682c84bcb",
+  "expected_predicate": "All4actual SELECT pauses are observed in order and each measured pause is below1000ms. RETIRING occurs during the fourth pause, less than1000ms after its actual completed SELECT, no25P03 reaches the CLI, no success output, exact owned backend absent or lease retained, durable hashes unchanged. Scheduled delays are not substituted for actual timestamp predicates.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 3293.397301,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-nyhmu1lw/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-nyhmu1lw/.gate/probe_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r6/wall-during-connected-work",
+      "--paced-selects"
+    ],
+    "fixture_sha256": "00ba759bfcd83ce61eab483f7722200c1d7d0a189218f380faed47d8c00eb463",
+    "stdout_sha256": "6908a2d3529c2a3367606a725278af653d9fb4af6d1431d26e56cf0a74868b35",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62512033074451
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62512037269638
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62512039369991
+      },
+      {
+        "phase": "RETIRING",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62515033588438
+      },
+      {
+        "phase": "CLEAN",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62515035657041
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "sqlstates": [],
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "no_success_output": true,
+  "pause_trace": [
+    {
+      "template": 0,
+      "started_ns": 62512040698530,
+      "finished_ns": 62512840770625
+    },
+    {
+      "template": 1,
+      "started_ns": 62512841876062,
+      "finished_ns": 62513641950058
+    },
+    {
+      "template": 2,
+      "started_ns": 62513643069025,
+      "finished_ns": 62514443138072
+    },
+    {
+      "template": 3,
+      "started_ns": 62514444629662,
+      "finished_ns": 62515244698340
+    }
+  ],
+  "fourth_pause_before_retirement_ms": 588.958776,
+  "mechanism_predicate": true
+}

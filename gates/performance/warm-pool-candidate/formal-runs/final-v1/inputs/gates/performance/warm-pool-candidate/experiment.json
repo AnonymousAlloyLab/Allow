@@ -1,0 +1,227 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-WARM-POOL-EXPERIMENT-R1",
+  "status": "PREREGISTERED_DESIGN_CONCRETE_RUNTIME_MANIFEST_REQUIRED",
+  "variants": {
+    "W0": "Exact fresh DEFAULT current implementation, no Tier-1 flag, no pool, full existing identity fences.",
+    "W1": "Reviewed one-use bootstrap-only pool using DEFAULT JVM flags, unchanged validation and fresh context. Every added fence/cleanup/refill cost included."
+  },
+  "ordering": "No production implementation before reviewed and VERIFIED model package. No comparative workload before frozen actual implementation/runtime manifests and all safety/differential prerequisites. No other agent load during comparative measurement. Preserve every failed attempt and classify infrastructure versus failed target honestly. After safety/differential prerequisites, run the strict paired HTTP gate before lengthy cold/sustained/soak gates, so an inadequate candidate can be rejected early without dropping any promotion requirement.",
+  "isolation": {
+    "root": "Unique new mode0700 copied installation under this candidate runtime-experiments; reject mutable-file symlink/hardlink aliases to live installation. Never use live .runtime/database.json/launch.url/bearer/socket/data files.",
+    "stack": "Freshcopied PostgreSQL/parser/Spring/helpers under one uniquely owned user --scope unit with Delegate=yes, privatecontrol leaf andworkerchildren. PreservecallerAppArmorand allprior limits. New exact ownership preflight must establish subtree creation/join/kill/positiveempty before workload. Driveroutside; allSQL includingadmin/observations throughSQLeanParser.",
+    "effective_limits": {
+      "cpu_max": "400000 100000",
+      "memory_high_bytes": 5368709120,
+      "memory_max_bytes": 6442450944,
+      "memory_swap_max_bytes": 0,
+      "pids_max": 512,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kill_mode": "control-group"
+    },
+    "preflight": "Verify Delegate=yes and actual writable child cgroups, inheritedcontrollerlimits, callerAppArmor,workerjoinbeforeexec and positivegroupempty afterdeath. Nohostpolicychanges or uncontainedfallback. Capabilityprobe evidence is not wholeapplicationacceptance.",
+    "cleanup": "Stop only the uniquely owned unit; require cgroup.events populated=0 and owned process identities absent. Parent exit, timeout and EOF alone are not cleanup evidence. Preserve UNKNOWN/degraded evidence.",
+    "profile_limitation": "Four CPU quota and6GiB ceiling screen a powerful workstation, not slower server CPU/cache/storage/provider contention. Actual4vCPU/8GiB target-host acceptance remains OPEN."
+  },
+  "component_budgets": {
+    "spring": [
+      "-Xms128m",
+      "-Xmx1024m",
+      "-XX:MaxMetaspaceSize=256m",
+      "-XX:ReservedCodeCacheSize=128m",
+      "-XX:ActiveProcessorCount=4",
+      "server.tomcat.threads.max=16",
+      "server.tomcat.threads.min-spare=2",
+      "server.tomcat.max-connections=32",
+      "server.tomcat.accept-count=8"
+    ],
+    "postgres": {
+      "max_connections": 20,
+      "shared_buffers": "128MB",
+      "work_mem": "4MB",
+      "maintenance_work_mem": "64MB",
+      "max_parallel_workers": 0
+    },
+    "worker": "Exact warmcontractbudgets, includinghelper/imagecapture, plusunchangedDEFAULTJVMflags; noTier1.",
+    "bridge": "Keep current address-space2GiB/CPU20s and reviewed P1 context cleanup policy. Same code and settings in F0/F1; no reduced-history fixture shortcut."
+  },
+  "freeze_before_execution": [
+    "All source/build/tool/JDK identities, java/libjvm/modules/defaultCDS bytes, native libraries, ordered dependencies, copied target resources and exact launcher bytecode delta.",
+    "Exact complete synthetic request fixture files with unique IDs,count,bytes,SHA256,expected class and path; concrete manifest must cover every required family below.",
+    "Full response comparator and adversarial comparator fixtures, independent oracle expectations, finite row-by-row result schema.",
+    "Copied-stack launch/containment/cleanup runner, HTTP harness, stage instrumenter and deterministic percentile/error verifier with implementation hashes.",
+    "Runtime claim set and expected PASS/BLOCK predicates; each result binds run/profile/variant/input root/verifier hashes.",
+    "Production path uses the actual helper/ledger/READY/transport/cgroup cleanup adapters; no command-onlylauncher or disabled-fence shortcut."
+  ],
+  "finite_semantics": {
+    "source_fixtures": "Only authored synthetic fixtures and existing public repo tests; never private profile input. Include all46 constructor forms from current finite corpus in eligible BLOCK_SUPPORTED/SOURCE paths. Materialize exact files before execution; a category list is not completed evidence.",
+    "families": [
+      "All46 constructors with known existing IDs and fresh IDs",
+      "SOURCE valid/supportable, TEXT_ONLY, syntax/type/unbound/unsupported import and fragment",
+      "Mixed old/new ID, missing/foreign/wrong-kind inventory, source roundtrip and comment/trivia offsets",
+      "Node511/512/513, ASTdepth31/32/33, UTF8source32767/32768/32769, private frame and output boundaries",
+      "REVALIDATE exact historical artifact, invalid private context, malformed/trailing output, interruption/timeout, changed class/dependency/Alloy identity, owned reap",
+      "Representative solver-heavy SAT/UNSAT bounded workloads and existing document revalidation regressions; keep WorkerMain deployable flags unchanged and report cost/tradeoffs separately",
+      "FreshA/warmB/freshA and freshA/warmA/warmA with distinctsingle-usegenerations; repeatednames, reorderedhistories; complete nonce/image/expiry andfailedcontext cases. Existing190fixture set can be inherited only with exact input/tool/comparator bindings."
+    ],
+    "comparison": "For each frozen input run W0 and W1 separately; compare exit/framing and complete decoded private response: protocol/requestId/status/data, source bytes/hash, module, diagnostics, command, occurrences, trivia, idRemapping and every field. Preserve nonce/input and expected server IDs; do not compare status alone.",
+    "ids": "For generated UUIDs only, derive and validate injective kind-preserving bijection from idRemapping or frozen typed traversal; apply only schema-declared ID slots/keys. Existing IDs, source literals/bytes and diagnostics never normalized. Reject changed edges, duplicate/missing mappings, unexpected fields and UUID-looking literal replacement.",
+    "comparator_negative_cases": [
+      "changed source/hash",
+      "changed diagnostic",
+      "changed trivia offset",
+      "removed/extra field",
+      "swapped same-kind IDs/reference edge",
+      "alias collision",
+      "bad UUID syntax",
+      "raw generated ID outside approved paths"
+    ],
+    "pass": "Every concrete fixture equals W0 after this strictly validated normalization, independently satisfies existing contract tests, and reaps its worker. Any mismatch blocks performance/selection. Finite testing does not establish universal semantic equivalence.",
+    "routing": "Each fixture manifest row names its route and expected success/rejection class. Eligible advisory VALIDATE compares fresh versus ready-hit, cold-miss and refill pool paths. REVALIDATE and solver rows use unchanged fresh semantic routes in both server variants (with enabled-mode owned cgroups); direct warm-entrypoint REVALIDATE is a separate expected rejection, never an equality row. Nonzero exit is not accepted as arbitrary expected rejection."
+  },
+  "promotion": {
+    "paired_http": {
+      "order": [
+        "W0 then W1",
+        "W1 then W0",
+        "W0 then W1"
+      ],
+      "independent_full_stack_starts": 6,
+      "nodes": 500,
+      "warmups": 100,
+      "measured": 1000,
+      "percentile": "Unrounded nearest rank over all1000 durations; every error blocks the run.",
+      "gate": "Each of3 W1 runs has zeroerrors, p95<300ms, p95 below its pairedW0, peakgroupmemory<=5GiB, noOOM/pidsmax/orphan/UNKNOWNcleanup. FailedW0 latency alone is recorded baseline, not candidate selection. Stop on first failedW1; do not execute laterpairs or retry to select.",
+      "series": "No request-specific sleeps, prewarming, pool drains or benchmark-only refill scheduling. Record ready-hit/miss/refill/cancellation metadata alongside complete raw requests/responses. Every refill/helper and privateworker remains within same measured whole-stack group."
+    },
+    "cold": {
+      "server_cycles": 30,
+      "idle_expiry_cycles": 30,
+      "gate": "Noerrors; startup-to-READY maximum<10s; first-operation p95<1000ms and maximum<3000ms afterserviceREADY. Report exact coldmiss counts and allrawsamples.",
+      "clocks": "Service READY is the existing successful health/DocumentRuntime readiness after process launch; lazy pool is empty. Record launch-to-serviceREADY separately. First request starts with zero standby and is measured from driver send through full response. Idle cycle first establishes worker READY, waits for actual30s expiry plus positive cleanup, then sends demand with no standby. No benchmark prefill."
+    },
+    "sustained": {
+      "rate_per_second": 2,
+      "duration_seconds": 1800,
+      "gate": "Open-loop distinct edits, zeroerrors/rejections, p95<300ms,p99<600ms; include late/failed requests. Separately sweep to saturation and test bursts2/4/8 withboundedoverload; no unsupported throughput promises.",
+      "clocks": "Schedule attempts against a monotonic fixed arrival timeline independent of prior responses. Latency starts at scheduled arrival, not delayed actual send; preserve scheduled/actual send/response times and every attempt, including rejection/timeout/driver lateness. Do not drop late requests or introduce coordinated omission."
+    },
+    "soak": {
+      "duration_seconds": 3600,
+      "sequence_requests": 10000,
+      "gate": "One-hour target-profile soak plus10000-request sequence using real refill/expiry/cleanup. Record whole-stackCPU/RSS/memory.events,workerthreads/FDs/tempfiles/cgroupmembership and exactly-once generations. NoOOM,orphan,UNKNOWNcleanup,unboundedqueue or steady retained-sourcegrowth. Preserve failure evidence; bounded evidence only."
+    },
+    "activation": "All mandatory gates required, plus existing full regression and source-bound safetyverifiers. Browser acceptance and actual4vCPU/8GiBproductionhost evidence remain separately tracked; no target-host equivalence claim from workstation quotas."
+  },
+  "fault_matrix": [
+    {
+      "id": "WP-I01",
+      "surface": "image",
+      "cases": [
+        "exactlogicalmanifestandmountedbytes",
+        "class/resource/dependency/Alloymutationbeforecapture",
+        "mutationduringcapture",
+        "mutationwhileREADY",
+        "mutationbeforepublish",
+        "symlink/pathescape/duplicatefile",
+        "cap64MiB+1or513files",
+        "memfdsealwrite/grow/shrinkrejected",
+        "capturefailureclosesallfds"
+      ],
+      "pass": "No READY/privatehandoff/publication with wrong image; sealedbytes unchanged; noFDleak; exact finalcleanup before reuse."
+    },
+    {
+      "id": "WP-L01",
+      "surface": "lifecycle",
+      "cases": [
+        "reservebeforestart",
+        "two concurrentrefills",
+        "threeworkertreerequests",
+        "oneREADYplusfreshsolver",
+        "cancelbeforestart",
+        "cancelSTARTING",
+        "cancelREADY",
+        "cancelBUSY",
+        "cancelafterstaging",
+        "cancelafterreapbeforepublish",
+        "startup5s",
+        "idle30s",
+        "request10s",
+        "doubleconsume",
+        "doublerelease",
+        "stalegenerationreceipt"
+      ],
+      "pass": "Reservationbound2;unassignedbound1;oneconsumption;no revival/stalepublish;deadline never frees unknown capacity."
+    },
+    {
+      "id": "WP-P01",
+      "surface": "processownership",
+      "cases": [
+        "helperdeathbeforejoin",
+        "helperdeathafterjoin",
+        "parentSIGKILLbeforebootstrap",
+        "parentSIGKILLatREADY",
+        "parentSIGKILLduringinput",
+        "parentSIGKILLafterresponse",
+        "JVMdeath",
+        "descendantoutlivesleader",
+        "pidreuseidentitymismatch",
+        "missinggroup",
+        "unreadablegroup",
+        "groupinodechange",
+        "restartwithprekeyjournal",
+        "restartwithBUSYjournal",
+        "journalfsyncfailure",
+        "shutdownwhileSTARTINGorBUSY"
+      ],
+      "pass": "No application before cgroupjoin;exact childreap+positivegroupempty before release;uncertaintyretained;noorphan;failedrestartcannotadmit."
+    },
+    {
+      "id": "WP-T01",
+      "surface": "transport",
+      "cases": [
+        "missingREADY",
+        "wrongnonce/imageREADY",
+        "duplicatelateREADY",
+        "READY257bytes",
+        "stderr32769byteswhileidle",
+        "privateinput2097152bytes",
+        "blockedstdin",
+        "stdout1048578bytes",
+        "extraframe",
+        "truncatedframe",
+        "nonzeroexit",
+        "wrongrequestnonce",
+        "REVALIDATErejection",
+        "completeprivateframeonlyafterCLEAN",
+        "CLEANsuccessPermittedfalse",
+        "contextUNKNOWN",
+        "stalecontextgeneration"
+      ],
+      "pass": "Bounded single-reader protocol rejects invalidmessages; no privateinputbefore exactsuccessfulCLEAN andREADY;stage/reap/fence beforepublish."
+    },
+    {
+      "id": "WP-R01",
+      "surface": "resourcesandcompatibility",
+      "cases": [
+        "memorymax",
+        "pidsmax",
+        "CPU12s",
+        "allDEFAULTsolverSATUNSAT",
+        "durablecommit/historyrevalidation",
+        "image/resourceclasspathorder",
+        "maximumhistorycontext",
+        "Python/Java/TSstyle",
+        "allcurrentregressions"
+      ],
+      "pass": "Existingsemantics/resourceceilings and SQLeanParser routing retained; all failuresobserved and cleaned; no production fallback to uncontainedpool."
+    }
+  ],
+  "formal_runtime_boundary": "These category lists specify required fixtures, not completed evidence. Materialize exact finite fixturebytes,oracles,verifierimplementations andindividual claim IDs before runs. Lean model evidence is not Java/Python/OS refinement. Runtime test results are TESTED/CHECKED finite surfaces, not universal proof.",
+  "commercialization": "NO_GO until separate rights/accessibility/security/customer/operations gates close; optimization adds no redistribution rights."
+}

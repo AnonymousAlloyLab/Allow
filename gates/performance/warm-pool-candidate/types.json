@@ -1,0 +1,222 @@
+{
+  "classification": "AUTHOR_ELABORATED_TYPES_TO_BE_FROZEN_BEFORE_REGISTERED_CLOSURE",
+  "lean": "4.34.1",
+  "claims": [
+    {
+      "id": "WPM01",
+      "theorem": "Allow.WarmPool.local_preserves_safety",
+      "exact_check_output": "@Allow.WarmPool.local_preserves_safety : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.WorkerSafe s \u2192 Allow.WarmPool.LocalStep now event s peer t \u2192 Allow.WarmPool.WorkerSafe t",
+      "exact_axiom_output": "'Allow.WarmPool.local_preserves_safety' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM02",
+      "theorem": "Allow.WarmPool.local_preserves_standby_bound",
+      "exact_check_output": "@Allow.WarmPool.local_preserves_standby_bound : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned s) (Allow.WarmPool.unassigned peer)) 1 \u2192\n    Allow.WarmPool.LocalStep now event s peer t \u2192\n      LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned t) (Allow.WarmPool.unassigned peer)) 1",
+      "exact_axiom_output": "'Allow.WarmPool.local_preserves_standby_bound' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM03",
+      "theorem": "Allow.WarmPool.local_preserves_active_bound",
+      "exact_check_output": "@Allow.WarmPool.local_preserves_active_bound : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.WorkerSafe s \u2192\n    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active s) (Allow.WarmPool.active peer)) 1 \u2192\n      Allow.WarmPool.LocalStep now event s peer t \u2192\n        LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active t) (Allow.WarmPool.active peer)) 1",
+      "exact_axiom_output": "'Allow.WarmPool.local_preserves_active_bound' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM04",
+      "theorem": "Allow.WarmPool.local_slot_unchanged",
+      "exact_check_output": "@Allow.WarmPool.local_slot_unchanged : \u2200 {now : Nat} {event : Allow.WarmPool.Event} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now event s peer t \u2192 Eq.{1} t.owner.slot s.owner.slot",
+      "exact_axiom_output": "'Allow.WarmPool.local_slot_unchanged' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM05",
+      "theorem": "Allow.WarmPool.step_preserves_safety",
+      "exact_check_output": "@Allow.WarmPool.step_preserves_safety : \u2200 {p q : Allow.WarmPool.Pool},\n  Allow.WarmPool.Safe p \u2192 Allow.WarmPool.Step p q \u2192 Allow.WarmPool.Safe q",
+      "exact_axiom_output": "'Allow.WarmPool.step_preserves_safety' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM06",
+      "theorem": "Allow.WarmPool.reachable_safety",
+      "exact_check_output": "@Allow.WarmPool.reachable_safety : \u2200 {p : Allow.WarmPool.Pool}, Allow.WarmPool.Reachable p \u2192 Allow.WarmPool.Safe p",
+      "exact_axiom_output": "'Allow.WarmPool.reachable_safety' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM07",
+      "theorem": "Allow.WarmPool.two_live_reservations",
+      "exact_check_output": "Allow.WarmPool.two_live_reservations : \u2200 (p : Allow.WarmPool.Pool),\n  LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.occupied p.first) (Allow.WarmPool.occupied p.second)) 2",
+      "exact_axiom_output": "'Allow.WarmPool.two_live_reservations' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM08",
+      "theorem": "Allow.WarmPool.at_most_one_unassigned",
+      "exact_check_output": "@Allow.WarmPool.at_most_one_unassigned : \u2200 {p : Allow.WarmPool.Pool},\n  Allow.WarmPool.Reachable p \u2192\n    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned p.first) (Allow.WarmPool.unassigned p.second)) 1",
+      "exact_axiom_output": "'Allow.WarmPool.at_most_one_unassigned' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM09",
+      "theorem": "Allow.WarmPool.at_most_one_assigned",
+      "exact_check_output": "@Allow.WarmPool.at_most_one_assigned : \u2200 {p : Allow.WarmPool.Pool},\n  Allow.WarmPool.Reachable p \u2192\n    LE.le.{0} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active p.first) (Allow.WarmPool.active p.second)) 1",
+      "exact_axiom_output": "'Allow.WarmPool.at_most_one_assigned' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM10",
+      "theorem": "Allow.WarmPool.distinct_slot_owners",
+      "exact_check_output": "@Allow.WarmPool.distinct_slot_owners : \u2200 {p : Allow.WarmPool.Pool},\n  Allow.WarmPool.Reachable p \u2192 Ne.{1} p.first.owner p.second.owner",
+      "exact_axiom_output": "'Allow.WarmPool.distinct_slot_owners' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM11",
+      "theorem": "Allow.WarmPool.first_request_count_order",
+      "exact_check_output": "@Allow.WarmPool.first_request_count_order : \u2200 {p : Allow.WarmPool.Pool},\n  Allow.WarmPool.Reachable p \u2192\n    LE.le.{0} p.first.delivered p.first.staged \u2227\n      LE.le.{0} p.first.staged p.first.consumed \u2227 LE.le.{0} p.first.consumed 1",
+      "exact_axiom_output": "'Allow.WarmPool.first_request_count_order' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM12",
+      "theorem": "Allow.WarmPool.second_request_count_order",
+      "exact_check_output": "@Allow.WarmPool.second_request_count_order : \u2200 {p : Allow.WarmPool.Pool},\n  Allow.WarmPool.Reachable p \u2192\n    LE.le.{0} p.second.delivered p.second.staged \u2227\n      LE.le.{0} p.second.staged p.second.consumed \u2227 LE.le.{0} p.second.consumed 1",
+      "exact_axiom_output": "'Allow.WarmPool.second_request_count_order' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM13",
+      "theorem": "Allow.WarmPool.no_busy_to_ready",
+      "exact_check_output": "@Allow.WarmPool.no_busy_to_ready : \u2200 {now : Nat} {event : Allow.WarmPool.Event} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now event s peer t \u2192\n    Eq.{1} s.phase Allow.WarmPool.Phase.busy \u2192 Ne.{1} t.phase Allow.WarmPool.Phase.ready",
+      "exact_axiom_output": "'Allow.WarmPool.no_busy_to_ready' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM14",
+      "theorem": "Allow.WarmPool.release_requires_cleanup",
+      "exact_check_output": "@Allow.WarmPool.release_requires_cleanup : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.release s peer t \u2192\n    Eq.{1} s.phase Allow.WarmPool.Phase.reaped \u2227 Eq.{1} s.cleanup true",
+      "exact_axiom_output": "'Allow.WarmPool.release_requires_cleanup' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM15",
+      "theorem": "Allow.WarmPool.stale_release_rejected",
+      "exact_check_output": "Allow.WarmPool.stale_release_rejected : \u2200 (s : Allow.WarmPool.Worker) (identity : Allow.WarmPool.Owner),\n  Ne.{1} identity s.owner \u2192 Eq.{1} (Allow.WarmPool.releaseOwned s identity) none.{0}",
+      "exact_axiom_output": "'Allow.WarmPool.stale_release_rejected' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM16",
+      "theorem": "Allow.WarmPool.owned_release_refines_step",
+      "exact_check_output": "@Allow.WarmPool.owned_release_refines_step : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker}\n  {identity : Allow.WarmPool.Owner},\n  Eq.{1} (Allow.WarmPool.releaseOwned s identity) (some.{0} t) \u2192\n    Allow.WarmPool.LocalStep now Allow.WarmPool.Event.release s peer t",
+      "exact_axiom_output": "'Allow.WarmPool.owned_release_refines_step' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM17",
+      "theorem": "Allow.WarmPool.no_spawn_requires_never_attempted",
+      "exact_check_output": "@Allow.WarmPool.no_spawn_requires_never_attempted : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.noSpawn s peer t \u2192 Eq.{1} s.attempted false",
+      "exact_axiom_output": "'Allow.WarmPool.no_spawn_requires_never_attempted' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM18",
+      "theorem": "Allow.WarmPool.attempted_cannot_use_no_spawn",
+      "exact_check_output": "@Allow.WarmPool.attempted_cannot_use_no_spawn : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Eq.{1} s.attempted true \u2192 \u00acAllow.WarmPool.LocalStep now Allow.WarmPool.Event.noSpawn s peer t",
+      "exact_axiom_output": "'Allow.WarmPool.attempted_cannot_use_no_spawn' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM19",
+      "theorem": "Allow.WarmPool.publish_requires_exit_fence_and_time",
+      "exact_check_output": "@Allow.WarmPool.publish_requires_exit_fence_and_time : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.publish s peer t \u2192\n    Eq.{1} s.phase Allow.WarmPool.Phase.reaped \u2227\n      Eq.{1} s.cleanup true \u2227 Eq.{1} s.finalFence true \u2227 Eq.{1} s.poisoned false \u2227 LT.lt.{0} now s.requestDeadline",
+      "exact_axiom_output": "'Allow.WarmPool.publish_requires_exit_fence_and_time' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM20",
+      "theorem": "Allow.WarmPool.poison_prevents_publication",
+      "exact_check_output": "@Allow.WarmPool.poison_prevents_publication : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Eq.{1} s.poisoned true \u2192 \u00acAllow.WarmPool.LocalStep now Allow.WarmPool.Event.publish s peer t",
+      "exact_axiom_output": "'Allow.WarmPool.poison_prevents_publication' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM21",
+      "theorem": "Allow.WarmPool.poison_sticky_same_generation",
+      "exact_check_output": "@Allow.WarmPool.poison_sticky_same_generation : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now event s peer t \u2192\n    Eq.{1} s.poisoned true \u2192 Eq.{1} t.owner.generation s.owner.generation \u2192 Eq.{1} t.poisoned true",
+      "exact_axiom_output": "'Allow.WarmPool.poison_sticky_same_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM22",
+      "theorem": "Allow.WarmPool.attempted_sticky_same_generation",
+      "exact_check_output": "@Allow.WarmPool.attempted_sticky_same_generation : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now event s peer t \u2192\n    Eq.{1} s.attempted true \u2192 Eq.{1} t.owner.generation s.owner.generation \u2192 Eq.{1} t.attempted true",
+      "exact_axiom_output": "'Allow.WarmPool.attempted_sticky_same_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM23",
+      "theorem": "Allow.WarmPool.consumption_monotone_same_generation",
+      "exact_check_output": "@Allow.WarmPool.consumption_monotone_same_generation : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now event s peer t \u2192\n    Eq.{1} t.owner.generation s.owner.generation \u2192 LE.le.{0} s.consumed t.consumed",
+      "exact_axiom_output": "'Allow.WarmPool.consumption_monotone_same_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]"
+    },
+    {
+      "id": "WPM24",
+      "theorem": "Allow.WarmPool.generation_changes_only_on_vacant_reservation",
+      "exact_check_output": "@Allow.WarmPool.generation_changes_only_on_vacant_reservation : \u2200 {now : Nat} {event : Allow.WarmPool.Event}\n  {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now event s peer t \u2192\n    Ne.{1} t.owner.generation s.owner.generation \u2192\n      (Eq.{1} event Allow.WarmPool.Event.reserve \u2228 Eq.{1} event Allow.WarmPool.Event.freshReserve) \u2227\n        Eq.{1} s.phase Allow.WarmPool.Phase.vacant \u2227\n          Eq.{1} t.owner.generation (HAdd.hAdd.{0, 0, 0} s.owner.generation 1)",
+      "exact_axiom_output": "'Allow.WarmPool.generation_changes_only_on_vacant_reservation' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM25",
+      "theorem": "Allow.WarmPool.startup_deadline_checked",
+      "exact_check_output": "@Allow.WarmPool.startup_deadline_checked : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.ready s peer t \u2192 LT.lt.{0} now s.startDeadline",
+      "exact_axiom_output": "'Allow.WarmPool.startup_deadline_checked' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM26",
+      "theorem": "Allow.WarmPool.idle_deadline_checked",
+      "exact_check_output": "@Allow.WarmPool.idle_deadline_checked : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.handoff s peer t \u2192 LT.lt.{0} now s.idleDeadline",
+      "exact_axiom_output": "'Allow.WarmPool.idle_deadline_checked' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM27",
+      "theorem": "Allow.WarmPool.handoff_sets_clean_context",
+      "exact_check_output": "@Allow.WarmPool.handoff_sets_clean_context : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.handoff s peer t \u2192\n    Eq.{1} t.contextClean true \u2227 LT.lt.{0} now t.requestDeadline",
+      "exact_axiom_output": "'Allow.WarmPool.handoff_sets_clean_context' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM28",
+      "theorem": "Allow.WarmPool.admission_deadline_not_reset",
+      "exact_check_output": "@Allow.WarmPool.admission_deadline_not_reset : \u2200 {now : Nat} {s peer t : Allow.WarmPool.Worker},\n  Allow.WarmPool.LocalStep now Allow.WarmPool.Event.handoff s peer t \u2192\n    Exists.{1} fun receipt =>\n      Eq.{1} receipt.clean true \u2227\n        Eq.{1} receipt.successPermitted true \u2227\n          Eq.{1} receipt.requestNonce t.requestNonce \u2227\n            Eq.{1} t.requestDeadline (HAdd.hAdd.{0, 0, 0} receipt.admittedAt 10000) \u2227 LE.le.{0} receipt.admittedAt now",
+      "exact_axiom_output": "'Allow.WarmPool.admission_deadline_not_reset' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM29",
+      "theorem": "Allow.WarmPool.shutdown_is_absorbing",
+      "exact_check_output": "@Allow.WarmPool.shutdown_is_absorbing : \u2200 {p q : Allow.WarmPool.Pool},\n  Allow.WarmPool.Step p q \u2192 Eq.{1} p.online false \u2192 Eq.{1} q.online false",
+      "exact_axiom_output": "'Allow.WarmPool.shutdown_is_absorbing' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM30",
+      "theorem": "Allow.WarmPool.shutdown_forbids_publish",
+      "exact_check_output": "Allow.WarmPool.shutdown_forbids_publish : \u2200 (p : Allow.WarmPool.Pool),\n  Eq.{1} p.online false \u2192 \u00ac(Eq.{1} p.online true \u2228 Allow.WarmPool.afterCrash Allow.WarmPool.Event.publish)",
+      "exact_axiom_output": "'Allow.WarmPool.shutdown_forbids_publish' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM31",
+      "theorem": "Allow.WarmPool.offline_step_preserves_delivery",
+      "exact_check_output": "@Allow.WarmPool.offline_step_preserves_delivery : \u2200 {p q : Allow.WarmPool.Pool},\n  Allow.WarmPool.Step p q \u2192\n    Eq.{1} p.online false \u2192 Eq.{1} q.first.delivered p.first.delivered \u2227 Eq.{1} q.second.delivered p.second.delivered",
+      "exact_axiom_output": "'Allow.WarmPool.offline_step_preserves_delivery' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM32",
+      "theorem": "Allow.WarmPool.time_does_not_release",
+      "exact_check_output": "Allow.WarmPool.time_does_not_release : \u2200 (p : Allow.WarmPool.Pool) (later : Nat),\n  Eq.{1}\n    (HAdd.hAdd.{0, 0, 0}\n      (Allow.WarmPool.occupied\n        { first := p.first, second := p.second, now := later, online := p.online, durable := p.durable }.first)\n      (Allow.WarmPool.occupied\n        { first := p.first, second := p.second, now := later, online := p.online, durable := p.durable }.second))\n    (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.occupied p.first) (Allow.WarmPool.occupied p.second))",
+      "exact_axiom_output": "'Allow.WarmPool.time_does_not_release' does not depend on any axioms"
+    },
+    {
+      "id": "WPM33",
+      "theorem": "Allow.WarmPool.advisory_preserves_durable",
+      "exact_check_output": "@Allow.WarmPool.advisory_preserves_durable : \u2200 {p q : Allow.WarmPool.Pool},\n  Allow.WarmPool.Step p q \u2192 Eq.{1} q.durable p.durable",
+      "exact_axiom_output": "'Allow.WarmPool.advisory_preserves_durable' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM34",
+      "theorem": "Allow.WarmPool.successful_one_use_witness",
+      "exact_check_output": "Allow.WarmPool.successful_one_use_witness : Exists.{1} fun p =>\n  Allow.WarmPool.Reachable p \u2227\n    Eq.{1} p.first.delivered 1 \u2227 Eq.{1} p.first.cleanup true \u2227 Eq.{1} p.first.contextClean true",
+      "exact_axiom_output": "'Allow.WarmPool.successful_one_use_witness' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM35",
+      "theorem": "Allow.WarmPool.cancellation_after_fence_witness",
+      "exact_check_output": "Allow.WarmPool.cancellation_after_fence_witness : Exists.{1} fun p =>\n  Allow.WarmPool.Reachable p \u2227\n    Eq.{1} p.first.phase Allow.WarmPool.Phase.reaped \u2227\n      Eq.{1} p.first.finalFence true \u2227\n        Eq.{1} p.first.poisoned true \u2227\n          Eq.{1} p.first.delivered 0 \u2227\n            \u2200 (t : Allow.WarmPool.Worker),\n              \u00acAllow.WarmPool.LocalStep p.now Allow.WarmPool.Event.publish p.first p.second t",
+      "exact_axiom_output": "'Allow.WarmPool.cancellation_after_fence_witness' depends on axioms: [propext]"
+    },
+    {
+      "id": "WPM36",
+      "theorem": "Allow.WarmPool.ready_and_fresh_coexist_witness",
+      "exact_check_output": "Allow.WarmPool.ready_and_fresh_coexist_witness : Exists.{1} fun p =>\n  Allow.WarmPool.Reachable p \u2227\n    Eq.{1} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.occupied p.first) (Allow.WarmPool.occupied p.second)) 2 \u2227\n      Eq.{1} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.unassigned p.first) (Allow.WarmPool.unassigned p.second)) 1 \u2227\n        Eq.{1} (HAdd.hAdd.{0, 0, 0} (Allow.WarmPool.active p.first) (Allow.WarmPool.active p.second)) 1",
+      "exact_axiom_output": "'Allow.WarmPool.ready_and_fresh_coexist_witness' depends on axioms: [propext]"
+    }
+  ]
+}

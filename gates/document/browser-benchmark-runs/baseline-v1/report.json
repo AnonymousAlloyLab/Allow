@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "classification": "ACTUAL_BROWSER_WARM_PREVIEW_BASELINE_ONLY",
+  "measured_events": 1000,
+  "warmup_events": 100,
+  "nodes": 500,
+  "p50_ms": 11.599999997764826,
+  "p95_ms": 12.300000000745058,
+  "p99_ms": 12.5,
+  "target_p95_ms": 50,
+  "input_root_sha256": "1f7597055773bdbf18b6420e415b80421a2a725ea32ea65f328ff82d0dd447af",
+  "source_unchanged": true,
+  "static_restored": true,
+  "raw_result_sha256": "ee9151c4ade2d70c91a49636c2a0532de1c4b63a29f71a4b108af00dc284a1ba",
+  "timestamp_utc": "2026-11-03T20:23:36.894826+00:00",
+  "cold_series": "NOT_CONDUCTED",
+  "known_correctness_failure": "Partial known-sort insertion still admits some(not HOLE); separatefixpending",
+  "limitations": [
+    "Programmatic realcontroller edits and renderedlabelchecks; two rAF provideframeopportunity notphysicaldisplayproof",
+    "Test-onlyproductionbundle instrumentation; mainUIbehavior retained",
+    "Fixture fixedserverIDs maynotbelong toaccepteddocument; no servervalidationpassclaimed",
+    "ReferenceCPU/RAM/JDK recordedforlocalhostserver; browserhardwareaffinitynot independentlyattested",
+    "No namedFirefoxOrca/manualATacceptance, completeG2G3 orcommercialrelease"
+  ]
+}

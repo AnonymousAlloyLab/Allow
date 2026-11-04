@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-sql-image-final-287-v1",
+  "timestamp_utc": "2026-11-03T20:41:57.506107+00:00",
+  "status": "BLOCKED",
+  "input_root_hash": null,
+  "claims": {
+    "total": 287,
+    "passed": 0,
+    "blocked": 0,
+    "unresolved": 287
+  },
+  "builds": [],
+  "determinism": {
+    "required": true,
+    "status": "UNSET"
+  },
+  "blocking_reasons": [
+    "MISSING_EXACT_APPROVAL:/home/augustus/Allow/reviews/sql-image-terra-2-r2.json"
+  ],
+  "infrastructure_errors": [],
+  "dependencies": {
+    "trusted": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice when reported by the axiom audit",
+      "Lake, Python3, this hashed verifier and SHA256 collision resistance",
+      "OS filesystem/process isolation and hardware",
+      "Interpretation of abstract model definitions"
+    ],
+    "verified": [],
+    "undeclared": []
+  },
+  "correspondence": {
+    "required_objects": 0,
+    "mapped_objects": 0,
+    "unmapped_objects": 0,
+    "ambiguous_objects": 0
+  },
+  "closure_boundary": {
+    "verified_surface": [
+      "287 exact model propositions under frozen source tree"
+    ],
+    "trusted_surface": [
+      "Lean4.34.1 kernel/elaborator/pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice when reported by the axiom audit",
+      "Lake, Python3, this hashed verifier and SHA256 collision resistance",
+      "OS filesystem/process isolation and hardware",
+      "Interpretation of abstract model definitions"
+    ],
+    "excluded_surface": [
+      "Linux syscall and immutable-image implementation correspondence",
+      "Python SQL/protocol implementation, parser correspondence, PostgreSQL execution",
+      "Revision6 live-path integrity preservation",
+      "Performance/memory and production promotion"
+    ],
+    "interpretation": "VERIFIED applies only to the frozen finite model surface under declared TCB, not runtime or production correctness."
+  }
+}

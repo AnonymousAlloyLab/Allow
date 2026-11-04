@@ -1,0 +1,1073 @@
+{
+  "status": "BLOCKED",
+  "classification": "DIAGNOSTIC",
+  "snapshots": [
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Delegate": "yes",
+        "KillMode": "control-group",
+        "Id": "allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Description": "allow-warm:15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "4661c054a5964acab4b2d6c846edc91d"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1473237,
+          "start_ticks": "10621901",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473237,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1473237,
+        "start_ticks": "10621901"
+      },
+      "launch_lane": "owned_delegated_scope_v1",
+      "topology": {
+        "root": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+          "device": 31,
+          "inode": 80339
+        },
+        "control": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "device": 31,
+          "inode": 80390
+        },
+        "controllers": {
+          "available": [
+            "cpu",
+            "memory",
+            "pids"
+          ],
+          "enabled": [
+            "cpu",
+            "memory",
+            "pids"
+          ]
+        },
+        "root_processes": []
+      },
+      "metrics": {
+        "cpu.stat": "usage_usec 41783\nuser_usec 31592\nsystem_usec 10191\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 1\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=25\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=25",
+        "memory.current": "15441920",
+        "memory.peak": "47099904",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "2",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=159\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=159"
+      },
+      "observed_monotonic_ns": 106219121756379
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Delegate": "yes",
+        "KillMode": "control-group",
+        "Id": "allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Description": "allow-warm:15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "4661c054a5964acab4b2d6c846edc91d"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1473237,
+          "start_ticks": "10621901",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473237,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        },
+        {
+          "pid": 1473241,
+          "start_ticks": "10621916",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473241,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473242,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473243,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473244,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473245,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473246,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473247,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473248,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473249,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473250,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473251,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473252,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473253,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473254,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473255,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473256,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473257,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1473237,
+        "start_ticks": "10621901"
+      },
+      "launch_lane": "owned_delegated_scope_v1",
+      "topology": {
+        "root": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+          "device": 31,
+          "inode": 80339
+        },
+        "control": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "device": 31,
+          "inode": 80390
+        },
+        "controllers": {
+          "available": [
+            "cpu",
+            "memory",
+            "pids"
+          ],
+          "enabled": [
+            "cpu",
+            "memory",
+            "pids"
+          ]
+        },
+        "root_processes": []
+      },
+      "metrics": {
+        "cpu.stat": "usage_usec 525205\nuser_usec 480419\nsystem_usec 44785\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 3\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=1660\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=274",
+        "memory.current": "147972096",
+        "memory.peak": "148000768",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "18",
+        "pids.peak": "18",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=248\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=248"
+      },
+      "observed_monotonic_ns": 106219375897081
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Delegate": "yes",
+        "KillMode": "control-group",
+        "Id": "allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Description": "allow-warm:15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "4661c054a5964acab4b2d6c846edc91d"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1473237,
+          "start_ticks": "10621901",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473237,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        },
+        {
+          "pid": 1473241,
+          "start_ticks": "10621916",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473241,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473242,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473243,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473244,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473245,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473246,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473247,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473248,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473249,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473250,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473251,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473252,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473253,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473254,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473255,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473256,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473257,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473260,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473261,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            },
+            {
+              "tid": 1473262,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        },
+        {
+          "pid": 1473259,
+          "start_ticks": "10621940",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1",
+          "threads": [
+            {
+              "tid": 1473259,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            }
+          ]
+        },
+        {
+          "pid": 1473263,
+          "start_ticks": "10621948",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1",
+          "threads": [
+            {
+              "tid": 1473263,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            }
+          ]
+        },
+        {
+          "pid": 1473264,
+          "start_ticks": "10621951",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1",
+          "threads": [
+            {
+              "tid": 1473264,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473265,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473266,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473267,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473268,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473269,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473270,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473271,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473272,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473273,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473274,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473275,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473276,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            },
+            {
+              "tid": 1473277,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/pool-2fb013e4-7de4-4ee7-aab6-3ee107e787db/slot-1-g1"
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1473237,
+        "start_ticks": "10621901"
+      },
+      "launch_lane": "owned_delegated_scope_v1",
+      "topology": {
+        "root": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+          "device": 31,
+          "inode": 80339
+        },
+        "control": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "device": 31,
+          "inode": 80390
+        },
+        "controllers": {
+          "available": [
+            "cpu",
+            "memory",
+            "pids"
+          ],
+          "enabled": [
+            "cpu",
+            "memory",
+            "pids"
+          ]
+        },
+        "root_processes": []
+      },
+      "metrics": {
+        "cpu.stat": "usage_usec 935758\nuser_usec 845132\nsystem_usec 90625\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 6\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5341\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=436",
+        "memory.current": "245497856",
+        "memory.peak": "245510144",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "37",
+        "pids.peak": "37",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=268\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=250"
+      },
+      "observed_monotonic_ns": 106219630504286
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Delegate": "yes",
+        "KillMode": "control-group",
+        "Id": "allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Description": "allow-warm:15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "4661c054a5964acab4b2d6c846edc91d"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1473237,
+          "start_ticks": "10621901",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473237,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1473237,
+        "start_ticks": "10621901"
+      },
+      "launch_lane": "owned_delegated_scope_v1",
+      "topology": {
+        "root": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+          "device": 31,
+          "inode": 80339
+        },
+        "control": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "device": 31,
+          "inode": 80390
+        },
+        "controllers": {
+          "available": [
+            "cpu",
+            "memory",
+            "pids"
+          ],
+          "enabled": [
+            "cpu",
+            "memory",
+            "pids"
+          ]
+        },
+        "root_processes": []
+      },
+      "metrics": {
+        "cpu.stat": "usage_usec 1658343\nuser_usec 1481747\nsystem_usec 176596\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 8\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=25700\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=698",
+        "memory.current": "102363136",
+        "memory.peak": "332771328",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "3",
+        "pids.peak": "43",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=404\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=356"
+      },
+      "observed_monotonic_ns": 106219883990202
+    },
+    {
+      "unit": {
+        "Result": "success",
+        "ControlGroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Delegate": "yes",
+        "KillMode": "control-group",
+        "Id": "allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+        "Description": "allow-warm:15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+        "LoadState": "loaded",
+        "ActiveState": "active",
+        "SubState": "running",
+        "InvocationID": "4661c054a5964acab4b2d6c846edc91d"
+      },
+      "limits": {
+        "cpu.max": "400000 100000",
+        "memory.high": "5368709120",
+        "memory.max": "6442450944",
+        "memory.swap.max": "0",
+        "pids.max": "512"
+      },
+      "processes": [
+        {
+          "pid": 1473237,
+          "start_ticks": "10621901",
+          "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "threads": [
+            {
+              "tid": 1473237,
+              "affinity": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control"
+            }
+          ]
+        }
+      ],
+      "supervisor_identity": {
+        "pid": 1473237,
+        "start_ticks": "10621901"
+      },
+      "launch_lane": "owned_delegated_scope_v1",
+      "topology": {
+        "root": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope",
+          "device": 31,
+          "inode": 80339
+        },
+        "control": {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/allow-wp-965bdbb7f4f74e8aae80ef85145de541.scope/control",
+          "device": 31,
+          "inode": 80390
+        },
+        "controllers": {
+          "available": [
+            "cpu",
+            "memory",
+            "pids"
+          ],
+          "enabled": [
+            "cpu",
+            "memory",
+            "pids"
+          ]
+        },
+        "root_processes": []
+      },
+      "metrics": {
+        "cpu.stat": "usage_usec 1661130\nuser_usec 1481879\nsystem_usec 179251\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 10\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+        "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=25701\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=698",
+        "memory.current": "33587200",
+        "memory.peak": "332771328",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "memory.swap.current": "0",
+        "memory.swap.events": "high 0\nmax 0\nfail 0",
+        "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+        "pids.current": "1",
+        "pids.peak": "43",
+        "pids.events": "max 0",
+        "cgroup.events": "populated 1\nfrozen 0",
+        "io.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=460\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=412"
+      },
+      "observed_monotonic_ns": 106220138243945
+    }
+  ],
+  "variant": "fixture-pool",
+  "input_root_sha256": "736f48a67c6a4e46e37829ebe33a98330d0a8550a6fd50658b2aeed83af188c9",
+  "installation_root": "15a12b4244f062b253ae051701069d8aa61a012e01bf242d7a86e06c5d79a843",
+  "benchmark_executed": false,
+  "component_timing_executed": false,
+  "target_host_acceptance": "OPEN",
+  "registered_claims": {
+    "schema": 1,
+    "status": "FROZEN_FINITE_RUNTIME_CLAIMS",
+    "claims": [
+      {
+        "id": "WP-H01",
+        "kind": "CHECKED",
+        "predicate": "scope Delegate=yes; exact aggregate kernel limits; caller security preserved; root empty; supervisor control leaf; every observed live thread affinity0-3"
+      },
+      {
+        "id": "WP-H02",
+        "kind": "CHECKED",
+        "predicate": "copied immutable source/build/tool/probe inputs equal before and after; config root dev/inode matches actual scope"
+      },
+      {
+        "id": "WP-H03",
+        "kind": "CHECKED",
+        "predicate": "Exact registered warmup+measured attempt accounting, complete outputs, timing and owned receipts pass latency_results.verify_variant",
+        "plan": {
+          "schema": 1,
+          "variantId": "fixture-pool",
+          "profile": "POOL_SERIAL",
+          "mode": "PREFLIGHT",
+          "warmups": 0,
+          "measured": 1,
+          "contractSha256": "626a50b7afa537c906b38219c8646ca1043d59dbf38187820ad8b56a9f1253f2",
+          "fixtureSha256": "eaebc8919457781853e41dccdc5c54fa624ca6effd5a8ed5e9c447bfd25a3906"
+        },
+        "verifier": "latency_results.verify_variant"
+      },
+      {
+        "id": "WP-H04",
+        "kind": "CHECKED",
+        "predicate": "whole-scope positive empty, all tracked identities absent, terminal counters complete, zero OOM/pids exhaustion and peak<=5GiB"
+      }
+    ],
+    "trusted": [
+      "Linux cgroup/procfs/PID identity and syscall semantics",
+      "systemd255 user scope manager",
+      "pinned JDK/Python/native runtime",
+      "hash and filesystem implementation",
+      "registered Java probe as finite evidence generator, not universal proof"
+    ],
+    "excluded": [
+      "HTTP acceptance",
+      "production promotion or selection",
+      "SQL CLEAN validation",
+      "target4vCPU8GiB acceptance",
+      "full contract fault coverage",
+      "commercial release"
+    ],
+    "namespace": "ALLOW-WARM-LATENCY-DIAGNOSTIC-R1",
+    "classification": "FINITE_COMPONENT_DIAGNOSTIC_NOT_HTTP_ACCEPTANCE"
+  },
+  "result": {
+    "status": "PASS",
+    "classification": "CHECKED_FINITE_COMPONENT_DIAGNOSTIC_NOT_PROMOTION",
+    "profile": "POOL_SERIAL",
+    "mode": "PREFLIGHT",
+    "variantId": "fixture-pool",
+    "java_report_sha256": "3ca3408e3ded01a4c3f588a345f59b43d68a05093ec18125d7002fbb783c2b52",
+    "attempts_checked": 1,
+    "generation_count": 2,
+    "context_boundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL"
+  },
+  "checks_passed": true
+}

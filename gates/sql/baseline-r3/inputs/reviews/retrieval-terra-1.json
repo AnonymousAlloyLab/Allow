@@ -1,0 +1,25 @@
+{
+  "seat": "terra-1",
+  "status": "APPROVE",
+  "scope": "Bounded revision 4 design and abstract Lean propositions; approval does not assert implementation or quality gate completion.",
+  "supplement": "spec/retrieval-stage.json",
+  "supplement_sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "formal_file": "formal/Allow/Retrieval.lean",
+  "formal_sha256": "b4e348c95d346cec441b04b85713df0c81150f5199062c513d9c76a684a60965",
+  "types_file": "spec/retrieval-types.json",
+  "types_sha256": "27ba0b43b311aabc04d21f0ebac4fd2108c8db54056a7009586577613b0d3905",
+  "findings": [
+    "The admitted member binds its own run, witness, target and polarity through the inherited SAT and validated admission predicate; ready requires N distinct members per polarity for 3 through 5.",
+    "The declared queries preserve facts in both polarities and finite shared samples are not equivalence evidence. Exact context and canonical full-instance comparisons guard overlap.",
+    "The pack4 lookup propositions bind each of four ordered 768-entry blocks to a 3072-entry abstract embedding. The numeric score theorem covers only the default nonnegative fixed-point weights.",
+    "Current complete snapshots are required in the abstract commit model and revoked entries are invisible; the concrete transaction, outbox and independent revocation journal remain implementation obligations.",
+    "The revision distinguishes checked egraph representatives from a complete normal form, requires evidence-bound pool identity and preserves authorized filtering and train lineage on revocation."
+  ],
+  "limitations": [
+    "The model assumes exact identity tokens and truthful validation flags; SAT4J, parser, evaluator, instance isomorphism, hashing and encoding correspondence are trusted and require adversarial implementation tests.",
+    "The Lean type Int-valued function represents indexing, not float normalization, E5 embeddings or learned adapter behavior. Fixed-point score bounds do not establish floating-point numerical correctness or tuned-weight correctness.",
+    "Abstract commit and visibility predicates do not prove PostgreSQL atomicity, crash recovery, authorization, deletion, model lineage revocation or Java/Python refinement.",
+    "Two frozen clean builds and independent review resolution are required before production changes; this review does not claim those checks passed. Dataset rights, retrieval quality and all original gates require separate evidence."
+  ],
+  "blockers": []
+}

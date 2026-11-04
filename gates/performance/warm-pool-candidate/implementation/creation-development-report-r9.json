@@ -1,0 +1,98 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Creation-failure fail-closed control flow; actual ledger state/journal methods with mocked cgroup factory or descriptor boundary. No claim of actual kernel cleanup or complete runtime/model refinement. Active target untouched.",
+  "copied_root": "/tmp/allow-warm-creation-r9-z6sfga7i",
+  "changed_inputs": [
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "3564919f2bb12fb2f35b1ec24f4e9b7e0f03aab6230f2b08c10aff903b06bd22"
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "07e992be2b2fec28268994a826e04eecb80af230c41e9e31b6db2ea1101fe095"
+    },
+    {
+      "path": "backend/src/test/java/dev/allow/backend/WorkerCreationFailureTest.java",
+      "sha256": "cb35aa02c278e74843008d0baab6e6f16e42e87cf8560bc3e5e82a8883056e6e"
+    }
+  ],
+  "suites": [
+    {
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerCreationFailureTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "tests": 56,
+  "new_cases": 8,
+  "assertions": [
+    "IOException and RuntimeException creation failure disable the exact incarnation and poison existing reservations",
+    "Repeated warm/fresh requests cannot attempt another cgroup creation",
+    "Retirement persistence failure cannot restore admission and remains suppressed under original setup error",
+    "Fresh creation failure while standby exists follows the same bounded fence",
+    "Successful creation preserves normal capacity behavior",
+    "Complete captured owner attempts existing descriptor-bound empty removal before close",
+    "Removal failure cannot omit descriptor closure or replace original cause",
+    "Pre-open failure retains unidentified orphan and cannot trigger further admissions"
+  ],
+  "remaining_runtime_obligations": [
+    "Actual descriptor identity/empty/removal on real cgroup control setup failure",
+    "Full copied build and frozen registered ownership/runtime safety rerun for this revised source"
+  ],
+  "style": "PASS; callable docs<=30lines, no Java lambdas",
+  "logs": [
+    {
+      "path": "/tmp/allow-warm-creation-r9-z6sfga7i/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-creation-r9-z6sfga7i/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-creation-r9-z6sfga7i/focused-tests.log",
+      "sha256": "4a7a2243d6bca1e98ca7ad88ba683d46ce9e3e3b5c612ea1bb2ba91b3a5ee5f8"
+    },
+    {
+      "path": "/tmp/allow-warm-creation-r9-z6sfga7i/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    }
+  ]
+}

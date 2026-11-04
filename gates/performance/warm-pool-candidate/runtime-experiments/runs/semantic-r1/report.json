@@ -1,0 +1,28 @@
+{
+  "status": "BLOCKED",
+  "finite_expected_checks": "BLOCKED",
+  "whole190_pairwise_equivalence": "BLOCKED",
+  "input_root_sha256": "ac434ceed4c82fe2a842e429e87ef5cf5b157472234dc129187e71b1ae6aa733",
+  "classification": "DIAGNOSTIC_VERIFIER_FAILURE",
+  "blocking_reasons": [
+    "UNAVAILABLE_DATA_MODE_VERIFIER_OVERCONSTRAINT"
+  ],
+  "variants": {
+    "W0": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r1-w0/report.json",
+      "sha256": "7b1660dd6258bdc97faaf1684f51705a17f5a697d3e4e9805d7ef46b7782150d",
+      "size": 1979823,
+      "mode": 384
+    },
+    "W1": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r1-w1/not-executed.json",
+      "sha256": "f9a324412dad8e9ef53b8e476628bc8ef737c2a7fe015ea4b0622b222e49e090",
+      "size": 622,
+      "mode": 384
+    }
+  },
+  "java_w0_expected_cases_passed": 190,
+  "comparison_executed": false,
+  "performance_evidence": false,
+  "promotion_authorized": false
+}

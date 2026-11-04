@@ -1,0 +1,62 @@
+test_IM01_initialize_pinned (test_sql_image.ImageTests.test_IM01_initialize_pinned) ... ok
+test_IM02_initialize_mismatch (test_sql_image.ImageTests.test_IM02_initialize_mismatch) ... ok
+test_IM03_copy_race (test_sql_image.ImageTests.test_IM03_copy_race) ... ok
+test_IM04_seal_write (test_sql_image.ImageTests.test_IM04_seal_write) ... ok
+test_IM05_seal_grow (test_sql_image.ImageTests.test_IM05_seal_grow) ... ok
+test_IM06_seal_shrink (test_sql_image.ImageTests.test_IM06_seal_shrink) ... ok
+test_IM07_seal_mmap (test_sql_image.ImageTests.test_IM07_seal_mmap) ... ok
+test_IM08_missing_seal (test_sql_image.ImageTests.test_IM08_missing_seal) ... ok
+test_IM09_wrong_size (test_sql_image.ImageTests.test_IM09_wrong_size) ... ok
+test_IM10_closed_fd (test_sql_image.ImageTests.test_IM10_closed_fd) ... ok
+test_IM11_reused_fd (test_sql_image.ImageTests.test_IM11_reused_fd) ... ok
+test_IM12_lifetime_race (test_sql_image.ImageTests.test_IM12_lifetime_race) ... ok
+test_IM13_duplicate_failure (test_sql_image.ImageTests.test_IM13_duplicate_failure) ... ok
+test_IM14_child_inheritance (test_sql_image.ImageTests.test_IM14_child_inheritance) ... ok
+test_IM15_actual_executable (test_sql_image.ImageTests.test_IM15_actual_executable) ... ok
+test_IM16_procfs_missing (test_sql_image.ImageTests.test_IM16_procfs_missing) ... ok
+test_IM17_noexec_policy (test_sql_image.ImageTests.test_IM17_noexec_policy) ... ok
+test_IM18_parser_success (test_sql_image.ImageTests.test_IM18_parser_success) ... ok
+test_IM19_parser_rejection (test_sql_image.ImageTests.test_IM19_parser_rejection) ... ok
+test_IM20_parser_timeout (test_sql_image.ImageTests.test_IM20_parser_timeout) ... ok
+test_IM21_parser_output (test_sql_image.ImageTests.test_IM21_parser_output) ... ok
+test_IM22_exact_cache (test_sql_image.ImageTests.test_IM22_exact_cache) ... ok
+test_IM23_changed_sql (test_sql_image.ImageTests.test_IM23_changed_sql) ... ok
+test_IM24_changed_generation (test_sql_image.ImageTests.test_IM24_changed_generation) ... ok
+test_IM25_cache_provenance (test_sql_image.ImageTests.test_IM25_cache_provenance) ... ok
+test_IM26_cache_bounds (test_sql_image.ImageTests.test_IM26_cache_bounds) ... ok
+test_IM27_disk_replacement_running (test_sql_image.ImageTests.test_IM27_disk_replacement_running) ... ok
+test_IM28_disk_replacement_restart (test_sql_image.ImageTests.test_IM28_disk_replacement_restart) ... ok
+test_IM29_stopped_gate (test_sql_image.ImageTests.test_IM29_stopped_gate) ... ok
+test_IM30_resource_accounting (test_sql_image.ImageTests.test_IM30_resource_accounting) ... ok
+test_IM31_all_existing (test_sql_image.ImageTests.test_IM31_all_existing) ... skipped 'Full existing SQL integration/database suites await authorized promotion; this is unresolved, not PASS'
+test_IM32_full_cli_benchmark (test_sql_image.ImageTests.test_IM32_full_cli_benchmark) ... skipped 'Stable baseline and promoted candidate full CLI benchmark not yet available; unresolved, not PASS'
+test_IM33_trusted_size_missing (test_sql_image.ImageTests.test_IM33_trusted_size_missing) ... ok
+test_IM34_source_nonregular (test_sql_image.ImageTests.test_IM34_source_nonregular) ... ok
+test_IM35_source_oversize (test_sql_image.ImageTests.test_IM35_source_oversize) ... ok
+test_IM36_source_growing (test_sql_image.ImageTests.test_IM36_source_growing) ... ok
+test_IM37_source_truncated (test_sql_image.ImageTests.test_IM37_source_truncated) ... ok
+test_IM38_initializer_deadline (test_sql_image.ImageTests.test_IM38_initializer_deadline) ... ok
+test_IM39_initializer_transfer (test_sql_image.ImageTests.test_IM39_initializer_transfer) ... ok
+test_IM40_source_short_write (test_sql_image.ImageTests.test_IM40_source_short_write) ... ok
+test_IM41_slot_wait_no_fd (test_sql_image.ImageTests.test_IM41_slot_wait_no_fd) ... ok
+test_IM42_hit_fd_cleanup (test_sql_image.ImageTests.test_IM42_hit_fd_cleanup) ... ok
+test_IM43_cancel_fd_cleanup (test_sql_image.ImageTests.test_IM43_cancel_fd_cleanup) ... ok
+test_IM44_launch_failure_cleanup (test_sql_image.ImageTests.test_IM44_launch_failure_cleanup) ... ok
+test_IM45_shutdown_reservations (test_sql_image.ImageTests.test_IM45_shutdown_reservations) ... ok
+test_IM46_numeric_fd_reuse (test_sql_image.ImageTests.test_IM46_numeric_fd_reuse) ... ok
+test_IM47_profile_independent (test_sql_image.ImageTests.test_IM47_profile_independent) ... ok
+test_IM48_commit_independent (test_sql_image.ImageTests.test_IM48_commit_independent) ... ok
+test_IM49_policy_independent (test_sql_image.ImageTests.test_IM49_policy_independent) ... ok
+test_IM50_mapping_independent (test_sql_image.ImageTests.test_IM50_mapping_independent) ... ok
+test_IM51_mapping_alias (test_sql_image.ImageTests.test_IM51_mapping_alias) ... ok
+test_IM52_config_disk_change (test_sql_image.ImageTests.test_IM52_config_disk_change) ... ok
+test_IM53_digest_size_independent (test_sql_image.ImageTests.test_IM53_digest_size_independent) ... ok
+test_IM54_status_snapshot_lifecycle (test_sql_image.ImageTests.test_IM54_status_snapshot_lifecycle) ... ok
+test_IM55_stale_completion_shutdown (test_sql_image.ImageTests.test_IM55_stale_completion_shutdown) ... ok
+test_IM56_noexec_no_fallback (test_sql_image.ImageTests.test_IM56_noexec_no_fallback) ... ok
+test_close_failure_is_infrastructure_and_sticky (test_sql_image.ImageTests.test_close_failure_is_infrastructure_and_sticky) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 5.947s
+
+OK (skipped=2)

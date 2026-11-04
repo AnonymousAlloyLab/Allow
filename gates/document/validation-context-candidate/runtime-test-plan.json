@@ -1,0 +1,190 @@
+{
+  "id": "ALLOW-VALIDATION-CONTEXT-RUNTIME-PLAN-R1",
+  "status": "FINITE_PLAN_NOT_EXECUTED",
+  "required_runtime_checks": 26,
+  "tests": [
+    {
+      "id": "VC01",
+      "name": "Closed private request",
+      "pass_condition": "Accept only protocol1,canonical nonce,operation validationContext and exact {documentId,revision,ids}; reject missing/extra/duplicate keys,unsafe/Boolean/negative/null revisions,malformed IDs,duplicates,unsorted IDs,wrong scalar types,invalid UTF8 and boundary oversizes before SQL/worker.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC02",
+      "name": "Scope and isolation statement order",
+      "pass_condition": "Real proxy-only trace shows BEGIN then exact SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY before every set_config SELECT and any data query; actual transaction_isolation/read_only observations match. All3 transaction-local scope keys applied before table read. Existing mutation/read/ownedIds transactions remain READ COMMITTED.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC03",
+      "name": "SOURCE and empty-ID mandatory authorization",
+      "pass_condition": "SOURCE/absent module/empty set each invokes exactly one validationContext bridge and authorized exact-base read, returning empty inventory with zero history scan. No early return/cache can bypass foreign/missing document or database outage.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC04",
+      "name": "Same-snapshot ordinary case",
+      "pass_condition": "Real authorized revision0/current/older base returns exact document/base,observed head,decoded artifact/source/maps/policy/dependency and requested inventory. Snapshot output matches legacy read/ownedIds with concurrent writes paused. Whole artifact JSON key ordering is not confused with exact source bytes.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC05",
+      "name": "Missing base and foreign scope",
+      "pass_condition": "Missing document,foreign principal/workspace,wrong document and absent/future revision yield no artifact or inventory; no worker launched. Same document UUID under a foreign test scope cannot disclose existence. Distinct logicalLaunch in same authorized scope does not partition document history.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC06",
+      "name": "Concurrent commit after snapshot setup",
+      "pass_condition": "Barrier immediately after first scope SELECT fixes snapshot; another authorized connection commits new revision and new ID. Resume context: old head/history inventory together,exact historical base unchanged,new ID absent. New separate request sees new head/ID. Every connection uses SQLeanParser.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC07",
+      "name": "Concurrent commit between base and inventory",
+      "pass_condition": "Barrier after _read before history scan; concurrent committed addition remains excluded from both observed head and inventory. Future requested base committed after snapshot still fails the first call and succeeds only in a new request. No second transaction lookup of missing IDs.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC08",
+      "name": "Commit before snapshot and immutable history",
+      "pass_condition": "Commit completed before snapshot appears in both head and ownership map. Requested base older than head remains exact. IDs added after base but before snapshot are included. Concurrent append cannot alter returned historical source/maps.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC09",
+      "name": "Requested-only inventory and kind coverage",
+      "pass_condition": "All8 kinds across signatures,fields,predicates,facts,assertions,commands,parameters,quantifier binders and expressions map exactly. Repeated same-kind historical definitions collapse; arbitrary reference/name strings alone grant nothing; unrequested and foreign IDs absent; TEXT_ONLY contributes empty definitions.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC10",
+      "name": "Collision detection scans complete history",
+      "pass_condition": "Requested ID with different kinds in later artifact fails entire context even if every wanted ID was found earlier. No early termination,partial map,last-write overwrite or ignored malformed artifact. Unrequested conflicting IDs retain existing collect_ids behavior and are not newly used as authority.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC11",
+      "name": "Java strict context response",
+      "pass_condition": "Injected OK replies with foreign document/base,head<base,unsafe head,extra/missing fields,nonobject/malformed artifact,unknown/foreign inventory key,unknown/nontext kind or wrong nonce/protocol fail before worker. Artifact exact outer shape checked; fresh validator retains semantic responsibility.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC12",
+      "name": "Full combined response limits",
+      "pass_condition": "Construct artifact/inventory/nonce envelopes at and around1,572,864-byte CLI boundary and private2MiB worker boundary. Capture includes newline; oversized combined result emits bounded UNAVAILABLE,never partial/truncated OK. Public1MiB and diagnostic64/32KiB limits unchanged.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC13",
+      "name": "Request/ID limits",
+      "pass_condition": "Test4096 versus4097 IDs,256KiB encoded args boundary including revision,public256KiB body,nesting and scalar limits. Candidate traversal deduplicates/sorts exactly the preexisting server-prefixed textual values; source/labels are not authority. No unbounded queue/memory increase.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC14",
+      "name": "Proxy/database failures",
+      "pass_condition": "Stop parser,deny parser,break proxy/auth,raise SQL/decode/transaction-exit errors and interrupt bridge at each stage. No direct PostgreSQL fallback,no partial context,no worker start, no UNKNOWN_COMMIT_OUTCOME for read-only context. Existing mutator uncertainty tests unchanged.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC15",
+      "name": "Transaction closes before worker",
+      "pass_condition": "Instrument owned connection/bridge process and worker spawn: successful COMMIT/connection close and bridge exit precede launch; failure/timeout/cancel reaps child before permit release. No SQL transaction,live cursor or connection survives into Alloy execution.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC16",
+      "name": "Fresh worker and build fences",
+      "pass_condition": "Every successful advisory context spawns a new isolated validator PID with same launch flags/resources,full current BuildIdentity and pinned Alloy checks. Build mutation denies; no worker cache/outcome reuse/JIT flag/image/classloader/session change. Reuse existing relevant worker boundary tests.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC17",
+      "name": "Fresh whole-module ownership/type behavior",
+      "pass_condition": "Existing constructor/differential fixtures and real BLOCK/SOURCE HTTP cases retain status,exactsource,nominal types/ordered schemas,diagnostics and source maps. Foreign/missing/wrong-kind IDs still rejected by fresh worker. Invalid cached client flags never authorize.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC18",
+      "name": "Nonmutation and repeated reads",
+      "pass_condition": "Compare exact head/history/receipts/admissions/quota counters before/after valid,invalid,missing,timeout,cancel and repeated context calls. No changes. Repeated call may update observed head/map after a legitimate separate commit; it is not receipt replay and creates no idempotency artifact.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC19",
+      "name": "Full quota and memory/resource profile",
+      "pass_condition": "Read succeeds at logical quota exhaustion when data/physical resources fit. Profile large permitted retained history up to4096 revisions/256MiB accounted bytes,report actual cursor buffering/peakRSS/AS versus payload; retain2GiBAS,20CPU,20sbridge caps. Resource exhaustion is availability,never partial map or false bounded-RSS claim.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC20",
+      "name": "Public identity and stale response",
+      "pass_condition": "Original exact HTTP bytes retain requestHash/draftId/epoch/base/sourceHash binding. Private headObserved never updates browser accepted state or CAS. Existing delayed-response/stale-draft rejection and source/blocks exact-source cases pass.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC21",
+      "name": "Unaffected durability and solver paths",
+      "pass_condition": "Existing document realSQL/HTTP smoke/restart/recovery/receipt-byte-equality/owner-nonce/CAS/accepted-solver selection regressions pass without skips; mutation transaction isolation/order and fresh recovery evidence unchanged.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC22",
+      "name": "All SQL routing coverage",
+      "pass_condition": "Existing actual wire/proxy tests and client-tag routing manifest include validationContext BEGIN/mode/scope/read/history/COMMIT path; every query goes through pinned SQLeanParser. No new parser allowlist or direct-connection exception.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC23",
+      "name": "Clean Code and encapsulation",
+      "pass_condition": "Full standing Java/JS/TS style verifier passes0violations: meaningful full Javadoc/JSDoc on all callables,<=30physical lines,encapsulated state. No frontend change unless separately justified/reviewed.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC24",
+      "name": "Unchanged HTTP performance benchmark",
+      "pass_condition": "Freeze active sources/compiledassets/config/fixtures/verifiers; same500nodes100warmup+1000measured realHTTP requests,report all failures and p50/p95/p99. Strict p95<300ms remains target; keep failure if missed. Compare raw baseline to candidate,do not subtract components or claim stage saves80ms without measurement.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC25",
+      "name": "Finite exact formal closure",
+      "pass_condition": "Registered verifier checks287 inherited and22candidate exact actual #check types,allowed axioms,nonvacuous witness,all input hashes/review pins and2isolated clean builds. Compare deterministic inventories/artifacts/provenance. No universal Java/PostgreSQL/Alloy refinement claim.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    },
+    {
+      "id": "VC26",
+      "name": "Browser evidence handling",
+      "pass_condition": "Unchanged frontend/assets retain prior browser evidence bound to its actual inputs. If installed build/static identity changes, regenerate required binding/capture under existing frozen browser protocol. Browser/manual accessibility/cold-series gaps remain separate,never inferred from API performance.",
+      "status": "PLANNED",
+      "failure": "BLOCKED"
+    }
+  ],
+  "interpretation": "Runtime checks must be implemented/registered and bound to frozen inputs before acceptance. Performance gate is independent and remains FAIL if unchanged threshold is missed; a finite model proof does not discharge SQL/Java/Alloy refinement."
+}

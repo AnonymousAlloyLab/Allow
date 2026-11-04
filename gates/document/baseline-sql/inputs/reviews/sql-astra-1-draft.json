@@ -1,0 +1,170 @@
+{
+  "reviewer": "astra-1",
+  "seat": "sql-astra-1",
+  "review_type": "DRAFT_DESIGN_COUNCIL",
+  "decision": "REVISE_BEFORE_FINAL_HASH_APPROVAL",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 1,
+  "spec_sha256": "78ab8df15a530a396b2effaa42bf9a7e2d71a647011ec28dfd64029733e6ddef",
+  "read_only_review": true,
+  "production_edits": false,
+  "findings": [
+    {
+      "id": "ASTRA1-01",
+      "severity": "high",
+      "title": "Proof-first obligations are not frozen",
+      "evidence": [
+        "spec/sql-stage.json: formal_obligations is empty",
+        "spec/sql-stage.json: sequence requires proof before implementation"
+      ],
+      "risk": "An unspecified policy model can be proved while omitting the actual admission/state invariants. Draft cannot receive final design approval.",
+      "required_change": "Freeze obligations for exact bytes/parser identity/profile, deny witnesses for malformed/mismatched/failed results, connection-local prepared/portal provenance, close/reset invalidation, rejected-query non-forwarding, and cache identity/policy separation; map each to a theorem and nonvacuous accepted and denied traces. Keep protocol/subprocess/network implementation outside the theorem claim."
+    },
+    {
+      "id": "ASTRA1-02",
+      "severity": "high",
+      "title": "Ordinary DSN paths can bypass a rewritten credential file",
+      "evidence": [
+        "retrieval/allow_retrieval/database.py:20-41 accepts arbitrary ALLOW_RETRIEVAL[_ADMIN]_DSN and explicit Repository dsn",
+        "scripts/bootstrap_corpus.py:149 hardcodes original socket; start() enables 127.0.0.1 TCP",
+        "scripts/retrieval_recovery_test.py:25-32 creates derived DSNs and direct psycopg connections"
+      ],
+      "risk": "Rewriting database.json alone leaves existing supported application configuration and bootstrap paths capable of direct execution. This is not solely a hostile host-administrator bypass.",
+      "required_change": "Validate canonical host/socket/port for environment and explicit DSNs at shared connection helpers; disallow hostaddr, host lists, service files and libpq fallback that escape the owned proxy. Refactor bootstrap to proxy endpoint. Disable backend TCP if unnecessary. Exercise rejected direct override and preserve recovery dbname substitution."
+    },
+    {
+      "id": "ASTRA1-03",
+      "severity": "high",
+      "title": "Top-level statementFamilies is insufficient for opaque SQL policy",
+      "evidence": [
+        "SQLean/PostgresGrammar/Report.lean deliberately stops at outer stmt",
+        "Executed existing parser on EXPLAIN EXECUTE x; => grammar-accepted, statementFamilies=[ExplainStmt]",
+        "Executed CREATE PROCEDURE p() LANGUAGE SQL AS $$ SELECT 1 $$; => CreateFunctionStmt"
+      ],
+      "risk": "A denylist using only top-level statementFamilies misses nested forbidden grammar constructs and may miss procedures if expecting a separate procedure family.",
+      "required_change": "Pin an exhaustive forbidden-production/nonterminal policy derived from the complete productionIds report, or a deliberately conservative token policy with tested allowances. Cover EXPLAIN EXECUTE, PREPARE TRANSACTION distinction, functions/procedures, DO, multi-statement combinations, comments/quoted identifiers/string literals. Do not classify by regex/substring alone. Fail closed on unknown metadata."
+    },
+    {
+      "id": "ASTRA1-04",
+      "severity": "medium",
+      "title": "Prepared/portal state needs explicit success and lifetime semantics",
+      "evidence": [
+        "spec/sql-stage.json: protocol.state only names Close and unnamed Simple Query invalidation",
+        "PostgreSQL 16 protocol-flow: named portals end at transaction completion; errors discard extended messages until Sync"
+      ],
+      "risk": "Optimistic local maps can diverge from backend objects after failed Parse/Bind, duplicate names, transaction end, DISCARD ALL or deallocation. A conservative superset may preserve admission provenance but cannot claim exact server-object correspondence.",
+      "required_change": "Choose and state either backend-confirmed state or conservative provenance with explicit overapproximation theorem. Track statement generations so replacing unnamed statement does not retarget existing bound portals. Test pipelined failures, same-name Parse failures, close/rebind, unnamed Q resets, transaction completion and suspended portals. Permit harmless backend rejection without claiming execution success."
+    },
+    {
+      "id": "ASTRA1-05",
+      "severity": "medium",
+      "title": "COPY exemption must be phase-specific and cancellation must survive saturation",
+      "evidence": [
+        "spec/sql-stage.json: treats Bind/COPY bytes as data and bounds sessions at20",
+        "PostgreSQL 16 protocol-flow: CancelRequest uses a separate connection and no reply"
+      ],
+      "risk": "A message-type-only forwarding loop can accept COPY frames outside a backend COPY exchange or block cancel when all ordinary session/parser slots are occupied. Startup/authentication messages also need phase restrictions.",
+      "required_change": "Define startup/authentication/normal/COPY phases and allowed frontend message types; reject replication startup and unsupported COPY BOTH. Validate cancel fixed length, own backend endpoint and active BackendKeyData scope; reserve a bounded cancellation path independent of parser slots, do not log keys, and test cancellation during long query and full sessions."
+    },
+    {
+      "id": "ASTRA1-06",
+      "severity": "high",
+      "title": "Resource limits omit concurrency values and slow-client bounds",
+      "evidence": [
+        "spec/sql-stage.json: parser_memory_mib=1024,connections=20,parser concurrency required but no value",
+        "spec/sql-stage.json: startup/SQL size bounds but no socket read/write or startup deadline"
+      ],
+      "risk": "Twenty concurrent parsers can consume up to20GiB; slow/truncated startup or frames can retain every connection indefinitely. communicate()-then-check-output-size is not an actual memory/output bound.",
+      "required_change": "Freeze parser worker count, queue/queue timeout, per-stage read/write deadlines, bounded backend forwarding buffers and aggregate memory budget. Enforce response limit while streaming stdout/stderr and kill/reap process groups on limit/timeout/disconnect. Test allocation before declared-length checks, slow fragmented frames, oversized report and parser crash."
+    },
+    {
+      "id": "ASTRA1-07",
+      "severity": "medium",
+      "title": "Strict UTF-8 checking needs a defined PostgreSQL lexical environment",
+      "evidence": [
+        "spec/sql-stage.json admission decodes strict UTF-8; startup parameters are forwarded",
+        "SQLean/PostgresGrammar.lean parse takes only source and fuel, no client encoding/session lexical flags"
+      ],
+      "risk": "Startup options or SET/client set_config can change client_encoding or string-literal interpretation while proxy continues parsing a fixed UTF-8/default lexical profile. Exact bytes alone do not establish lexical correspondence or robust forbidden-statement detection.",
+      "required_change": "Freeze supported client_encoding=UTF8 and standard_conforming_strings semantics, reject incompatible startup settings, and monitor backend ParameterStatus changes; either deny lexical-mode changes or explicitly model them. Add escaped strings and Unicode differential cases. Do not expand claims into PostgreSQL semantic equivalence."
+    },
+    {
+      "id": "ASTRA1-08",
+      "severity": "high",
+      "title": "Aggregate counters do not establish all-query coverage",
+      "evidence": [
+        "spec/sql-stage.json integration.coverage_check asks aggregate acceptance counters increase",
+        "scripts/retrieval_recovery_test.py runs real pg_dump/pg_restore but currently no routing attribution"
+      ],
+      "risk": "One accepted readiness SELECT can make an integration counter increase while important queries bypass the proxy. SQL strings accepted by parser but exceeding runtime limits can silently leave recovery unsupported if test scope is reduced.",
+      "required_change": "Run isolated tagged client sessions for bootstrap, implicit BEGIN/COMMIT, application, pg_dump and pg_restore and assert path-specific Q/P/Execute/COPY accounting with no direct endpoint in runtime config. Include real catalog dump and COPY restore with opaque SQL-looking field values, fresh DB creation and upgrade, and parser outage/tamper denial. Record counts/types/identities without raw SQL or sensitive hashes."
+    },
+    {
+      "id": "ASTRA1-09",
+      "severity": "high",
+      "title": "Migration rewrite must repair partial prior state, not merely split DO",
+      "evidence": [
+        "db/migrations/004_retrieval.sql batches two constraints under only run_query_member_identity existence",
+        "scripts/bootstrap_corpus.py migrate executes whole file through psql without explicit one-transaction option",
+        "scripts/retrieval_recovery_test.py runs migration directly via execute(read_text())"
+      ],
+      "risk": "Partial old migrations or a new per-statement rewrite can retain missing membership_own_query when its paired UNIQUE constraint already exists. Different bootstrap/recovery migration entry points may diverge.",
+      "required_change": "Use one shared migration helper, explicit transaction where legal, independently inspect each expected table/policy/constraint using relation and definition identity rather than name alone, and fail on incompatible existing objects. Exercise fresh, existing, interrupted, rerun and paired-constraint-partial fixtures; compare catalog security invariants and preexisting corpus/vector/journal preservation."
+    },
+    {
+      "id": "ASTRA1-10",
+      "severity": "medium",
+      "title": "Runtime parser identity and report parsing need concrete rejection rules",
+      "evidence": [
+        "Report.lean emits JSON rather than independently serialized proof",
+        "PostgresGrammarMain.lean supports stdin or JSONL and includes original sql/tokens in successful response"
+      ],
+      "risk": "Path hashing followed by exec has replacement races; cached successes can survive executable mutation if identity is checked only at startup. Default JSON parsers accept duplicate keys. argv SQL exposes password-bearing bootstrap commands to process listing.",
+      "required_change": "Use stdin only, never SQL argv; strict UTF-8/JSON with duplicate-key rejection, expected single response/no trailing output, exit code and all required fields. Ensure immutable owned binary deployment or identity revalidation with a defined race assumption before cache use and spawn. Test changed executable with a warm cache. Prevent parser stdout/stderr from entering logs and sanitize proxy errors."
+    },
+    {
+      "id": "ASTRA1-11",
+      "severity": "medium",
+      "title": "Extension and server-side execution trust must be finite",
+      "evidence": [
+        "spec/sql-stage.json trusts existing reviewed pgvector implementation",
+        "Grammar acceptance alone permits SQL calling installed user routines or installing other extensions under admin credentials"
+      ],
+      "risk": "A blanket engine-internal exemption could swallow new executable bodies or dynamic SQL in unreviewed routines, undermining opaque-body elimination claims.",
+      "required_change": "Inventory existing non-extension function/procedure/trigger/rule bodies and trusted extension versions; restrict trust exemption to pinned reviewed pgvector installation. Define treatment of CALL, user-defined function invocation, CREATE EXTENSION, LOAD and COPY PROGRAM. This is a scope/policy decision, not an assertion that grammar acceptance proves SQL authorization."
+    },
+    {
+      "id": "ASTRA1-12",
+      "severity": "medium",
+      "title": "Commercial rights remain unresolved for SQLean-authored source",
+      "evidence": [
+        "Read SQLeanParser root directory: no root LICENSE or NOTICE file present",
+        "SQLeanParser fixtures contain many third-party LICENSE/NOTICE files with heterogeneous terms",
+        "spec/sql-stage.json authorization correctly limits to local build/use"
+      ],
+      "risk": "A whole-repository snapshot may package unrelated corpora and notices; upstream PostgreSQL grammar license does not itself establish rights in all SQLean-authored code.",
+      "required_change": "Keep local-use authorization and explicit commercial/redistribution status UNKNOWN. Record source provenance, missing root license and third-party dependency notices without legal clearance claims; snapshot only necessary build source/toolchain metadata, excluding SQL fixture corpora from distributable runtime artifacts. Obtain rights separately before distribution."
+    }
+  ],
+  "positive_assessments": [
+    "Wire Q/P interception covers implicit driver SQL and libpq tooling more completely than a Python execute wrapper.",
+    "Exact-source acceptance and explicit grammar-versus-execution limits match SQLean public API.",
+    "Fail-close connection termination correctly avoids replay and does not falsely roll back earlier committed statements.",
+    "Local build/use and commercial redistribution rights are explicitly distinguished."
+  ],
+  "sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html",
+    "https://www.postgresql.org/docs/16/protocol-message-formats.html"
+  ],
+  "verification_performed": [
+    "Read draft1, Report.lean, PostgresGrammar.lean, CLI main, database connection layer, bootstrap, full migration and recovery test.",
+    "Read existing local parser output for EXPLAIN EXECUTE, CREATE FUNCTION, CREATE PROCEDURE, PREPARE/EXECUTE and a harmless string literal; no database mutation.",
+    "Checked SQLeanParser root license-file absence and pinned toolchain/lake targets."
+  ],
+  "limits": [
+    "No implementation exists under review; these are design requirements and test recommendations, not proven runtime defects in a future proxy.",
+    "Did not execute database tests, rebuild Lean, independently verify generated grammar correspondence, or determine legal rights.",
+    "Review only approves no final revision; parent must request approval for reconciled exact hash.",
+    "spec/sql-stage.json changed concurrently during the review; all findings bind the initially read revision1 hash above, not the newer on-disk revision."
+  ]
+}

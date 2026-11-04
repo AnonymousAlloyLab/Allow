@@ -1,0 +1,137 @@
+{
+  "files": [
+    {
+      "path": "old-state/.runtime/documents/identity.json",
+      "sha256": "0d4c7db65462855e58cf66682139438a73cdfad565d9976c4bb064ce75e43a51"
+    },
+    {
+      "path": "old-state/.runtime/launch.url",
+      "sha256": "8c4f2c71e405535f0f7c6e2dc4565a39a3dadbed2ba599a8fe471b47c72b819f"
+    },
+    {
+      "path": "old-state/.runtime/corpus/database.json",
+      "sha256": "b16e09f36b701ba2da4b7c5b9f05770166dea19e0a8bae92da6fe2c8846d01f0"
+    },
+    {
+      "path": "old-state/.runtime/corpus/journal/revocations.jsonl",
+      "sha256": "bdc39aa8c1190851f8cbe9c125c1272290b62b120995a78127d563022a3ec3c4"
+    },
+    {
+      "path": "old-state/.runtime/corpus/journal/journal.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "old-state/.runtime/corpus/sql-proxy/status.json",
+      "sha256": "7cc0988ec729821c1747fabe219f755f4155e2baa7c3fadfd8d77ce90843b80c"
+    },
+    {
+      "path": "old-state/.runtime/corpus/sql-proxy/owner.json",
+      "sha256": "1777df22a41994d8539790dd59b63f16d511e5c29a4fa3d9c64a5ab53f89049d"
+    },
+    {
+      "path": "old-state/.runtime/corpus/sql-proxy/proxy.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "old-state/.runtime/corpus/sql-proxy/ready.json",
+      "sha256": "1a0b20b270673557b44dc23a31fcc2885f92bd5998928e648927d11ece904e6b"
+    },
+    {
+      "path": "old-loaded-proxy-source/config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    {
+      "path": "old-loaded-proxy-source/retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98"
+    },
+    {
+      "path": "old-loaded-proxy-source/retrieval/allow_retrieval/sql_image.py",
+      "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5"
+    },
+    {
+      "path": "old-loaded-proxy-source/retrieval/allow_retrieval/sql_image_config.py",
+      "sha256": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d"
+    },
+    {
+      "path": "old-loaded-proxy-source/retrieval/allow_retrieval/sql_image_init.py",
+      "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115"
+    },
+    {
+      "path": "old-loaded-proxy-source/retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0"
+    }
+  ],
+  "observed_services": {
+    "spring": {
+      "pid": 921163,
+      "identity": {
+        "start_ticks": "3659423",
+        "command": [
+          "java",
+          "-cp",
+          "target/classes:target/dependency/*",
+          "dev.allow.backend.AllowApplication",
+          "--server.port=18080",
+          "--server.address=127.0.0.1",
+          "--debug=false",
+          "--trace=false",
+          "--logging.level.root=WARN",
+          "--logging.level.org.springframework=WARN",
+          "--allow.corpus.root=/home/augustus/Allow"
+        ]
+      },
+      "cwd": "/home/augustus/Allow/backend",
+      "parent_pid": 921162,
+      "exe": "/usr/lib/jvm/java-17-openjdk-amd64/bin/java"
+    },
+    "proxy": {
+      "pid": 826907,
+      "owner_identity_matches": true,
+      "identity": {
+        "start_ticks": "3288589",
+        "command": [
+          "/usr/bin/python3",
+          "-m",
+          "allow_retrieval.sql_proxy",
+          "--backend",
+          "/home/augustus/Allow/.runtime/corpus/postgres/socket/.s.PGSQL.54329",
+          "--listen",
+          "/home/augustus/Allow/.runtime/corpus/sql-proxy/socket/.s.PGSQL.54329",
+          "--status",
+          "/home/augustus/Allow/.runtime/corpus/sql-proxy/status.json",
+          "--ready",
+          "/home/augustus/Allow/.runtime/corpus/sql-proxy/ready.json"
+        ]
+      },
+      "policy": "sql-routing-v7-sealed-image",
+      "context_control_exists": false,
+      "context_journal_exists": false
+    },
+    "postgres": {
+      "pid": 378655,
+      "identity": {
+        "start_ticks": "1653643",
+        "command": [
+          "/home/augustus/Allow/.tools/retrieval/postgres/bin/postgres",
+          "-D",
+          "/home/augustus/Allow/.runtime/corpus/postgres/data",
+          "-p",
+          "54329",
+          "-k",
+          "/home/augustus/Allow/.runtime/corpus/postgres/socket",
+          "-h",
+          "-c",
+          "max_connections=20",
+          "-c",
+          "shared_buffers=64MB",
+          "-c",
+          "unix_socket_permissions=0700",
+          "-c",
+          "standard_conforming_strings=on",
+          "-c",
+          "max_prepared_transactions=0"
+        ]
+      }
+    }
+  }
+}

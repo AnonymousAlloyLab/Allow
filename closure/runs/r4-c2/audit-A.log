@@ -1,0 +1,84 @@
+Allow.infer_sound {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty} (h : Allow.inferType Γ e = some t) :
+  Allow.HasType Γ e t
+'Allow.infer_sound' depends on axioms: [propext]
+Allow.typed_hole_free {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty} (h : Allow.HasType Γ e t) : Allow.HoleFree e
+'Allow.typed_hole_free' depends on axioms: [propext]
+Allow.checkSlot_sound {Γ : List Allow.Ty} {t : Allow.Ty} {e : Allow.Raw} (h : Allow.checkSlot Γ t e = true) :
+  Allow.HasType Γ e t
+'Allow.checkSlot_sound' depends on axioms: [propext]
+Allow.reject_preserves (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw)
+  (h : ¬(base = s.revision ∧ Allow.checkSlot Γ Allow.Ty.formula e = true)) : Allow.commit s base Γ e = s
+'Allow.reject_preserves' depends on axioms: [propext]
+Allow.commit_preserves (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw) (valid : s.Valid) :
+  (Allow.commit s base Γ e).Valid
+'Allow.commit_preserves' depends on axioms: [propext]
+Allow.commit_revision (s : Allow.State) (Γ : List Allow.Ty) (e : Allow.Raw)
+  (h : Allow.checkSlot Γ Allow.Ty.formula e = true) : (Allow.commit s s.revision Γ e).revision = s.revision + 1
+'Allow.commit_revision' depends on axioms: [propext]
+Allow.visible_is_current {p : Allow.Presentation} {e : Allow.Evidence} (h : Allow.visible p e = true) :
+  e.key = p.key ∧ e.epoch = p.epoch ∧ p.draftHash = p.key.sourceHash
+'Allow.visible_is_current' depends on axioms: [propext]
+Allow.canonical_eq_iff {n : Nat} (a b : Allow.Formula n) :
+  Allow.canonical a = Allow.canonical b ↔ ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b
+'Allow.canonical_eq_iff' depends on axioms: [propext, Quot.sound]
+Allow.certificate_sound {n✝ : Nat} {a b : Allow.Formula n✝} (h : Allow.Certificate a b) (v : Fin n✝ → Bool) :
+  Allow.eval v a = Allow.eval v b
+'Allow.certificate_sound' depends on axioms: [propext]
+Allow.certified_merge_canonical {n✝ : Nat} {a b : Allow.ContextualFormula n✝} (h : Allow.CertifiedMerge a b) :
+  Allow.canonicalKey a = Allow.canonicalKey b
+'Allow.certified_merge_canonical' depends on axioms: [propext, Quot.sound]
+Allow.no_unbounded_claim (k : Allow.CommandKind) (s : Allow.SolverStatus) :
+  Allow.report k s ≠ Allow.Conclusion.unboundedValidity
+'Allow.no_unbounded_claim' depends on axioms: [propext]
+Allow.unknown_is_not_unsat (k : Allow.CommandKind) (s : Allow.SolverStatus)
+  (h :
+    s = Allow.SolverStatus.UNKNOWN ∨
+      s = Allow.SolverStatus.TIMEOUT ∨ s = Allow.SolverStatus.CANCELLED ∨ s = Allow.SolverStatus.ERROR) :
+  ¬Allow.Absence (Allow.report k s)
+'Allow.unknown_is_not_unsat' depends on axioms: [propext]
+Allow.retrieval_is_authorized {s : Allow.RetrievalScope} {rows : List Allow.Row} {r : Allow.Row}
+  (h : r ∈ Allow.retrieve s rows) : r.scope = s ∧ r.deleted = false ∧ r.permitted = true
+'Allow.retrieval_is_authorized' depends on axioms: [propext]
+Allow.pair_admission_bound {target : Allow.TargetContext} {pool : Allow.Polarity} {run : Allow.Run} {w : Allow.Witness}
+  (h : Allow.admitPair target pool run w = true) :
+  run.query.target = target ∧
+    run.query.polarity = pool ∧ w.ownQuery = run.query ∧ run.status = Allow.SolverStatus.SAT ∧ w.validated = true
+'Allow.pair_admission_bound' depends on axioms: [propext]
+Allow.contract_has_witness : ∃ c, c = Allow.generatedKernel ∧ Allow.Coherent c
+'Allow.contract_has_witness' does not depend on any axioms
+Allow.empty_domain_counterexample : ((∃ x, True) ∨ True) ∧ ¬∃ x, True ∨ True
+'Allow.empty_domain_counterexample' does not depend on any axioms
+Allow.canonical_idempotent {n : Nat} (t : Allow.Table n) : Allow.tabulate n (Allow.lookup t) = t
+'Allow.canonical_idempotent' depends on axioms: [propext, Quot.sound]
+Allow.distinct_inventories_distinct_keys {n : Nat} (a b : Allow.ContextualFormula n) (h : a.inventory ≠ b.inventory) :
+  Allow.canonicalKey a ≠ Allow.canonicalKey b
+'Allow.distinct_inventories_distinct_keys' depends on axioms: [propext]
+Allow.edit_hides_old (p : Allow.Presentation) (e : Allow.Evidence) (draft : String) (h : e.epoch = p.epoch) :
+  Allow.visible (Allow.edit p draft) e = false
+'Allow.edit_hides_old' depends on axioms: [propext, Classical.choice, Quot.sound]
+Allow.accepted_formula_witness :
+  Allow.inferType [] (Allow.Raw.existsRel 7 (Allow.Raw.ref 0).someRel) = some Allow.Ty.formula
+'Allow.accepted_formula_witness' depends on axioms: [propext]
+Allow.rejected_bad_drop_witness :
+  Allow.inferType [Allow.Ty.relation 7 []] ((Allow.Raw.ref 0).and Allow.Raw.truth) = none
+'Allow.rejected_bad_drop_witness' depends on axioms: [propext]
+Allow.accepted_commit_witness :
+  (Allow.commit { context := [], body := Allow.Raw.truth, revision := 0 } 0 [] Allow.Raw.truth.not).revision = 1
+'Allow.accepted_commit_witness' depends on axioms: [propext]
+Allow.visible_evidence_witness :
+  Allow.visible { key := Allow.sampleKey, epoch := 4, draftHash := "source" } { key := Allow.sampleKey, epoch := 4 } =
+    true
+'Allow.visible_evidence_witness' does not depend on any axioms
+Allow.admitted_pools_witness :
+  Allow.admitPair Allow.sampleTarget Allow.Polarity.positive
+        { query := Allow.positiveQuery, status := Allow.SolverStatus.SAT }
+        { ownQuery := Allow.positiveQuery, fullInstanceHash := "instanceA", validated := true } =
+      true ∧
+    Allow.admitPair Allow.sampleTarget Allow.Polarity.negative
+          { query := Allow.negativeQuery, status := Allow.SolverStatus.SAT }
+          { ownQuery := Allow.negativeQuery, fullInstanceHash := "instanceB", validated := true } =
+        true ∧
+      Allow.positiveQuery ≠ Allow.negativeQuery
+'Allow.admitted_pools_witness' does not depend on any axioms
+Allow.nontrivial_canonical_witness : Allow.canonical Allow.Formula.truth ≠ Allow.canonical Allow.Formula.falsity
+'Allow.nontrivial_canonical_witness' depends on axioms: [propext]

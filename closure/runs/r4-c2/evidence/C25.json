@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-spec-2026-11-03-r4-c2",
+  "claim_id": "C25",
+  "input_root_hash": "91aae6b0b498cd327a0145a9701029a4c3c3c79825a109ee03524c8ed2a9a57d",
+  "verifier_id": "V-ALLOW-SPEC",
+  "verifier_hash": "eddf3255d06a0c65efc0caff5ca45b72ff3a17052eb2d8391b8feec3dbac8a76",
+  "execution_environment": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "jsonschema": "4.17.3",
+    "toolchain": "leanprover/lean4:v4.34.1"
+  },
+  "raw_result": {
+    "report_count": 6,
+    "model_dispatches": {
+      "terra-1": "gpt-6.1-terra",
+      "terra-2": "gpt-6.1-terra",
+      "sol-1": "gpt-6.1-sol",
+      "sol-2": "gpt-6.1-sol",
+      "astra-1": "gpt-6-astra",
+      "astra-2": "gpt-6-astra"
+    },
+    "runtime_backend_identity": "Not independently attested",
+    "classification": "CHECKED_REVIEW_RECORDS_NOT_PROOF_EVIDENCE"
+  },
+  "exit_code": 0,
+  "status": "PASS"
+}

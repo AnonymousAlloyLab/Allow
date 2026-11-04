@@ -1,0 +1,86 @@
+{
+  "claim_id": "CC11",
+  "subcase": "wall-after-decode",
+  "status": "PASS",
+  "scope": "Python context mechanism only; Java/worker path not exercised",
+  "run_id": "r6",
+  "input_root_sha256": "281425ac67e1e59c667747b8b3f27155f4eea6d545e3b9360bdcb73bc0f58859",
+  "verifier_id": "INITIAL-CONTEXT-MECHANISMS",
+  "verifier_sha256": "a378b72748066bc1b391f67d5d927fcb8d1a964f70c4cc0c8cf0a5b682c84bcb",
+  "expected_predicate": "Barrier held3300ms, no successful output, backend absent or lease retained, durable hashes unchanged. Phase must be actually reached. This tests late-publication suppression; distinguishing wall retirement from earlier1000ms idle timeout needs separate future instrumentation and is not claimed.",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 3400.794718,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-nyhmu1lw/.tools/retrieval-venv/bin/python",
+      "/tmp/allow-cc-nyhmu1lw/.gate/probe_child.py",
+      "--directory",
+      "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r6/wall-after-decode",
+      "--barrier"
+    ],
+    "fixture_sha256": "47e43fcd2780b26055409392d2debe00841be8bfaaaca01c5e9657f0d0612c96",
+    "stdout_sha256": "4cdb1015b82a63344cfb6dc6ea60cfe362f2dbce05c64116779f0029c0009811",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62515340400391
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62515342506255
+      },
+      {
+        "phase": "KEYED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62515346675002
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62515348742186
+      },
+      {
+        "phase": "RETIRING",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62516354912175
+      },
+      {
+        "phase": "CLEAN",
+        "failed": true,
+        "successPermitted": false,
+        "monotonic_ns": 62516356980728
+      }
+    ],
+    "injected": {
+      "phase": "history_decoded",
+      "injection": "wall-decode",
+      "monotonic_ns": 62518654400536
+    },
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "sqlstates": [],
+  "context_status_after": {
+    "protocol": 1,
+    "status": "READY",
+    "contextOccupied": false,
+    "observerOccupied": true
+  },
+  "no_success_output": true,
+  "mechanism_predicate": true
+}

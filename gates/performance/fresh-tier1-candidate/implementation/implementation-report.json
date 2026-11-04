@@ -1,0 +1,81 @@
+{
+  "status": "DEVELOPMENT_CHECKS_PASSED",
+  "classification": "JAVA_PLUMBING_AND_FINITE_DEVELOPMENT_TESTS_NOT_RUNTIME_CLOSURE",
+  "source_ready_sha256": "cfe7dc6b02241256939b99ce5a43e49489fae8c25f72147e15770e1ea2b688ed",
+  "safety_claims_sha256": "a922aba8ee7a0c23742fcadabf20eb1661916cde45c1b840f86fd2dcf613ea3d",
+  "production_profile": "DEFAULT",
+  "tests": {
+    "isolated_full_backend": {
+      "tests": 204,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "focused_final_safety": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0
+    },
+    "exact_ten_second_deadline": {
+      "tests": 1,
+      "profiles": 2,
+      "elapsed_ns": {
+        "F0": 10007157186,
+        "F1": 10006895185
+      },
+      "reaped": true
+    },
+    "solver_baseline": {
+      "tests": 2,
+      "profiles": "DEFAULT_ONLY",
+      "elapsed_ns": {
+        "SAT": 553106546,
+        "UNSAT": 569611806
+      },
+      "reaped": true
+    },
+    "recipe_unit": {
+      "tests": 5,
+      "failures": 0
+    }
+  },
+  "style": "MAVEN_CHECKSTYLE_PASS_ALL_PRODUCTION_AND_TEST_JAVA",
+  "logs": [
+    {
+      "path": "gates/performance/fresh-tier1-candidate/implementation/maven-full-build-r1.log",
+      "sha256": "5429bacdae9647d7a75ab2731ed637fc27570c286f7fbbde829ad52f07ec1871",
+      "size": 37178,
+      "mode": 436
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/implementation/maven-exact-deadline-r1.log",
+      "sha256": "b8657acd2554cbacab9590c0ec35741b37059976b56c15257747c29dfdd23bac",
+      "size": 5699,
+      "mode": 436
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/implementation/maven-safety-boundaries-r1.log",
+      "sha256": "b587d2237548a4ab3a4a0bc4679692c0c5cb832e5b89e5d80d9d6ac54d43d9c0",
+      "size": 5538,
+      "mode": 436
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/implementation/maven-solver-baseline-r1.log",
+      "sha256": "109dabd95a409c21e00e15dbb0d89c25c2612786aa616fbc8dd8b7ef19a6d47d",
+      "size": 5710,
+      "mode": 436
+    },
+    {
+      "path": "gates/performance/fresh-tier1-candidate/implementation/recipe-tests-final.log",
+      "sha256": "7764da70367755fce538c59db4206b0e9555a2abd60ebfccaab1ccad307d79cb",
+      "size": 505,
+      "mode": 436
+    }
+  ],
+  "target": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/build-r1/backend/target",
+  "f1_copy_recipe": "gates/performance/fresh-tier1-candidate/runtime-experiments/prepare_f1.py",
+  "recipe_execution": "NOT_EXECUTED_AGAINST_COPIED_INSTALLATION",
+  "performance_benchmarks": "NOT_EXECUTED",
+  "shared_services": "NOT_RESTARTED_OR_RECONFIGURED",
+  "notes": "The final safety/deadline/solver tests were added after the initial fullsuite, then run in focused Maven invocations including Checkstyle. This is not a claim of one208-test full run or registered measured acceptance."
+}

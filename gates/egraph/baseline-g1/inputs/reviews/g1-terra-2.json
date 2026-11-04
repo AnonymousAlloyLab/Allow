@@ -1,0 +1,82 @@
+{
+  "reviewer": "terra-2",
+  "requested_model": "gpt-6.1-terra",
+  "actual_model": "Not independently observable from within agent; requested dispatch identity is not runtime attestation.",
+  "supplement": "spec/implementation-g1.json",
+  "supplement_revision": 2,
+  "supplement_sha256": "d7bf1f8b108ee051f49096e25f5be4cdd46db819358a97373a0a5d85c926b7fe",
+  "formal_sha256": {
+    "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+    "formal/Allow/Foundation.lean": "bae5b0c1b72edc34b40d741598e2380ad360d6521876fe4fd5b9b1c8503b21bf"
+  },
+  "verdict": "CHANGES_REQUIRED_BEFORE_CANONICAL_IMPLEMENTATION",
+  "scope": "Adversarial review of revision 2 supplement and new Lean models; no production implementation was reviewed. A successful existing-tree build is not an isolated clean build or implementation proof.",
+  "findings": [
+    {
+      "id": "G1-T2-01",
+      "severity": "HIGH",
+      "location": "anonymization.canonical_payload, scope_policy and serialization; Slots.Tree",
+      "problem": "The contract requires preservation of semantic declarations, arity, multiplicity and fact context, but does not define a complete, injective supported-node grammar or field/attribute encoding. The generic operator-and-children tree and proofs only distinguish explicitly different nodes; they do not force an adapter to encode an Alloy modifier. For example, `sig A {}` and `one sig A {}` can collapse if a converter emits the same signature node and omits multiplicity. Analogous risks exist for abstract/extends/in, field and binder multiplicities, and disjointness. The listed encoding fixtures cover tags, namespaces, order and arity, but do not explicitly require declaration semantics to differ.",
+      "required_fix": "Before canonicalization or embedding implementation, freeze the supported constructor grammar and complete ordered attributes, including declaration modifiers, types, multiplicity, disjointness and binder domains; classify every Alloy AST form outside it as unsupported. Require paired negative fixtures differing only in each semantic attribute, including singleton versus unconstrained signature and scoped binder cases. Keep serializer injectivity and parser-to-payload correspondence as independent tested obligations."
+    },
+    {
+      "id": "G1-T2-02",
+      "severity": "MEDIUM",
+      "location": "formal_obligations S07; Foundation.cancel_is_not_unsat",
+      "problem": "S07 reads as a property of cancellation, but the model has no cancellation event or cancel operation. The theorem only states that feeding CANCELLED as the result of finish on a running job produces a value unequal to terminal UNSAT. It does not establish that a cancellation request invokes this transition, or model cancellation/completion races or worker termination.",
+      "required_fix": "Either narrow the statement to describe the explicit finish input and reserve cancellation behavior for tests, or define cancellation as a transition and prove its result and late-completion finality. Test the concrete atomic race, process reap, and capacity release separately."
+    },
+    {
+      "id": "G1-T2-03",
+      "severity": "MEDIUM",
+      "location": "formal_obligations S01-S04; Slots.Presented and embedding",
+      "problem": "The noninterference results are definitional projections on a fixed, already resolved payload. They do not constrain how the adapter builds that payload; integer constants, slot allocation, ordering or even an encoding chosen from allowed operator tags could depend on names while satisfying these Lean theorems. The supplement acknowledges the fixed-payload assumption and forbids such dependencies as a test/review gate, so these proofs are not universal source alpha-renaming or confidentiality guarantees.",
+      "required_fix": "Preserve the explicit trust boundary in all reports and use adversarial parser-driven alpha-renaming tests including declaration order, shadowing and same-spelling distinct binders, alongside input-level tests checking identical canonical bytes and embedding inputs. Do not treat metadata-free types alone as proof that names cannot be encoded indirectly."
+    }
+  ],
+  "checks": [
+    {
+      "command": "cd formal && lake build",
+      "result": "exit 0 on existing build tree; not a clean-build attestation"
+    }
+  ],
+  "positive_observations": [
+    "The scope policy requires parser identity, distinct namespaces, binder allocation before body traversal, and rejection of unresolved forms; these provide useful concrete adapter constraints.",
+    "Source and presentation names are separated from the projected anonymous value, and the supplement explicitly limits the Lean proof to a fixed resolved payload.",
+    "The abstract worker admission and terminal policies are precise within their definitions; actual concurrency, sandbox, IO and process management remain separate gates."
+  ],
+  "final_review": {
+    "supplement_revision": 4,
+    "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "slot_profile_sha256": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+    "formal_sha256": {
+      "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+      "formal/Allow/Foundation.lean": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7"
+    },
+    "verdict": "ACCEPT_WITH_EXPLICIT_TRUST_BOUNDARIES",
+    "dispositions": [
+      {
+        "finding": "G1-T2-01",
+        "status": "RESOLVED_AS_SPECIFICATION_GATE",
+        "reason": "The normative slot profile defines ordered structures, operator allowlists, preserved multiplicities and explicit rejection for unsupported modifiers, plus semantic negative pairs. Actual Alloy AST coverage, parser identity, adapter rejection, encoding injectivity and fixtures remain implementation acceptance work."
+      },
+      {
+        "finding": "G1-T2-02",
+        "status": "RESOLVED_IN_ABSTRACT_MODEL",
+        "reason": "An explicit cancel transition is defined and S07 proves cancellation of a running job produces CANCELLED and all later modeled completions preserve it. OS process termination, worker reaping and concurrent race refinement still require concrete tests."
+      },
+      {
+        "finding": "G1-T2-03",
+        "status": "RESOLVED_AS_EXPLICIT_BOUNDARY",
+        "reason": "The supplement continues to confine proofs to fixed resolved payloads and requires parser-based alpha-renaming and negative fixtures. No theorem establishes source-to-slot correspondence or prevents an implementation from covertly encoding names in otherwise allowed scalar or ordering choices."
+      }
+    ],
+    "checks": [
+      {
+        "command": "cd formal && lake build",
+        "result": "exit 0 on existing build tree; this review does not independently attest two clean builds"
+      }
+    ],
+    "limitations": "Acceptance is of the supplement and scoped model, not a proof of production implementation, OS isolation, adapter fidelity, serialization or structural anonymity."
+  }
+}

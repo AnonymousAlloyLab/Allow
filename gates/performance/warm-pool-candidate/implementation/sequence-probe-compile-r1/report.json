@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "SOURCE_READY",
+  "classification": "GATE_ONLY_COMPILE_STYLE_AND_FIVE_COMPONENT_TESTS_NOT_RUNTIME_ACCEPTANCE",
+  "copied_root": "/tmp/allow-warm-sequence-probe-r1-oe8z3vlk",
+  "manifest_sha256": "745a51aaef6573e5ba4882c8a6c9992f51357e8b9b7cd6dd15ff60a037a33851",
+  "copied_inputs_unchanged": true,
+  "java_checkstyle": "PASS",
+  "focused_tests": 5,
+  "failures": 0,
+  "sources": {
+    "backend/src/test/java/dev/allow/backend/WarmPoolProbeMain.java": "afbcfc5af1713be582d8a406b3ec024c408ec164d5b129938f49057b3e4fbe73",
+    "backend/src/test/java/dev/allow/backend/WarmProbeSession.java": "16e6c4ed6363f86a290159d26479b25e660646a594fe63509a07687e497ada5a",
+    "backend/src/test/java/dev/allow/backend/WarmProbeSequence.java": "78e75650ab46ab35565307d7df16f0e36e8bbc738a5ec660393efd8c0b364b54",
+    "backend/src/test/java/dev/allow/backend/WarmSequenceRecords.java": "35da40fd62d59bca611f572f5a767874c768ebc7088397e144fe3b0b8c53015c",
+    "backend/src/test/java/dev/allow/backend/WarmSequenceIdle.java": "e6f7a5394a8a6f9558f4bd2c8077bffb8a8249939214ab566b8d693cb042ed1b"
+  },
+  "compiled_classes": {
+    "backend/target/test-classes/dev/allow/backend/WarmPoolProbeMain.class": "11f7f58142f9cc78d6af81160ccf42468386aba453eb48333fa19ea6406ccce4",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSequence.class": "18491cf04ef7deb51c62dbb5b3d794f669bd7fb86a98546ac91c4920e6b00f3a",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession$Closing.class": "098f914658c20badd779e5b9c612510ff8c2c2e9c054c07f842d7bd81f45c29b",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession$Completion.class": "3532bbd82e73218d151eddef12dd564615b38645bcb278f16b9ac67f175eb69b",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession$FailureNotice.class": "76eee864bc46e21f5ad66544f1765379721f97e598a8198fef3a98881b23b987",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession.class": "6c374501efe615227024d33dddc5bc34a3b2cf487c9ded9ff58acb96dacd87f8",
+    "backend/target/test-classes/dev/allow/backend/WarmSequenceIdle.class": "cdadc06d2d83090a8fb2828feaff9a33b100175178dc789a10219b8efe40b1df",
+    "backend/target/test-classes/dev/allow/backend/WarmSequenceRecords.class": "4f58bd93e22917018242905d70a3ccb71c5fa411b652c695b4ddf3cd4c3a24a2"
+  },
+  "new_class_prefixes": [
+    "WarmProbeSequence",
+    "WarmSequenceRecords",
+    "WarmSequenceIdle"
+  ],
+  "case_ids": [
+    "sequence-refill-aba",
+    "idle-expiry-demand"
+  ],
+  "context_boundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL",
+  "runtime_executed": false,
+  "production_changes_by_this_agent": false,
+  "log_sha256": "cf45b998d33695df9135cd9ec9e4f1dc11132720cab9df7e3c87b0a10bccfe7e"
+}

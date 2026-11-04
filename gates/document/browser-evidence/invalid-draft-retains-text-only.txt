@@ -1,0 +1,121 @@
+- navigation "Workspace sections":
+  - link "Editor":
+    - /url: "#editor"
+  - link "Predicate library":
+    - /url: "#predicate-library"
+  - generic: Local workspace
+- main:
+  - heading "Allow" [level=1]
+  - paragraph: Build an Alloy model with blocks, edit its source, and explore examples.
+  - status: Draft checked. Your saved version is unchanged.
+  - region "Documents":
+    - text: New model name
+    - textbox "New model name": Browser acceptance – typed gates
+    - button "Create model"
+    - text: Your models
+    - combobox "Your models":
+      - option "Choose explicitly" [selected]
+      - option "Authored document integration"
+      - option "Browser acceptance – typed gates"
+      - option "Authored document integration"
+      - option "Authored document integration"
+      - option "Document integration fixture"
+      - option "500-node performance fixture"
+      - option "Authored document integration"
+    - button "Open and discard unsaved changes" [disabled]
+    - button "Refresh"
+  - region "Draft acceptance":
+    - strong: Unsaved changes
+    - button "Check model" [active]
+    - button "Save version"
+    - generic "Save details"
+  - region "Declaration editors":
+    - heading "Declarations" [level=2]
+    - button "Add signature"
+    - button "Add field"
+    - button "Add predicate"
+    - button "Add fact"
+    - button "Add assertion"
+    - button "Add run"
+    - button "Add check"
+  - region "Typed block editor":
+    - heading "Typed blocks" [level=2]
+    - group "Complete expression palette":
+      - generic: Complete expression palette
+      - text: Declaration or in-scope variable
+      - combobox "Declaration or in-scope variable":
+        - option "Choose explicitly" [selected]
+      - text: Quantifier variable name
+      - textbox "Quantifier variable name": variable
+      - paragraph: "Expected destination: select a declaration body"
+      - list "In-scope variables"
+      - button "Signature"
+      - button "Field"
+      - button "Variable"
+      - button "Call predicate"
+      - button "Not"
+      - button "Some tuples"
+      - button "No tuples"
+      - button "Exactly one tuple"
+      - button "At most one tuple"
+      - button "Transpose"
+      - button "And"
+      - button "Or"
+      - button "Implies"
+      - button "If and only if"
+      - button "Equals"
+      - button "Subset"
+      - button "Union"
+      - button "Intersection"
+      - button "Difference"
+      - button "Join"
+      - button "Product"
+      - button "For every variable"
+      - button "For some variable"
+    - button "Copy (Ctrl/Cmd+C)" [disabled]
+    - button "Cut (Ctrl/Cmd+X)" [disabled]
+    - button "Paste (Ctrl/Cmd+V)"
+    - button "Delete selected" [disabled]
+    - paragraph: Drag an existing block to move; Ctrl/Cmd-drag copies. Selection preserves clipboard content identity.
+    - generic "Owned expression forest":
+      - paragraph: Add a predicate, fact or assertion to create a formula root.
+  - region "Source and accepted artifact":
+    - heading "Alloy source" [level=2]
+    - paragraph: Editing source directly.
+    - text: Source
+    - textbox "Source": "sig Person { broken"
+    - button "Resume block editing" [disabled]
+    - group "Explore this model":
+      - generic: Explore this model
+      - text: Command
+      - combobox "Command":
+        - option "Choose explicitly" [selected]
+        - option "run$1"
+      - button "Run analysis" [disabled]
+      - paragraph: Save your changes before analyzing this model.
+    - generic "Saved source and provenance · version 2"
+    - paragraph: Text-only model
+    - generic: "// Browser acceptance 😀 sig Person {} run { some Person } for 3"
+    - generic "Accepted occurrence locations"
+    - paragraph: Artifact server:aae729a6-5451-4fe3-bb55-1e87e2458341; policy document-v1:8c06761b2f47d686a9486519b16981bf2e98a81db8ee308bcb629489b49eec4e; source hash c5ab74327430cd36e80b30706549a9ff8b385710ca62d1221129f3f1e33e9f2c.
+    - generic "Comments and orphan notices"
+  - region "Draft diagnostics":
+    - heading "Specific diagnostics" [level=2]
+    - list:
+      - listitem: Alloy rejected the candidate source.
+  - generic "Version history and provenance"
+  - option "Choose explicitly"
+  - option "Undo" [selected]
+  - option "Redo"
+- complementary "Private predicate retrieval":
+  - region "Predicate corpus":
+    - generic: "04"
+    - heading "Predicate corpus" [level=2]
+    - generic: LOCAL RETRIEVAL
+    - paragraph: Explore anonymous predicates with checked e-graph representatives and both witness polarities.
+    - button "Load corpus"
+    - generic: Query predicate
+    - combobox "Query predicate" [disabled]:
+      - option "Load eligible records" [selected]
+    - button "Find related predicates" [disabled]
+    - status: Browse locally stored predicates and their example pools.

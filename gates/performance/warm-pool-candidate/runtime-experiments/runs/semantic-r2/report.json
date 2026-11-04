@@ -1,0 +1,792 @@
+{
+  "schema": 1,
+  "status": "BLOCKED",
+  "finite_expected_checks": "BLOCKED",
+  "whole190_pairwise_equivalence": "BLOCKED",
+  "classification": "FAILED_REGISTERED_RUNTIME_WITH_PARTIAL_DIAGNOSTIC_REPLAY",
+  "input_root_sha256": "bbd4c66981f7c7a85e1740f57bcf2f9868757f15c1fc8ed656d508323d484b70",
+  "registration": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r2/registration.json",
+    "sha256": "3fe294640209a6cc44bbaa734d34e77e52969f29993cfbf9e48d317350b11926",
+    "size": 9058,
+    "mode": 384
+  },
+  "variants": {
+    "W0": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r2-w0/report.json",
+      "sha256": "affd0f02b7d6ce435730053c99650e704c1034d3019b57069714b2d9991e1cca",
+      "size": 2178516,
+      "mode": 384
+    },
+    "W1": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r2-w1/report.json",
+      "sha256": "23c34eacf1eafbe4555071b81d8a50bd4b2b202cd33fd05be4ecaeef875906c8",
+      "size": 2581102,
+      "mode": 384
+    }
+  },
+  "raw_java_reports": {
+    "W0": {
+      "path": "/tmp/allow-wp-n5dfp39e/.gate/evidence/semantic-java.json",
+      "sha256": "3081a08f1ace0d6ab256a67043af070e812b4860b4931509325fbc6be1e15065",
+      "size": 115545,
+      "mode": 384
+    },
+    "W1": {
+      "path": "/tmp/allow-wp-b1o90af_/.gate/evidence/semantic-java.json",
+      "sha256": "9dc931613cc64e623bbf40fa7a1082a712017e2796cae7aaecc4a898305e99c8",
+      "size": 83198,
+      "mode": 384
+    }
+  },
+  "verifier": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/semantic_results.py",
+    "sha256": "4a69a6f2f76af36f6d09877cb7387a035de913775fdbc073523254f543288539",
+    "size": 14247,
+    "mode": 436
+  },
+  "java_w0_cases_passed": 190,
+  "java_w1_cases_passed": 121,
+  "java_w1_cases_blocked": 1,
+  "java_w1_cases_not_executed": 68,
+  "failed_case": "private-frame-2097152",
+  "blocking_reasons": [
+    "WARM_POOL_SHUTDOWN_INCOMPLETE_REPLACEMENT_UNKNOWN",
+    "REMAINING_CASES_NOT_EXECUTED",
+    "PREREGISTERED_BLANK_POLICY_DOMAIN_GAP"
+  ],
+  "partial_comparisons": [
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-signature_ref-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-signature_ref-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-signature_ref-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-signature_ref-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-field_ref-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-field_ref-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-field_ref-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-field_ref-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-variable_ref-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-variable_ref-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-variable_ref-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-variable_ref-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-predicate_call-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-predicate_call-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-predicate_call-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-predicate_call-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 13,
+      "full_response_equal": true,
+      "id": "typed-not-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-not-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-not-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-not-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-some_test-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-some_test-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-some_test-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-some_test-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-no_test-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-no_test-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-no_test-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-no_test-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-one_test-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-one_test-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-one_test-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-one_test-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 12,
+      "full_response_equal": true,
+      "id": "typed-lone_test-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-lone_test-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-lone_test-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-lone_test-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 13,
+      "full_response_equal": true,
+      "id": "typed-transpose-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-transpose-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-transpose-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-transpose-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 15,
+      "full_response_equal": true,
+      "id": "typed-and-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-and-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-and-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-and-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 15,
+      "full_response_equal": true,
+      "id": "typed-or-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-or-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-or-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-or-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 15,
+      "full_response_equal": true,
+      "id": "typed-implies-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-implies-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-implies-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-implies-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 15,
+      "full_response_equal": true,
+      "id": "typed-iff-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-iff-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-iff-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-iff-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 13,
+      "full_response_equal": true,
+      "id": "typed-equal-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-equal-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-equal-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-equal-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 13,
+      "full_response_equal": true,
+      "id": "typed-subset-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-subset-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-subset-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-subset-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-union-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-union-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-union-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-union-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-intersection-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-intersection-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-intersection-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-intersection-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-difference-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-difference-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-difference-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-difference-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-join-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-join-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-join-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-join-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-product-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-product-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-product-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-product-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-all_quant-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-all_quant-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-all_quant-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-all_quant-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 14,
+      "full_response_equal": true,
+      "id": "typed-some_quant-positive-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-some_quant-positive-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-some_quant-negative-fresh"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "typed-some_quant-negative-owned"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 6,
+      "full_response_equal": true,
+      "id": "ids-mixed"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "ids-missing"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "ids-foreign"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "ids-wrong-kind"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 1,
+      "full_response_equal": true,
+      "id": "source-supported"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-text-only"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-syntax"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-unbound"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-type"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-import"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-fragment"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 8,
+      "full_response_equal": true,
+      "id": "source-trivia-crlf"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 2,
+      "full_response_equal": true,
+      "id": "source-uuid-literal"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 2,
+      "full_response_equal": true,
+      "id": "source-utf8-32767"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 2,
+      "full_response_equal": true,
+      "id": "source-utf8-32768"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "source-utf8-32769"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 513,
+      "full_response_equal": true,
+      "id": "nodes-511"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 514,
+      "full_response_equal": true,
+      "id": "nodes-512"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "nodes-513"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 33,
+      "full_response_equal": true,
+      "id": "depth-31"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 34,
+      "full_response_equal": true,
+      "id": "depth-32"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "depth-33"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "history-text"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "history-supported-text"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "history-block"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "context-invalid-ownedIdInventory"
+    },
+    {
+      "id": "context-invalid-policyVersion",
+      "status": "NOT_COMPARABLE",
+      "reason": "Blank installed policy is rejected by real WarmRequestBinding before pool handoff; original W0 UNAVAILABLE expectation unchanged."
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "context-invalid-baseArtifact"
+    },
+    {
+      "status": "PASS",
+      "normalized_generated_ids": 0,
+      "full_response_equal": true,
+      "id": "private-frame-2097151"
+    }
+  ],
+  "partial_replay_failures": [],
+  "context_boundary": "TEST_ASSUMED_CLEAN_CONTEXT_NO_SQL",
+  "selected_runtime_route": "OPEN",
+  "sql_route": "OPEN",
+  "performance_evidence": false,
+  "promotion_authorized": false,
+  "scope_note": "W1 advisory cases reaching workers awaited READY in separate per-fixture pool incarnations; no full cold/refill/history-sequence coverage; warm outputs reserialized; fresh route direct helper/ledger only."
+}

@@ -1,0 +1,24 @@
+{
+  "reviewer": "astra-2",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "57d8512a8bd483ff9bfa76d43e66c0963a90c8b3b9eb7751b9ff89d2df48a49c"
+  },
+  "scope": "Independent adversarial review of gameplan only; no browser execution, candidate edits, production edits, runtime certification, or gate closure.",
+  "findings": [],
+  "assessment": [
+    "Actual Workbench useController returns rendered view separately from the synchronously published ref. A fail-closed source transform adding a layout-effect marker from rendered view can distinguish fresh React commit from merely updated controller.current. Mount, authority, document, base revision, draft, sequence and exact next generation checks address stale notifications and replacement races.",
+    "Actual changeModule invokes editModule and publishDocument. Actual DocumentBody preserves checker and advisory effects. Owned forest buttons expose exact block IDs and render signature ref with nominal A/B type labels, so required target-specific DOM checks are feasible without replacement components or artificial labels.",
+    "AuthorityFilter requires Host 127.0.0.1:localPort, same-origin Origin when supplied, and bearer authentication on /api/. Serving production-built external assets on http://127.0.0.1:18080/bench with actual API calls can preserve these guards and CSP. localhost alias or a separate Vite origin is not an equivalent setup. Temporary static assets must meet the declared manifests and exact restoration rules; route failure is INCOMPLETE.",
+    "Frozen fixture hash matches. The protocol retains 500 unique nodes, exact ordered 100 warmups plus 1000 measurements, independent edit expectations, full node ownership checks and strict unrounded nearest-rank p95 < 50 ms. Complete slow runs remain FAIL; invalid runs cannot become PASS by sample filtering.",
+    "Two sequential rAF callbacks after a fresh matching commit are a declared paint-opportunity proxy, not physical presentation proof. Direct controller dispatch excludes external input dispatch and module preparation; the stated measurement limitation must accompany any result.",
+    "Ordinary advisory activity is preserved and recorded; debounce starvation is explicitly disclosed. Preview timing therefore cannot establish authoritative diagnostic latency or worker startup performance.",
+    "Lean proves abstract ordering/count/classification properties on supplied validity and p95. Nat microseconds are abstract and must not be used to round browser millisecond samples for classification. Neither these theorems nor this approval establish execution correspondence or real timing.",
+    "Warm classification is independent evidence only. Separate cold start, authoritative diagnostics, G2/G3 and manual accessibility, solver correctness, commercial rights and market validation remain open. Six required independent council reviews, excluding the author, remain a separate prerequisite to execution."
+  ],
+  "implementation_watchpoints": [
+    "Record authority identity without persisting bearer secrets in manifests, network evidence or browser outputs.",
+    "Retain all runs and restoration evidence, including interrupted or failed attempts. An implementation must be checked against this protocol before interpreting its numbers."
+  ]
+}

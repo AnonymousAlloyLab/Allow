@@ -1,0 +1,28 @@
+{
+  "reviewer": "Sol council seat1",
+  "review_type": "EXACT_THREE_INPUT_PRESENTATION_GUARD_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0",
+    "gates/document/order-amendment/types.json": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+  },
+  "remaining_design_blockers": [],
+  "assessment": [
+    "Fields grouped by owning-signature order match Alloy lexical nesting; within-owner sequence is retained, and equality guard rejects rather than silently rewriting candidate order. Existing CheckedModule uniqueness/owner validity remains a separate inherited requirement.",
+    "Flat nodes array is a registry; body-root and child-slot order define presentation. Treating registry order as nonsemantic is coherent with the ownership forest and explicit source occurrence IDs.",
+    "OrderRequired constrains accepted and unknown-applied-success only. Receipt replay, collision and auth denial remain independent of new candidate order/decoder/parser/frame. Unordered replay and collision witnesses demonstrate adapter-independent receipt semantics.",
+    "CandidateOrder permits TEXT_ONLY without invented IR and adds no SQL/type/solver/canonical authority. Guarded success retains inherited CandidateValid."
+  ],
+  "claim_limits": [
+    "This is approval of the additional bounded plan, not implementation/runtime/G2/G3/commercial acceptance. Require all six exact reviews and two clean registered builds before adding this guard.",
+    "Model proves guarded successful transitions ordered; accepts false is a field-order predicate denial witness. It does not separately prove a new durable INVALID_DRAFT receipt transition for an otherwise CandidateValid unordered artifact. Runtime rejection/receipt correspondence remains an adapter test, consistent with the narrow success-guard boundary.",
+    "No independent Lean execution performed by this reviewer; source/type hash equality checked."
+  ],
+  "implementation_tests": [
+    "Accept empty/grouped multiple owners, reject interleaving without accepted-history mutation.",
+    "Maintain explicit UI draft insertion/reassignment and within-owner order; compare semantic roots/edges after shuffled registry storage.",
+    "Invalid-order new key yields deterministic denial receipt; identical original successful receipt still replays despite newly supplied invalid checked frame."
+  ],
+  "edits": "Only reviews/document-order-sol-1.json; no amendment guard implementation or production edits."
+}

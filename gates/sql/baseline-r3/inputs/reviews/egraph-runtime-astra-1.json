@@ -1,0 +1,87 @@
+{
+  "reviewer": "astra-1",
+  "requested_model": "gpt-6-astra",
+  "scope": "Independent static adversarial replay/type/identity review during implementation. No production edits and no Maven run.",
+  "verdict": "NO_OPEN_CONFIRMED_BLOCKER_TEST_RUN_PENDING",
+  "files_sha256": {
+    "backend/src/main/java/dev/allow/egraph/Context.java": "5adc32bc420eb4bd46ab2e3134a77e70603e825181d20d044954fd22b8475d93",
+    "backend/src/main/java/dev/allow/egraph/Wire.java": "d359e90a733d700c4d23f68592536fea7b1c0941120bb1b6e2118458f26ef947",
+    "backend/src/main/java/dev/allow/egraph/ProofChecker.java": "2dcf8db42da825f159910306a0ed4aa3d4b36d2678dc8a57e3ad3893a3ea2680",
+    "backend/src/main/java/dev/allow/egraph/Term.java": "129c4f445acda7bf56480f04f0ecb925dee2dacb37ead1750285ba7f11d65830",
+    "backend/src/main/java/dev/allow/egraph/RuleCatalog.java": "f4eaa113bb00b75eb6e9e0e82cad15c79d5da6a2086e0dd012fdd5086a493f77",
+    "backend/src/main/java/dev/allow/egraph/Sort.java": "d5eb5b9be51a68876b84f193eb3cb289a3fc5403c30353f391fe4f0c19b963f3",
+    "backend/src/main/java/dev/allow/egraph/Certificate.java": "5952a39a167486ebafcdfe67d0a7ddb53fd28bafa588a0b8c0b4197990f2afb7",
+    "backend/src/main/java/dev/allow/egraph/ProofStore.java": "019e676c12a34fff8b47afec94a5dcf7d7c8f8daf1da0ce6a9eedc93bed2f981",
+    "backend/src/main/java/dev/allow/egraph/ProofStep.java": "b89ec897ef3923df52db5f75af79b5cf4fd98567bda0eefa10d660bd59b50a6e"
+  },
+  "findings": [
+    {
+      "id": "EG-RT-A1-01",
+      "severity": "MEDIUM",
+      "status": "RESOLVED_BY_STATIC_RECHECK",
+      "title": "Proof premise depth limit not enforced",
+      "evidence": "ProofChecker.local validates only premise index in [0,index). No code computes longest premise path. REFL(p,p), then 129 SYMM(p,p) steps each citing the preceding step passes the local rules and certificate budget.",
+      "required_fix": "Compute longest DAG path from prior step depths and reject beyond frozen depth 128; add boundary and over-limit tests."
+    },
+    {
+      "id": "EG-RT-A1-02",
+      "severity": "HIGH",
+      "status": "RESOLVED_BY_STATIC_RECHECK",
+      "title": "Recursive operations precede bounded validation",
+      "evidence": "ProofChecker.term evaluates value.cost() before traversing and checking nested depth. Term.cost recursively traverses all children. check also invokes record equality for input/context before structural validation, and Wire.size before validating proof step terms. Deep direct terms or hostile shared DAGs can exhaust stack/work before the intended depth/cost limit; catch RuntimeException does not catch StackOverflowError.",
+      "required_fix": "Bound term depth and occurrence count before cost/equality/hash/serialization. Preflight all step endpoints/substitutions/context atoms, not just input/output; ensure size/work allocation is capped."
+    },
+    {
+      "id": "EG-RT-A1-03",
+      "severity": "LOW",
+      "status": "RESOLVED_BY_STATIC_RECHECK",
+      "title": "Atom inventory canonical ordering not checked",
+      "evidence": "validateContext uses HashSet uniqueness only; reversed distinct inventories pass despite frozen contract requiring exact lexicographic order. Trusted expected context prevents arbitrary certificate replacement, so this is a validation/contract gap rather than demonstrated false equivalence.",
+      "required_fix": "Validate canonical full (sort/schema, exact anonymous subtree) inventory order, with boundary test."
+    },
+    {
+      "id": "EG-RT-A1-04",
+      "severity": "HIGH",
+      "status": "RESOLVED_BY_STATIC_RECHECK",
+      "title": "Output size enforcement allocates complete amplified serialization before rejecting",
+      "evidence": "Wire.size calls json(value).getBytes(UTF_8).length, allocating whole JSON String and byte array. ProofChecker invokes it only after per-term limits, but 2048-occurrence terms and 4096 steps can repeat 131072-character allowed atoms. Per-term structural validation therefore does not bound serialization allocation to certificate_bytes_per_island=262144. ProofStore uses same operation.",
+      "required_fix": "Serialize into a capped counting/output sink that aborts after byte ceiling; do not allocate complete serialized artifact just to determine oversize."
+    }
+  ],
+  "positive_observations": [
+    "Closed term operators and arities reject unknown operators. Sort constructor rejects unknown kind, zero/mixed arity, unsorted/duplicate alternatives and malformed nominal tokens.",
+    "Endpoint sort equality and ordered congruence premises preserve exact schema; SOME/NO require relational child and Boolean result.",
+    "Rule application requires registered rule identifier, exact variable set and same-sort substitutions with concrete endpoint equality.",
+    "Conclusion endpoints bind to original trusted EngineInput and output; context equality includes original atom inventory.",
+    "Proof checker does not consult union-find. Forward/self premise references reject."
+  ],
+  "trust_limits": [
+    "No runtime reproduction has been executed by this seat. Findings follow directly from control flow and constructive counterexamples.",
+    "Implementation is changing concurrently; hashes identify reviewed snapshots.",
+    "No claim that fixed-schema validation proves Alloy Type.fold mapping or semantic source lowering."
+  ],
+  "recheck": {
+    "resolved": "ProofChecker iterative traversal preflights all certificate terms before recursive equality and serialization; proofDepth computes prior-edge longest paths bounded at128; validateContext checks Context.atomKey ordering.",
+    "files_sha256": {
+      "backend/src/main/java/dev/allow/egraph/ProofChecker.java": "75e273d8cdbeda1a11ac1301cc1792d7e36714d2e9e96f1bbb5191289c4ec4e5",
+      "backend/src/main/java/dev/allow/egraph/Context.java": "83698508ed55e5b5d5e957aadd70eb275d4b9449efb2c60c59294edf07ed352e",
+      "backend/src/main/java/dev/allow/egraph/Wire.java": "7624069d18df2319ae14b56a33fed7f589130f25f4d5297361403523181b2422"
+    },
+    "execution": "Static recheck only; author running tests separately."
+  },
+  "final_recheck": {
+    "files_sha256": {
+      "backend/src/main/java/dev/allow/egraph/ProofChecker.java": "b4298bb98602a42220d34e4c94e12b6cd8bda802bd0c05c6edfcde3d5b54f04b",
+      "backend/src/main/java/dev/allow/egraph/Context.java": "eaf4002c466c476ec63c195a632e576d1f8ed434ecd8ce9edf050304378955c3",
+      "backend/src/main/java/dev/allow/egraph/Wire.java": "5ecd998bd8960eecefd5ac84ea8fae917f09c5f220a87c5bb807855dab8f2304",
+      "backend/src/test/java/dev/allow/egraph/EGraphEngineTest.java": "fc0b51d66ae35b61813107d84ccbae485dfe6433f374e3ba7cc5cec075d8965c"
+    },
+    "disposition": "All four findings addressed. Iterative structural preflight bounds term traversal before recursive operations; prior-premise DAG depths capped; atom inventory order checked; Wire.Counter streams size computation and aborts beyond262144 without complete artifact String allocation.",
+    "regressions_inspected": [
+      "rejectsExcessiveProofAndTermDepth: 130-step proof chain plus 10000 nested NOT terms reject",
+      "cappedCertificateSizing: repeated100000-character opaque atom certificate rejects with capped size sentinel",
+      "Existing tests cover forged rule, mismatched substitutions, forward premises, context/inventory and unrelated conclusion tampering"
+    ],
+    "execution": "Inspected tests only. Awaiting author run; did not execute Maven."
+  }
+}

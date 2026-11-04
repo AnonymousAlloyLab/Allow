@@ -1,0 +1,38 @@
+{
+  "id": "ALLOW-P0-RUNTIME-GAPS-R1",
+  "scope": "Gate-local finite supplementary runtime checks only; unchanged active309 Lean propositions and unchanged production code. The approved32 planning model supports this sequence but proves no runtime refinement.",
+  "authorization": "User authorized implementation; P0 of the six-seat reviewed performance remediation plan permits these probes before any production change.",
+  "claims": [
+    {
+      "id": "RP01",
+      "resolves": ["VC01-PRIVATE-WIRE-BOUNDS"],
+      "pass": "Actual installed CLI receives exactly3145727,3145728,3145729bytes including one terminal newline. Below/exact decode and capture the fixed nonce then reject the extra padding field. Above rejects input_limit before nonce capture. Independently observed cli.main returns identical output with zero SQL-connect attempts and zero subprocess launches; each CLI is reaped.",
+      "limit": "These are adversarial extra-field frames, never semantically valid context requests. A valid context's tighter256KiB args and4096ID bounds dominate. The unchanged Java gateway denies encoded size>=3145728 before FrameProcess adds a newline. This probe executes the literal Python CLI boundary; inherited Java source/test composition is explicit."
+    },
+    {
+      "id": "RP02",
+      "resolves": ["VC01-PRIVATE-WIRE-BOUNDS", "VC13-JSON-NESTING"],
+      "pass": "Independent recursive counter counts root0 and every dictionary key/value/list-item edge. Actual private frames have maxima95/96/97.95/96decode then reject invalid nested ids through actual context dispatch before SQL;97fails json_depth before nonce capture. Installed and observed CLI outputs match and processes reap. UTF8/BOM/duplicate-field controls reject before SQL/child launch.",
+      "limit": "Accepted decoder nesting is not a valid context. The Java public decoder has a different300-container boundary, tested separately; do not relabel it96."
+    },
+    {
+      "id": "PUBLIC-NESTING",
+      "resolves": ["VC13-JSON-NESTING"],
+      "pass": "Run actual DocumentJson.request at95/96/97/299/300/301array containers.<=300decodes but closed public-envelope validation rejects array root;301fails decoding. Standalone Checkstyle passes. Two isolated clean javac compilations/executions yield identical class hashes and output; temporary outputs removed.",
+      "limit": "Boundary component invocation, not authenticated HTTP. No SQL or worker is involved."
+    },
+    {
+      "id": "RP03",
+      "resolves": ["VC14-PARSER-STOP"],
+      "pass": "Use actual parser-backed owned ProxyServer chained to the canonical shared proxy. First stop/reap this owned service before actual CLI context connection. Separately start a fresh cache-empty owned proxy; on exact uncached isolation-mode admission launch the real sealed parser executable, observe executable memfd and PID/start identity, suspend before input delivery, then SIGKILL that exact owned active child. Both actual CLI/Store context results must be closed nonce-bound UNAVAILABLE, no partial context or mutation uncertainty; one owned endpoint attempt, no alternative route, parser child/context/proxy reaped and parser reservations released. Compare all durable fixture tables/ACLs before/after and drop the sole owned test database through canonical SQLeanParser.",
+      "limit": "Only the test process substitutes sql_connections.PROXY_DIRECTORY to an owned socket; unchanged validation/connect helpers still enforce role/port/database/startup/client policy. The owned proxy forwards exclusively to the canonical shared parser, never raw PostgreSQL. Existing Java context-failure tests/source order establish compositional no-worker behavior; this is not a new monolithic HTTP process trace. Suspension is disclosed deterministic fault scheduling; the actual parser executable is killed, not a synthetic failed gate."
+    }
+  ],
+  "registration": "Hash this protocol, exact executable probes, active source/compiled dependencies and prior26-case verifier/mapping/evidence before execution. Mismatch blocks. Preserve every failed run and revise under a new rN directory, never edit frozen bytes.",
+  "decision": "PASS only if all four groups and all source/proxy-identity/cleanup assertions pass. Any unresolved assertion is FAIL; binder yields BLOCKED. Tool execution failure is reported as INFRASTRUCTURE_FAILURE by binder.",
+  "clean_builds": "Two isolated clean Java probe compilations required, with deterministic class bytes/output. No production or formal source change; existing two clean309model builds are inherited only through rechecked exact evidence pins, not claimed rerun.",
+  "nondeterministic_fields": ["run time", "PID/start ticks", "temporary directory", "authored scope/document/database UUID", "proxy counter timestamps"],
+  "trust": ["Python and JVM/Jackson", "registered executable assertions and fixture instrumentation", "SHA256", "Linux process/socket semantics", "PostgreSQL/libpq", "SQLeanParser frozen sealed image", "finite test-to-obligation mapping; no universal semantic correspondence"],
+  "excluded": ["P1 automatic backend termination", "warm JVM changes", "production300ms performance acceptance", "actual4vCPU/8GiB hardware equivalence", "new authenticated HTTP failure trace", "universal Java/Python/Lean refinement", "commercial acceptance"],
+  "counts": "Supplemental cases only;189Java and186Python main-suite counts remain unchanged."
+}

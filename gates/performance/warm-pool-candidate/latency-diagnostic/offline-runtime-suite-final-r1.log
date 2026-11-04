@@ -1,0 +1,246 @@
+test_alias_collision_and_missing_mapping (test_compare_responses.ComparatorTests.test_alias_collision_and_missing_mapping)
+Every fresh definition needs one distinct corresponding identity. ... ok
+test_all_old_candidate_identities_cannot_disappear (test_compare_responses.ComparatorTests.test_all_old_candidate_identities_cannot_disappear)
+Both profiles replacing every owned definition must still fail the input oracle. ... ok
+test_bad_uuid (test_compare_responses.ComparatorTests.test_bad_uuid)
+Noncanonical generated ID syntax fails independently of response equality. ... ok
+test_changed_diagnostic (test_compare_responses.ComparatorTests.test_changed_diagnostic)
+Diagnostics remain exact even when they contain UUID-looking strings. ... ok
+test_changed_same_kind_reference_edges (test_compare_responses.ComparatorTests.test_changed_same_kind_reference_edges)
+Swapping same-kind operand references must not redefine the mapping. ... ok
+test_changed_source_and_recomputed_hash (test_compare_responses.ComparatorTests.test_changed_source_and_recomputed_hash)
+A self-consistent source digest cannot conceal changed source bytes. ... ok
+test_changed_trivia_offset (test_compare_responses.ComparatorTests.test_changed_trivia_offset)
+Comment byte locations cannot be normalized with generated identities. ... ok
+test_collection_tag_cannot_move_between_kinds (test_compare_responses.ComparatorTests.test_collection_tag_cannot_move_between_kinds)
+Equal malformed declaration tags do not pass merely by matching each other. ... ok
+test_decoder_duplicate_trailing_and_nonfinite (test_compare_responses.ComparatorTests.test_decoder_duplicate_trailing_and_nonfinite)
+Strict decoding rejects ambiguity before fields are compared. ... ok
+test_duplicate_comments (test_compare_responses.ComparatorTests.test_duplicate_comments)
+Comment identities cannot alias a syntax definition or another comment. ... ok
+test_equal_but_misassociated_remappings (test_compare_responses.ComparatorTests.test_equal_but_misassociated_remappings)
+A mapping must resolve the declared definition at its typed input position. ... ok
+test_existing_identity_cannot_rename (test_compare_responses.ComparatorTests.test_existing_identity_cannot_rename)
+Trusted inventory identities must stay byte-identical in both responses. ... ok
+test_fresh_mapping_cannot_alias_owned_id (test_compare_responses.ComparatorTests.test_fresh_mapping_cannot_alias_owned_id)
+An identical fresh assignment in both outputs must still avoid old IDs. ... ok
+test_generated_id_outside_schema (test_compare_responses.ComparatorTests.test_generated_id_outside_schema)
+Generated identities inserted into diagnostic literals are not translated. ... ok
+test_generated_identity_bijection (test_compare_responses.ComparatorTests.test_generated_identity_bijection)
+Typed definitions and all dependent schema references may rename together. ... ok
+test_generated_uuid_version (test_compare_responses.ComparatorTests.test_generated_uuid_version)
+A canonical UUIDv5 is not a fresh random UUIDv4 identity. ... ok
+test_incorrect_source_digest (test_compare_responses.ComparatorTests.test_incorrect_source_digest)
+Both profiles reporting the same wrong hash must still be rejected. ... ok
+test_invalid_responses_compare_every_field (test_compare_responses.ComparatorTests.test_invalid_responses_compare_every_field)
+Denials compare their complete code and diagnostic payload without mapping. ... ok
+test_json_scalar_types_are_exact (test_compare_responses.ComparatorTests.test_json_scalar_types_are_exact)
+Booleans and floating numbers cannot impersonate an integer field. ... ok
+test_missing_and_extra_fields (test_compare_responses.ComparatorTests.test_missing_and_extra_fields)
+Closed result and nested module schemas reject omitted or extra fields. ... ok
+test_numeric_offsets_do_not_coerce (test_compare_responses.ComparatorTests.test_numeric_offsets_do_not_coerce)
+Offset and scope types remain exact outside explicit scalar validators. ... ok
+test_parameters_must_be_arrays (test_compare_responses.ComparatorTests.test_parameters_must_be_arrays)
+An empty object cannot impersonate an empty parameter list in both outputs. ... ok
+test_unknown_metadata_fields_in_both_profiles (test_compare_responses.ComparatorTests.test_unknown_metadata_fields_in_both_profiles)
+Equal extra metadata is still outside the independently closed grammar. ... ok
+test_uuid_looking_source_literal_replacement (test_compare_responses.ComparatorTests.test_uuid_looking_source_literal_replacement)
+A UUID-looking source comment remains exact across otherwise valid mapping. ... ok
+test_already_finished_helper_is_not_signalled (test_delegated_harness.ControllerHelperReapTests.test_already_finished_helper_is_not_signalled) ... ok
+test_observer_exception_still_stops_unit_and_reaps_helper (test_delegated_harness.ControllerHelperReapTests.test_observer_exception_still_stops_unit_and_reaps_helper) ... ok
+test_stalled_signal_is_forcibly_reaped_without_promoting_pass (test_delegated_harness.ControllerHelperReapTests.test_stalled_signal_is_forcibly_reaped_without_promoting_pass) ... ok
+test_unit_stop_timeout_preserves_failure_and_still_reaps_helper (test_delegated_harness.ControllerHelperReapTests.test_unit_stop_timeout_preserves_failure_and_still_reaps_helper) ... ok
+test_boolean_schema_is_not_integer_one (test_delegated_harness.DelegationTests.test_boolean_schema_is_not_integer_one) ... ok
+test_changed_group_inode_rejected (test_delegated_harness.DelegationTests.test_changed_group_inode_rejected) ... ok
+test_missing_delegated_controller_rejected (test_delegated_harness.DelegationTests.test_missing_delegated_controller_rejected) ... ok
+test_nonempty_root_rejected (test_delegated_harness.DelegationTests.test_nonempty_root_rejected) ... ok
+test_owner_outside_control_rejected (test_delegated_harness.DelegationTests.test_owner_outside_control_rejected) ... ok
+test_positive_exact_topology (test_delegated_harness.DelegationTests.test_positive_exact_topology) ... ok
+test_scope_properties_explicit_delegation_and_same_budgets (test_delegated_harness.DelegationTests.test_scope_properties_explicit_delegation_and_same_budgets) ... ok
+test_counter_boolean_rejected (test_delegated_harness.GroupReceiptTests.test_counter_boolean_rejected) ... ok
+test_exact_terminal_receipt (test_delegated_harness.GroupReceiptTests.test_exact_terminal_receipt) ... ok
+test_oom_cannot_be_hidden_by_summary (test_delegated_harness.GroupReceiptTests.test_oom_cannot_be_hidden_by_summary) ... ok
+test_populated_group_rejected (test_delegated_harness.GroupReceiptTests.test_populated_group_rejected) ... ok
+test_wrong_generation_group_rejected (test_delegated_harness.GroupReceiptTests.test_wrong_generation_group_rejected) ... ok
+test_actual_worker_identity_required (test_delegated_harness.ReceiptTests.test_actual_worker_identity_required) ... ok
+test_complete_receipt (test_delegated_harness.ReceiptTests.test_complete_receipt) ... ok
+test_integer_is_not_boolean_reap (test_delegated_harness.ReceiptTests.test_integer_is_not_boolean_reap) ... ok
+test_missing_oom_counter_cannot_count_as_zero (test_delegated_harness.ReceiptTests.test_missing_oom_counter_cannot_count_as_zero) ... ok
+test_missing_positive_empty (test_delegated_harness.ReceiptTests.test_missing_positive_empty) ... ok
+test_parent_path_evidence_rejected (test_delegated_harness.ReceiptTests.test_parent_path_evidence_rejected) ... ok
+test_still_owned_process_rejected (test_delegated_harness.ReceiptTests.test_still_owned_process_rejected) ... ok
+test_stop5_without_positive_empty_is_unknown (test_delegated_harness.ReceiptTests.test_stop5_without_positive_empty_is_unknown) ... ok
+test_unknown_cannot_release_slot (test_delegated_harness.ReceiptTests.test_unknown_cannot_release_slot) ... ok
+test_wrong_classification_rejected (test_delegated_harness.ReceiptTests.test_wrong_classification_rejected) ... ok
+test_concrete_probe_cases_bind_fixtures (test_delegated_harness.SemanticPlanTests.test_concrete_probe_cases_bind_fixtures) ... ok
+test_empty_probe_plan_cannot_pass_vacuously (test_delegated_harness.SemanticPlanTests.test_empty_probe_plan_cannot_pass_vacuously) ... ok
+test_exact190_source_bound_routes (test_delegated_harness.SemanticPlanTests.test_exact190_source_bound_routes) ... ok
+test_mutated_fixture_digest_rejected (test_delegated_harness.SemanticPlanTests.test_mutated_fixture_digest_rejected) ... ok
+test_revalidation_cannot_use_warm_entrypoint (test_delegated_harness.SemanticPlanTests.test_revalidation_cannot_use_warm_entrypoint) ... ok
+test_changed_or_unbound_child_is_rejected (test_delegated_harness.StartingShutdownReceiptTests.test_changed_or_unbound_child_is_rejected) ... ok
+test_close_failure_or_retained_capacity_is_blocking (test_delegated_harness.StartingShutdownReceiptTests.test_close_failure_or_retained_capacity_is_blocking) ... ok
+test_each_required_witness_is_a_true_boolean (test_delegated_harness.StartingShutdownReceiptTests.test_each_required_witness_is_a_true_boolean) ... ok
+test_exact_starting_shutdown_observation (test_delegated_harness.StartingShutdownReceiptTests.test_exact_starting_shutdown_observation) ... ok
+test_extra_generation_or_child_cannot_be_ignored (test_delegated_harness.StartingShutdownReceiptTests.test_extra_generation_or_child_cannot_be_ignored) ... ok
+test_ready_or_unheld_observation_cannot_claim_starting_coverage (test_delegated_harness.StartingShutdownReceiptTests.test_ready_or_unheld_observation_cannot_claim_starting_coverage) ... ok
+test_uncertain_or_unreaped_generation_cannot_pass (test_delegated_harness.StartingShutdownReceiptTests.test_uncertain_or_unreaped_generation_cannot_pass) ... ok
+test_bool_revision_rejected (test_http_setup.SetupTests.test_bool_revision_rejected) ... ok
+test_changed_source_notice_rejected (test_http_setup.SetupTests.test_changed_source_notice_rejected) ... ok
+test_changed_source_preview_rejected (test_http_setup.SetupTests.test_changed_source_preview_rejected) ... ok
+test_different_build_rejected (test_http_setup.SetupTests.test_different_build_rejected) ... ok
+test_different_committed_source_rejected (test_http_setup.SetupTests.test_different_committed_source_rejected) ... ok
+test_different_document_rejected (test_http_setup.SetupTests.test_different_document_rejected) ... ok
+test_failure_raw_reply_and_attempt_retained (test_http_setup.SetupTests.test_failure_raw_reply_and_attempt_retained) ... ok
+test_malformed_raw_reply_retained (test_http_setup.SetupTests.test_malformed_raw_reply_retained) ... ok
+test_same_node_count_wrong_edge_rejected (test_http_setup.SetupTests.test_same_node_count_wrong_edge_rejected) ... ok
+test_valid_original_fixture (test_http_setup.SetupTests.test_valid_original_fixture) ... ok
+test_cpu_tail (test_latency_results.Tests.test_cpu_tail) ... ok
+test_cycle_duration_exact (test_latency_results.Tests.test_cycle_duration_exact) ... ok
+test_full_positive_and_omitted_rows (test_latency_results.Tests.test_full_positive_and_omitted_rows) ... ok
+test_gap_exact (test_latency_results.Tests.test_gap_exact) ... ok
+test_identity_reuse (test_latency_results.Tests.test_identity_reuse) ... ok
+test_pair_descriptive (test_latency_results.Tests.test_pair_descriptive) ... ok
+test_ranks_and_zero (test_latency_results.Tests.test_ranks_and_zero) ... ok
+test_response (test_latency_results.Tests.test_response) ... ok
+test_source_and_class_rejected (test_latency_results.Tests.test_source_and_class_rejected) ... ok
+test_terminals (test_latency_results.Tests.test_terminals) ... ok
+test_timing_and_ready (test_latency_results.Tests.test_timing_and_ready) ... ok
+test_compare_preserves_initial_registration_when_replay_changes (test_latency_runner.LatencyRunnerTests.test_compare_preserves_initial_registration_when_replay_changes) ... ok
+test_concrete_inputs_rejects_nonexact_owner_completion (test_latency_runner.LatencyRunnerTests.test_concrete_inputs_rejects_nonexact_owner_completion) ... ok
+test_concrete_inputs_rejects_plan_or_report_digest_change (test_latency_runner.LatencyRunnerTests.test_concrete_inputs_rejects_plan_or_report_digest_change) ... ok
+test_diagnostic_claim_copy_preserves_original_scope_and_containment (test_latency_runner.LatencyRunnerTests.test_diagnostic_claim_copy_preserves_original_scope_and_containment) ... ok
+test_duplicate_run_rejected_before_verification (test_latency_runner.LatencyRunnerTests.test_duplicate_run_rejected_before_verification) ... ok
+test_exact_measured_schedule_and_population (test_latency_runner.LatencyRunnerTests.test_exact_measured_schedule_and_population) ... ok
+test_measured_requires_compatibility_before_registration (test_latency_runner.LatencyRunnerTests.test_measured_requires_compatibility_before_registration) ... ok
+test_owner_reap_exception_preserves_blocked_completion (test_latency_runner.LatencyRunnerTests.test_owner_reap_exception_preserves_blocked_completion) ... ok
+test_owner_rejects_cgroup_identity_and_fixture_changes (test_latency_runner.LatencyRunnerTests.test_owner_rejects_cgroup_identity_and_fixture_changes) ... ok
+test_owner_rejects_launch_root_binding (test_latency_runner.LatencyRunnerTests.test_owner_rejects_launch_root_binding) ... ok
+test_registered_rejects_changed_population_or_plan (test_latency_runner.LatencyRunnerTests.test_registered_rejects_changed_population_or_plan) ... ok
+test_reused_copy_rejected_even_with_distinct_run_directories (test_latency_runner.LatencyRunnerTests.test_reused_copy_rejected_even_with_distinct_run_directories) ... ok
+test_actual_corpus_keeps_exact_one_noncomparable_row (test_semantic_results.SemanticResultTests.test_actual_corpus_keeps_exact_one_noncomparable_row)
+The frozen domain gap is one explicit blank-policy row, not a wildcard exclusion. ... ok
+test_aggregate189_case_outcomes_and_one_gap_always_remain_blocked (test_semantic_results.SemanticResultTests.test_aggregate189_case_outcomes_and_one_gap_always_remain_blocked)
+Expected finite checks cannot promote the preregistered noncomparable corpus row. ... ok
+test_aggregate_does_not_hide_failures_or_move_the_domain_gap (test_semantic_results.SemanticResultTests.test_aggregate_does_not_hide_failures_or_move_the_domain_gap)
+Any additional failure or a reclassified blank-policy row blocks finite expected checks. ... ok
+test_aggregate_rejects_missing_reordered_and_duplicate_cases (test_semantic_results.SemanticResultTests.test_aggregate_rejects_missing_reordered_and_duplicate_cases)
+Finite aggregation requires the complete frozen identity sequence, not merely190 rows. ... ok
+test_baseline_does_not_claim_nonexistent_worker_group_zero (test_semantic_results.SemanticResultTests.test_baseline_does_not_claim_nonexistent_worker_group_zero)
+Baseline cleanup is process-only and requires final outer-scope cleanup separately. ... ok
+test_binding_rejection_has_no_worker_group_or_handoff (test_semantic_results.SemanticResultTests.test_binding_rejection_has_no_worker_group_or_handoff)
+The one preregistered domain gap is explicit and cannot hide a worker response. ... ok
+test_case_record_route_trust_boundary_and_worker_identity_are_bound (test_semantic_results.SemanticResultTests.test_case_record_route_trust_boundary_and_worker_identity_are_bound)
+A valid complete response cannot borrow another route, context claim or absent process. ... ok
+test_closed_response_nonce_protocol_and_status (test_semantic_results.SemanticResultTests.test_closed_response_nonce_protocol_and_status)
+Rehashing a wrong envelope never repairs the request identity or strict JSON types. ... ok
+test_complete_response_hash_nonce_types_exit_and_capture_are_checked (test_semantic_results.SemanticResultTests.test_complete_response_hash_nonce_types_exit_and_capture_are_checked)
+Every independently bound envelope scalar must reject a substituted or coerced value. ... ok
+test_exact_oversized_original_fixture_can_be_checked_without_response_cap (test_semantic_results.SemanticResultTests.test_exact_oversized_original_fixture_can_be_checked_without_response_cap)
+Request parsing handles the registered2MiB boundary without using the1MiB response cap. ... ok
+test_full_response_framing_duplicate_keys_and_nonfinite (test_semantic_results.SemanticResultTests.test_full_response_framing_duplicate_keys_and_nonfinite)
+Even correctly rehashed output must retain exact one-line finite closed JSON framing. ... ok
+test_group_receipts_require_exact_owned_identities_and_uniqueness (test_semantic_results.SemanticResultTests.test_group_receipts_require_exact_owned_identities_and_uniqueness)
+A foreign empty group cannot substitute for the original direct child or generation. ... ok
+test_history_uses_strict_types_and_exact_source (test_semantic_results.SemanticResultTests.test_history_uses_strict_types_and_exact_source)
+History cannot quietly change source, module types or stable location/trivia fields. ... ok
+test_input_and_terminal_registration_deletion_preserve_all_case_failures (test_semantic_results.SemanticResultTests.test_input_and_terminal_registration_deletion_preserve_all_case_failures)
+An unreadable fixture and later registration deletion still produce immutable finite failure evidence. ... ok
+test_input_limit_requires_specific_rejection_not_arbitrary_failure (test_semantic_results.SemanticResultTests.test_input_limit_requires_specific_rejection_not_arbitrary_failure)
+Both registered oversized inputs must reject before private transport, with finite cleanup. ... ok
+test_invalid_source_null_expected_mode_requires_absent_mode (test_semantic_results.SemanticResultTests.test_invalid_source_null_expected_mode_requires_absent_mode)
+All five actual registered invalid SOURCE cases allow no mode field in the closed error body. ... ok
+test_live_direct_child_and_boolean_pid_are_rejected (test_semantic_results.SemanticResultTests.test_live_direct_child_and_boolean_pid_are_rejected)
+Process absence is checked using real PID/start metadata without starting a child. ... ok
+test_no_group_binding_receipt_has_no_actual_child_claim (test_semantic_results.SemanticResultTests.test_no_group_binding_receipt_has_no_actual_child_claim)
+No allocated worker is distinct from positive emptiness or an unbound child identity. ... ok
+test_nonnull_expected_mode_still_requires_exact_mode (test_semantic_results.SemanticResultTests.test_nonnull_expected_mode_still_requires_exact_mode)
+The null error-body exception does not weaken a validated result's declared support mode. ... ok
+test_original_unframed_fixture_and_both_routes_pass (test_semantic_results.SemanticResultTests.test_original_unframed_fixture_and_both_routes_pass)
+The request decoder must accept actual corpus files ending in }, unlike response framing. ... ok
+test_private_result_hash_and_alias_rejection (test_semantic_results.SemanticResultTests.test_private_result_hash_and_alias_rejection)
+Private records remain content-bound and cannot resolve an external or symlinked path. ... ok
+test_report_trust_labels_counts_and_integer_exit_are_checked (test_semantic_results.SemanticResultTests.test_report_trust_labels_counts_and_integer_exit_are_checked)
+Metadata-only tests prevent finite checks from being relabeled full production equivalence. ... ok
+test_terminal_variant_prerequisite_and_registration_mutations_preserve_blocked_report (test_semantic_results.SemanticResultTests.test_terminal_variant_prerequisite_and_registration_mutations_preserve_blocked_report)
+Changed terminal evidence cannot retain finite PASS or erase the bound registration pointer. ... ok
+test_warm_counters_must_show_positive_empty_and_no_exhaustion (test_semantic_results.SemanticResultTests.test_warm_counters_must_show_positive_empty_and_no_exhaustion)
+Independent counter parsing rejects missing zero evidence and exhausted worker limits. ... ok
+test_aba_full_response_comparison_rejects_graph_and_diagnostic_drift (test_sequence_results.SequenceEvidenceTests.test_aba_full_response_comparison_rejects_graph_and_diagnostic_drift)
+A repeat comparison preserves every schema field beyond its declared fresh ID bijection. ... ok
+test_both_complete_receipt_families_have_positive_witnesses (test_sequence_results.SequenceEvidenceTests.test_both_complete_receipt_families_have_positive_witnesses)
+The rejection suite starts with accepted full receipts for ABA and actual-duration idle shapes. ... ok
+test_capacity_samples_terminal_cleanup_and_trust_scope_remain_required (test_sequence_results.SequenceEvidenceTests.test_capacity_samples_terminal_cleanup_and_trust_scope_remain_required)
+Sampled bounds supplement exact cleanup receipts without replacing them with success labels. ... ok
+test_capture_labels_and_fixture_links_are_exact (test_sequence_results.SequenceEvidenceTests.test_capture_labels_and_fixture_links_are_exact)
+Reconstructed frames and reserialized replies cannot be relabeled as raw pipe evidence. ... ok
+test_contiguous_generation_counters_reject_hidden_transient_reservations (test_sequence_results.SequenceEvidenceTests.test_contiguous_generation_counters_reject_hidden_transient_reservations)
+A coherent group/nonce rename cannot conceal a skipped reservation number in either slot. ... ok
+test_deadline_publication_and_ready_evidence_are_mutually_ordered (test_sequence_results.SequenceEvidenceTests.test_deadline_publication_and_ready_evidence_are_mutually_ordered)
+Publication must follow actual readiness and precede the original admitted request deadline. ... ok
+test_exact_child_bootstrap_and_terminal_receipts_cannot_be_substituted (test_sequence_results.SequenceEvidenceTests.test_exact_child_bootstrap_and_terminal_receipts_cannot_be_substituted)
+An unrelated empty group or unreaped child never authorizes the selected worker's release. ... ok
+test_full_response_nonce_source_mode_hash_and_closed_shape_are_checked (test_sequence_results.SequenceEvidenceTests.test_full_response_nonce_source_mode_hash_and_closed_shape_are_checked)
+Correct rehashing never repairs a swapped request, altered source, mode or closed envelope. ... ok
+test_idle_counter_vector_and_redemand_are_bound_to_the_expired_slot (test_sequence_results.SequenceEvidenceTests.test_idle_counter_vector_and_redemand_are_bound_to_the_expired_slot)
+No transient reservation advance or swapped slot vector may hide inside a quiet interval. ... ok
+test_idle_expiry_cannot_be_shortened_or_released_before_its_deadline (test_sequence_results.SequenceEvidenceTests.test_idle_expiry_cannot_be_shortened_or_released_before_its_deadline)
+Observed release must bracket the unchanged actual30s expiry and retain a READY observation. ... ok
+test_idle_phase_reversal_or_capacity_release_without_reaped_generation_is_rejected (test_sequence_results.SequenceEvidenceTests.test_idle_phase_reversal_or_capacity_release_without_reaped_generation_is_rejected)
+A released slot cannot return to READY and an expired child still requires exact cleanup. ... ok
+test_idle_quiet_interval_requires_endpoint_observations_and_no_demand (test_sequence_results.SequenceEvidenceTests.test_idle_quiet_interval_requires_endpoint_observations_and_no_demand)
+Two samples at one instant cannot substantiate the registered2s quiet interval. ... ok
+test_kernel_terminal_empty_and_resource_counters_are_not_optional (test_sequence_results.SequenceEvidenceTests.test_kernel_terminal_empty_and_resource_counters_are_not_optional)
+The composed replay checks kernel metadata independently of RELEASED and cleanup booleans. ... ok
+test_missing_duplicate_surplus_groups_or_process_inventory_are_rejected (test_sequence_results.SequenceEvidenceTests.test_missing_duplicate_surplus_groups_or_process_inventory_are_rejected)
+All allocated generations require exactly one matching process and terminal group receipt. ... ok
+test_payload_hash_length_framing_duplicate_keys_and_nonfinite_are_strict (test_sequence_results.SequenceEvidenceTests.test_payload_hash_length_framing_duplicate_keys_and_nonfinite_are_strict)
+A bounded reserialized object is distinct from pipe capture and must remain strict finite JSON. ... ok
+test_private_frame_requires_exact_fixture_and_original_operation_nonce (test_sequence_results.SequenceEvidenceTests.test_private_frame_requires_exact_fixture_and_original_operation_nonce)
+Rehashed frames cannot borrow a response nonce or change source, policy, context or operation. ... ok
+test_ready_hit_admission_cannot_follow_its_idle_expiry (test_sequence_results.SequenceEvidenceTests.test_ready_hit_admission_cannot_follow_its_idle_expiry)
+Even a ready worker's coherent deadline must not already have expired at the next admission. ... ok
+test_repeated_request_nonce_is_rejected_even_when_both_payloads_are_coherent (test_sequence_results.SequenceEvidenceTests.test_repeated_request_nonce_is_rejected_even_when_both_payloads_are_coherent)
+The ABA equality normalization cannot silently reuse an operation identity. ... ok
+test_same_process_or_worker_nonce_cannot_reappear_in_another_generation (test_sequence_results.SequenceEvidenceTests.test_same_process_or_worker_nonce_cannot_reappear_in_another_generation)
+Coherently renaming all links still cannot reuse one process incarnation or bootstrap nonce. ... ok
+test_selected_and_refill_must_name_distinct_exact_owned_generations (test_sequence_results.SequenceEvidenceTests.test_selected_and_refill_must_name_distinct_exact_owned_generations)
+Reuse, disconnected refill and altered identity components cannot satisfy the chain. ... ok
+test_fixture_mode_hash_path_and_group_count_are_exact (test_sequence_results.SequencePlanTests.test_fixture_mode_hash_path_and_group_count_are_exact)
+A rehashed or relabeled fixture cannot change the expected test surface. ... ok
+test_missing_reordered_or_surplus_steps_are_rejected (test_sequence_results.SequencePlanTests.test_missing_reordered_or_surplus_steps_are_rejected)
+ABA order is significant even when every individual fixture hash is correct. ... ok
+test_original_two_plans_are_accepted (test_sequence_results.SequencePlanTests.test_original_two_plans_are_accepted)
+Both concrete case shapes have nonvacuous exact registered inputs. ... ok
+test_real_idle_and_quiet_intervals_cannot_be_shortened_or_coerced (test_sequence_results.SequencePlanTests.test_real_idle_and_quiet_intervals_cannot_be_shortened_or_coerced)
+The test must retain production30s expiry and the registered2s observation interval. ... ok
+test_alias_missing_surplus_and_swapped_mapping (test_workload_correspondence.WorkloadCorrespondenceTests.test_alias_missing_surplus_and_swapped_mapping)
+Remapping must be complete, injective and agree with each definition position. ... ok
+test_canonical_generated_identity (test_workload_correspondence.WorkloadCorrespondenceTests.test_canonical_generated_identity)
+Uppercase, draft, non-v4, non-string and malformed targets are rejected. ... ok
+test_duplicate_definition (test_workload_correspondence.WorkloadCorrespondenceTests.test_duplicate_definition)
+A duplicate output identity fails before complete graph comparison. ... ok
+test_exact_scalar_types (test_workload_correspondence.WorkloadCorrespondenceTests.test_exact_scalar_types)
+Boolean and floating-point aliases cannot satisfy integer workload fields. ... ok
+test_generated_ids_reuse_fixture_uuid (test_workload_correspondence.WorkloadCorrespondenceTests.test_generated_ids_reuse_fixture_uuid)
+Changing only draft prefixes cannot count as fresh server identity allocation. ... ok
+test_literal_looks_like_identity (test_workload_correspondence.WorkloadCorrespondenceTests.test_literal_looks_like_identity)
+Even an ID-looking name remains exact and is never replaced by remapping. ... ok
+test_missing_module_and_cross_prefix_collision (test_workload_correspondence.WorkloadCorrespondenceTests.test_missing_module_and_cross_prefix_collision)
+Absent modules and server/draft IDs that collapse to one draft are rejected. ... ok
+test_original_500_node_graph (test_workload_correspondence.WorkloadCorrespondenceTests.test_original_500_node_graph)
+A complete fresh-ID remapping preserves the exact original workload. ... ok
+test_same_size_wrong_edge (test_workload_correspondence.WorkloadCorrespondenceTests.test_same_size_wrong_edge)
+A changed signature reference cannot pass merely because 500 nodes remain. ... ok
+test_swapped_definition_order (test_workload_correspondence.WorkloadCorrespondenceTests.test_swapped_definition_order)
+Reordered declarations are not silently accepted as an equivalent graph. ... ok
+test_swapped_operand_order (test_workload_correspondence.WorkloadCorrespondenceTests.test_swapped_operand_order)
+Commutative operators still retain the original ordered benchmark edges. ... ok
+test_tags_literals_and_unknown_fields (test_workload_correspondence.WorkloadCorrespondenceTests.test_tags_literals_and_unknown_fields)
+Tags, visible names and closed schema fields are never normalized away. ... ok
+test_undeclared_reference_in_both_inputs (test_workload_correspondence.WorkloadCorrespondenceTests.test_undeclared_reference_in_both_inputs)
+Identically malformed dangling references cannot establish correspondence. ... ok
+
+----------------------------------------------------------------------
+Ran 156 tests in 2.278s
+
+OK

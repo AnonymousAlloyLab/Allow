@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "allow-iis-linux-private-deployment-v1",
+  "authorization": "User requested a deployment package, removal of the Local workspace label and the lowest-latency validation choice, and explicitly selected IIS with a Linux VM/backend. Package creation and local isolated checks are authorized; no remote installation or public publication is requested.",
+  "scope": "Private single-workspace operator deployment package. IIS is the HTTPS reverse proxy; the existing Linux application and SQL/sandbox ownership remain intact. Not Windows-native, not multi-tenant, not a commercial-release or target-host acceptance certificate.",
+  "topology": {
+    "browser": "One configured HTTPS DNS origin, root path only; no wildcard origin, userinfo, query, fragment, trailing slash or path in configuration. Explicit nondefault port allowed; lowercase ASCII DNS, no IP literal; default 443 represented without a port.",
+    "iis": "Dedicated site and dedicated app pool, HTTPS binding to configured host/certificate. URL Rewrite plus ARR. Reject HTTP and wrong Host; reverse proxy all paths to exactly http://127.0.0.1:<tunnelPort>, preserve Origin and Authorization, never inject a bearer token. ARR Host forwarding must be configured and tested to send the fixed tunnel authority, not public Host; no response-body rewriting or shared caching.",
+    "tunnel": "Windows OpenSSH local forwarding bound only to 127.0.0.1:<tunnelPort> to Linux 127.0.0.1:<backendPort>. StrictHostKeyChecking=yes, explicit known-host file, BatchMode=yes, ExitOnForwardFailure=yes, keepalives. Separate operator-provisioned SSH account/key with forwarding restricted to the backend endpoint. No secret/private key/certificate in package.",
+    "linux": "Spring still binds literal 127.0.0.1. Deployment mode explicitly configures an exact tunnel Host and exact public HTTPS Origin. No forwarded header can establish authority. Absence of Origin is allowed for same-origin GET/nonbrowser capability clients; any supplied Origin must be exactly configured. Exactly one Host, and at most one Origin; API requires exactly one valid Authorization. Routing config is all-or-none and malformed values abort startup. Local launch behavior remains unchanged unless deployment mode is explicit.",
+    "authority": "Existing per-launch random bearer capability, consumed from URL fragment into frontend memory. Private Linux launch.url uses public HTTPS origin in deployment mode. Never print the secret by default, put it in query strings, inject it from IIS, copy existing workspace tokens or represent it as per-user authentication. All token holders access the same workspace. Operator transfers launch link privately; reconnect/restart invalidates previous authority. Host validation does not establish authenticated proxy identity; SSH keys/OS loopback protections and capability confidentiality are trusted.",
+    "sql": "Existing fresh private PostgreSQL and pinned SQLeanParser proxy bootstrap. All SQL, including migrations/readiness, goes through existing parser route. No direct PostgreSQL networking or bypass. No live database touched during packaging."
+  },
+  "validation_selection": {
+    "deployment_advisory": "DOCUMENT_ADVISORY_TIER1",
+    "local_default": "DEFAULT",
+    "durable_revalidation_and_solver": "DEFAULT",
+    "pool": "DISABLED",
+    "configuration": "Only closed operator configuration values DEFAULT or DOCUMENT_ADVISORY_TIER1; no arbitrary JVM options or request-based selection. Unknown values fail startup. DocumentQueries advisory branch alone reads selected profile. No change to worker protocol, sandbox limits, cleanup, exact identity or shared admission.",
+    "basis": "The prior same-workload whole-stack pair observed Tier1 p95 348.699540 ms versus DEFAULT 399.671788 ms. The newer component-only pool test observed pool p95 307.6–309.3 ms versus fresh DEFAULT 275.0–278.2 ms; its READY-conditioned197.3ms excludes wait and is not an end-to-end comparison. Do not compare these different workloads as one ranking.",
+    "amendment": "This explicit user-selected private deployment profile is an opt-in experiment, not promotion under the old strict gate. It supersedes the older no-selection rule only for this new deployment launcher. Preserve the prior KEEP_F0 decision and <300ms failure. No claim of globally lowest latency, target-host speed or performance acceptance. Operator rollback to DEFAULT is available. No selection of warm pooling."
+  },
+  "presentation": "Remove the literal Local workspace navigation badge. Keep visible document and predicate names and all current editor/retrieval behavior. No new claim of multi-user support.",
+  "package": {
+    "format": "Versioned zip with IIS configuration renderer, SSH tunnel script, Linux launcher/setup instructions, built Spring classpath and React assets, Python modules/migrations and required pinned configuration, a per-file SHA256 manifest and checksum. Include only enumerated application inputs and build outputs; no broad workspace archive.",
+    "relocation": "Installation root computed relative to installed scripts. Build PostgreSQL at the target root instead of copying its absolute-prefix install. Create a new target Python environment. Include the pinned SQLean parser executable and exact lock/notice for authorized private use; verify the executable hash before startup. Target Linux prerequisites and architecture must be checked. No copied Python virtualenv, development credentials, source datasets, trained checkpoints, live database, .runtime, browser state or private tokens.",
+    "operations": "Provision Linux dependencies and fresh workspace explicitly; preserve existing state on rerun and reject unsafe roots/symlinks. Services use an unprivileged dedicated OS account. Never automatically overwrite an IIS site, certificate or global ARR configuration. Generate reviewable site config and explicit administrator commands. Require target-specific hostname, TLS certificate, SSH host key and addresses at installation. Do not claim native IIS validation from Linux-only tests.",
+    "resources": "Target4vCPU/8GiB. Supply a systemd service with CPUQuota400%, MemoryHigh5G, MemoryMax6G, MemorySwapMax0 and TasksMax512 for the backend stack; PostgreSQL/parser start within that service cgroup. No simultaneous ML training. Target workload and capacity acceptance remain required.",
+    "rights": "Package is an operator-private transfer artifact. Preserve dependency notices and unresolved redistribution/commercialization status. Do not include private corpus or redistribute publicly. Optional ML model provisioning remains a separate explicit task; empty corpus/editor setup does not require shipping learned data."
+  },
+  "proof_first": {
+    "model": "Finite policy supplement before production edits: exact route and capability predicates, hostile/duplicate rejection, no forwarded authority, advisory-only Tier1 selection, durable/solver DEFAULT, pool disabled, profile selection distinct from acceptance, no private runtime/data in eligible payload and positive admissible witnesses.",
+    "checks": "Compile in two fresh Lean4.34.1 directories; matching .olean and axiom inventories; no sorry or custom axioms. Record exact contract/proof hashes and theorem names. Preserve any failed candidates before repair.",
+    "exclusions": "Model proofs do not prove Java/Python/PowerShell/IIS/SSH refinement, cryptography, Windows execution, deployment security, target-host performance or licenses. Actual source tests and package audits are separate evidence."
+  },
+  "acceptance_checks": [
+    "Exact contract review by two GPT-6.1 Terra, two GPT-6.1 Sol and two GPT-6 Astra seats before production code.",
+    "Isolated Java tests/style and real loopback HTTP tests for deployment Host/Origin/bearer boundaries, plus local-mode regression. Test malformed/all-or-none routing and unknown profile refusal, advisory selection and unchanged durable/solver profile.",
+    "Frontend tests/build/style and compiled-bundle check that Local workspace is absent.",
+    "Package allowlist/manifest/hash/secret-path audit and relocation checks; Python setup/renderer tests, parse generated IIS XML and check tunnel/config agreement. Preserve fail-closed response when backend/tunnel unavailable.",
+    "Use an isolated fresh Linux package root for smoke checks when tools/resources permit; any unrun full SQL or Windows-IIS/tunnel checks explicitly remain OPEN. No active preview restart, target rebuild, private data or live credentials read.",
+    "Deployment README states target prerequisites, service startup/shutdown, token retrieval, profile choice/rollback, Windows acceptance checks and retained commercial/performance limitations. Final report distinguishes package built from target accepted."
+  ]
+}

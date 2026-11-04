@@ -1,0 +1,47 @@
+{
+  "id": "ALLOW-LOCAL-DEV-PREVIEW-RESTORATION-R1",
+  "classification": "LOCAL_DEVELOPMENT_REPAIR_NOT_PRODUCTION_CERTIFICATION",
+  "authorization": "Root explicitly authorized concrete restoration after immutable old-state archive and private full backup; user authorized local implementation. No additional permission request inferred.",
+  "contract_clause": {
+    "path": "gates/document/context-cleanup-candidate/contract.json",
+    "field": "startup_and_shutdown",
+    "quote": "Shared liveproxywillberestarted onlyafterapprovedbuild/tests andoldstateevidencearchived; do not run old loadedsource againstnewidentityclaim."
+  },
+  "evidence": [
+    "runs/r11-regressions/report.json",
+    "readiness-report-r2.json",
+    "local-preview-readonly-r1.json",
+    "local-preview-fences-r1.json"
+  ],
+  "driver_sha256": "a74c6d2e7834edc148757a84b0fb1e1ebba0c740715147a29108b9cbd1a11dc9",
+  "ordered_actions": [
+    "Check exact current recorded Spring/proxy/PG incarnations and absence of preexisting context journal.",
+    "Archive private identity/credentials/revocation journal/old launch capability/proxy state and exact baseline startup-loaded proxy sources.",
+    "Hash all document and retrieval table rows; take full private pg_dump -Fc through canonical old SQLeanParser; inspect archive data entries.",
+    "TERM oldSpring using identity-checked pidfd; observe exit; require same data hashes after quiesce.",
+    "TERM oldproxy using identity-checked pidfd; observe exit; leave PostgreSQL running.",
+    "Stage exact tested191-file DEFAULT runtime target; preserve whole prior backend/target by rename; install exact staged target.",
+    "Start v8 proxy using existing credentials and canonical socket; require loaded identity and READY. Never delete unknown context state.",
+    "Start DEFAULT Spring on127.0.0.1:18080 with fresh private bearer, tested budgets and original durable identity. Existing startup CAS intentionally updates only scoped workspace policy.",
+    "GET documents and one existing document; validate its exact stored SOURCE without commit; re-read unchanged accepted content.",
+    "Require exact document/retrieval hashes unchanged except scoped workspace policy; verify original privateidentity/revocationjournal hashes and record persistent owned processes."
+  ],
+  "expected_policy": "document-v1:a280c31119621daf2d233ebdf292318c0d9bb8814cd2339ae2669d8ed6a8cde4",
+  "preserve": [
+    "all existing documents, artifacts, revisions, receipts and admissions",
+    "same private principal/workspace/logicalLaunch identity",
+    "same PostgreSQL process/data/roles",
+    "old target directory and private fullbackup",
+    "existing browser tab and unsaved draft"
+  ],
+  "not_claimed": [
+    "all33 P1 closure",
+    "prompt UNKNOWN automatic recovery",
+    "F1 activation",
+    "warmJVM reuse",
+    "target4vCPU8GiB acceptance",
+    "production/commercial deployment certification"
+  ],
+  "failure_policy": "On any concrete unexpected condition stop with old-state backup intact. No automatic DB restore, role/migration edits, broad kill, UNKNOWN deletion, or baseline rollback that forgets new ownership. Root coordinates recovery.",
+  "launch_authority": "Fresh bearer remains only in .runtime/launch.url; never print URL/token. Root opens a separate authenticated tab preserving the existing unsaved-draft tab."
+}

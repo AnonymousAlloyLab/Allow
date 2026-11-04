@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-spec-2026-11-03-r4-c1",
+  "timestamp": "2026-11-03T12:54:17.124296+00:00",
+  "input_root_hash": "b5fffef4bb20ae12eef6c848aa852fbaf536acc16190b9fb0efa157d7b5a2635",
+  "execution_environment": {
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "jsonschema": "4.17.3",
+    "toolchain": "leanprover/lean4:v4.34.1"
+  },
+  "status": "BLOCKED",
+  "claims": {
+    "total": 25,
+    "passed": 0,
+    "blocked": 25,
+    "unresolved": 0
+  },
+  "correspondence": {
+    "required_objects": 19,
+    "mapped_objects": 0,
+    "unmapped_objects": 19,
+    "ambiguous_objects": 0,
+    "implementation_objects": 0,
+    "interpretation": "JSON constants and theorem inventory; no Java/React implementation exists."
+  },
+  "witnesses": {
+    "required": 6,
+    "valid": 0,
+    "invalid": 6
+  },
+  "builds": {
+    "required": 2,
+    "passed": 0,
+    "records": []
+  },
+  "determinism": {
+    "required": true,
+    "status": "BLOCK"
+  },
+  "provenance": {
+    "public_claims": 25,
+    "fully_bound": 0,
+    "orphan_claims": 25
+  },
+  "dependencies": {
+    "verified": [],
+    "trusted": [
+      "T-LEAN",
+      "T-LOGIC",
+      "T-LAKE",
+      "T-PYTHON",
+      "T-SCHEMA",
+      "T-VERIFIER",
+      "T-HASH",
+      "T-OS",
+      "T-HARDWARE",
+      "T-INTERPRETATION"
+    ],
+    "undeclared": []
+  },
+  "blocking_reasons": [
+    {
+      "code": "VERIFIER_FAILURE",
+      "message": "Schema: 'Allow.checkSlot_sound' does not match '^Allow\\\\.[a-z_]+$'"
+    }
+  ],
+  "infrastructure_errors": [],
+  "closure_boundary": {
+    "verified_surface": [
+      "19 frozen Lean model propositions and six concrete witnesses",
+      "exact JSON formal_kernel projection",
+      "schema/proof-inventory binding, two clean deterministic builds",
+      "six final council records and specified model dispatches, not subjective approval as proof"
+    ],
+    "trusted_surface": [
+      "T-LEAN",
+      "T-LOGIC",
+      "T-LAKE",
+      "T-PYTHON",
+      "T-SCHEMA",
+      "T-VERIFIER",
+      "T-HASH",
+      "T-OS",
+      "T-HARDWARE",
+      "T-INTERPRETATION"
+    ],
+    "excluded_surface": [
+      "any product implementation or runtime refinement",
+      "full Alloy relational/temporal semantics, parser, printer, SAT4J/Kodkod correctness",
+      "serialization/atom semantic identity, auth and witness validator implementation",
+      "UI, SQL/RLS, performance, process security and deployment",
+      "licensing clearance, market demand and commercial release",
+      "future revisions and unlisted claims"
+    ],
+    "interpretation": "VERIFIED means closure only of the frozen finite specification/model surface under declared trust; not assumption-free correctness or production readiness."
+  },
+  "decision": {
+    "valid_states": [
+      "VERIFIED",
+      "BLOCKED",
+      "INFRASTRUCTURE_FAILURE"
+    ],
+    "manual_override_allowed": false
+  },
+  "evidence_directory": "closure/runs/r4-c1"
+}

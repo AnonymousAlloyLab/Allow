@@ -1,0 +1,16 @@
+import Allow
+import Allow.Associativity
+import Allow.PartialTypes
+#check Allow.DocumentPartialTypes.formula_rejected_in_relation
+#check Allow.DocumentPartialTypes.relation_rejected_in_formula
+#check Allow.DocumentPartialTypes.nominal_mismatch_rejected
+#check Allow.DocumentPartialTypes.unknown_schema_not_guessed
+#check Allow.DocumentPartialTypes.unresolved_hole_preserved
+#check Allow.DocumentPartialTypes.conjunction_preserves_rejection
+#check Allow.DocumentPartialTypes.not_hole_rejected_under_some
+#check Allow.DocumentPartialTypes.product_holes_rejected_at_formula_root
+#check Allow.DocumentPartialTypes.every_operator_has_known_result_sort
+#check Allow.DocumentPartialTypes.profile_rejects_opposite_sort
+#check Allow.DocumentPartialTypes.product_overflow_rejected
+#check Allow.DocumentPartialTypes.join_endpoint_mismatch_rejected
+#check Allow.DocumentPartialTypes.transpose_wrong_width_rejected

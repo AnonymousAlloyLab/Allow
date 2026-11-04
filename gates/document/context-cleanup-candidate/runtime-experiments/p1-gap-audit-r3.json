@@ -1,0 +1,184 @@
+{
+  "id": "ALLOW-P1-GAP-AUDIT-R3",
+  "status": "BLOCKED",
+  "preview_read_only_check": {
+    "same_spring_pid_start_argv": true,
+    "proxy_loaded_identity": "PASS",
+    "context": "READY_UNOCCUPIED",
+    "http_documents": "200_OK_14",
+    "exact_existing_source_validation": "VALIDATED",
+    "all_table_hashes_unchanged": true,
+    "postgres_incarnation_unchanged": true,
+    "old_services_reaped": true,
+    "browser_touched": false
+  },
+  "complete_reference": "case-readiness-r2.json",
+  "high_priority_remaining": [
+    {
+      "cases": [
+        "CC08",
+        "CC10",
+        "CC11",
+        "CC17"
+      ],
+      "work": "Actual statement/idle/wall/observation cutoff boundaries, late-success suppression and independently observed resource absence.",
+      "production_change": "Confirmed strict budget defect repaired, complete current regressions pass, localDEFAULT refreshed. Actual PostgreSQL timeout/observation fault variants remain evidence-only unless new failures show another defect."
+    },
+    {
+      "cases": [
+        "CC04",
+        "CC12",
+        "CC13",
+        "CC14",
+        "CC18",
+        "CC19",
+        "CC20",
+        "CC21",
+        "CC22",
+        "CC24",
+        "CC25"
+      ],
+      "work": "Durability barriers, CLI/Java/proxy/observer death, parser loss, EOF/cancel and restart reconciliation. Exact declared phase variants remain unexecuted, except CLI-after-decode and idle final graceful stop.",
+      "production_change": "No architecture change known necessary for finite safety fixtures. Gate-only deterministic barrier wrappers and ownership traces needed; fix production only when bound failures demand it."
+    },
+    {
+      "cases": [
+        "CC23",
+        "CC26",
+        "CC27",
+        "CC28",
+        "CC32"
+      ],
+      "work": "Full handler/observer limits,65receipt/60sTTL/concurrent awaits, actual7logging configurations, private marker audit,20ordinary-tail attempts and PG-slot exhaustion.",
+      "production_change": "Evidence-first. Current implementation intentionally fails closed on uncertain ownership; no promised aggregate17backend cap or guaranteed context slot."
+    },
+    {
+      "cases": [
+        "CC01",
+        "CC02",
+        "CC03",
+        "CC05",
+        "CC06",
+        "CC07",
+        "CC09",
+        "CC15",
+        "CC16",
+        "CC29",
+        "CC30",
+        "CC31",
+        "CC33"
+      ],
+      "work": "Bind existing source/normal/quota/regression evidence, execute still-missing control/peer/protocol/identity variants and delayedCLEAN Java-spawn fence, then complete final inventory/two-build binder.",
+      "production_change": "Mostly executable verifier and evidence assembly; no claim that partial coverage closes these entire IDs."
+    }
+  ],
+  "smallest_verifier_architecture": [
+    "One frozen copied-install supervisor using current canonical bootstrap, pidfd ownership and immutable per-attempt reports.",
+    "One parameterized case table enumerating every subvariant from the33-case plan; explicit NOT_EXECUTED/BLOCKED statuses, no inferred PASS.",
+    "Three gate-only hook packs: durable/state transition barriers; real wire/control peer and owned process faults; independent PG metadata/resource/durable snapshots and private marker audit. No SQL-template overrides.",
+    "One final binder that checks exact source/tool/driver/fixture hashes, actual case/subcase completeness, allowed nondeterminism and two clean implementation builds; preserve existing failed runs and r6 selector-hash caveat."
+  ],
+  "next_slice": {
+    "first": "Freeze actual CC08 statement57014, CC10 idle25P03 and CC17 held observation beyond2.5s with3cleanup attempts, exact owned PG/backend metadata, late-success suppression and durable invariance.",
+    "then": "Run BOUNDcontext and BOUNDobserver crash/restart anchors with gate-only phase barriers, independently observed absence and same frozen-source inventory.",
+    "following": "Expand all exact declared33case subvariants, assemble source/tool/driver/evidence binder and two clean implementation builds. Preserve all old failed attempts; none of these unexecuted cases are PASS."
+  },
+  "urgent_blockers": [
+    {
+      "kind": "REPAIRED_AND_REGRESSION_TESTED_CUTOFF",
+      "detail": "Original simulated metadata+realasync fixture lateCLEAN2.8546s preserved. Repaired fixture UNKNOWN2.502s;82focused+258completePython+52SQL+backupHTTP/restartPASS. This removes known control-flow defect; actualPG CC17 matrix still unexecuted."
+    },
+    {
+      "kind": "EXPLICIT_DESIGN_AVAILABILITY_GAP",
+      "detail": "Pre-key crash may retain UNKNOWN indefinitely. Finite fail-closed safety tests cannot close prompt automatic restart availability; a stronger mechanism requires separate reviewed contract/Lean/council if that gate must be fulfilled."
+    },
+    {
+      "kind": "CONSERVATIVE_AVAILABILITY_LIMIT",
+      "detail": "Observer loss or UNKNOWN makes readiness DEGRADED; observer_attempted prevents same-manager automatic replacement. Restart can reconcile complete identity. Do not market automatic recovery as implemented."
+    }
+  ],
+  "source_sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+  "frozen_references": [
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-test-plan.json",
+      "sha256": "22c95620d15ec14a44efa464b7faca97845a0dfeab7aa1ca3563aca0636c7e3b"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/readiness-report-r2.json",
+      "sha256": "c67dc131cc244c2ff9e3a558cd5b04edaea6ee7e9ec544f0eee249258035d363"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/case-readiness-r2.json",
+      "sha256": "c21c48312d21e7d476536fd34dbab2dff4136052283152ede8962e4597e342af"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/report.json",
+      "sha256": "91a18dbf1354d6f81ae7b564c06b1703aed99e30573b6d3d50eb8e3ef68ff447"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r2/report.json",
+      "sha256": "c19c98069f167859bd34fbb36ed7dee0d6293a22b04ea48393f8ed5344a80dd3"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-focused-r2/report.json",
+      "sha256": "53cad188906888cfb9153b4181e233aa0c15afa909fec0cbd7893fec5025fd5e"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/manifest.json",
+      "sha256": "b6781fdb1d81164c3588d6d98dcd46c1b8f1b9269dda4a9d2826f3c66d70be44"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/report.json",
+      "sha256": "9be260c8482045698b48c59f21f38312f8351d804b552adaf29d87df6446d972"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/preexecution-external-manifest-receipt.json",
+      "sha256": "f1d60654ba740bcc359b515c49b9bd992060e28463335b6ff94d028e3b1bbfcd"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/deadline-source-ready-r1.json",
+      "sha256": "acb454c94cb8c27e034400af8e0d72e0210eda597cad3ba437b996a9cb6936a6"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/local-preview-restoration-r3/post-launch-survival.json",
+      "sha256": "6490f11a528b3c52a16a0bcee2bb7dd10875f61c3ea4b0546fa1cde6d4620034"
+    }
+  ],
+  "repair": {
+    "scope": "Strict existing2.5s observation deadline, now installed after complete r15 regressions. No SQL/constants/Java change.",
+    "changed_files": [
+      {
+        "path": "retrieval/allow_retrieval/sql_context_lease.py",
+        "sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4"
+      },
+      {
+        "path": "retrieval/tests/test_context_leases.py",
+        "sha256": "bbf913c5ef92785174968dbf011c0c8d6d89934f78d3dcd32ec7f00709e0655f"
+      }
+    ],
+    "focused_test_count": 82,
+    "new_boundary_tests": 8,
+    "real_async_result": "UNKNOWN at2.501957693s; no lateCLEAN; scheduler overhead is not counted as accepted observation",
+    "evidence_boundary": "Synthetic metadata, real asyncio timer; not PostgreSQL identity/kernel absence proof. Full33 remains BLOCKED.",
+    "complete_regressions": {
+      "python_tests": 258,
+      "sql_runtime_tests": 52,
+      "zero_failures_errors_skips": true,
+      "backup_recovery_http_restart": "PASS",
+      "managed_runtime_regular_files": 28318,
+      "managed_runtime_links": 5,
+      "full_pre_and_post_inventory": "PASS",
+      "manifest_sha256_before_execution": "b6781fdb1d81164c3588d6d98dcd46c1b8f1b9269dda4a9d2826f3c66d70be44",
+      "manifest_unchanged_after_execution": true,
+      "java_default_target_files_unchanged": 191
+    }
+  },
+  "evidence_only_vs_unavailable_behavior": {
+    "evidence_only": "Remaining33case safety verifier: exact source/tool/phase/peer/wire/slot/privacy/crash/restart subvariants with independently checked absence and durable invariance. Current claims stay BLOCKED until actual execution+finalbinder.",
+    "unavailable_behavior": [
+      "Prompt automatic recovery of pre-key ambiguous backend ownership remainsOPEN; cannot be obtained by relabeling UNKNOWN safety evidence.",
+      "Same-manager automatic observer replacement after failure is intentionally unavailable; readiness degrades and restart reconciliation requires complete identity."
+    ],
+    "new_design_required_only_if": "Product gate demands prompt automatic pre-key or observer recovery; then propose reviewed crash-containment contract/Lean and implementation separately. No unreviewed PID-only termination or same-process reuse."
+  }
+}

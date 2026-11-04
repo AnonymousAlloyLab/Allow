@@ -1,0 +1,47 @@
+{
+  "reviewer": "assoc-astra-1",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "spec/document-associativity.json": "b7a60034b650bb75dc8a1d160d8312ccbc3f8d1449b2554290e0db9748045d1b",
+    "gates/document/associativity-amendment/Associativity.lean": "b0e003ebd07a530eabec1edd241f17a940505fb538e870a2ce3015bbe2849316",
+    "gates/document/associativity-amendment/types.json": "0d8f95224108d094f8c54df6a7f6fdd260faa2ea61e42aca02dcaf09556efce7"
+  },
+  "review_kind": "Independent finite adversarial gameplan review, not a proof, build attestation, runtime approval or commercial approval.",
+  "blocking_findings": [],
+  "findings": [
+    {
+      "topic": "Truth and occurrence order",
+      "assessment": "The 16-item inventory matches the intended abstract boundary. balanced_leaves preserves the complete ordered list, including repeated identities; balanced_semantics and regroup_semantics establish Boolean AND/OR truth for arbitrary valuations. The operator is global to each abstract tree, so mixed operators must remain opaque operand subtrees in the adapter. The spec expressly requires this."
+    },
+    {
+      "topic": "Identity, scope and maps",
+      "assessment": "Ordered abstract leaves do not prove nominal declaration identity, binding, unique expression ownership, maps, comments or source correspondence. The gameplan explicitly retains those separate checks and prohibits replacing the accepted BLOCK artifact with a reassociated reconstruction. This is a necessary and adequate gameplan boundary; a truth-only or name-only comparator would not satisfy it without the inherited unique-name/identity/scope invariants."
+    },
+    {
+      "topic": "Public versus transient limits",
+      "assessment": "The public 512-node/depth-32 acceptance guard remains unchanged. Transient depth 512 is a comparison allowance only, requires independent full validation, and cannot enter accepted output. The model counts each abstract atom as two syntax nodes and proves depth bounded by that modeled count; it does not establish the budget for arbitrary weighted operand subtrees. The spec and registry accurately disclaim that stronger claim."
+    },
+    {
+      "topic": "Formal binding",
+      "assessment": "The exact source hash matches types.json. accepted_public_limits_preserved projects the old GuardedStep acceptance relation; it is not a proof that a modified Java adapter implements that relation. Empty-tree identity and zero-fuel fallback occur in the mathematical model, while production explicitly rejects zero operands and must fully group or reject. The 167-atom numeric witness is nonvacuous but does not identify the actual JSON fixture or prove parser behavior."
+    },
+    {
+      "topic": "Actual worker feasibility",
+      "assessment": "The inspected production ModuleChecker.expression and ModuleEquivalence.flatten recurse. A numeric bound of 512 alone does not prove these or Alloy parser calls safe under Xss512k. The gameplan already requires actual-profile testing, iterative or explicitly bounded traversal, and leaving the gate open when processing is unsafe. The runtime-failure evidence is an observed regression, not evidence of its resolution."
+    }
+  ],
+  "residual_requirements": [
+    "Obtain all six independent exact-hash approvals and two isolated clean Lean builds with exact theorem inventory and all 251 prior claims retained before production associativity edits.",
+    "Implement deterministic floor/ceil grouping for each maximal same-operator region, with all non-associative and mixed-operator boundaries preserved; zero operands reject, singleton remains unchanged.",
+    "Count all expression occurrences across the actual module, including weighted operand subtrees and generated grouping nodes, before unbounded allocation; independently enforce ownership, acyclicity, scope, schemas, declarations, multiplicity and commands on every comparison representation.",
+    "Keep the strict public checker on submitted BLOCK and supported SOURCE artifacts. Any relaxed transient checker must be unreachable as an acceptance, persistence, history-copy or output path.",
+    "Exercise the real frozen 500-node fixture for BLOCK and SOURCE under actual Xss512k, plus near-budget skewed and deeply nested inputs; do not infer stack safety from Lean depth_le_nodes or a test under a larger JVM stack.",
+    "Test ordered swaps, duplicates/deletions, distinct nominal references, mixed operators, binding escapes/shared nodes, comments, Unicode/CRLF and immutable accepted source/maps. Missing correspondence rejects generated BLOCK; worker timeouts/errors remain availability failures.",
+    "Retain all independent latency, G2/G3, UI, SQL proxy, accessibility and commercial no-go gates. This review approves the frozen gameplan only."
+  ],
+  "validation_performed": [
+    "Read the three frozen inputs and independently verified their SHA-256 values.",
+    "Read runtime-failure.json and prior r5 manifest; inspected inherited normalization/identity requirements and current Java checker/comparator traversal.",
+    "No Maven/npm, production edits or runtime claims; no independent Lean build was performed by this reviewer."
+  ]
+}

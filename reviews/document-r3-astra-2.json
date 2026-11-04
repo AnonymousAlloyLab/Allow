@@ -1,0 +1,83 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-r3-astra-2",
+  "review_type": "FINAL_CANDIDATE_ADVERSARIAL_COHERENCE_REVIEW",
+  "decision": "REQUEST_TWO_MODEL_ALIGNMENT_FIXES_BEFORE_FREEZE",
+  "timestamp_utc": "2026-11-03T18:16:14.380397+00:00",
+  "spec_revision": 3,
+  "wire_revision": 4,
+  "spec_sha256": "2a2c3561b345f2f21c71c96aab760bcf9b8f0698b13ce1968932ff255c7e6282",
+  "wire_sha256": "1eebb58f52a9e19bf50b242f5f274faabaa13d0eec1cee13122c78263321211d",
+  "formal_file_sha256": "fdc4dc15e99fa60fd84db10b3debb9e6695de85ccbbbfed63390755129bf9c2e",
+  "types_sha256": "0ca046e8429cb886a01e649cb5d9ffff724c968e4315bcc680d0d11bb60fad8d",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "2a2c3561b345f2f21c71c96aab760bcf9b8f0698b13ce1968932ff255c7e6282",
+    "spec/document-wire-draft.json": "1eebb58f52a9e19bf50b242f5f274faabaa13d0eec1cee13122c78263321211d",
+    "gates/document/draft/Document.lean": "fdc4dc15e99fa60fd84db10b3debb9e6695de85ccbbbfed63390755129bf9c2e",
+    "gates/document/draft/types.json": "0ca046e8429cb886a01e649cb5d9ffff724c968e4315bcc680d0d11bb60fad8d"
+  },
+  "types_source_hash_matches": true,
+  "blocking_findings": [
+    {
+      "id": "D3-A2-01",
+      "severity": "HIGH",
+      "location": "Document.lean Payload/WireDecoder/DecodedRequest/AdmittedStep",
+      "finding": "The deterministic raw-wire decoder returns current policy plus final Artifact, including randomized server IDs and parser report. Those are server/context results, not functions of original HTTP bytes alone. A same-byte admitted request revalidated after policy installation or recovered after an uncommitted randomized remapping cannot satisfy one fixed decoder. AdmittedStep replay also requires this overstrong decoding even though wire replay must precede candidate validation/remapping.",
+      "resolution": "Split deterministic decoded intent (expected revision, operation/target, untrusted source/module/copy transport) from server-produced checked artifact. Use a separately named trusted binding relation for exact raw request plus owner generation/current policy/validated artifact. Same-wire theorem should establish equal decoded intent only. Receipt replay must require authorization, bounded envelope identity and exact receipt wire equality, independent of parser or checked-artifact binding. Add witnesses for same raw wire revalidation under a new policy and replay with parser unavailable; randomized remapping may differ before first committed receipt but must return stored mapping after it."
+    },
+    {
+      "id": "D3-A2-02",
+      "severity": "HIGH",
+      "location": "Document.lean OperationValid / HistoricalStep / State.history",
+      "finding": "Restore requires target>0 and exact equality to history[target-1]. Artifact equality includes ParserReport.policy; therefore an artifact accepted under policy3 cannot be restored under policy4 even if its content passes fresh validation. Wire explicitly permits revision0 and a new checked artifact/report under current policy. HistoricalStep also appends the old artifact instead of new checked content.",
+      "resolution": "Represent history with explicit revision lookup including revision0; define historical content preservation separately from fresh validation report/policy/artifact identity. A restore names retained same-document target, preserves the specified exact source/module/span/trivia content as applicable, validates a fresh candidate under current policy and appends that fresh artifact with target/direction provenance. Add positive revision0 and policy-upgrade restores plus unavailable/wrong-target/failed-current-policy negatives. Preserve old artifact immutability."
+    }
+  ],
+  "model_boundary_clarifications": [
+    {
+      "id": "D3-A2-N1",
+      "finding": "CheckedModule has global declaration-list uniqueness and global binder-list uniqueness separately, but does not prohibit a binder ID equaling a declaration ID. Expressions have no UUID identity in this structural model. Tagged references remain unambiguous inside the model, so this is not an inferred type-soundness failure; it is weaker than wire all-kind UUID uniqueness.",
+      "resolution": "Either add Nodup(allDeclarationIds ++ allBinderIds), a cheap direct alignment, or explicitly register cross-kind UUID uniqueness as tested wire-to-forest TCB. Keep node UUID uniqueness/owned edges in adapter obligations. Do not claim existing theorem proves all UUID uniqueness."
+    },
+    {
+      "id": "D3-A2-N2",
+      "finding": "Step.unknown models the committed-but-unacknowledged branch only; actual UNKNOWN_COMMIT_OUTCOME can also precede rollback/no mutation. Existing accepted_can_lose_response and unknown_retry are sound for that chosen branch.",
+      "resolution": "State this one-sided model boundary explicitly or add an unknown-no-change branch and weaken universal unknown conclusions to a disjunction. Runtime must inspect receipt/transaction certainty rather than assume unknown means committed."
+    },
+    {
+      "id": "D3-A2-N3",
+      "finding": "Authorized is an abstract supplied proposition, and serialized State is single-document; nonce fencing, RLS, durable identity recovery, workspace aggregate reservations and database ordering are not proved by the registered transition theorems.",
+      "resolution": "Existing runtime trust boundary is acceptable. Bind runtime auth to exact principal/workspace/document scope; test wrong principal/launch/key, old nonce finalization/release, restart, policy races and quota contention. No whole parser/database refinement proof is requested."
+    },
+    {
+      "id": "D3-A2-N4",
+      "finding": "Field multiplicity and concrete parser/source span correspondence are trusted; infer is experimentally complete only for two reference forms. Finite per-tag Typed witnesses are useful fixtures but not universal implementation checker correspondence.",
+      "resolution": "Maintain current precise limits in types.json and final claims; exercise complete positive/negative adapter fixtures without claiming full infer soundness or Alloy semantics."
+    }
+  ],
+  "resolved_previous_blockers": [
+    "CREATE reserves document and revision0 slots under workspace lock;63+two-concurrent-create case is explicitly defined.",
+    "presentationCopies supplies bounded copy-comment lineage while semantic validation remains independent.",
+    "Maps bind immutable artifact/source; revision and presentation envelopes are separate.",
+    "Policy mismatch revalidates instead of receiving terminal obsolete rejection.",
+    "512-node profile retains500-node benchmark, and heap/address-space/global/per-principal limits are now explicitly distinguished; empirical acceptance remains pending."
+  ],
+  "security_assessment": "The proposed runtime contract is coherent: private durable principal/logical launch, fresh bearer, authorized exact-wire replay before validation/quota, indefinite bounded retention, nonce-fenced admission, shared workspace policy lock, atomic artifact/revision/receipt settlement and UNKNOWN_COMMIT_OUTCOME recovery. No new runtime-design blocker beyond formal correspondence alignment was found.",
+  "commercial_assessment": "Local document approval does not authorize redistribution, complete Alloy verification, canonical CorpusPair admission, production G2/G3 closure or commercial release. Existing anonymous encoder/egraph and purpose-rights boundaries remain appropriate; unresolved SQLean and upstream license/release gates stay open.",
+  "final_gameplan": [
+    "Fix decoder-versus-checked-artifact separation and historical content/revision indexing; resolve explicit model-boundary choices.",
+    "Regenerate types.json from exact final Lean and obtain exact-four-hash council review; register propositions and perform two clean isolated builds before production.",
+    "Implement the already specified narrow proxy-only document bridge and isolated validator, then run crash/replay/nonce/policy/quota/authorization tests before UI integration.",
+    "Finish full source/IR/trivia/map adapter and accessible workflows, report each inherited gate independently, preserve previous-stage evidence and commercial restrictions."
+  ],
+  "verification_performed": [
+    "Read main revision3 and wire revision4 identity, projection, quotas, storage protocol and resource/trust declarations.",
+    "Read Lean module, decoder, policy, receipts, historical state and registered theorem types.",
+    "Computed all four hashes; types source hash matches exact Lean source.",
+    "No independent Lean build or production tests performed in this review."
+  ],
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "Runtime gameplan is coherent, but the two concrete model/contract contradictions block final specification freeze. No production authorization or mechanical closure.",
+  "concurrent_edit_notice": "Review binds the inspected formal hash fdc4dc15e99fa60fd84db10b3debb9e6695de85ccbbbfed63390755129bf9c2e matching types.json. The live Lean file changed to9a934db4e9b44ecad79a92404b182016a2abe4c9378bf5a465438937df278bf4 during report writing; that newer source is not approved or reviewed by this report."
+}

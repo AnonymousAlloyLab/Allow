@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "classification": "IMPLEMENTATION_STATUS_NOT_CLOSURE_CERTIFICATE",
+  "selection": "DISABLED",
+  "implementation": "IMPLEMENTED_DISABLED_FINITE_CHECKS_PASSED",
+  "production_baseline": {
+    "vcpus": 4,
+    "gib": 8
+  },
+  "live_preview": "UNCHANGED_FRESH_DEFAULT",
+  "model": {
+    "path": "gates/performance/warm-pool-candidate/formal-runs/final-v1/report.json",
+    "sha256": "95e3568442a1f1010d3c1914699a41e19efca27142cb455c84270f99f0897fc9"
+  },
+  "council": {
+    "path": "gates/performance/warm-pool-candidate/council-disposition.json",
+    "sha256": "f90f94c5951d662d15e8e2222b8e7c8e6accc9ec4baaf718be97206411b5fcfe"
+  },
+  "previous_complete_build": {
+    "path": "gates/performance/warm-pool-candidate/implementation/development-full-r4-report.json",
+    "sha256": "71a6bf7ff539d5b56fed8a2057ae7e7de74c76d813a71ca2207587a8ded24beb"
+  },
+  "subsequent_focused_repairs": [
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/admission-r3-report.json",
+      "sha256": "9976595c17cfefb62c4ead663b48048ed88d79ca98d0349a7534c43599be4fb2"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/creation-development-report-r9.json",
+      "sha256": "0a59b45a1aa385e604f22af90737c35038cfd8b66777a85acb22e59cdf441acc"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/transport-development-report-r10.json",
+      "sha256": "e93b9e4a5c03524df60b08bf0b8f62ecc15bc405f9134b0ad85b13c138442811"
+    }
+  ],
+  "previous_runtime_probe": {
+    "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/ownership-r2/report.json",
+    "sha256": "f4dfaffe17a72f5a5bc18dc116167d5c4c23580b2edd7db0e9b3a2b9aa78a2ac"
+  },
+  "runtime_probe_scope": "Eleven finite ownership/protocol/lifecycle cases. Includes a same-incarnation three-request A-B-A refill sequence and actual30-second idle expiry,2-second no-demand observation, unchanged durable generation counters, and successful redemand. Synthetic assumed CLEAN context; no SQL, selected Spring route, latency or full cold/history/soak acceptance. All expected cases and actual whole-scope cleanup pass.",
+  "semantic_comparison": {
+    "report": {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r3/report.json",
+      "sha256": "ac39a7a1fac507619d5eab615dc717c2e3fdc86d0b5cecbcbb936d9fb786f54b"
+    },
+    "input_root_sha256": "b70b8ad41ce47348a81dd9b9fde345b256afbc31e3bf0906f5b1d8ac0d5da8c6",
+    "status": "BLOCKED",
+    "finite_expected_checks": "PASS",
+    "full_response_pairs_passed": 187,
+    "matching_input_rejections": 2,
+    "not_comparable": [
+      "context-invalid-policyVersion"
+    ],
+    "scope": "READY advisory worker per fresh fixture pool; warm responses are complete reserialized results. Context CLEAN is test-assumed; REVALIDATE uses direct helper/ledger, not selected OwnedWorkerRun. Full cold/refill/history coverage remains open."
+  },
+  "latest_complete_build": {
+    "path": "gates/performance/warm-pool-candidate/implementation/development-full-r5-report.json",
+    "sha256": "f6f509074d9994526c2c0f0461c840883e26dc10d754fcf1e86e5f353d0ca118"
+  },
+  "warm_performance": "NOT_MEASURED",
+  "promotion": "BLOCKED_OPEN_GATES",
+  "open_gates": [
+    "Full67-category runtime fault matrix with concrete source-bound kernel/SQL evidence",
+    "Whole190 equivalence remains BLOCKED by preregistered blank-policy domain gap; resolving its contract domain needs separate review",
+    "Full cold/refill/history semantic coverage beyond the two finite same-incarnation lifecycle cases",
+    "Exact selected WarmRuntime/OwnedWorkerRun and real SQLeanParser CLEAN integration",
+    "Full durable/solver/max-history regression with warm candidate selected",
+    "Per-operation ready-hit/miss/refill/cancellation observations",
+    "Three strict paired HTTP runs",
+    "Cold and idle-expiry profiles",
+    "Open-loop sustained load and overload",
+    "One-hour resource soak and10000-request sequence",
+    "Actual4vCPU/8GiB target-host acceptance",
+    "Separate browser/accessibility and commercialization acceptance"
+  ],
+  "commercialization": "NO_GO",
+  "boundaries": [
+    "Lean verifies only frozen finite model under declared TCB",
+    "Development and diagnostic results do not prove implementation refinement",
+    "Prior receipt hashes are historical; later revisions require new evidence",
+    "No latency threshold relaxed and no warm profile activated"
+  ],
+  "current_source_ready": {
+    "path": "gates/performance/warm-pool-candidate/implementation/source-ready-r5.json",
+    "sha256": "d9ff0832ac9847f2b5f4db60beef1b5a603c9dbc49e862fbc55bea523869322b"
+  },
+  "helper_tests": {
+    "path": "gates/performance/warm-pool-candidate/implementation/helper-boundaries-r3-report.json",
+    "sha256": "b247b343b516082e3107032f822a7c31f93ce51a0e42ac5a74950d760dee99c0"
+  },
+  "current_source_runtime_probe": {
+    "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/pooling-lifecycle-r1/report.json",
+    "sha256": "fdd22eb5b16637d665f81f5eae74703b165085d131e792e6f8c8a321c9f1daef",
+    "input_root_sha256": "2116b0d9bf58f69407c0243fe6cab15a688de18f8197b87ae34e134b114c799e",
+    "cases": 11
+  },
+  "prior_current_source_runtime_probe": {
+    "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/ownership-r5/report.json",
+    "sha256": "5580a0aba27293444e36d2d09086fa0afdf3505f7e28253023c833b066275873",
+    "input_root_sha256": "194ea2361a691424a5689065618436337d4ea290ba3f780404ae7373b3df755d",
+    "cases": 9
+  },
+  "preserved_semantic_attempts": [
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r1/report.json",
+      "sha256": "21edb1c228e0a78f9bb804856aa0870113a8c2ff3222e043f45dc35a47fdba8a"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r1/verifier-diagnosis.json",
+      "sha256": "209334630666d92f7900e04b3ca3c869b1f7e9739578b0ff59a0b5f59474f851"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r2/report.json",
+      "sha256": "831dc0b364f98b143911a20a5f69d79a6a6c9db06f2d94bc236e64ed07e769d7"
+    }
+  ],
+  "latest_complete_build_current": true,
+  "last_completed_runtime_probe": {
+    "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/pooling-lifecycle-r1/report.json",
+    "sha256": "fdd22eb5b16637d665f81f5eae74703b165085d131e792e6f8c8a321c9f1daef",
+    "input_root_sha256": "2116b0d9bf58f69407c0243fe6cab15a688de18f8197b87ae34e134b114c799e",
+    "cases": 11
+  },
+  "shutdown_repair": {
+    "path": "gates/performance/warm-pool-candidate/implementation/shutdown-development-report-r11.json",
+    "sha256": "c9e28ab11bfb09484d80f86f29740c54c2ce3d84464afcb8ccabe80553251272"
+  },
+  "shutdown_repair_status": "IMPLEMENTED_AND_FINITE_RUNTIME_RETESTED",
+  "source_projection_check": {
+    "files": 229,
+    "source_ready_files": 338,
+    "status": "PASS"
+  },
+  "offline_test_checks": {
+    "report": {
+      "path": "gates/performance/warm-pool-candidate/implementation/pooling-offline-r1-report.json",
+      "sha256": "75ef405632a7f8cc9542b4799aff246a94dd4235523720d141ca1c1d0223d736"
+    },
+    "helper": 13,
+    "harness": 133
+  },
+  "lifecycle_test_plan": {
+    "path": "gates/performance/warm-pool-candidate/implementation/pooling-lifecycle-test-plan-r1.json",
+    "sha256": "7a442d101d51ef3bedfeba6a997f744e98e698c9938a0c50317c7353db2b1079"
+  },
+  "production_executable_comparison": {
+    "baseline": "source-ready-r4",
+    "files": 208,
+    "status": "BYTE_IDENTICAL",
+    "build_identity": "2734e593a897e215b37b25a755fb301e0b41829464a462789b5e041f9acd3167",
+    "scope": "Only five Java test files changed: two modified and three added. Historical semantic-r3 was not rerun."
+  }
+}

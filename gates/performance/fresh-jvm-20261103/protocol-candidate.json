@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "ALLOW-FRESH-JVM-SCREEN-20261103-R1",
+  "status": "DESIGN_CANDIDATE_NO_EXPERIMENT_EXECUTED",
+  "purpose": "Preregister the proposed comparison and blockers before authoring or running its isolated prototype. This is not a registered closure: exact fixture, runner, build and artifact hashes remain to be frozen.",
+  "authorization_boundary": {
+    "allowed_now": ["Read-only environment/source inspection", "Gate-local design and observation files"],
+    "before_prototype": ["Root schedules experiment after P0 SQL probes", "Exact prototype contract and Lean supplement", "Six exact-input council reviews", "Two isolated formal builds", "Freeze implemented verifiers and finite fixtures"],
+    "forbidden": ["Modify active source/configuration/proof/compiled artifacts", "Restart, move or cap live Spring/PostgreSQL/proxy", "Read private model fixtures for public evidence", "Use direct PostgreSQL connections bypassing SQLeanParser", "Promote a worker option using component timing alone"]
+  },
+  "target": {
+    "production": {"vcpus": 4, "memory_bytes": 8589934592, "acceptance": "OPEN_TARGET_HOST_NOT_PROVIDED"},
+    "workstation_screen": {
+      "cpu_max": "400000 100000", "memory_high_bytes": 5368709120,
+      "memory_max_bytes": 6442450944, "memory_swap_max_bytes": 0,
+      "memory_peak_objective_bytes": 5368709120, "pids_max_initial": 512,
+      "cpu_affinity_initial": [0, 1, 2, 3],
+      "cpu_affinity_limitation": "cpuset is not delegated on this workstation; CPUAffinity is an inherited scheduler setting, not a cpuset security boundary. cpu.max is the aggregate enforced CPU budget. All measured descendants must retain the selected affinity or the screening is invalid.",
+      "interpretation": "Workstation quotas do not emulate slower server cores, storage, cache, or provider contention. Record host pressure; do not relabel this as production acceptance."
+    }
+  },
+  "new_isolated_launch": {
+    "feasibility": "READ_ONLY_TOOLING_SUPPORT_OBSERVED_EXECUTION_NOT_TESTED",
+    "unit": "A newly named transient user service, one supervisor parent; never reuse or modify an existing unit.",
+    "command_template": ["systemd-run", "--user", "--wait", "--pipe", "--collect", "--unit=allow-screen-UNIQUE", "--property=CPUQuota=400%", "--property=CPUQuotaPeriodSec=100ms", "--property=MemoryHigh=5368709120", "--property=MemoryMax=6442450944", "--property=MemorySwapMax=0", "--property=TasksMax=512", "--property=CPUAffinity=0 1 2 3", "--property=KillMode=control-group", "--property=TimeoutStopSec=15s", "/usr/bin/python3", "COPIED_GATE/launch_isolated_stack.py", "--root", "COPIED_INSTALLATION"],
+    "prerequisites": [
+      "First a tiny separate owned service preflight must read its effective cpu.max, memory.high/max/swap.max and pids.max, child cgroup membership and inherited affinity. No workload begins until all exact values match.",
+      "Do not enable controllers by hand under the live application scope. Let the user manager create only the new service; retain any manager-reported controller changes as evidence.",
+      "Copy backend target, retrieval source, fixed parser configuration, scripts and selected tools to a new mode-0700 experiment installation. Reject symlink/hardlink aliasing for writable and mutable inputs. All copy inventory hashes must match before variant-specific changes.",
+      "Use a fresh synthetic PostgreSQL data directory and private socket path under the copied root. Never copy a running data directory. Never use the active .runtime, launch.url, database.json, proxy socket or proxy owner file.",
+      "Freeze all resolved tool paths. Installed PostgreSQL executable/prefix may be shared as read-only pinned tooling; its data, logs and sockets are separate. Python virtualenv location and packages must be explicit; do not assume a copied venv is relocatable.",
+      "Bootstrap and migrate the synthetic cluster only through the copied SQLeanParser proxy. Server executable startup is not SQL; every client/admin/control/backup query still uses the parser gate.",
+      "Launch PostgreSQL, parser/image helpers, Spring, context bridges and worker/refill children from the supervisor inside the same service. pg_ctl daemonization does not remove cgroup membership, but verify actual child membership.",
+      "Use a free loopback port selected before freeze, and a new private bearer file. Keep load driver/browser outside the server cgroup and report their resource placement.",
+      "All secrets remain in private files, not process arguments, public reports or journals. Supervisor captures bounded private logs and publishes only content-free metrics.",
+      "All cleanup targets are owned by this unique unit and PID/start-time evidence. Stop only its unit, then require cgroup.events populated=0. Never infer cleanup from a single parent exit."
+    ],
+    "initial_component_budgets_for_profile_only": {
+      "spring": ["-Xms128m", "-Xmx1024m", "-XX:MaxMetaspaceSize=256m", "-XX:ReservedCodeCacheSize=128m", "-XX:ActiveProcessorCount=4", "server.tomcat.threads.max=16", "server.tomcat.threads.min-spare=2", "server.tomcat.max-connections=32", "server.tomcat.accept-count=8"],
+      "postgres": {"max_connections": 20, "shared_buffers": "128MB", "work_mem": "4MB", "maintenance_work_mem": "64MB", "max_parallel_workers": 0},
+      "workers": "Preserve current Xmx512m, Xss512k, SerialGC, processor count 2, metaspace128m, compressed class space64m, code cache48m, address-space2GiB, CPU12s and file-size8MiB limits.",
+      "context_bridge": "Preserve current address-space2GiB and CPU20s limits; SQL deadline/cleanup behavior belongs to the separately reviewed P1 increment.",
+      "warning": "These values are proposed experiment parameters, not measured sufficient production budgets. The full group cap is authoritative. Keep these component values identical across compared variants."
+    }
+  },
+  "experiments": [
+    {"id": "F0", "description": "Exact fresh production launcher and directory/wildcard classpath, copied target, default current JVM flags; no AppCDS additions."},
+    {"id": "F1", "description": "F0 plus only -XX:TieredStopAtLevel=1 for the document-advisory experiment."},
+    {"id": "P0", "description": "Packaged deterministic application jar plus explicit dependency classpath, current tier policy, no application archive. Separates packaging effects from AppCDS."},
+    {"id": "P1", "description": "P0 plus TieredStopAtLevel=1, no application archive."},
+    {"id": "C0", "description": "P0 plus the exactly pinned application archive and -Xshare:auto."},
+    {"id": "C1", "description": "P1 plus its exactly compatible pinned application archive and -Xshare:auto."}
+  ],
+  "fences_and_packaging": [
+    "Actual BubblewrapLauncher constructor and launch() must be executed for each measured fresh request. Preserve their complete full BuildIdentity scans and Alloy SHA-256 check. The previous command()+ProcessBuilder bypass is prohibited.",
+    "Prepare a copied launcher source and compile only that class into a variant copy of target. Limit edits to command construction needed for the chosen variant and explicit additional-artifact checks for AppCDS. Freeze source delta and compiled inventory; verify constructor/launch fence statements and invocation order mechanically. The worker document engine/classes remain byte-identical to copied baseline.",
+    "Every variant has its own exact logical BuildIdentity, because its copied launcher bytecode may differ. Also record baseline-to-variant class diff; only approved launcher class changes may occur. Never replace the full original identity with a jar-only checksum.",
+    "Pin Alloy SHA-256 6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d and recheck on every launch. Recheck archive, application jar, ordered dependency list, JDK installation identity and flags before using C0/C1. Include the extra hash cost in measured latency.",
+    "Build a deterministic jar from every copied target/classes byte, including static resources, with sorted entries and fixed metadata. Existing Maven jar precedes frontend static copy and must not be substituted without checking contents.",
+    "Freeze explicit application/solver/dependency order. Audit duplicate classes, resources, META-INF/services and multi-release jars. Compare lookup semantics and complete outputs versus F0; jar packaging is an independent semantic change until checked.",
+    "Create archives in a separate build-only sandbox from a frozen synthetic, nonprivate training frame. Preserve training provenance. Permit writes only to a new owned archive output directory during archive construction; runtime worker mounts remain read-only. No archive generation or repair in a serving process.",
+    "Pin exact JDK build, java/libjvm/modules/default CDS files, all jar bytes/metadata/classpath and archive digest. Distinguish the original logical BuildIdentity from this larger artifact identity. A different JDK, classpath, archive or flags creates a new candidate.",
+    "JDK default CDS may already apply in F0. Capture class-load/CDS logs in dedicated instrumentation runs. Require actual application shared-object class-load evidence for a claim of AppCDS usage; benchmark runs omit verbose logs unless used equally in all variants.",
+    "Use -Xshare:auto for the proposed runtime policy. A missing or digest-mismatched required archive is rejected by the launcher before worker launch. A hash-valid but JVM-unusable archive may fall back only as explicitly configured, is recorded as fallback, and cannot count as an AppCDS-active performance sample. -Xshare:on is permitted solely in a separate diagnostic compatibility check.",
+    "Read-only mounts of writable host paths are not immutable code images. Fresh one-shot experiments retain the current trust boundary and fences; they do not establish image immutability suitable for a prestarted/reused pool."
+  ],
+  "semantic_comparison": {
+    "oracle": "F0 is the behavior comparison baseline, not a proof of universal soundness. Existing contract/Lean tests remain independent requirements.",
+    "full_output": "Decode complete private response and compare protocol, status, all data fields, source bytes/hash, module, occurrences, trivia, diagnostics, command and idRemapping. Compare exit code, output framing/size and reaping. Do not use status substring or public projection alone.",
+    "normalization": [
+      "Fix requestId in synthetic test frames. No normalization of request identity is needed; an unexpected echo fails.",
+      "Preserve all supplied existing server IDs exactly. Generated UUIDs may differ. For BLOCK_SUPPORTED, derive a bijection only from matching idRemapping keys; require injectivity, valid UUIDv4 syntax, kind preservation and consistent use at every schema-declared identity location.",
+      "For SOURCE-generated IDs and comment IDs, derive a bijection from a frozen ordered typed declaration/expression/trivia traversal. Reject unmatched nodes, duplicate mappings, changed reference edges, changed field sets or raw generated-ID occurrences outside audited identity paths. Never substitute arbitrary UUID-looking source literals.",
+      "Apply the validated bijection only at schema-declared identity fields/object keys, then require exact structural equality for all remaining output. Existing input IDs, source literals, diagnostics and hashes remain unchanged.",
+      "Comparator fixtures must include deliberately altered reference edges, source bytes, diagnostics, trivia, missing fields, alias collisions and swapped same-kind IDs; each must be rejected. Freeze this comparator before variant results are observed."
+    ],
+    "required_fixture_families": [
+      "All 46 constructor forms covered by the current finite test corpus, in BLOCK_SUPPORTED and eligible SOURCE paths",
+      "Valid source, TEXT_ONLY fallback, invalid syntax/type/unbound reference, unsupported import/fragment, malformed private context",
+      "Existing and newly assigned identities, missing/foreign/wrong-kind inventory, source roundtrip, comment/trivia positions and mixed old/new IDs",
+      "Node boundary 511/512/513, AST depth31/32/33, source32767/32768/32769 bytes where encoding is specified",
+      "Private input/output boundary fixtures and complete-result versus envelope rejection domain; no relaxed size policy",
+      "REVALIDATE semantic regression even though promotion is advisory-only; solve/commit production flags remain unchanged",
+      "Timeout, interruption, malformed/trailing output, failed identity, corrupted copied class/dependency/Alloy/archive and exact child reaping"
+    ],
+    "finite_scope_pending": "Actual fixture paths/counts/hashes are still required before a run. Lists of fixture families are not discharged claims."
+  },
+  "measurement": {
+    "hold": "No heavy experiment while P0/P1 SQL or reference performance probes run; root must explicitly release the scheduling hold.",
+    "instrumented_component_run": "Use bounded synthetic frames. Measure ctor full hash, launch solver+full hash and extra artifact checks, process startup, exchange, decode, reaping, total CPU and peak RSS/AS. Record complete stderr privately; public output contains only allowlisted metrics and digests.",
+    "screening_schedule": "After semantics pass, three independent supervisor/JVM starts. In each run, fixed Latin-square order across F0/F1/P0/P1/C0/C1, 10 warmup then 100 measured requests per variant with the same frozen 500-node fixture set. No adaptive dropping of slow samples. This screen selects candidates; it does not discharge the 1000-request HTTP gate.",
+    "http_acceptance": "Selected implementation only: original 500 nodes,100 warmup+1000 measured real HTTP requests per independent target-host start, three starts; every run zero failures and p95 strictly below300ms. Engineering objective p95<=240ms. Refill/retirement/all database work remain included.",
+    "reported": ["Per-sample total and stage nanoseconds", "Strict p50,p95,p99 estimator fixed in runner", "All errors/rejections/timeouts/fallbacks", "cpu.stat including throttling", "memory.current/peak/events/swap and pressure", "pids.current/peak/events", "Child PID/start identity and service membership", "Host load/pressure, CPU selection and storage identity", "Cold startup-to-ready and first request separated"],
+    "stop_conditions": ["Input/artifact mutation", "Any semantic mismatch", "Any identity check bypass", "Any unexpected fallback in an AppCDS-active sample", "Any child outside owned cgroup", "OOM or pids exhaustion", "Failure to reap/empty owned unit", "Shared live service or credential path discovered in copied installation"],
+    "result_classification": "TESTED finite component screening only. Actual intended production-host acceptance remains OPEN until that separately frozen environment is provided."
+  },
+  "prestart_one_use_feasibility": {
+    "recommendation": "Continue as the next conditional pool design after the fresh-worker comparison; do not implement same-loader reuse from this package.",
+    "current_observation": "DocumentWorkerMain initializes its entry point and redirects stdout, then blocks in readNBytes before decoding and constructing DocumentEngine. Prestarting the unchanged process can remove some JVM boot delay but does not establish Alloy parser warmup or a READY protocol.",
+    "required_new_design": ["Concrete sealed immutable code/resource image and loaded-build identity", "Private READY/generation/sequence/nonce protocol", "At most one ready worker and two total live slots incl starting/retiring/refill", "One request per process, public result after owned reap", "Fresh database context and authority every request", "No private model preloading", "Parent-death and cgroup cleanup owner", "Bounded idle/age/refill and empty-pool behavior", "Class-loading warmup audit before synthetic parsing or JIT warmup"],
+    "missing": "No immutable worker image, READY protocol or pool ownership exists in active code. The workstation user service provides a plausible experiment container, not these worker-specific guarantees."
+  },
+  "files_needed_before_execution": [
+    "Gate-local exact prototype contract.json, Lean supplement, claim/types/audit files, six council records and two-build formal report",
+    "prepare_copied_target.py with strict copy/alias checks, deterministic jar packaging and variant inventory",
+    "Gate-local copied BubblewrapLauncher.java variants; Javadoc and <=30-line methods preserved",
+    "FreshJvmProbe.java using actual constructor/launch(), FrameProcess and DocumentWorker decoding with documented <=30-line methods",
+    "synthetic-fixtures/ plus finite fixture manifest; no private validator-profile-input.json reuse",
+    "compare_full_response.py plus adversarial normalization fixtures",
+    "build_appcds.py and deterministic classpath/artifact inventory",
+    "launch_isolated_stack.py and containment preflight with exact effective-limit checks and owned cleanup",
+    "run_screen.py and registered verify_screen.py with frozen percentile and error policy",
+    "claims.json, tcb.json, provenance.json, verifier-registry.json and final input manifest before any claimed closure"
+  ],
+  "formal_boundary": "No Lean or production amendment is authored by this feasibility package. Root owns the exact next contract, formal supplement and council. Current inactive planning model proves guarded abstract transitions; it does not prove JVM behavior, PostgreSQL cleanup, cgroup enforcement or performance.",
+  "sources": [
+    {"url": "https://www.freedesktop.org/software/systemd/man/255/systemd.resource-control.html", "supports": "User-manager delegated CPU/memory/pid controls and automatic controller enabling; actual service enforcement still requires execution evidence."},
+    {"url": "https://www.freedesktop.org/software/systemd/man/255/systemd.exec.html", "supports": "CPUAffinity and per-service execution settings; read-only path mounts are not proof of immutable underlying host data."},
+    {"url": "https://docs.kernel.org/admin-guide/cgroup-v2.html", "supports": "Aggregate hierarchical CPU/memory/process accounting and descendants inheriting cgroup membership."},
+    {"url": "https://docs.oracle.com/en/java/javase/17/vm/class-data-sharing.html", "supports": "Default CDS, dynamic application archives, mapping metadata and production preference for auto over test-only share:on."}
+  ]
+}

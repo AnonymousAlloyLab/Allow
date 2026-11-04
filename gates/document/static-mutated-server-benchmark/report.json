@@ -1,0 +1,15 @@
+{
+  "status": "BLOCKED",
+  "reason": "INPUT_MUTATION",
+  "valid_performance_acceptance": false,
+  "measured_events": 1000,
+  "failed_events": 464,
+  "first_failure": {
+    "event": 636,
+    "http": 503,
+    "status": "UNAVAILABLE"
+  },
+  "cause": "Root replaced production static assets during this run. BuildIdentity hashes all target/classes including static; launch-time worker identity became stale. Original verifier incorrectly excluded static from its manifest. Its source_unchanged=true is not valid evidence.",
+  "mutation_evidence": "gates/document/partial-types-candidate/deployed-frontend-assets.json",
+  "preserved_original_report_sha256": "031af1c3d51359874a9796eb49f7320e8d9cd4a212c21ddd19f7690258eba910"
+}

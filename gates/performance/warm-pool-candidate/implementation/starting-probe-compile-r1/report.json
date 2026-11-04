@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "SOURCE_READY",
+  "classification": "GATE_ONLY_COMPILE_STYLE_AND_FIVE_COMPONENT_TESTS_NOT_RUNTIME_ACCEPTANCE",
+  "copied_root": "/tmp/allow-warm-starting-probe-r1-ft8u3upu",
+  "manifest_sha256": "986daf3413e572832ac2eaedccb5270f21260b5953fae8f7f7775ca4edcb622b",
+  "copied_inputs_unchanged": true,
+  "java_checkstyle": "PASS",
+  "focused_tests": 5,
+  "failures": 0,
+  "sources": {
+    "backend/src/test/java/dev/allow/backend/WarmPoolProbeMain.java": "094014ed7406d2f817d738f1cc47b67ee1aeeb088931b80d8809710c2cdda913",
+    "backend/src/test/java/dev/allow/backend/WarmProbeSession.java": "a81062698e8c52ee02ac15edff7840a3e69afe1e0310c183b451d60cf388cd6f",
+    "backend/src/test/java/dev/allow/backend/WarmProbeFailures.java": "01103b13972ff861d6116f70054baf6ebe896265372d3f6fe2a21dcd30608ab4",
+    "backend/src/test/java/dev/allow/backend/WarmSemanticProtocol.java": "2fc7bb76b775e17d6e4a677755ab2e0fb8df6398363da0c9bd4abba1fb108227",
+    "backend/src/test/java/dev/allow/backend/WarmSemanticOwned.java": "f9491e48546b3a404b8b54ad6c097ec02d54255e5f4abfd68479f04a6e84d625"
+  },
+  "compiled_classes": {
+    "backend/target/test-classes/dev/allow/backend/WarmPoolProbeMain.class": "d7bc1efc504048e206cb321a131cf03018c5f1c8ee3e92fd9709d8801ca79134",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeFailures.class": "6d004157ec36ef546cc518ef58318d09c589d98b7fc05dfbdc207e454e435112",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession$Closing.class": "e475fe05e736f0d0ef2bdf4e64be7614a5251ca7dc918b134337e1fd6bfdc599",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession$Completion.class": "e7f08d2d33203b56c8d8c304a195abec917ae6fb6c3036bf216d71a036417bd5",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession$FailureNotice.class": "929a5c21f94bbcd196c6bebb175cb7895c0b4fd537024d362f7588b40156adc9",
+    "backend/target/test-classes/dev/allow/backend/WarmProbeSession.class": "8868f13d7f948366a9d0bde9c9db8193f49dd184bd5a6b2d8a411b125ffae38f",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticOwned$Completion.class": "91aefd9672ede63f359aa7ef4e8a6a71b512065cb54a32ca5cd5c994618b35fd",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticOwned.class": "4bb27d0e942e2236d6c00cae177e5324500f2078dbd483ede8296dbbb962de0c",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticProtocol.class": "8d8108f3eca67d1e85eb162d31a34ce7c7dcb724eb01f1a6a67231cf8b15fe87",
+    "backend/target/test-classes/dev/allow/backend/WarmSemanticProtocolTest.class": "8f9bca5cb410b6481b51101904c7ebcee78cc1e27fc35164cd06c93747d7b2af"
+  },
+  "new_case": {
+    "id": "shutdown-starting",
+    "kind": "SHUTDOWN_STARTING_CLEANED",
+    "expected_cleanup": "PASS",
+    "capacity_retained": false,
+    "shutdown_barrier": "GATE_MONITOR_BARRIER_BEFORE_LEDGER_READY_PUBLICATION",
+    "raw_READY_emission": "NOT_ASSERTED",
+    "private_handoff": false,
+    "state_mutation_by_gate": false
+  },
+  "runtime_executed": false,
+  "production_changes_by_this_agent": false,
+  "old_failed_runtime_preserved": true,
+  "failure_observation_boundary": "FIRST_RETAINED_PROBLEM_ONLY_DISCARDED_CAUSES_UNAVAILABLE",
+  "log_sha256": "69ab3ffc96d3b543a32d7cb2de9669ed349b19e3682513682061e5b2dff80588"
+}

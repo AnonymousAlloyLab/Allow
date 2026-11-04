@@ -1,0 +1,44 @@
+{
+  "id": "ALLOW-PERFORMANCE-PLAN-REVIEW-R2",
+  "prior_root_sha256": "ba16e64e252d815d62407d3cac0507096f1d707cea882ffcee1298e10856d4d0",
+  "change": "Clarify authoring development checks versus later registered closure; no contract/model/runtime semantics changed.",
+  "resolved_finding": "Terra-2 documentation accuracy finding",
+  "changed_input": {
+    "path": "docs/performance-remediation-plan.md",
+    "before_sha256": "e88d8ae4b55257dc6fdf0eb1e265076b2813b45029b88697f9c8713f12de6286",
+    "after_sha256": "76dbcdd7f047497eadee97eed20574822993c40e2fe751f96a65846ba65e25fb"
+  },
+  "prior_reviews": [
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-terra-1.json",
+      "sha256": "db9346c9756f893a40888caa242f29e10ab5223f1425421d6bfb8f58c981b1d6",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-terra-2.json",
+      "sha256": "13d59f8e7235908db7473eccd88332db3944a57c6719601df35570bda2094ca4",
+      "decision": "REQUEST_CHANGES"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-sol-1.json",
+      "sha256": "d2459a01d4cea85f2e13d197fb8e592d52e690c92cba240353235edf5c6ec689",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-sol-2.json",
+      "sha256": "ca39936f8ddaea7e4c2de73c4bf36bc05185d4ceab352f167714bf8abf8500f9",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-astra-1.json",
+      "sha256": "7ce862b839242dbffc20e76e028231ae37fde7add18c7e88383492ca3446d86b",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/review-rounds/r1/reviews/performance-plan-astra-2.json",
+      "sha256": "23d78482fe5fb43fadc272542afe2a457f40c0945841593adfe923b1fe6a8778",
+      "decision": "APPROVE_GAMEPLAN"
+    }
+  ],
+  "review_requirement": "All six seats must review new root; previous approvals do not automatically carry forward."
+}

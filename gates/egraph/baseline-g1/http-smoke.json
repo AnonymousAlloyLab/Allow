@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "classification": "TESTED_HTTP_INTEGRATION_NOT_FORMAL_REFINEMENT",
+  "checks": [
+    "Spring serves the built React shell and referenced JavaScript/CSS assets",
+    "Missing/wrong authority, hostile Origin and Host rejected",
+    "Real sandboxed SAT/UNSAT run/check and invalid type outcomes",
+    "Alpha-renaming preserves exact anonymous bytes/hash/features; witness remains separate",
+    "Validation does not fabricate a SAT witness",
+    "Explicit imports and oversized source rejected at HTTP boundary",
+    "Cancellation remains terminal after worker completion opportunity"
+  ],
+  "solver_outcomes": [
+    {
+      "status": "SAT",
+      "commandKind": "run"
+    },
+    {
+      "status": "UNSAT",
+      "commandKind": "run"
+    },
+    {
+      "status": "SAT",
+      "commandKind": "check"
+    },
+    {
+      "status": "UNSAT",
+      "commandKind": "check"
+    },
+    {
+      "status": "INVALID",
+      "commandKind": null
+    }
+  ],
+  "browser_qa": "NOT_RUN: CUA inventory has no browsers; in-app browser unavailable",
+  "dataset_sources_used": false,
+  "authority_recorded": false
+}

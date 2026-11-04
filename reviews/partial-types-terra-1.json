@@ -1,0 +1,31 @@
+{
+  "reviewer": "terra-1",
+  "decision": "REQUEST_CHANGES",
+  "input_sha256": {
+    "gates/document/partial-types-candidate/contract.json": "84e51cc2d8c8afdbb353eaec0dd997248d3d2bdbb401b1bfd3ee863cbcd184fa",
+    "gates/document/partial-types-candidate/PartialTypes.lean": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7",
+    "gates/document/partial-types-candidate/tests-plan.json": "3db5e80328bfb55ab14d9631679e70aa54dabe2d870a76d3dbf57cb394e05420",
+    "gates/document/partial-types-candidate/lean-inventory.json": "4cb85b0f18dfe4a7dbb83c098c244f5ba259e720049512b50b4d8a24107e70a1"
+  },
+  "scope": "Adversarial plan review only; 13 Lean propositions concern their abstract definitions and do not establish a runtime solver or refinement.",
+  "findings": [
+    {
+      "id": "T1-01",
+      "severity": "high",
+      "location": "contract.json normative prior-invalid policy and partial_fact_design.minimal_implementation; tests-plan PT-020",
+      "problem": "Preserving existing newContradiction semantics conflicts with rejecting each newly introduced contradiction. Existing operations.ts compares a set of nodeId:message pairs. For an and with an already invalid relation left operand, adding a relation right operand can retain the identical parent diagnostic 'Boolean operands require formulas.' and be admitted despite a new independent violation. Similar collisions occur for relation operands. PT-020 covers an unrelated existing diagnostic, not this collision.",
+      "required_fix": "Define stable structured violation identity including constrained edge or operand position, rule and relevant identities/facts, and compare new violations without conflating distinct violations or message text. Preserve the policy allowing truly unchanged prior errors, not the current lossy set mechanism. Add prior-invalid same-parent opposite-operand and changing-incompatible-schema tests, plus unchanged prior-error/no-op cases through every relevant mutation route."
+    },
+    {
+      "id": "T1-02",
+      "severity": "medium",
+      "location": "contract.json fixed-point requirement; tests-plan PT-022/PT-024",
+      "problem": "Monotone refinement and node/depth bounds alone do not guarantee termination if an implementation can repeatedly create logically equivalent pending equations or unbounded descriptions. The plan requires termination but does not constrain the worklist or behavior on exhausted analysis.",
+      "required_fix": "Require canonical deduplication and a finite bounded fact/equation domain or a demonstrably decreasing worklist measure. Define an explicit analysis resource limit and fail closed without mutating on exhaustion, never treat an unfinished fixpoint as compatible. Exercise cyclic/shared malformed graphs, repeated equivalent constraints and bound exhaustion deterministically in runtime tests."
+    }
+  ],
+  "notes": [
+    "The current drag path calls select and copy before paste validation; the promised atomic rejection must cover the whole controller gesture, including restoration/preservation of selection and clipboard, not just the pure paste result.",
+    "Concrete operator profiles and abstract Lean claims are appropriately separated from runtime correspondence; complete valid module parity and adversarial browser evidence remain required."
+  ]
+}

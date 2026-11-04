@@ -1,0 +1,72 @@
+{
+  "reviewer": "terra-1",
+  "requested_model": "gpt-6.1-terra",
+  "actual_model": "Runtime identity not independently observable; parent reports explicit gpt-6.1-terra dispatch.",
+  "reviewed_spec": "spec/implementation-g1.json",
+  "revision": 1,
+  "spec_sha256": "e18e79e957d07165896dfcbf7400725c1472377bb7063554ad717a796b42c856",
+  "formal_sha256": {
+    "formal/Allow/Slots.lean": "8acef22dee50a5c98ee82179bb421f3049edb103b7782b913b621bc0cb9f02bd",
+    "formal/Allow/Foundation.lean": "bae5b0c1b72edc34b40d741598e2380ad360d6521876fe4fd5b9b1c8503b21bf"
+  },
+  "verdict": "CHANGES_REQUIRED",
+  "findings": [
+    {
+      "id": "G1-T1-01",
+      "severity": "HIGH",
+      "location": "anonymization.source_boundary, scope_policy; Slots.Slot and distinct_slots_remain_distinct",
+      "problem": "A lexical bound slot as only namespace plus index has no specified scope or allocation rule. Per-binder index 0 is ambiguous in nested/sibling scopes unless every occurrence has a precisely interpreted path/depth or a unique lexical ordinal. Constructor inequality proves no property of parser-to-binder association; capture, swapped references or conflation of distinct binders can be serialized without violating it.",
+      "required_fix": "Specify deterministic unique binder ordinals for a complete resolved artifact, or precisely define binder-introducing structure and de Bruijn depth/index interpretation, including nested scopes, reuse, quantifier domains, parameters and local lets. Reject unsupported scopes or unresolved references. Require same/different-binder, shadowing, alpha rename, free-vs-bound, moving across scopes and malformed-reference tests on parser output; disclose projection-only Lean scope."
+    },
+    {
+      "id": "G1-T1-02",
+      "severity": "HIGH",
+      "location": "anonymization.canonical_payload, embedding_boundary; Slots.Tree, names_do_not_affect_embedding",
+      "problem": "The proof changes a presentation field while holding the entire already-resolved payload fixed; it does not show that a real resolver produces the same payload when names change. Arbitrary Nat operator tags and Int values can encode text as numbers. The lack of String fields therefore is not, by itself, a proof that an implementation or serialized payload excludes identifiers and paths.",
+      "required_fix": "Constrain tags to a closed published operator enumeration and numbers to validated parsed semantic constants; prohibit source-derived names, hashes, paths or ordering through any structural channel. Gate integration on comparison of full canonical serialization and embedding input for alpha-renamed resolved models, including unique sentinel names/paths/comments. Clarify the projection theorem is conditional on fixed resolved structure, and validate exact byte encoding and serializer round trips separately."
+    },
+    {
+      "id": "G1-T1-03",
+      "severity": "MEDIUM",
+      "location": "anonymization.canonical_payload and equality_policy",
+      "problem": "Tagged trees and distinct leaf slots do not guarantee injective serialized artifacts. Ambiguous delimiter encodings, missing child lengths, omitted type/multiplicity, or unrecorded module context can merge structurally different atoms or let artifacts from different environments appear equal.",
+      "required_fix": "Define versioned injective encoding, explicit operator arity and ordered children, namespaces, schema and context commitment. Require decoding-roundtrip and collision/negative tests such as join operand reversal, declaration position change, types, and distinct module contexts. Keep anonymous payload equality separate from exact provenance and equivalence claims."
+    }
+  ],
+  "strengths": [
+    "Explicitly fails closed on unsupported nodes and retains presentation metadata separately.",
+    "Limits the formal claims to resolved projections and excludes parser-to-slot and implementation refinement.",
+    "Treats structural equality and retrieval as weaker than unrestricted Alloy equivalence."
+  ],
+  "review_boundary": "Read-only inspection of supplement and new Lean source; no product implementation exists or was validated in this review.",
+  "final_review": {
+    "supplement_revision": 4,
+    "supplement_sha256": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+    "file_sha256": {
+      "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+      "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+      "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+      "formal/Allow/Foundation.lean": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7"
+    },
+    "verdict": "ACCEPT_WITH_STATED_BOUNDARIES",
+    "finding_dispositions": [
+      {
+        "id": "G1-T1-01",
+        "status": "RESOLVED",
+        "evidence": "Globally unique deterministic lexical ordinals, preceding-scope domains, lexical scope restoration, identity lookup, unsupported rejection and nested/shadow/unbound acceptance tests are specified."
+      },
+      {
+        "id": "G1-T1-02",
+        "status": "RESOLVED",
+        "evidence": "Closed Lean operator enum and specification operator allowlists; structural numbers from semantic constants only and names/provenance prohibited as derivation inputs; alpha-rename, exact bytes and embedding tests required. Proof remains conditional on fixed resolved structure."
+      },
+      {
+        "id": "G1-T1-03",
+        "status": "RESOLVED_WITH_IMPLEMENTATION_GATE",
+        "evidence": "Normative tagged-array grammar, ordered fields, schemas, command scopes and semantic-attribute rejection plus collision fixtures specify the encoding. Implementation must establish actual encoding/decoding fidelity, context checking and no omissions."
+      }
+    ],
+    "proof_boundary": "Lean models fixed resolved payload projections and abstract job policy, not parser resolution, complete supported grammar, serialization, embedding implementation or UI. Two clean builds were reported as in progress and were not independently checked in this rereview.",
+    "residual": "Keep canonical decoder/encoder round-trip and distinct-context negative cases in implementation acceptance; tests and review are required before claiming parser or serializer correspondence."
+  }
+}

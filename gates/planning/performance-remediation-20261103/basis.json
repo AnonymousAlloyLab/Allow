@@ -1,0 +1,81 @@
+{
+  "classification": "PLANNING_BASIS_NOT_NEW_RUNTIME_EVIDENCE",
+  "evidence": [
+    {
+      "path": "gates/document/browser-benchmark-candidate/protocol.json",
+      "sha256": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5"
+    },
+    {
+      "path": "gates/document/browser-benchmark-runs/validation-context-v1/report.json",
+      "sha256": "0a4e6bc64fdf1862f15f1532588656e0748b7669ad728ed1afc8127cc9b6cc67"
+    },
+    {
+      "path": "gates/document/component-profiles/remaining-latency-options.json",
+      "sha256": "2e4b522b77d231b2880a97f02492e26039b7cbe3c3f5d43fc81f23aec820d891"
+    },
+    {
+      "path": "gates/document/implementation-manifest.json",
+      "sha256": "60d5217afd0b937437bdafcad19ac2842c201de71132a4226740f2501c35c60d"
+    },
+    {
+      "path": "gates/document/implementation-report.json",
+      "sha256": "d6f83003e57b69f00ca10067bedd39efa10d963ec521ec45f9da1316bf80e6ce"
+    },
+    {
+      "path": "gates/document/server-performance.json",
+      "sha256": "82627d8b559531399be33ccef023abc210e79586772e11def066be5f250a3052"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/lifecycle-limitation-r1.json",
+      "sha256": "65f26747d6be12dcb01f40fc4090f56787ea7a919f937cfd3b7478f4a07584b7"
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-closure/runs/final-v2/report.json",
+      "sha256": "2ca5b76a2b5d3d80cc60a12c5d469d332b8ceac9e79fa6f537e6ac64bfd57756"
+    },
+    {
+      "path": "gates/document/validator-session-candidate/contract.json",
+      "sha256": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d"
+    },
+    {
+      "path": "gates/document/validator-session-candidate/council-disposition.json",
+      "sha256": "e11ae7f460d8aa622dd6a79a3de72efb870ba03026eb7d2d5828197f6546cba7"
+    },
+    {
+      "path": "gates/documentation/cleanup-20261103/cleanup-receipt.json",
+      "sha256": "604378abc7140a67e7bafd4a90c8884e3a6978f8cdad044e2ad8a349280d6d71"
+    },
+    {
+      "path": "gates/documentation/cleanup-20261103/pre-cleanup/manifest.json",
+      "sha256": "793be2194ca56fc7dd60b809fec6a71aec76497f14007599f22037fafdc529d7"
+    }
+  ],
+  "primary_references": [
+    {
+      "url": "https://docs.oracle.com/en/java/javase/17/vm/class-data-sharing.html",
+      "use": "CDS compatibility and production-Xshare:on caveat"
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/URLClassLoader.html#close()",
+      "use": "Closing does not invalidate already loaded classes"
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se17/html/jls-12.html#jls-12.7",
+      "use": "Class unloading is optional and loader-dependent"
+    },
+    {
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "use": "Whole-tree resource containment, accounting and termination prerequisites"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/16/runtime-config-client.html",
+      "use": "Version16 statement/lock/idle timeout semantics and logging/privacy considerations"
+    }
+  ],
+  "assumptions": [
+    "User selected4vCPU/8GiB; exactCPU/provider/storage still need a deployment fixture.",
+    "No current performance claim is extrapolated to target hardware.",
+    "Prior whole-source manifest is historical after documented docs-only edits.",
+    "The warm reuse branch remains conditional and excluded from the single-use Lean model."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer": "terra-2",
+  "package_root_sha256": "3743b083b3d585c428cb62d397d72379905c0761724c1d05cd4f7b1748cfd6c2",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "scope": "Frozen implementation contract and preregistered experiment design, not production or performance acceptance.",
+  "input_verification": {
+    "files_checked": 56,
+    "hash_mismatches": 0,
+    "root_recomputed_from": "SHA256 of canonical compact sorted-key files array",
+    "model_claims": 22,
+    "registered_types": 22
+  },
+  "findings": [],
+  "assessment": [
+    "Actual DocumentQueries.validate is the sole advisory worker construction site; DocumentMutations uses DocumentWorker::new and JobService constructs the default solver BubblewrapLauncher. The proposed fixed enum and revalidate guard preserve those default paths, subject to implementation and mechanical callsite checks.",
+    "The launcher contract preserves the complete existing command, containment, cleared environment, constructor build identity and per-launch build and Alloy fences, allowing only the fixed tier flag at the stated position. Complete argv extraction and comparison remain required runtime work.",
+    "The preregistered comparator covers the full private envelope and limits normalization to validated generated-ID correspondences, with adversarial comparator tests; concrete fixture bytes, comparator and independent oracle must be frozen before execution.",
+    "The experiment requires three independently restarted paired HTTP runs at effective four-CPU quota and six-GiB memory ceiling, zero errors, strict p95 below 300 ms and paired F1 improvement in every run; any failure retains F0.",
+    "The model runner checks exact input and six review roots, frozen type and axiom inventory, two isolated matching builds and inherited anchor reports. Its result is an inactive abstract model, not Java correspondence or performance evidence."
+  ],
+  "limitations": [
+    "No production edits, comparative runs, model closure or runtime acceptance were performed by this review.",
+    "Concrete finite fixture, verifier, containment and patch inputs must be frozen and assessed under the contract before selection; categories alone are not evidence.",
+    "The workload screen does not establish performance on the intended four-vCPU/eight-GiB target host, and commercial readiness and distribution/security gates remain separate.",
+    "Finite differential tests and the abstract model do not prove universal semantic equivalence, OS isolation or performance."
+  ]
+}

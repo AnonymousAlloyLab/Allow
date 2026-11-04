@@ -1,0 +1,28 @@
+{
+  "audit_tool": "pip-audit2.10.1",
+  "scope": "Exact isolated runtime dependency versions only; advisory queries contain package names/versions, never corpus.",
+  "before": {
+    "runtime_advisory_records": 93,
+    "packages_with_findings": 13,
+    "separate_system_torch2.0.1_advisory_records": 28
+  },
+  "after": {
+    "isolated_python": "3.12.3",
+    "packages": 62,
+    "known_vulnerabilities": 0,
+    "audit_file": "retrieval/dependency-audit-after.json",
+    "audit_file_sha256": "ef6b9bf312f9a7ed6838feb9133de77124009ea68024964460e3ff83790ab0d0",
+    "lock_sha256": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc"
+  },
+  "limitations": [
+    "Snapshot of published advisories, not a proof of absence of vulnerabilities or whole-application security.",
+    "CPU-only torch comes from official PyTorch wheel index. Torch version audited without+cpu suffix against corresponding upstream version.",
+    "Old Anaconda/system packages were not changed and are excluded from production runtime sys.path."
+  ],
+  "primary_sources": [
+    "https://github.com/langchain-ai/langchain/security/advisories/GHSA-pjwx-r37v-7724",
+    "https://github.com/langchain-ai/langgraph/security/advisories/GHSA-g48c-2wqr-h844",
+    "https://github.com/onnx/onnx/security/advisories/GHSA-6pwm-x34p-fvj2",
+    "https://github.com/tox-dev/filelock/security/advisories/GHSA-69hj-f68j-2879"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "status": "PUBLISHED",
+  "timestamp_utc": "2026-11-03T17:40:06.070173+00:00",
+  "model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+  "drain": {
+    "published": 46
+  },
+  "vector_count": 46,
+  "dimension": 3072,
+  "min_norm": 0.9999999834929624,
+  "max_norm": 1.0000000279906296,
+  "runtime_identity_before": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 426438,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+      "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7"
+  },
+  "runtime_identity_after": {
+    "status": "PASS",
+    "reasons": [],
+    "pid": 426438,
+    "expected_loaded_inputs": {
+      "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+      "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+      "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee"
+    },
+    "expected_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7",
+    "actual_parser_binary_sha256": "9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7"
+  },
+  "proxy_counter_deltas": {
+    "B": 1045,
+    "D": 1045,
+    "E": 1045,
+    "P": 1045,
+    "Q": 305,
+    "S": 1045,
+    "X": 99,
+    "accepted": 1350,
+    "auth": 198,
+    "connections": 99
+  },
+  "journal_unchanged": true,
+  "actual_latest_model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+  "actual_latest_evidence_id": "4d35e9750092d90d681559090bc58dcd5257ac1ffd54dec249a292b262aa5798",
+  "classification": "ACTUAL_DATABASE_PUBLICATION_FINITE_CHECKS",
+  "adapter_sha256": "298aea35c56a3a56698af4e58316ccafe22e847995ef1db9494415f212c65026",
+  "evaluation_sha256": "3d2f9e8828e6f152e4c04ba17447253857482a6ce2f204aa546c3bd887a0b873",
+  "promotion_artifact_sha256": "4d35e9750092d90d681559090bc58dcd5257ac1ffd54dec249a292b262aa5798",
+  "validation_decision_sha256": "4de8368c3db4b8c298a364c70ebaed1fc349e6a5d124f383253b94dab73e5f83",
+  "frozen_manifest_id": "0278261e522d92e8c144a7a67375121c26fc716a3becea74f4f72e0276a42779",
+  "original_training_lineage_count": 32,
+  "original_training_lineage_sha256": "27523fe05b64a66791ec95809f49d1787974144565281ffa34a3274969c95539",
+  "servable_vectors_before": 46,
+  "servable_vectors_after": 92,
+  "eligible_records": 46,
+  "record_metadata_unchanged": true,
+  "input_hashes_unchanged": true,
+  "input_sha256_before": {
+    ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/promotion-evidence.json": "c4874e157ec5c3390f8c089b99d70bdd1826f9c98c91d9acede4a7ebb6314c78",
+    ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/evaluation.json": "3d2f9e8828e6f152e4c04ba17447253857482a6ce2f204aa546c3bd887a0b873",
+    ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/frozen-manifest.json": "bb459cfbc509eb6cd59adde85445a977cba8ef1f30756653b55a316ce7ba179e",
+    ".runtime/corpus/ml/pilot-3d255e2a-py312/trained/adapter.npy": "298aea35c56a3a56698af4e58316ccafe22e847995ef1db9494415f212c65026",
+    ".runtime/corpus/ml/pilot-3d255e2a-py312/trained/training.json": "14baadae4c4bdd63e80596d4f7fb42c7cb92a692198a7974660112ca55a939e5",
+    ".runtime/corpus/ml/pilot-3d255e2a-py312/validation-decision.json": "4de8368c3db4b8c298a364c70ebaed1fc349e6a5d124f383253b94dab73e5f83",
+    "spec/sql-stage.json": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+    "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+    "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+    "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+    "retrieval/allow_retrieval/embedding.py": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+    "retrieval/allow_retrieval/evaluation.py": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+    "retrieval/allow_retrieval/journal.py": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+    "retrieval/allow_retrieval/ranking.py": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+    "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+    "retrieval/allow_retrieval/manage.py": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+    "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+    "retrieval/allow_retrieval/training.py": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+    "retrieval/allow_retrieval/migration.py": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+    "retrieval/allow_retrieval/database.py": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+    "retrieval/allow_retrieval/importer.py": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+    "retrieval/allow_retrieval/corpus.py": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+    "retrieval/allow_retrieval/sql_connections.py": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2",
+    "retrieval/allow_retrieval/cli.py": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+    "retrieval/allow_retrieval/promotion.py": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+    "retrieval/allow_retrieval/rag.py": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24"
+  },
+  "input_sha256_after": {
+    ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/promotion-evidence.json": "c4874e157ec5c3390f8c089b99d70bdd1826f9c98c91d9acede4a7ebb6314c78",
+    ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/evaluation.json": "3d2f9e8828e6f152e4c04ba17447253857482a6ce2f204aa546c3bd887a0b873",
+    ".runtime/corpus/ml/repair-9c5e7567-sql-r6-final-py312/frozen-manifest.json": "bb459cfbc509eb6cd59adde85445a977cba8ef1f30756653b55a316ce7ba179e",
+    ".runtime/corpus/ml/pilot-3d255e2a-py312/trained/adapter.npy": "298aea35c56a3a56698af4e58316ccafe22e847995ef1db9494415f212c65026",
+    ".runtime/corpus/ml/pilot-3d255e2a-py312/trained/training.json": "14baadae4c4bdd63e80596d4f7fb42c7cb92a692198a7974660112ca55a939e5",
+    ".runtime/corpus/ml/pilot-3d255e2a-py312/validation-decision.json": "4de8368c3db4b8c298a364c70ebaed1fc349e6a5d124f383253b94dab73e5f83",
+    "spec/sql-stage.json": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+    "config/sqlean-parser-lock.json": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+    "retrieval/allow_retrieval/__init__.py": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+    "retrieval/allow_retrieval/sql_guard.py": "5bfc4414bb8f3f6620e8972309d9dfddf11357f948d6e2422b62cf2a2991fabd",
+    "retrieval/allow_retrieval/embedding.py": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+    "retrieval/allow_retrieval/evaluation.py": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+    "retrieval/allow_retrieval/journal.py": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+    "retrieval/allow_retrieval/ranking.py": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+    "retrieval/allow_retrieval/common.py": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+    "retrieval/allow_retrieval/manage.py": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+    "retrieval/allow_retrieval/sql_proxy.py": "b4bee2611366eb36f3a880555265730ea34d542d220f96304936b757a948ce6f",
+    "retrieval/allow_retrieval/training.py": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+    "retrieval/allow_retrieval/migration.py": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+    "retrieval/allow_retrieval/database.py": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+    "retrieval/allow_retrieval/importer.py": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+    "retrieval/allow_retrieval/corpus.py": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+    "retrieval/allow_retrieval/sql_connections.py": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2",
+    "retrieval/allow_retrieval/cli.py": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+    "retrieval/allow_retrieval/promotion.py": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+    "retrieval/allow_retrieval/rag.py": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24"
+  },
+  "private_receipt_path": ".runtime/corpus/publications/c5f5b427e21b4e94bb8c3b9e768aad82/receipt.json",
+  "private_receipt_sha256": "244491573091a0d5d1c504d3553ee924a68bf5a329ee18209b7a56b84bbfa0cd",
+  "limits": "Existing observed holdout non-regression; no retraining, weight or split changes; no claim of quality improvement.",
+  "canonical_endpoint": {
+    "host": "/home/augustus/Allow/.runtime/corpus/sql-proxy/socket",
+    "port": "54329"
+  },
+  "default_scope_record_count_before": 94,
+  "default_scope_record_count_after": 94,
+  "default_scope_models_before": [
+    {
+      "active": true,
+      "id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+      "servable": true,
+      "trained": false
+    }
+  ],
+  "default_scope_models_after": [
+    {
+      "active": true,
+      "id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+      "servable": true,
+      "trained": false
+    },
+    {
+      "active": true,
+      "id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-bd2196e165ce0e20ecaf017f20e33d80ed88371197af1e459af1bf67ee7b9272",
+      "servable": true,
+      "trained": true
+    }
+  ]
+}

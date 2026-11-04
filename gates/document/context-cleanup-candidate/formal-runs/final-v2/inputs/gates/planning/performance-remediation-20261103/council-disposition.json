@@ -1,0 +1,66 @@
+{
+  "status": "APPROVE_GAMEPLAN",
+  "recorded_utc": "2026-11-04T04:24:44.728179+00:00",
+  "package_root_sha256": "c41c0676ac0b01003a09db3d25526df48062e82ef1f4b2f6bb0c5b1c273a0f0a",
+  "reviewed_files": 91,
+  "reviews": [
+    {
+      "seat": "terra-1",
+      "requested_model": "gpt-6.1-terra",
+      "path": "reviews/performance-plan-terra-1.json",
+      "sha256": "3191782264563478bef65fdffcb48bd254722db5cb7332456a3dbe53b7c0c41d",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "terra-2",
+      "requested_model": "gpt-6.1-terra",
+      "path": "reviews/performance-plan-terra-2.json",
+      "sha256": "c2c11fb2f30fd21e96e15e31a3a4af5b3a592bb9e9f5dbf23472a43e8c6d571e",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "sol-1",
+      "requested_model": "gpt-6.1-sol",
+      "path": "reviews/performance-plan-sol-1.json",
+      "sha256": "482968f4fcba8baeadda3e6bec9ea36b4c7aea1040ff3a56fec0cbda6b191dbe",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "sol-2",
+      "requested_model": "gpt-6.1-sol",
+      "path": "reviews/performance-plan-sol-2.json",
+      "sha256": "497435a29ef28304d2177ca438918001c78b2110daca58cac2f0b2a2d66bfb03",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "astra-1",
+      "requested_model": "gpt-6-astra",
+      "path": "reviews/performance-plan-astra-1.json",
+      "sha256": "23b4b416f67ab09b68ee1b3eed2e69c91b06597b415c7e7e5156ffe0d3cfc570",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "astra-2",
+      "requested_model": "gpt-6-astra",
+      "path": "reviews/performance-plan-astra-2.json",
+      "sha256": "bebb58eabcae441fd2386bfc7c0d99ff99a9f2348e5c6101b59f5592b8112e91",
+      "decision": "APPROVE_GAMEPLAN"
+    }
+  ],
+  "prior_round": "review-rounds/r1",
+  "resolved_findings": [
+    "TERRA2-01: distinguish author development checks from registered closure"
+  ],
+  "formal_model": {
+    "path": "gates/planning/performance-remediation-20261103/formal-runs/final-v1/report.json",
+    "sha256": "e35c551ea2ff6e5bd520e5e2c2dc4ebfe7b5badf870027af68bfdbe3ba4e622a",
+    "status": "VERIFIED",
+    "inactive_propositions": 32,
+    "matching_isolated_clean_builds": 2,
+    "active_model_propositions": 309,
+    "production_activation": false
+  },
+  "implementation_decision": "No worker architecture selected or activated. Follow P0..P5; each selected production increment needs its own exact contract/formal/runtime gates.",
+  "commercial_release": "NO_GO",
+  "boundary": "Six-seat approval is for the coherent staged gameplan. Model closure covers only the32 frozen abstract propositions under declared trust; no JVM reset, SQL cleanup, timing, resource containment or implementation correspondence is proved."
+}

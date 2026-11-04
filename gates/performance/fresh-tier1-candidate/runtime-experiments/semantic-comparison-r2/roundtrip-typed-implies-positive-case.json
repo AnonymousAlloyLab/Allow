@@ -1,0 +1,26 @@
+{
+  "name": "roundtrip-typed-implies-positive",
+  "status": "PASS",
+  "fixture_sha256": "d3c840385d27996dbea8e72e26f38845dd8d0df1e2b89394072e46075cca5e68",
+  "profiles": {
+    "F0": {
+      "exit_code": 0,
+      "wall_ns": 379480231,
+      "timed_out": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "F1": {
+      "exit_code": 0,
+      "wall_ns": 356328468,
+      "timed_out": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "comparison": {
+    "status": "PASS",
+    "normalized_generated_ids": 15,
+    "full_response_equal": true
+  }
+}

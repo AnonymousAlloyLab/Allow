@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "Style source inventory repair only; no production application changes or frozen evidence modifications.",
+  "excluded_exact_roots": [
+    "gates/sql/immutable-image-candidate/completion-runs",
+    "gates/sql/immutable-image-candidate/integration-runs",
+    "gates/document/validation-context-candidate/formal-runs"
+  ],
+  "rationale": "Named roots contain generated immutable evidence copies, including minified compiled static JS. The exact-directory set still prunes only these registered paths; no target/dist/inputs basename or wildcard exclusion was introduced. Candidate roots, their inputs, adjacent runtime/implementation paths and similarly named other candidates remain included. All callable length/documentation/encapsulation rules are unchanged.",
+  "tests": [
+    {
+      "command": "node scripts/check-code-style.mjs",
+      "exit_code": 0,
+      "stdout": "Style inventory: 96 files, 989 callables, 0 violations.\n"
+    },
+    {
+      "command": "ALLOW_CHECKSTYLE_JAR=.tools/checkstyle-10.21.2-all.jar node scripts/test-code-style.mjs",
+      "exit_code": 0,
+      "stdout": "Style checker self-tests: 73 JS/TS cases and 13 Java cases passed.\n"
+    }
+  ],
+  "input_hashes": {
+    "scripts/check-code-style.mjs": "50f4ffcec97bfa78272a63d282d517a3c2c5915d80938655a0b6e21e95a27e3f",
+    "scripts/test-code-style.mjs": "e6e3f4000237572085e4519fcc594633aa80576eed585464897ded9f24da79a5"
+  },
+  "original_failure_log": {
+    "path": "/tmp/allow-validation-context-full-build.log",
+    "bytes": 1016966,
+    "sha256": "582e38fb31a29ced3dbc73877b0fe78b1942e626cd2332c51176ad39111d9c98",
+    "retained": true
+  },
+  "limitations": "Full build was not rerun by this repair; parent can resume it. Formal309 result is inherited from parent and was not rerun. Frozen89-input review pins predate this authorized style repair and were not rewritten."
+}

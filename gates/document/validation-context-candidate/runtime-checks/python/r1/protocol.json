@@ -1,0 +1,131 @@
+{
+  "authorization": "Root benchmark complete signal received before execution; root explicitly authorized gate-local supplemental probes.",
+  "bounds": {
+    "barrier_seconds": 10,
+    "blocking_sql_seconds": 60,
+    "cleanup_seconds": 5,
+    "owned_child_address_space_bytes": 2147483648,
+    "owned_child_cpu_seconds": 20,
+    "owned_child_wall_seconds": 20,
+    "proxy_counter_wait_seconds": 2,
+    "suite_expected_seconds_under": 90
+  },
+  "fixture": {
+    "artifact": "authored storage-shaped source/signature and genuine Store admission/finalize; no independent Alloy runtime semantic-validity claim",
+    "database": "new allow_recovery_<32hex> database, only generated owned database dropped WITH FORCE in finally",
+    "routing": "Every SQL statement including CREATE/DROP, migrations, observer SELECT, cancellation and negative SQL uses unchanged sql_connections.connect through canonical SQLeanParser socket; no backend direct access",
+    "scope": "new principal/workspace/launch UUIDs"
+  },
+  "groups": [
+    {
+      "assertions": [
+        "actual libpq post-authentication trace observed BEGIN, mode, tenant, project, purpose, head, base, history, COMMIT in that exact sequence",
+        "server command completions include BEGIN/COMMIT",
+        "actual connection info canonical host/port and allow-recovery application_name",
+        "proxy accepted counter increases by at least9; no exact global counter exclusivity claim",
+        "durable entire database rows/ACL/RLS metadata hash unchanged; connection closed"
+      ],
+      "gates": [
+        "VC02",
+        "VC18",
+        "VC22"
+      ],
+      "id": "P01_protocol_order",
+      "scenarios": 1
+    },
+    {
+      "assertions": [
+        "pause after actual first tenant SELECT returns, before project SELECT executes",
+        "new signature ID requested before pause; legitimate concurrent Store commit materializes that ID after snapshot established",
+        "old snapshot retains head0 and omits requested future ID; fresh snapshot sees head1 and ID; exact base artifact unchanged"
+      ],
+      "gates": [
+        "VC06"
+      ],
+      "id": "P02_first_scope_race",
+      "scenarios": 1
+    },
+    {
+      "assertions": [
+        "closed canonical4096ID args at safe max revision accepted by argument validator; exact encoded byte length reported",
+        "canonical43byte identities + fixed keys +16digit revision mathematically cannot reach262144",
+        "adversarial noncanonical padded ID args exactly262144 -> invalid_server_id,262145 -> ids_limit; both before SQL",
+        "size includes documentId, revision, ids, all punctuation; no invented valid-at256KiB positive case"
+      ],
+      "gates": [
+        "VC13"
+      ],
+      "id": "P03_encoded_size",
+      "scenarios": 3
+    },
+    {
+      "assertions": [
+        "each of4 outer keys missing; args null/list/integer/string; each of3 argument keys missing -> ERROR before SQL"
+      ],
+      "gates": [
+        "VC01"
+      ],
+      "id": "P04_closed_shapes",
+      "scenarios": 11
+    },
+    {
+      "assertions": [
+        "real parser rejection of fixed invalid injected SQL at8 mode/tenant/project/purpose/head/base/history/exit stages",
+        "owned connection local close at same8 stages; exit additionally attempts actual commit on closed connection to expose typed transport error",
+        "real base/history query then injected malformed returned content at2 stages",
+        "real negative authentication with synthetic transient per-connection password, no persistent credential edits",
+        "empty-ID parser-mode/parser-base/auth cases do not bypass mandatory authorization",
+        "every case returns bounded UNAVAILABLE no partial data; exact durable table hashes unchanged; parser rejection counters increase for8 staged denials",
+        "literal shared parser stop/crash not performed and not claimed; inherited isolated FailedGate evidence remains separate"
+      ],
+      "gates": [
+        "VC14",
+        "VC18"
+      ],
+      "id": "P05_staged_faults",
+      "scenarios": 22
+    },
+    {
+      "assertions": [
+        "actual unchanged CLI runs in owned subprocess using gate-local sleep-before-history seam",
+        "observer confirms owned backend datname and PgSleep",
+        "actual SQL pg_cancel_backend through proxy targets only owned PID -> bounded UNAVAILABLE, exit0, process reaped/backend absent",
+        "exact all durable tables/head/history/receipt/admission/quota unchanged"
+      ],
+      "gates": [
+        "VC18"
+      ],
+      "id": "P06_actual_cancel",
+      "scenarios": 1
+    },
+    {
+      "assertions": [
+        "same unchanged CLI owned subprocess under real prlimit20CPU/2GiBAS, parent20s wall timeout",
+        "actual owned PgSleep observed; at deadline kill/reap only owned process group, no frame published",
+        "if backend survives client termination, cancel only exact owned PID via canonical SQL and report this cleanup explicitly",
+        "exact durable tables unchanged and backend absent within5s cleanup; no Java supervisor refinement or max-memory exhaustion claim"
+      ],
+      "gates": [
+        "VC18"
+      ],
+      "id": "P07_actual_timeout",
+      "scenarios": 1
+    }
+  ],
+  "id": "validation-context-python-gap-probes-r1",
+  "outcomes": {
+    "FAIL": "Any assertion/fault mismatch; preserve report; no retroactive replacement. New helper revision requires separate registration.",
+    "INFRASTRUCTURE_FAILURE": "Setup/proxy/runtime availability prevents coverage; record failure type and do not claim PASS.",
+    "PASS": "Every registered group passes, source hashes match, parser identity unchanged, generated DB dropped with absence confirmed."
+  },
+  "privacy": "Raw libpq trace begins after authentication, contains authored temporary fixtures only, retained only in private temporary file, sanitized protocol tags/counts and raw digest published. No DSNs/passwords/production SQL/model values logged. Child scope config0600 deleted after use.",
+  "registered_at": "2026-11-03T22:33:24.944038+00:00",
+  "scope": "Seven finite groups / 40 authored scenarios; supplemental to unchanged 186 Python and 189 Java tests. No active source, script, existing test, parser, schema contract or performance target edits.",
+  "status": "PREREGISTERED_BEFORE_EXECUTION",
+  "trust_limits": [
+    "Finite authored runtime cases only; not universal correctness or formal Lean refinement.",
+    "Transient fault injection explicitly distinguished from real parser rejection/auth/query cancellation.",
+    "Post-auth actual libpq trace establishes driver wire statements; file decode relies on installed libpq trace format.",
+    "These tests are not latency acceptance; final real HTTP p95392.298835ms still fails binding300ms target."
+  ]
+}

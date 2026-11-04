@@ -1,0 +1,1437 @@
+{
+  "closure_id": "allow-sql-final-rev5",
+  "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+  "supplement_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "rules_sha256": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+  "status": "VERIFIED",
+  "verifier_id": "V-SQL-FORMAL",
+  "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+  "environment": {
+    "python": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39"
+  },
+  "trusted": [
+    "Lean 4.34.1 kernel/compiler and bundled libraries",
+    "propext, Quot.sound, Classical.choice",
+    "Lake",
+    "Python and this verifier/generator",
+    "SHA-256 collision resistance",
+    "OS/filesystem/process semantics",
+    "hardware",
+    "interpretation of model versus specification prose"
+  ],
+  "model_propositions": 112,
+  "new_model_propositions": 28,
+  "builds": [
+    {
+      "artifacts": {
+        ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+        ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+        ".lake/build/lib/lean/Allow/EGraph.olean": "baedbd679a979e3b0fae6062d4bd7f07acca34bbd66d0d981c45218e701eadde",
+        ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+        ".lake/build/lib/lean/Allow/Foundation.olean": "7f07b1a20633b22da798fe9b4bfbd71080ce9cc03bc4d4c60ae991187514c5ea",
+        ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+        ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+        ".lake/build/lib/lean/Allow/Retrieval.olean": "b3c7e73f71301d67b9ca5c32af70e2dea701cf3eda957334d9fecb6160a460fd",
+        ".lake/build/lib/lean/Allow/Slots.olean": "155f649a33d00867388d114656fe37ee8b0a7fab731f949154d4d64f150cc8a5",
+        ".lake/build/lib/lean/Allow/SqlRouting.olean": "86164d672f8dcd66b39f6511295e2322475c70749c7f02247fb779c8a68ef3d7",
+        ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+        ".lake/build/lib/lean/Allow.olean": "6f2fcf3c988da67f1205146dcdf6a156279b4b31a1114835c0f299385a0d4f8c"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "audit_sha256": "d767d47b3f5894550a9706c4a498210ef83be865af2283e75f49246deb9a8546",
+      "exit_code": 0
+    },
+    {
+      "artifacts": {
+        ".lake/build/lib/lean/Allow/Canonical.olean": "2ac8539a80921659a120cfeb335c1b5772ec82b52da90cff3653524a93963aac",
+        ".lake/build/lib/lean/Allow/Contract.olean": "8c427c1ee27722a70864c529076c088e9fa997cf90e4eaf1b90b57204841e683",
+        ".lake/build/lib/lean/Allow/EGraph.olean": "baedbd679a979e3b0fae6062d4bd7f07acca34bbd66d0d981c45218e701eadde",
+        ".lake/build/lib/lean/Allow/Evidence.olean": "26f338d46fdde6070a4036f7beecd9623ca2bf9b8374dd4ec63c63f16e86bf14",
+        ".lake/build/lib/lean/Allow/Foundation.olean": "7f07b1a20633b22da798fe9b4bfbd71080ce9cc03bc4d4c60ae991187514c5ea",
+        ".lake/build/lib/lean/Allow/Generated.olean": "99e541e2cfadc99147c7480b666ad4dcb1c0c1aab518ad6368bf616af10e634c",
+        ".lake/build/lib/lean/Allow/Kernel.olean": "ff701af54122f8de80640010f35ee148d356ccb1fb0cece580b7c4c5581f6d4c",
+        ".lake/build/lib/lean/Allow/Retrieval.olean": "b3c7e73f71301d67b9ca5c32af70e2dea701cf3eda957334d9fecb6160a460fd",
+        ".lake/build/lib/lean/Allow/Slots.olean": "155f649a33d00867388d114656fe37ee8b0a7fab731f949154d4d64f150cc8a5",
+        ".lake/build/lib/lean/Allow/SqlRouting.olean": "86164d672f8dcd66b39f6511295e2322475c70749c7f02247fb779c8a68ef3d7",
+        ".lake/build/lib/lean/Allow/Typing.olean": "3989b3933e742eac6478b925f2253d08528cd7d09f62128d618b35e8f239a168",
+        ".lake/build/lib/lean/Allow.olean": "6f2fcf3c988da67f1205146dcdf6a156279b4b31a1114835c0f299385a0d4f8c"
+      },
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "audit_sha256": "d767d47b3f5894550a9706c4a498210ef83be865af2283e75f49246deb9a8546",
+      "exit_code": 0
+    }
+  ],
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "baseline_required": true,
+  "production_changes_at_freeze": [],
+  "boundary": [
+    "Java/TypeScript refinement",
+    "parser correspondence",
+    "union-find correctness",
+    "matcher completeness",
+    "OS security",
+    "commercial or dataset rights",
+    "solver/instance projection faithfulness",
+    "learned retrieval quality",
+    "float/SQL/transaction refinement"
+  ],
+  "catalog_mappings": 34,
+  "finite_rule_assignments": 272,
+  "claims": [
+    {
+      "symbol": "Allow.infer_sound",
+      "expected_proposition": "∀ {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty}, Allow.inferType Γ e = some t → Allow.HasType Γ e t",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.typed_hole_free",
+      "expected_proposition": "∀ {Γ : List Allow.Ty} {e : Allow.Raw} {t : Allow.Ty}, Allow.HasType Γ e t → Allow.HoleFree e",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.checkSlot_sound",
+      "expected_proposition": "∀ {Γ : List Allow.Ty} {t : Allow.Ty} {e : Allow.Raw}, Allow.checkSlot Γ t e = true → Allow.HasType Γ e t",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.reject_preserves",
+      "expected_proposition": "∀ (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw), ¬ (base = s.revision ∧ Allow.checkSlot Γ Allow.Ty.formula e = true) → Allow.commit s base Γ e = s",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.commit_preserves",
+      "expected_proposition": "∀ (s : Allow.State) (base : Nat) (Γ : List Allow.Ty) (e : Allow.Raw), s.Valid → (Allow.commit s base Γ e).Valid",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.commit_revision",
+      "expected_proposition": "∀ (s : Allow.State) (Γ : List Allow.Ty) (e : Allow.Raw), Allow.checkSlot Γ Allow.Ty.formula e = true → (Allow.commit s s.revision Γ e).revision = s.revision + 1",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.visible_is_current",
+      "expected_proposition": "∀ {p : Allow.Presentation} {e : Allow.Evidence}, Allow.visible p e = true → e.key = p.key ∧ e.epoch = p.epoch ∧ p.draftHash = p.key.sourceHash",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.canonical_eq_iff",
+      "expected_proposition": "∀ {n : Nat} (a b : Allow.Formula n), Allow.canonical a = Allow.canonical b ↔ ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.certificate_sound",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.Certificate a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.certified_merge_canonical",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.ContextualFormula n}, Allow.CertifiedMerge a b → Allow.canonicalKey a = Allow.canonicalKey b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.no_unbounded_claim",
+      "expected_proposition": "∀ (k : Allow.CommandKind) (s : Allow.SolverStatus), Allow.report k s ≠ Allow.Conclusion.unboundedValidity",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.unknown_is_not_unsat",
+      "expected_proposition": "∀ (k : Allow.CommandKind) (s : Allow.SolverStatus), s = Allow.SolverStatus.UNKNOWN ∨ s = Allow.SolverStatus.TIMEOUT ∨ s = Allow.SolverStatus.CANCELLED ∨ s = Allow.SolverStatus.ERROR → ¬ Allow.Absence (Allow.report k s)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.retrieval_is_authorized",
+      "expected_proposition": "∀ {s : Allow.RetrievalScope} {rows : List Allow.Row} {r : Allow.Row}, r ∈ Allow.retrieve s rows → r.scope = s ∧ r.deleted = false ∧ r.permitted = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.pair_admission_bound",
+      "expected_proposition": "∀ {target : Allow.TargetContext} {pool : Allow.Polarity} {run : Allow.Run} {w : Allow.Witness}, Allow.admitPair target pool run w = true → run.query.target = target ∧ run.query.polarity = pool ∧ w.ownQuery = run.query ∧ run.status = Allow.SolverStatus.SAT ∧ w.validated = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.contract_has_witness",
+      "expected_proposition": "∃ c : Allow.KernelConfig, c = Allow.generatedKernel ∧ Allow.Coherent c",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.empty_domain_counterexample",
+      "expected_proposition": "((∃ _ : Empty, True) ∨ True) ∧ ¬ (∃ _ : Empty, True ∨ True)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.canonical_idempotent",
+      "expected_proposition": "∀ {n : Nat} (t : Allow.Table n), Allow.tabulate n (Allow.lookup t) = t",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.distinct_inventories_distinct_keys",
+      "expected_proposition": "∀ {n : Nat} (a b : Allow.ContextualFormula n), a.inventory ≠ b.inventory → Allow.canonicalKey a ≠ Allow.canonicalKey b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.edit_hides_old",
+      "expected_proposition": "∀ (p : Allow.Presentation) (e : Allow.Evidence) (draft : String), e.epoch = p.epoch → Allow.visible (Allow.edit p draft) e = false",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.accepted_formula_witness",
+      "expected_proposition": "Allow.inferType [] (.existsRel 7 (.someRel (.ref 0))) = some .formula",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.rejected_bad_drop_witness",
+      "expected_proposition": "Allow.inferType [.relation 7 []] (.and (.ref 0) .truth) = none",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.accepted_commit_witness",
+      "expected_proposition": "(Allow.commit ⟨[], .truth, 0⟩ 0 [] (.not .truth)).revision = 1",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.visible_evidence_witness",
+      "expected_proposition": "Allow.visible ⟨Allow.sampleKey, 4, \"source\"⟩ ⟨Allow.sampleKey, 4⟩ = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.admitted_pools_witness",
+      "expected_proposition": "Allow.admitPair Allow.sampleTarget .positive ⟨Allow.positiveQuery, .SAT⟩ ⟨Allow.positiveQuery, \"instanceA\", true⟩ = true ∧ Allow.admitPair Allow.sampleTarget .negative ⟨Allow.negativeQuery, .SAT⟩ ⟨Allow.negativeQuery, \"instanceB\", true⟩ = true ∧ Allow.positiveQuery ≠ Allow.negativeQuery",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.nontrivial_canonical_witness",
+      "expected_proposition": "Allow.canonical (Allow.Formula.truth : Allow.Formula 1) ≠ Allow.canonical Allow.Formula.falsity",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Slots.names_do_not_affect_payload",
+      "expected_proposition": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String), Allow.Slots.anonymous {p with names := labels} = Allow.Slots.anonymous p",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Slots.names_do_not_affect_embedding",
+      "expected_proposition": "∀ (p : Allow.Slots.Presented) (labels : Allow.Slots.Slot → String) (source origin : String), Allow.Slots.embedding {p with names := labels, source := source, origin := origin} = Allow.Slots.embedding p",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Slots.distinct_slots_remain_distinct",
+      "expected_proposition": "∀ (a b : Allow.Slots.Slot), a ≠ b → Allow.Slots.Tree.reference a ≠ Allow.Slots.Tree.reference b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Slots.embedding_has_no_presentation",
+      "expected_proposition": "∀ (p : Allow.Slots.Presented), Allow.Slots.embedding p = (⟨1, p.resolved⟩ : Allow.Slots.EmbeddingInput)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Foundation.admission_bounded",
+      "expected_proposition": "∀ {active capacity next : Nat}, Allow.Foundation.admit active capacity = some next → next ≤ capacity",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Foundation.terminal_is_final",
+      "expected_proposition": "∀ (prior incoming : Allow.SolverStatus), Allow.Foundation.finish (.terminal prior) incoming = .terminal prior",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Foundation.cancel_is_not_unsat",
+      "expected_proposition": "Allow.Foundation.cancel .running = .terminal .CANCELLED ∧ ∀ incoming, Allow.Foundation.finish (Allow.Foundation.cancel .running) incoming = .terminal .CANCELLED",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Foundation.accepted_style_bounded",
+      "expected_proposition": "∀ {m : Allow.Foundation.MethodMetadata}, Allow.Foundation.acceptable m = true → m.lines ≤ 30 ∧ m.documented = true ∧ m.encapsulated = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rule_sound",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Rule a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.derivation_sound",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Derivation a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.merge_preserves_key",
+      "expected_proposition": "∀ {n : Nat} {g : Allow.EGraph.Graph n} {a b : Allow.ContextualFormula n}, Allow.EGraph.Merge g a b → Allow.canonicalKey a = Allow.canonicalKey b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.class_sound",
+      "expected_proposition": "∀ {n : Nat} {a b : Allow.Formula n} (g : Allow.EGraph.Graph n), g.sameClass a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.extraction_sound",
+      "expected_proposition": "∀ {n : Nat} (g : Allow.EGraph.Graph n) (root extracted : Allow.Formula n), g.sameClass root extracted → ∀ (v : Fin n → Bool), Allow.eval v root = Allow.eval v extracted",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.bounded_run_no_false_saturation",
+      "expected_proposition": "∀ (remaining : Bool) (reason : Allow.EGraph.StopReason), reason ≠ Allow.EGraph.StopReason.saturated → Allow.EGraph.stopReason remaining reason = Allow.EGraph.StopReason.saturated → remaining = false",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rel_rule_sound",
+      "expected_proposition": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelRule a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rel_derivation_sound",
+      "expected_proposition": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rel_merge_sound",
+      "expected_proposition": "∀ {n : Nat} {Tuple : Type} {g : Allow.EGraph.RelGraph n} {a b : Allow.EGraph.ContextualRelation n}, Allow.EGraph.RelMerge g a b → a.context = b.context ∧ a.schema = b.schema ∧ a.inventory = b.inventory ∧ ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a.body = Allow.EGraph.evalRelation v b.body",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rel_extraction_sound",
+      "expected_proposition": "∀ {n : Nat} {Tuple : Type} (g : Allow.EGraph.RelGraph n) (root extracted : Allow.EGraph.RelExpr n), g.sameClass root extracted → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v root = Allow.EGraph.evalRelation v extracted",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rel_nonempty_congruence",
+      "expected_proposition": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ∃ x, Allow.EGraph.evalRelation v b x = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.rel_empty_congruence",
+      "expected_proposition": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (¬∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ¬∃ x, Allow.EGraph.evalRelation v b x = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.implication_lowering",
+      "expected_proposition": "∀ (a b : Bool), (!a || b) = if a = true then b else true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.iff_lowering",
+      "expected_proposition": "∀ (a b : Bool), ((!a || b) && (!b || a)) = (a == b)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.witness_boolean_absorption",
+      "expected_proposition": "Allow.EGraph.Derivation ((Allow.Formula.atom (0 : Fin 2)).and ((Allow.Formula.atom (0 : Fin 2)).or (Allow.Formula.atom (1 : Fin 2)))) (Allow.Formula.atom (0 : Fin 2))",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.witness_relation_absorption",
+      "expected_proposition": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).inter ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).union (Allow.EGraph.RelExpr.atom (1 : Fin 2)))) (Allow.EGraph.RelExpr.atom (0 : Fin 2))",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.witness_relation_difference",
+      "expected_proposition": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 1)).diff (Allow.EGraph.RelExpr.atom (0 : Fin 1))) Allow.EGraph.RelExpr.empty",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.witness_budget_stop",
+      "expected_proposition": "Allow.EGraph.stopReason true Allow.EGraph.StopReason.nodeLimit ≠ Allow.EGraph.StopReason.saturated",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.eval_substB",
+      "expected_proposition": "∀ {n bn rn : Nat} {Tuple : Type} (σ : Fin n → Allow.EGraph.MixedFormula bn rn) (a : Allow.Formula n) (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain (Allow.EGraph.substB σ a) = Allow.eval (fun i => Allow.EGraph.evalMixed bv rv domain (σ i)) a",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.EGraph.mixed_sound",
+      "expected_proposition": "∀ {bn rn : Nat} {Tuple : Type} {a b : Allow.EGraph.MixedFormula bn rn}, Allow.EGraph.MixedDerivation a b → ∀ (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain a = Allow.EGraph.evalMixed bv rv domain b",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_bounds",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → 3 ≤ n ∧ n ≤ 5",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_positive_size",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → pos.length = n",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_negative_size",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → neg.length = n",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_positive_distinct",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → (List.map (fun m => m.witness.fullInstanceHash) pos).Nodup",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_negative_distinct",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → (List.map (fun m => m.witness.fullInstanceHash) neg).Nodup",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_positive_admitted",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member} {m : Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → m ∈ pos → Allow.Retrieval.admitted t Allow.Polarity.positive m",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_negative_admitted",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member} {m : Allow.Retrieval.Member}, Allow.Retrieval.ready n t pos neg → m ∈ neg → Allow.Retrieval.admitted t Allow.Polarity.negative m",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.below_range_not_ready",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, n < 3 → ¬Allow.Retrieval.ready n t pos neg",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.above_range_not_ready",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, 5 < n → ¬Allow.Retrieval.ready n t pos neg",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.partial_not_ready",
+      "expected_proposition": "∀ {n : Nat} {t : Allow.TargetContext} {pos neg : List Allow.Retrieval.Member}, pos.length < n → ¬Allow.Retrieval.ready n t pos neg",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.positive_query",
+      "expected_proposition": "∀ (f p : Bool), Allow.Retrieval.queryEval Allow.Polarity.positive f p = (f && p)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.negative_query",
+      "expected_proposition": "∀ (f p : Bool), Allow.Retrieval.queryEval Allow.Polarity.negative f p = (f && !p)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.opposite_polarities_disjoint",
+      "expected_proposition": "∀ (f p : Bool), ¬(Allow.Retrieval.queryEval Allow.Polarity.positive f p = true ∧ Allow.Retrieval.queryEval Allow.Polarity.negative f p = true)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.finite_samples_incomplete",
+      "expected_proposition": "(∀ (x : Bool), x ∈ [false] → (fun _x => false) x = (fun x => x) x) ∧ ¬∀ (x : Bool), (fun _x => false) x = (fun x => x) x",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.opposing_witness_refutes_equivalence",
+      "expected_proposition": "∀ {α : Type} (p q : α → Bool) (x : α), p x = true → q x = false → ¬∀ (y : α), p y = q y",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.pack4_context",
+      "expected_proposition": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index0 i) = a i",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.pack4_predicate",
+      "expected_proposition": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index1 i) = b i",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.pack4_positive",
+      "expected_proposition": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index2 i) = c i",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.pack4_negative",
+      "expected_proposition": "∀ (a b c d : Allow.Retrieval.Block) (i : Fin 768), Allow.Retrieval.pack4 a b c d (Allow.Retrieval.index3 i) = d i",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.vector_width",
+      "expected_proposition": "∀ (v : Allow.Retrieval.Embedding), Allow.Retrieval.vectorWidth v = 3072",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.four_blocks_width",
+      "expected_proposition": "4 * 768 = 3072",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.score_bounded",
+      "expected_proposition": "∀ (c p n : Nat), c ≤ 1000 → p ≤ 1000 → n ≤ 1000 → Allow.Retrieval.score c p n ≤ 1000",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.score_zero",
+      "expected_proposition": "Allow.Retrieval.score 0 0 0 = 0",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.score_max",
+      "expected_proposition": "Allow.Retrieval.score 1000 1000 1000 = 1000",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.incompatible_overlap_zero",
+      "expected_proposition": "∀ (shared : Nat), Allow.Retrieval.overlap false shared = 0",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.commit_current",
+      "expected_proposition": "∀ {current result : Allow.Retrieval.Snapshot} {complete : Bool}, Allow.Retrieval.commit current result complete = true → current = result ∧ complete = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.stale_cannot_commit",
+      "expected_proposition": "∀ {current result : Allow.Retrieval.Snapshot} {complete : Bool}, current ≠ result → Allow.Retrieval.commit current result complete = false",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.partial_cannot_commit",
+      "expected_proposition": "∀ (current result : Allow.Retrieval.Snapshot), Allow.Retrieval.commit current result false = false",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.revoked_invisible",
+      "expected_proposition": "∀ (committed : Bool), Allow.Retrieval.visible committed true = false",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.admitted_evidence",
+      "expected_proposition": "∀ {t : Allow.TargetContext} {p : Allow.Polarity} {m : Allow.Retrieval.Member}, Allow.Retrieval.admitted t p m → m.run.query.target = t ∧ m.run.query.polarity = p ∧ m.witness.ownQuery = m.run.query ∧ m.run.status = Allow.SolverStatus.SAT ∧ m.witness.validated = true",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.Retrieval.ready_three_witness",
+      "expected_proposition": "Allow.Retrieval.ready 3 Allow.sampleTarget [Allow.Retrieval.sampleMember Allow.positiveQuery \"a\", Allow.Retrieval.sampleMember Allow.positiveQuery \"b\", Allow.Retrieval.sampleMember Allow.positiveQuery \"c\"] [Allow.Retrieval.sampleMember Allow.negativeQuery \"d\", Allow.Retrieval.sampleMember Allow.negativeQuery \"e\", Allow.Retrieval.sampleMember Allow.negativeQuery \"f\"]",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.exact_request",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r → r.sql = p.sql",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.pinned_identity",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r → r.binary = p.binary ∧ r.profile = p.profile ∧ r.policy = p.policy",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.mismatch_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.sql ≠ p.sql → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.binary_mismatch_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.binary ≠ p.binary → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.profile_mismatch_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.profile ≠ p.profile → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.parser_failure_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.success = false → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.isOpaque_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.isOpaque = true → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.cache_exact",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {e : Allow.SqlRouting.CacheEntry}, Allow.SqlRouting.cacheReuse p e → p = e.request ∧ Allow.SqlRouting.admitted p e.report",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.execute_accepted",
+      "expected_proposition": "∀ {s : Allow.SqlRouting.State} {name : String} {p : Allow.SqlRouting.Portal}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.execute s name = some p → Allow.SqlRouting.admitted p.request p.report",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.admission_witness",
+      "expected_proposition": "Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest Allow.SqlRouting.sampleReport",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.execution_witness",
+      "expected_proposition": "Allow.SqlRouting.execute Allow.SqlRouting.sampleState \"p\" = some Allow.SqlRouting.samplePortal",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.denial_witness",
+      "expected_proposition": "¬ Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest { Allow.SqlRouting.sampleReport with isOpaque := true }",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.parse_bind_execute",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.State) (st : Allow.SqlRouting.Statement) (name : String), Allow.SqlRouting.Reachable s → Allow.SqlRouting.admitted st.request st.report → Allow.SqlRouting.Reachable (Allow.SqlRouting.bind (Allow.SqlRouting.parse s st) name st) ∧ Allow.SqlRouting.execute (Allow.SqlRouting.bind (Allow.SqlRouting.parse s st) name st) name = some ⟨name, st.request, st.report⟩",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.derivation_failure_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.derivation = false → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.preservation_failure_denied",
+      "expected_proposition": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.preserved = false → ¬ Allow.SqlRouting.admitted p r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.reachable_wellFormed",
+      "expected_proposition": "∀ {s : Allow.SqlRouting.State}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.wellFormed s",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.native_execute_provenance",
+      "expected_proposition": "∀ {s : Allow.SqlRouting.State} {name : String} {q : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.nativeExecute s name q r → Allow.SqlRouting.admitted q r ∧ ∃ st, s.statements.find? (fun x => x.name == name) = some st ∧ Allow.SqlRouting.admitted st.request st.report",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.native_unknown_denied",
+      "expected_proposition": "∀ {s : Allow.SqlRouting.State} {name : String} {q : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, s.statements.find? (fun x => x.name == name) = none → ¬ Allow.SqlRouting.nativeExecute s name q r",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.native_prepare_bind",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.State) (p : Allow.SqlRouting.NativePrepare) (portal : String), Allow.SqlRouting.Reachable s → Allow.SqlRouting.admitted p.statement.request p.statement.report → Allow.SqlRouting.bodyPart p → Allow.SqlRouting.Reachable (Allow.SqlRouting.bind (Allow.SqlRouting.nativePrepare s p) portal p.statement) ∧ Allow.SqlRouting.execute (Allow.SqlRouting.bind (Allow.SqlRouting.nativePrepare s p) portal p.statement) portal = some ⟨portal, p.statement.request, p.statement.report⟩",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.cache_does_not_prepare",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.State) (e : Allow.SqlRouting.CacheEntry), (Allow.SqlRouting.cacheLookup s e).statements = s.statements",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.native_prepare_witness",
+      "expected_proposition": "Allow.SqlRouting.Reachable (Allow.SqlRouting.nativePrepare ⟨[], []⟩ Allow.SqlRouting.sampleNative) ∧ Allow.SqlRouting.bodyPart Allow.SqlRouting.sampleNative",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.native_execute_witness",
+      "expected_proposition": "Allow.SqlRouting.nativeExecute (Allow.SqlRouting.nativePrepare ⟨[], []⟩ Allow.SqlRouting.sampleNative) \"s\" Allow.SqlRouting.sampleExecuteRequest Allow.SqlRouting.sampleExecuteReport",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.pending_blocks_source",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.CycleState) (cycle : Nat), cycle ∈ s.pending → ¬ Allow.SqlRouting.sourceAllowed s",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.forward_blocks_source",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.CycleState) (cycle : Nat), ¬ Allow.SqlRouting.sourceAllowed (Allow.SqlRouting.forwardEffect s cycle)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.unvalidated_retains",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.CycleState) (ack : Nat), Allow.SqlRouting.completeCycle s ack false = s",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.completed_retains_newer",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.CycleState) (ack cycle : Nat), cycle ∈ s.pending → ack < cycle → cycle ∈ (Allow.SqlRouting.completeCycle s ack true).pending",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.completed_removes_older",
+      "expected_proposition": "∀ (s : Allow.SqlRouting.CycleState) (ack cycle : Nat), cycle ≤ ack → cycle ∉ (Allow.SqlRouting.completeCycle s ack true).pending",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    },
+    {
+      "symbol": "Allow.SqlRouting.cycle_barrier_witness",
+      "expected_proposition": "¬ Allow.SqlRouting.sourceAllowed (Allow.SqlRouting.forwardEffect ⟨[]⟩ 2) ∧ (Allow.SqlRouting.completeCycle ⟨[1, 2]⟩ 1 true).pending = [2] ∧ Allow.SqlRouting.sourceAllowed (Allow.SqlRouting.completeCycle ⟨[1]⟩ 1 true)",
+      "status": "PASS",
+      "classification": "PROVED_MODEL",
+      "input_root_hash": "5d4e10ffd92b22174f5324fc48000659e0a5e6729449ff438ec53a86facd3ead",
+      "verifier_sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "evidence": [
+        "A-audit.log",
+        "B-audit.log"
+      ]
+    }
+  ],
+  "determinism": "PASS"
+}

@@ -1,0 +1,51 @@
+{
+  "reviewer": "astra-2",
+  "seat": "sql-r6-astra-2",
+  "review_type": "INCREMENTAL_FINAL_DESIGN_REVIEW",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_revision": 6,
+  "spec_sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "timestamp_utc": "2026-11-03T17:13:30.193331+00:00",
+  "blocking_findings": [],
+  "resolved_findings": [
+    {
+      "id": "ASTRA2-R5-01",
+      "resolution": "Revision6 marks Q/P/B/D/E/C/S effect-capable before forwarding. This includes Bind planning, Parse analysis, Describe revalidation, Close cleanup and Sync completion without assuming pre-Execute routines are effect-free. Subsequent new Q/P remains blocked until the matching validated Ready barrier."
+    }
+  ],
+  "positive_assessments": [
+    "Q and Sync enqueue the current cycle then advance it; matching Ready removes only completed/older effects, preserving newer pipeline effects.",
+    "The initial startup Ready is explicitly distinguished; unsolicited or malformed later Ready cannot fabricate completion. Ignored messages do not synthesize acknowledgements.",
+    "Bind/Execute/Describe/Close/Sync and COPY completion can progress while new SQL admission is blocked. COPY remains attached to the initiating cycle.",
+    "Native PREPARE and EXECUTE retain complete exact-source grammar acceptance and shared connection-local provenance. Cache decisions cannot establish a target."
+  ],
+  "implementation_requirements": [
+    "Mark effects and enqueue Q/Sync barriers before any forwarding write; ensure backend processing cannot observe a response before this state exists.",
+    "Retain prior singleton ordered-family and expected leading-keyword classification, token byte-span validation, ASCII native-name folding and namespace limits. As accepted in council, reject protocol statement names above63bytes to prevent mixed-namespace truncation aliases.",
+    "Cover P/B/D/E/C/S barrier traces, including Bind then pipelined new Parse without Execute, old Ready after newer effects, fragmented lexical ParameterStatus, unsolicited Ready and ignored-message handling.",
+    "Preserve unchanged full pg_dump/pg_restore ACL contents and previous failed evidence; prove real utility compatibility and per-client proxy endpoint/counter coverage."
+  ],
+  "formal_assessment": {
+    "obligations": 28,
+    "conclusion": "The unchanged generic forwardEffect/completeCycle model covers the revised policy under explicit adapter mapping assumptions. List-pending lemmas retain newer effects and require validated completion. No additional theorem is necessary solely to expand the set of mapped effect-capable messages.",
+    "independent_lean_run": false,
+    "required_gate": "Run both clean final revision6 formal builds before production implementation; previous revision proof reports are not final-hash closure.",
+    "limits": "Cycle mapping, SQL body extraction, normalization and Python/wire correspondence are trusted adapter obligations, not proved refinement. No backend execution success is inferred from accepted provenance."
+  },
+  "verification_performed": [
+    "Read final revision6 specification and checked the exact SHA256.",
+    "Confirmed SqlRouting.lean is identical to the source fully inspected for revision5.",
+    "Rechecked the broadened effect set, ordered barriers, COPY progress and unexpected-Ready requirements against the source-backed revision5 blocker."
+  ],
+  "production_edits": false,
+  "prior_reports_preserved": true,
+  "approval_scope": "Final design only; final formal gate and implementation/runtime validation remain separate. No production/database changes or commercial redistribution clearance.",
+  "sources": [
+    "reviews/sql-r5-astra-2.json",
+    "reviews/sql-r4-astra-2.json",
+    "reviews/sql-runtime-astra-2.json",
+    ".tools/retrieval/src/postgresql-16.15/src/backend/tcop/postgres.c",
+    ".tools/retrieval/src/postgresql-16.15/src/backend/optimizer/util/clauses.c"
+  ]
+}

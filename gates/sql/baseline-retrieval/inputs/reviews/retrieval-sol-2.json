@@ -1,0 +1,56 @@
+{
+  "reviewer": "retrieval-sol-2",
+  "artifact": "spec/retrieval-stage.json",
+  "revision": 4,
+  "sha256": "702fd07f90a66004ab62229f3709f27c4812363403f893b8882758d21dc192eb",
+  "verdict": "APPROVE_DESIGN_NOT_IMPLEMENTATION_OR_GATE_PASS",
+  "scope": "ML/retrieval recipe, installed libraries, public pretrained artifact identity, family holdout and quality promotion. No production changes.",
+  "resolved": [
+    "Full3072 cosine now makes every learned block participate in exact scoring.",
+    "Distinct checked serialization pairs and explicit nontrivial augmentation certificates avoid identity-pair training.",
+    "Finite token/chunk limits, equal-member pool aggregation, exact default retrieval and validation-only grid frozen.",
+    "Twelve-family minimum, independent validation/test components, all-three-source coverage and MRR non-regression criterion frozen.",
+    "API derives trusted vector/pools from authorized FULL records rather than accepting asserted caller evidence.",
+    "Revision4 freezes final-epoch checkpoint, seeded shuffle, duplicate masking, minibatch minimum and family-macro MRR@10 formula.",
+    "31 explicit formal obligation statements now identify the abstract policies; their implementation trust boundary remains explicit."
+  ],
+  "implementation_obligations": [
+    "Before training freeze manifest, generated variant bytes/certificates, dependency/model hashes and actual seeded minibatch schedule consistent with revision4. Preserve paired query/candidate IDs and duplicate exclusions.",
+    "InfoNCE loss must mask known positives and exact duplicates as distractors. Nonmatching structural distractors may be semantically equivalent; report empirical structural target task only.",
+    "Exponentiated log scales require finite-value rejection and stable numerics. Record learned parameter count3072, objective curves and adapter checksum; no trained claim before actual optimization.",
+    "Run official ONNX CPU model import and inference compatibility check after permitted model provisioning; API metadata itself does not expose opset/operator information.",
+    "Report quality with groupwise confidence intervals and exact FULL-family counts. Twelve minimum families is a pilot threshold, not statistical evidence of broad generalization.",
+    "If context gate or record admission leaves insufficient candidates, preserve underfill and open quality status; never add self/duplicate variants to inflate MRR."
+  ],
+  "verified_public_metadata": {
+    "model": "intfloat/e5-base-v2",
+    "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+    "onnx_model_sha256": "157f97ef1957d34f52efa26f8031371bf9043acc45460cec7ebe94631ac0e96b",
+    "onnx_model_size": 435811516,
+    "source": "https://huggingface.co/api/models/intfloat/e5-base-v2/revision/f52bf8ec8c7124536f0efb74aca902b2995e5bcd?blobs=true",
+    "runtime_status": "Not installed or tested; cannot claim opset/operator compatibility from metadata alone."
+  },
+  "local_dependencies": {
+    "installed": {
+      "torch": "2.0.1",
+      "numpy": "1.24.3",
+      "scikit-learn": "1.2.2"
+    },
+    "missing": [
+      "onnxruntime",
+      "onnx",
+      "tokenizers",
+      "transformers",
+      "sentence-transformers",
+      "langgraph"
+    ],
+    "candidate_isolated_pins": [
+      "onnxruntime==1.20.1",
+      "onnx==1.17.0",
+      "tokenizers==0.20.3",
+      "numpy==1.26.4"
+    ]
+  },
+  "formal_status": "Parent reports formal VERIFIED with two clean builds; this ML review independently read the31 formal obligation declarations but did not rerun Lean. No claim that abstract proof verifies ML quality or runtime.",
+  "production_release": "Await root announcement that all six reviews complete; no production edits or model installation undertaken."
+}

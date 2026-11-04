@@ -1,0 +1,88 @@
+{
+  "reviewer_id": "egraph-sol-2",
+  "requested_model_seat": "GPT-6.1 Sol",
+  "status": "FROZEN_REVISION_2_REVIEW_COMPLETE",
+  "verdict": "APPROVE_CONTRACT_PENDING_PROOF_CLOSURE_AND_IMPLEMENTATION",
+  "production_files_edited": false,
+  "scope": [
+    "Frontend transaction identity",
+    "Anonymous result serialization",
+    "Checked extraction UX versus bounded SAT"
+  ],
+  "sources_read": [
+    "frontend/src/Workbench.tsx",
+    "frontend/src/api.ts",
+    "frontend/src/Results.tsx",
+    "frontend/src/Results.test.ts",
+    "frontend/src/api.test.ts",
+    "backend/src/main/java/dev/allow/canonical/CanonicalView.java",
+    "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java",
+    "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java",
+    "formal/Allow/EGraph.lean"
+  ],
+  "findings": [
+    {
+      "id": "EG-S2-01",
+      "severity": "HIGH",
+      "requirement": "Retain sourceHash, revision, epoch and jobId freshness checks for all egraph presentations; optimize is read-only and must never replace editable Alloy source."
+    },
+    {
+      "id": "EG-S2-02",
+      "severity": "HIGH",
+      "requirement": "Certificate checking, saturation termination and bounded solver status are independent fields and UI labels. Budget-limited checked extraction remains sound but incomplete; failed replay must suppress checked equivalence claims."
+    },
+    {
+      "id": "EG-S2-03",
+      "severity": "HIGH",
+      "requirement": "Only mapper-produced anonymous typed IR, immutable slot identity, profile and rule identifiers may reach egraph artifact/features. Source text, names, display maps, provenance hash and raw exceptions are excluded."
+    },
+    {
+      "id": "EG-S2-04",
+      "severity": "MEDIUM",
+      "requirement": "Keep exact canonical payload/digest/features separate from extracted payload/digest/features. Label digests as integrity/provenance, not equivalence certificates."
+    },
+    {
+      "id": "EG-S2-05",
+      "severity": "MEDIUM",
+      "requirement": "Expose anonymous extracted payload, positive extraction costs, graph counts, fixed stop reason and proof summary with rule profile. Describe proof as checked certificate under supported rule profile; do not imply Java-Lean refinement."
+    }
+  ],
+  "browser_qa_required": [
+    "Editable source unchanged after optimize",
+    "Edit or replacement submit clears old optimized presentation",
+    "Stale source/hash/job response never shows extraction",
+    "CHECKED plus budget limit has checked label and distinct incomplete caption",
+    "Failed replay never displays checked equivalence",
+    "SAT/UNSAT bounded captions remain independent",
+    "Anonymous output stable under alpha renaming and excludes source names"
+  ],
+  "trust_limits": [
+    "Approval covers frozen contract design, not implementation correctness or completion.",
+    "Two clean Lean builds and exact proposition closure are being performed by root; this review does not claim independently executing them.",
+    "Abstract Lean theorems do not establish parser mapping or Java implementation refinement.",
+    "Browser disconnected at initial review; no browser execution claimed."
+  ],
+  "files_sha256": {
+    "spec/egraph-stage.json": "b47cc323123d03a2fb67c62696e359bbd9b1bdd1605036882548ece459e23a42",
+    "spec/egraph-rules.json": "a017b226b0643e81a118b2e9879dcba2d5dadbe8dd54939d23ace8b725f30f34",
+    "formal/Allow/EGraph.lean": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab"
+  },
+  "reviewed_revision": 2,
+  "blocking_findings": [],
+  "contract_assessment": [
+    "Optional CanonicalView.egraph preserves unchanged structural v1 bytes/features and prevents raw-source bypass.",
+    "Multi-island numeric occurrence root paths, immutable inventory and captured same-traversal AST/subtree pairings address anonymous identity and binder ordinal hazards.",
+    "Separate per-island certificateStatus and stopReason plus bounded graph/proof previews satisfy independent evidence presentation.",
+    "Unit tree-occurrence costs and no-more-costly extraction support honest UI reduction summaries without optimality claims.",
+    "Strict certificate replay binds trusted original input/context/inventory rather than accepting self-asserted proof metadata.",
+    "MixedFormula/MixedDerivation and mixed_sound explicitly connect Boolean substitutions and SOME/NO relational congruence; runtime full-schema carrier correspondence remains an admitted implementation trust boundary.",
+    "34 forward registry mappings reviewed against declared Boolean and relation constructors; finite semantic parity tests remain implementation acceptance."
+  ],
+  "implementation_notes": [
+    "Before frontend work, freeze actual DTO property types for term, graphPreview, graph statistics, proof summary, certificate, aggregate status and fixed unavailable reasons; specification currently describes these semantically rather than a JSON Schema.",
+    "Render each island certificate state independently. Aggregate status must never imply every island checked or every island saturated if truncated/failed/incomplete.",
+    "Graph preview truncation and module island truncation require distinct readable notices. Preview truncation alone must not rewrite engine stopReason.",
+    "Use native keyboard-accessible details/summary for graph/proof text and fixed enum label mappings; keep any certificate download anonymous and generated from current guarded result only.",
+    "Scope bounded solver disclaimer to solver result; explain local certificate checking in the egraph section."
+  ]
+}

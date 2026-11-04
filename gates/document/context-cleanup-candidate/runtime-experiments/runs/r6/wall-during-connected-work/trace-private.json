@@ -1,0 +1,41 @@
+{
+  "events": [
+    {
+      "phase": "CONNECTING",
+      "failed": false,
+      "successPermitted": false,
+      "monotonic_ns": 62512033074451
+    },
+    {
+      "phase": "KEYED",
+      "failed": false,
+      "successPermitted": false,
+      "monotonic_ns": 62512037269638
+    },
+    {
+      "phase": "BOUND",
+      "failed": false,
+      "successPermitted": false,
+      "monotonic_ns": 62512039369991
+    },
+    {
+      "phase": "RETIRING",
+      "failed": true,
+      "successPermitted": false,
+      "monotonic_ns": 62515033588438
+    },
+    {
+      "phase": "CLEAN",
+      "failed": true,
+      "successPermitted": false,
+      "monotonic_ns": 62515035657041
+    }
+  ],
+  "bound_identity": {
+    "backendPid": 1054922,
+    "backendStart": "2026-11-03 23:26:22.107543-06:00",
+    "database": "allow_retrieval",
+    "user": "allow_app",
+    "applicationName": "allow-document-context:7286e354-fb09-48d3-b04c-613aa4c6d622"
+  }
+}

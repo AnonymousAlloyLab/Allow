@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "classification": "DOCUMENTATION_PROVENANCE_AND_LINK_CHECK_NOT_CORRECTNESS_PROOF",
+  "pre_update_manifest": {
+    "path": "gates/documentation/pooling-test-20261104/pre-update-manifest.json",
+    "sha256": "45dfb854ae5610a5ea6df556b8d42397fe4e961d7324c62a1c2e02e2be118949"
+  },
+  "current_files": [
+    {
+      "path": "docs/current-status.md",
+      "sha256": "e5ca26810999d215b487e7ef23be9103990d749c997ba45d988157f16cb9cfc0"
+    },
+    {
+      "path": "docs/warm-pool.md",
+      "sha256": "4372101fe183a7a6bd31ace93d01f5794e645ff882345e550a4993c39549c38b"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/status.json",
+      "sha256": "0f32cb0d3d19065fea2c2c7ddacac61e4c329f3d2077b468179fdf1f383a56ba"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/README.md",
+      "sha256": "45343613d64d316d802c364b6e99b5374eeda962dad448cfc2387220199dd491"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/source-ready-r5.json",
+      "sha256": "d9ff0832ac9847f2b5f4db60beef1b5a603c9dbc49e862fbc55bea523869322b"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/pooling-lifecycle-r1/report.json",
+      "sha256": "fdd22eb5b16637d665f81f5eae74703b165085d131e792e6f8c8a321c9f1daef"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/development-full-r5-report.json",
+      "sha256": "f6f509074d9994526c2c0f0461c840883e26dc10d754fcf1e86e5f353d0ca118"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/pooling-offline-r1-report.json",
+      "sha256": "75ef405632a7f8cc9542b4799aff246a94dd4235523720d141ca1c1d0223d736"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/pooling-lifecycle-test-plan-r1.json",
+      "sha256": "7a442d101d51ef3bedfeba6a997f744e98e698c9938a0c50317c7353db2b1079"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/pooling-check-r1/report.json",
+      "sha256": "d0f2f832e938c8c2b64d2e145f23dc7aa86dacd3ef43c6c898386bf0ab79c705"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r3/report.json",
+      "sha256": "ac39a7a1fac507619d5eab615dc717c2e3fdc86d0b5cecbcbb936d9fb786f54b"
+    }
+  ],
+  "local_links_checked": 65,
+  "current_source_ready_files_checked": 338,
+  "runtime_cases": 11,
+  "runtime_registration_root": "2116b0d9bf58f69407c0243fe6cab15a688de18f8197b87ae34e134b114c799e",
+  "production_selection": "DISABLED",
+  "warm_performance": "NOT_MEASURED",
+  "limitations": [
+    "Documentation receipt does not prove implementation refinement.",
+    "Historical semantic-r3 remains BLOCKED for full190 equivalence.",
+    "Actual target-host, selected SQL route, full fault/history profiles, performance and soak gates remain open."
+  ]
+}

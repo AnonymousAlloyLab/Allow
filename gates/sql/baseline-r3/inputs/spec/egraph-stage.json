@@ -1,0 +1,238 @@
+{
+  "id": "ALLOW-EGRAPH-STAGE-0.1",
+  "revision": 2,
+  "date": "2026-11-03",
+  "extends": [
+    "spec/allow-contract.json",
+    "spec/implementation-g1.json",
+    "spec/slot-profile.json"
+  ],
+  "authorization": {
+    "implementation": true,
+    "local_only": true,
+    "publish": false,
+    "commercial_release": false,
+    "dataset_ingestion": false
+  },
+  "sequence": [
+    "Freeze this supplement and closed rule catalog",
+    "Check new Lean obligations and concrete witnesses in two clean builds",
+    "Resolve six requested council reviews",
+    "Implement the covered engine, adapter and workbench",
+    "Run semantic, adversarial, integration and available browser tests"
+  ],
+  "scope": "A complete bounded typed e-graph engine: structural hash-consing, union-find, fixed-point congruence rebuilding, generic e-matching, registered rule application, equality saturation, deterministic finite extraction and independently replayed certificates. Supports proved Boolean and exact-schema relational algebra. This is not a decision procedure or complete normal form for full Alloy.",
+  "inherited_constraints": [
+    "Every authored Java/JS/TS callable, constructor and callback has meaningful Javadoc/JSDoc and at most 30 physical lines",
+    "Private class state and defensive immutable value boundaries",
+    "All source/presentation names, paths and source hashes remain outside anonymous embedding input",
+    "Existing sandbox, authority, worker protocol and stale-result guards remain enforced"
+  ],
+  "profiles": {
+    "structural": "allow-slot-ast-v1 remains byte-for-byte unchanged",
+    "features": "allow-slot-feature-v1 remains byte-for-byte unchanged; extracted e-graph terms are not fed into it",
+    "egraph": "allow-egraph-v1",
+    "rules": "spec/egraph-rules.json",
+    "certificate": "allow-egraph-proof-v1",
+    "semantic_normal_form": false
+  },
+  "typed_ir": {
+    "sorts": "BOOL, or REL with positive arity and the complete normalized set of ordered nominal signature-product alternatives from resolved Alloy Type.fold. Preserve each tuple column order, builtin identity and anonymous signature slot. Sort/deduplicate whole alternatives by anonymous structural encoding only. Never use name spelling or arity alone as the schema.",
+    "operators": [
+      "ATOM",
+      "TRUE",
+      "FALSE",
+      "NOT",
+      "AND",
+      "OR",
+      "EMPTY",
+      "UNION",
+      "INTER",
+      "DIFF",
+      "SOME",
+      "NO"
+    ],
+    "well_formedness": "ATOM is a leaf holding exact anonymous structural JSON and a sort. TRUE/FALSE are nullary BOOL. NOT takes BOOL. AND/OR take two BOOL. EMPTY is nullary with an explicit REL schema. UNION/INTER/DIFF require two operands and result with one identical REL schema. SOME/NO take one REL and return BOOL. No other operator or arity is admitted.",
+    "lowering": "Alloy NOT/AND/OR map to BOOL operators; ordered n-ary AND/OR use a documented deterministic binary fold with Boolean identity on empty lists. IMPLIES lowers to OR(NOT(left),right); IFF to AND(OR(NOT(left),right),OR(NOT(right),left)). NOOP wrappers may be removed only when their resolved type equals the operand type. Relational PLUS/INTERSECT/MINUS map only when both operand and result full schemas are identical; IPLUS/IMINUS/PLUSPLUS never use those rules. SOME/NO preserve nonemptiness semantics. Quantifiers, lets, calls, ITE, temporal and all other constructs are whole opaque leaves: no rewrite traversal through them.",
+    "input_identity": "Each graph is confined to one complete anonymous module context, one structural root path and one fixed ordered atom inventory. Keep inventory unchanged even when extraction removes atoms. Keys compare exact structures, context and sorts; hashes accelerate integrity only. No cross-root, cross-context or cross-schema merge. Build inventory before rewrites by lexicographically sorting and deduplicating full (sort/schema, exact anonymous subtree) encodings, including leaves introduced or duplicated by lowering. Every atom in every certificate step must belong to this exact inventory; validate unique ordered entries and never accept arbitrary numeric atom IDs or hashes as membership.",
+    "adapter": "Capture candidate root subtrees during the existing single canonical traversal: supported function bodies, facts and selected command formula have distinct anonymous numeric root paths. Never re-encode a root independently and silently reset/reassign global binder ordinals. Pair each resolved AST node with its exact captured anonymous structure and derive type schemas from that same parser state. Preserve v1 payload/features unchanged. Unsupported/unknown typing or mismatched shape rejects the egraph adapter or leaves a whole opaque node; no raw-source fallback or unsupported canonical bypass. Capture by occurrence and structural path, not a global AST-object-to-subtree cache: the same Expr object can occur repeatedly with differently allocated canonical binder ordinals. Each root path identifies one exact occurrence; an AST/subtree pairing mismatch rejects. Whole none/EMPTYNESS may conservatively remain opaque; only an explicitly exact-schema typed empty value can become EMPTY.",
+    "presentation": "Read-only anonymous optimization output and proof details appear alongside original readable source. No source replacement, new Alloy program emission, binder renaming or automatic solver rewrite is authorized by this stage. SAT4J continues to analyze the original accepted/requested source."
+  },
+  "engine": {
+    "hashcons": "Key is immutable (operator, exact sort/schema, exact opaque atom bytes, ordered canonical child representatives) inside one fixed context. Keep stable original ground terms distinct from mutable e-class representative IDs. Initial identical-ground-term dedup uses REFL; a collision after canonicalizing child classes requires concrete checked CONGRUENCE before reusing or merging its class, just like rebuild collisions.",
+    "union": "Union-find uses path compression and a deterministic merge policy. Every successful semantic merge must have a checked derivation between concrete endpoint terms before mutation; type/context checks are mandatory. IDs and hash equality are never derivations.",
+    "rebuild": "Canonicalize all child representatives, rebuild hash-cons keys, merge justified congruence collisions and repeat until no new union/key change remains. Rebuilding must propagate through parents and cycles. If a budget interrupts rebuilding, mark the graph incomplete; never report saturation.",
+    "matching": "Generic finite patterns from the frozen catalog match e-nodes modulo e-class equivalence. Repeated variables bind the same e-class with exactly one compatible sort/schema. Enumerate alternatives deterministically; every RHS variable must be bound by the LHS. Match budget exhaustion is an incomplete run.",
+    "saturation": "Search on a rebuilt snapshot, apply deterministically ordered matches with certified ground substitutions, rebuild to closure, repeat. SATURATED is allowed only after a complete pass over all admitted roots/rules/matches adds no nodes or equalities and rebuild is complete. The fixed forward rule registry defines saturation; it is not completeness for every equivalent Alloy expression.",
+    "extraction": "Use strictly positive additive node cost and deterministic lexicographic anonymous-term tie-breaking. Compute finite acyclic witnesses even for cyclic classes; no self-referential output or representative-ID serialization. Return original-to-extracted derivation and retain original root when no cheaper witnessed term is available. Output cost cannot exceed input cost for an accepted result. Global optimality across all equivalent Alloy expressions is not claimed. Every operator/atom has fixed unit cost one; tree cost counts occurrences, not shared DAG nodes. Freeze this cost definition in profile v1.",
+    "failure": "Limit or checker failure must not become solver UNSAT or an equivalence badge. A checked finite extraction may accompany an explicitly incomplete saturation status. If proof generation/checking/serialization fails, omit the extracted-equivalence result and report a fixed unavailable reason. Original canonical payload and solver operation remain separately valid where resources permit."
+  },
+  "certificates": {
+    "constructors": [
+      "REFL",
+      "SYMM",
+      "TRANS",
+      "CONGRUENCE",
+      "RULE"
+    ],
+    "wire": "Versioned strict JSON artifact contains fixed exact context/root path/atom inventory, ruleset digest, input and extracted typed terms, topologically ordered proof steps, and one conclusion index. Each step has explicit concrete endpoint terms, constructor, preceding premise indices, and for RULE a registered rule ID plus typed substitution. JSON duplicate/unknown fields, malformed terms, unbound pattern variables and forward/cyclic premise references reject.",
+    "checker": "A separate checker does not consult union-find, hash-cons maps, matcher success flags or solver status. It validates every term's closed grammar, exact context/schema, rule instantiation and endpoints; REFL equality, SYMM reversal, TRANS endpoint composition, CONGRUENCE identical operator/sort/opaque payload and ordered child premise endpoints. RULE uses the frozen catalog and typed substitutions. Recompute digests from exact bytes. Bind conclusion to original and extracted root; reject unrelated but valid proofs. Check before publishing CHECKED. Enforce bounded term nesting and proof dependency depth, closed ordered atom inventory membership for every step, and exact original-input/context/inventory values supplied by the trusted adapter; never accept a merely self-asserted alternative inventory. A modulo-eclass match must reconstruct concrete substitutions and child congruence proofs before a RULE step; UF membership cannot stand in for endpoint equality.",
+    "trust": "Lean proves abstract calculus semantics and the justified-class/extraction implications. Java checker, rule-catalog translation, Alloy AST lowering and schema correspondence remain explicitly trusted implementation components with structural parity and differential/adversarial tests; no universal Java refinement claim.",
+    "export": "Authenticated job response may carry a bounded anonymous certificate for inspection/download. No source/name map or provenance source hash enters its semantic anonymous context. The enclosing JobView retains normal exact source/revision/epoch/job authority binding.",
+    "registry": "34 closed forward rules in egraph-rules.json map uniquely to explicit Lean Rule/Certificate/RelRule constructors. Check frozen mapping and all Boolean truth assignments / pointwise relation assignments for each rule. Production loads only this pinned embedded registry, never client-supplied rules. Build identity includes behavior-affecting classpath resources, not only .class files."
+  },
+  "limits": {
+    "islands_per_module": 16,
+    "input_terms_per_island": 2048,
+    "enodes_per_island": 512,
+    "rounds_per_island": 12,
+    "matches_per_island": 4096,
+    "unions_per_island": 1024,
+    "proof_steps_per_island": 4096,
+    "certificate_bytes_per_island": 262144,
+    "all_egraph_output_bytes": 524288,
+    "egraph_wall_ms_per_job": 1000,
+    "graph_preview_classes": 24,
+    "graph_preview_nodes": 48,
+    "worker_wall_seconds": 10,
+    "term_depth": 128,
+    "proof_premise_depth": 128
+  },
+  "result_contract": {
+    "location": "Optional egraph member of CanonicalView; v1 payload/hash/features remain unchanged. Unsupported structural canonicalization does not create a separate raw egraph path.",
+    "fields": "profile, rulesetDigest, status, islands[], truncated. Each island includes anonymous rootPath, certificateStatus CHECKED|FAILED|UNAVAILABLE, stopReason SATURATED|NODE_LIMIT|ITERATION_LIMIT|MATCH_LIMIT|UNION_LIMIT|PROOF_LIMIT|TIME_LIMIT|INPUT_LIMIT|OUTPUT_LIMIT|ERROR, input/extracted anonymous terms and costs only when checked, graph statistics, bounded graph preview with explicit truncation, proof summary and bounded replayable certificate.",
+    "ui": "Show certificate state independently of termination reason and SAT result. CHECKED means local certificate replay succeeded under supported rules, not Lean verification of a running JVM. Different extracted terms prove no inequivalence. Budget-limited output cannot be labeled canonical/complete. Preserve original source and transaction freshness; edits immediately remove stale graphs. Keyboard-accessible controls expose graph/proof data textually as well as visually."
+  },
+  "acceptance": [
+    "New Lean obligations and named concrete witnesses pass exact-proposition audit in two clean builds before new production sources",
+    "Six requested reviewer seats bind this supplement and resolve confirmed soundness blockers",
+    "Typed union rejects distinct nominal schemas even at equal arity; exact opaque leaves and operator families stay distinct",
+    "Hash-consing, path compression, multi-level congruence rebuild, cyclic classes and generic repeated-variable e-matching have meaningful tests",
+    "Every enabled rule maps uniquely to the frozen proved constructor and passes independent finite semantic truth-table tests",
+    "Independent certificate replay rejects unknown rule, bad substitution, wrong endpoints/context/schema/inventory, tampered premise, forward/cyclic reference, unrelated conclusion and forged UF membership",
+    "Budget exhaustion at matching/rebuild/trace/output preserves honest incomplete status and no unchecked equivalence output",
+    "Extraction is finite, deterministic, no more costly than the source term, and backed by a checked root derivation",
+    "Adapter preserves alpha-renaming invariance and prior v1 bytes/features; test function parameters, binder shadowing, opaque let/quantifier/calls, schema alternatives, relation operand order and integer-operator separation",
+    "Synthetic Alloy/SAT4J differential fixtures check nontrivial supported Boolean and relation transformations within explicit bounds; bounded tests are not universal proof",
+    "Existing authority, strict worker framing, cancellation and stale-result regression tests remain passing",
+    "All authored Java/JS/TS including tests pass documented callable length/visibility checks and checker-negative fixtures",
+    "Browser keyboard, drag/drop, source preservation, graph details and stale-result UX tested if the connected extension is available; otherwise record acceptance as open rather than claiming it passed",
+    "No dataset source ingestion, vector persistence, remote embeddings, dependency copying or commercial clearance claimed",
+    "Repeated-variable modulo-class match AND(a,b) with certified a=b produces concrete congruence then idempotence; without that derivation a forged matching UF root rejects"
+  ],
+  "formal_obligations": [
+    {
+      "id": "EG01",
+      "symbol": "Allow.EGraph.rule_sound",
+      "statement": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Rule a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b"
+    },
+    {
+      "id": "EG02",
+      "symbol": "Allow.EGraph.derivation_sound",
+      "statement": "∀ {n : Nat} {a b : Allow.Formula n}, Allow.EGraph.Derivation a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b"
+    },
+    {
+      "id": "EG03",
+      "symbol": "Allow.EGraph.merge_preserves_key",
+      "statement": "∀ {n : Nat} {g : Allow.EGraph.Graph n} {a b : Allow.ContextualFormula n}, Allow.EGraph.Merge g a b → Allow.canonicalKey a = Allow.canonicalKey b"
+    },
+    {
+      "id": "EG04",
+      "symbol": "Allow.EGraph.class_sound",
+      "statement": "∀ {n : Nat} {a b : Allow.Formula n} (g : Allow.EGraph.Graph n), g.sameClass a b → ∀ (v : Fin n → Bool), Allow.eval v a = Allow.eval v b"
+    },
+    {
+      "id": "EG05",
+      "symbol": "Allow.EGraph.extraction_sound",
+      "statement": "∀ {n : Nat} (g : Allow.EGraph.Graph n) (root extracted : Allow.Formula n), g.sameClass root extracted → ∀ (v : Fin n → Bool), Allow.eval v root = Allow.eval v extracted"
+    },
+    {
+      "id": "EG06",
+      "symbol": "Allow.EGraph.bounded_run_no_false_saturation",
+      "statement": "∀ (remaining : Bool) (reason : Allow.EGraph.StopReason), reason ≠ Allow.EGraph.StopReason.saturated → Allow.EGraph.stopReason remaining reason = Allow.EGraph.StopReason.saturated → remaining = false"
+    },
+    {
+      "id": "EG07",
+      "symbol": "Allow.EGraph.rel_rule_sound",
+      "statement": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelRule a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b"
+    },
+    {
+      "id": "EG08",
+      "symbol": "Allow.EGraph.rel_derivation_sound",
+      "statement": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a = Allow.EGraph.evalRelation v b"
+    },
+    {
+      "id": "EG09",
+      "symbol": "Allow.EGraph.rel_merge_sound",
+      "statement": "∀ {n : Nat} {Tuple : Type} {g : Allow.EGraph.RelGraph n} {a b : Allow.EGraph.ContextualRelation n}, Allow.EGraph.RelMerge g a b → a.context = b.context ∧ a.schema = b.schema ∧ a.inventory = b.inventory ∧ ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v a.body = Allow.EGraph.evalRelation v b.body"
+    },
+    {
+      "id": "EG10",
+      "symbol": "Allow.EGraph.rel_extraction_sound",
+      "statement": "∀ {n : Nat} {Tuple : Type} (g : Allow.EGraph.RelGraph n) (root extracted : Allow.EGraph.RelExpr n), g.sameClass root extracted → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), Allow.EGraph.evalRelation v root = Allow.EGraph.evalRelation v extracted"
+    },
+    {
+      "id": "EG11",
+      "symbol": "Allow.EGraph.rel_nonempty_congruence",
+      "statement": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ∃ x, Allow.EGraph.evalRelation v b x = true"
+    },
+    {
+      "id": "EG12",
+      "symbol": "Allow.EGraph.rel_empty_congruence",
+      "statement": "∀ {n : Nat} {Tuple : Type} {a b : Allow.EGraph.RelExpr n}, Allow.EGraph.RelDerivation a b → ∀ (v : Fin n → Allow.EGraph.Relation Tuple), (¬∃ x, Allow.EGraph.evalRelation v a x = true) ↔ ¬∃ x, Allow.EGraph.evalRelation v b x = true"
+    },
+    {
+      "id": "EG13",
+      "symbol": "Allow.EGraph.implication_lowering",
+      "statement": "∀ (a b : Bool), (!a || b) = if a = true then b else true"
+    },
+    {
+      "id": "EG14",
+      "symbol": "Allow.EGraph.iff_lowering",
+      "statement": "∀ (a b : Bool), ((!a || b) && (!b || a)) = (a == b)"
+    },
+    {
+      "id": "EG15",
+      "symbol": "Allow.EGraph.witness_boolean_absorption",
+      "statement": "Allow.EGraph.Derivation ((Allow.Formula.atom (0 : Fin 2)).and ((Allow.Formula.atom (0 : Fin 2)).or (Allow.Formula.atom (1 : Fin 2)))) (Allow.Formula.atom (0 : Fin 2))"
+    },
+    {
+      "id": "EG16",
+      "symbol": "Allow.EGraph.witness_relation_absorption",
+      "statement": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).inter ((Allow.EGraph.RelExpr.atom (0 : Fin 2)).union (Allow.EGraph.RelExpr.atom (1 : Fin 2)))) (Allow.EGraph.RelExpr.atom (0 : Fin 2))"
+    },
+    {
+      "id": "EG17",
+      "symbol": "Allow.EGraph.witness_relation_difference",
+      "statement": "Allow.EGraph.RelDerivation ((Allow.EGraph.RelExpr.atom (0 : Fin 1)).diff (Allow.EGraph.RelExpr.atom (0 : Fin 1))) Allow.EGraph.RelExpr.empty"
+    },
+    {
+      "id": "EG18",
+      "symbol": "Allow.EGraph.witness_budget_stop",
+      "statement": "Allow.EGraph.stopReason true Allow.EGraph.StopReason.nodeLimit ≠ Allow.EGraph.StopReason.saturated"
+    },
+    {
+      "id": "EG19",
+      "symbol": "Allow.EGraph.eval_substB",
+      "statement": "∀ {n bn rn : Nat} {Tuple : Type} (σ : Fin n → Allow.EGraph.MixedFormula bn rn) (a : Allow.Formula n) (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain (Allow.EGraph.substB σ a) = Allow.eval (fun i => Allow.EGraph.evalMixed bv rv domain (σ i)) a"
+    },
+    {
+      "id": "EG20",
+      "symbol": "Allow.EGraph.mixed_sound",
+      "statement": "∀ {bn rn : Nat} {Tuple : Type} {a b : Allow.EGraph.MixedFormula bn rn}, Allow.EGraph.MixedDerivation a b → ∀ (bv : Fin bn → Bool) (rv : Fin rn → Allow.EGraph.Relation Tuple) (domain : List Tuple), Allow.EGraph.evalMixed bv rv domain a = Allow.EGraph.evalMixed bv rv domain b"
+    }
+  ],
+  "boundaries": [
+    "Graph.justified is an abstract invariant premise, not a proved Java union-find implementation",
+    "Relational proofs use one fixed tuple carrier; runtime full-schema mapping is a separate adapter gate",
+    "SOME/NO bridge and implication/IFF lowering require explicit semantic lemmas plus implementation tests",
+    "Time-limited run contents may differ with scheduling; unlimited/fixed-step fixtures and tie-breaks must be deterministic",
+    "Existing unresolved Alloy/component/corpus rights remain unresolved",
+    "The browser extension must actually be connected; user permission alone does not establish tool availability"
+  ],
+  "references": [
+    "/home/augustus/ACGN",
+    "https://egraphs-good.github.io/egg/egg/tutorials/_01_background/index.html",
+    "https://arxiv.org/abs/2004.03082"
+  ]
+}

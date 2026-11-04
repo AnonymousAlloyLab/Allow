@@ -1,0 +1,74 @@
+{
+  "trusted_components": [
+    {
+      "id": "T-LEAN",
+      "name": "Pinned Lean 4.34.1 kernel, elaborator/compiler and bundled Init/Std libraries",
+      "path": "/home/augustus/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+      "version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-LOGIC",
+      "name": "Standard Lean logical axioms propext, Quot.sound and Classical.choice",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-LAKE",
+      "name": "Pinned Lake build driver and trusted installed toolchain dependencies",
+      "path": "/home/augustus/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lake",
+      "sha256": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-PYTHON",
+      "name": "CPython interpreter, standard library and linked runtime libraries",
+      "path": "/home/augustus/anaconda3/bin/python3",
+      "sha256": "3f209e14ae320d5025eb988dd5ed7fbabd7e45d518a3e19c39bc3887341d8420",
+      "version": "3.10.11 (main, Apr 20 2023, 19:02:41) [GCC 11.2.0]",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-SCHEMA",
+      "name": "jsonschema validator and installed dependencies",
+      "version": "4.17.3",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-VERIFIER",
+      "name": "Frozen Python verifier, projection, preparation and policy scripts; correctness of orchestration is trusted, not formally proved",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-HASH",
+      "name": "Python hashlib SHA-256 implementation and collision resistance",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-OS",
+      "name": "OS, filesystem, process isolation and execution semantics",
+      "version": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-HARDWARE",
+      "name": "Execution hardware",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    },
+    {
+      "id": "T-INTERPRETATION",
+      "name": "Human interpretation of JSON prose and theorem statements; source elaboration, key serialization, auth and witness-validation interpretations explicitly excluded from implementation proof",
+      "classification": "TRUSTED",
+      "justification": "Outside the proved Lean model; declared reliance for this finite verification run."
+    }
+  ]
+}

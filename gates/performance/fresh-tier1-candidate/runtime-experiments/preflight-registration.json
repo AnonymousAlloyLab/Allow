@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "id": "ALLOW-FRESH-TIER1-CONTAINMENT-PREFLIGHT-V4",
+  "classification": "FINITE_TEST_NOT_MECHANICAL_CLOSURE_OR_PERFORMANCE_ACCEPTANCE",
+  "verifier": "controller.py preflight",
+  "execution": "Only after preflight-freeze writes immutable manifest.json; no workload or SQL. Outside observers use only unix:path=/run/user/<getuid>/bus after exact directory mode0700/UID and socket type/UID/nonalias validation; server and HTTP driver environments remain cleared.",
+  "claims": [
+    {"id": "PF-LIMITS", "pass": "Every observed service cpu.max=400000 100000; memory.high=5368709120; memory.max=6442450944; memory.swap.max=0; pids.max=512; KillMode=control-group"},
+    {"id": "PF-DESCENDANTS", "pass": "Supervisor and idle child have exact live PID/start identities in the service cgroup; every observed task affinity equals [0,1,2,3]; controller remains outside"},
+    {"id": "PF-RESOURCES", "pass": "No observed memory.events oom/oom_kill/oom_group_kill and no pids.events max"},
+    {"id": "PF-CLEANUP", "pass": "Only the matching Description/input-root and InvocationID service receives unit-scoped SIGTERM; cgroup.events POLLPRI/POLLERR drives explicit populated=0 reads while cleanup proceeds, then this exact unit is stopped; every observed identity is absent; kill and stop exit=0. Disappearance without an explicit zero remains UNKNOWN."}
+  ],
+  "block": ["Any input mutation", "Missing or mismatched controller", "Any unobserved or mismatching required predicate", "Cleanup UNKNOWN", "Any expired deadline"],
+  "trusted": ["Linux kernel cgroup/procfs/scheduler semantics", "user systemd manager", "Python interpreter/stdlib", "SHA-256", "machine hardware"],
+  "excluded": ["Continuous descendant observation", "Security confinement by CPU affinity", "Whole-stack workloads", "Java semantic equivalence", "Production target acceptance", "Two-clean-build mechanical runtime closure"]
+}

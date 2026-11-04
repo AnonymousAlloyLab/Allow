@@ -1,0 +1,19 @@
+{
+  "reviewer": "sol-2",
+  "decision": "APPROVE_GAMEPLAN",
+  "scope": "Independent adversarial test-only gameplan review. Approval is not execution evidence, production acceptance, or a performance result.",
+  "inputs_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "33975062c08d6b8fb7bf3cbe0f39cfaaeae3101d0e80154f2aaf0b33fce9dfb5",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "57d8512a8bd483ff9bfa76d43e66c0963a90c8b3b9eb7751b9ff89d2df48a49c"
+  },
+  "findings": [],
+  "assessment": {
+    "feasibility": "Existing useController exposes view and the real Controller, and DocumentWorkbench renders the actual accepted DocumentBody. A fail-closed test-only transform can expose the controller and add a layout-effect marker to the rendered view without replacing the production workbench. changeModule invokes actual editModule then publishDocument. Exact anchors, transformed hashes and diff remain implementation evidence to verify before any run.",
+    "authentication_same_origin": "AuthorityFilter allows only exact 127.0.0.1:<localPort> Host and absent or identical Origin; API requests additionally require bearer authority. Serving external production-built assets under /bench on the existing 18080 Spring origin is compatible in principle with self-only CSP and ordinary API authentication. Asset installation/restoration and safe route availability are explicit fail-closed prerequisites, not assumed completed operations.",
+    "faithfulness": "Protocol preserves actual AllowApp, full forest, SourcePanel/checking and advisory effects. All 1100 events bind mount/authority/document/base/draft/generation, require a fresh post-dispatch committed rendered view and two sequential rAF callbacks, then independently verify the exact edited owned-node A/B label and unchanged identity/ownership outside timing. No dropped samples, artificial labels, forced layout, replacement controller or flushSync is permitted.",
+    "measurement": "Exact 500-node fixture, 100 warmups, 1000 measured edits and nearest-rank indices 499/949/989 match the stated frozen contract. Classification uses unrounded browser p95 strictly below 50 ms; invalid or interrupted runs are incomplete. Production React mode, refresh/visibility, host and instrumentation limitations must accompany the result.",
+    "honest_boundary": "Two rAF callbacks establish a paint opportunity rather than physical presentation. Dispatch uses the real changeModule rather than native pointer/keyboard input. Warm preview classification does not close cold-start or authoritative-diagnostic performance, accessibility, solver or commercial gates. NOT_CONDUCTED cold evidence remains explicit debt.",
+    "lean": "The Lean file deliberately models only abstract counts, constructed ordering and supplied-validity/supplied-p95 classification. The Nat microsecond abstraction is not a license to round measured floating-point milliseconds before classifying the actual strict threshold. It proves neither runtime continuity, DOM correctness, percentile derivation nor browser execution."
+  },
+  "validation": "Verified both exact SHA-256 values and inspected candidate text against current frontend entry, AllowApp, DocumentWorkbench, controller dispatch/publish and backend AuthorityFilter plus frozen performance clauses. No browser used, no timing executed, no production or candidate files changed, no Lean compilation claimed."
+}

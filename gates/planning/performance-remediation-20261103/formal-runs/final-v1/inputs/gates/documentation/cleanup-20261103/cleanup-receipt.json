@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "status": "DOCUMENTATION_ONLY_CLEANUP",
+  "archive_manifest_sha256": "793be2194ca56fc7dd60b809fec6a71aec76497f14007599f22037fafdc529d7",
+  "changed_files": [
+    {
+      "path": "README.md",
+      "old_sha256": "e189c3be0a9c5d6288f2afb28cf84173d9f894c2c90a91c0e338275fed9aa9fc",
+      "new_sha256": "3775e8c1a9646545fd017cb0e60f45289f220145bcea637cb09199139e0b6747"
+    },
+    {
+      "path": "docs/document-stage.md",
+      "old_sha256": "ab8052eb798f9b73505349af229b0123ac6341951474a3d139133c640a2338b1",
+      "new_sha256": "e8e331e1917a9c887736f1daaf8a39bf91c5d1bb935517c2c8120849c4977a2f"
+    },
+    {
+      "path": "docs/egraph-stage.md",
+      "old_sha256": "c195d031ed959dd8119f5fffe3e1fd3ea99815fd9dc4844492f7f68c59359a4a",
+      "new_sha256": "6044062286c6ef14369781a5600e1387cd1aa8bde7d2453b0d97581871830e4f"
+    },
+    {
+      "path": "docs/implementation-g1.md",
+      "old_sha256": "1ae00e20f86d5f4de6f1217e52e6e75a4c6d9adf32e7d0929c115e10bb32e310",
+      "new_sha256": "85311003479b0f748223c391a568e9b89013f25bfe91dd6e48f2581e45dfcf6d"
+    },
+    {
+      "path": "docs/retrieval-stage.md",
+      "old_sha256": "bde39bd9cd82e7e53de5484be3a6ee700319d975bd3c45a54db04763d7d2f0c5",
+      "new_sha256": "126987dcfc59f3af9d8ff9890479ab129c5d1258b4f52aebb982b03f206a87bd"
+    },
+    {
+      "path": "docs/sql-stage.md",
+      "old_sha256": "48800352e2cac788535857585a4961adf8e4cf12e2880845518ed25d6b516162",
+      "new_sha256": "baae7db2a280c7061d3298625ea318d9f11c3becda8f086fa86067154db1e9ca"
+    },
+    {
+      "path": "docs/current-status.md",
+      "old_sha256": null,
+      "new_sha256": "f0058a50144c0b6399da5e441120b8f160a59920a3d6bed6fedef52c01feaa43"
+    }
+  ],
+  "old_whole_source_manifest": "HISTORICAL_AFTER_DOCUMENTATION_EDITS",
+  "unchanged_non_document_projection": {
+    "listed_files": 533,
+    "changed_files": [],
+    "sha256": "83cf80ba51e8d1c2e0f164d406890e8b7aea6f2fd6071c1477d8dff97fe3d5b9",
+    "classification": "BYTE_IDENTITY_CHECK_OF_PRIOR_LISTED_INPUTS_NOT_RETEST_OR_NEW_FULL_SOURCE_CLOSURE"
+  },
+  "proof_test_benchmark_reports": "UNMODIFIED",
+  "new_plan_ownership": "Root owns docs/performance-remediation-plan.md; not authored by this cleanup",
+  "interpretation": "Only seven README/docs files changed. Existing evidence remains scoped to its execution-time inputs. No production source, active proof, contract, database or runtime modification."
+}

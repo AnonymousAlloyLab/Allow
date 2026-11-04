@@ -1,0 +1,815 @@
+{
+  "id": "ALLOW-CONTEXT-CLEANUP-SOURCE-EVIDENCE-R1",
+  "status": "BASELINE_INSPECTION_NOT_IMPLEMENTED",
+  "date": "2026-11-03",
+  "contract_reference": "contract.json",
+  "contract_hash_note": "Final council manifest must bind final contract bytes after formal author freezes them; this baseline source inventory is not that manifest.",
+  "input_count": 96,
+  "active_input_hashes": [
+    {
+      "path": "backend/pom.xml",
+      "sha256": "f04a127ac3362e6ffca462e2dcbfadc9f302e7c5fb4ff20c248528c3a2b2f4c4",
+      "size_bytes": 3199
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AllowApplication.java",
+      "sha256": "b95538714ddbb2e10f5fd53e6f15bd44c2d64a687abd7f29565cfcfe4b6b0c5c",
+      "size_bytes": 521
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ApiController.java",
+      "sha256": "94d768c469a3e5817c25ef25fdf52d804573a247230c370de35da6bcc5a0e516",
+      "size_bytes": 3055
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/AuthorityFilter.java",
+      "sha256": "2f171027ca2371aefb62e76b47c9e1ceaaedd5f87cc493c4d7396c374f9869ed",
+      "size_bytes": 2769
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BoundedCapture.java",
+      "sha256": "d8ce60276d25075d58c26b627b82640b84d9207158f342dc608237fbd43994d9",
+      "size_bytes": 1383
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java",
+      "sha256": "2c0dcdbe87700bd9695efd3cb11a0462cefe606d6cdcc719a0c5ad8e0df3487c",
+      "size_bytes": 4411
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/BuildIdentity.java",
+      "sha256": "1535224d6e81dc942c3d45da60d83e73c8ec17b1c96373c1a424e44d7102d3f0",
+      "size_bytes": 2474
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusController.java",
+      "sha256": "e38522fdc14aae8fad59226029a5411e7b905b4cf8bcdd3c8b46cf762974bb74",
+      "size_bytes": 3488
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/CorpusGateway.java",
+      "sha256": "1d0d0575530bf298a76a6b70f927de381518e03a0639a4a770fc178426b41d3c",
+      "size_bytes": 5530
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentArtifacts.java",
+      "sha256": "3817ce53426ed0323156d97532df47cbeb44b3cd14ed4a5d748e75122a3f0ee8",
+      "size_bytes": 6276
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentAttempt.java",
+      "sha256": "45fabad50010a124e53eb42c93ad3495ed6bdce00300d0899b8864c830eda51f",
+      "size_bytes": 2406
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentController.java",
+      "sha256": "ae296d7d774e0e960365acf2535395d4be63c6f20b3c1e2abc0ec5b4f96f64a0",
+      "size_bytes": 8936
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+      "sha256": "bc94212e0d9049e6de47b405177108a45ae34dff706be474d325c8a0f62fdac8",
+      "size_bytes": 3325
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentJson.java",
+      "sha256": "8495e9177da33ee50eb892f3b6b5994c2493759bca2b843cb3a6d82c481f57a8",
+      "size_bytes": 4766
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationFrames.java",
+      "sha256": "501be905e1de34c29c6af167be870c5e14cb01ff82623c948d131a450077deef",
+      "size_bytes": 4414
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationValidation.java",
+      "sha256": "6a6b994d25657b6a217eee39881fdfb9cefd52be9d302d97a1f8cedc28c6d842",
+      "size_bytes": 5293
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutationWorkers.java",
+      "sha256": "ef8b6972981416e520b6001e3faf1b76869cf0ff1d261a804be43eae25c2cf65",
+      "size_bytes": 652
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentMutations.java",
+      "sha256": "b0911232a92432ba7bcf78c880846a8d302248214be662de579ba075d75f0881",
+      "size_bytes": 16329
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "sha256": "76763b82e67c8378a159345bfee99990c8de703ec4042cadfced97e13d8b90da",
+      "size_bytes": 14016
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentReplies.java",
+      "sha256": "740afd59536e89d8f035ab566b48bb6b61fec693650d8aa43a9742ed0c692ede",
+      "size_bytes": 2950
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRequest.java",
+      "sha256": "356cc38f20ef9c4f3c73ecb5239260bff01a21ef2a4c6b4052ed41582227f40a",
+      "size_bytes": 4997
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+      "sha256": "cd0d3b5478bf8522bb52438104bdb4d66152ce24e85c6137b681748ae2ee0b40",
+      "size_bytes": 5371
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentValidationContext.java",
+      "sha256": "248d2c74cb7ff0dc777760fe56f8f23086a9bdba302e7490415be6d8f5007bb6",
+      "size_bytes": 7995
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "4502e4da14b8002b309c597a9709b93505c5ed35458b4aeef436ca7e06e657ab",
+      "size_bytes": 6125
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "sha256": "7e7d523e74e5a9ec7075e47a205741b633b9b2ae8eb240a006c92d564146ca08",
+      "size_bytes": 4110
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobControl.java",
+      "sha256": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+      "size_bytes": 1436
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRecord.java",
+      "sha256": "bda801932f2df2edd5a72b0fb8a594697d501644c4de740746a417fdfeb74d4d",
+      "size_bytes": 2107
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobRunner.java",
+      "sha256": "681379f569261d55aa123e31b99cbaa9ccc2cf34da39bbc743f73522c418fc10",
+      "size_bytes": 718
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/JobService.java",
+      "sha256": "5602d7cdd093117831a8d589420168a9a2e74ff40d474d1539d512e3d241ba30",
+      "size_bytes": 4368
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LaunchAuthority.java",
+      "sha256": "141a0373295e6413740f6efbfdde5eea8b2dce4379f90ec4464ac80c333d1a53",
+      "size_bytes": 2255
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/LoopbackBinding.java",
+      "sha256": "137118b3981e0a64cce37043ba1cb2998349da275915600866945c759876edc5",
+      "size_bytes": 1063
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessIdentity.java",
+      "sha256": "a47e6cb81188237ded7dd7da505868930cfa7040e05ed8ed3585d86e4902aab7",
+      "size_bytes": 1476
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/ProcessRunner.java",
+      "sha256": "fcb25f4e8c2c005df6c68295efe02a9bdad58eb316552f78f6fa1e7f73963863",
+      "size_bytes": 7003
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/SandboxLauncher.java",
+      "sha256": "3facaad09b518ad0487f99d38b61f50826d05dafe3b0caa49abbea94312a7d8f",
+      "size_bytes": 541
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+      "sha256": "984d42f9ab6aba4e308636ae966fdb3ef0d7f00b825cbc18233c6f1a139b2498",
+      "size_bytes": 859
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AlloyEngine.java",
+      "sha256": "3970703e18f5a095a9434e980a0a9d70b34dc00cef4f1d2a9652eb6cfc232a89",
+      "size_bytes": 5881
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AstPolicy.java",
+      "sha256": "d0e31913bfe2e3168ac758ddbbc723ec5c2a5158edbb1e4b1945f07c99f9aba4",
+      "size_bytes": 5244
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java",
+      "sha256": "f79d5bc24568ca1616f4054b3d3db199e292821ff1a3fe920ee3ac8619ae4986",
+      "size_bytes": 4279
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/Hashes.java",
+      "sha256": "7eae6abadcfa52333d87bd42b77d67b4163d72a14b2d78ee131916a34ece8b97",
+      "size_bytes": 1252
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/JsonWire.java",
+      "sha256": "f2a366a01970e313b21d2db8677eba3cba27c3a093afac3ed38ed2848e1074de",
+      "size_bytes": 2410
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/SourcePolicy.java",
+      "sha256": "698cdf38043c02c0b03b2a5188114638734a3e95e474e3b5d71753d7bd58be79",
+      "size_bytes": 3792
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WitnessProjector.java",
+      "sha256": "5cf61aa32ab088870377116d22a9118887eb7ac41e86c67d6921e72c9f1ad3dc",
+      "size_bytes": 4346
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerMain.java",
+      "sha256": "31fef728316f6cef61f66d08b926d0e9983b474abb9438c091d228022492b42f",
+      "size_bytes": 1324
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WorkerPolicy.java",
+      "sha256": "646b0f933a74485dec816e398147a8002bd2f0fb89ef038db728dcb64049eddc",
+      "size_bytes": 614
+    },
+    {
+      "path": "config/checkstyle.xml",
+      "sha256": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+      "size_bytes": 2804
+    },
+    {
+      "path": "config/sqlean-parser-lock.json",
+      "sha256": "fbabcf2f5f6edf910c2ed56a8f058e92ddf8af4e9b86ee6b78e1aa2d8c4cfdee",
+      "size_bytes": 87752
+    },
+    {
+      "path": "formal/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "size_bytes": 25
+    },
+    {
+      "path": "retrieval/allow_documents/__init__.py",
+      "sha256": "64be94062abf7c766a42fccce0b2d63b8c0d85932ccbccdb3e13b30550215f01",
+      "size_bytes": 86
+    },
+    {
+      "path": "retrieval/allow_documents/cli.py",
+      "sha256": "b6f2266b4424a780f001b60a8c6a931750dd168271f037f801298cd89b3dec67",
+      "size_bytes": 3567
+    },
+    {
+      "path": "retrieval/allow_documents/identifiers.py",
+      "sha256": "35a69caa0748bc3d5d3c170571275cee7469b884f6cec57d8ff2548d16295e41",
+      "size_bytes": 3803
+    },
+    {
+      "path": "retrieval/allow_documents/identity.py",
+      "sha256": "fe1bac9dcbf5be5c877e3f9e197d49379014731da91fdc03adfb8aa00da96110",
+      "size_bytes": 3072
+    },
+    {
+      "path": "retrieval/allow_documents/migration.py",
+      "sha256": "174fba491c24acd1a5175d8c90620900925e49076f79ce4010ccefca61776d6e",
+      "size_bytes": 6444
+    },
+    {
+      "path": "retrieval/allow_documents/store.py",
+      "sha256": "f43df582a6d41b07fcc9f434548653b8b6d60c95a05e27138c288df9e961133a",
+      "size_bytes": 28455
+    },
+    {
+      "path": "retrieval/allow_documents/wire.py",
+      "sha256": "281cbae0d7468a44dbf42390fc053b23ea58cc398230f899ee0ed8c3dd1584d9",
+      "size_bytes": 5546
+    },
+    {
+      "path": "retrieval/allow_retrieval/__init__.py",
+      "sha256": "60ae3c586bf032e239050f0086d16e6d604b2679f328d3cf83334a34fadd2a77",
+      "size_bytes": 85
+    },
+    {
+      "path": "retrieval/allow_retrieval/cli.py",
+      "sha256": "7ff5360e8aef9eb86ff13b004d2b0afcf21bca87502b58fbadb6ab14963e238e",
+      "size_bytes": 2723
+    },
+    {
+      "path": "retrieval/allow_retrieval/common.py",
+      "sha256": "a2341061b3334bb64b738c8feccfc29f6f1d9c4b45223a7ee3e3a85475f5c03c",
+      "size_bytes": 1067
+    },
+    {
+      "path": "retrieval/allow_retrieval/corpus.py",
+      "sha256": "4531f4607915d0d1c09e13cb4403aa8b8b745b6897216137bcc0dcf4c129074f",
+      "size_bytes": 8877
+    },
+    {
+      "path": "retrieval/allow_retrieval/database.py",
+      "sha256": "b13155457273951b34834506803f71a6793c837e5260cf9c28868ce5d49fccce",
+      "size_bytes": 25328
+    },
+    {
+      "path": "retrieval/allow_retrieval/embedding.py",
+      "sha256": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+      "size_bytes": 8499
+    },
+    {
+      "path": "retrieval/allow_retrieval/evaluation.py",
+      "sha256": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+      "size_bytes": 22358
+    },
+    {
+      "path": "retrieval/allow_retrieval/importer.py",
+      "sha256": "b4c5fa6fc6c1530766c9cb422324a2bc731ece412ad89664ab8dd09bedd8c886",
+      "size_bytes": 14524
+    },
+    {
+      "path": "retrieval/allow_retrieval/journal.py",
+      "sha256": "982e58cd89e1914196b1519ae5ca9d087891af5a267e7b81adb468c5019e30b6",
+      "size_bytes": 3431
+    },
+    {
+      "path": "retrieval/allow_retrieval/manage.py",
+      "sha256": "6dc1e7e3623eb9365b1023a747d78863ec26a2abfb14d6ba88d053e62b8e90d9",
+      "size_bytes": 3077
+    },
+    {
+      "path": "retrieval/allow_retrieval/migration.py",
+      "sha256": "a221b642c7427bfc4f45fd65adca390f2367315086c0bb06a614a44a5c4c5556",
+      "size_bytes": 13977
+    },
+    {
+      "path": "retrieval/allow_retrieval/promotion.py",
+      "sha256": "74bfa5d92d8d3a1a029dfdf12cf77528e3eea6dbd2a6fc010d33eba2a59e2033",
+      "size_bytes": 1017
+    },
+    {
+      "path": "retrieval/allow_retrieval/rag.py",
+      "sha256": "6967633270c2f6830258717d1a526c9f90253f82a5f1e9e52f854460084b6a24",
+      "size_bytes": 1307
+    },
+    {
+      "path": "retrieval/allow_retrieval/ranking.py",
+      "sha256": "a04d5c98394640bcc9ac58f1efe45b45b5dfd434622429edc51f52a2b15f1b5f",
+      "size_bytes": 5469
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "sha256": "94315dde424a19bf3ec275f2e03afd125c4741545904ef728ecc34459fd9f4c2",
+      "size_bytes": 5959
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "sha256": "13be3b46bd1d62ca24a97c59ece5160caa93468cd29d63ecc06511dcfdcadf98",
+      "size_bytes": 12607
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image.py",
+      "sha256": "c7db991fe20253eaeccbc746060dc9468608f7f361fb731fe69f17a980d379b5",
+      "size_bytes": 14138
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_config.py",
+      "sha256": "40b081f47620453256ce273077d5075ce54cb3037641e68c0aa2619ce35a0d7d",
+      "size_bytes": 4406
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_image_init.py",
+      "sha256": "863a9aed3dcab6cb68daa9fbee4bd25bcb90e4e471411143c3b2b020ef310115",
+      "size_bytes": 4014
+    },
+    {
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "sha256": "b76f5650d5d0c24233ebfee7a061bf32267c64afbfdc5aa8b91a0a0d63769fa0",
+      "size_bytes": 29713
+    },
+    {
+      "path": "retrieval/allow_retrieval/training.py",
+      "sha256": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+      "size_bytes": 6449
+    },
+    {
+      "path": "retrieval/requirements-ml.lock",
+      "sha256": "040681a6e2ae63c6f6fa3b74bc8ab17c9b47a3b3816f17074f074ffdd48ffddc",
+      "size_bytes": 6092
+    },
+    {
+      "path": "retrieval/tests/test_documents.py",
+      "sha256": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f",
+      "size_bytes": 23797
+    },
+    {
+      "path": "retrieval/tests/test_sql_connections.py",
+      "sha256": "9dbc942f6abfaf3ea4e7a07d5f7a1bc258f8ee07583de8702cff7ac0dd2ad4bb",
+      "size_bytes": 5806
+    },
+    {
+      "path": "retrieval/tests/test_sql_guard.py",
+      "sha256": "751426b3a363b87537c2088255b9ca9fddb05c6feeff105c9359a59611f485c7",
+      "size_bytes": 5629
+    },
+    {
+      "path": "retrieval/tests/test_sql_image.py",
+      "sha256": "c702007e0d381ae9a777e533b8af06454d37dd2f18473af501f62b1d03f2384f",
+      "size_bytes": 32636
+    },
+    {
+      "path": "retrieval/tests/test_sql_image_consumers.py",
+      "sha256": "dda20f5fdc9b8d0df6ffb103e497966c30765586a0b4574442388165abd3054f",
+      "size_bytes": 3228
+    },
+    {
+      "path": "retrieval/tests/test_sql_proxy.py",
+      "sha256": "c7b2366ec96333baf37f910b8764a633d8ddd9d9bfa636185231e777cb26a410",
+      "size_bytes": 39540
+    },
+    {
+      "path": "retrieval/tests/test_validation_context.py",
+      "sha256": "34953bcacd486dae749113076446102fe07f354f3b88c8082c633eab814d3539",
+      "size_bytes": 23642
+    },
+    {
+      "path": "scripts/bootstrap_corpus.py",
+      "sha256": "85aaad35e2eec311e96265bd73b0ac5b9a7df10d3240b078a8097d5fa052c0f1",
+      "size_bytes": 14708
+    },
+    {
+      "path": "scripts/bootstrap_documents.py",
+      "sha256": "7e8772fce15dc5744f30475d97c89311f9946dbab5fbd3ad7dd5459e26213827",
+      "size_bytes": 811
+    },
+    {
+      "path": "scripts/bootstrap_sqlean.py",
+      "sha256": "557f9942c959aecdc185a7d2ec34c9a3f3f20090ac56d1786eda87f153d501fd",
+      "size_bytes": 4457
+    },
+    {
+      "path": "scripts/build.py",
+      "sha256": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "size_bytes": 1221
+    },
+    {
+      "path": "scripts/document_recovery_test.py",
+      "sha256": "c3e94522bd1045b98bdffecf0738bc0dcd3ca2ec1047d9cf715420ad9c787ba2",
+      "size_bytes": 18244
+    },
+    {
+      "path": "scripts/run_local.py",
+      "sha256": "66d9dc4977723d509f3115d8a2ce7af90bc2a1c97cbddd69461247c2ce6d8896",
+      "size_bytes": 2487
+    },
+    {
+      "path": "scripts/verify_document_restart.py",
+      "sha256": "14b91549b87706a65e9e2df608f5a77d77dca07788e08dfbdeb5170509b49462",
+      "size_bytes": 2525
+    },
+    {
+      "path": "scripts/verify_formal.py",
+      "sha256": "7918446a8c53d3c4046224aef021bb7e775fdc91f1cac4d97c2d81d6db1d1082",
+      "size_bytes": 7974
+    },
+    {
+      "path": "scripts/verify_sql.py",
+      "sha256": "20d2147a5deb37a121ce21bcb8e1b0bd4f3796b9d1e527dac0e56b0e8009fe4c",
+      "size_bytes": 14851
+    },
+    {
+      "path": "scripts/verify_sql_clients.py",
+      "sha256": "cc5cab3259b843d865af15d61f7007398ee8d4fcf22cb9009aca575dc2af1a4b",
+      "size_bytes": 9633
+    },
+    {
+      "path": "scripts/verify_sql_runtime.py",
+      "sha256": "fb6342d80a6588d057190a6502ab36d52fa705f938c9c34daadaff1a88ddd870",
+      "size_bytes": 23138
+    },
+    {
+      "path": "spec/document-validation-context.json",
+      "sha256": "652f1950fb7497df063e58ebd05b54b0363f1bd2358b84b0900055508ab9c806",
+      "size_bytes": 18295
+    },
+    {
+      "path": "spec/sql-stage.json",
+      "sha256": "ce821395c382dd6b74c8e0a95cb71d1f1dbddc1fe89a9dea0c1b786e6dad46e4",
+      "size_bytes": 24849
+    }
+  ],
+  "external_source_references": [
+    {
+      "path": ".tools/retrieval/src/postgresql-16.15/src/backend/utils/init/postinit.c",
+      "sha256": "7678b03e29c142a67b89e64b83a84237831886926ac0769a922494ea5651f228",
+      "size_bytes": 43745,
+      "classification": "TRUSTED_INSTALLED_POSTGRES_SOURCE_INSPECTION_NOT_EXECUTABLE_EQUIVALENCE"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "SRC01",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 317,
+      "end_line": 337,
+      "excerpt": "def startup_fields(body):\n    \"\"\"Admit only ordinary version3 UTF-8 sessions with a closed startup parameter set.\"\"\"\n    if body[:4] != integer(196608) or not body.endswith(b'\\0'):\n        raise ProtocolError('startup_protocol')\n    fields = body[4:-1].split(b'\\0')\n    if fields[-1:] == [b'']:\n        fields.pop()\n    if len(fields) % 2:\n        raise ProtocolError('startup_fields')\n    result = {}\n    for key, value in zip(fields[::2], fields[1::2]):\n        key, value = key.decode('utf-8'), value.decode('utf-8')\n        if key in result or key not in {'user', 'database', 'application_name', 'client_encoding', 'options'}:\n            raise ProtocolError('startup_parameter')\n        result[key] = value\n    if not result.get('user') or not result.get('database'):\n        raise ProtocolError('startup_identity')\n    if result.get('client_encoding', 'UTF8').replace('-', '').upper() != 'UTF8' or result.get('options', ''):\n        raise ProtocolError('startup_lexical_mode')\n    return result\n\n",
+      "excerpt_sha256": "edf75dfec00de4e10e46a2a9a3bef814c078c50d0835401631a31c9357720d78",
+      "observed_fact": "Startup currently validates a closed parameter set, disallows nonempty options, but does not bind context nonce/peer identity.",
+      "future_refinement": "Add context/observer dynamic tag normalization, registration/peer binding and exact database/role checks.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC02",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 368,
+      "end_line": 388,
+      "excerpt": "    async def start_session(self):\n        \"\"\"Read bounded startup, reserve normal capacity, then relay until either peer stops.\"\"\"\n        raw = await self.startup_packet()\n        if raw[4:8] == integer(80877102):\n            await self.cancel(raw)\n            return\n        fields = startup_fields(raw[4:])\n        self.tag = fields.get('application_name', 'other')\n        if self.tag not in TAGS:\n            self.tag = 'other'\n        if self.server.active >= 20:\n            raise ProtocolError('session_capacity')\n        self.server.active += 1\n        self.server.record(self.tag, 'connections')\n        try:\n            self.backend_reader, self.backend_writer = await asyncio.wait_for(\n                asyncio.open_unix_connection(str(self.server.backend)), 15)\n            await send(self.backend_writer, raw)\n            await self.relay()\n        finally:\n            self.server.active -= 1\n",
+      "excerpt_sha256": "ac4c6938f7e2c4956fb116277b1dd133733cbb3f387389ed48506718fe313188",
+      "observed_fact": "Ordinary active count20 is decremented after relay returns, before Session.close. No context reservation survives uncertain backend cleanup.",
+      "future_refinement": "Separate15 ordinary live handlers from exclusive context/observer leases; preserve explicit tail-count limitation.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC03",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 403,
+      "end_line": 413,
+      "excerpt": "    async def cancel(self, raw):\n        \"\"\"Allow cancellation only for keys received from active owned backend sessions.\"\"\"\n        if len(raw) != 16 or raw[8:] not in self.server.cancel_keys:\n            raise ProtocolError('cancel_identity')\n        _, backend = await asyncio.wait_for(asyncio.open_unix_connection(str(self.server.backend)), 15)\n        try:\n            await send(backend, raw)\n            self.server.record('other', 'cancel')\n        finally:\n            backend.close()\n            await backend.wait_closed()\n",
+      "excerpt_sha256": "e096b7e9ac728caa9db9d9ecd4fa0877f24c7169856c52585137beaa4e9d9731",
+      "observed_fact": "CancelRequest is accepted only for keys in active owned backend set; key bytes are forwarded to backend.",
+      "future_refinement": "Retain validated owned authority through retiring/journal restart; never replace with PID-only SQL signal.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC04",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 438,
+      "end_line": 457,
+      "excerpt": "    async def frontend(self):\n        \"\"\"Admit exact SQL before forwarding Q/P; validate all remaining protocol transitions.\"\"\"\n        while True:\n            kind, body = await read_frame(self.reader)\n            if not self.authenticated:\n                if kind != b'p' or len(body) > 65536:\n                    raise ProtocolError('authentication_phase')\n                self.server.record(self.tag, 'auth')\n            else:\n                await asyncio.wait_for(self.ready_event.wait(), 15)\n                if kind in (b'Q', b'P'):\n                    sql = self.state.sql_request(kind, body)\n                    decision = await self.server.admit(self.tag, sql)\n                    self.state.accept_sql(kind, body, sql, decision)\n                else:\n                    self.state.control(kind, body)\n                self.server.record(self.tag, kind.decode('ascii'))\n            await send(self.backend_writer, packet(kind, body))\n            if kind == b'X':\n                return\n",
+      "excerpt_sha256": "a38d01229428ae36706e210d71ff703af52b9b83b8825e8b51575ce3c06a3c5e",
+      "observed_fact": "All SQL-bearing Q/P frames pass server.admit before transport forwarding; non-SQL uses protocolstate.",
+      "future_refinement": "Preserve this order and add narrow context/observer SQL templates and deadline checks; no bypass.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC05",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 459,
+      "end_line": 487,
+      "excerpt": "    async def backend(self):\n        \"\"\"Enforce the parser's lexical assumptions and COPY phase before exposing backend replies.\"\"\"\n        while True:\n            kind, body = await read_frame(self.backend_reader)\n            if kind == b'R':\n                if len(body) < 4:\n                    raise ProtocolError('authentication_response')\n                method = struct.unpack('!I', body[:4])[0]\n                if method == 0:\n                    self.authenticated = True\n                elif method not in (10, 11, 12):\n                    raise ProtocolError('unsupported_authentication')\n            elif kind == b'S':\n                self.parameter_status(body)\n            elif kind == b'K':\n                if len(body) != 8:\n                    raise ProtocolError('backend_key')\n                self.cancel_key = body\n                self.server.cancel_keys.add(body)\n            elif kind == b'Z':\n                if self.lexical != {'client_encoding': 'UTF8', 'standard_conforming_strings': 'on'}:\n                    raise ProtocolError('unconfirmed_lexical_mode')\n                self.state.ready(body)\n                self.ready_event.set()\n            elif kind == b'G':\n                self.state.copy_in = True\n            elif kind == b'W':\n                raise ProtocolError('copy_both_unsupported')\n            await send(self.writer, packet(kind, body))\n",
+      "excerpt_sha256": "98706bd95b726356ff1d9436ec2425fdebaf12642d465d83c24d720c4d974e8b",
+      "observed_fact": "BackendKeyData is captured; readiness is forwarded immediately after lexical checks.",
+      "future_refinement": "Durable KEYED/BOUND and kernel observer identity fences before appropriate readiness; distinguish context and observer bootstrap.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC06",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 502,
+      "end_line": 512,
+      "excerpt": "    async def close(self):\n        \"\"\"Reap the owned transport and remove ephemeral cancellation authority.\"\"\"\n        if self.cancel_key is not None:\n            self.server.cancel_keys.discard(self.cancel_key)\n        for writer in (self.backend_writer, self.writer):\n            if writer is not None:\n                writer.close()\n                try:\n                    await asyncio.wait_for(writer.wait_closed(), 2)\n                except (OSError, asyncio.TimeoutError):\n                    pass\n",
+      "excerpt_sha256": "9232c77f0acf2f1845560f2417a33325c65b6d98b018ebf894bbb588b52e9fe3",
+      "observed_fact": "Close removes cancel authority and closes transports; it neither cancels backend query nor observes backend absence.",
+      "future_refinement": "Owned cleanup sequence plus independent metadata absence; uncertain context reservation retained.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC07",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 518,
+      "end_line": 539,
+      "excerpt": "    def __init__(self, backend, listen, status, gate=None, ready=None):\n        self.backend, self.listen, self.status = Path(backend), Path(listen), Path(status)\n        self.gate = gate if gate is not None else ParserGate()\n        self.parser_slots = asyncio.Semaphore(2)\n        self.active = 0\n        self.handlers = set()\n        self.cancel_keys = set()\n        self.counters = {tag: Counter() for tag in sorted(TAGS | {'other'})}\n        self.stopping = asyncio.Event()\n        self.started = time.time()\n        self.ready_path = Path(ready) if ready else None\n        from .sql_image_config import workspace_root\n        root = workspace_root()\n        module = Path(__file__).resolve().parent\n        sources = {f'retrieval/allow_retrieval/{name}':module/name for name in\n                   ('sql_proxy.py','sql_guard.py','sql_image.py','sql_image_init.py','sql_image_config.py')}\n        sources['config/sqlean-parser-lock.json'] = root/'config/sqlean-parser-lock.json'\n        self.loaded_inputs = {name:hashlib.sha256(path.read_bytes()).hexdigest()\n                              for name,path in sources.items()}\n        if isinstance(self.gate, ParserGate):\n            # Bind the exact bytes read into the immutable snapshot, not a later lock read.\n            self.loaded_inputs['config/sqlean-parser-lock.json'] = self.gate.info['configuration_sha256']\n",
+      "excerpt_sha256": "f81e818e9d423a75807c68dd0b61e77d772db6808a8d7cc40dfd0de192d7fad0",
+      "observed_fact": "Loaded source identity lists five proxy/parser modules plus lock.",
+      "future_refinement": "Bind every newly introduced lease/control/protocol module and dependency used by loaded proxy.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC08",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 545,
+      "end_line": 585,
+      "excerpt": "    async def admit(self, tag, sql):\n        \"\"\"Serialize bounded parser work and distinguish SQL rejection from protocol failure.\"\"\"\n        try:\n            await asyncio.wait_for(self.parser_slots.acquire(), FRAME_SECONDS)\n            try:\n                if isinstance(self.gate, ParserGate):\n                    cancelled = threading.Event()\n                    work = asyncio.get_running_loop().run_in_executor(\n                        None, lambda:self.gate.validate(sql, cancel=cancelled))\n                    try:\n                        decision = await asyncio.shield(work)\n                    except asyncio.CancelledError:\n                        cancelled.set()\n                        # Keep the outer slot until the thread owns no child/fd reservation.\n                        while not work.done():\n                            try:\n                                await asyncio.shield(work)\n                            except asyncio.CancelledError:\n                                # Repeated cancellation cannot release ownership early.\n                                cancelled.set()\n                            except Exception:\n                                break\n                        if not work.cancelled():\n                            work.exception()  # Consume an expected denial after cancellation.\n                        raise\n                else:\n                    decision = await asyncio.to_thread(self.gate.validate, sql)\n            finally:\n                self.parser_slots.release()\n            self.record(tag, 'accepted')\n            return decision\n        except Exception as error:\n            self.record(tag, 'rejected')\n            if isinstance(error, SQLGuardError):\n                category = error.category\n                if category in {'policyDenied','parserFailure','infrastructureFailure'}:\n                    self.record(tag, 'parser_category_' + category)\n            reason = str(error) if isinstance(error, SQLGuardError) else ''\n            code = reason.replace(' ', '_') if reason in GATE_REASONS else 'unexpected_failure'\n            self.record(tag, 'parser_reason_' + code)\n            raise ProtocolError('parser_denied') from None\n",
+      "excerpt_sha256": "2c86a03837936f8e0160586f57b45a2c11cf5a37286610342fa70f0a48721386",
+      "observed_fact": "Parser work reserves bounded slots and cancellation waits for thread-owned parser cleanup before slot release.",
+      "future_refinement": "Preserve parser resource ownership while session cleanup uses explicit context/observer resource reservations.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC09",
+      "path": "retrieval/allow_retrieval/sql_proxy.py",
+      "start_line": 633,
+      "end_line": 663,
+      "excerpt": "    async def run(self):\n        \"\"\"Own one private socket and remove it on graceful stop; never unlink an existing listener.\"\"\"\n        self.listen.parent.mkdir(mode=0o700, parents=True, exist_ok=True)\n        self.listen.parent.chmod(0o700)\n        if self.listen.exists() or self.listen.is_symlink():\n            raise RuntimeError('proxy_socket_already_exists')\n        server = await asyncio.start_unix_server(self.connected, path=str(self.listen), limit=65536)\n        self.listen.chmod(0o600)\n        self.write_status()\n        if self.ready_path:\n            fd = os.open(self.ready_path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)\n            with os.fdopen(fd, 'w') as output:\n                json.dump({'pid': os.getpid(), 'started': self.started, 'listen': str(self.listen)}, output)\n        publisher = asyncio.create_task(self.publish_status())\n        try:\n            async with server:\n                await self.stopping.wait()\n        finally:\n            server.close()\n            await server.wait_closed()\n            for task in list(self.handlers):\n                task.cancel()\n            await asyncio.gather(*self.handlers, return_exceptions=True)\n            publisher.cancel()\n            await asyncio.gather(publisher, return_exceptions=True)\n            closer = getattr(self.gate, 'close', None)\n            if closer is not None:\n                await asyncio.to_thread(closer)\n            self.listen.unlink(missing_ok=True)\n            if self.ready_path:\n                self.ready_path.unlink(missing_ok=True)\n",
+      "excerpt_sha256": "6f5c7458cc031ac94308e9215785e213202e185c6e829073657af9b816c95309",
+      "observed_fact": "Shutdown cancels handlers, awaits them, closes parser and removes socket; no durable context/observer journal.",
+      "future_refinement": "Stop context admission, preserve cleanup despite repeated cancellation, journal UNKNOWN, reconcile prior observer before replacement.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC10",
+      "path": "retrieval/allow_retrieval/sql_connections.py",
+      "start_line": 43,
+      "end_line": 97,
+      "excerpt": "def validate_dsn(dsn, admin=False, allow_temporary=False, client='allow-app'):\n    \"\"\"Validate every explicit endpoint and force the parser's UTF-8 startup mode.\"\"\"\n    reject_environment_routes()\n    from psycopg.conninfo import conninfo_to_dict, make_conninfo\n    if not isinstance(dsn,str):\n        raise ConnectionPolicyError('database_dsn_required')\n    try:\n        fields = conninfo_to_dict(dsn)\n    except Exception as exc:\n        raise ConnectionPolicyError('invalid_database_dsn') from exc\n    if set(fields)-ALLOWED_KEYS or fields.get('host') != str(PROXY_DIRECTORY) or fields.get('port') != PORT:\n        raise ConnectionPolicyError('owned_proxy_endpoint_required')\n    if fields.get('user') != ('allow_admin' if admin else 'allow_app'):\n        raise ConnectionPolicyError('unexpected_database_role')\n    database = fields.get('dbname')\n    temporary = isinstance(database,str) and re.fullmatch(r'allow_(?:recovery|sql_test)_[0-9a-f]{32}',database)\n    if database not in ('allow_retrieval','postgres') and not (allow_temporary and temporary):\n        raise ConnectionPolicyError('database_not_registered')\n    if not admin and database == 'postgres':\n        raise ConnectionPolicyError('application_database_required')\n    if fields.get('sslmode','disable')!='disable' or fields.get('gssencmode','disable')!='disable':\n        raise ConnectionPolicyError('alternate_database_transport_forbidden')\n    if fields.get('client_encoding','UTF8').upper().replace('-','') != 'UTF8' or fields.get('options',''):\n        raise ConnectionPolicyError('unsafe_database_startup_mode')\n    if client not in CLIENT_TAGS:\n        raise ConnectionPolicyError('invalid_client_tag')\n    fields.update(client_encoding='UTF8',options='',sslmode='disable',gssencmode='disable',\n                  application_name=client,connect_timeout='5')\n    return make_conninfo(**fields)\n\n\ndef configured_dsn(admin=False, client='allow-app'):\n    \"\"\"Return the canonical authenticated proxy DSN; no environment fallback exists.\"\"\"\n    value = configuration()['admin_dsn' if admin else 'app_dsn']\n    return validate_dsn(value,admin=admin,client=client)\n\n\ndef database_dsn(dsn, database, admin=False, client='allow-recovery'):\n    \"\"\"Change only an explicitly registered recovery/test database, retaining the proxy.\"\"\"\n    from psycopg.conninfo import make_conninfo\n    base = validate_dsn(dsn,admin=admin,client=client)\n    return validate_dsn(make_conninfo(base,dbname=database),admin=admin,allow_temporary=True,client=client)\n\n\ndef connect(dsn=None, admin=False, allow_temporary=False, client='allow-app', **kwargs):\n    \"\"\"Open a connection only after endpoint validation and safe startup normalization.\"\"\"\n    import psycopg\n    allowed = {'autocommit','row_factory'}\n    if set(kwargs)-allowed:\n        raise ConnectionPolicyError('connection_override_forbidden')\n    normalized = validate_dsn(dsn or configured_dsn(admin,client),admin,allow_temporary,client)\n    # Psycopg's automatic cache emits SQL DEALLOCATE after DDL/rollback.\n    # Keep normal parameter Bind frames, but never create that opaque SQL path.\n    return psycopg.connect(normalized,prepare_threshold=None,**kwargs)\n\n",
+      "excerpt_sha256": "043ae898839802e5fe7d47531e9a219c939fc9be7757b6a3c8e10a765503ab85",
+      "observed_fact": "Canonical socket/role/database/client-tag validation precedes sole psycopg.connect; automatic prepare cache disabled.",
+      "future_refinement": "Add only reviewed dynamic context/observer tags; preserve route/options checks and sole connection constructor.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC11",
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "start_line": 13,
+      "end_line": 36,
+      "excerpt": "MAX_OUTPUT = 16777216\nFORBIDDEN = {'DoStmt', 'CreateFunctionStmt', 'CallStmt',\n             'LoadStmt', 'DeallocateStmt', 'AlterSystemStmt', 'AlterRoleSetStmt', 'AlterDatabaseSetStmt', 'DiscardStmt'}\n# These exact standalone statements are needed by the owned bootstrap and pg_dump.\nSAFE_SET = re.compile(r'''(?ix)\\A\\s*(?:\n SET\\s+(?:statement_timeout|lock_timeout|idle_in_transaction_session_timeout|transaction_timeout)\\s*=\\s*0 |\n SET\\s+client_encoding\\s*=\\s*'UTF8' |\n SET\\s+standard_conforming_strings\\s*=\\s*(?:on|'on') |\n SET\\s+DATESTYLE\\s*=\\s*ISO |\n SET\\s+INTERVALSTYLE\\s*=\\s*POSTGRES |\n SET\\s+extra_float_digits\\s+(?:TO|=)\\s*3 |\n SET\\s+synchronize_seqscans\\s+TO\\s+off |\n SET\\s+TRANSACTION\\s+ISOLATION\\s+LEVEL\\s+REPEATABLE\\s+READ,\\s*READ\\s+ONLY |\n SET\\s+check_function_bodies\\s*=\\s*false |\n SET\\s+xmloption\\s*=\\s*content |\n SET\\s+client_min_messages\\s*=\\s*warning |\n SET\\s+row_security\\s*=\\s*off |\n SET\\s+default_tablespace\\s*=\\s*'' |\n SET\\s+default_table_access_method\\s*=\\s*heap |\n SET\\s+(?:LOCAL\\s+)?ROLE\\s+allow_owner | RESET\\s+ROLE\n )\\s*;?\\s*\\Z''')\nSAFE_CONFIG = re.compile(r\"(?is)\\A\\s*SELECT\\s+(?:pg_catalog\\.)?set_config\\s*\\(\\s*'(?:allow\\.tenant|allow\\.project|allow\\.purpose|search_path)'\\s*,\\s*(?:\\$[1-9][0-9]*|'' )\\s*,\\s*(?:true|false)\\s*\\)\\s*;?\\s*\\Z\".replace(\"'' \", \"''\"))\nSAFE_EXTENSION = re.compile(r'(?is)\\A\\s*CREATE\\s+EXTENSION\\s+(?:IF\\s+NOT\\s+EXISTS\\s+)?vector(?:\\s+WITH\\s+SCHEMA\\s+public)?\\s*;?\\s*\\Z')\nSAFE_DUMP_CONFIG = re.compile(r\"(?is)\\A\\s*SELECT\\s+set_config\\(name,\\s*'view(?:, foreign-table)?',\\s*false\\)\\s+FROM\\s+pg_settings\\s+WHERE\\s+name\\s*=\\s*'restrict_nonsystem_relation_kind'\\s*;?\\s*\\Z\")\n",
+      "excerpt_sha256": "310f5506a6fb9baa81518a3a09e093046eda8d8d4638aab4a5f3f7475044647c",
+      "observed_fact": "Current SET admission allows reviewed zero timeout forms and repeatable-read read-only mode, not new fixed nonzero forms.",
+      "future_refinement": "Add precise tag/sequence-bound LOCAL1500/250/1000 and own-observer SET500 without generic setting escape.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC12",
+      "path": "retrieval/allow_retrieval/sql_guard.py",
+      "start_line": 210,
+      "end_line": 227,
+      "excerpt": "    def _classify(self, sql, source, raw, config):\n        \"\"\"Revision6 report/SQL policy checks, interpreted through the same frozen mapping.\"\"\"\n        if not raw.endswith(b'\\n') or raw.count(b'\\n') != 1:\n            raise SQLGuardError('parser response framing', category='parserFailure')\n        report = json.loads(raw.decode('utf-8', 'strict'), object_pairs_hook=_duplicates,\n                            parse_constant=lambda _: (_ for _ in ()).throw(SQLGuardError('invalid JSON constant', category='parserFailure')))\n        if not isinstance(report, dict) or any(report.get(k) != v for k,v in {\n            'status':'grammar-accepted', 'evidence':'context-free-derivation', 'profile':config.profile,\n            'postgresqlCommit':config.commit, 'sourcePreservation':'exact', 'sql':source}.items()):\n            raise SQLGuardError('parser evidence mismatch')\n        ids = report.get('productionIds')\n        if not isinstance(ids, list) or any(type(i) is not int or i < 0 or i >= len(config.production_lhs) for i in ids):\n            raise SQLGuardError('invalid productions', category='parserFailure')\n        families = {config.production_lhs[i] for i in ids}\n        if families & FORBIDDEN: raise SQLGuardError('forbidden statement')\n        if families & {'VariableSetStmt','VariableResetStmt'} and not SAFE_SET.fullmatch(source):\n            raise SQLGuardError('unreviewed setting')\n        if 'CreateExtensionStmt' in families and not SAFE_EXTENSION.fullmatch(source):\n",
+      "excerpt_sha256": "84dc3a6ccb8481c4d8767a5bf817c68b6552870b9050408eac3c167f680b3904",
+      "observed_fact": "Parser result binds exact source, pinned grammar and production IDs before policy setting checks.",
+      "future_refinement": "Maintain exact SQL source preservation and new reviewed policy interpretation; grammar acceptance is not authorization.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC13",
+      "path": "retrieval/allow_retrieval/sql_image_config.py",
+      "start_line": 11,
+      "end_line": 18,
+      "excerpt": "PROFILE = 'postgresql-16.15-grammar-v0.1'\nCOMMIT = 'f0595c3d839debdb140903621c1b44a4f4d86256'\nPOLICY = 'sql-routing-v7-sealed-image'\nBINARY_SHA256 = '9b252aabef502a9471f64c60ad2b0821e9db209a275c7ba8a4bd01da275e0cf7'\nBINARY_SIZE = 136492600\nMAPPING_SHA256 = '679284527c19f215a3b6a46c2ac107bbb152959ffd44fe3108f198f8f4a55eeb'\nMAPPING_COUNT = 3285\n_generations = itertools.count(1)\n",
+      "excerpt_sha256": "2c27666a0cd3de3e71906d60a00c3529961fc7f83c90e69c4bf37270c46efe49",
+      "observed_fact": "Current interpretation pin is sql-routing-v7-sealed-image with fixed grammar executable and production mapping.",
+      "future_refinement": "Update reviewed policy pin to v8 consistently across config, loaded identity, bootstrap and tests; preserve executable pin.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC14",
+      "path": "retrieval/allow_documents/cli.py",
+      "start_line": 22,
+      "end_line": 46,
+      "excerpt": "def dispatch(frame):\n    \"\"\"Validate closed internal frame before loading durable server-owned scope.\"\"\"\n    wire.fields(frame, {'protocol','requestId','operation','args'})\n    if type(frame['protocol']) is not int or frame['protocol'] != 1:\n        raise ValueError('invalid_protocol')\n    if str(uuid.UUID(frame['requestId'])) != frame['requestId']:\n        raise ValueError('invalid_nonce')\n    operation,args = frame['operation'],frame['args']\n    if operation not in SHAPES:\n        raise ValueError('unsupported_operation')\n    wire.fields(args, SHAPES[operation])\n    store = Store()\n    if operation in ('admit','recover','recoverUnstarted'):\n        if args['ownerPid'] != os.getppid():\n            raise ValueError('owner_must_be_supervisor')\n        if operation == 'recoverUnstarted':\n            return store.recover_unstarted(args)\n        return store.admit(args) if operation == 'admit' else store.recover(args)\n    operations = {'init':lambda:store.initialize(args['policyVersion']),\n                  'list':store.listing, 'read':lambda:store.read(args),\n                  'receipt':lambda:store.receipt(args), 'ownedIds':lambda:store.owned_ids(args),\n                  'validationContext':lambda:store.validation_context(args),\n                  'finalize':lambda:store.finalize(args),\n                  'policy':lambda:store.policy(args['expectedPolicyVersion'],args['policyVersion'])}\n    return operations[operation]()\n",
+      "excerpt_sha256": "efa24cfd76b2f7758e0089b690d9365c90a418dac6e1a48373032b4521ee3ba6",
+      "observed_fact": "Closed private frame already requires canonical UUID requestId; validationContext currently calls store without passing it.",
+      "future_refinement": "Pass existing private UUID as lease nonce without changing public args/context envelope.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC15",
+      "path": "retrieval/allow_documents/store.py",
+      "start_line": 333,
+      "end_line": 344,
+      "excerpt": "    def _validation_snapshot(self):\n        \"\"\"Yield a private read-only snapshot before any scoped data is queried.\n\n        Transaction mode precedes all SELECTs, including scope configuration.\n        The canonical proxy connection commits/closes before a result escapes.\n        \"\"\"\n        with connect(client='allow-app', row_factory=dict_row) as connection:\n            connection.execute('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY')\n            connection.execute(\"SELECT set_config('allow.tenant',%s,true)\", (self.principal,))\n            connection.execute(\"SELECT set_config('allow.project',%s,true)\", (self.workspace,))\n            connection.execute(\"SELECT set_config('allow.purpose',%s,true)\", ('document',))\n            yield connection\n",
+      "excerpt_sha256": "0252698e630666cdbf33a8b9479aed6cb2e54dd3c9f7546c5303471027f44105",
+      "observed_fact": "Current context begins transaction mode before the three scope SELECTs through canonical allow-app.",
+      "future_refinement": "Use reviewed context connection; preserve first scope SELECT snapshot while adding exact timeout prelude and CLEAN/successPermitted fence.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC16",
+      "path": "retrieval/allow_documents/store.py",
+      "start_line": 366,
+      "end_line": 401,
+      "excerpt": "    def _history_inventory(self, connection, document, wanted):\n        \"\"\"Resolve requested definition kinds from the entire supplied snapshot.\n\n        Empty requests avoid a scan; otherwise every artifact is decoded and\n        checked so a later kind collision or malformed artifact cannot be hidden.\n        \"\"\"\n        result = {}\n        if wanted:\n            rows = connection.execute('SELECT content FROM documents.artifact WHERE document_id=%s',(document,))\n            for row in rows:\n                artifact = wire.decode(bytes(row['content']),wire.MAX_RESPONSE)\n                wire.fields(artifact, wire.ARTIFACT_FIELDS)\n                self.collect_ids(artifact['module'],wanted,result)\n        return result\n\n    def validation_context(self, args):\n        \"\"\"Read one exact base and its requested history inventory atomically.\n\n        Missing scoped data is a request failure. Corrupt stored content or read\n        transport failures are unavailable, never an uncertain mutation outcome.\n        No context is returned until the read-only transaction has closed.\n        \"\"\"\n        document, revision, wanted = self._context_arguments(args)\n        try:\n            with self._validation_snapshot() as connection:\n                snapshot = self._read(connection,document,revision)\n                wire.fields(snapshot['artifact'], wire.ARTIFACT_FIELDS)\n                result = {'documentId':document,'baseRevision':revision,\n                          'headObserved':snapshot['headRevision'],'artifact':snapshot['artifact'],\n                          'ownedIdInventory':self._history_inventory(connection,document,wanted)}\n        except (ValueError, TypeError, KeyError, UnicodeError, RecursionError) as failure:\n            if isinstance(failure,ValueError) and str(failure) in {'document_not_found','revision_not_found'}:\n                raise\n            raise RuntimeError('validation_context_unavailable') from failure\n        except (KnownRollback, UncertainCommit) as failure:\n            raise RuntimeError('validation_context_unavailable') from failure\n",
+      "excerpt_sha256": "4d6804bb6993c3c5977851d079547d00cde291e0f21844a3cb79962e752fb41f",
+      "observed_fact": "Current nonempty inventory scans full history; result leaves only after transaction context exit.",
+      "future_refinement": "Preserve complete scan and error distinctions; libpq close alone is replaced by independently certified cleanup before output.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC17",
+      "path": "backend/src/main/java/dev/allow/backend/DocumentQueries.java",
+      "start_line": 81,
+      "end_line": 101,
+      "excerpt": "    byte[] validate(String document, byte[] bytes) throws IOException, InterruptedException {\n        JsonNode request = DocumentJson.request(bytes);\n        DocumentJson.fields(request, \"draftId\", \"draftEpoch\", \"baseRevision\", \"candidate\");\n        if (!request.path(\"draftId\").isTextual()) throw new IllegalArgumentException(\"Invalid draft ID\");\n        UUID.fromString(request.path(\"draftId\").textValue());\n        DocumentJson.revision(request, \"draftEpoch\");\n        long base = DocumentJson.revision(request, \"baseRevision\");\n        runtime.requireReady();\n        WorkerCapacity.acquire();\n        try {\n            JsonNode candidate = request.path(\"candidate\");\n            DocumentValidationContext context = DocumentValidationContext.read(gateway, document, base,\n                    candidate.path(\"module\"));\n            DocumentWorker worker = new DocumentWorker();\n            if (!worker.identity().equals(runtime.dependency())) throw new IOException(\"Validator build changed\");\n            JsonNode outcome = worker.validate(candidate, context.artifact(), context.inventory(), runtime.policy());\n            return validationReply(request, bytes, outcome);\n        } finally {\n            WorkerCapacity.release();\n        }\n    }\n",
+      "excerpt_sha256": "6a368d98b2d6a2e826e1d43d4d4f59b347eb9b1df37e7f4aaea2e0dae8832a30",
+      "observed_fact": "Java requires context before constructing fresh worker; Java semaphore releases in finally.",
+      "future_refinement": "Preserve context-before-worker; document that proxy SQL lease remains reserved independently after Java process reap/release.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC18",
+      "path": "backend/src/main/java/dev/allow/backend/DocumentGateway.java",
+      "start_line": 32,
+      "end_line": 46,
+      "excerpt": "    JsonNode request(String operation, JsonNode arguments) throws IOException, InterruptedException {\n        String nonce = UUID.randomUUID().toString();\n        ObjectNode frame = com.fasterxml.jackson.databind.node.JsonNodeFactory.instance.objectNode();\n        frame.put(\"protocol\", 1).put(\"requestId\", nonce).put(\"operation\", operation);\n        frame.set(\"args\", arguments.deepCopy());\n        byte[] input = JsonWire.encode(frame);\n        if (input.length >= 3145728) throw new IOException(\"Persistence frame exceeds limit\");\n        byte[] output = FrameProcess.exchange(launch(), input, 1572865, 20000);\n        JsonNode result = DocumentJson.decode(output);\n        DocumentJson.fields(result, \"protocol\", \"requestId\", \"status\", \"data\");\n        if (!result.path(\"protocol\").isInt() || result.path(\"protocol\").intValue() != 1\n                || !nonce.equals(result.path(\"requestId\").asText()) || !result.path(\"data\").isObject()) {\n            throw new IOException(\"Persistence response identity mismatch\");\n        }\n        return result;\n",
+      "excerpt_sha256": "f07499eda40f1cfdf3746314f1fe7fb218fbf2db21b63229f53bab90ecbf35bb",
+      "observed_fact": "Bridge uses fresh request UUID and20second process exchange then validates exact response identity.",
+      "future_refinement": "Keep bound envelope; any narrower bridge deadline needs reviewed measurement, not silently inferred from context budget.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC19",
+      "path": "backend/src/main/java/dev/allow/backend/FrameProcess.java",
+      "start_line": 26,
+      "end_line": 49,
+      "excerpt": "    static byte[] exchange(Process child, byte[] input, int maximum, long millis)\n            throws IOException, InterruptedException {\n        JobControl control = new JobControl();\n        control.attach(child);\n        ExecutorService tasks = Executors.newFixedThreadPool(3);\n        Future<byte[]> output = tasks.submit(new BoundedCapture(child.getInputStream(), maximum, control));\n        Future<byte[]> error = tasks.submit(new BoundedCapture(child.getErrorStream(), 32768, control));\n        Future<Void> writer = tasks.submit(new Writer(child, input));\n        try {\n            if (!child.waitFor(millis, TimeUnit.MILLISECONDS)) throw new IOException(\"Child deadline exceeded\");\n            byte[] bytes = output.get(2, TimeUnit.SECONDS);\n            error.get(2, TimeUnit.SECONDS);\n            writer.get(2, TimeUnit.SECONDS);\n            if (child.exitValue() != 0) throw new IOException(\"Child did not return a valid result\");\n            framing(bytes);\n            return bytes;\n        } catch (ExecutionException | TimeoutException failure) {\n            throw new IOException(\"Child frame unavailable\", failure);\n        } finally {\n            control.stop();\n            reap(child);\n            tasks.shutdownNow();\n        }\n    }\n",
+      "excerpt_sha256": "9ef54d1bfeadb9bdf83949200df4a02d58e5fa11e70c34a43f2efce5146e4040",
+      "observed_fact": "Process exchange reaps child in finally after bounded IO; this does not own PostgreSQL backend.",
+      "future_refinement": "Retain child ownership; do not present process exit as DB termination evidence.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC20",
+      "path": "backend/src/main/java/dev/allow/backend/WorkerCapacity.java",
+      "start_line": 7,
+      "end_line": 24,
+      "excerpt": "final class WorkerCapacity {\n    private static final Semaphore PERMIT = new Semaphore(1);\n\n    /** Prevents construction of the process-wide admission owner. */\n    private WorkerCapacity() {}\n\n    /** Acquires without a validation queue, before spawning or durable admission.\n     * @throws RejectedExecutionException another local-principal operation is active\n     */\n    static void acquire() {\n        if (!PERMIT.tryAcquire()) throw new RejectedExecutionException(\"Worker capacity reached\");\n    }\n\n    /** Releases only after the owner has reaped every child it started. */\n    static void release() {\n        PERMIT.release();\n    }\n}\n",
+      "excerpt_sha256": "9706251ecbf909ed802227d1659752b1670757ba04b2c8e0067a1f7bd700e23f",
+      "observed_fact": "Single Java semaphore accounts process-side operations and has unconditional release method.",
+      "future_refinement": "Proxy reservation is separate and persistent; no claim that semaphore survives Java death or holds unknown DB work.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC21",
+      "path": "scripts/bootstrap_corpus.py",
+      "start_line": 198,
+      "end_line": 214,
+      "excerpt": "def proxy_inputs():\n    \"\"\"Hash every policy/program input that a reusable daemon must have loaded.\"\"\"\n    names=tuple('retrieval/allow_retrieval/'+name for name in\n                ('sql_proxy.py','sql_guard.py','sql_image.py','sql_image_init.py','sql_image_config.py'))+('config/sqlean-parser-lock.json',)\n    return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names}\n\n\ndef proxy_loaded(pid,expected):\n    \"\"\"Bind published startup inputs to the same owned live process.\"\"\"\n    try:\n        status=json.loads((PROXY/'status.json').read_text())\n        parser=status.get('parser',{})\n        return (status.get('pid')==pid and status.get('loaded_inputs')==expected\n                and parser.get('policy')=='sql-routing-v7-sealed-image'\n                and parser.get('identity_mode')=='sealed-image' and parser.get('lifecycle')=='ready'\n                and parser.get('configuration_sha256')==expected['config/sqlean-parser-lock.json'])\n    except (OSError,ValueError):return False\n",
+      "excerpt_sha256": "18306f8261858ff5edc901e5bf329f6e13b1b0d4b1a0532bf4fdb911ac0e433d",
+      "observed_fact": "Bootstrap loaded-source expected hashes enumerate current proxy modules.",
+      "future_refinement": "Include new dependencies and distinguish ordinary listener readiness from reconciled context/observer readiness.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC22",
+      "path": "scripts/bootstrap_corpus.py",
+      "start_line": 265,
+      "end_line": 278,
+      "excerpt": "    if running() and not backend_is_private():\n        stop_proxy()\n        run([PREFIX/'bin/pg_ctl','-D',CLUSTER/'data','-m','fast','-w','stop'])\n    if not running():\n        options=f\"-p 54329 -k {CLUSTER/'socket'} -h '' -c max_connections=20 -c shared_buffers=64MB -c unix_socket_permissions=0700 -c standard_conforming_strings=on -c max_prepared_transactions=0\"\n        run([PREFIX/'bin/pg_ctl','-D',CLUSTER/'data','-l',CLUSTER/'server.log','-o',options,'-w','start'])\n    start_proxy(config)\n    if sql(\"SELECT 1 FROM pg_roles WHERE rolname='allow_owner';\",config).strip()!='1':\n        sql('CREATE ROLE allow_owner NOLOGIN NOSUPERUSER NOBYPASSRLS;',config)\n    if sql(\"SELECT 1 FROM pg_roles WHERE rolname='allow_app';\",config).strip()!='1':\n        password=\"'\"+config['app_password'].replace(\"'\",\"''\")+\"'\"\n        sql('CREATE ROLE allow_app LOGIN NOSUPERUSER NOBYPASSRLS PASSWORD '+password+';',config)\n    if sql(\"SELECT 1 FROM pg_database WHERE datname='allow_retrieval';\",config).strip()!='1':\n        sql('CREATE DATABASE allow_retrieval OWNER allow_owner;',config)\n",
+      "excerpt_sha256": "461c746343a4dd1872a03cbd4a4daf0d876df2bd7aac72fc948fee42263bb2be",
+      "observed_fact": "Bootstrap starts PostgreSQL max_connections20 and creates ordinary non-superuser app role.",
+      "future_refinement": "Read actual reserve/capacity/logging configuration before contextREADY; no new privileges/globaltimeouts.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "SRC23",
+      "path": "retrieval/allow_documents/identity.py",
+      "start_line": 64,
+      "end_line": 80,
+      "excerpt": "def process_start(pid):\n    \"\"\"Return Linux process start ticks without confusing spaces in comm fields.\"\"\"\n    if type(pid) is not int or pid < 1:\n        raise ValueError('invalid_process')\n    try:\n        raw = Path('/proc').joinpath(str(pid), 'stat').read_text()\n        parts = raw[raw.rfind(')') + 2:].split()\n        if parts[0] == 'Z':\n            return None\n        return parts[19]\n    except FileNotFoundError:\n        return None\n\n\ndef alive(pid, start):\n    \"\"\"PID reuse never establishes ownership of an old admission generation.\"\"\"\n    return process_start(pid) == start\n",
+      "excerpt_sha256": "e7151834f80875228fd3a33f4949d67160fcf978ef6b718cf6d8216d883d32bf",
+      "observed_fact": "Existing Linux process helper parses start ticks and treats zombie as not alive.",
+      "future_refinement": "Observer contract needs explicit boot_id, strict metadata-error classification and positive identity absence; do not reuse alive() blindly as a complete cleanup proof.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "PG01",
+      "path": ".tools/retrieval/src/postgresql-16.15/src/backend/utils/init/postinit.c",
+      "start_line": 908,
+      "end_line": 917,
+      "excerpt": "\t\t\tam_superuser = superuser();\n\t\t}\n\t}\n\telse\n\t{\n\t\t/* normal multiuser case */\n\t\tAssert(MyProcPort != NULL);\n\t\tPerformAuthentication(MyProcPort);\n\t\tInitializeSessionUserId(username, useroid);\n\t\t/* ensure that auth_method is actually valid, aka authn_id is not NULL */\n",
+      "excerpt_sha256": "503964742f33cc0202cd24c4137ec194162ffe26fc8ee4900b7c849afc90c422",
+      "observed_fact": "Installed normal PG backend performs authentication before subsequent initialization.",
+      "future_refinement": "No pre-key cleanup inference from missing pg_stat_activity row.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    },
+    {
+      "id": "PG02",
+      "path": ".tools/retrieval/src/postgresql-16.15/src/backend/utils/init/postinit.c",
+      "start_line": 1233,
+      "end_line": 1242,
+      "excerpt": "\t\tprocess_session_preload_libraries();\n\n\t/* report this backend in the PgBackendStatus array */\n\tif (!bootstrap)\n\t\tpgstat_bestart();\n\n\t/* close the transaction we started above */\n\tif (!bootstrap)\n\t\tCommitTransactionCommand();\n}\n",
+      "excerpt_sha256": "5cc7e474e4f676bdd0eabf332957275be09f78a8b30935fa7242d2dd3d9e456f",
+      "observed_fact": "Installed normal PG backend publishes pgstat_bestart near end of InitPostgres.",
+      "future_refinement": "Pre-key context/observer crash remains UNKNOWN absent stronger exact identity evidence.",
+      "classification": "BASELINE_SOURCE_INSPECTION_NOT_RUNTIME_PROOF"
+    }
+  ],
+  "historical_evidence": [
+    {
+      "path": "gates/document/validation-context-candidate/runtime-checks/python/lifecycle-limitation-r1.json",
+      "sha256": "65f26747d6be12dcb01f40fc4090f56787ea7a919f937cfd3b7478f4a07584b7",
+      "purpose": "Historical motivation only; not evidence that candidate implementation passes."
+    },
+    {
+      "path": "gates/document/validation-context-candidate/runtime-closure/runs/final-v2/report.json",
+      "sha256": "2ca5b76a2b5d3d80cc60a12c5d469d332b8ceac9e79fa6f537e6ac64bfd57756",
+      "purpose": "Historical motivation only; not evidence that candidate implementation passes."
+    },
+    {
+      "path": "gates/planning/performance-remediation-20261103/contract.json",
+      "sha256": "de33d8d9f9143ff9cf832305cce0da377278c208c642a708db7cd140cc879df2",
+      "purpose": "Historical motivation only; not evidence that candidate implementation passes."
+    }
+  ],
+  "new_unimplemented_files": [
+    "retrieval/allow_retrieval/sql_context_lease.py",
+    "retrieval/allow_retrieval/sql_context_control.py"
+  ],
+  "dependency_boundary": "Includes existing document/retrieval Python modules, backend/worker Java modules, policy/build/bootstrap/test sources and locks. Final runtime input manifest must additionally include every new implementation module, exact fixture/runner, compiled artifacts and runtime dependency binary/configuration actually consumed; this inventory is not universal dependency closure.",
+  "known_limitations": [
+    "Current source has no lease/journal/control receipt/observer cleanup implementation; excerpts describe baseline only.",
+    "CancelRequest has no direct success reply; transport closure and Java child reap do not prove PG termination.",
+    "15 future ordinary live handlers cannot prove aggregate backend<=17; disconnected ordinary tails are outside context cleanup scope.",
+    "Pre-key context and observer crash can remain persistently DEGRADED; empty activity or elapsedtime is not cleanup evidence.",
+    "Future success must require CLEAN plus sticky successPermitted; cleanup after failure may release resources but cannot publish staged output.",
+    "Observer own-identity absence relies on explicitly trusted Linux boot/PID/start metadata; missing or unreadable metadata differs from ENOENT.",
+    "Same-user workspace tamper resistance, universal implementation-to-Lean correspondence and actual target server performance are not established.",
+    "All future control/metadata SQL remains canonical SQLeanParser-routed; no pg_cancel_backend/pg_terminate_backend fallback or new role privileges.",
+    "Final context SQL cursor must advance only on actual matching CommandComplete and ReadyForQuery; Parse/Bind acceptance is not execution success. Exact frontend cycle and no-repeat Bind/Execute require runtime tests."
+  ],
+  "primary_sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html#PROTOCOL-FLOW-CANCELING-REQUESTS",
+    "https://www.postgresql.org/docs/16/functions-admin.html#FUNCTIONS-ADMIN-SIGNAL",
+    "https://www.postgresql.org/docs/16/monitoring-stats.html",
+    "https://www.postgresql.org/docs/16/runtime-config-logging.html"
+  ],
+  "inspection_validation": "Hashes and excerpts generated directly from current local bytes; no production modification or candidate runtime execution performed."
+}

@@ -1,0 +1,834 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-04T05:40:29.379212+00:00",
+  "registration_sha256": "d59636936dd0efcf81de6ef95b7bbd36aa8a1dc22dcc9dd58787877f46b4ac0b",
+  "source_ready_sha256": "fd19d8ac3b860edccd9847b286d3d2dbea9d1fe2fe0b4f3f93694745888a243f",
+  "copied_root": "/tmp/allow-cc-uvy_vjpi",
+  "test_count": 203,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "test_outcomes": [
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_cleanup_receipt_matches_all_registration_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_cleanup_success_flag_is_required",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_control_request_has_no_pid_route_or_scope",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_original_request_failure_survives_confirmed_cleanup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_poisoned_cleanup_never_becomes_success",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_private_control_socket_modes_are_required",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_real_control_duplicate_and_oversize_replies",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_real_control_eof_and_exact_reply",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_real_control_exact_byte_limit_is_inclusive",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_registration_failure_never_connects",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_registration_is_closed_and_nonce_bound",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_success_waits_for_transport_close_and_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_lease_client.ContextLeaseClientTests.test_unconfirmed_cleanup_overrides_request_error",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ControlTests.test_closed_shape_and_duplicate_protocol",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ControlTests.test_control_shutdown_closes_clients_before_server_wait",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ControlTests.test_deep_json_handler_denies_without_registration",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ControlTests.test_exact_boundary_and_overflow",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ControlTests.test_first_line_without_half_close_does_not_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ControlTests.test_two_frames_rejected_before_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.FailureCompletionTests.test_only_actual_failed_ready_completes_error",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ForwardingFenceTests.test_actual_proxy_run_exits_with_live_persistent_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ForwardingFenceTests.test_error_notification_keeps_only_whitelisted_sqlstate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ForwardingFenceTests.test_parser_completion_after_deadline_cannot_forward_sql",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ForwardingFenceTests.test_shutdown_keeps_observer_until_context_cleanup_finishes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_absolute_deadline_and_parent_loss_are_fences",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_cleanup_after_failure_cannot_enable_success",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_context_mutation_preserves_observer_entry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_deeply_nested_corrupt_journal_degrades_without_crash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_duplicate_fields_and_boolean_version_degrade",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_expiry_does_not_drop_unknown_reservation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_invalid_journal_cannot_replace_the_safe_in_memory_schema",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_journal_and_marker_modes_are_private",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_missing_initialized_journal_degrades",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_noncanonical_route_never_registers_or_runs_preflight",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_observer_binding_cannot_overwrite_concurrent_retirement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_other_thread_cannot_mutate_journal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_registration_is_exclusive_and_durable",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_uncertified_clean_and_impossible_phase_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_unknown_observer_cannot_be_overwritten_by_replacement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_unknown_survives_restart_and_blocks_replacement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_wrong_generation_never_receives_clean_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.LeaseTests.test_wrong_process_generation_cannot_await",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ObserverPrerequisiteTests.test_current_identity_and_reused_generation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ObserverPrerequisiteTests.test_safe_defaults_and_disabled_parameter_logging",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_leases.ObserverPrerequisiteTests.test_unsafe_settings_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_backend_reorder_copy_and_wrong_completion_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_error_messages_do_not_disclose_sql_or_parameters",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_error_rollback_and_terminate_never_restore_success",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_external_failure_and_early_terminate_poison_success",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_named_objects_and_parameter_mismatch_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_no_next_sql_until_ready_even_after_commandcomplete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_no_second_history_or_postcommit_execution",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_normal_transaction_needs_commit_ready_and_terminate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_observer_requires_own_timeout_and_fixed_metadata_only",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_omitted_sync_and_repeated_sync_fail",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_out_of_order_or_modified_sql_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_parse_does_not_advance_the_sequence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_private_settings_helper_has_no_variant_escape",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_ready_requires_command_and_expected_transaction_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_repeated_bind_and_execute_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_startup_ready_is_required_exactly_once",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_context_protocol.ContextProtocolTests.test_sync_order_and_limits",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_connections.ConnectionPolicyTests.test_bypass_and_ambient_routes_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_connections.ConnectionPolicyTests.test_canonical_route_and_safe_startup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_connections.ConnectionPolicyTests.test_database_variation_and_kwargs_are_bounded",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_connections.ConnectionPolicyTests.test_private_tags_require_canonical_uuid_app_role_and_database",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_context_exact_settings_and_observer_metadata_use_real_parser",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_malformed_and_binary_tamper_after_cache",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_modes_and_pipeline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_native_decisions_and_cache",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_native_denied_unsafe_or_ambiguous",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_nested_opaque_and_protocol_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_normal_and_literals",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_guard.RealParserGateTests.test_pinned_dump_restore_templates",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.FrameDeadlineTests.test_idle_before_first_byte_outlasts_frame_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.FrameDeadlineTests.test_partial_body_stall_receives_frame_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.FrameDeadlineTests.test_partial_header_stall_receives_frame_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.HandshakeDeadlineTests.test_backend_not_ready_cannot_outlast_overall_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.HandshakeDeadlineTests.test_fragmented_startup_cannot_renew_overall_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.HandshakeDeadlineTests.test_ready_session_remains_usable_beyond_handshake_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_backend_parse_error_cannot_execute_failed_pipeline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_backend_unsafe_initial_mode_never_allows_ready_query",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_bind_preserves_sql_looking_text_and_binary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_cancel_packet_routes_without_sql_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_close_statement_invalidates_dependent_portal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_copy_data_preserved_only_during_server_copy_stage",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_each_effect_blocks_both_new_source_message_kinds",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_execute_requires_connection_local_portal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_fifteen_live_handlers_reject_overflow_and_preserve_cancel_capacity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_fragmented_query_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_idle_transaction_end_invalidates_named_portal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_implicit_transaction_control_admitted",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_injected_parser_failure_has_no_direct_backend_fallback",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_invalid_parse_never_reaches_backend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_invalid_query_never_reaches_backend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_invalid_wire_frames_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_matching_ready_releases_completed_effect_and_copy_has_no_orphan",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_native_and_protocol_share_accepted_namespace_both_directions",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_native_classifier_and_names_are_conservative",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_native_prepare_counts_toward_shared_object_capacity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_native_prepare_execute_and_cache_cannot_prepare_another_session",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_native_unknown_target_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_old_ready_does_not_release_newer_execute_effect",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_opaque_and_nested_execute_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_portal_snapshots_unnamed_statement_before_replacement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_prepared_object_capacity_fails_before_forwarding_overflow",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_protocol_name_lengths_and_prefix_collisions_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_query_and_numbered_parse_admission",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_simple_query_invalidates_unnamed_statement",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_startup_unsafe_encoding_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_unsafe_fragmented_status_precedes_barrier_release",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_unsafe_mode_change_stops_pipeline_before_forwarding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_proxy.WireProxyTests.test_unsolicited_ready_after_startup_fails_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM01_initialize_pinned",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM02_initialize_mismatch",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM03_copy_race",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM04_seal_write",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM05_seal_grow",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM06_seal_shrink",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM07_seal_mmap",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM08_missing_seal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM09_wrong_size",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM10_closed_fd",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM11_reused_fd",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM12_lifetime_race",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM13_duplicate_failure",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM14_child_inheritance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM15_actual_executable",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM16_procfs_missing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM17_noexec_policy",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM18_parser_success",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM19_parser_rejection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM20_parser_timeout",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM21_parser_output",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM22_exact_cache",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM23_changed_sql",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM24_changed_generation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM25_cache_provenance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM26_cache_bounds",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM27_disk_replacement_running",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM28_disk_replacement_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM29_stopped_gate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM30_resource_accounting",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM33_trusted_size_missing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM34_source_nonregular",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM35_source_oversize",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM36_source_growing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM37_source_truncated",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM38_initializer_deadline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM39_initializer_transfer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM40_source_short_write",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM41_slot_wait_no_fd",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM42_hit_fd_cleanup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM43_cancel_fd_cleanup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM44_launch_failure_cleanup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM45_shutdown_reservations",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM46_numeric_fd_reuse",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM47_profile_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM48_commit_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM49_policy_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM50_mapping_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM51_mapping_alias",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM52_config_disk_change",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM53_digest_size_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM54_status_snapshot_lifecycle",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM55_stale_completion_shutdown",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_IM56_noexec_no_fallback",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_cancel_during_live_child_reaps_owner",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_close_failure_is_infrastructure_and_sticky",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_identity_error_cleanup_failure_sticks",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image.ImageTests.test_repeated_proxy_cancellation_retains_slot_until_thread_cleanup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image_consumers.ConsumerIdentityTests.test_disk_mismatch_keeps_live_identity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image_consumers.ConsumerIdentityTests.test_live_snapshot_still_checked_if_disk_missing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_sql_image_consumers.ConsumerIdentityTests.test_missing_disk_is_restart_audit_only",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_cli_dispatch_has_one_context_call",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_closed_cli_shape_and_strict_json",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_context_accepts_safe_integer_and_id_count_boundaries",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_context_arguments_reject_before_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_full_cli_output_boundary_and_nonce",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_legacy_mutation_uncertainty_remains",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_read_failure_never_invents_mutation_uncertainty",
+      "status": "PASS"
+    },
+    {
+      "id": "test_validation_context.ValidationContextWireTests.test_transaction_exit_failure_discards_complete_context",
+      "status": "PASS"
+    },
+    {
+      "id": "test_documents.WireTests.test_private_identity_restart_modes_and_symlink",
+      "status": "PASS"
+    },
+    {
+      "id": "test_documents.WireTests.test_strict_duplicate_surrogate_number_and_limit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_repository.RankingTests.test_exact_overlap_and_wrong_context",
+      "status": "PASS"
+    },
+    {
+      "id": "test_repository.RankingTests.test_family_alias_duplicate_union",
+      "status": "PASS"
+    },
+    {
+      "id": "test_repository.SourceTests.test_no_follow_symlink_components",
+      "status": "PASS"
+    },
+    {
+      "id": "test_repository.JournalTests.test_chain_missing_corrupt_and_truncation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_digest_collision_does_not_replace_exact_canonical_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_distance_direction_ranks_near_above_orthogonal_and_opposite",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_embedding_composition_preserves_declared_block_order_and_rejects_zero",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_invalid_weights_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_overlap_deduplicates_and_normalizes_by_larger_unique_pool",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_polarity_pools_are_compared_only_with_same_polarity",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_same_instance_in_different_context_gets_no_overlap",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_valid_weights_keep_score_bounded",
+      "status": "PASS"
+    },
+    {
+      "id": "test_luna_adversarial.LunaAdversarialTests.test_vector_dimension_nonfinite_zero_and_database_order_are_checked",
+      "status": "PASS"
+    },
+    {
+      "id": "test_harness.OwnershipTests.test_active_root_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_harness.OwnershipTests.test_actual_pidfd_terminates_owned_child",
+      "status": "PASS"
+    },
+    {
+      "id": "test_harness.OwnershipTests.test_copied_gate_helper_import",
+      "status": "PASS"
+    },
+    {
+      "id": "test_harness.OwnershipTests.test_environment_discards_inherited_routes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_harness.OwnershipTests.test_stale_identity_never_signals",
+      "status": "PASS"
+    },
+    {
+      "id": "test_harness.OwnershipTests.test_wrong_temporary_prefix_rejected",
+      "status": "PASS"
+    }
+  ],
+  "source_mismatches_before": [],
+  "source_mismatches_after": [],
+  "active_source_mismatches_after": [],
+  "sql_client_inventory_status": "PASS",
+  "artifacts": {
+    "tests.log": "807033df8d90690b90d35cf8b51dff67b646db98befdcb7d57d7e8cdde7ac22b",
+    "sql-client-inventory.json": "3e2529db762a05e8c51570d74c31c767e2aa4ba2565181c6b0a6efec203a4b2b"
+  },
+  "boundary": "Finite selected offline Python/parser/wire regressions with real psycopg.connect denied; no active DB, Spring, Java/frontend build, HTTP/restart/backup/recovery, production promotion or full33 closure."
+}

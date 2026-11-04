@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 2.5019576930062613,
+  "clean_after_budget": false,
+  "final_phase": "UNKNOWN",
+  "successPermitted": false,
+  "trace": [
+    {
+      "call": 1,
+      "start_seconds": 1.209000765811652e-05,
+      "timeout_seconds": 0.75,
+      "simulated_metadata": true,
+      "outcome": "LIVE",
+      "end_seconds": 0.5505688520061085
+    },
+    {
+      "call": 2,
+      "start_seconds": 0.5757329710031627,
+      "timeout_seconds": 0.75,
+      "simulated_metadata": true,
+      "outcome": "LIVE",
+      "end_seconds": 1.1263769330107607
+    },
+    {
+      "call": 3,
+      "start_seconds": 1.1515334430005169,
+      "timeout_seconds": 0.75,
+      "simulated_metadata": true,
+      "outcome": "LIVE",
+      "end_seconds": 1.702158945001429
+    },
+    {
+      "call": 4,
+      "start_seconds": 1.7273083550098818,
+      "timeout_seconds": 0.75,
+      "simulated_metadata": true,
+      "outcome": "LIVE",
+      "end_seconds": 2.2775788430008106
+    },
+    {
+      "call": 5,
+      "start_seconds": 2.3027225630066823,
+      "timeout_seconds": 0.1972840670059668,
+      "simulated_metadata": true,
+      "outcome": "TIMEOUT",
+      "end_seconds": 2.5010225050064037
+    }
+  ],
+  "database_or_kernel_absence_proven": false,
+  "boundary": "Simulated metadata with real asyncio delays and copied production cleanup control flow only.",
+  "registration_sha256": "4c2e45e73cca0a503e12f5ec6c02272cf58beb6af05da728979d808df9d52eee"
+}

@@ -1,0 +1,76 @@
+{
+  "reviewer": "retrieval-astra-1",
+  "status": "DESIGN_REVIEW_ONLY_NOT_GATE_PASS",
+  "production_edits": false,
+  "scope": "Read-only G4/G5 architecture, pool semantics, ML validity, and local capability inspection; this report is the sole authored artifact.",
+  "observations": [
+    {
+      "path": "backend/src/main/java/dev/allow/worker/AlloyEngine.java",
+      "finding": "Executes selected run/check once. No predicate selection, positive/negative query construction, enumeration or full witness validation pipeline."
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/worker/WitnessProjector.java",
+      "finding": "Full-trace digest includes original signature/field/atom labels and iteration order; display truncates relations/atoms. Neither an anonymous canonical instance nor reusable independently validated full witness object. Do not use display payload or this hash as shared-pool equality."
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java",
+      "finding": "128-dimensional normalized hashed 4-byte chunks; deterministic baseline, neither pretrained nor learned. Existing profile bytes must remain immutable."
+    },
+    {
+      "path": "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java",
+      "finding": "Whole-module context includes selected command and all function bodies. Suitable exact provenance but cannot directly serve as a common environment key for comparing different target predicate bodies: separate environment/target/query keys needed."
+    },
+    {
+      "path": "docs/egraph-stage.md",
+      "finding": "Checked extracted representatives are per bounded island/context. Saturation is finite-profile completion, not global canonical equivalence. Missing/unequal extracted representatives prove no semantic difference."
+    }
+  ],
+  "required_before_implementation": [
+    "Freeze additive JSON and Lean supplement defining exact target/environment/query identities, pool membership and quantification policy, tri-state shared comparison, permission checks, dimensions and ranking-only status; compile independently before production changes.",
+    "Preserve earlier gate evidence. G4/G5 subset progress must not imply unimplemented G2 accessibility/editing or G3 correspondence requirements passed."
+  ],
+  "minimal_design": {
+    "identity": "Separate anonymous environment/schema/facts/bounds identity, target predicate plus typed parameter identity, own positive/negative query identity, exact source/provenance envelope, solver/library/build versions, and versioned embedding content identity. Scope N=3,4,5 is an overall upper bound unless exact per-signature scopes explicitly specified; store scope vector/bitwidth/sequence/overflow, never merely N.",
+    "query_semantics": "For parameter-free P use F AND P and F AND NOT P. Do not negate a command formula already containing F: NOT(F AND P) admits fact violations. For parameters use explicit full (instance, typed valuation) examples with the same valuation in both polarities. Alternatively explicitly bind existential-closure target Q=some args | P and use F AND Q versus F AND NOT Q; NOT(some args | P) differs from some args | NOT P, especially on empty domains. Safest first implementation rejects parameterized targets with typed unsupported reason until valuation extraction is complete.",
+    "witness": "Persist complete anonymous typed tuples/memberships (and valuations if supported), validate F and selected polarity under exact bounds in bounded worker before admission. Display projection is derived. Preserve immutable SAT existence separately from enumeration terminal status, exhaustion, limits and truncation. Sampling/symmetry breaking does not prove exhaustive equivalence.",
+    "pool_comparison": "Only compare compatible explicit environment/schema/bounds and typed mappings. Canonicalize entire colored relational instance under one consistent atom permutation, preserving signature memberships, tuple positions, integer values, relation identity, parameter valuation and temporal order/loop when supported. Independent sorting of each relation is unsound. If graph canonicalization exceeds budget return UNKNOWN/not-comparable, never unequal. For minimal supported static scopes exact bounded permutation search is valid but budget must count total atoms across signatures, not only overall N. Hash only canonical bytes and confirm bytes on collision-sensitive comparison.",
+    "ranker": "Filter permitted live rows in selected schema/model first. Rank by frozen weighted components: pretrained vector similarity, canonical structural similarity, and compatible positive-positive/negative-negative pool overlap; optionally penalize positive-negative conflict. Missing pools are missing evidence rather than zero agreement or equivalence. Explicitly version weights and normalize component ranges. Keep checked certificates entirely separate.",
+    "hierarchy": "Encode [context,predicate,positivepool,negativepool] separately; use permutation-invariant pool aggregation and explicit absent/empty/incomplete masks. Four 768-dimensional blocks concatenated yield 3072 structurally, but are not a learned hierarchy unless learned aggregation/projection parameters were actually trained with an identified checkpoint. Persist model/tokenizer/checkpoint digest, pooling/truncation, schema and numeric normalization; reject nonfinite/wrong-sized vectors. Never relabel padding/hash features as pretrained or learned.",
+    "storage": "Transactional canonical target+validated pool rows, immutable own-run foreign keys, permission/deletion fields, outbox keyed on complete content hash and embedding version. Worker claims/retries are idempotent and check current revocation before publishing. Read path rechecks authorization/deletion after ranking. Deny-first restore quarantine with independent durable revocation journal. Start exact filtered similarity until installed vector/index dimensional limits and recall under filtering are verified; do not assume an ANN index supports 3072 full-precision dimensions.",
+    "langgraph": "Versioned HTTP candidate/evidence DTO and optional thin adapter. Retryable graph nodes use idempotency keys and source/revision identities. Retrieved candidates and LLM assessments remain untrusted; graph orchestration cannot create solver or certificate evidence."
+  },
+  "ml_evaluation": [
+    "Deduplicate exact source and anonymous normalized structures across all Alloy4Fun/5/6 before splitting; group exercise/project/history lineage together. The inventory already shows many duplicates, including cross-version matching sample hashes.",
+    "Freeze held-out tasks, relevance labels, k, metrics and weights before tuning. Separate pretrained-only, hash baseline, canonical-only, pool-only and full hierarchy ablations. Report coverage/skips, recall@k or nDCG, polarity consistency, runtime and failure rates.",
+    "GPT6Luna evaluation must use actually available declared model/checkpoint and logged configuration. A missing model is unavailable, never silently substituted. Blind the judge to ranking method and ground truth and retain disagreements; judge score is not Alloy semantic correctness.",
+    "Prior inventory authorizes local development but records training and remote embeddings disabled. Parent must reconcile current user authorization with a new purpose-specific contract; local access alone does not establish remote disclosure or third-party rights. Anonymous structures and witnesses can retain sensitive model semantics."
+  ],
+  "local_capabilities": {
+    "checked_without_secret_content": true,
+    "psql": null,
+    "postgres": null,
+    "pg_config": "/home/augustus/anaconda3/bin/pg_config reports PostgreSQL 12.9; does not establish server availability",
+    "docker": "/usr/local/bin/docker executable; server socket absent, daemon unavailable",
+    "python_imports": {
+      "torch": true,
+      "transformers": false,
+      "sentence_transformers": false,
+      "psycopg": false,
+      "pgvector": false,
+      "langgraph": false
+    },
+    "standard_pretrained_caches": "HF hub directory exists but empty; torch hub and sentence_transformers cache paths absent",
+    "limit": "No exhaustive disk/model scan, no secrets read, no installation, model download or network request performed."
+  },
+  "acceptance_tests": [
+    "Contradictory F yields neither positive nor negative witness; NOT whole command cannot create negative pool members.",
+    "Parameterized counterexample distinguishing NOT EXISTS P from EXISTS NOT P; empty and nonempty domains.",
+    "Atom renaming and tuple ordering yield same canonical instance; nonisomorphic equal-degree graphs remain distinct; integer atoms fixed; signature membership retained.",
+    "Same instance under wrong query/bounds/polarity/build is rejected; display-truncated object cannot be promoted to full witness.",
+    "SAT then timeout retains validated SAT witness and incomplete enumeration; timeout without SAT admits no witness.",
+    "Vector wrong dimension/NaN and model mismatch reject; missing pools do not produce perfect agreement.",
+    "Deletion racing outbox, crash mid pair transaction, replay, revoked backup restore, and unauthorized filtered nearest neighbors cannot expose stale rows.",
+    "Held-out duplicate lineage audit and blind judge replay are recorded independently of retrieval functionality."
+  ],
+  "verdict": "Proceed only after verified additive proof supplement. Current code does not fulfill G4/G5; preserve separate partial implementation and infrastructure-unavailable statuses rather than fabricating pool, trained embedding, database or evaluation completion."
+}

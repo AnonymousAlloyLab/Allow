@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "scope": "Offline complete updated helper replay against unchanged retained r1/r2 raw evidence, using a new tiny view of exact originalfixture/printer bytes plus newlyfrozen expectation; no oldrun changed",
+  "expectation": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/http-setup-expectation.json",
+    "sha256": "11bf0ea30a2c993b345f852ae4f9cf7cd989888f56b6606e13068c2c131caff8",
+    "size": 5353,
+    "mode": 384
+  },
+  "verifier": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/http_setup.py",
+    "sha256": "9efb77cb74d35c05071659f952dd06e35195f514506af9df900b198d77eda2cd",
+    "size": 9232,
+    "mode": 436
+  },
+  "runs": [
+    {
+      "run": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-bootstrap-r1",
+      "manifest_sha256": "1f5c42a62bd423a586000cb1cfbcda706643088cf9f11c09ac20238870f55ac6",
+      "status": "PASS",
+      "correspondence": {
+        "status": "PASS",
+        "fixture_sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+        "module_correspondence": {
+          "status": "PASS",
+          "definitions": 504,
+          "nodes": 500,
+          "fixture_module_sha256": "9a104542ac8117116b855ec1fa60930dc4f9aaae177e3755258818589c51b3f5",
+          "committed_module_sha256": "75a34bb9a044813dd4775a24347e1492f083496af3641e7448638a9648b19fd4",
+          "id_remapping_sha256": "66593c04e6936e851bf13912ef3c3c080eff4e79ea85742f388a5fbe42dbc0eb",
+          "permitted_change": "Fresh IDs in closed schema slots only; exact definition/reference bijection."
+        },
+        "canonical_print_expectation_sha256": "11bf0ea30a2c993b345f852ae4f9cf7cd989888f56b6606e13068c2c131caff8",
+        "canonical_print_scope": "F0 baseline-derived expectation; not an independent printer oracle",
+        "raw_files": {
+          "commit-request.json": "de28d28b2f1fb3944831da59e0451db342b21a8bfa68994d7353d748c9a8e3b0",
+          "commit-response.json": "b2d18c3ec419e680e4d8c00d46542674ee601ac8b06e1f75cebcaab74a059c41",
+          "commit-timing.json": "fdc042316d3f0e60d24c657af12978d7dcf01b40670dcf1d7a6a7ac759c0cd72",
+          "create-request.json": "2c5c22d556186164e2f3be109683b9b30094da032ace756aa2d2e1d4d143cb05",
+          "create-response.json": "31be6115be3541b4a317b1b63f1a4309c95f536829bb5817c06dbfee605942d7",
+          "create-timing.json": "5ee38a95c4cee7c29d6527313994bd8b53c5a205f33031beac5bafd5caa11248",
+          "source-request.json": "257425e907cef9c48520142249bef246618c153a5b4313f36ff4b27d48ee438d",
+          "source-response.json": "3b78c2d63c647e7e8e6748b6c4d9589008c70f25ab804c243a84d98abcb75fa4",
+          "source-timing.json": "b15233eb89a46a3d8a5f81d8c8bcd6101fa24a800d4f3f2353d020f90e844b40"
+        },
+        "artifact_enrichment_scope": "occurrences/trivia/analysisDescriptors checked as present arrays; exact values are outside this workload correspondence claim"
+      }
+    },
+    {
+      "run": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/runs/scope-bootstrap-r2",
+      "manifest_sha256": "6fc06836aec31d9bb73c2b72c2910abb9d0f9111cca91b731927e051ef17e4cf",
+      "status": "PASS",
+      "correspondence": {
+        "status": "PASS",
+        "fixture_sha256": "947ed5002b097cd25e780afddfca5a3db9721c42b839fad4925b488af996089c",
+        "module_correspondence": {
+          "status": "PASS",
+          "definitions": 504,
+          "nodes": 500,
+          "fixture_module_sha256": "9a104542ac8117116b855ec1fa60930dc4f9aaae177e3755258818589c51b3f5",
+          "committed_module_sha256": "a85dba6eb042eb48118a2e23ad35c122d27e739c6828979d600e0d221142f7ba",
+          "id_remapping_sha256": "e6c094ea37cff1b134ffbc807cb596be5fee12f2fbdd1379032ba217c497a842",
+          "permitted_change": "Fresh IDs in closed schema slots only; exact definition/reference bijection."
+        },
+        "canonical_print_expectation_sha256": "11bf0ea30a2c993b345f852ae4f9cf7cd989888f56b6606e13068c2c131caff8",
+        "canonical_print_scope": "F0 baseline-derived expectation; not an independent printer oracle",
+        "raw_files": {
+          "commit-request.json": "de28d28b2f1fb3944831da59e0451db342b21a8bfa68994d7353d748c9a8e3b0",
+          "commit-response.json": "70f15061ab36f318643789c0ac6f25abb875294a4d1e66db9092952dda66ef8f",
+          "commit-timing.json": "b15b71e07f224ab1579e8ef5456f97827539778fb0dd272fb5f28b1ca14f5aee",
+          "create-request.json": "2c5c22d556186164e2f3be109683b9b30094da032ace756aa2d2e1d4d143cb05",
+          "create-response.json": "5ef355bff7b906e350e4aea2fd0e3c4ac6a96431939d820f2ee54d309b8b22e9",
+          "create-timing.json": "ec28112e5d5123e0bc3c1631ce648e44ee3d6f5acd92528b307d8aee2eecf621",
+          "source-request.json": "257425e907cef9c48520142249bef246618c153a5b4313f36ff4b27d48ee438d",
+          "source-response.json": "94c74aa3db8cc23a265d94a05cf1b2799b1082c282c220a41b9b2cde876240c6",
+          "source-timing.json": "3ec94ecfeb05657a0167454d60ad6f15880684af976a5eb1581b1b09e94c7dae"
+        },
+        "artifact_enrichment_scope": "occurrences/trivia/analysisDescriptors checked as present arrays; exact values are outside this workload correspondence claim"
+      }
+    }
+  ]
+}

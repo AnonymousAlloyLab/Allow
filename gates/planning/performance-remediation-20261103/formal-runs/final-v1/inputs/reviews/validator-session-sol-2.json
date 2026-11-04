@@ -1,0 +1,49 @@
+{
+  "reviewer": "sol-2",
+  "decision": "REQUEST_CHANGES",
+  "readiness_verdict": "DESIGN_ONLY_NOT_READY_FOR_IMPLEMENTATION_OR_ACCEPTANCE",
+  "input_root_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "input_hashes": {
+    "gates/document/validator-session-candidate/ValidatorSession.lean": "42c49d2cb8c65f31642f2112389047243d9fd4747d58f696c34687c93f61a271",
+    "gates/document/validator-session-candidate/claims.json": "3d531f7fdc4031087ba3dff884468d2342c77b3b78647f9cbadb0541faad5952",
+    "gates/document/validator-session-candidate/contract.json": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d",
+    "gates/document/validator-session-candidate/development-check.json": "b76b0a35e4ec03519564096c9a9f34e968a4307ec01acdbfb460b1dfdd38dbf2",
+    "gates/document/validator-session-candidate/runtime-test-plan.json": "eab89c16afbe713648a3b5971da47bedae996031e9d4ced3ff0f945baedb60b0",
+    "gates/document/validator-session-candidate/source-evidence.json": "79cd993e64d1275c435ee39455408bd47391e534d9dd4710732f8833aada87a1"
+  },
+  "findings": [
+    {
+      "id": "VS-S2-01",
+      "severity": "high",
+      "issue": "No measured benefit budget supports selecting reusable JVM with a fresh full dependency loader on every request. Current HTTP p95 is468.348787ms. Five fresh-worker totals are272.581176..295.169906ms, consisting of roughly20..22ms constructor,30..34ms launch and221..240ms exchange. The exchange includes JVM/class initialization as well as validation; it is not measured reusable work. Recreating Alloy/Jackson/policy classes may retain much of that cost, while reset/image fences add cost. The frozen narrative still calls this evidence pending.",
+      "requested_change": "Resolve U01 with correlated end-to-end phase traces and separate JVM boot, class loading/static initialization, parser/validation, serialization and reap CPU/wall evidence. Measure an isolated fresh-loader design witness before selecting it, including first image launch, two full build fences, reset and64-request/cumulative12s retirement costs. Show a credible strict300ms budget with margin; do not subtract unrelated percentile/component samples or attribute the full exchange to JVM boot."
+    },
+    {
+      "id": "VS-S2-02",
+      "severity": "medium",
+      "issue": "The lower-risk combined read+ownedIds bridge is appropriately identified but not quantitatively compared. Eliminating one approximately82ms call alone leaves approximately386ms if naively subtracted from HTTPp95; keeping the current273..295ms worker plus even one82ms bridge is still approximately355..377ms before other work. These arithmetic illustrations are not percentile predictions, but rule out treating simple call consolidation as an established solution.",
+      "requested_change": "Prioritize a separate exact design for one authorized context read/owned-ID operation preserving scoped history semantics, then profile its SQL-parser, Python-launch, DB and decoding portions. Compare measured bridge optimization plus targeted fresh-worker startup/classpath work against session reuse. Keep every SQL byte through pinned SQLeanParser, retain authorization and no response cache. Select the least complex measured combination that can meet the unchanged target; do not promise that consolidation alone reaches300ms."
+    },
+    {
+      "id": "VS-S2-03",
+      "severity": "high",
+      "issue": "Fresh classloader isolation is a plausible mitigation, not a demonstrated semantic or resource reset. Thread/file inventories do not establish absence of JDK-global registries, ThreadLocal/provider/reflection/logging caches, native state or child-loader retention. The parent must perform reflection to invoke a child entry point, so ownership and disposal of Method/Throwable references need concrete control-flow evidence.64reloads under512MiB heap/2GiBAS and cumulative12sCPU may trigger earlier failures/retirements.",
+      "requested_change": "Resolve U02/U03 before implementation approval: freeze actual reached dependency inventory, JDK delegation allowlist, reflection entry/exception disposal, forbidden registration checks and reset-observation owner. Produce positive sealed-bootstrap/fresh-loader witnesses under exact caps plus A/B/A semantic differential and retained-memory/CPU traces. If safety or performance requires relying on unverifiable reset flags or raising caps, retain fresh JVM isolation and revisit the alternative."
+    },
+    {
+      "id": "VS-S2-04",
+      "severity": "medium",
+      "issue": "claims.json VSM22 exact_source_declaration_before_proof ends at \"publishable { witnessSession with phase\" and omits the rest of its proposition. The current package honestly marks formal registration pending, but this field is not an exact complete frozen type and cannot support the proposed exact22type closure.",
+      "requested_change": "Replace source-fragment extraction with complete elaborated expected theorem types (or a parser that handles := inside record updates), freeze all22 propositions and287inherited expected types, and register verifier/axiom policy before clean builds. Keep fresh-correspondence equivalence and Reset.clean as explicit unresolved runtime premises."
+    }
+  ],
+  "approved_boundaries": [
+    "Advisory-only transport does not weaken durable one-shot exit/recovery evidence; no authorization/owned-ID/result cache and no database fallback.",
+    "Two-phase staged DATA/reset publication, exact request identity and retirement fencing are appropriate requirements, conditional on actual adapters.",
+    "Full per-admission/current-installation and pre-publication hashing is retained; sealed bootstrap mechanism remains unresolved rather than replaced with private mutable copies.",
+    "Global live-slot versus active-permit distinction and whole-tree cleanup remain necessary explicit obligations.",
+    "Commercialization exclusion is correct: model counts, finite tests and timing cannot establish dependency/dataset rights, named manual accessibility acceptance, operational support or product readiness."
+  ],
+  "formal_limit": "Read all22abstract propositions: several are projections or definitional nonmutation; fresh_correspondence_is_required assumes the entire equivalence conclusion pointwise. These are useful bookkeeping constraints, not proof of Alloy semantics, classloader reset, OS lifetime or commercialization.28planned checks are not executed evidence and six unresolved obligations remain blocking.",
+  "validation": "Verified all six package file hashes and canonical inventory root and required contract hash. Read candidate model/claims/runtime plan/source evidence; inspected actual current fresh-worker profile, completed sealed HTTP report and source worker/query seams. No production/candidate edits, browser/HTTP execution or builds performed."
+}

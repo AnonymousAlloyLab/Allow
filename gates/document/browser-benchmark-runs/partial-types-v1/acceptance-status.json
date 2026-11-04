@@ -1,0 +1,9 @@
+{
+  "acceptance": "INCOMPLETE_PROTOCOL_EVIDENCE",
+  "supersedes_acceptance_claim_in": "report.json",
+  "preserved_report_sha256": "1063dff09f63be5589f35116dd50b3ded7d9b62c5f54e3eefcf017a81b5c14fc",
+  "audit": "reviews/browser-postfix-benchmark-evidence.json",
+  "audit_sha256": "44cc1e9bd8d6617f4ef2bbfd16caf39f2c62573a505e9bf30d5ae364f1dd1dca",
+  "observed_p95_ms": 12.5,
+  "reason": "Warm samples and post-run bundle reproduction are retained, but contemporaneous record lacks required context. A fresh fully captured run is required; do not use preliminary PASS as protocol acceptance."
+}

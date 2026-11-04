@@ -1,0 +1,21 @@
+{
+  "reviewer": "terra-1",
+  "decision": "APPROVE_IMPLEMENTATION_CONTRACT",
+  "package_root_sha256": "245fc5201c5657b049d730daba8b237aa6f4538b71813221bc4d9fc50391a209",
+  "scope": "Design-only approval of the frozen inactive, one-use advisory implementation contract, conditional on the authorization order in that contract. This is not approval of production activation or a model-verification result.",
+  "findings": [],
+  "review_basis": [
+    "Independently recomputed canonical root and SHA-256 for all 186 manifest paths; all matched.",
+    "Reviewed revised ownership, image, bootstrap, CLEAN handoff, cancellation and publication requirements, experiment gates, 36-claim transition model and verifier; compared current source and prior rejected reusable-session review.",
+    "The publication transition requires a current-image observation, and an observed mismatch takes the abstract pool offline. Actual publication must execute the specified final scan and cancellation/deadline checks; the model assumes those observations.",
+    "The r4 image probe reports 191 sealed, byte-equal mounts, the 64 MiB setup to 8 MiB final file-size transition, and positive owned cleanup. This is a bounded infrastructure probe, not a warm JVM or application safety test."
+  ],
+  "required_boundaries": [
+    "Two clean registered model builds and all six exact-root reviews precede implementation; no Lean verification is claimed by this review.",
+    "Model observations do not prove Java/Python correspondence, sealed descriptor ownership, cgroup cleanup or restart, PostgreSQL CLEAN, actual semantic equivalence, timing or kernel behavior. Frozen finite runtime fixtures and fault tests remain mandatory, including cancellation and identity changes around publication.",
+    "No private request may reach a worker before exact successful CLEAN; no private JVM reuse, uncontained fallback or live activation is authorized by this review. All SQL remains routed through SQLeanParser.",
+    "The current DEFAULT path remains selected until every mandatory safety, differential, resource and performance gate passes; the workstation profile is not target-host acceptance."
+  ],
+  "commercial_boundary": "Commercial release remains NO_GO pending separate rights, accessibility, security, customer and operations gates; this review grants no redistribution rights.",
+  "validation": "Read-only review; no application, SQL, browser, benchmark, formal verifier or production modification performed. Canonical manifest and source bytes independently checked."
+}

@@ -1,0 +1,106 @@
+{
+  "reviewer": "astra-2",
+  "seat": "document-draft-astra-2",
+  "review_type": "INDEPENDENT_ADVERSARIAL_DRAFT_REVIEW",
+  "decision": "REQUEST_CHANGES_BEFORE_FREEZE",
+  "spec_revision": 1,
+  "spec_sha256": "296991c934341ea168586aba6c1e090d0712836771ace0480573ccdbeb33102a",
+  "formal_file_sha256": "de0a08bd831c9128456becb63f5c7784178bdaec33551e668837838dc5c359fe",
+  "timestamp_utc": "2026-11-03T17:41:26.705629+00:00",
+  "blocking_findings": [
+    {
+      "id": "D-A2-01",
+      "severity": "CRITICAL",
+      "location": "accepted_state.atomicity / commit_protocol",
+      "finding": "The claim that any crash leaves the prior revision unchanged is false if PostgreSQL commits and the response is lost. A caller cannot infer rollback from a broken COMMIT connection.",
+      "resolution": "Distinguish known precommit rejection/rollback from UNKNOWN_COMMIT_OUTCOME. Never send success before confirmed COMMIT; on uncertainty retain the exact key/request and perform authenticated receipt recovery. Add failpoints before commit, after durable commit before acknowledgement, and after acknowledgement before HTTP write."
+    },
+    {
+      "id": "D-A2-02",
+      "severity": "HIGH",
+      "location": "accepted_state.identity_and_restart; LaunchAuthority.java",
+      "finding": "Durable principal/scope provisioning is only a placeholder. LaunchAuthority currently verifies ephemeral bearer bytes and has no durable identity/ownership binding; allowing caller-chosen scope to recover receipts would cross logical launch boundaries.",
+      "resolution": "Specify owner-private durable metadata with server-created immutable IDs, atomic creation, no symlinks/unsafe ownership or permissions, restart consistency check against database, and fail closed on missing/corrupt/mismatched metadata. Only server maps fresh bearer to the recovered scope. Explicitly distinguish restart from new logical launch; never silently recreate identity over an existing document. OS-owner compromise remains outside local trust model."
+    },
+    {
+      "id": "D-A2-03",
+      "severity": "HIGH",
+      "location": "accepted_state.idempotency / commit_protocol",
+      "finding": "Canonical request bytes, receipt lookup order, failure receipt policy and active retry retention lifecycle remain open. Revalidating a prior committed request under a new parser before receipt lookup can make the original outcome unrecoverable. Retention plus concurrent cleanup must be serialized.",
+      "resolution": "Freeze a versioned closed serialization including expected revision, operation/undo target, complete exact candidate source/IR, dependency identities and relevant options; reject duplicate JSON keys, invalid strings and noncanonical numeric identities. Auth/ownership precede receipt disclosure; existing same-byte receipt returns historical original outcome before parser revalidation or stale-base checks, without marking its artifact currently policy-valid. Choose successful-commit receipts only or explicitly model failure receipts. Define durable retry registration/renewal/closure, DB-time retention=max(commit+24h, active window), atomic cleanup exclusion, bounded quotas and fail-closed quota exhaustion. Compare exact bytes as well as digest; test forced hash collision."
+    },
+    {
+      "id": "D-A2-04",
+      "severity": "HIGH",
+      "location": "accepted_state.commit_protocol",
+      "finding": "Rechecking an immutable policy version string is insufficient if policy/authorization revocation can race after the check and before commit. No common lock or fence protocol is specified.",
+      "resolution": "Capture policy/dependency/build versions during validation; in commit transaction use a shared durable policy/authorization generation fence serialized against policy update/revocation, recheck owner/document scope, base revision and artifact identity. Define ordering of policy changes and commits. Do not hold a parser process in the transaction. Test policy change during validation, after lock acquisition, and concurrent authorization revocation."
+    },
+    {
+      "id": "D-A2-05",
+      "severity": "HIGH",
+      "location": "scope.ir_contract / formal_draft",
+      "finding": "The node-table draft allows expression sharing while scope and source identity require occurrence context. Lean uses a supplied list context and grouped tags, not stable binders, a closed module or runtime schema. Declaration references and syntax child edges are not distinguished.",
+      "resolution": "Prefer the proposed closed syntax forest: one syntax parent per nonroot node, no cross-root sharing, no unreachable nodes, explicit reference leaves for declarations/binders; declaration dependency edges are a separate acyclic graph. Copy allocates fresh syntax/binder IDs and remaps only locally bound references; move checks lexical ancestry. Define exact fields/arity for every tag, field owner column convention and predicate-argument multiplicity (unary schema alone does not establish singleton cardinality). Register module validation, scoped resolution, complete operator distinctions and arbitrary-length cycle exclusion with positive and negative witnesses before production."
+    },
+    {
+      "id": "D-A2-06",
+      "severity": "HIGH",
+      "location": "budgets / resource_and_security_contract",
+      "finding": "Draft 1MiB source, two workers, queue eight and 1GiB memory exceed inherited defaults; the current ProcessRunner input frame is below262144 bytes, while escaping can expand source bytes. Postparse node checking does not bound Alloy parsing itself.",
+      "resolution": "Accept proposed 32768 source bytes,256 syntax nodes,depth32 only after explicit frozen limits and measured checks; independently bound JSON/frame bytes, total edges/occurrences/declarations, schema width, comments, imports, queue bytes, output, revision/history/receipt storage and database wait/transaction time. Use existing isolated worker launcher and external kill/reap bounds; no parser in Spring or Python persistence process. Respect stricter inherited worker/concurrency limits and separate heap/address-space limits. TEXT_ONLY inherits current no-explicit-import policy unless a separately reviewed resolver is implemented. Keep original500-node latency target open if the new limit excludes its fixture."
+    },
+    {
+      "id": "D-A2-07",
+      "severity": "HIGH",
+      "location": "formal_draft / gates/document/draft/Document.lean",
+      "finding": "Commit has only accepted and stale constructors; receipt scope is external, retry compares only Artifact and does not include base/undo/authority. There is no failure, policy, retention, two-request CAS, replay-composes-with-state, or TEXT_ONLY transition model. Span bounds do not prove UTF conversion. Current proofs cannot establish advertised transaction/map obligations.",
+      "resolution": "Create a finite explicit state machine for accepted tagged artifacts plus scoped successful receipts and policy generation; prove no-change on known rejection, one increment on fresh accepted CAS, replay leaves state unchanged and returns original revision, conflicting key denial, distinct-key same-base conflict, unauthorized/cross-scope denial and policy-fence rejection. Register named exact propositions, nonvacuous witnesses and adapters; model UTF scalar-to-UTF16 conversion or accurately retain it as tested trust. Two clean exact-hash builds precede production."
+    },
+    {
+      "id": "D-A2-08",
+      "severity": "HIGH",
+      "location": "SQL integration / proposed Python persistence bridge",
+      "finding": "A narrow bridge is coherent, but new SQL clients must be explicitly registered and measured; an unrestricted bridge accepting SQL, DSNs or principal IDs from a browser would bypass authoritative server ownership. Existing helper client tags and database names are closed.",
+      "resolution": "Use a versioned bounded local framed bridge protocol with fixed operations, server-derived principal/scope, no arbitrary SQL/DSN/path input and parameter-bound statements. Reuse sql_connections.connect through the owned proxy; inventory new client/migration/recovery paths and collect per-client endpoint/counter evidence. One connection/transaction persists revision, source/maps and receipt. Give application role minimal document permissions and enforce scope consistently; no runtime admin DSN. Missing parser/proxy must deny commits; retain SQL full ACL/recovery evidence unchanged."
+    },
+    {
+      "id": "D-A2-09",
+      "severity": "HIGH",
+      "location": "projection.occurrence_rules / trivia_rules",
+      "finding": "The draft asserts parser byte intervals without establishing Alloy position semantics; overlapping spans leave trivia anchor selection unspecified. Surviving structural paths can refer to different nodes after sibling insertion.",
+      "resolution": "Name an exact adapter from the pinned Alloy position convention to strict UTF8/UTF16 spans; reject unrepresentable intervals. Define deterministic deepest/smallest anchor tie rules and stable occurrence lineage across edits rather than assuming path stability. Preserve comments when paths shift or send them to explicit orphan storage. Test inserted siblings, deleted parents, copies, repeated identical expressions, nonBMP, CRLF, combining marks and comment delimiters."
+    },
+    {
+      "id": "D-A2-10",
+      "severity": "MEDIUM",
+      "location": "integration with spec/egraph-stage.json and spec/retrieval-stage.json",
+      "finding": "Full document palette acceptance does not establish canonicalizer or retrieval profile eligibility. Stable readable IDs and source maps must not leak into anonymous semantic encodings. Existing retrieval admission rejects parameterized predicates.",
+      "resolution": "Explicitly preserve independent admission: parse exact accepted source with the pinned anonymous traversal, attach certificate to exact root occurrence/context/inventory and revision, keep syntax forest separate from egraph DAG and retain existing opaque-operator policy. Never auto-rewrite accepted source from extraction. Keep source names/IDs/provenance outside encoder inputs; no automatic CorpusPair on commit. Store source/rights provenance separately, retain purpose-grant and revocation checks, and do not claim generalized canonicalization, G2/G3 closure or commercial readiness."
+    }
+  ],
+  "positive_assessments": [
+    "Server-authoritative immutable revisions, historical undo as fresh append, strict UTF8 preservation and separate TEXT_ONLY mode align with original contract.",
+    "Proposed syntax forest and dedicated narrow Python persistence bridge are acceptable directions subject to explicit boundaries above.",
+    "Exact-request byte comparison, receipt-before-stale intent and no parser subprocess inside database transaction are correct foundations.",
+    "Frozen SQL baseline is preserved; no runtime or commercial assurance is transferred by this review."
+  ],
+  "bounded_gameplan": [
+    "Freeze exact closed schemas, authority provisioning, protocol outcomes, receipt lifecycle, policy fence and conservative budgets; reconcile all council blockers.",
+    "Model and register exact scoped transition/module propositions and acceptance/denial witnesses; run two isolated builds against frozen spec and baseline.",
+    "Only then implement isolated document validator and narrow proxy-only persistence bridge with immutable SQL revisions and receipts.",
+    "Exercise adversarial race/failpoint/restart/cleanup/policy tests, whole-palette/scoped typing and exact projection; wire accessible frontend afterward.",
+    "Report each inherited G2/G3 obligation individually, retaining import/500-node performance/accessibility or other unfulfilled obligations as open; preserve anonymous canonical/retrieval and commercial boundaries."
+  ],
+  "verification_performed": [
+    "Read original contract accepted-state, API, security and G2/G3 gates.",
+    "Read exact rev1 draft and isolated Lean file; computed hashes.",
+    "Read current LaunchAuthority, sql_connections, AstPolicy, BubblewrapLauncher and ProcessRunner.",
+    "Read SQL stage rev6 and anonymous/egraph/retrieval contracts. No external fact claims or proof build performed."
+  ],
+  "independent_review": true,
+  "other_document_reviews_read": false,
+  "production_edits": false,
+  "formal_edits": false,
+  "approval_scope": "No implementation approval or gate closure. Requested changes are concrete pre-freeze requirements; final proof and runtime gates remain distinct."
+}

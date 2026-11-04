@@ -1,0 +1,104 @@
+{
+  "id": "ALLOW-PERFORMANCE-REMEDIATION-FUTURE-ACCEPTANCE-R1",
+  "status": "PLANNED_NOT_EXECUTED",
+  "meaning": "Finite work packages to be expanded into exact registered executable fixtures before the corresponding implementation increment. This file is a gameplan, not evidence that any new runtime check passed.",
+  "tests": [
+    {
+      "id": "RP01",
+      "phase": "P0",
+      "case": "Private wire boundaries",
+      "checks": "Actual CLI 3,145,728-byte guard at below/exact/above, with newline accounting fixed in the fixture; invalid UTF8/BOM/duplicates/closed fields and no SQL/worker on rejection. Distinguish a structurally adversarial frame from a valid context shape, whose tighter args limit dominates."
+    },
+    {
+      "id": "RP02",
+      "phase": "P0",
+      "case": "Nesting boundaries",
+      "checks": "Decode depth 95/96/97 with independently counted root/key/value/list levels, then actual validationContext dispatch. Distinguish accepted decoder depth from invalid closed request shape. Exercise public/private paths and preserve exactly which guard rejects."
+    },
+    {
+      "id": "RP03",
+      "phase": "P0",
+      "case": "Actual parser unavailability",
+      "checks": "Use owned isolated proxy/parser fixture, record PID/start identity, stop its service before request and kill an active parser child during uncached admission. Actual context must fail unavailable without direct-DB fallback or Alloy worker. Do not stop the shared development proxy."
+    },
+    {
+      "id": "RP04",
+      "phase": "P1",
+      "case": "Timeout SQL policy",
+      "checks": "Actual SQLeanParser accepts only frozen nonzero transaction-local deadline forms, preserves bytes and correct BEGIN/isolation/deadline/scope/query order. Negative alternatevalues/expressions/reset/role forms cannot escape the intended policy. Existing 52 SQL and durable/backup tests remain passing."
+    },
+    {
+      "id": "RP05",
+      "phase": "P1",
+      "case": "Owned backend cleanup",
+      "checks": "Real sleeping/locked/idle-in-transaction queries and disconnect/cancel/CLI-SIGKILL/parentdeath at every stage. Bind session generation/key/PID/start/nonce; observe automatic query/transaction termination and no manual harness cleanup for PASS. Wrong-owner cancellation denied. Uncertain termination holds reservation and reports unavailable. Compare all durable tables before/after."
+    },
+    {
+      "id": "RP06",
+      "phase": "P1",
+      "case": "History and resource bounds",
+      "checks": "Repeat permitted 4096-revision near 256 MiB retained-history and empty-ID controls on target; include full-history kind collisions, first-scope snapshot race and decoded artifacts. Report actual client buffering/RSS/AS and failures. Deadline/privacy logging changes must not silently exclude previously permitted valid histories."
+    },
+    {
+      "id": "RP07",
+      "phase": "P2",
+      "case": "Target profile and full-path trace",
+      "checks": "Record4 vCPU / 8 GiB target CPU/VM/storage/OS/JDK, complete process membership and application settings. Pin workload/source/compiledassets. Attribute wall/CPU/allocation across context, fences, JVM, validation, serialization and reap. Workstation quotas are screening only."
+    },
+    {
+      "id": "RP08",
+      "phase": "P3",
+      "case": "Fresh JVM comparison",
+      "checks": "Independent Tier1/AppCDS/compact-reply probes through all real build fences, full semantic comparison and errors. Bind archive/JDK/resources/order; verify actual archive use and missing/mutated/incompatible behavior. No production-Xshare:on or successful-only timing."
+    },
+    {
+      "id": "RP09",
+      "phase": "P3",
+      "case": "Prestarted one-use topology",
+      "checks": "Two live slots maximum including initialization/idle/retirement, one ready maximum, one user input per generation, no result publication before reap. Test readyhit/coldmiss/refill contention, cancellation during initialization and claim, image/policy change, PIDreuse, parentdeath and exactly-once release."
+    },
+    {
+      "id": "RP10",
+      "phase": "P3",
+      "case": "True reuse feasibility",
+      "checks": "Freeze actual reached dependency/global-state and ownership audit. Compare fresh-child-loader vs same-loader semantics/JIT costs honestly. A/B/A and reordered traces across all required valid/invalid/exceptional cases; no leaked thread/FD/tempfile/global reference/private source, stale publication or unauthorized state. Unresolved reset/isolation rejects this branch even if fast."
+    },
+    {
+      "id": "RP11",
+      "phase": "P3",
+      "case": "Immutable image and resource ownership",
+      "checks": "Actual sealed bytes/manifest/resource loading and inherited FD/mount identities; bounded helper lineage; cgroup registered before executable work; parent SIGKILL and spawn/cancel races; CPU/AS/memory/pids limits; no replacement or permit release until owned group empty/reaped. Absence of delegation is unsupported pool configuration."
+    },
+    {
+      "id": "RP12",
+      "phase": "P4",
+      "case": "Selected implementation regression",
+      "checks": "Current constructor/differential/public identity/source-map/trivia/ownership checks, HTTP smoke, exactreceipt/CAS/restart/fullACLrecovery and retrieval/LangGraph regression. All SQL/controlpaths stay canonical; current Java/JS/TS style gates pass. No new public accepted-state authority."
+    },
+    {
+      "id": "RP13",
+      "phase": "P4",
+      "case": "Original target performance",
+      "checks": "Three independent4 vCPU / 8 GiB100-warmup / 1000-sample 500-node HTTP runs, each p95 < 300 ms and zero errors, all raw samples and lifecycle costs preserved. Selection objective <=240 ms. No averaging failed runs or omitting pool misses."
+    },
+    {
+      "id": "RP14",
+      "phase": "P4",
+      "case": "Cold, sustained and overload performance",
+      "checks": "Registered 30 server-cold + 30 idle-expiry/empty-pool cycles; 2 requests/second open-loop for 30 minutes; bursts of 2/4/8; saturation curve; one-hour soak and 10,000 requests. Apply proposed cold/sustained/resource criteria from the contract only after exact procedure freeze. Retain error/rejection rates and group CPU/RSS/throttling; no invisible background refill cost."
+    },
+    {
+      "id": "RP15",
+      "phase": "P5",
+      "case": "Browser acceptance",
+      "checks": "Rerun warm 500-node protocol after build change; separately freeze 30 cold-reload/first-edit protocol. Actual positive/negative pointer drop, move/copy, 23 constructors, keyboard-only/focus and Firefox ESR/Orca tasks. An unobservable automated drop is inconclusive; manual evidence must identify exact input/result."
+    },
+    {
+      "id": "RP16",
+      "phase": "P5",
+      "case": "Commercial decision",
+      "checks": "Dependency/model/dataset rights inventory with decisions, explicit privacy/deployment scope,consenting pilot and frozen task/support/economics criteria. No production or redistribution clearance inferred from formal/tests/performance alone."
+    }
+  ],
+  "execution_policy": "Before each future run, freeze exact fixtures/verifier hashes, source/compiled/config identity, trust and pass/block rules. Missing observations are incomplete. Preserve failures and prior roots; do not add unregistered checks to force a pass or weaken an original target."
+}

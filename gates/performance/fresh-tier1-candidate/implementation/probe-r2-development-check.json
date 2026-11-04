@@ -1,0 +1,76 @@
+{
+  "status": "DEVELOPMENT_CHECK_PASSED",
+  "not_selection_evidence": true,
+  "checks": [
+    {
+      "profile": "F0",
+      "inputBytes": 2097152,
+      "outcome": "INPUT_REJECTED",
+      "noWorkerStarted": true,
+      "exactRecord": true
+    },
+    {
+      "profile": "F1",
+      "inputBytes": 2097152,
+      "outcome": "INPUT_REJECTED",
+      "noWorkerStarted": true,
+      "exactRecord": true
+    },
+    {
+      "profile": "F0",
+      "inputBytes": 2097153,
+      "outcome": "INPUT_REJECTED",
+      "noWorkerStarted": true,
+      "exactRecord": true
+    },
+    {
+      "profile": "F1",
+      "inputBytes": 2097153,
+      "outcome": "INPUT_REJECTED",
+      "noWorkerStarted": true,
+      "exactRecord": true
+    },
+    {
+      "case": "capture-overflow",
+      "exitCode": 2,
+      "recordPresent": false,
+      "classification": "INFRASTRUCTURE_NOT_INPUT_REJECTION"
+    },
+    {
+      "case": "missing-input",
+      "exitCode": 2,
+      "recordPresent": false,
+      "classification": "INFRASTRUCTURE_NOT_INPUT_REJECTION"
+    },
+    {
+      "profile": "F0",
+      "case": "valid-small",
+      "outcome": "COMPLETE_RESPONSE",
+      "status": "VALIDATED",
+      "reaped": true
+    },
+    {
+      "profile": "F1",
+      "case": "valid-small",
+      "outcome": "COMPLETE_RESPONSE",
+      "status": "VALIDATED",
+      "reaped": true
+    }
+  ],
+  "source_sha256": "dacb2f42b54dddc26b185251e8ff963604ddf3ff42fba15ea4c5498f079e52bf",
+  "probe_classes": [
+    {
+      "path": "dev/allow/backend/FreshTier1ProbeMain$Options.class",
+      "sha256": "836b45f5b8809d4f99dc24de38cb04bb34154c913c90025a0020d03778825b35",
+      "size": 2147,
+      "mode": 436
+    },
+    {
+      "path": "dev/allow/backend/FreshTier1ProbeMain.class",
+      "sha256": "46182bd72702e8ac56f384aaef98a21e9403e35f3e56195352af1af02ef981bc",
+      "size": 10010,
+      "mode": 436
+    }
+  ],
+  "checkstyle": "PASS"
+}

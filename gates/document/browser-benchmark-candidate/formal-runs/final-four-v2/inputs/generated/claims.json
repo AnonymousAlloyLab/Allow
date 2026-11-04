@@ -1,0 +1,110 @@
+[
+  {
+    "id": "trace_event_count",
+    "statement": "trace_event_count : 100 * oneEdit.length + 1000 * oneEdit.length = 4400",
+    "class": "proof_compilation",
+    "verifier": "V-LEAN-EXACT",
+    "pass_condition": "Exact complete #check output and allowed axiom audit pass in both matching clean builds",
+    "block_conditions": [
+      "type mismatch",
+      "forbidden axiom",
+      "build failure",
+      "input mutation",
+      "nondeterminism"
+    ],
+    "dependencies": {
+      "verified": [],
+      "trusted": [
+        "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+        "propext, Quot.sound, Classical.choice only when audited",
+        "Python verifier and SHA256 collision resistance",
+        "operating system, filesystem and hardware"
+      ]
+    },
+    "evidence": "evidence/trace_event_count.json",
+    "public_claims": [
+      "trace_event_count"
+    ]
+  },
+  {
+    "id": "edit_order",
+    "statement": "edit_order : oneEdit = [Event.dispatch, Event.commit, Event.firstFrame, Event.secondFrame]",
+    "class": "proof_compilation",
+    "verifier": "V-LEAN-EXACT",
+    "pass_condition": "Exact complete #check output and allowed axiom audit pass in both matching clean builds",
+    "block_conditions": [
+      "type mismatch",
+      "forbidden axiom",
+      "build failure",
+      "input mutation",
+      "nondeterminism"
+    ],
+    "dependencies": {
+      "verified": [],
+      "trusted": [
+        "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+        "propext, Quot.sound, Classical.choice only when audited",
+        "Python verifier and SHA256 collision resistance",
+        "operating system, filesystem and hardware"
+      ]
+    },
+    "evidence": "evidence/edit_order.json",
+    "public_claims": [
+      "edit_order"
+    ]
+  },
+  {
+    "id": "incomplete_not_pass",
+    "statement": "incomplete_not_pass (run : Run) (valid : Bool) (p95Micros : Nat) (h : ¬complete run) :\n  classify run valid p95Micros = Classification.incomplete",
+    "class": "proof_compilation",
+    "verifier": "V-LEAN-EXACT",
+    "pass_condition": "Exact complete #check output and allowed axiom audit pass in both matching clean builds",
+    "block_conditions": [
+      "type mismatch",
+      "forbidden axiom",
+      "build failure",
+      "input mutation",
+      "nondeterminism"
+    ],
+    "dependencies": {
+      "verified": [],
+      "trusted": [
+        "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+        "propext, Quot.sound, Classical.choice only when audited",
+        "Python verifier and SHA256 collision resistance",
+        "operating system, filesystem and hardware"
+      ]
+    },
+    "evidence": "evidence/incomplete_not_pass.json",
+    "public_claims": [
+      "incomplete_not_pass"
+    ]
+  },
+  {
+    "id": "pass_iff",
+    "statement": "pass_iff (run : Run) (valid : Bool) (p95Micros : Nat) :\n  classify run valid p95Micros = Classification.pass ↔ complete run ∧ valid = true ∧ p95Micros < 50000",
+    "class": "proof_compilation",
+    "verifier": "V-LEAN-EXACT",
+    "pass_condition": "Exact complete #check output and allowed axiom audit pass in both matching clean builds",
+    "block_conditions": [
+      "type mismatch",
+      "forbidden axiom",
+      "build failure",
+      "input mutation",
+      "nondeterminism"
+    ],
+    "dependencies": {
+      "verified": [],
+      "trusted": [
+        "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+        "propext, Quot.sound, Classical.choice only when audited",
+        "Python verifier and SHA256 collision resistance",
+        "operating system, filesystem and hardware"
+      ]
+    },
+    "evidence": "evidence/pass_iff.json",
+    "public_claims": [
+      "pass_iff"
+    ]
+  }
+]

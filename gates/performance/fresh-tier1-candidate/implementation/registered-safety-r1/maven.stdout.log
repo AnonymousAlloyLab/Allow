@@ -1,0 +1,40 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< dev.allow:allow-backend >-----------------------
+[INFO] Building allow-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-cli) @ allow-backend ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.allow.backend.FreshTier1DeadlineTest
+deadline_fixture profile=DEFAULT elapsedNanos=10008570509 reaped=true
+deadline_fixture profile=DOCUMENT_ADVISORY_TIER1 elapsedNanos=10006096806 reaped=true
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.18 s -- in dev.allow.backend.FreshTier1DeadlineTest
+[INFO] Running dev.allow.backend.WorkerLaunchProfileTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.911 s -- in dev.allow.backend.WorkerLaunchProfileTest
+[INFO] Running dev.allow.backend.FreshTier1SafetyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.647 s -- in dev.allow.backend.FreshTier1SafetyTest
+[INFO] Running dev.allow.backend.DocumentWorkerLifecycleTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in dev.allow.backend.DocumentWorkerLifecycleTest
+[INFO] Running dev.allow.backend.FreshTier1SolverBaselineTest
+solver_fixture profile=DEFAULT status=SAT elapsedNanos=451281412 reaped=true
+solver_fixture profile=DEFAULT status=UNSAT elapsedNanos=508776606 reaped=true
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.002 s -- in dev.allow.backend.FreshTier1SolverBaselineTest
+[INFO] Running dev.allow.backend.DocumentValidationContextTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.70 s -- in dev.allow.backend.DocumentValidationContextTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  38.123 s
+[INFO] Finished at: 2026-11-04T00:04:42-06:00
+[INFO] ------------------------------------------------------------------------

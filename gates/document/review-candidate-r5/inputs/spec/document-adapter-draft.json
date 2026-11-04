@@ -1,0 +1,126 @@
+{
+  "id": "ALLOW-DOCUMENT-ADAPTER-0.1",
+  "revision": 1,
+  "status": "FROZEN_REVIEW_CANDIDATE_REQUIRES_SIX_APPROVALS_AND_TWO_CLEAN_FORMAL_BUILDS",
+  "dependency": "org.alloytools.alloy.dist6.2.0 artifact SHA6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d",
+  "profile": "Static self-contained ASCII named v1 fragment; exact source Unicode comments preserved. Every source-supported constructor must elaborate; foreign or ambiguous constructs are explicitly TEXT_ONLY after bounded trusted parser/policy acceptance. Rendering submitted supported IR must elaborate back modulo declared equivalence; failure rejects candidate as correspondence failure. No parser acceptance alone grants IR authority.",
+  "expressions": {
+    "signature_ref": {
+      "print": "Name",
+      "ast": "Sig identity; strip transparent NOOP only; reject built-in signatures"
+    },
+    "field_ref": {
+      "print": "Name",
+      "ast": "Sig.Field identity, optionally wrapped in parser-inserted owner DOMAIN restriction; require exact owning signature, single matching field and raw source token coverage without authored <:"
+    },
+    "variable_ref": {
+      "print": "Name",
+      "ast": "ExprVar identity resolved in explicit lexical stack; never resolve by label alone"
+    },
+    "predicate_call": {
+      "print": "Name[ordered arguments]",
+      "ast": "ExprCall.fun identity where isPred=true; ordered ExprCall.args; nonrecursive call graph"
+    },
+    "not": {
+      "print": "not (P)",
+      "ast": "ExprUnary.NOT"
+    },
+    "some_test": {
+      "print": "some (R)",
+      "ast": "ExprUnary.SOME"
+    },
+    "no_test": {
+      "print": "no (R)",
+      "ast": "ExprUnary.NO"
+    },
+    "one_test": {
+      "print": "one (R)",
+      "ast": "ExprUnary.ONE"
+    },
+    "lone_test": {
+      "print": "lone (R)",
+      "ast": "ExprUnary.LONE"
+    },
+    "and": {
+      "print": "(P) and (Q)",
+      "ast": "ExprBinary.AND or ExprList.AND; flatten ordered same-op children then deterministic left fold"
+    },
+    "or": {
+      "print": "(P) or (Q)",
+      "ast": "ExprBinary.OR or ExprList.OR; flatten ordered same-op children then deterministic left fold"
+    },
+    "implies": {
+      "print": "(P) implies (Q)",
+      "ast": "ExprBinary.IMPLIES"
+    },
+    "iff": {
+      "print": "(P) iff (Q)",
+      "ast": "ExprBinary.IFF"
+    },
+    "equal": {
+      "print": "(R) = (S)",
+      "ast": "ExprBinary.EQUALS, relation operands only"
+    },
+    "subset": {
+      "print": "(R) in (S)",
+      "ast": "ExprBinary.IN, relation operands only"
+    },
+    "union": {
+      "print": "(R) + (S)",
+      "ast": "ExprBinary.PLUS with relation operands; reject integer PLUS"
+    },
+    "intersection": {
+      "print": "(R) & (S)",
+      "ast": "ExprBinary.INTERSECT"
+    },
+    "difference": {
+      "print": "(R) - (S)",
+      "ast": "ExprBinary.MINUS with relation operands; reject integer MINUS"
+    },
+    "join": {
+      "print": "(R).(S)",
+      "ast": "ExprBinary.JOIN; parser-generated field owner restriction checked by field_ref rule"
+    },
+    "product": {
+      "print": "(R) -> (S)",
+      "ast": "ExprBinary.ARROW with no arrow multiplicity operators"
+    },
+    "transpose": {
+      "print": "~(R)",
+      "ast": "ExprUnary.TRANSPOSE"
+    },
+    "all_quant": {
+      "print": "all name: Signature | (P)",
+      "ast": "ExprQt.ALL; exactly one Decl/name, unary exact Sig domain after one/default-one wrapper; no disj/private/var"
+    },
+    "some_quant": {
+      "print": "some name: Signature | (P)",
+      "ast": "ExprQt.SOME with same single-atom binder rule"
+    }
+  },
+  "declarations": {
+    "signature": "Top-level primitive nonabstract static signature; multiplicity set/one/lone/some; no extends/in, enum, builtins, privacy or signature-body facts. Each ordered declaration has one globally unique profile name; multiple-name shorthand not part of v1. Print set multiplicity as sig, others explicit. Fields nested in owning signature declaration.",
+    "field": "Single field name; fullschema owner::range derived from stable declaration IDs. Unary range set/one/lone/some; tuple range only set of plain product signature refs. Default unary source multiplicity means one; explicit set tuple print uses parentheses. No disjoint/var/private/arrow multiplicity. Use Field.decl and ownership, not type string.",
+    "predicate": "Named pred with ordered single-name parameters. Each parameter explicitly set-valued plain product of declared signatures; zero parameters allowed. Func.isPred true; body read from Func.getBody before expansion. Reject functions/return values/recursion and profile-shadowed names.",
+    "fact_assertion": "Explicit unique named fact/assert; body formula from original declarations. Empty braces or implicit conjunction block shorthand outside v1 unless exact token/AST reconstruction yields documented and-fold; no invented truth constant. Compiler-inserted global facts never become authored roots.",
+    "commands": "Only explicitly authored run namedNullaryPredicate/check namedAssertion, bounded uniform scope1..5, bitwidth4,maxseq3; printer emits for N but 4 Int, 3 seq. Parse authored target token using bounded lexer and resolve exact declaration ID; cross-check parser Command.check/options. Never use expanded Command.formula as body/target oracle. No inline formula, per-sig scopes, temporal expectations or synthetic default run enters block module. Source with no authored commands has empty list even if Alloy synthesizes default command."
+  },
+  "elaboration": {
+    "identity": "Build exact parser-object to stable-ID maps in source declaration order. Names identify syntax declarations once, then all semantic references use object identity and lexical stack. Validate globally unique allowed names; unsupported name/shadowing patterns yield TEXT_ONLY. Generated source keeps user display names; anonymous canonical pipeline remains separate.",
+    "schema": "Derive exact ordered nominal schema from closed references/operators independently of Alloy Type. Parser acceptance is additionally required. Parser type may represent empty relation after simplification; never substitute empty/alternative schema for the independently derived schema. If resolved object/type indicates a conflicting declaration, arity or owner, mark correspondence unavailable/reject generated block; do not cast type strings.",
+    "normalization": "Only transparent ExprUnary.NOOP, parentheses, parser-inserted single-field owner restriction with exact rawtoken evidence, and ordered associative and/or flattening are erased. No arbitrary domain/range restrictions, relation simplification, commutation, command expansion, quantifier merging, let, integer or temporal rewrite. Deterministic left fold establishes a representation for normalized and/or source; round-trip compares flattened ordered lists.",
+    "source_tokens": "Bounded lexical pass over exact source records token/comment byte and UTF16 intervals. Recognize strings/escapes/comments before identifiers/operators, so comment text cannot invent declaration/command tokens. Cross-check AST source interval/token coverage. Authored <: is unsupported even when resolved AST resembles inserted field qualification. Qualified X.r is a join and preserves that distinction. Module names/imports/unsupported top-level syntax prevent block support.",
+    "occurrences": "Maps are optional per role; unavailable parser positions omit that entry with bounded projection diagnostic. Accepted block requires validated fullIR and artifact-bound map collection, not a guessed total location map. Empty collection valid for empty module. Printer records exact intervals directly, subject to scalar boundaries; source elaborator verifies pinned file-parser coordinate conversion and token match. Missing spans never disable independent typing.",
+    "history": "Revalidation of historical content preserves exact source/IR/map content and creates fresh policy/parser report/artifact identity. If current adapters cannot validate unchanged content, reject history-copy; no silent reinterpretation or historical mutation."
+  },
+  "finite_acceptance_matrix": [
+    "For each23tag, concrete positive and negative Typed witness, Java checker and browser preview result; finite fixtures are not universal infer correctness.",
+    "Generated parse(print(IR)) and source elaborate for all tags/declarations, zero/multiple commands, nested scope/calls, tuple fields/params, precedence/and-or associativity and unknown syntax; independent alpha-ID bijection.",
+    "SAT4J fixtures for per-owner one/lone/some unary field cardinality, arbitrary tuple-set field, set-valued tuple arguments including empty/nonempty, swappedcolumns/wrongarity/type denials.",
+    "Same-looking refs/different binders/fieldowners, unbound/capturedvariable, recursive dependencies, equality/subset direction, joins/products bounds and empty runtime relation with valid nominal schema.",
+    "Exact file-parser CRLF/LF/tabs/EOF, supplementary/combining characters, strings/comments, unavailable spans and immutable source hash.",
+    "Actual existing BubblewrapLauncher resource caps, timeout/reap/outputs/concurrency, and SQLeanParser catalog of every DDL/transaction/RLS/recovery statement. Any deniedSQL blocks feature; no directPostgresfallback or unreviewedgatewaychange."
+  ],
+  "trust": "Alloy parsing, solver correctness, lexical/AST adapter, Java/TS/SQL refinement remain explicit trusted components plus finite differential/integration tests. Contracts do not assert these tests already passed.",
+  "commercial": "Local engineering only; no dataset redistribution or production commercialization clearance."
+}

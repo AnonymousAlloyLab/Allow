@@ -1,0 +1,26 @@
+{
+  "seat": "terra-1",
+  "status": "ADVISORY_READY",
+  "formal_file": "formal/Allow/EGraph.lean",
+  "checked": "lake env lean Allow/EGraph.lean with Lean 4.34.1",
+  "expected_theorem_types": "Exact kernel-audited propositions are registered in spec/egraph-types.json and spec/egraph-stage.json, EG01–EG20.",
+  "concrete_witnesses": [
+    "Allow.EGraph.witness_boolean_absorption (Fin 2 atoms)",
+    "Allow.EGraph.witness_relation_absorption (Fin 2 atoms)",
+    "Allow.EGraph.witness_relation_difference (Fin 1 atom)",
+    "Allow.EGraph.witness_budget_stop"
+  ],
+  "limitations": [
+    "Graph.justified and RelGraph.justified are assumed invariants; implementation preservation is unproved.",
+    "Tuple is fixed in relational semantics, while schema and context equality are separately guarded. No theorem connects nominal schema to Tuple or the parser.",
+    "Worklist emptiness does not establish e-matching completeness. No proof of hashcons, union-find, rebuild, matching, optimization, termination, Java refinement, or complete Alloy equivalence is claimed.",
+    "Saturation theorem requires a budget reason unequal to saturated; production status construction must enforce it.",
+    "Bounded cost extraction equivalence requires membership and does not prove global minimality.",
+    "Mixed SOME/NO semantics are over an explicit finite tuple list; Java must establish that this list represents the intended Alloy universe and schema."
+  ],
+  "findings": [
+    "Revision 2 addresses identified input occurrence capture, same-class repeated variable concrete proof, depth and output bounds, deterministic unit cost, and hash-cons congruence concerns in its contract.",
+    "The abstract saturation theorem excludes a saturated budget reason and only shows empty work remains; contract and tests must separately enforce complete matching and rebuilding.",
+    "Independent Java checker and catalog pattern translation remain trusted and require negative and differential tests; no Lean refinement claim."
+  ]
+}

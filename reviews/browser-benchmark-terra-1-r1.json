@@ -1,0 +1,31 @@
+{
+  "reviewer": "terra-1",
+  "decision": "REQUEST_CHANGES",
+  "input_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "63d9c6c32153d8b2324eb977126f039a5acf05a311ced441801838bba93f9c5a",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "06eaf65eb9d785f5481f5c4e9ea8c0ad74555de84ecf611147cb02f8bc4b069c"
+  },
+  "scope": "Test-only plan review; no execution or runtime proof. Lean is an abstract model, not evidence of browser correspondence.",
+  "findings": [
+    {
+      "id": "T1-01",
+      "severity": "high",
+      "location": "protocol.json harness.dom_caveat and event_interval",
+      "problem": "The fallback permits a passing run without target-specific DOM verification, although this fixture's A and B signatures have distinct names and the real Branch button renders typeLabel derived from checker types. A signature_ref target toggle should change the button from a relation type A to B or vice versa. A generation marker plus node count could accept a stale or incorrectly rendered target.",
+      "required_fix": "For every edit require the actual button with exact node ID inside the owned forest to show the expected target-specific nominal type, derived from the pinned fixture and checked independently; fail closed if unavailable or wrong. Verify distinct A/B names and IDs and the expected pre-edit and post-edit state. Do not inject labels. If observability genuinely cannot be established, classify the series incomplete rather than pass."
+    },
+    {
+      "id": "T1-02",
+      "severity": "high",
+      "location": "protocol.json harness.binding and event_interval",
+      "problem": "A matching contentGeneration by itself does not uniquely identify a commit across document/draft replacement, remount, or stale marker observations. The protocol does not require a fresh commit notification after dispatch, identity continuity, or invalidation when concurrent advisory/navigation updates interfere.",
+      "required_fix": "Arm a commit observer before dispatch; bind each event to the mounted workbench instance, accepted document ID, base revision, draft ID, previous and expected next generation, and a strictly fresh post-dispatch React commit. Check continuity and exact generation increment at commit and after both sequential rAF callbacks; classify interruptions, unmounts, unexpected content changes, missing or stale commits and timeout as incomplete. Allow ordinary advisory activity but record it and reject any event whose identity/content is no longer the dispatched edit."
+    }
+  ],
+  "refinements": [
+    "Use a post-commit React layout effect or equivalent commit-phase marker carrying the rendered view identity, not the synchronous controller.current update: publish updates the ref before React commits.",
+    "The implementation's forest stops rendering at depth >= 32; validate actual rendered 500 unique fixture node IDs, no missing-node/depth alerts, and the exact owned button set, rather than only counting arbitrary buttons.",
+    "Require a foreground visible document and a bounded timeout for each callback; record actual refresh conditions. Two sequential rAF callbacks provide a prior paint opportunity, not proof of physical paint. Preserve all sample and invalidation evidence.",
+    "The Lean trace is constructed rather than tied to Run or actual execution, models one abstract frameOpportunity rather than two callbacks, and accepts an externally supplied p95. Its limited claims should remain explicit and cannot validate actual p95 or commits."
+  ]
+}

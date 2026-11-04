@@ -1,0 +1,28 @@
+{
+  "reviewer": "Terra council seat 1",
+  "review_type": "FINAL_FROZEN_GAMEPLAN_REVIEW",
+  "candidate_manifest": "gates/document/review-candidate-r4/manifest.json",
+  "input_hashes": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "b8fe8a869e93940f0d08c376e5835ae0413a42a6d7d5af2620c70dc38442a87c",
+    "gates/document/draft/types.json": "9071ff7c89a564ee43e94cc63d4cf50b8061ce239fde6026d2345b8d1c1e8815"
+  },
+  "decision": "BLOCKERS",
+  "blocking_findings": [
+    {
+      "id": "R4-TERRA1-01",
+      "title": "Admitted transaction system has no changed-request collision transition",
+      "evidence": "Document.lean Step.collision handles an authorized preexisting receipt whose exact wire differs, but AdmittedStep only has replay for equal wire and fresh for receipt = none. Thus a changed-wire request under an existing scoped key cannot be represented in the externally admitted transition system; Step.collision is unreachable through that wrapper. The wire contract requires the authorized lookup to reject changed bytes before parser, frame, policy and stale checks. The existing collision theorem and fixture prove only the underlying Step, not the wrapper.",
+      "resolution": "Add an AdmittedStep collision constructor requiring authorization, receipt lookup and wire inequality only; prove collision result leaves document/history/receipt state unchanged and is available without decoder, parser or frame, including equal digest/different bytes. Register positive and denial witnesses and update exact types; refreeze/review all affected hashes. Do not weaken receipt-before-validation ordering or imply denial can append a receipt."
+    }
+  ],
+  "assessments": [
+    "The source- and policy-bound parser admission, explicit checked-frame/decoder trust, TEXT_ONLY no-IR/map rule, 23-tag Typed fixtures, revision-zero and fresh-report history-copy, capacity/no-TTL retention and unknown success/denial distinction form a coherent bounded direction when the admitted collision gap is repaired.",
+    "Alloy, Java/TypeScript, SQL isolation, runtime adapter and accessible browser behavior remain expressly test/trust boundaries, and inherited G2/G3 and commercial work remain open.",
+    "Finite inference examples are appropriately not represented as universal soundness/completeness."
+  ],
+  "verification": "Read six frozen inputs and checked each against its manifest SHA-256. Inspected admitted and underlying transaction constructors, receipt-order obligations, full typing witness registry, and bounded UI/adapter contract. No clean builds or production/runtime tests performed. This is gameplan review only, not G2/G3 or commercial approval."
+}

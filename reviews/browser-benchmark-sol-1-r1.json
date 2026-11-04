@@ -1,0 +1,51 @@
+{
+  "reviewer": "sol-1",
+  "decision": "REQUEST_CHANGES",
+  "scope": "Test-only gameplan review; no benchmark executed and no production files changed.",
+  "inputs_sha256": {
+    "gates/document/browser-benchmark-candidate/protocol.json": "63d9c6c32153d8b2324eb977126f039a5acf05a311ced441801838bba93f9c5a",
+    "gates/document/browser-benchmark-candidate/BrowserBenchmarkProtocol.lean": "06eaf65eb9d785f5481f5c4e9ea8c0ad74555de84ecf611147cb02f8bc4b069c"
+  },
+  "findings": [
+    {
+      "id": "SOL1-01",
+      "severity": "medium",
+      "kind": "required refinement",
+      "evidence": [
+        "frontend/src/document/ExpressionEditor.tsx:87 renders label plus typeLabel for every Branch button",
+        "frontend/src/document/model.ts:46 maps nominal columns to signature names",
+        "frontend/src/document/checker.ts:94 assigns signature_ref its exact target signature column",
+        "fixture signatures have distinct names A and B"
+      ],
+      "issue": "The fallback permitting missing target-specific DOM evidence is unnecessarily weak for this frozen fixture. Real production labels expose signature ref \u00b7 A / signature ref \u00b7 B. Merely checking 500 buttons and controller state would permit a commit marker on the wrong subtree or stale forest to pass.",
+      "requested_change": "Require exact block-ID button text/schema A or B for the edited reference after every event, plus unique owned-node IDs/count. Treat missing target text as invalid/incomplete for this fixture rather than successful weaker verification. Never add a fake production label."
+    },
+    {
+      "id": "SOL1-02",
+      "severity": "medium",
+      "kind": "required refinement",
+      "evidence": [
+        "protocol.harness.binding leaves commit marker implementation and React build mode unspecified",
+        "frontend/src/DocumentWorkbench.tsx:12-18 constructs a real controller and publishes synchronous current ref through controller.ts publish",
+        "frontend/src/main.tsx uses createRoot and real AllowApp"
+      ],
+      "issue": "A controller-ref update or a render-body callback is not a committed subtree. Vite development transforms, HMR and StrictMode choices can materially change a near-50ms result, and instrumentation must not add flushSync or synchronous DOM/layout work inside the interval.",
+      "requested_change": "Specify commit-phase marker (e.g. narrowly injected useLayoutEffect keyed to committed view.document.contentGeneration), one pending expected generation, and registration before changeModule. Resolve marker only from committed rendered view, never mutable controller.current alone. Use and record a declared production React/browser build with test-only transform; record mode, HMR/StrictMode, viewport/DPR, instrumentation overhead/limitations. Keep hashing/DOM queries/transport logging outside timed callbacks and forbid flushSync or forced layout."
+    },
+    {
+      "id": "SOL1-03",
+      "severity": "low",
+      "kind": "refinement",
+      "issue": "The authoritative specification says record a separate cold-start series, while candidate says only if conducted. Warm acceptance can be evaluated independently, but an omitted cold series must remain explicit evidence debt.",
+      "requested_change": "Either define and collect a distinct cold-start series or report NOT_CONDUCTED with cold-start performance open. Record worker-startup included/excluded/not applicable explicitly; do not mix cold samples with the 1000 warm measurements."
+    }
+  ],
+  "approved_elements": [
+    "Actual changeModule -> editModule -> publishDocument is a feasible dispatch boundary; existing AllowApp renders CorpusPanel too, so preserving real app includes this concurrent work.",
+    "Accepted document setup is necessary because DocumentBody is conditional. Retaining checker, full forest, SourcePanel, advisory effects and real app prevents reduced-render substitution.",
+    "500 actual nodes, 100 warmups, 1000 sequential measured edits, exact fixture hashes, nearest-rank strict p95 < 50ms and preservation of failed samples are appropriate.",
+    "Two sequential requestAnimationFrame callbacks following actual commit are a paint opportunity only; no physical presentation, server diagnostic, manual AT or commercial claims are established.",
+    "Lean model is explicitly abstract and is not runtime proof. Its supplied p95Micros is not derived from samples and its single frameOpportunity event abstracts the two callbacks; do not cite it as proving percentile calculation or frame correspondence."
+  ],
+  "validation": "Read both candidate inputs and existing specification/controller/workbench/checker/type labels/entry point. No browser timings or Lean compilation performed."
+}

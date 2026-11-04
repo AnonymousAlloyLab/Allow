@@ -1,0 +1,1905 @@
+{
+  "profile": "retrieval-explicit-v1",
+  "postgres": "16.15",
+  "pgvector": "0.8.7",
+  "historical_baseline_sha256": "b9705a00228910947c9a187424ee8d2befe59b0f7b3ee3e14ec5685d062b2fa2",
+  "catalog": {
+    "tables": [
+      {
+        "table_name": "artifact"
+      },
+      {
+        "table_name": "diagnostic"
+      },
+      {
+        "table_name": "embedding"
+      },
+      {
+        "table_name": "embedding_intent"
+      },
+      {
+        "table_name": "membership"
+      },
+      {
+        "table_name": "model"
+      },
+      {
+        "table_name": "outbox"
+      },
+      {
+        "table_name": "record"
+      },
+      {
+        "table_name": "record_origin"
+      },
+      {
+        "table_name": "run"
+      },
+      {
+        "table_name": "runtime_state"
+      },
+      {
+        "table_name": "training_lineage"
+      },
+      {
+        "table_name": "training_variant"
+      },
+      {
+        "table_name": "witness"
+      }
+    ],
+    "columns": [
+      {
+        "table_name": "artifact",
+        "name": "id",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "source_hash",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "source_root",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "locator",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "family",
+        "position": 7,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "snapshot",
+        "position": 8,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "provenance",
+        "position": 9,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "artifact",
+        "name": "created_at",
+        "position": 10,
+        "type": "timestamp with time zone",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "now()"
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "id",
+        "position": 1,
+        "type": "bigint",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "nextval('retrieval.diagnostic_id_seq'::regclass)"
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "dataset",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "source_hash",
+        "position": 5,
+        "type": "text",
+        "not_null": false,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "reason",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "details",
+        "position": 7,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "created_at",
+        "position": 8,
+        "type": "timestamp with time zone",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "now()"
+      },
+      {
+        "table_name": "embedding",
+        "name": "tenant",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding",
+        "name": "project",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding",
+        "name": "record_id",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding",
+        "name": "model_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding",
+        "name": "content_version",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding",
+        "name": "vector",
+        "position": 6,
+        "type": "vector(3072)",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "tenant",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "project",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "record_id",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "content_version",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "status",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "'PENDING'::text"
+      },
+      {
+        "table_name": "membership",
+        "name": "tenant",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "membership",
+        "name": "project",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "membership",
+        "name": "record_id",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "membership",
+        "name": "run_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "membership",
+        "name": "witness_id",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "membership",
+        "name": "polarity",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "membership",
+        "name": "validated",
+        "position": 7,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "model",
+        "name": "id",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "model",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "model",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "model",
+        "name": "manifest",
+        "position": 4,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "model",
+        "name": "active",
+        "position": 5,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "true"
+      },
+      {
+        "table_name": "model",
+        "name": "trained",
+        "position": 6,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "false"
+      },
+      {
+        "table_name": "model",
+        "name": "created_at",
+        "position": 7,
+        "type": "timestamp with time zone",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "now()"
+      },
+      {
+        "table_name": "model",
+        "name": "servable",
+        "position": 8,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "false"
+      },
+      {
+        "table_name": "model",
+        "name": "promotion",
+        "position": 9,
+        "type": "jsonb",
+        "not_null": false,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "id",
+        "position": 1,
+        "type": "bigint",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "nextval('retrieval.outbox_id_seq'::regclass)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "record_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "model_id",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "content_version",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "status",
+        "position": 7,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "'PENDING'::text"
+      },
+      {
+        "table_name": "outbox",
+        "name": "attempts",
+        "position": 8,
+        "type": "integer",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "0"
+      },
+      {
+        "table_name": "outbox",
+        "name": "error",
+        "position": 9,
+        "type": "text",
+        "not_null": false,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "claim_token",
+        "position": 10,
+        "type": "text",
+        "not_null": false,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "outbox",
+        "name": "lease_until",
+        "position": 11,
+        "type": "timestamp with time zone",
+        "not_null": false,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "id",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "artifact_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "content",
+        "position": 5,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "context_key",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "context_bytes",
+        "position": 7,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "n",
+        "position": 8,
+        "type": "integer",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "status",
+        "position": 9,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "target_slot",
+        "position": 10,
+        "type": "integer",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "family",
+        "position": 11,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "split",
+        "position": 12,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "'unassigned'::text"
+      },
+      {
+        "table_name": "record",
+        "name": "allowed_purposes",
+        "position": 13,
+        "type": "text[]",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "rights_version",
+        "position": 14,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "revoked",
+        "position": 15,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "false"
+      },
+      {
+        "table_name": "record",
+        "name": "content_version",
+        "position": 16,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record",
+        "name": "created_at",
+        "position": 17,
+        "type": "timestamp with time zone",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "now()"
+      },
+      {
+        "table_name": "record",
+        "name": "evidence",
+        "position": 18,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "'{}'::jsonb"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "tenant",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record_origin",
+        "name": "project",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_id",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record_origin",
+        "name": "artifact_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record_origin",
+        "name": "target_slot",
+        "position": 5,
+        "type": "integer",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "record_origin",
+        "name": "evidence",
+        "position": 6,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "id",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "record_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "polarity",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "existence",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "termination",
+        "position": 7,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "query_identity",
+        "position": 8,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "run",
+        "name": "details",
+        "position": 9,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "singleton",
+        "position": 1,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "true"
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "journal_id",
+        "position": 2,
+        "type": "text",
+        "not_null": false,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "journal_seq",
+        "position": 3,
+        "type": "bigint",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "0"
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "journal_head",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "'GENESIS'::text"
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "quarantined",
+        "position": 5,
+        "type": "boolean",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "true"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "tenant",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "project",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "model_id",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "record_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "rights_version",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "id",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "record_id",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "original_certificate_id",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "worker_identity",
+        "position": 6,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "evidence",
+        "position": 7,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "training_variant",
+        "name": "created_at",
+        "position": 8,
+        "type": "timestamp with time zone",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": "now()"
+      },
+      {
+        "table_name": "witness",
+        "name": "id",
+        "position": 1,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "witness",
+        "name": "tenant",
+        "position": 2,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "witness",
+        "name": "project",
+        "position": 3,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "witness",
+        "name": "context_key",
+        "position": 4,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "witness",
+        "name": "canonical_bytes",
+        "position": 5,
+        "type": "text",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      },
+      {
+        "table_name": "witness",
+        "name": "content",
+        "position": 6,
+        "type": "jsonb",
+        "not_null": true,
+        "identity_kind": "",
+        "generated_kind": "",
+        "default_expression": null
+      }
+    ],
+    "constraints": [
+      {
+        "table_name": "artifact",
+        "name": "artifact_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "artifact",
+        "name": "artifact_scope_identity",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (id, tenant, project)"
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "diagnostic_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "embedding",
+        "name": "embedding_model_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (model_id) REFERENCES retrieval.model(id)"
+      },
+      {
+        "table_name": "embedding",
+        "name": "embedding_model_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (model_id, tenant, project) REFERENCES retrieval.model(id, tenant, project)"
+      },
+      {
+        "table_name": "embedding",
+        "name": "embedding_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (record_id, model_id)"
+      },
+      {
+        "table_name": "embedding",
+        "name": "embedding_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "embedding",
+        "name": "embedding_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "embedding_intent_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (record_id)"
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "embedding_intent_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "embedding_intent_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "embedding_intent_status_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK ((status = ANY (ARRAY['PENDING'::text, 'QUEUED'::text, 'CANCELLED'::text])))"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_own_query",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (run_id, record_id, polarity) REFERENCES retrieval.run(id, record_id, polarity)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (record_id, polarity, witness_id)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_polarity_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK ((polarity = ANY (ARRAY['positive'::text, 'negative'::text])))"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_run_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (run_id) REFERENCES retrieval.run(id)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_run_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (run_id, tenant, project) REFERENCES retrieval.run(id, tenant, project)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_validated_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK (validated)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_witness_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (witness_id) REFERENCES retrieval.witness(id)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_witness_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (witness_id, tenant, project) REFERENCES retrieval.witness(id, tenant, project)"
+      },
+      {
+        "table_name": "model",
+        "name": "model_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "model",
+        "name": "model_scope_identity",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (id, tenant, project)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_model_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (model_id) REFERENCES retrieval.model(id)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_model_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (model_id, tenant, project) REFERENCES retrieval.model(id, tenant, project)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_record_id_model_id_content_version_key",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (record_id, model_id, content_version)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_status_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK ((status = ANY (ARRAY['PENDING'::text, 'RUNNING'::text, 'DONE'::text, 'CANCELLED'::text, 'ERROR'::text])))"
+      },
+      {
+        "table_name": "record",
+        "name": "record_artifact_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (artifact_id) REFERENCES retrieval.artifact(id)"
+      },
+      {
+        "table_name": "record",
+        "name": "record_artifact_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (artifact_id, tenant, project) REFERENCES retrieval.artifact(id, tenant, project)"
+      },
+      {
+        "table_name": "record",
+        "name": "record_n_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK (((n >= 3) AND (n <= 5)))"
+      },
+      {
+        "table_name": "record",
+        "name": "record_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "record",
+        "name": "record_scope_identity",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (id, tenant, project)"
+      },
+      {
+        "table_name": "record",
+        "name": "record_split_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK ((split = ANY (ARRAY['unassigned'::text, 'train'::text, 'validation'::text, 'test'::text])))"
+      },
+      {
+        "table_name": "record",
+        "name": "record_status_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK ((status = ANY (ARRAY['FULL'::text, 'PARTIAL'::text, 'REJECTED'::text])))"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_origin_artifact_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (artifact_id) REFERENCES retrieval.artifact(id)"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_origin_artifact_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (artifact_id, tenant, project) REFERENCES retrieval.artifact(id, tenant, project)"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_origin_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (record_id, artifact_id, target_slot)"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_origin_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_origin_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_polarity_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK ((polarity = ANY (ARRAY['positive'::text, 'negative'::text])))"
+      },
+      {
+        "table_name": "run",
+        "name": "run_query_member_identity",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (id, record_id, polarity)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_record_id_polarity_key",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (record_id, polarity)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_scope_identity",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (id, tenant, project)"
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "runtime_state_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (singleton)"
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "runtime_state_singleton_check",
+        "type": "c",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "CHECK (singleton)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "training_lineage_model_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (model_id) REFERENCES retrieval.model(id)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "training_lineage_model_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (model_id, tenant, project) REFERENCES retrieval.model(id, tenant, project)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "training_lineage_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (model_id, record_id)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "training_lineage_record_id_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id) REFERENCES retrieval.record(id)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "training_lineage_record_id_scope_fk",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "training_variant",
+        "name": "training_variant_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "training_variant",
+        "name": "training_variant_record_id_tenant_project_fkey",
+        "type": "f",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "FOREIGN KEY (record_id, tenant, project) REFERENCES retrieval.record(id, tenant, project)"
+      },
+      {
+        "table_name": "witness",
+        "name": "witness_pkey",
+        "type": "p",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "PRIMARY KEY (id)"
+      },
+      {
+        "table_name": "witness",
+        "name": "witness_scope_identity",
+        "type": "u",
+        "validated": true,
+        "deferrable": false,
+        "initially_deferred": false,
+        "definition": "UNIQUE (id, tenant, project)"
+      }
+    ],
+    "indexes": [
+      {
+        "table_name": "artifact",
+        "name": "artifact_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX artifact_pkey ON retrieval.artifact USING btree (id)"
+      },
+      {
+        "table_name": "artifact",
+        "name": "artifact_scope_identity",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX artifact_scope_identity ON retrieval.artifact USING btree (id, tenant, project)"
+      },
+      {
+        "table_name": "diagnostic",
+        "name": "diagnostic_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX diagnostic_pkey ON retrieval.diagnostic USING btree (id)"
+      },
+      {
+        "table_name": "embedding",
+        "name": "embedding_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX embedding_pkey ON retrieval.embedding USING btree (record_id, model_id)"
+      },
+      {
+        "table_name": "embedding_intent",
+        "name": "embedding_intent_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX embedding_intent_pkey ON retrieval.embedding_intent USING btree (record_id)"
+      },
+      {
+        "table_name": "membership",
+        "name": "membership_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX membership_pkey ON retrieval.membership USING btree (record_id, polarity, witness_id)"
+      },
+      {
+        "table_name": "model",
+        "name": "model_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX model_pkey ON retrieval.model USING btree (id)"
+      },
+      {
+        "table_name": "model",
+        "name": "model_scope_identity",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX model_scope_identity ON retrieval.model USING btree (id, tenant, project)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX outbox_pkey ON retrieval.outbox USING btree (id)"
+      },
+      {
+        "table_name": "outbox",
+        "name": "outbox_record_id_model_id_content_version_key",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX outbox_record_id_model_id_content_version_key ON retrieval.outbox USING btree (record_id, model_id, content_version)"
+      },
+      {
+        "table_name": "record",
+        "name": "record_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX record_pkey ON retrieval.record USING btree (id)"
+      },
+      {
+        "table_name": "record",
+        "name": "record_scope_identity",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX record_scope_identity ON retrieval.record USING btree (id, tenant, project)"
+      },
+      {
+        "table_name": "record",
+        "name": "retrieval_record_scope",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE INDEX retrieval_record_scope ON retrieval.record USING btree (tenant, project, status, revoked)"
+      },
+      {
+        "table_name": "record_origin",
+        "name": "record_origin_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX record_origin_pkey ON retrieval.record_origin USING btree (record_id, artifact_id, target_slot)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX run_pkey ON retrieval.run USING btree (id)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_query_member_identity",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX run_query_member_identity ON retrieval.run USING btree (id, record_id, polarity)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_record_id_polarity_key",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX run_record_id_polarity_key ON retrieval.run USING btree (record_id, polarity)"
+      },
+      {
+        "table_name": "run",
+        "name": "run_scope_identity",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX run_scope_identity ON retrieval.run USING btree (id, tenant, project)"
+      },
+      {
+        "table_name": "runtime_state",
+        "name": "runtime_state_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX runtime_state_pkey ON retrieval.runtime_state USING btree (singleton)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "retrieval_lineage_record",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE INDEX retrieval_lineage_record ON retrieval.training_lineage USING btree (record_id)"
+      },
+      {
+        "table_name": "training_lineage",
+        "name": "training_lineage_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX training_lineage_pkey ON retrieval.training_lineage USING btree (model_id, record_id)"
+      },
+      {
+        "table_name": "training_variant",
+        "name": "training_variant_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX training_variant_pkey ON retrieval.training_variant USING btree (id)"
+      },
+      {
+        "table_name": "witness",
+        "name": "witness_pkey",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX witness_pkey ON retrieval.witness USING btree (id)"
+      },
+      {
+        "table_name": "witness",
+        "name": "witness_scope_identity",
+        "valid": true,
+        "ready": true,
+        "definition": "CREATE UNIQUE INDEX witness_scope_identity ON retrieval.witness USING btree (id, tenant, project)"
+      }
+    ]
+  }
+}

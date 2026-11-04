@@ -1,0 +1,5614 @@
+{
+  "protocol": 1,
+  "scope": "Finite TypeScript/Java checker agreement inputs only; no Lean refinement, Alloy parser or browser correspondence claim.",
+  "tagInventory": [
+    "signature_ref",
+    "field_ref",
+    "variable_ref",
+    "predicate_call",
+    "not",
+    "some_test",
+    "no_test",
+    "one_test",
+    "lone_test",
+    "transpose",
+    "and",
+    "or",
+    "implies",
+    "iff",
+    "equal",
+    "subset",
+    "union",
+    "intersection",
+    "difference",
+    "join",
+    "product",
+    "all_quant",
+    "some_quant"
+  ],
+  "cases": [
+    {
+      "caseId": "signature_ref-positive",
+      "tag": "signature_ref",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000000401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000000402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000000403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000000401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000000402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000000404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000000401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000000401",
+              "draft:00000000-0000-4000-8000-000000000401",
+              "draft:00000000-0000-4000-8000-000000000401",
+              "draft:00000000-0000-4000-8000-000000000401",
+              "draft:00000000-0000-4000-8000-000000000401",
+              "draft:00000000-0000-4000-8000-000000000401",
+              "draft:00000000-0000-4000-8000-000000000401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000040b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000000406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000000401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000000408"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000000405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000040c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000000401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000000409"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000000407",
+            "targetId": "draft:00000000-0000-4000-8000-000000000401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000000408",
+            "operandId": "draft:00000000-0000-4000-8000-000000000407"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000040a",
+            "targetId": "draft:00000000-0000-4000-8000-000000000401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000000409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000040a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "signature_ref-negative",
+      "tag": "signature_ref",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000000801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000000802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000000803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000000801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000000802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000000804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000000801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000000801",
+              "draft:00000000-0000-4000-8000-000000000801",
+              "draft:00000000-0000-4000-8000-000000000801",
+              "draft:00000000-0000-4000-8000-000000000801",
+              "draft:00000000-0000-4000-8000-000000000801",
+              "draft:00000000-0000-4000-8000-000000000801",
+              "draft:00000000-0000-4000-8000-000000000801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000080b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000000806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000000801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000000808"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000000805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000080c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000000801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000000809"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000000807",
+            "targetId": "missing"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000000808",
+            "operandId": "draft:00000000-0000-4000-8000-000000000807"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000080a",
+            "targetId": "draft:00000000-0000-4000-8000-000000000801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000000809",
+            "operandId": "draft:00000000-0000-4000-8000-00000000080a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000000807",
+          "message": "Unknown declaration or out-of-scope binder."
+        }
+      ]
+    },
+    {
+      "caseId": "field_ref-positive",
+      "tag": "field_ref",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000000c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000000c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000000c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000000c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000000c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000000c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000000c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000000c01",
+              "draft:00000000-0000-4000-8000-000000000c01",
+              "draft:00000000-0000-4000-8000-000000000c01",
+              "draft:00000000-0000-4000-8000-000000000c01",
+              "draft:00000000-0000-4000-8000-000000000c01",
+              "draft:00000000-0000-4000-8000-000000000c01",
+              "draft:00000000-0000-4000-8000-000000000c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000000c0b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000000c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000000c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000000c08"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000000c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000000c0c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000000c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000000c09"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "field_ref",
+            "id": "draft:00000000-0000-4000-8000-000000000c07",
+            "targetId": "draft:00000000-0000-4000-8000-000000000c03"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000000c08",
+            "operandId": "draft:00000000-0000-4000-8000-000000000c07"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000000c0a",
+            "targetId": "draft:00000000-0000-4000-8000-000000000c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000000c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000000c0a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "field_ref-negative",
+      "tag": "field_ref",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001001",
+              "draft:00000000-0000-4000-8000-000000001001",
+              "draft:00000000-0000-4000-8000-000000001001",
+              "draft:00000000-0000-4000-8000-000000001001",
+              "draft:00000000-0000-4000-8000-000000001001",
+              "draft:00000000-0000-4000-8000-000000001001",
+              "draft:00000000-0000-4000-8000-000000001001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000100b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000001006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001008"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000001005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000100c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001009"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "field_ref",
+            "id": "draft:00000000-0000-4000-8000-000000001007",
+            "targetId": "missing"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001008",
+            "operandId": "draft:00000000-0000-4000-8000-000000001007"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000100a",
+            "targetId": "draft:00000000-0000-4000-8000-000000001001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001009",
+            "operandId": "draft:00000000-0000-4000-8000-00000000100a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000001007",
+          "message": "Unknown declaration or out-of-scope binder."
+        }
+      ]
+    },
+    {
+      "caseId": "variable_ref-positive",
+      "tag": "variable_ref",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001401",
+              "draft:00000000-0000-4000-8000-000000001401",
+              "draft:00000000-0000-4000-8000-000000001401",
+              "draft:00000000-0000-4000-8000-000000001401",
+              "draft:00000000-0000-4000-8000-000000001401",
+              "draft:00000000-0000-4000-8000-000000001401",
+              "draft:00000000-0000-4000-8000-000000001401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000140b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000001406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001408"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000001405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000140c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001409"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "variable_ref",
+            "id": "draft:00000000-0000-4000-8000-000000001407",
+            "targetId": "draft:00000000-0000-4000-8000-000000001406"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001408",
+            "operandId": "draft:00000000-0000-4000-8000-000000001407"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000140a",
+            "targetId": "draft:00000000-0000-4000-8000-000000001401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000140a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "variable_ref-negative",
+      "tag": "variable_ref",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001801",
+              "draft:00000000-0000-4000-8000-000000001801",
+              "draft:00000000-0000-4000-8000-000000001801",
+              "draft:00000000-0000-4000-8000-000000001801",
+              "draft:00000000-0000-4000-8000-000000001801",
+              "draft:00000000-0000-4000-8000-000000001801",
+              "draft:00000000-0000-4000-8000-000000001801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000180b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000001806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001808"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000001805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000180c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001809"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "variable_ref",
+            "id": "draft:00000000-0000-4000-8000-000000001807",
+            "targetId": "missing"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001808",
+            "operandId": "draft:00000000-0000-4000-8000-000000001807"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000180a",
+            "targetId": "draft:00000000-0000-4000-8000-000000001801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001809",
+            "operandId": "draft:00000000-0000-4000-8000-00000000180a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000001807",
+          "message": "Unknown declaration or out-of-scope binder."
+        }
+      ]
+    },
+    {
+      "caseId": "predicate_call-positive",
+      "tag": "predicate_call",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000001c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000001c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000001c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000001c01",
+              "draft:00000000-0000-4000-8000-000000001c01",
+              "draft:00000000-0000-4000-8000-000000001c01",
+              "draft:00000000-0000-4000-8000-000000001c01",
+              "draft:00000000-0000-4000-8000-000000001c01",
+              "draft:00000000-0000-4000-8000-000000001c01",
+              "draft:00000000-0000-4000-8000-000000001c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000001c0b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000001c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001c07"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000001c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000001c0c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000001c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000001c09"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000001c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000001c01"
+          },
+          {
+            "tag": "predicate_call",
+            "id": "draft:00000000-0000-4000-8000-000000001c07",
+            "predicateId": "draft:00000000-0000-4000-8000-000000001c05",
+            "arguments": [
+              "draft:00000000-0000-4000-8000-000000001c08"
+            ]
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000001c0a",
+            "targetId": "draft:00000000-0000-4000-8000-000000001c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000001c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000001c0a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "predicate_call-negative",
+      "tag": "predicate_call",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002001",
+              "draft:00000000-0000-4000-8000-000000002001",
+              "draft:00000000-0000-4000-8000-000000002001",
+              "draft:00000000-0000-4000-8000-000000002001",
+              "draft:00000000-0000-4000-8000-000000002001",
+              "draft:00000000-0000-4000-8000-000000002001",
+              "draft:00000000-0000-4000-8000-000000002001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000200a",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000002006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002007"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000002005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000200b",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002008"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "predicate_call",
+            "id": "draft:00000000-0000-4000-8000-000000002007",
+            "predicateId": "draft:00000000-0000-4000-8000-000000002005",
+            "arguments": []
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000002009",
+            "targetId": "draft:00000000-0000-4000-8000-000000002001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000002008",
+            "operandId": "draft:00000000-0000-4000-8000-000000002009"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000002007",
+          "message": "Predicate argument count mismatch."
+        }
+      ]
+    },
+    {
+      "caseId": "not-positive",
+      "tag": "not",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002401",
+              "draft:00000000-0000-4000-8000-000000002401",
+              "draft:00000000-0000-4000-8000-000000002401",
+              "draft:00000000-0000-4000-8000-000000002401",
+              "draft:00000000-0000-4000-8000-000000002401",
+              "draft:00000000-0000-4000-8000-000000002401",
+              "draft:00000000-0000-4000-8000-000000002401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000240c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000002406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002407"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000002405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000240d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000240a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000002409",
+            "targetId": "draft:00000000-0000-4000-8000-000000002401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000002408",
+            "operandId": "draft:00000000-0000-4000-8000-000000002409"
+          },
+          {
+            "tag": "not",
+            "id": "draft:00000000-0000-4000-8000-000000002407",
+            "operandId": "draft:00000000-0000-4000-8000-000000002408"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000240b",
+            "targetId": "draft:00000000-0000-4000-8000-000000002401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000240a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000240b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "not-negative",
+      "tag": "not",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002801",
+              "draft:00000000-0000-4000-8000-000000002801",
+              "draft:00000000-0000-4000-8000-000000002801",
+              "draft:00000000-0000-4000-8000-000000002801",
+              "draft:00000000-0000-4000-8000-000000002801",
+              "draft:00000000-0000-4000-8000-000000002801",
+              "draft:00000000-0000-4000-8000-000000002801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000280b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000002806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002807"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000002805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000280c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002809"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000002808",
+            "targetId": "draft:00000000-0000-4000-8000-000000002801"
+          },
+          {
+            "tag": "not",
+            "id": "draft:00000000-0000-4000-8000-000000002807",
+            "operandId": "draft:00000000-0000-4000-8000-000000002808"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000280a",
+            "targetId": "draft:00000000-0000-4000-8000-000000002801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000002809",
+            "operandId": "draft:00000000-0000-4000-8000-00000000280a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000002807",
+          "message": "not requires formula."
+        }
+      ]
+    },
+    {
+      "caseId": "some_test-positive",
+      "tag": "some_test",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000002c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000002c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000002c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000002c01",
+              "draft:00000000-0000-4000-8000-000000002c01",
+              "draft:00000000-0000-4000-8000-000000002c01",
+              "draft:00000000-0000-4000-8000-000000002c01",
+              "draft:00000000-0000-4000-8000-000000002c01",
+              "draft:00000000-0000-4000-8000-000000002c01",
+              "draft:00000000-0000-4000-8000-000000002c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000002c0b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000002c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002c07"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000002c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000002c0c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000002c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000002c09"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000002c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000002c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000002c07",
+            "operandId": "draft:00000000-0000-4000-8000-000000002c08"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000002c0a",
+            "targetId": "draft:00000000-0000-4000-8000-000000002c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000002c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000002c0a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "some_test-negative",
+      "tag": "some_test",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003001",
+              "draft:00000000-0000-4000-8000-000000003001",
+              "draft:00000000-0000-4000-8000-000000003001",
+              "draft:00000000-0000-4000-8000-000000003001",
+              "draft:00000000-0000-4000-8000-000000003001",
+              "draft:00000000-0000-4000-8000-000000003001",
+              "draft:00000000-0000-4000-8000-000000003001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000300c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000003006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000003007"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000003005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000300d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000300a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000003009",
+            "targetId": "draft:00000000-0000-4000-8000-000000003001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000003008",
+            "operandId": "draft:00000000-0000-4000-8000-000000003009"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000003007",
+            "operandId": "draft:00000000-0000-4000-8000-000000003008"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000300b",
+            "targetId": "draft:00000000-0000-4000-8000-000000003001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000300a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000300b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000003007",
+          "message": "Expected nonempty relation schema."
+        }
+      ]
+    },
+    {
+      "caseId": "no_test-positive",
+      "tag": "no_test",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003401",
+              "draft:00000000-0000-4000-8000-000000003401",
+              "draft:00000000-0000-4000-8000-000000003401",
+              "draft:00000000-0000-4000-8000-000000003401",
+              "draft:00000000-0000-4000-8000-000000003401",
+              "draft:00000000-0000-4000-8000-000000003401",
+              "draft:00000000-0000-4000-8000-000000003401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000340b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000003406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000003407"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000003405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000340c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000003409"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000003408",
+            "targetId": "draft:00000000-0000-4000-8000-000000003401"
+          },
+          {
+            "tag": "no_test",
+            "id": "draft:00000000-0000-4000-8000-000000003407",
+            "operandId": "draft:00000000-0000-4000-8000-000000003408"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000340a",
+            "targetId": "draft:00000000-0000-4000-8000-000000003401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000003409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000340a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "no_test-negative",
+      "tag": "no_test",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003801",
+              "draft:00000000-0000-4000-8000-000000003801",
+              "draft:00000000-0000-4000-8000-000000003801",
+              "draft:00000000-0000-4000-8000-000000003801",
+              "draft:00000000-0000-4000-8000-000000003801",
+              "draft:00000000-0000-4000-8000-000000003801",
+              "draft:00000000-0000-4000-8000-000000003801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000380c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000003806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000003807"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000003805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000380d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000380a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000003809",
+            "targetId": "draft:00000000-0000-4000-8000-000000003801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000003808",
+            "operandId": "draft:00000000-0000-4000-8000-000000003809"
+          },
+          {
+            "tag": "no_test",
+            "id": "draft:00000000-0000-4000-8000-000000003807",
+            "operandId": "draft:00000000-0000-4000-8000-000000003808"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000380b",
+            "targetId": "draft:00000000-0000-4000-8000-000000003801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000380a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000380b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000003807",
+          "message": "Expected nonempty relation schema."
+        }
+      ]
+    },
+    {
+      "caseId": "one_test-positive",
+      "tag": "one_test",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000003c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000003c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000003c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000003c01",
+              "draft:00000000-0000-4000-8000-000000003c01",
+              "draft:00000000-0000-4000-8000-000000003c01",
+              "draft:00000000-0000-4000-8000-000000003c01",
+              "draft:00000000-0000-4000-8000-000000003c01",
+              "draft:00000000-0000-4000-8000-000000003c01",
+              "draft:00000000-0000-4000-8000-000000003c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000003c0b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000003c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000003c07"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000003c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000003c0c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000003c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000003c09"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000003c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000003c01"
+          },
+          {
+            "tag": "one_test",
+            "id": "draft:00000000-0000-4000-8000-000000003c07",
+            "operandId": "draft:00000000-0000-4000-8000-000000003c08"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000003c0a",
+            "targetId": "draft:00000000-0000-4000-8000-000000003c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000003c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000003c0a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "one_test-negative",
+      "tag": "one_test",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004001",
+              "draft:00000000-0000-4000-8000-000000004001",
+              "draft:00000000-0000-4000-8000-000000004001",
+              "draft:00000000-0000-4000-8000-000000004001",
+              "draft:00000000-0000-4000-8000-000000004001",
+              "draft:00000000-0000-4000-8000-000000004001",
+              "draft:00000000-0000-4000-8000-000000004001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000400c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000004006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000004007"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000004005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000400d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000400a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000004009",
+            "targetId": "draft:00000000-0000-4000-8000-000000004001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000004008",
+            "operandId": "draft:00000000-0000-4000-8000-000000004009"
+          },
+          {
+            "tag": "one_test",
+            "id": "draft:00000000-0000-4000-8000-000000004007",
+            "operandId": "draft:00000000-0000-4000-8000-000000004008"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000400b",
+            "targetId": "draft:00000000-0000-4000-8000-000000004001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000400a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000400b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000004007",
+          "message": "Expected nonempty relation schema."
+        }
+      ]
+    },
+    {
+      "caseId": "lone_test-positive",
+      "tag": "lone_test",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004401",
+              "draft:00000000-0000-4000-8000-000000004401",
+              "draft:00000000-0000-4000-8000-000000004401",
+              "draft:00000000-0000-4000-8000-000000004401",
+              "draft:00000000-0000-4000-8000-000000004401",
+              "draft:00000000-0000-4000-8000-000000004401",
+              "draft:00000000-0000-4000-8000-000000004401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000440b",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000004406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000004407"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000004405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000440c",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000004409"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000004408",
+            "targetId": "draft:00000000-0000-4000-8000-000000004401"
+          },
+          {
+            "tag": "lone_test",
+            "id": "draft:00000000-0000-4000-8000-000000004407",
+            "operandId": "draft:00000000-0000-4000-8000-000000004408"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000440a",
+            "targetId": "draft:00000000-0000-4000-8000-000000004401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000004409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000440a"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "lone_test-negative",
+      "tag": "lone_test",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004801",
+              "draft:00000000-0000-4000-8000-000000004801",
+              "draft:00000000-0000-4000-8000-000000004801",
+              "draft:00000000-0000-4000-8000-000000004801",
+              "draft:00000000-0000-4000-8000-000000004801",
+              "draft:00000000-0000-4000-8000-000000004801",
+              "draft:00000000-0000-4000-8000-000000004801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000480c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000004806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000004807"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000004805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000480d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000480a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000004809",
+            "targetId": "draft:00000000-0000-4000-8000-000000004801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000004808",
+            "operandId": "draft:00000000-0000-4000-8000-000000004809"
+          },
+          {
+            "tag": "lone_test",
+            "id": "draft:00000000-0000-4000-8000-000000004807",
+            "operandId": "draft:00000000-0000-4000-8000-000000004808"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000480b",
+            "targetId": "draft:00000000-0000-4000-8000-000000004801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000480a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000480b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000004807",
+          "message": "Expected nonempty relation schema."
+        }
+      ]
+    },
+    {
+      "caseId": "transpose-positive",
+      "tag": "transpose",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000004c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000004c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000004c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000004c01",
+              "draft:00000000-0000-4000-8000-000000004c01",
+              "draft:00000000-0000-4000-8000-000000004c01",
+              "draft:00000000-0000-4000-8000-000000004c01",
+              "draft:00000000-0000-4000-8000-000000004c01",
+              "draft:00000000-0000-4000-8000-000000004c01",
+              "draft:00000000-0000-4000-8000-000000004c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000004c0c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000004c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000004c09"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000004c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000004c0d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000004c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000004c0a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "field_ref",
+            "id": "draft:00000000-0000-4000-8000-000000004c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000004c03"
+          },
+          {
+            "tag": "transpose",
+            "id": "draft:00000000-0000-4000-8000-000000004c07",
+            "operandId": "draft:00000000-0000-4000-8000-000000004c08"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000004c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000004c07"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000004c0b",
+            "targetId": "draft:00000000-0000-4000-8000-000000004c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000004c0a",
+            "operandId": "draft:00000000-0000-4000-8000-000000004c0b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "transpose-negative",
+      "tag": "transpose",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005001",
+              "draft:00000000-0000-4000-8000-000000005001",
+              "draft:00000000-0000-4000-8000-000000005001",
+              "draft:00000000-0000-4000-8000-000000005001",
+              "draft:00000000-0000-4000-8000-000000005001",
+              "draft:00000000-0000-4000-8000-000000005001",
+              "draft:00000000-0000-4000-8000-000000005001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000500c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000005006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000005009"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000005005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000500d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000500a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005008",
+            "targetId": "draft:00000000-0000-4000-8000-000000005001"
+          },
+          {
+            "tag": "transpose",
+            "id": "draft:00000000-0000-4000-8000-000000005007",
+            "operandId": "draft:00000000-0000-4000-8000-000000005008"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005009",
+            "operandId": "draft:00000000-0000-4000-8000-000000005007"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000500b",
+            "targetId": "draft:00000000-0000-4000-8000-000000005001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000500a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000500b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000005007",
+          "message": "Transpose requires exactly2 columns."
+        }
+      ]
+    },
+    {
+      "caseId": "and-positive",
+      "tag": "and",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005401",
+              "draft:00000000-0000-4000-8000-000000005401",
+              "draft:00000000-0000-4000-8000-000000005401",
+              "draft:00000000-0000-4000-8000-000000005401",
+              "draft:00000000-0000-4000-8000-000000005401",
+              "draft:00000000-0000-4000-8000-000000005401",
+              "draft:00000000-0000-4000-8000-000000005401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000540e",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000005406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000540b"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000005405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000540f",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000540c"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005408",
+            "targetId": "draft:00000000-0000-4000-8000-000000005401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005407",
+            "operandId": "draft:00000000-0000-4000-8000-000000005408"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000540a",
+            "targetId": "draft:00000000-0000-4000-8000-000000005401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000540a"
+          },
+          {
+            "tag": "and",
+            "id": "draft:00000000-0000-4000-8000-00000000540b",
+            "leftId": "draft:00000000-0000-4000-8000-000000005407",
+            "rightId": "draft:00000000-0000-4000-8000-000000005409"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000540d",
+            "targetId": "draft:00000000-0000-4000-8000-000000005401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000540c",
+            "operandId": "draft:00000000-0000-4000-8000-00000000540d"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "and-negative",
+      "tag": "and",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005801",
+              "draft:00000000-0000-4000-8000-000000005801",
+              "draft:00000000-0000-4000-8000-000000005801",
+              "draft:00000000-0000-4000-8000-000000005801",
+              "draft:00000000-0000-4000-8000-000000005801",
+              "draft:00000000-0000-4000-8000-000000005801",
+              "draft:00000000-0000-4000-8000-000000005801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000580d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000005806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000580a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000005805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000580e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000580b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005807",
+            "targetId": "draft:00000000-0000-4000-8000-000000005801"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005809",
+            "targetId": "draft:00000000-0000-4000-8000-000000005801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005808",
+            "operandId": "draft:00000000-0000-4000-8000-000000005809"
+          },
+          {
+            "tag": "and",
+            "id": "draft:00000000-0000-4000-8000-00000000580a",
+            "leftId": "draft:00000000-0000-4000-8000-000000005807",
+            "rightId": "draft:00000000-0000-4000-8000-000000005808"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000580c",
+            "targetId": "draft:00000000-0000-4000-8000-000000005801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000580b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000580c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000580a",
+          "message": "Boolean operands require formulas."
+        }
+      ]
+    },
+    {
+      "caseId": "or-positive",
+      "tag": "or",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000005c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000005c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000005c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000005c01",
+              "draft:00000000-0000-4000-8000-000000005c01",
+              "draft:00000000-0000-4000-8000-000000005c01",
+              "draft:00000000-0000-4000-8000-000000005c01",
+              "draft:00000000-0000-4000-8000-000000005c01",
+              "draft:00000000-0000-4000-8000-000000005c01",
+              "draft:00000000-0000-4000-8000-000000005c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000005c0e",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000005c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000005c0b"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000005c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000005c0f",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000005c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000005c0c"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000005c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005c07",
+            "operandId": "draft:00000000-0000-4000-8000-000000005c08"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005c0a",
+            "targetId": "draft:00000000-0000-4000-8000-000000005c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000005c0a"
+          },
+          {
+            "tag": "or",
+            "id": "draft:00000000-0000-4000-8000-000000005c0b",
+            "leftId": "draft:00000000-0000-4000-8000-000000005c07",
+            "rightId": "draft:00000000-0000-4000-8000-000000005c09"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000005c0d",
+            "targetId": "draft:00000000-0000-4000-8000-000000005c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000005c0c",
+            "operandId": "draft:00000000-0000-4000-8000-000000005c0d"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "or-negative",
+      "tag": "or",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006001",
+              "draft:00000000-0000-4000-8000-000000006001",
+              "draft:00000000-0000-4000-8000-000000006001",
+              "draft:00000000-0000-4000-8000-000000006001",
+              "draft:00000000-0000-4000-8000-000000006001",
+              "draft:00000000-0000-4000-8000-000000006001",
+              "draft:00000000-0000-4000-8000-000000006001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000600d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000006006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000600a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000006005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000600e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000600b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006007",
+            "targetId": "draft:00000000-0000-4000-8000-000000006001"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006009",
+            "targetId": "draft:00000000-0000-4000-8000-000000006001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006008",
+            "operandId": "draft:00000000-0000-4000-8000-000000006009"
+          },
+          {
+            "tag": "or",
+            "id": "draft:00000000-0000-4000-8000-00000000600a",
+            "leftId": "draft:00000000-0000-4000-8000-000000006007",
+            "rightId": "draft:00000000-0000-4000-8000-000000006008"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000600c",
+            "targetId": "draft:00000000-0000-4000-8000-000000006001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000600b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000600c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000600a",
+          "message": "Boolean operands require formulas."
+        }
+      ]
+    },
+    {
+      "caseId": "implies-positive",
+      "tag": "implies",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006401",
+              "draft:00000000-0000-4000-8000-000000006401",
+              "draft:00000000-0000-4000-8000-000000006401",
+              "draft:00000000-0000-4000-8000-000000006401",
+              "draft:00000000-0000-4000-8000-000000006401",
+              "draft:00000000-0000-4000-8000-000000006401",
+              "draft:00000000-0000-4000-8000-000000006401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000640e",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000006406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000640b"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000006405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000640f",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000640c"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006408",
+            "targetId": "draft:00000000-0000-4000-8000-000000006401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006407",
+            "operandId": "draft:00000000-0000-4000-8000-000000006408"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000640a",
+            "targetId": "draft:00000000-0000-4000-8000-000000006401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000640a"
+          },
+          {
+            "tag": "implies",
+            "id": "draft:00000000-0000-4000-8000-00000000640b",
+            "leftId": "draft:00000000-0000-4000-8000-000000006407",
+            "rightId": "draft:00000000-0000-4000-8000-000000006409"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000640d",
+            "targetId": "draft:00000000-0000-4000-8000-000000006401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000640c",
+            "operandId": "draft:00000000-0000-4000-8000-00000000640d"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "implies-negative",
+      "tag": "implies",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006801",
+              "draft:00000000-0000-4000-8000-000000006801",
+              "draft:00000000-0000-4000-8000-000000006801",
+              "draft:00000000-0000-4000-8000-000000006801",
+              "draft:00000000-0000-4000-8000-000000006801",
+              "draft:00000000-0000-4000-8000-000000006801",
+              "draft:00000000-0000-4000-8000-000000006801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000680d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000006806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000680a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000006805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000680e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000680b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006807",
+            "targetId": "draft:00000000-0000-4000-8000-000000006801"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006809",
+            "targetId": "draft:00000000-0000-4000-8000-000000006801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006808",
+            "operandId": "draft:00000000-0000-4000-8000-000000006809"
+          },
+          {
+            "tag": "implies",
+            "id": "draft:00000000-0000-4000-8000-00000000680a",
+            "leftId": "draft:00000000-0000-4000-8000-000000006807",
+            "rightId": "draft:00000000-0000-4000-8000-000000006808"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000680c",
+            "targetId": "draft:00000000-0000-4000-8000-000000006801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000680b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000680c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000680a",
+          "message": "Boolean operands require formulas."
+        }
+      ]
+    },
+    {
+      "caseId": "iff-positive",
+      "tag": "iff",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000006c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000006c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000006c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000006c01",
+              "draft:00000000-0000-4000-8000-000000006c01",
+              "draft:00000000-0000-4000-8000-000000006c01",
+              "draft:00000000-0000-4000-8000-000000006c01",
+              "draft:00000000-0000-4000-8000-000000006c01",
+              "draft:00000000-0000-4000-8000-000000006c01",
+              "draft:00000000-0000-4000-8000-000000006c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000006c0e",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000006c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000006c0b"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000006c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000006c0f",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000006c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000006c0c"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000006c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006c07",
+            "operandId": "draft:00000000-0000-4000-8000-000000006c08"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006c0a",
+            "targetId": "draft:00000000-0000-4000-8000-000000006c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006c09",
+            "operandId": "draft:00000000-0000-4000-8000-000000006c0a"
+          },
+          {
+            "tag": "iff",
+            "id": "draft:00000000-0000-4000-8000-000000006c0b",
+            "leftId": "draft:00000000-0000-4000-8000-000000006c07",
+            "rightId": "draft:00000000-0000-4000-8000-000000006c09"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000006c0d",
+            "targetId": "draft:00000000-0000-4000-8000-000000006c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000006c0c",
+            "operandId": "draft:00000000-0000-4000-8000-000000006c0d"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "iff-negative",
+      "tag": "iff",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007001",
+              "draft:00000000-0000-4000-8000-000000007001",
+              "draft:00000000-0000-4000-8000-000000007001",
+              "draft:00000000-0000-4000-8000-000000007001",
+              "draft:00000000-0000-4000-8000-000000007001",
+              "draft:00000000-0000-4000-8000-000000007001",
+              "draft:00000000-0000-4000-8000-000000007001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000700d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000007006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000700a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000007005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000700e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000700b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007007",
+            "targetId": "draft:00000000-0000-4000-8000-000000007001"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007009",
+            "targetId": "draft:00000000-0000-4000-8000-000000007001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000007008",
+            "operandId": "draft:00000000-0000-4000-8000-000000007009"
+          },
+          {
+            "tag": "iff",
+            "id": "draft:00000000-0000-4000-8000-00000000700a",
+            "leftId": "draft:00000000-0000-4000-8000-000000007007",
+            "rightId": "draft:00000000-0000-4000-8000-000000007008"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000700c",
+            "targetId": "draft:00000000-0000-4000-8000-000000007001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000700b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000700c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000700a",
+          "message": "Boolean operands require formulas."
+        }
+      ]
+    },
+    {
+      "caseId": "equal-positive",
+      "tag": "equal",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007401",
+              "draft:00000000-0000-4000-8000-000000007401",
+              "draft:00000000-0000-4000-8000-000000007401",
+              "draft:00000000-0000-4000-8000-000000007401",
+              "draft:00000000-0000-4000-8000-000000007401",
+              "draft:00000000-0000-4000-8000-000000007401",
+              "draft:00000000-0000-4000-8000-000000007401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000740c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000007406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000007409"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000007405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000740d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000740a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007407",
+            "targetId": "draft:00000000-0000-4000-8000-000000007401"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007408",
+            "targetId": "draft:00000000-0000-4000-8000-000000007401"
+          },
+          {
+            "tag": "equal",
+            "id": "draft:00000000-0000-4000-8000-000000007409",
+            "leftId": "draft:00000000-0000-4000-8000-000000007407",
+            "rightId": "draft:00000000-0000-4000-8000-000000007408"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000740b",
+            "targetId": "draft:00000000-0000-4000-8000-000000007401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000740a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000740b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "equal-negative",
+      "tag": "equal",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007801",
+              "draft:00000000-0000-4000-8000-000000007801",
+              "draft:00000000-0000-4000-8000-000000007801",
+              "draft:00000000-0000-4000-8000-000000007801",
+              "draft:00000000-0000-4000-8000-000000007801",
+              "draft:00000000-0000-4000-8000-000000007801",
+              "draft:00000000-0000-4000-8000-000000007801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000780c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000007806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000007809"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000007805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000780d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000780a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007807",
+            "targetId": "draft:00000000-0000-4000-8000-000000007801"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007808",
+            "targetId": "draft:00000000-0000-4000-8000-000000007802"
+          },
+          {
+            "tag": "equal",
+            "id": "draft:00000000-0000-4000-8000-000000007809",
+            "leftId": "draft:00000000-0000-4000-8000-000000007807",
+            "rightId": "draft:00000000-0000-4000-8000-000000007808"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000780b",
+            "targetId": "draft:00000000-0000-4000-8000-000000007801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000780a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000780b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000007809",
+          "message": "Ordered nominal schemas must be identical."
+        }
+      ]
+    },
+    {
+      "caseId": "subset-positive",
+      "tag": "subset",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000007c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000007c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000007c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000007c01",
+              "draft:00000000-0000-4000-8000-000000007c01",
+              "draft:00000000-0000-4000-8000-000000007c01",
+              "draft:00000000-0000-4000-8000-000000007c01",
+              "draft:00000000-0000-4000-8000-000000007c01",
+              "draft:00000000-0000-4000-8000-000000007c01",
+              "draft:00000000-0000-4000-8000-000000007c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000007c0c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000007c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000007c09"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000007c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000007c0d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000007c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000007c0a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007c07",
+            "targetId": "draft:00000000-0000-4000-8000-000000007c01"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000007c01"
+          },
+          {
+            "tag": "subset",
+            "id": "draft:00000000-0000-4000-8000-000000007c09",
+            "leftId": "draft:00000000-0000-4000-8000-000000007c07",
+            "rightId": "draft:00000000-0000-4000-8000-000000007c08"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000007c0b",
+            "targetId": "draft:00000000-0000-4000-8000-000000007c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000007c0a",
+            "operandId": "draft:00000000-0000-4000-8000-000000007c0b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "subset-negative",
+      "tag": "subset",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008001",
+              "draft:00000000-0000-4000-8000-000000008001",
+              "draft:00000000-0000-4000-8000-000000008001",
+              "draft:00000000-0000-4000-8000-000000008001",
+              "draft:00000000-0000-4000-8000-000000008001",
+              "draft:00000000-0000-4000-8000-000000008001",
+              "draft:00000000-0000-4000-8000-000000008001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000800c",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000008006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000008009"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000008005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000800d",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000800a"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008007",
+            "targetId": "draft:00000000-0000-4000-8000-000000008001"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008008",
+            "targetId": "draft:00000000-0000-4000-8000-000000008002"
+          },
+          {
+            "tag": "subset",
+            "id": "draft:00000000-0000-4000-8000-000000008009",
+            "leftId": "draft:00000000-0000-4000-8000-000000008007",
+            "rightId": "draft:00000000-0000-4000-8000-000000008008"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000800b",
+            "targetId": "draft:00000000-0000-4000-8000-000000008001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000800a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000800b"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000008009",
+          "message": "Ordered nominal schemas must be identical."
+        }
+      ]
+    },
+    {
+      "caseId": "union-positive",
+      "tag": "union",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008401",
+              "draft:00000000-0000-4000-8000-000000008401",
+              "draft:00000000-0000-4000-8000-000000008401",
+              "draft:00000000-0000-4000-8000-000000008401",
+              "draft:00000000-0000-4000-8000-000000008401",
+              "draft:00000000-0000-4000-8000-000000008401",
+              "draft:00000000-0000-4000-8000-000000008401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000840d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000008406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000840a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000008405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000840e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000840b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008407",
+            "targetId": "draft:00000000-0000-4000-8000-000000008401"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008408",
+            "targetId": "draft:00000000-0000-4000-8000-000000008401"
+          },
+          {
+            "tag": "union",
+            "id": "draft:00000000-0000-4000-8000-000000008409",
+            "leftId": "draft:00000000-0000-4000-8000-000000008407",
+            "rightId": "draft:00000000-0000-4000-8000-000000008408"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000840a",
+            "operandId": "draft:00000000-0000-4000-8000-000000008409"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000840c",
+            "targetId": "draft:00000000-0000-4000-8000-000000008401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000840b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000840c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "union-negative",
+      "tag": "union",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008801",
+              "draft:00000000-0000-4000-8000-000000008801",
+              "draft:00000000-0000-4000-8000-000000008801",
+              "draft:00000000-0000-4000-8000-000000008801",
+              "draft:00000000-0000-4000-8000-000000008801",
+              "draft:00000000-0000-4000-8000-000000008801",
+              "draft:00000000-0000-4000-8000-000000008801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000880d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000008806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000880a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000008805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000880e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000880b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008807",
+            "targetId": "draft:00000000-0000-4000-8000-000000008801"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008808",
+            "targetId": "draft:00000000-0000-4000-8000-000000008802"
+          },
+          {
+            "tag": "union",
+            "id": "draft:00000000-0000-4000-8000-000000008809",
+            "leftId": "draft:00000000-0000-4000-8000-000000008807",
+            "rightId": "draft:00000000-0000-4000-8000-000000008808"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000880a",
+            "operandId": "draft:00000000-0000-4000-8000-000000008809"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000880c",
+            "targetId": "draft:00000000-0000-4000-8000-000000008801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000880b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000880c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000008809",
+          "message": "Ordered nominal schemas must be identical."
+        }
+      ]
+    },
+    {
+      "caseId": "intersection-positive",
+      "tag": "intersection",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000008c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000008c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000008c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000008c01",
+              "draft:00000000-0000-4000-8000-000000008c01",
+              "draft:00000000-0000-4000-8000-000000008c01",
+              "draft:00000000-0000-4000-8000-000000008c01",
+              "draft:00000000-0000-4000-8000-000000008c01",
+              "draft:00000000-0000-4000-8000-000000008c01",
+              "draft:00000000-0000-4000-8000-000000008c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000008c0d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000008c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000008c0a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000008c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000008c0e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000008c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000008c0b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008c07",
+            "targetId": "draft:00000000-0000-4000-8000-000000008c01"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000008c01"
+          },
+          {
+            "tag": "intersection",
+            "id": "draft:00000000-0000-4000-8000-000000008c09",
+            "leftId": "draft:00000000-0000-4000-8000-000000008c07",
+            "rightId": "draft:00000000-0000-4000-8000-000000008c08"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000008c0a",
+            "operandId": "draft:00000000-0000-4000-8000-000000008c09"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000008c0c",
+            "targetId": "draft:00000000-0000-4000-8000-000000008c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000008c0b",
+            "operandId": "draft:00000000-0000-4000-8000-000000008c0c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "intersection-negative",
+      "tag": "intersection",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009001",
+              "draft:00000000-0000-4000-8000-000000009001",
+              "draft:00000000-0000-4000-8000-000000009001",
+              "draft:00000000-0000-4000-8000-000000009001",
+              "draft:00000000-0000-4000-8000-000000009001",
+              "draft:00000000-0000-4000-8000-000000009001",
+              "draft:00000000-0000-4000-8000-000000009001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000900d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000009006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000900a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000009005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000900e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000900b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009007",
+            "targetId": "draft:00000000-0000-4000-8000-000000009001"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009008",
+            "targetId": "draft:00000000-0000-4000-8000-000000009002"
+          },
+          {
+            "tag": "intersection",
+            "id": "draft:00000000-0000-4000-8000-000000009009",
+            "leftId": "draft:00000000-0000-4000-8000-000000009007",
+            "rightId": "draft:00000000-0000-4000-8000-000000009008"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000900a",
+            "operandId": "draft:00000000-0000-4000-8000-000000009009"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000900c",
+            "targetId": "draft:00000000-0000-4000-8000-000000009001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000900b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000900c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000009009",
+          "message": "Ordered nominal schemas must be identical."
+        }
+      ]
+    },
+    {
+      "caseId": "difference-positive",
+      "tag": "difference",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009401",
+              "draft:00000000-0000-4000-8000-000000009401",
+              "draft:00000000-0000-4000-8000-000000009401",
+              "draft:00000000-0000-4000-8000-000000009401",
+              "draft:00000000-0000-4000-8000-000000009401",
+              "draft:00000000-0000-4000-8000-000000009401",
+              "draft:00000000-0000-4000-8000-000000009401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000940d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000009406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000940a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000009405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000940e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000940b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009407",
+            "targetId": "draft:00000000-0000-4000-8000-000000009401"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009408",
+            "targetId": "draft:00000000-0000-4000-8000-000000009401"
+          },
+          {
+            "tag": "difference",
+            "id": "draft:00000000-0000-4000-8000-000000009409",
+            "leftId": "draft:00000000-0000-4000-8000-000000009407",
+            "rightId": "draft:00000000-0000-4000-8000-000000009408"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000940a",
+            "operandId": "draft:00000000-0000-4000-8000-000000009409"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000940c",
+            "targetId": "draft:00000000-0000-4000-8000-000000009401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000940b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000940c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "difference-negative",
+      "tag": "difference",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009801",
+              "draft:00000000-0000-4000-8000-000000009801",
+              "draft:00000000-0000-4000-8000-000000009801",
+              "draft:00000000-0000-4000-8000-000000009801",
+              "draft:00000000-0000-4000-8000-000000009801",
+              "draft:00000000-0000-4000-8000-000000009801",
+              "draft:00000000-0000-4000-8000-000000009801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000980d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000009806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000980a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000009805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000980e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000980b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009807",
+            "targetId": "draft:00000000-0000-4000-8000-000000009801"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009808",
+            "targetId": "draft:00000000-0000-4000-8000-000000009802"
+          },
+          {
+            "tag": "difference",
+            "id": "draft:00000000-0000-4000-8000-000000009809",
+            "leftId": "draft:00000000-0000-4000-8000-000000009807",
+            "rightId": "draft:00000000-0000-4000-8000-000000009808"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000980a",
+            "operandId": "draft:00000000-0000-4000-8000-000000009809"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000980c",
+            "targetId": "draft:00000000-0000-4000-8000-000000009801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000980b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000980c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-000000009809",
+          "message": "Ordered nominal schemas must be identical."
+        }
+      ]
+    },
+    {
+      "caseId": "join-positive",
+      "tag": "join",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009c01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-000000009c02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009c03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009c02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-000000009c04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-000000009c01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-000000009c01",
+              "draft:00000000-0000-4000-8000-000000009c01",
+              "draft:00000000-0000-4000-8000-000000009c01",
+              "draft:00000000-0000-4000-8000-000000009c01",
+              "draft:00000000-0000-4000-8000-000000009c01",
+              "draft:00000000-0000-4000-8000-000000009c01",
+              "draft:00000000-0000-4000-8000-000000009c01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000009c0d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000009c06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000009c0a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-000000009c05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-000000009c0e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-000000009c01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-000000009c0b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "field_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009c07",
+            "targetId": "draft:00000000-0000-4000-8000-000000009c03"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009c08",
+            "targetId": "draft:00000000-0000-4000-8000-000000009c02"
+          },
+          {
+            "tag": "join",
+            "id": "draft:00000000-0000-4000-8000-000000009c09",
+            "leftId": "draft:00000000-0000-4000-8000-000000009c07",
+            "rightId": "draft:00000000-0000-4000-8000-000000009c08"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000009c0a",
+            "operandId": "draft:00000000-0000-4000-8000-000000009c09"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-000000009c0c",
+            "targetId": "draft:00000000-0000-4000-8000-000000009c01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-000000009c0b",
+            "operandId": "draft:00000000-0000-4000-8000-000000009c0c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "join-negative",
+      "tag": "join",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000a001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000a002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000a003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000a001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000a002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000a004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000a001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000a001",
+              "draft:00000000-0000-4000-8000-00000000a001",
+              "draft:00000000-0000-4000-8000-00000000a001",
+              "draft:00000000-0000-4000-8000-00000000a001",
+              "draft:00000000-0000-4000-8000-00000000a001",
+              "draft:00000000-0000-4000-8000-00000000a001",
+              "draft:00000000-0000-4000-8000-00000000a001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000a00d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000a006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000a001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000a00a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000a005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000a00e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000a001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000a00b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "field_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a007",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a003"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a008",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a001"
+          },
+          {
+            "tag": "join",
+            "id": "draft:00000000-0000-4000-8000-00000000a009",
+            "leftId": "draft:00000000-0000-4000-8000-00000000a007",
+            "rightId": "draft:00000000-0000-4000-8000-00000000a008"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000a00a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000a009"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a00c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000a00b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000a00c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000a009",
+          "message": "Join nominal endpoint mismatch."
+        }
+      ]
+    },
+    {
+      "caseId": "product-positive",
+      "tag": "product",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000a401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000a402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000a403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000a401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000a402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000a404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000a401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000a401",
+              "draft:00000000-0000-4000-8000-00000000a401",
+              "draft:00000000-0000-4000-8000-00000000a401",
+              "draft:00000000-0000-4000-8000-00000000a401",
+              "draft:00000000-0000-4000-8000-00000000a401",
+              "draft:00000000-0000-4000-8000-00000000a401",
+              "draft:00000000-0000-4000-8000-00000000a401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000a40d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000a406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000a401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000a40a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000a405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000a40e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000a401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000a40b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a407",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a401"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a408",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a401"
+          },
+          {
+            "tag": "product",
+            "id": "draft:00000000-0000-4000-8000-00000000a409",
+            "leftId": "draft:00000000-0000-4000-8000-00000000a407",
+            "rightId": "draft:00000000-0000-4000-8000-00000000a408"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000a40a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000a409"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a40c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000a40b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000a40c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "product-negative",
+      "tag": "product",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000a801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000a802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000a803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000a801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000a802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000a804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000a801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000a801",
+              "draft:00000000-0000-4000-8000-00000000a801",
+              "draft:00000000-0000-4000-8000-00000000a801",
+              "draft:00000000-0000-4000-8000-00000000a801",
+              "draft:00000000-0000-4000-8000-00000000a801",
+              "draft:00000000-0000-4000-8000-00000000a801",
+              "draft:00000000-0000-4000-8000-00000000a801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000a80d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000a806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000a801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000a80a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000a805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000a80e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000a801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000a80b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "field_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a807",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a804"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a808",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a801"
+          },
+          {
+            "tag": "product",
+            "id": "draft:00000000-0000-4000-8000-00000000a809",
+            "leftId": "draft:00000000-0000-4000-8000-00000000a807",
+            "rightId": "draft:00000000-0000-4000-8000-00000000a808"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000a80a",
+            "operandId": "draft:00000000-0000-4000-8000-00000000a809"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000a80c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000a801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000a80b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000a80c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000a809",
+          "message": "Result schema must be nonempty and width<=8."
+        }
+      ]
+    },
+    {
+      "caseId": "all_quant-positive",
+      "tag": "all_quant",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000ac01",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000ac02",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000ac03",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000ac01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000ac02"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000ac04",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000ac01",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000ac01",
+              "draft:00000000-0000-4000-8000-00000000ac01",
+              "draft:00000000-0000-4000-8000-00000000ac01",
+              "draft:00000000-0000-4000-8000-00000000ac01",
+              "draft:00000000-0000-4000-8000-00000000ac01",
+              "draft:00000000-0000-4000-8000-00000000ac01",
+              "draft:00000000-0000-4000-8000-00000000ac01"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000ac0d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000ac06",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000ac01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000ac0a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000ac05",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000ac0e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000ac01"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000ac0b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "variable_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000ac08",
+            "targetId": "draft:00000000-0000-4000-8000-00000000ac07"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000ac09",
+            "operandId": "draft:00000000-0000-4000-8000-00000000ac08"
+          },
+          {
+            "tag": "all_quant",
+            "id": "draft:00000000-0000-4000-8000-00000000ac0a",
+            "binder": {
+              "id": "draft:00000000-0000-4000-8000-00000000ac07",
+              "name": "local",
+              "signatureId": "draft:00000000-0000-4000-8000-00000000ac01"
+            },
+            "bodyId": "draft:00000000-0000-4000-8000-00000000ac09"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000ac0c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000ac01"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000ac0b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000ac0c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "all_quant-negative",
+      "tag": "all_quant",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000b001",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000b002",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000b003",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000b001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000b002"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000b004",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000b001",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000b001",
+              "draft:00000000-0000-4000-8000-00000000b001",
+              "draft:00000000-0000-4000-8000-00000000b001",
+              "draft:00000000-0000-4000-8000-00000000b001",
+              "draft:00000000-0000-4000-8000-00000000b001",
+              "draft:00000000-0000-4000-8000-00000000b001",
+              "draft:00000000-0000-4000-8000-00000000b001"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000b00d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000b006",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000b001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b00a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000b005",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000b00e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000b001"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b00b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "variable_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000b008",
+            "targetId": "draft:00000000-0000-4000-8000-00000000b007"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000b009",
+            "operandId": "draft:00000000-0000-4000-8000-00000000b008"
+          },
+          {
+            "tag": "all_quant",
+            "id": "draft:00000000-0000-4000-8000-00000000b00a",
+            "binder": {
+              "id": "draft:00000000-0000-4000-8000-00000000b007",
+              "name": "local",
+              "signatureId": "missing"
+            },
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b009"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000b00c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000b001"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000b00b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000b00c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000b00a",
+          "message": "Unknown quantifier signature."
+        }
+      ]
+    },
+    {
+      "caseId": "some_quant-positive",
+      "tag": "some_quant",
+      "variant": "positive",
+      "expectedAccepted": true,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000b401",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000b402",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000b403",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000b401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000b402"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000b404",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000b401",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000b401",
+              "draft:00000000-0000-4000-8000-00000000b401",
+              "draft:00000000-0000-4000-8000-00000000b401",
+              "draft:00000000-0000-4000-8000-00000000b401",
+              "draft:00000000-0000-4000-8000-00000000b401",
+              "draft:00000000-0000-4000-8000-00000000b401",
+              "draft:00000000-0000-4000-8000-00000000b401"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000b40d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000b406",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000b401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b40a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000b405",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000b40e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000b401"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b40b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "variable_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000b408",
+            "targetId": "draft:00000000-0000-4000-8000-00000000b407"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000b409",
+            "operandId": "draft:00000000-0000-4000-8000-00000000b408"
+          },
+          {
+            "tag": "some_quant",
+            "id": "draft:00000000-0000-4000-8000-00000000b40a",
+            "binder": {
+              "id": "draft:00000000-0000-4000-8000-00000000b407",
+              "name": "local",
+              "signatureId": "draft:00000000-0000-4000-8000-00000000b401"
+            },
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b409"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000b40c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000b401"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000b40b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000b40c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": []
+    },
+    {
+      "caseId": "some_quant-negative",
+      "tag": "some_quant",
+      "variant": "negative",
+      "expectedAccepted": false,
+      "expectedDiagnosticCategory": null,
+      "module": {
+        "version": 1,
+        "signatures": [
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000b801",
+            "name": "A",
+            "multiplicity": "set"
+          },
+          {
+            "tag": "signature",
+            "id": "draft:00000000-0000-4000-8000-00000000b802",
+            "name": "B",
+            "multiplicity": "set"
+          }
+        ],
+        "fields": [
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000b803",
+            "name": "field",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000b801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000b802"
+            ],
+            "multiplicity": "set"
+          },
+          {
+            "tag": "field",
+            "id": "draft:00000000-0000-4000-8000-00000000b804",
+            "name": "wide",
+            "ownerSignatureId": "draft:00000000-0000-4000-8000-00000000b801",
+            "rangeColumns": [
+              "draft:00000000-0000-4000-8000-00000000b801",
+              "draft:00000000-0000-4000-8000-00000000b801",
+              "draft:00000000-0000-4000-8000-00000000b801",
+              "draft:00000000-0000-4000-8000-00000000b801",
+              "draft:00000000-0000-4000-8000-00000000b801",
+              "draft:00000000-0000-4000-8000-00000000b801",
+              "draft:00000000-0000-4000-8000-00000000b801"
+            ],
+            "multiplicity": "set"
+          }
+        ],
+        "predicates": [
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000b80d",
+            "name": "main",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000b806",
+                "name": "parameter",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000b801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b80a"
+          },
+          {
+            "tag": "predicate",
+            "id": "draft:00000000-0000-4000-8000-00000000b805",
+            "name": "callee",
+            "parameters": [
+              {
+                "tag": "parameter",
+                "id": "draft:00000000-0000-4000-8000-00000000b80e",
+                "name": "argument",
+                "columns": [
+                  "draft:00000000-0000-4000-8000-00000000b801"
+                ]
+              }
+            ],
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b80b"
+          }
+        ],
+        "facts": [],
+        "assertions": [],
+        "commands": [],
+        "nodes": [
+          {
+            "tag": "variable_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000b808",
+            "targetId": "draft:00000000-0000-4000-8000-00000000b807"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000b809",
+            "operandId": "draft:00000000-0000-4000-8000-00000000b808"
+          },
+          {
+            "tag": "some_quant",
+            "id": "draft:00000000-0000-4000-8000-00000000b80a",
+            "binder": {
+              "id": "draft:00000000-0000-4000-8000-00000000b807",
+              "name": "local",
+              "signatureId": "missing"
+            },
+            "bodyId": "draft:00000000-0000-4000-8000-00000000b809"
+          },
+          {
+            "tag": "signature_ref",
+            "id": "draft:00000000-0000-4000-8000-00000000b80c",
+            "targetId": "draft:00000000-0000-4000-8000-00000000b801"
+          },
+          {
+            "tag": "some_test",
+            "id": "draft:00000000-0000-4000-8000-00000000b80b",
+            "operandId": "draft:00000000-0000-4000-8000-00000000b80c"
+          }
+        ]
+      },
+      "typescriptDiagnostics": [
+        {
+          "nodeId": "draft:00000000-0000-4000-8000-00000000b80a",
+          "message": "Unknown quantifier signature."
+        }
+      ]
+    }
+  ]
+}

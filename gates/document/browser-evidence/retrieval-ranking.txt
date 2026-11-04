@@ -1,0 +1,253 @@
+- navigation "Workspace sections":
+  - link "Editor":
+    - /url: "#editor"
+  - link "Predicate library":
+    - /url: "#predicate-library"
+  - generic: Local workspace
+- main:
+  - heading "Allow" [level=1]
+  - paragraph: Build an Alloy model with blocks, edit its source, and explore examples.
+  - status: Saved this version.
+  - region "Documents":
+    - text: New model name
+    - textbox "New model name": Browser acceptance – typed gates
+    - button "Create model"
+    - text: Your models
+    - combobox "Your models":
+      - option "Choose explicitly" [selected]
+      - option "Authored document integration"
+      - option "Browser acceptance – typed gates"
+      - option "Authored document integration"
+      - option "Authored document integration"
+      - option "Document integration fixture"
+      - option "500-node performance fixture"
+      - option "Authored document integration"
+    - button "Open model" [disabled]
+    - button "Refresh"
+  - region "Draft acceptance":
+    - strong: Saved version
+    - button "Check model"
+    - button "Save version"
+    - generic "Save details"
+  - region "Declaration editors":
+    - heading "Declarations" [level=2]
+    - button "Add signature"
+    - button "Add field"
+    - button "Add predicate"
+    - button "Add fact"
+    - button "Add assertion"
+    - button "Add run"
+    - button "Add check"
+    - group "signature":
+      - generic: signature
+      - text: Name
+      - textbox "Name": Person
+      - text: Multiplicity
+      - combobox "Multiplicity":
+        - option "Choose explicitly"
+        - option "set" [selected]
+        - option "one"
+        - option "lone"
+        - option "some"
+      - button "Delete signature"
+      - generic "Declaration identity"
+    - group "predicate":
+      - generic: predicate
+      - text: Name
+      - textbox "Name": Present
+      - group "Ordered set-valued parameters":
+        - generic: Ordered set-valued parameters
+        - button "Add parameter"
+      - button "Select predicate body"
+      - button "Delete predicate"
+      - generic "Declaration identity"
+    - group "run":
+      - generic: run
+      - text: Command target
+      - combobox "Command target":
+        - option "Choose explicitly"
+        - option "Present" [selected]
+      - text: Uniform scope
+      - combobox "Uniform scope":
+        - option "Choose explicitly"
+        - option "1"
+        - option "2"
+        - option "3" [selected]
+        - option "4"
+        - option "5"
+      - paragraph: Bitwidth4 · maxseq3
+      - button "Delete run"
+      - generic "Declaration identity"
+  - region "Typed block editor":
+    - heading "Typed blocks" [level=2]
+    - group "Complete expression palette":
+      - generic: Complete expression palette
+      - text: Declaration or in-scope variable
+      - combobox "Declaration or in-scope variable":
+        - option "Choose explicitly" [selected]
+        - option "Signature Person"
+        - option "Predicate Present"
+      - text: Quantifier variable name
+      - textbox "Quantifier variable name": variable
+      - paragraph: "Expected destination: select a declaration body"
+      - list "In-scope variables"
+      - button "Signature"
+      - button "Field"
+      - button "Variable"
+      - button "Call predicate"
+      - button "Not"
+      - button "Some tuples"
+      - button "No tuples"
+      - button "Exactly one tuple"
+      - button "At most one tuple"
+      - button "Transpose"
+      - button "And"
+      - button "Or"
+      - button "Implies"
+      - button "If and only if"
+      - button "Equals"
+      - button "Subset"
+      - button "Union"
+      - button "Intersection"
+      - button "Difference"
+      - button "Join"
+      - button "Product"
+      - button "For every variable"
+      - button "For some variable"
+    - button "Copy (Ctrl/Cmd+C)" [disabled]
+    - button "Cut (Ctrl/Cmd+X)" [disabled]
+    - button "Paste (Ctrl/Cmd+V)"
+    - button "Delete selected" [disabled]
+    - paragraph: Drag an existing block to move; Ctrl/Cmd-drag copies. Selection preserves clipboard content identity.
+    - generic "Owned expression forest":
+      - heading "predicate Present" [level=3]
+      - button "some test · formula"
+      - paragraph: "Expected: formula"
+      - button "signature ref · Person"
+      - paragraph: "Expected: nonempty relation schema"
+  - region "Source and accepted artifact":
+    - heading "Alloy source" [level=2]
+    - paragraph: Source for the saved model.
+    - text: Source
+    - textbox "Source": "sig Person { } pred Present[] { (some (Person)) } run Present for 3 but 4 Int, 3 seq"
+    - group "Explore this model":
+      - generic: Explore this model
+      - text: Command
+      - combobox "Command":
+        - option "Choose explicitly" [selected]
+        - option "Present"
+      - button "Run analysis" [disabled]
+      - paragraph: "Historical analysis: the model, command or selection changed. Run again for a current result."
+    - generic "Saved source and provenance · version 3"
+    - paragraph: Block-supported model
+    - generic: "sig Person { } pred Present[] { (some (Person)) } run Present for 3 but 4 Int, 3 seq"
+    - generic "Accepted occurrence locations":
+      - button "operator 34–38"
+      - button "reference 40–46"
+      - button "expression 40–46"
+      - button "expression 33–48"
+    - paragraph: Artifact server:31bdc7e2-e3e0-4755-a75b-d8dd89ffdd78; policy document-v1:8c06761b2f47d686a9486519b16981bf2e98a81db8ee308bcb629489b49eec4e; source hash 09e40b59a0b7be18712ac6ef0672f244c1974ee7f2e977deae6780e6a50e42e7.
+    - generic "Comments and orphan notices"
+  - region "Draft diagnostics":
+    - heading "Specific diagnostics" [level=2]
+    - list
+  - generic "Version history and provenance"
+  - paragraph: Saved version 3. Undo/Redo creates a new version; earlier versions remain unchanged.
+  - text: Version to restore
+  - textbox "Version to restore": "1"
+  - text: Direction
+  - combobox "Direction":
+    - option "Choose explicitly"
+    - option "Undo" [selected]
+    - option "Redo"
+  - button "Preview Undo/Redo target"
+  - paragraph: Target version 1
+  - generic: "sig Person { } pred Present[] { (some (Person)) } run Present for 3 but 4 Int, 3 seq"
+  - button "Restore as a new version"
+  - paragraph: Artifact server:147fc8f9-af4d-4658-8363-83a07496cfbe; navigation cursor 1.
+- complementary "Private predicate retrieval":
+  - region "Predicate corpus":
+    - generic: "04"
+    - heading "Predicate corpus" [level=2]
+    - generic: LOCAL RETRIEVAL
+    - paragraph: Explore anonymous predicates with checked e-graph representatives and both witness polarities.
+    - button "Load corpus"
+    - generic: Query predicate
+    - combobox "Query predicate":
+      - option "02848172f657 · component:6ad3fefd52f2f327df105714e911ae70c4eaa7856dc2a2b734dc30c21f9c99da · 3+ / 3−" [selected]
+      - option "0a62ecc49d66 · component:ee1db6d22c20c4791e7101ef97af22d058210d3c1f4621be951fbb8bf84f09c2 · 3+ / 3−"
+      - option "0aedd3c02cbb · component:7797de7d043dd270ec40e403a127d8f11e5d54c389f30868a1fc8f16029a93e2 · 3+ / 3−"
+      - option "0d3aed00c5fa · component:ee1db6d22c20c4791e7101ef97af22d058210d3c1f4621be951fbb8bf84f09c2 · 3+ / 3−"
+      - option "132504d1adf6 · component:80723796886143944a64e4d89f5391949783c4bc5813a81f5b179a031ef5fa85 · 3+ / 3−"
+      - option "16f4fccdfc65 · component:7797de7d043dd270ec40e403a127d8f11e5d54c389f30868a1fc8f16029a93e2 · 3+ / 3−"
+      - option "1aaf11ca0917 · component:6ad3fefd52f2f327df105714e911ae70c4eaa7856dc2a2b734dc30c21f9c99da · 3+ / 3−"
+      - option "1d42a38e06d7 · component:bf2d4ee65c108b5b6f5c3b65ddcafdc8053b3f447a05de0048e4cf303db20d61 · 3+ / 3−"
+      - option "2459ecf93f86 · component:7797de7d043dd270ec40e403a127d8f11e5d54c389f30868a1fc8f16029a93e2 · 3+ / 3−"
+      - option "2540755c7434 · component:80723796886143944a64e4d89f5391949783c4bc5813a81f5b179a031ef5fa85 · 3+ / 3−"
+      - option "29bc1b13edf6 · component:7797de7d043dd270ec40e403a127d8f11e5d54c389f30868a1fc8f16029a93e2 · 3+ / 3−"
+      - option "2b9464489825 · component:cebe500dbd5517b99473ae8f04254b54dd59763a0259cb11efe41e53088fc660 · 3+ / 3−"
+      - option "2dcb8fedaf57 · component:cebe500dbd5517b99473ae8f04254b54dd59763a0259cb11efe41e53088fc660 · 3+ / 3−"
+      - option "36eda792f69d · component:6ad3fefd52f2f327df105714e911ae70c4eaa7856dc2a2b734dc30c21f9c99da · 3+ / 3−"
+      - option "3c6ca55f8384 · component:4f975a35e64c67d5011f2d26de1359680fa4ea79de4fc420dec4695941a110d2 · 3+ / 3−"
+      - option "447dc35eb60b · component:c45804bd678c1eb126b5c7d660a3643f51cf08f73a14f49bbbff5dd02f43cf0a · 3+ / 3−"
+      - option "4820cc1663e2 · component:bf2d4ee65c108b5b6f5c3b65ddcafdc8053b3f447a05de0048e4cf303db20d61 · 3+ / 3−"
+      - option "525abcf5fbc5 · component:b0ba2b8a698084d26268f1b9e6f9dffd0f18af93d9c553a86edd0b0bfc33fc35 · 3+ / 3−"
+      - option "56aaea475ed6 · component:ee1db6d22c20c4791e7101ef97af22d058210d3c1f4621be951fbb8bf84f09c2 · 3+ / 3−"
+      - option "60ed4b63def9 · component:bf2d4ee65c108b5b6f5c3b65ddcafdc8053b3f447a05de0048e4cf303db20d61 · 3+ / 3−"
+    - button "Find related predicates"
+    - paragraph: 46 full pools · 92 embeddings · 48 revoked records
+    - status: Candidate ranking ready. Similarity does not establish equivalence.
+    - paragraph: Exact ranking · 45 eligible candidates · weights 0.45 / 0.1375 / 0.41250000000000003
+    - paragraph: Retrieval candidates only. Matching samples and high similarity do not prove equivalence.
+    - list:
+      - strong: a5cc9edf2e2f
+      - generic: "0.450"
+      - paragraph: component:6ad3fefd52f2f327df105714e911ae70c4eaa7856dc2a2b734dc30c21f9c99da · 3 examples / 3 counterexamples
+      - term: Hierarchy similarity
+      - definition: "1.000"
+      - term: Shared examples
+      - definition: "0.000"
+      - term: Shared counterexamples
+      - definition: "0.000"
+      - text: Different environment or bounds · overlap credit is zero
+      - strong: ad7ba2108b70
+      - generic: "0.450"
+      - paragraph: component:bf2d4ee65c108b5b6f5c3b65ddcafdc8053b3f447a05de0048e4cf303db20d61 · 3 examples / 3 counterexamples
+      - term: Hierarchy similarity
+      - definition: "0.999"
+      - term: Shared examples
+      - definition: "0.000"
+      - term: Shared counterexamples
+      - definition: "0.000"
+      - text: Different environment or bounds · overlap credit is zero
+      - strong: 9f73e24063cd
+      - generic: "0.450"
+      - paragraph: component:7797de7d043dd270ec40e403a127d8f11e5d54c389f30868a1fc8f16029a93e2 · 3 examples / 3 counterexamples
+      - term: Hierarchy similarity
+      - definition: "0.999"
+      - term: Shared examples
+      - definition: "0.000"
+      - term: Shared counterexamples
+      - definition: "0.000"
+      - text: Different environment or bounds · overlap credit is zero
+      - strong: d98a8658a055
+      - generic: "0.450"
+      - paragraph: component:6ad3fefd52f2f327df105714e911ae70c4eaa7856dc2a2b734dc30c21f9c99da · 3 examples / 3 counterexamples
+      - term: Hierarchy similarity
+      - definition: "0.999"
+      - term: Shared examples
+      - definition: "0.000"
+      - term: Shared counterexamples
+      - definition: "0.000"
+      - text: Different environment or bounds · overlap credit is zero
+      - strong: 60ed4b63def9
+      - generic: "0.450"
+      - paragraph: component:bf2d4ee65c108b5b6f5c3b65ddcafdc8053b3f447a05de0048e4cf303db20d61 · 3 examples / 3 counterexamples
+      - term: Hierarchy similarity
+      - definition: "0.999"
+      - term: Shared examples
+      - definition: "0.000"
+      - term: Shared counterexamples
+      - definition: "0.000"
+      - text: Different environment or bounds · overlap credit is zero
+    - generic "Embedding profile and query identity"

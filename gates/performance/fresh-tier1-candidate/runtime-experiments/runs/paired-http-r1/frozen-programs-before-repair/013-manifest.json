@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "kind": "CONTAINMENT_PREFLIGHT",
+  "run_id": "containment-v8",
+  "copied_root": "/tmp/allow-ft1-e250r4ch",
+  "unit": "allow-ft1-08f3ab12ab364e2fae1fecd4d9685fe7.service",
+  "files": [
+    {
+      "path": ".gate/harness_common.py",
+      "sha256": "c497082814ca47b833272944812e91e455a8396cf1cbc27553de66c68d1110c9",
+      "size": 5029,
+      "mode": 436
+    },
+    {
+      "path": ".gate/containment.py",
+      "sha256": "25a240b5ba415798976f3bc6e4db4414d72878ba2b7054a90c19b02cefc7c9c2",
+      "size": 9794,
+      "mode": 436
+    },
+    {
+      "path": ".gate/probe_owner.py",
+      "sha256": "f3fd25622dcdf7afede7a3490c6e9bc918306c3ec13c055d88652a7ef3765d8f",
+      "size": 798,
+      "mode": 436
+    },
+    {
+      "path": ".gate/controller.py",
+      "sha256": "540536752be889961a9f469f71a7a649a6dbeed6cdcd986848d37380edbda610",
+      "size": 15442,
+      "mode": 436
+    },
+    {
+      "path": ".gate/installation.py",
+      "sha256": "894070e564cd515f87da0129874158a17a8f29555c4ba195b7681593e8433315",
+      "size": 17303,
+      "mode": 436
+    },
+    {
+      "path": ".gate/preflight-registration.json",
+      "sha256": "45b87523e1d489c0bb3c5b88e6d755bdd1d6d8cb28e5096fbb36209c23e88f60",
+      "size": 1733,
+      "mode": 436
+    }
+  ],
+  "tools": [
+    {
+      "path": "/usr/bin/python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+      "size": 8020928,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/systemctl",
+      "sha256": "37ec607113f55f1b385b4fa75588a43402aec0de57927500763b267713f10f63",
+      "size": 1501304,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/systemd-run",
+      "sha256": "de28cc5757d3789efa5f6fed5659893410469f68b42175d4531f5b34d3a09e16",
+      "size": 68392,
+      "mode": 493
+    },
+    {
+      "path": "/usr/bin/env",
+      "sha256": "886e5fa8be716b03eeda48856e0f04493f2969fc148fb7812594ffac647fa050",
+      "size": 48072,
+      "mode": 493
+    }
+  ],
+  "registration_sha256": "45b87523e1d489c0bb3c5b88e6d755bdd1d6d8cb28e5096fbb36209c23e88f60",
+  "created_utc": "2026-11-04T05:54:20.804837+00:00",
+  "input_root_sha256": "3036631b679839ad100e0c55fbddec980615fbf3bb005df6b2e9eea1b17300b6"
+}

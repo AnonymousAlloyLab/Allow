@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "closure_id": "allow-browser-benchmark-four-v2",
+  "timestamp": "2026-11-03T20:20:35.811278+00:00",
+  "status": "VERIFIED",
+  "input_root_hash": "6a3e67c993b50c2620a776d7c2c6ff924de1c818957cc27b3164bb87a6327db9",
+  "claims": {
+    "total": 4,
+    "passed": 4,
+    "blocked": 0,
+    "unresolved": 0
+  },
+  "builds": {
+    "required": 2,
+    "passed": 2,
+    "records": [
+      {
+        "input_root_hash": "6a3e67c993b50c2620a776d7c2c6ff924de1c818957cc27b3164bb87a6327db9",
+        "inventory": [
+          "edit_order",
+          "incomplete_not_pass",
+          "pass_iff",
+          "trace_event_count"
+        ],
+        "artifact_sha256": "64c4f07e94cc7c25f7b378ef0928c9c3de6c9218a6e521ff6ab84c142973ee02",
+        "audits": {
+          "trace_event_count-type": "e9a01cf3b0f97d5b0a2fd108b7d07a8435e258cf39db5009f0fb8cec1e084578",
+          "trace_event_count-axioms": "f6cfe3fc7c2dc31168ae1aa749edfb96bff72c136d0b417b35a414f5eff01979",
+          "edit_order-type": "1072aa3d1816849ea3e9277298582a7c71ecded9993c290970240e2c3bab6421",
+          "edit_order-axioms": "1a0168c7c54f36adc53d1ffe51025f721895a1cd24d8e8f9107858bbd4b95a32",
+          "incomplete_not_pass-type": "039a6396d4c8c37f542e6f8ee788b7413df36a2be28619f2461893c9b0daa0dc",
+          "incomplete_not_pass-axioms": "b3975e5c5229eae582a0cec7b1e98d355bda7e71e53a884f44ba78c517ec4cb8",
+          "pass_iff-type": "bc1ee93f1bbecd2c955e1df69f9f9a7475454c2a8a6b4ae2f0bd6afe937e8ce2",
+          "pass_iff-axioms": "de3b6ddb86cbe4a488ad0976288622046ca57290365e1661c478babb6ab8628c"
+        },
+        "claim_status": {
+          "trace_event_count": "PASS",
+          "edit_order": "PASS",
+          "incomplete_not_pass": "PASS",
+          "pass_iff": "PASS"
+        },
+        "provenance_sha256": "420209f73f9dc79cab8fffb2a0dc923a7e50c9da080efd450029efcd16bacbc9"
+      },
+      {
+        "input_root_hash": "6a3e67c993b50c2620a776d7c2c6ff924de1c818957cc27b3164bb87a6327db9",
+        "inventory": [
+          "edit_order",
+          "incomplete_not_pass",
+          "pass_iff",
+          "trace_event_count"
+        ],
+        "artifact_sha256": "64c4f07e94cc7c25f7b378ef0928c9c3de6c9218a6e521ff6ab84c142973ee02",
+        "audits": {
+          "trace_event_count-type": "e9a01cf3b0f97d5b0a2fd108b7d07a8435e258cf39db5009f0fb8cec1e084578",
+          "trace_event_count-axioms": "f6cfe3fc7c2dc31168ae1aa749edfb96bff72c136d0b417b35a414f5eff01979",
+          "edit_order-type": "1072aa3d1816849ea3e9277298582a7c71ecded9993c290970240e2c3bab6421",
+          "edit_order-axioms": "1a0168c7c54f36adc53d1ffe51025f721895a1cd24d8e8f9107858bbd4b95a32",
+          "incomplete_not_pass-type": "039a6396d4c8c37f542e6f8ee788b7413df36a2be28619f2461893c9b0daa0dc",
+          "incomplete_not_pass-axioms": "b3975e5c5229eae582a0cec7b1e98d355bda7e71e53a884f44ba78c517ec4cb8",
+          "pass_iff-type": "bc1ee93f1bbecd2c955e1df69f9f9a7475454c2a8a6b4ae2f0bd6afe937e8ce2",
+          "pass_iff-axioms": "de3b6ddb86cbe4a488ad0976288622046ca57290365e1661c478babb6ab8628c"
+        },
+        "claim_status": {
+          "trace_event_count": "PASS",
+          "edit_order": "PASS",
+          "incomplete_not_pass": "PASS",
+          "pass_iff": "PASS"
+        },
+        "provenance_sha256": "420209f73f9dc79cab8fffb2a0dc923a7e50c9da080efd450029efcd16bacbc9"
+      }
+    ]
+  },
+  "correspondence": {
+    "required_objects": 0,
+    "mapped_objects": 0,
+    "unmapped_objects": 0,
+    "ambiguous_objects": 0
+  },
+  "witnesses": {
+    "required": 0,
+    "valid": 0,
+    "invalid": 0
+  },
+  "determinism": {
+    "required": true,
+    "status": "PASS"
+  },
+  "provenance": {
+    "public_claims": 4,
+    "fully_bound": 4,
+    "orphan_claims": 0
+  },
+  "dependencies": {
+    "verified": [],
+    "trusted": [
+      "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice only when audited",
+      "Python verifier and SHA256 collision resistance",
+      "operating system, filesystem and hardware"
+    ],
+    "undeclared": []
+  },
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "closure_boundary": {
+    "verified_surface": [
+      "Four registered abstract Lean propositions only"
+    ],
+    "trusted_surface": [
+      "Lean 4.34.1 kernel, elaborator, pretty-printer and bundled libraries",
+      "propext, Quot.sound, Classical.choice only when audited",
+      "Python verifier and SHA256 collision resistance",
+      "operating system, filesystem and hardware"
+    ],
+    "excluded_surface": [
+      "browser or production runtime correspondence",
+      "actual commits, physical paint or user-facing correctness",
+      "percentile computation and input validity",
+      "the prior 267 claims and any future revision"
+    ],
+    "interpretation": "VERIFIED applies only to this frozen finite model under the declared TCB."
+  },
+  "decision": {
+    "valid_states": [
+      "VERIFIED",
+      "BLOCKED",
+      "INFRASTRUCTURE_FAILURE"
+    ],
+    "manual_override_allowed": false
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "classification": "ADVISORY_REVIEW_NOT_PROOF",
+  "seats": {
+    "terra-1": {
+      "requested_model": "gpt-6.1-terra",
+      "report": "reviews/g1-implementation-terra-1.json",
+      "sha256": "243f268dcd783bdaba869c2df9875ebf5e0b6f81ab8567a95bae983878007381",
+      "initial_or_current_verdict": "FIX_APPLIED_TESTS_PENDING",
+      "final_disposition": {
+        "verdict": "ACCEPT_WITH_STATED_BOUNDARIES",
+        "file_sha256": {
+          "backend/src/main/java/dev/allow/backend/AuthorityFilter.java": "2f171027ca2371aefb62e76b47c9e1ceaaedd5f87cc493c4d7396c374f9869ed",
+          "backend/src/main/java/dev/allow/backend/JobService.java": "5602d7cdd093117831a8d589420168a9a2e74ff40d474d1539d512e3d241ba30",
+          "backend/src/main/java/dev/allow/backend/JobRecord.java": "bda801932f2df2edd5a72b0fb8a594697d501644c4de740746a417fdfeb74d4d",
+          "backend/src/main/java/dev/allow/backend/JobControl.java": "2d0586b38e5ea23c19e68e1ee7f253349b8c052271165691c568a8773e24842c",
+          "backend/src/main/java/dev/allow/backend/ProcessRunner.java": "0b09a9f608fcc4fa80402c33b8c2305fe2afa3771ba9d865488fea0402f31646",
+          "backend/src/main/java/dev/allow/backend/BubblewrapLauncher.java": "fec9b35af0d3413796bf2df135900b8c958aacd9d02bb9018b3d83118927acef",
+          "backend/src/main/java/dev/allow/backend/BuildIdentity.java": "a6574bd22cd461bab57047d27149df35504ad7e52aa75871abdd80df4f5484e7",
+          "backend/src/main/java/dev/allow/worker/JsonWire.java": "dd4013db81f8d4d8cd5a133d17374984cd5af78da2c919dc7ee4a0b2217476ec",
+          "backend/src/test/java/dev/allow/backend/HttpBoundaryTest.java": "090d41a499cd8b6383ee5cde792c5c3c058829e60de0b199cfeb748bee457a7c",
+          "backend/src/test/java/dev/allow/worker/JsonWireStrictTest.java": "38ea38b316c3f174cbac053a9a76b67e84a7d2ecfd59918d3214a51e4569b030",
+          "docs/implementation-g1.md": "1ae00e20f86d5f4de6f1217e52e6e75a4c6d9adf32e7d0929c115e10bb32e310"
+        },
+        "finding_dispositions": [
+          {
+            "id": "G1-IMPL-T1-01",
+            "status": "RESOLVED",
+            "evidence": "Strict mapper changes and negative HTTP/protocol tests are present. Parent final build log reports HttpBoundaryTest 5/5 and JsonWireStrictTest 1/1, within 37 backend tests, all passing."
+          },
+          {
+            "id": "G1-IMPL-T1-02",
+            "status": "DOCUMENTED_BOUNDARY",
+            "evidence": "docs/implementation-g1.md states the JDK version-string limitation; exact JDK binary hash is not claimed."
+          }
+        ],
+        "verification": "Inspected final build log /tmp/allow-g1-final-build.log, which reports 37 backend tests, zero failures/errors/skips and BUILD SUCCESS. The parent also reports 16 frontend tests and Checkstyle passed. No independent rebuild was performed.",
+        "limitations": "Focused adversarial inspection, not a full security audit or proof of operating system sandbox correctness."
+      }
+    },
+    "terra-2": {
+      "requested_model": "gpt-6.1-terra",
+      "report": "reviews/g1-implementation-terra-2.json",
+      "sha256": "700b622ccb25815bfef03a1a00d1beb267f961e3839402e348f4ef2de2496392",
+      "initial_or_current_verdict": "BLOCKED_AT_REVIEWED_SNAPSHOT",
+      "final_disposition": {
+        "verdict": "FINDINGS_01_AND_02_RESOLVED; FINDING_03_DOCUMENTED_LIMITATION",
+        "evidence": "Final default build log reports 49 JS/TS and 13 Java style fixtures, 117 inventoried callables without violations, 16 frontend tests, 37 backend tests, and BUILD SUCCESS. Exact known-path exclusions and traversal fixtures address finding 01; verified Checkstyle bootstrap and build environment address finding 02. Documentation explicitly records limits of mechanical checks for finding 03. This is not a checker completeness proof.",
+        "log_sha256": "19a7ba47d80e04501b1dd92286e8bed5232b753bc17b67d732ccb802ddd7efde",
+        "current_files_sha256": {
+          "scripts/check-code-style.mjs": "d158e738101e4e18da29db74af5ce57e1cebee6d09c21f8424f8f8e51f744159",
+          "scripts/test-code-style.mjs": "93eac543d423478ae29091c3ddb86a5c2ecd4bc6f731167a874887a9a10001eb",
+          "config/checkstyle.xml": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+          "scripts/build.py": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+          "scripts/bootstrap.py": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+          "docs/implementation-g1.md": "1ae00e20f86d5f4de6f1217e52e6e75a4c6d9adf32e7d0929c115e10bb32e310"
+        },
+        "limits": "Build log inspected; no independent clean or offline rebuild performed in this final disposition. Documentation and mutable-state escape require human review."
+      }
+    },
+    "sol-1": {
+      "requested_model": "gpt-6.1-sol",
+      "report": "reviews/g1-implementation-sol-1.json",
+      "sha256": "86bf4f95758b2c261308bafd3d3da4b52814fda96231b15101d7d1bf8b55274a",
+      "initial_or_current_verdict": "ACCEPT_SCOPED_IMPLEMENTATION_WITH_STATED_LIMITS",
+      "final_disposition": {}
+    },
+    "sol-2": {
+      "requested_model": "gpt-6.1-sol",
+      "report": "reviews/g1-implementation-sol-2.json",
+      "sha256": "5245571f490662817fc7c2f77283554921770dbc730eb646d5260a241e0f7d03",
+      "initial_or_current_verdict": "ACCEPT_REMEDIATED_FRONTEND_PENDING_ASSEMBLED_AND_BROWSER_GATES",
+      "final_disposition": {}
+    },
+    "astra-1": {
+      "requested_model": "gpt-6-astra",
+      "report": "reviews/g1-implementation-astra-1.json",
+      "sha256": "7a5622aecea8f5efb3eea1501d2899a3871f0ee58969c9c44baaf828081b7228",
+      "initial_or_current_verdict": "REVIEWED_NO_OPEN_BLOCKER_IN_SCOPE",
+      "final_disposition": {
+        "finding": "G1-IMPL-A1-01",
+        "status": "RESOLVED_BY_DURABLE_TESTS_AND_RECORDED_RUN",
+        "evidence": [
+          "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java adds six tests covering dependent-domain renaming and semantic distinction, let shadowing, unbound identity rejection, scope restoration/nonreuse, signature versus bound namespaces, field arity, tags/order/null framing, and exact byte/hash/feature oracle.",
+          "/tmp/allow-g1-final-build.log reports SlotBoundaryTest six passed and CanonicalizerTest eleven passed; overall backend 37 passed, frontend 16 passed, 0 Checkstyle violations, 49 JS/TS and 13 Java checker fixture cases passed.",
+          "This seat independently recomputed the golden fixture using Python hashlib and collections: 70 bytes, SHA-256 500bb93067f18d12e464d2f37cdec657925ebb43b4a981c7acea0ad8786ad3bf, occupied bins 5/12/30/31/36/41/53/72/77/81/90/91/95/119/120/126 with counts two at 36 and 77, squared norm 22. Matches the checked-in test."
+        ],
+        "interpretation": "Initial finding retained above as review history. Focused fixtures now discharge this evidence gap for tested cases. No universal parser refinement, structural injectivity or security proof follows. Other G1/G2 acceptance gates remain outside this disposition.",
+        "current_files_sha256": {
+          "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654",
+          "spec/slot-profile.json": "621b01d214935864746e534d8c8343dca8a3fa1e98089e19ce480e45beb3f2d4",
+          "gates/g1/formal-report.json": "8b375bdb7b10c6005f840eb98a20c70dd01989ffbe3562988fdb1de68b83f371",
+          "formal/Allow/Slots.lean": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f",
+          "backend/src/main/java/dev/allow/canonical/ModuleEncoder.java": "6d10d93ebc4e20b87e170f3b3c50b9d0a40f129c88c73a65ca9ad1f7fb66903f",
+          "backend/src/main/java/dev/allow/canonical/ExpressionEncoder.java": "8845a5c05bdaefb1c4bea79622f6cb3379023e79f9f1b8c2385c8a9fd91d235f",
+          "backend/src/main/java/dev/allow/canonical/SlotRegistry.java": "5d591907ff79825421fa01acc5114c505d4b6abfdebdb75ba74cf87d1fa864ef",
+          "backend/src/main/java/dev/allow/canonical/AnonymizedArtifact.java": "e30a809294a5923c2e1a820f64c627fff1b4c0868edf5437a4994e9c9f29ba59",
+          "backend/src/main/java/dev/allow/canonical/EmbeddingEncoder.java": "eb353d04f1ecab0836229f6979e6b608afefe9cca9214db9e9be363841b9727e",
+          "backend/src/main/java/dev/allow/canonical/Canonicalizer.java": "2554b1751395be866ef533f5ba6526d0787c48b4021abcd3bbb34ddc98db6a27",
+          "backend/src/test/java/dev/allow/canonical/CanonicalizerTest.java": "7fb8fef4cd50250c1ef214461efd10d988726d4de358cfe60d06d180a534b634",
+          "backend/src/test/java/dev/allow/canonical/SlotBoundaryTest.java": "c5cbab76bde38bf1656994905d7501eae66d4d640534086d1d88d683acd13c2f",
+          "/tmp/allow-g1-final-build.log": "19a7ba47d80e04501b1dd92286e8bed5232b753bc17b67d732ccb802ddd7efde"
+        },
+        "execution_boundary": "Read test source and build log; independently recomputed Python oracle. Did not invoke Maven or rerun Java/TypeScript tests."
+      }
+    },
+    "astra-2": {
+      "requested_model": "gpt-6-astra",
+      "report": "reviews/g1-implementation-astra-2.json",
+      "sha256": "863355b543b2fe9cc4a377df45ef3cdb725383a1b0ab63dd586f68a803f30529",
+      "initial_or_current_verdict": "NO_NEW_LOCAL_DEVELOPMENT_BLOCKER; COMMERCIAL_RELEASE_REMAINS_UNCLEARED",
+      "final_disposition": {}
+    }
+  },
+  "limits": "Requested dispatch model identities recorded; provider runtime not independently attested. Reports retain reviewed snapshot hashes and disclose reviewer-authored remediation.",
+  "resolution": {
+    "strict_json_coercion": "Fixed; HTTP and worker-protocol negative tests pass",
+    "forged_drop_and_stale_cancel": "Fixed; typed reference and deferred-response tests pass",
+    "missing_canonical_fixtures": "Six durable scope/framing/exact-byte tests pass",
+    "broad_style_exclusions": "Exact known roots only; authored nested-path fixtures pass",
+    "default_java_style_fixtures": "Pinned verified CLI required by default build; 13 cases pass",
+    "jdk_binary_identity": "Documented limitation: runtime version string, not JDK binary hashes",
+    "linux_layout_and_inventory_threshold": "Documented host-path and old 256 KiB inventory-threshold limits",
+    "browser_and_commercial_gates": "Remain open; no acceptance or clearance inferred"
+  }
+}

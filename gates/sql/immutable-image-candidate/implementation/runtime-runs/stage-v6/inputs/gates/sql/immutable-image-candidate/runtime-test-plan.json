@@ -1,0 +1,342 @@
+{
+  "candidate_revision": "r2",
+  "status": "PLANNED_NOT_EXECUTED_EXCEPT_RECORDED_CAPABILITY_PROBE",
+  "tests": [
+    {
+      "id": "IM01",
+      "name": "initialize_pinned",
+      "pass_condition": "sealed destination hash and size equal pin",
+      "status": "planned"
+    },
+    {
+      "id": "IM02",
+      "name": "initialize_mismatch",
+      "pass_condition": "wrong destination digest denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM03",
+      "name": "copy_race",
+      "pass_condition": "concurrent source alteration cannot publish nonpinned snapshot",
+      "status": "planned"
+    },
+    {
+      "id": "IM04",
+      "name": "seal_write",
+      "pass_condition": "pwrite EPERM",
+      "status": "planned"
+    },
+    {
+      "id": "IM05",
+      "name": "seal_grow",
+      "pass_condition": "ftruncate grow EPERM",
+      "status": "planned"
+    },
+    {
+      "id": "IM06",
+      "name": "seal_shrink",
+      "pass_condition": "ftruncate shrink EPERM",
+      "status": "planned"
+    },
+    {
+      "id": "IM07",
+      "name": "seal_mmap",
+      "pass_condition": "shared writable mapping denied",
+      "status": "planned"
+    },
+    {
+      "id": "IM08",
+      "name": "missing_seal",
+      "pass_condition": "each required missing seal denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM09",
+      "name": "wrong_size",
+      "pass_condition": "size mismatch denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM10",
+      "name": "closed_fd",
+      "pass_condition": "EBADF denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM11",
+      "name": "reused_fd",
+      "pass_condition": "same numeric descriptor different inode denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM12",
+      "name": "lifetime_race",
+      "pass_condition": "close cannot interleave admitted private handle use",
+      "status": "planned"
+    },
+    {
+      "id": "IM13",
+      "name": "duplicate_failure",
+      "pass_condition": "EMFILE dup failure denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM14",
+      "name": "child_inheritance",
+      "pass_condition": "reserved duplicate survives prlimit",
+      "status": "planned"
+    },
+    {
+      "id": "IM15",
+      "name": "actual_executable",
+      "pass_condition": "actual parser /proc/PID/exe inode equals memfd; bounded independent witness",
+      "status": "planned"
+    },
+    {
+      "id": "IM16",
+      "name": "procfs_missing",
+      "pass_condition": "no path fallback",
+      "status": "planned"
+    },
+    {
+      "id": "IM17",
+      "name": "noexec_policy",
+      "pass_condition": "unsupported/noexec memfd denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM18",
+      "name": "parser_success",
+      "pass_condition": "full exact-source report checks",
+      "status": "planned"
+    },
+    {
+      "id": "IM19",
+      "name": "parser_rejection",
+      "pass_condition": "nonzero parser exit denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM20",
+      "name": "parser_timeout",
+      "pass_condition": "existing wall deadline denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM21",
+      "name": "parser_output",
+      "pass_condition": "oversize/malformed report denies",
+      "status": "planned"
+    },
+    {
+      "id": "IM22",
+      "name": "exact_cache",
+      "pass_condition": "same bytes image profile commit policy generation only",
+      "status": "planned"
+    },
+    {
+      "id": "IM23",
+      "name": "changed_sql",
+      "pass_condition": "byte difference cannot reuse",
+      "status": "planned"
+    },
+    {
+      "id": "IM24",
+      "name": "changed_generation",
+      "pass_condition": "old completion cannot insert new cache",
+      "status": "planned"
+    },
+    {
+      "id": "IM25",
+      "name": "cache_provenance",
+      "pass_condition": "cache hit cannot manufacture statement or portal",
+      "status": "planned"
+    },
+    {
+      "id": "IM26",
+      "name": "cache_bounds",
+      "pass_condition": "256 entries and4MiB SQL remain",
+      "status": "planned"
+    },
+    {
+      "id": "IM27",
+      "name": "disk_replacement_running",
+      "pass_condition": "old exact sealed image continues; status makes policy explicit",
+      "status": "planned"
+    },
+    {
+      "id": "IM28",
+      "name": "disk_replacement_restart",
+      "pass_condition": "new gate rejects changed disk pin",
+      "status": "planned"
+    },
+    {
+      "id": "IM29",
+      "name": "stopped_gate",
+      "pass_condition": "close clears cache denies and status is stopped",
+      "status": "planned"
+    },
+    {
+      "id": "IM30",
+      "name": "resource_accounting",
+      "pass_condition": "proxy/image RSS PSS shmem and child AS reported separately",
+      "status": "planned"
+    },
+    {
+      "id": "IM31",
+      "name": "all_existing",
+      "pass_condition": "all authoritative existing claims and SQL suites pass unchanged",
+      "status": "planned"
+    },
+    {
+      "id": "IM32",
+      "name": "full_cli_benchmark",
+      "pass_condition": "complete baseline and candidate read ownedIds report failures samplecounts inputhashes",
+      "status": "planned"
+    },
+    {
+      "id": "IM33",
+      "name": "trusted_size_missing",
+      "pass_condition": "missing/incorrect immutable size pin denies before publication",
+      "status": "planned"
+    },
+    {
+      "id": "IM34",
+      "name": "source_nonregular",
+      "pass_condition": "FIFO open does not block; FIFO device directory symlink rejected and no leak",
+      "status": "planned"
+    },
+    {
+      "id": "IM35",
+      "name": "source_oversize",
+      "pass_condition": "oversized source cannot copy more than trusted size plus one-byte probe",
+      "status": "planned"
+    },
+    {
+      "id": "IM36",
+      "name": "source_growing",
+      "pass_condition": "concurrent append rejects excess without unbounded copy",
+      "status": "planned"
+    },
+    {
+      "id": "IM37",
+      "name": "source_truncated",
+      "pass_condition": "early EOF denies closes all resources",
+      "status": "planned"
+    },
+    {
+      "id": "IM38",
+      "name": "initializer_deadline",
+      "pass_condition": "stalled helper wall deadline denies no partial gate/cache; reap cleanup recorded",
+      "status": "planned"
+    },
+    {
+      "id": "IM39",
+      "name": "initializer_transfer",
+      "pass_condition": "unexpected/multiple ancillary fds closed and denied; no leak",
+      "status": "planned"
+    },
+    {
+      "id": "IM40",
+      "name": "source_short_write",
+      "pass_condition": "short writes handled and zero-progress/errors deny cleanup",
+      "status": "planned"
+    },
+    {
+      "id": "IM41",
+      "name": "slot_wait_no_fd",
+      "pass_condition": "more than two concurrent misses hold at most two reservation fds; waiters zero",
+      "status": "planned"
+    },
+    {
+      "id": "IM42",
+      "name": "hit_fd_cleanup",
+      "pass_condition": "repeated cache hits return descriptor count to baseline",
+      "status": "planned"
+    },
+    {
+      "id": "IM43",
+      "name": "cancel_fd_cleanup",
+      "pass_condition": "cancel at slot wait and post-reservation releases exact owned resources",
+      "status": "planned"
+    },
+    {
+      "id": "IM44",
+      "name": "launch_failure_cleanup",
+      "pass_condition": "launch failure closes duplicate releases slot; no stale fd execution",
+      "status": "planned"
+    },
+    {
+      "id": "IM45",
+      "name": "shutdown_reservations",
+      "pass_condition": "close wakes waiting misses; live owners clean/reap; shutdown-complete after cleanup only",
+      "status": "planned"
+    },
+    {
+      "id": "IM46",
+      "name": "numeric_fd_reuse",
+      "pass_condition": "forced fd churn cannot replace reserved object before inheritance",
+      "status": "planned"
+    },
+    {
+      "id": "IM47",
+      "name": "profile_independent",
+      "pass_condition": "profile alone changes requires fresh reviewed snapshot and empty cache",
+      "status": "planned"
+    },
+    {
+      "id": "IM48",
+      "name": "commit_independent",
+      "pass_condition": "commit alone changes requires fresh reviewed snapshot and empty cache",
+      "status": "planned"
+    },
+    {
+      "id": "IM49",
+      "name": "policy_independent",
+      "pass_condition": "policy alone changes requires fresh reviewed snapshot and empty cache",
+      "status": "planned"
+    },
+    {
+      "id": "IM50",
+      "name": "mapping_independent",
+      "pass_condition": "one mapping entry/order change denies pin or fresh reviewed generation; stale cache never admitted",
+      "status": "planned"
+    },
+    {
+      "id": "IM51",
+      "name": "mapping_alias",
+      "pass_condition": "mutating input list cannot affect immutable snapshot or previous decisions",
+      "status": "planned"
+    },
+    {
+      "id": "IM52",
+      "name": "config_disk_change",
+      "pass_condition": "lock file changed after init does not reload existing generation; status remains pinned",
+      "status": "planned"
+    },
+    {
+      "id": "IM53",
+      "name": "digest_size_independent",
+      "pass_condition": "binary digest or expected size changes cannot reuse old cache",
+      "status": "planned"
+    },
+    {
+      "id": "IM54",
+      "name": "status_snapshot_lifecycle",
+      "pass_condition": "atomic status equals active snapshot and stopped/failed state, no mutable aliases or live disk claim",
+      "status": "planned"
+    },
+    {
+      "id": "IM55",
+      "name": "stale_completion_shutdown",
+      "pass_condition": "completion after close denies and cannot insert into cache",
+      "status": "planned"
+    },
+    {
+      "id": "IM56",
+      "name": "noexec_no_fallback",
+      "pass_condition": "unsupported MFD_EXEC/enforced noexec denies and closes resources without policy weakening",
+      "status": "planned"
+    }
+  ]
+}

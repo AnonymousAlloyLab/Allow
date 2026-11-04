@@ -1,0 +1,174 @@
+{
+  "classification": "AUTHOR_ELABORATED_TYPES_TO_BE_FROZEN_BEFORE_FINAL_VERIFICATION",
+  "lean": "4.34.1",
+  "claims": [
+    {
+      "id": "CCM01",
+      "theorem": "Allow.ContextCleanup.step_preserves_invariant",
+      "exact_check_output": "@Allow.ContextCleanup.step_preserves_invariant : \u2200 {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Invariant s \u2192 Allow.ContextCleanup.Step s t \u2192 Allow.ContextCleanup.Invariant t",
+      "exact_axiom_output": "'Allow.ContextCleanup.step_preserves_invariant' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM02",
+      "theorem": "Allow.ContextCleanup.reachable_invariant",
+      "exact_check_output": "@Allow.ContextCleanup.reachable_invariant : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192 Allow.ContextCleanup.Invariant s",
+      "exact_axiom_output": "'Allow.ContextCleanup.reachable_invariant' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM03",
+      "theorem": "Allow.ContextCleanup.application_sql_requires_bound_prelude",
+      "exact_check_output": "@Allow.ContextCleanup.application_sql_requires_bound_prelude : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192 Eq.{1} s.ran true \u2192 Allow.ContextCleanup.BoundPrelude s",
+      "exact_axiom_output": "'Allow.ContextCleanup.application_sql_requires_bound_prelude' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM04",
+      "theorem": "Allow.ContextCleanup.new_application_sql_requires_bound_phase",
+      "exact_check_output": "@Allow.ContextCleanup.new_application_sql_requires_bound_phase : \u2200 {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Step s t \u2192\n    Eq.{1} s.ran false \u2192\n      Eq.{1} t.ran true \u2192 Eq.{1} s.phase Allow.ContextCleanup.Phase.bound \u2227 Allow.ContextCleanup.BoundPrelude s",
+      "exact_axiom_output": "'Allow.ContextCleanup.new_application_sql_requires_bound_phase' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM05",
+      "theorem": "Allow.ContextCleanup.staged_context_requires_application_sql",
+      "exact_check_output": "@Allow.ContextCleanup.staged_context_requires_application_sql : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192 Eq.{1} s.staged true \u2192 Eq.{1} s.ran true",
+      "exact_axiom_output": "'Allow.ContextCleanup.staged_context_requires_application_sql' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM06",
+      "theorem": "Allow.ContextCleanup.receipt_proves_matching_cleanup",
+      "exact_check_output": "@Allow.ContextCleanup.receipt_proves_matching_cleanup : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease}\n  {r : Allow.ContextCleanup.Receipt},\n  Allow.ContextCleanup.Reachable durable s \u2192\n    Eq.{1} s.receipt (some.{0} r) \u2192\n      Eq.{1} r.owner s.owner \u2227 Allow.ContextCleanup.CleanupSafe s \u2227 Eq.{1} r.successPermitted !s.poisoned",
+      "exact_axiom_output": "'Allow.ContextCleanup.receipt_proves_matching_cleanup' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM07",
+      "theorem": "Allow.ContextCleanup.reachable_clean_has_receipt",
+      "exact_check_output": "@Allow.ContextCleanup.reachable_clean_has_receipt : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192\n    Eq.{1} s.phase Allow.ContextCleanup.Phase.clean \u2192 Exists.{1} fun r => Eq.{1} s.receipt (some.{0} r)",
+      "exact_axiom_output": "'Allow.ContextCleanup.reachable_clean_has_receipt' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM08",
+      "theorem": "Allow.ContextCleanup.reachable_clean_is_safe",
+      "exact_check_output": "@Allow.ContextCleanup.reachable_clean_is_safe : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192\n    Eq.{1} s.phase Allow.ContextCleanup.Phase.clean \u2192 Allow.ContextCleanup.CleanupSafe s",
+      "exact_axiom_output": "'Allow.ContextCleanup.reachable_clean_is_safe' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM09",
+      "theorem": "Allow.ContextCleanup.release_requires_clean",
+      "exact_check_output": "@Allow.ContextCleanup.release_requires_clean : \u2200 {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Step s t \u2192\n    Eq.{1} t.phase Allow.ContextCleanup.Phase.vacant \u2192 Eq.{1} s.phase Allow.ContextCleanup.Phase.clean",
+      "exact_axiom_output": "'Allow.ContextCleanup.release_requires_clean' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM10",
+      "theorem": "Allow.ContextCleanup.release_requires_observed_cleanup",
+      "exact_check_output": "@Allow.ContextCleanup.release_requires_observed_cleanup : \u2200 {durable : Nat} {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192\n    Allow.ContextCleanup.Step s t \u2192\n      Eq.{1} t.phase Allow.ContextCleanup.Phase.vacant \u2192 Allow.ContextCleanup.CleanupSafe s",
+      "exact_axiom_output": "'Allow.ContextCleanup.release_requires_observed_cleanup' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM11",
+      "theorem": "Allow.ContextCleanup.step_preserves_durable",
+      "exact_check_output": "@Allow.ContextCleanup.step_preserves_durable : \u2200 {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Step s t \u2192 Eq.{1} t.durable s.durable",
+      "exact_axiom_output": "'Allow.ContextCleanup.step_preserves_durable' does not depend on any axioms"
+    },
+    {
+      "id": "CCM12",
+      "theorem": "Allow.ContextCleanup.advisory_cleanup_preserves_durable",
+      "exact_check_output": "@Allow.ContextCleanup.advisory_cleanup_preserves_durable : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Reachable durable s \u2192 Eq.{1} s.durable durable",
+      "exact_axiom_output": "'Allow.ContextCleanup.advisory_cleanup_preserves_durable' does not depend on any axioms"
+    },
+    {
+      "id": "CCM13",
+      "theorem": "Allow.ContextCleanup.context_lease_at_most_one",
+      "exact_check_output": "Allow.ContextCleanup.context_lease_at_most_one : \u2200 (s : Allow.ContextCleanup.Lease),\n  LE.le.{0} (Allow.ContextCleanup.occupied s) 1",
+      "exact_axiom_output": "'Allow.ContextCleanup.context_lease_at_most_one' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM14",
+      "theorem": "Allow.ContextCleanup.unknown_retains_capacity",
+      "exact_check_output": "Allow.ContextCleanup.unknown_retains_capacity : \u2200 (s : Allow.ContextCleanup.Lease),\n  Eq.{1} s.phase Allow.ContextCleanup.Phase.unknown \u2192 Eq.{1} (Allow.ContextCleanup.occupied s) 1",
+      "exact_axiom_output": "'Allow.ContextCleanup.unknown_retains_capacity' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM15",
+      "theorem": "Allow.ContextCleanup.nonfree_retains_capacity",
+      "exact_check_output": "Allow.ContextCleanup.nonfree_retains_capacity : \u2200 (s : Allow.ContextCleanup.Lease),\n  Ne.{1} s.phase Allow.ContextCleanup.Phase.vacant \u2192 Eq.{1} (Allow.ContextCleanup.occupied s) 1",
+      "exact_axiom_output": "'Allow.ContextCleanup.nonfree_retains_capacity' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM16",
+      "theorem": "Allow.ContextCleanup.replacement_requires_vacant",
+      "exact_check_output": "@Allow.ContextCleanup.replacement_requires_vacant : \u2200 {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Step s t \u2192\n    Eq.{1} t.phase Allow.ContextCleanup.Phase.reserved \u2192 Eq.{1} s.phase Allow.ContextCleanup.Phase.vacant",
+      "exact_axiom_output": "'Allow.ContextCleanup.replacement_requires_vacant' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM17",
+      "theorem": "Allow.ContextCleanup.unknown_cannot_be_replaced",
+      "exact_check_output": "@Allow.ContextCleanup.unknown_cannot_be_replaced : \u2200 {s t : Allow.ContextCleanup.Lease},\n  Allow.ContextCleanup.Step s t \u2192\n    Eq.{1} s.phase Allow.ContextCleanup.Phase.unknown \u2192 Ne.{1} t.phase Allow.ContextCleanup.Phase.reserved",
+      "exact_axiom_output": "'Allow.ContextCleanup.unknown_cannot_be_replaced' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM18",
+      "theorem": "Allow.ContextCleanup.unidentified_attempt_cannot_be_clean",
+      "exact_check_output": "Allow.ContextCleanup.unidentified_attempt_cannot_be_clean : \u2200 (s : Allow.ContextCleanup.Lease),\n  Eq.{1} s.attempted true \u2192 Eq.{1} s.backend none.{0} \u2192 \u00acAllow.ContextCleanup.CleanupSafe s",
+      "exact_axiom_output": "'Allow.ContextCleanup.unidentified_attempt_cannot_be_clean' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM19",
+      "theorem": "Allow.ContextCleanup.closed_transport_alone_is_insufficient",
+      "exact_check_output": "Allow.ContextCleanup.closed_transport_alone_is_insufficient : \u2200 (s : Allow.ContextCleanup.Lease),\n  Eq.{1} s.attempted true \u2192 Eq.{1} s.absent none.{0} \u2192 \u00acAllow.ContextCleanup.CleanupSafe s",
+      "exact_axiom_output": "'Allow.ContextCleanup.closed_transport_alone_is_insufficient' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM20",
+      "theorem": "Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup",
+      "exact_check_output": "Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup : \u2200 (s : Allow.ContextCleanup.Lease)\n  (reason : Allow.ContextCleanup.RetirementReason),\n  Allow.ContextCleanup.CleanupSafe (Allow.ContextCleanup.markRetiring s reason) \u2194 Allow.ContextCleanup.CleanupSafe s",
+      "exact_axiom_output": "'Allow.ContextCleanup.timeout_ack_or_eof_never_proves_cleanup' does not depend on any axioms"
+    },
+    {
+      "id": "CCM21",
+      "theorem": "Allow.ContextCleanup.stale_receipt_rejected",
+      "exact_check_output": "Allow.ContextCleanup.stale_receipt_rejected : \u2200 (expected : Allow.ContextCleanup.Owner)\n  (r : Allow.ContextCleanup.Receipt),\n  Ne.{1} r.owner expected \u2192 Eq.{1} (Allow.ContextCleanup.acceptReceipt expected r) false",
+      "exact_axiom_output": "'Allow.ContextCleanup.stale_receipt_rejected' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM22",
+      "theorem": "Allow.ContextCleanup.accepted_receipt_exact_owner",
+      "exact_check_output": "@Allow.ContextCleanup.accepted_receipt_exact_owner : \u2200 {expected : Allow.ContextCleanup.Owner}\n  {r : Allow.ContextCleanup.Receipt},\n  Eq.{1} (Allow.ContextCleanup.acceptReceipt expected r) true \u2192 Eq.{1} r.owner expected",
+      "exact_axiom_output": "'Allow.ContextCleanup.accepted_receipt_exact_owner' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM23",
+      "theorem": "Allow.ContextCleanup.stale_lease_generation_rejected",
+      "exact_check_output": "Allow.ContextCleanup.stale_lease_generation_rejected : \u2200 (expected : Allow.ContextCleanup.Owner)\n  (r : Allow.ContextCleanup.Receipt),\n  Ne.{1} r.owner.leaseGeneration expected.leaseGeneration \u2192 Eq.{1} (Allow.ContextCleanup.acceptReceipt expected r) false",
+      "exact_axiom_output": "'Allow.ContextCleanup.stale_lease_generation_rejected' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM24",
+      "theorem": "Allow.ContextCleanup.context_ok_requires_cleanup",
+      "exact_check_output": "@Allow.ContextCleanup.context_ok_requires_cleanup : \u2200 {durable : Nat} {s : Allow.ContextCleanup.Lease}\n  {r : Allow.ContextCleanup.Receipt},\n  Allow.ContextCleanup.Reachable durable s \u2192 Allow.ContextCleanup.contextOK s r \u2192 Allow.ContextCleanup.CleanupSafe s",
+      "exact_axiom_output": "'Allow.ContextCleanup.context_ok_requires_cleanup' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM25",
+      "theorem": "Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success",
+      "exact_check_output": "@Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success : \u2200 {s : Allow.ContextCleanup.Lease}\n  {r : Allow.ContextCleanup.Receipt},\n  Allow.ContextCleanup.contextOK s r \u2192 Eq.{1} s.staged true \u2227 Eq.{1} r.successPermitted true \u2227 Eq.{1} s.poisoned false",
+      "exact_axiom_output": "'Allow.ContextCleanup.context_ok_requires_staged_unpoisoned_success' does not depend on any axioms"
+    },
+    {
+      "id": "CCM26",
+      "theorem": "Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic",
+      "exact_check_output": "Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic : \u2200\n  (ordinaryBackends contextBackends observerBackends : Nat),\n  LE.le.{0} ordinaryBackends 15 \u2192\n    LE.le.{0} contextBackends 1 \u2192\n      LE.le.{0} observerBackends 1 \u2192\n        LE.le.{0} (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} ordinaryBackends contextBackends) observerBackends)\n          (HSub.hSub.{0, 0, 0} 20 3)",
+      "exact_axiom_output": "'Allow.ContextCleanup.conditional_postgresql_capacity_arithmetic' depends on axioms: [propext, Quot.sound.{u}]"
+    },
+    {
+      "id": "CCM27",
+      "theorem": "Allow.ContextCleanup.normal_cleanup_witness",
+      "exact_check_output": "Allow.ContextCleanup.normal_cleanup_witness : Allow.ContextCleanup.Reachable 42 Allow.ContextCleanup.w10 \u2227\n  Allow.ContextCleanup.contextOK Allow.ContextCleanup.w10\n    { owner := Allow.ContextCleanup.witnessOwner, successPermitted := true }",
+      "exact_axiom_output": "'Allow.ContextCleanup.normal_cleanup_witness' depends on axioms: [propext]"
+    },
+    {
+      "id": "CCM28",
+      "theorem": "Allow.ContextCleanup.unidentified_crash_witness",
+      "exact_check_output": "Allow.ContextCleanup.unidentified_crash_witness : Allow.ContextCleanup.Reachable 42 Allow.ContextCleanup.wUnknown \u2227\n  Eq.{1} (Allow.ContextCleanup.occupied Allow.ContextCleanup.wUnknown) 1 \u2227\n    \u00acAllow.ContextCleanup.CleanupSafe Allow.ContextCleanup.wUnknown",
+      "exact_axiom_output": "'Allow.ContextCleanup.unidentified_crash_witness' depends on axioms: [propext, Quot.sound.{u}]"
+    }
+  ]
+}

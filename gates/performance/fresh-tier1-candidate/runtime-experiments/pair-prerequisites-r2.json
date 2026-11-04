@@ -1,0 +1,102 @@
+{
+  "finite_semantics": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-comparison-r2/report.json",
+    "sha256": "193ba6e88ea23a40bdb0ad8453b77dfa8b628c87803b6dfece16f2c9b96186c2",
+    "success_pointer": "/status",
+    "success_value": "PASS",
+    "assertions": [
+      {
+        "pointer": "/expected_cases",
+        "equals": 190
+      },
+      {
+        "pointer": "/executed_cases",
+        "equals": 190
+      },
+      {
+        "pointer": "/failures",
+        "equals": []
+      }
+    ]
+  },
+  "comparator_negative_cases": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/runtime-experiments/semantic-selftests-r2.json",
+    "sha256": "fb99ebbe7838be807bb8ece2cb0c84b0421c82f875dc08a82e8d725a853ce3d5",
+    "success_pointer": "/status",
+    "success_value": "PASS",
+    "assertions": [
+      {
+        "pointer": "/tests",
+        "equals": 31
+      },
+      {
+        "pointer": "/failures",
+        "equals": 0
+      },
+      {
+        "pointer": "/errors",
+        "equals": 0
+      },
+      {
+        "pointer": "/skips",
+        "equals": 0
+      }
+    ]
+  },
+  "p1_regressions": {
+    "path": "/home/augustus/Allow/gates/document/context-cleanup-candidate/runtime-experiments/runs/r15-regressions/report.json",
+    "sha256": "9be260c8482045698b48c59f21f38312f8351d804b552adaf29d87df6446d972",
+    "success_pointer": "/status",
+    "success_value": "PASS",
+    "assertions": [
+      {
+        "pointer": "/source_mutation",
+        "equals": []
+      },
+      {
+        "pointer": "/shared_runtime_modified",
+        "equals": false
+      },
+      {
+        "pointer": "/spring_cleanup/owned_identity_absent",
+        "equals": true
+      },
+      {
+        "pointer": "/service_cleanup/0/owned_identity_absent",
+        "equals": true
+      },
+      {
+        "pointer": "/service_cleanup/1/owned_identity_absent",
+        "equals": true
+      }
+    ]
+  },
+  "java_safety": {
+    "path": "/home/augustus/Allow/gates/performance/fresh-tier1-candidate/implementation/registered-safety-r1/report.json",
+    "sha256": "0912921f80ae04bae7bfd8341dc1282f15e9b2624f93b16224816d0751d0a64f",
+    "success_pointer": "/status",
+    "success_value": "VERIFIED",
+    "assertions": [
+      {
+        "pointer": "/claims/total",
+        "equals": 12
+      },
+      {
+        "pointer": "/claims/passed",
+        "equals": 12
+      },
+      {
+        "pointer": "/claims/blocked",
+        "equals": 0
+      },
+      {
+        "pointer": "/claims/unresolved",
+        "equals": 0
+      },
+      {
+        "pointer": "/blocking_reasons",
+        "equals": []
+      }
+    ]
+  }
+}

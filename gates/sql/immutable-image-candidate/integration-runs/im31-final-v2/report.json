@@ -1,0 +1,159 @@
+{
+  "id": "IM31",
+  "status": "PASS",
+  "scope": "Finite promoted implementation tests and recovery; not formal implementation refinement",
+  "timestamp_utc": "2026-11-03T21:20:32.680018+00:00",
+  "blocking_reasons": [],
+  "infrastructure_errors": [],
+  "IM32": "UNRESOLVED_ROOT_FULL_CANDIDATE_BENCHMARK",
+  "roles": {
+    "sql_wire_and_postgresql": {
+      "path": "gates/sql/runtime-tests.json",
+      "sha256": "6ac3cbf980c6bced7c6ccc8143ef5070f406600213f6d3276c2d213e4754e760",
+      "status": "PASS"
+    },
+    "full_python": {
+      "path": "gates/document/inherited-runtime-tests.json",
+      "sha256": "9c45ebc238a32030293aa5ac2a37489eb405c65cd86b669ba7ff505bb0e5e1c1",
+      "status": "PASS"
+    },
+    "sql_clients": {
+      "path": "gates/sql/client-coverage.json",
+      "sha256": "63d13fb82647d75d79683e2705a5f885e5994d8e80ebd41e449eb5b31b6a9e25",
+      "status": "PASS"
+    },
+    "retrieval_recovery": {
+      "path": "gates/sql/recovery-report.json",
+      "sha256": "5b30c46b0a044d80463f96b31a7190b0fe2e526c619d55108ef94fead8692300",
+      "status": "PASS"
+    },
+    "document_recovery": {
+      "path": "gates/document/document-recovery-report.json",
+      "sha256": "8fba2a2d4ca04828fcc573235b3d4ce78b03cf32cfd33d919e98da1c5230b824",
+      "status": "PASS"
+    }
+  },
+  "input_root_sha256": "ee79f3f127da3662efb5b30a8068cf67cf0bf143ee62f620b00f15c38a83dfb8",
+  "active_promoted_files": 14,
+  "model": {
+    "existing": 280,
+    "candidate": 7,
+    "status": "VERIFIED_FINITE_MODEL",
+    "report": "gates/sql/immutable-image-candidate/formal-runs/final-287-v2/report.json",
+    "active_source_projection": [
+      {
+        "path": "formal/Allow.lean",
+        "sha256": "42fd1268cbece6142b7e127bed134e422533a93627c39dbb265fdd3a1af55bd7"
+      },
+      {
+        "path": "formal/Allow/Associativity.lean",
+        "sha256": "b0e003ebd07a530eabec1edd241f17a940505fb538e870a2ce3015bbe2849316"
+      },
+      {
+        "path": "formal/Allow/Canonical.lean",
+        "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+      },
+      {
+        "path": "formal/Allow/Contract.lean",
+        "sha256": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10"
+      },
+      {
+        "path": "formal/Allow/Document.lean",
+        "sha256": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07"
+      },
+      {
+        "path": "formal/Allow/EGraph.lean",
+        "sha256": "4e46a1166e255b0adadd5361832341c8ba484a080deb57a7be4e94d098e44dab"
+      },
+      {
+        "path": "formal/Allow/Evidence.lean",
+        "sha256": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045"
+      },
+      {
+        "path": "formal/Allow/FieldOrder.lean",
+        "sha256": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0"
+      },
+      {
+        "path": "formal/Allow/Foundation.lean",
+        "sha256": "b3c0945ef972d0c6b0ae2ec7f7ee99f24b5e02c1c7db8ee207eb6a339c9bb8f7"
+      },
+      {
+        "path": "formal/Allow/Generated.lean",
+        "sha256": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925"
+      },
+      {
+        "path": "formal/Allow/Kernel.lean",
+        "sha256": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503"
+      },
+      {
+        "path": "formal/Allow/PartialTypes.lean",
+        "sha256": "b7fb8ab650de500be591f13b5ffd296728daf94d7cb3977090c77f8af9a747f7"
+      },
+      {
+        "path": "formal/Allow/Retrieval.lean",
+        "sha256": "b4e348c95d346cec441b04b85713df0c81150f5199062c513d9c76a684a60965"
+      },
+      {
+        "path": "formal/Allow/Slots.lean",
+        "sha256": "59f8c8404348d10342c3f48cd8790e1ed6e4ea385083d75dbf9770dde2bffb4f"
+      },
+      {
+        "path": "formal/Allow/SqlRouting.lean",
+        "sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f"
+      },
+      {
+        "path": "formal/Allow/Typing.lean",
+        "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+      }
+    ]
+  },
+  "sql_tests": 52,
+  "python_tests": 164,
+  "document_store_tests": 22,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "runtime": {
+    "pid": 826907,
+    "policy": "sql-routing-v7-sealed-image",
+    "generation": 1
+  },
+  "provenance": [
+    {
+      "public_claim": "IM31:sql_wire_and_postgresql",
+      "report": "gates/sql/runtime-tests.json",
+      "report_sha256": "6ac3cbf980c6bced7c6ccc8143ef5070f406600213f6d3276c2d213e4754e760",
+      "inputs": "manifest.json",
+      "verifier": "V-IM31-EVIDENCE-BINDING"
+    },
+    {
+      "public_claim": "IM31:full_python",
+      "report": "gates/document/inherited-runtime-tests.json",
+      "report_sha256": "9c45ebc238a32030293aa5ac2a37489eb405c65cd86b669ba7ff505bb0e5e1c1",
+      "inputs": "manifest.json",
+      "verifier": "V-IM31-EVIDENCE-BINDING"
+    },
+    {
+      "public_claim": "IM31:sql_clients",
+      "report": "gates/sql/client-coverage.json",
+      "report_sha256": "63d13fb82647d75d79683e2705a5f885e5994d8e80ebd41e449eb5b31b6a9e25",
+      "inputs": "manifest.json",
+      "verifier": "V-IM31-EVIDENCE-BINDING"
+    },
+    {
+      "public_claim": "IM31:retrieval_recovery",
+      "report": "gates/sql/recovery-report.json",
+      "report_sha256": "5b30c46b0a044d80463f96b31a7190b0fe2e526c619d55108ef94fead8692300",
+      "inputs": "manifest.json",
+      "verifier": "V-IM31-EVIDENCE-BINDING"
+    },
+    {
+      "public_claim": "IM31:document_recovery",
+      "report": "gates/document/document-recovery-report.json",
+      "report_sha256": "8fba2a2d4ca04828fcc573235b3d4ce78b03cf32cfd33d919e98da1c5230b824",
+      "inputs": "manifest.json",
+      "verifier": "V-IM31-EVIDENCE-BINDING"
+    }
+  ],
+  "interpretation": "PASS binds finite executable evidence and exact installed model-source projection under declared trust. No formal implementation refinement or IM32 performance claim."
+}

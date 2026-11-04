@@ -1,0 +1,113 @@
+@Allow.PerformancePlan.step_preserves_invariant : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Invariant s → Allow.PerformancePlan.Step s t → Allow.PerformancePlan.Invariant t
+'Allow.PerformancePlan.step_preserves_invariant' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.reachable_invariant : ∀ {durable : Nat} {s : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Reachable durable s → Allow.PerformancePlan.Invariant s
+'Allow.PerformancePlan.reachable_invariant' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.one_request_per_generation : ∀ {durable : Nat} {s : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Reachable durable s → LE.le.{0} s.consumed 1
+'Allow.PerformancePlan.one_request_per_generation' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.staging_requires_consumption : ∀ {durable : Nat} {s : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Reachable durable s → LE.le.{0} s.staged s.consumed
+'Allow.PerformancePlan.staging_requires_consumption' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.delivery_requires_staging : ∀ {durable : Nat} {s : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Reachable durable s → LE.le.{0} s.delivered s.staged
+'Allow.PerformancePlan.delivery_requires_staging' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.ready_is_unconsumed : ∀ {durable : Nat} {s : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Reachable durable s → Eq.{1} s.phase Allow.PerformancePlan.Phase.ready → Eq.{1} s.consumed 0
+'Allow.PerformancePlan.ready_is_unconsumed' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.step_preserves_durable : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t → Eq.{1} t.durable s.durable
+'Allow.PerformancePlan.step_preserves_durable' does not depend on any axioms
+@Allow.PerformancePlan.advisory_never_mutates_durable : ∀ {durable : Nat} {s : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Reachable durable s → Eq.{1} s.durable durable
+'Allow.PerformancePlan.advisory_never_mutates_durable' does not depend on any axioms
+@Allow.PerformancePlan.retirement_cannot_resume : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t →
+    Eq.{1} s.phase Allow.PerformancePlan.Phase.retiring →
+      Eq.{1} t.phase Allow.PerformancePlan.Phase.retiring ∨ Eq.{1} t.phase Allow.PerformancePlan.Phase.reaped
+'Allow.PerformancePlan.retirement_cannot_resume' depends on axioms: [propext]
+@Allow.PerformancePlan.release_requires_reaping : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t →
+    Eq.{1} t.phase Allow.PerformancePlan.Phase.vacant → Eq.{1} s.phase Allow.PerformancePlan.Phase.reaped
+'Allow.PerformancePlan.release_requires_reaping' depends on axioms: [propext]
+@Allow.PerformancePlan.staging_requires_busy : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t → LT.lt.{0} s.staged t.staged → Eq.{1} s.phase Allow.PerformancePlan.Phase.busy
+'Allow.PerformancePlan.staging_requires_busy' depends on axioms: [propext]
+@Allow.PerformancePlan.delivery_requires_reaped : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t → LT.lt.{0} s.delivered t.delivered → Eq.{1} s.phase Allow.PerformancePlan.Phase.reaped
+'Allow.PerformancePlan.delivery_requires_reaped' depends on axioms: [propext]
+@Allow.PerformancePlan.poison_sticky_in_generation : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t → Eq.{1} s.poisoned true → Eq.{1} t.generation s.generation → Eq.{1} t.poisoned true
+'Allow.PerformancePlan.poison_sticky_in_generation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.PerformancePlan.poison_prevents_delivery_in_generation : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t →
+    Eq.{1} s.poisoned true → Eq.{1} t.generation s.generation → Eq.{1} t.delivered s.delivered
+'Allow.PerformancePlan.poison_prevents_delivery_in_generation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@Allow.PerformancePlan.step_generation_monotone : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t → LE.le.{0} s.generation t.generation
+'Allow.PerformancePlan.step_generation_monotone' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.trace_generation_monotone : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Trace s t → LE.le.{0} s.generation t.generation
+'Allow.PerformancePlan.trace_generation_monotone' depends on axioms: [propext, Quot.sound.{u}]
+@Allow.PerformancePlan.poisoned_trace_cannot_deliver : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Trace s t →
+    Eq.{1} s.poisoned true → Eq.{1} t.generation s.generation → Eq.{1} t.poisoned true ∧ Eq.{1} t.delivered s.delivered
+'Allow.PerformancePlan.poisoned_trace_cannot_deliver' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@Allow.PerformancePlan.generation_increases_only_at_boot : ∀ {s t : Allow.PerformancePlan.Worker},
+  Allow.PerformancePlan.Step s t →
+    Ne.{1} t.generation s.generation →
+      Eq.{1} s.phase Allow.PerformancePlan.Phase.vacant ∧ Eq.{1} t.generation (HAdd.hAdd.{0, 0, 0} s.generation 1)
+'Allow.PerformancePlan.generation_increases_only_at_boot' depends on axioms: [propext]
+Allow.PerformancePlan.stale_generation_rejected : ∀ (s : Allow.PerformancePlan.Worker) (responseGeneration : Nat),
+  Ne.{1} responseGeneration s.generation → Eq.{1} (Allow.PerformancePlan.stageReply s responseGeneration) none.{0}
+'Allow.PerformancePlan.stale_generation_rejected' depends on axioms: [propext]
+@Allow.PerformancePlan.staged_reply_is_guarded_step : ∀ {s t : Allow.PerformancePlan.Worker} {responseGeneration : Nat},
+  Eq.{1} (Allow.PerformancePlan.stageReply s responseGeneration) (some.{0} t) → Allow.PerformancePlan.Step s t
+'Allow.PerformancePlan.staged_reply_is_guarded_step' depends on axioms: [propext]
+Allow.PerformancePlan.cancelled_reply_never_delivered : ∀ (s : Allow.PerformancePlan.Worker) (responseGeneration : Nat),
+  Eq.{1} (Allow.PerformancePlan.deliverReply (Allow.PerformancePlan.cancelState s) responseGeneration) none.{0}
+'Allow.PerformancePlan.cancelled_reply_never_delivered' depends on axioms: [propext]
+@Allow.PerformancePlan.delivered_reply_is_guarded_step : ∀ {s t : Allow.PerformancePlan.Worker}
+  {responseGeneration : Nat},
+  Eq.{1} (Allow.PerformancePlan.deliverReply s responseGeneration) (some.{0} t) → Allow.PerformancePlan.Step s t
+'Allow.PerformancePlan.delivered_reply_is_guarded_step' depends on axioms: [propext]
+Allow.PerformancePlan.live_pool_bound : ∀ (p : Allow.PerformancePlan.Pool),
+  LE.le.{0} (Allow.PerformancePlan.liveSlots p) 2
+'Allow.PerformancePlan.live_pool_bound' depends on axioms: [propext, Quot.sound.{u}]
+Allow.PerformancePlan.idle_warm_occupies_slot : ∀ (s : Allow.PerformancePlan.Worker),
+  Eq.{1} s.phase Allow.PerformancePlan.Phase.ready → Eq.{1} (Allow.PerformancePlan.occupied s) 1
+'Allow.PerformancePlan.idle_warm_occupies_slot' depends on axioms: [propext]
+Allow.PerformancePlan.timeout_cannot_release : ∀ (s : Allow.PerformancePlan.DatabaseLease) (owner : Nat),
+  Eq.{1} (Allow.PerformancePlan.releaseDatabase (Allow.PerformancePlan.timeout s) owner) none.{0}
+'Allow.PerformancePlan.timeout_cannot_release' depends on axioms: [propext]
+@Allow.PerformancePlan.database_release_requires_observation : ∀ {s t : Allow.PerformancePlan.DatabaseLease}
+  {owner : Nat},
+  Eq.{1} (Allow.PerformancePlan.releaseDatabase s owner) (some.{0} t) →
+    Eq.{1} s.phase Allow.PerformancePlan.DatabasePhase.terminated ∧ Eq.{1} owner s.ownerGeneration
+'Allow.PerformancePlan.database_release_requires_observation' does not depend on any axioms
+Allow.PerformancePlan.timeout_preserves_durable : ∀ (s : Allow.PerformancePlan.DatabaseLease),
+  Eq.{1} (Allow.PerformancePlan.timeout s).durable s.durable
+'Allow.PerformancePlan.timeout_preserves_durable' does not depend on any axioms
+@Allow.PerformancePlan.acceptance_requires_three_runs : ∀ {runs : List.{0} Allow.PerformancePlan.Run},
+  Allow.PerformancePlan.SeriesPass runs → GE.ge.{0} (List.length.{0} runs) 3
+'Allow.PerformancePlan.acceptance_requires_three_runs' does not depend on any axioms
+@Allow.PerformancePlan.every_accepted_run_meets_target : ∀ {runs : List.{0} Allow.PerformancePlan.Run}
+  {r : Allow.PerformancePlan.Run},
+  Allow.PerformancePlan.SeriesPass runs → Membership.mem.{0, 0} runs r → LT.lt.{0} r.p95Micros 300000
+'Allow.PerformancePlan.every_accepted_run_meets_target' does not depend on any axioms
+@Allow.PerformancePlan.observed_slow_run_rejects_series : ∀ {runs : List.{0} Allow.PerformancePlan.Run}
+  {r : Allow.PerformancePlan.Run},
+  Membership.mem.{0, 0} runs r → LE.le.{0} 300000 r.p95Micros → ¬Allow.PerformancePlan.SeriesPass runs
+'Allow.PerformancePlan.observed_slow_run_rejects_series' depends on axioms: [propext, Quot.sound.{u}]
+Allow.PerformancePlan.successful_one_use_witness : Allow.PerformancePlan.Reachable 42
+  Allow.PerformancePlan.witnessDelivered
+'Allow.PerformancePlan.successful_one_use_witness' does not depend on any axioms
+Allow.PerformancePlan.accepted_series_witness : Allow.PerformancePlan.SeriesPass
+  (List.cons.{0} { p95Micros := 200000, failures := 0, measured := 1000, warmups := 100, profileMatches := true }
+    (List.cons.{0} { p95Micros := 210000, failures := 0, measured := 1000, warmups := 100, profileMatches := true }
+      (List.cons.{0} { p95Micros := 220000, failures := 0, measured := 1000, warmups := 100, profileMatches := true }
+        List.nil.{0})))
+'Allow.PerformancePlan.accepted_series_witness' depends on axioms: [propext, Quot.sound.{u}]

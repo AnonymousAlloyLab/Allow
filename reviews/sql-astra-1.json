@@ -1,0 +1,47 @@
+{
+  "reviewer": "astra-1",
+  "seat": "sql-astra-1",
+  "review_type": "FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 3,
+  "spec_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "formal_file_sha256": "228d56de2998e31554d577356ff953ca506fafb40390288175559871bcbd56ad",
+  "blocking_design_findings": [],
+  "resolved_draft_findings": [
+    "Sixteen explicit propositions include exact SQL and identity admission, negative witnesses, reachable admitted statements/portals and immutable Bind capture.",
+    "Canonical proxy endpoint validation covers environment/explicit DSNs, multi-host/service/hostaddr escapes and disables direct TCP.",
+    "Production-based opaque statement detection includes nested forms and procedures.",
+    "UTF8/standard string mode restrictions apply before pipelined forwarding with backend status monitoring.",
+    "Resource budget specifies parser concurrency, handshake/frame deadlines and per-connection statement metadata bounds.",
+    "Conservative state semantics and explicit engine trust avoid claims of faithful PostgreSQL success or effect analysis.",
+    "Reserved cancellation startup slots, separate client-path counter deltas, partial constraint repair and unresolved root-license provenance are explicit in final revision3."
+  ],
+  "implementation_acceptance_notes": [
+    "Preserve real pg_dump/pg_restore and fresh/upgrade/partial migration tests. Fix independently missing paired constraints and use one migration helper; aggregate counters alone are not evidence of complete routing, so isolate each client path.",
+    "Make cancellation work at session/parser saturation and validate protocol/COPY/auth phases, malformed packet bodies and backend errors.",
+    "Strict JSON parsing, streamed output bounds, process cleanup, stdin-only SQL, warm-cache binary tamper denial and finite queue behavior remain runtime checks.",
+    "Test portal suspension, statement replacement after Bind, failed Parse/Bind, transaction completion and unnamed invalidation; the model proves admission provenance, not all server lifecycle states.",
+    "No commercial/redistribution clearance is conferred. Preserve missing root-license status and avoid distributing unrelated fixture corpora."
+  ],
+  "formal_evidence_observed": {
+    "path": "gates/sql/formal-report.json",
+    "status": "VERIFIED",
+    "new_model_propositions": 16,
+    "build_exit_codes": [
+      0,
+      0
+    ],
+    "recorded_supplement_sha256": "dfa00507c3a72ff8362ae217800963984faa3b9effe12b6cd9eafcf249934a72",
+    "matches_reviewed_spec": false,
+    "required_before_implementation": "As planned after all six design seats, regenerate the proof report against final revision3 before implementation. Existing draft evidence is not represented as final closure."
+  },
+  "formal_limits": [
+    "Read full SqlRouting.lean and exact reviewed spec; did not independently rerun Lean.",
+    "Reachable currently models accepted Parse/Bind provenance; close/reset/error transitions and faithful Python protocol refinement remain runtime obligations.",
+    "Admission flags summarize trusted parser result validation; Lean does not establish subprocess, binary identity, framing, lexer-to-PostgreSQL semantics or database isolation."
+  ],
+  "production_edits": false,
+  "prior_review": "reviews/sql-astra-1-draft.json",
+  "approval_scope": "Exact revision3 design only. The planned final proof build must bind this approved hash before implementation; runtime/database/recovery/HTTP/ML-integrity acceptance and commercial rights remain separate gates."
+}

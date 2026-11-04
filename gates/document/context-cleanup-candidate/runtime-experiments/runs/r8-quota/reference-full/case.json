@@ -1,0 +1,65 @@
+{
+  "claim_id": "CC29",
+  "subcase": "reference-full",
+  "run_id": "r8-quota",
+  "input_root_sha256": "a4672f67a7b9492ef580ebc185d953de52f2a89e7cec2316f20ca18f186108e0",
+  "verifier_id": "CC29-QUOTA-PROBE",
+  "verifier_sha256": "4b4ae5fd96d56b1e23cd548ee0a8acdcc1e2ef6fbca433fb0aa4e171795eb5a5",
+  "fixture_sha256": "35fb138362d57a9b7778e2405eb720f9fb9396bbed5706aafe1d6a6bc81ab61d",
+  "status": "PASS",
+  "observed": {
+    "exit_code": 0,
+    "elapsed_ms": 589.719917,
+    "command": [
+      "/usr/bin/prlimit",
+      "--as=2147483648",
+      "--cpu=20",
+      "--",
+      "/tmp/allow-cc-1ss9cdby/.tools/retrieval-venv/bin/python",
+      "-m",
+      "allow_documents.cli"
+    ],
+    "fixture_sha256": "5e0e3a5b5b04e9052958869ac5573245eb590e3f8c232fa213bbe9adee67a33c",
+    "stdout_sha256": "d7ab66b4f6bdce298c8fc66170cd365e28f9c755a5e866e5319b8c9cbbd335d9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend_absent": true,
+    "absence_was_exact_bound_identity": true,
+    "matching_name_still_present": false,
+    "events": [
+      {
+        "phase": "RESERVED",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62714108385157
+      },
+      {
+        "phase": "CONNECTING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62714110449671
+      },
+      {
+        "phase": "BOUND",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62714114575289
+      },
+      {
+        "phase": "RETIRING",
+        "failed": false,
+        "successPermitted": false,
+        "monotonic_ns": 62714601684809
+      },
+      {
+        "phase": "CLEAN",
+        "failed": false,
+        "successPermitted": true,
+        "monotonic_ns": 62714603758683
+      }
+    ],
+    "injected": null,
+    "stderr_empty": true
+  },
+  "durable_unchanged": true,
+  "exact_envelope": true
+}

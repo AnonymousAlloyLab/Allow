@@ -1,0 +1,243 @@
+{
+  "id": "ALLOW-SQLEAN-QUERY-ROUTING-0.1",
+  "revision": 6,
+  "extends": [
+    "spec/retrieval-stage.json"
+  ],
+  "authorization": "The user explicitly requires all PostgreSQL queries to pass through /home/augustus/SQLeanParser. Local build/use is authorized; no redistribution or commercial license clearance is inferred.",
+  "sequence": [
+    "Freeze pre-routing sources",
+    "Review with two Terra, two Sol and two Astra seats",
+    "Prove the additional Lean policy model in two clean builds",
+    "Implement routing and eliminate opaque application SQL bodies",
+    "Execute protocol, database, recovery, ML-integrity and HTTP checks"
+  ],
+  "boundary": {
+    "required": "Every Allow client-issued PostgreSQL SQL string, including application queries, implicit driver transaction controls, bootstrap and migrations, integration tests, pg_dump catalog queries and pg_restore statements, must receive SQLeanParser grammar acceptance for the exact string before reaching PostgreSQL.",
+    "mechanism": "Workspace-private Unix-socket PostgreSQL wire proxy between all Allow clients and the workspace database. Inspect Simple Query Q and extended-protocol Parse P SQL; forward only accepted exact bytes. Parameter Bind values and COPY data remain data. No percent-placeholder normalization is implemented by Allow; psycopg performs its normal parameter binding before the proxy sees numbered placeholders.",
+    "engine_trust": "PostgreSQL startup/bootstrap internals, engine catalog operations, triggers of built-in types and reviewed extension implementation are engine internals, not client SQL. Do not claim that their C code or server-generated statements traverse the proxy. Host administrator bypass of the owned local proxy is outside the local single-user trust model.",
+    "opaque_sql": "Allow-authored DO blocks, SQL/PLpgSQL function/procedure definitions and dynamic EXECUTE are disallowed at the proxy. Replace current DO/EXECUTE migrations with explicit independently admitted statements and catalog checks. SQL PREPARE and EXECUTE are permitted only as sole top-level statements with connection-local accepted prepared-statement provenance as defined below. DEALLOCATE, prepared transactions and legacy fast-path function-call messages remain disallowed. Existing reviewed pgvector extension installation is engine trusted, not an independent grammar check of its internal script. Denial uses all parser production IDs mapped to forbidden grammar nonterminals, including nested EXPLAIN EXECUTE (still disallowed), not only outer statementFamilies. Fixed ordinary SQL functions remain PostgreSQL-trusted; do not claim arbitrary function effect analysis."
+  },
+  "parser": {
+    "source": "/home/augustus/SQLeanParser",
+    "entrypoint": "sqlean_pg_grammar",
+    "profile": "postgresql-16.15-grammar-v0.1",
+    "postgres_commit": "f0595c3d839debdb140903621c1b44a4f4d86256",
+    "admission": "Require pinned executable identity, successful bounded subprocess, strict response framing and JSON, status grammar-accepted, evidence context-free-derivation, expected profile/commit, sourcePreservation exact and returned SQL exactly equal to decoded strict UTF-8 input. Reject timeout, inconclusive, malformed output, unsupported profile, changed executable and any byte mismatch. A parser failure never falls back to direct PostgreSQL execution.",
+    "identity": "Build the grammar executable from a preserved hashed local source snapshot using its pinned Lean 4.34.0 toolchain. Record source/build/binary hashes and existing upstream license/notice status. Do not edit the reference repository. Runtime uses the pinned workspace-owned executable. No root SQLean LICENSE/NOTICE was found in the supplied checkout; preserve that unresolved provenance fact and block redistribution claims. Local user-authorized execution remains permitted.",
+    "cache": "A bounded in-memory cache may reuse a successful parser result only for identical SQL bytes under the identical parser binary/profile and policy version. Changes invalidate entries. Never cache failures as acceptance. SQL source, parameter values, credentials, source models and returned parser tokens are not logged or persisted by the proxy. Cached decisions include their immutable statement classification and normalized native prepared name; cache hits cannot fabricate connection-local preparation or bypass Execute target lookup.",
+    "assurance": "The CLI report represents an in-process proof-carrying grammar derivation and exact reconstruction, not a serialized proof independently rechecked by Python. Static SQL validity, PostgreSQL C semantic actions, authorization, isolation and execution correctness are not proved by SQLeanParser grammar acceptance. PostgreSQL remains authoritative for execution and RLS."
+  },
+  "protocol": {
+    "transport": "Private mode0700 Unix socket directory with no unauthenticated TCP listener. Forward startup/SCRAM authentication to the original PostgreSQL socket. Reject SSL/GSS negotiation or respond unsupported before a bounded valid startup; no downgrade of an existing TLS deployment is authorized.",
+    "framing": "Bound startup, SQL, Bind, COPY and generic frames before allocation; reject negative/oversize lengths, invalid UTF-8, embedded NUL in SQL, malformed Parse parameter declarations and unknown frontend messages. Read complete framed packets. Never parse binary parameter payloads as SQL. Preserve accepted wire bytes exactly.",
+    "state": "Track accepted prepared statement names; Bind captures an immutable accepted statement payload in its portal, preserving it across later statement replacement. Execute requires that connection-local accepted portal. Close removes its addressed object; Simple Query invalidates unnamed statement/portal state; idle ReadyForQuery clears transaction portals. Server errors cannot introduce any previously unaccepted SQL. Conservative rejection is permitted, but must not claim backend success. Do not replay/retry mutations.",
+    "fail_closed": "On rejected SQL, protocol error, parser failure or shutdown, send a content-free PostgreSQL error if possible and close both connection sides. An unfinished database transaction therefore rolls back under PostgreSQL semantics. Accepted earlier autocommit statements are not represented as rolled back.",
+    "cancellation": "Route valid PostgreSQL CancelRequest packets to the owned backend endpoint; they contain no SQL. Preserve existing cancellation behavior. Limit sessions and parser concurrency; externally bound parsing CPU/memory/wall time and response bytes. Reserve four startup/cancellation handler slots independently of the20normal-session slots so saturated query connections cannot prevent cancellation; all startup handlers remain deadline-bounded.",
+    "encoding": "Require protocol3.0, UTF8 client_encoding and standard_conforming_strings=on, matching SQLean lexer preconditions. Reject unsupported startup options/replication and any mode change before forwarding, including SET/RESET/ALTER variants and arbitrary set_config calls. Only exact reviewed safe mode-setting strings and literal-key Allow scope/search_path set_config templates are allowed. Reject Unicode-escaped identifiers if their resolved names cannot be checked. Monitor backend ParameterStatus and close on unexpected encoding/string-mode changes. This policy must hold before pipelined later queries, not merely after receiving the backend status. The lexical barrier closes indirect setting-change paths such as UPDATE pg_settings; blacklist completeness alone is not assumed.",
+    "resource_control": "At most two parser subprocesses concurrently, bounded parser wait queue by connection count, handshake/auth deadline15seconds and frame-progress deadline30seconds. Backpressure writes and fixed frame buffers bound aggregate memory. Prepared statements/portals per connection are capped at256 with aggregate SQL metadata at4MiB; stop the session on overflow. Runtime counters contain counts/reason codes only; no SQL or parameter values.",
+    "sql_prepared": "Native SQL PREPARE and EXECUTE used by pinned pg_dump must themselves pass SQLeanParser for their entire exact SQL source. Require one top-level PrepareStmt or ExecuteStmt; reject nested EXPLAIN/CREATE AS EXECUTE and multi-statement combinations. PREPARE captures the entire grammar-accepted request (including its parsed static query body) into the same connection-local statement namespace as protocol Parse. EXECUTE requires both its own exact-source acceptance and a known admitted target statement. Never accept arbitrary executable strings, infer a prepared statement from its name alone, or re-parse Bind/COPY data as SQL. Only simple ASCII SQL prepared names matching [A-Za-z_][A-Za-z0-9_]* of at most63bytes are initially admitted, normalized by ASCII lowercase as PostgreSQL does; reject quoted, Unicode-escaped, overlong or ambiguous SQL prepared names conservatively. Protocol Parse names remain exact protocol strings. Existing opaque-production, lexical-mode, function and resource restrictions also apply inside native PREPARE bodies and EXECUTE parameter expressions. A SQL-prepared statement may later be used by protocol Bind, and protocol-prepared statements may be referenced by SQL EXECUTE, only through the same accepted-provenance table. Backend failure remains distinct from admission; no successful-execution claim is inferred from optimistic provenance.",
+    "lexical_barrier": "The proxy conservatively rejects a new Q or P while any previously forwarded effect-capable Q/P/B/D/E/C/S has not reached its corresponding ReadyForQuery. Parse can invoke analysis/type-input hooks, Bind and Describe can plan or revalidate, Close can release portal resources and Sync can finish transactions; no pre-Execute effect-free assumption is made. Mark each such message pending in its current cycle before forwarding; Q and Sync also append that cycle to an ordered Ready barrier and advance the cycle number. Keep Bind, Execute, Sync, Flush, COPY completion/data, Close/Describe and cancellation available so admitted extended-query and COPY cycles can finish. COPY data/end remain covered by the initiating Q/E effect rather than creating an orphan next-cycle effect. Associate ReadyForQuery with ordered Q/Sync cycle barriers, clearing only effects from that completed or older cycle, never a newer pipelined message. Validate all intervening ParameterStatus lexical settings before releasing the barrier. This prevents subsequent SQL source being parsed/forwarded under stale lexer assumptions even if an earlier step changes a setting indirectly through pg_settings or a trusted routine. It intentionally rejects otherwise valid pipelined new SQL, including consecutive Parse without Sync, instead of queueing or rewriting it; no pipeline throughput promise is made. Bind/Execute of already admitted prepared SQL retain existing provenance and parameter data semantics. Only the initial startup Ready is permitted without a queued barrier; reject unsolicited or malformed later Ready rather than inventing cycle completion. Skipped or ignored frontend messages cannot create synthetic acknowledgements."
+  },
+  "limits": {
+    "connections": 20,
+    "sql_bytes": 1048576,
+    "wire_frame_bytes": 8388608,
+    "startup_bytes": 65536,
+    "parser_seconds": 5,
+    "parser_memory_mib": 1024,
+    "parser_transitions": 1000000,
+    "parser_response_bytes": 16777216,
+    "cache_entries": 256,
+    "cache_sql_bytes": 4194304,
+    "parser_concurrency": 2,
+    "handshake_seconds": 15,
+    "frame_seconds": 30,
+    "prepared_objects_per_connection": 256,
+    "prepared_metadata_bytes": 4194304,
+    "reserved_cancel_handlers": 4
+  },
+  "integration": {
+    "credentials": "Migrate private app/admin DSNs to the proxy socket while retaining original backend endpoint only in private proxy configuration. Bootstrap SQL, migration helpers and backup/recovery clients must use the proxy endpoint. Never emit DSNs or password-bearing SQL into reports. Reject multi-host, TCP, service-file and hostaddr overrides, arbitrary environment DSNs and explicit Repository DSNs that bypass the canonical owned proxy endpoint. Recovery may vary only the authorized temporary database name, retaining that endpoint. PostgreSQL exposes only its private backend Unix socket; disable the old direct loopback TCP listener.",
+    "startup": "Start owned PostgreSQL, then pinned parser proxy, then run admitted bootstrap/migrations. Readiness checks perform an admitted SELECT. Explicit stop tears down only owned proxy/database processes. Existing unrelated services remain untouched.",
+    "coverage_check": "Mechanically inventory client connection and SQL execution entry points. Runtime tests use the proxy exclusively and assert aggregate acceptance counters increase for application, implicit transaction and dump/restore paths. A deliberately invalid grammar query must be rejected by the proxy before backend success, and parser absence/tamper must deny service. Include pipelined encoding-change attempts, nested opaque-SQL controls, bound value injection strings/binary values, unnamed Parse/Bind lifetime cases, Parse failure, frontend fragmentation/oversize and parser unavailable/tamper tests. Collect separate counter deltas for each registered client entry point and verify its endpoint; aggregate-only activity is insufficient evidence for coverage. Add real native SQL PREPARE/EXECUTE success, unknown-target failure, unsafe expression/mode-change negatives, quoted/overlong names, nested/multi-statement controls, cross-protocol binding, state capacity, and unchanged full pg_dump/pg_restore with ACLs. Preserve revision3 backup failure as evidence; do not weaken backup contents to evade it. Verify rejected pipelined Q/P during a delayed effect cycle, successful completion permitting later SQL on a non-rejected session (a rejected session remains closed), matching-cycle handling when an older Ready arrives after a newer Execute, and an isolated pg_settings lexical change cannot enable a later query. Include P then pipelined P before Sync, delayed Bind/Describe followed by new SQL, Close/Sync completion effects, ordinary P/B/D/E/S progress, and COPY completion without an orphan cycle. Runtime message-effect classification is checked against pinned PostgreSQL source and exercised independently; the abstract Lean forwardEffect theorem alone does not classify protocol messages.",
+    "migration": "Preserve existing corpus/records/vectors and independent revocation journal. Rewrite migration application idempotently using explicit statements and catalog checks; verify both fresh database creation and existing database upgrade. Migration failure cannot be reported as success. Independently check each policy/constraint existence; a prior partial failure cannot skip a second missing constraint merely because a first sibling exists. Test recovery from a partially applied migration."
+  },
+  "formal_scope": "Lean proves an abstract exact-request admission and prepared-statement/portal routing policy, with explicit accepted/denied witnesses. It does not prove Python wire framing, subprocess correctness, SQL grammar implementation correspondence, database execution or network isolation. Runtime checks separately exercise those finite surfaces.",
+  "formal_obligations": [
+    {
+      "id": "SQ01",
+      "symbol": "Allow.SqlRouting.exact_request",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r → r.sql = p.sql"
+    },
+    {
+      "id": "SQ02",
+      "symbol": "Allow.SqlRouting.pinned_identity",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.admitted p r → r.binary = p.binary ∧ r.profile = p.profile ∧ r.policy = p.policy"
+    },
+    {
+      "id": "SQ03",
+      "symbol": "Allow.SqlRouting.mismatch_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.sql ≠ p.sql → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ04",
+      "symbol": "Allow.SqlRouting.binary_mismatch_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.binary ≠ p.binary → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ05",
+      "symbol": "Allow.SqlRouting.profile_mismatch_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.profile ≠ p.profile → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ06",
+      "symbol": "Allow.SqlRouting.parser_failure_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.success = false → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ07",
+      "symbol": "Allow.SqlRouting.isOpaque_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.isOpaque = true → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ08",
+      "symbol": "Allow.SqlRouting.cache_exact",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {e : Allow.SqlRouting.CacheEntry}, Allow.SqlRouting.cacheReuse p e → p = e.request ∧ Allow.SqlRouting.admitted p e.report"
+    },
+    {
+      "id": "SQ09",
+      "symbol": "Allow.SqlRouting.execute_accepted",
+      "statement": "∀ {s : Allow.SqlRouting.State} {name : String} {p : Allow.SqlRouting.Portal}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.execute s name = some p → Allow.SqlRouting.admitted p.request p.report"
+    },
+    {
+      "id": "SQ10",
+      "symbol": "Allow.SqlRouting.admission_witness",
+      "statement": "Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest Allow.SqlRouting.sampleReport"
+    },
+    {
+      "id": "SQ11",
+      "symbol": "Allow.SqlRouting.execution_witness",
+      "statement": "Allow.SqlRouting.execute Allow.SqlRouting.sampleState \"p\" = some Allow.SqlRouting.samplePortal"
+    },
+    {
+      "id": "SQ12",
+      "symbol": "Allow.SqlRouting.denial_witness",
+      "statement": "¬ Allow.SqlRouting.admitted Allow.SqlRouting.sampleRequest { Allow.SqlRouting.sampleReport with isOpaque := true }"
+    },
+    {
+      "id": "SQ13",
+      "symbol": "Allow.SqlRouting.parse_bind_execute",
+      "statement": "∀ (s : Allow.SqlRouting.State) (st : Allow.SqlRouting.Statement) (name : String), Allow.SqlRouting.Reachable s → Allow.SqlRouting.admitted st.request st.report → Allow.SqlRouting.Reachable (Allow.SqlRouting.bind (Allow.SqlRouting.parse s st) name st) ∧ Allow.SqlRouting.execute (Allow.SqlRouting.bind (Allow.SqlRouting.parse s st) name st) name = some ⟨name, st.request, st.report⟩"
+    },
+    {
+      "id": "SQ14",
+      "symbol": "Allow.SqlRouting.derivation_failure_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.derivation = false → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ15",
+      "symbol": "Allow.SqlRouting.preservation_failure_denied",
+      "statement": "∀ {p : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, r.preserved = false → ¬ Allow.SqlRouting.admitted p r"
+    },
+    {
+      "id": "SQ16",
+      "symbol": "Allow.SqlRouting.reachable_wellFormed",
+      "statement": "∀ {s : Allow.SqlRouting.State}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.wellFormed s"
+    },
+    {
+      "id": "SQ17",
+      "symbol": "Allow.SqlRouting.native_execute_provenance",
+      "statement": "∀ {s : Allow.SqlRouting.State} {name : String} {q : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, Allow.SqlRouting.Reachable s → Allow.SqlRouting.nativeExecute s name q r → Allow.SqlRouting.admitted q r ∧ ∃ st, s.statements.find? (fun x => x.name == name) = some st ∧ Allow.SqlRouting.admitted st.request st.report"
+    },
+    {
+      "id": "SQ18",
+      "symbol": "Allow.SqlRouting.native_unknown_denied",
+      "statement": "∀ {s : Allow.SqlRouting.State} {name : String} {q : Allow.SqlRouting.Request} {r : Allow.SqlRouting.Report}, s.statements.find? (fun x => x.name == name) = none → ¬ Allow.SqlRouting.nativeExecute s name q r"
+    },
+    {
+      "id": "SQ19",
+      "symbol": "Allow.SqlRouting.native_prepare_bind",
+      "statement": "∀ (s : Allow.SqlRouting.State) (p : Allow.SqlRouting.NativePrepare) (portal : String), Allow.SqlRouting.Reachable s → Allow.SqlRouting.admitted p.statement.request p.statement.report → Allow.SqlRouting.bodyPart p → Allow.SqlRouting.Reachable (Allow.SqlRouting.bind (Allow.SqlRouting.nativePrepare s p) portal p.statement) ∧ Allow.SqlRouting.execute (Allow.SqlRouting.bind (Allow.SqlRouting.nativePrepare s p) portal p.statement) portal = some ⟨portal, p.statement.request, p.statement.report⟩"
+    },
+    {
+      "id": "SQ20",
+      "symbol": "Allow.SqlRouting.cache_does_not_prepare",
+      "statement": "∀ (s : Allow.SqlRouting.State) (e : Allow.SqlRouting.CacheEntry), (Allow.SqlRouting.cacheLookup s e).statements = s.statements"
+    },
+    {
+      "id": "SQ21",
+      "symbol": "Allow.SqlRouting.native_prepare_witness",
+      "statement": "Allow.SqlRouting.Reachable (Allow.SqlRouting.nativePrepare ⟨[], []⟩ Allow.SqlRouting.sampleNative) ∧ Allow.SqlRouting.bodyPart Allow.SqlRouting.sampleNative"
+    },
+    {
+      "id": "SQ22",
+      "symbol": "Allow.SqlRouting.native_execute_witness",
+      "statement": "Allow.SqlRouting.nativeExecute (Allow.SqlRouting.nativePrepare ⟨[], []⟩ Allow.SqlRouting.sampleNative) \"s\" Allow.SqlRouting.sampleExecuteRequest Allow.SqlRouting.sampleExecuteReport"
+    },
+    {
+      "id": "SQ23",
+      "symbol": "Allow.SqlRouting.pending_blocks_source",
+      "statement": "∀ (s : Allow.SqlRouting.CycleState) (cycle : Nat), cycle ∈ s.pending → ¬ Allow.SqlRouting.sourceAllowed s"
+    },
+    {
+      "id": "SQ24",
+      "symbol": "Allow.SqlRouting.forward_blocks_source",
+      "statement": "∀ (s : Allow.SqlRouting.CycleState) (cycle : Nat), ¬ Allow.SqlRouting.sourceAllowed (Allow.SqlRouting.forwardEffect s cycle)"
+    },
+    {
+      "id": "SQ25",
+      "symbol": "Allow.SqlRouting.unvalidated_retains",
+      "statement": "∀ (s : Allow.SqlRouting.CycleState) (ack : Nat), Allow.SqlRouting.completeCycle s ack false = s"
+    },
+    {
+      "id": "SQ26",
+      "symbol": "Allow.SqlRouting.completed_retains_newer",
+      "statement": "∀ (s : Allow.SqlRouting.CycleState) (ack cycle : Nat), cycle ∈ s.pending → ack < cycle → cycle ∈ (Allow.SqlRouting.completeCycle s ack true).pending"
+    },
+    {
+      "id": "SQ27",
+      "symbol": "Allow.SqlRouting.completed_removes_older",
+      "statement": "∀ (s : Allow.SqlRouting.CycleState) (ack cycle : Nat), cycle ≤ ack → cycle ∉ (Allow.SqlRouting.completeCycle s ack true).pending"
+    },
+    {
+      "id": "SQ28",
+      "symbol": "Allow.SqlRouting.cycle_barrier_witness",
+      "statement": "¬ Allow.SqlRouting.sourceAllowed (Allow.SqlRouting.forwardEffect ⟨[]⟩ 2) ∧ (Allow.SqlRouting.completeCycle ⟨[1, 2]⟩ 1 true).pending = [2] ∧ Allow.SqlRouting.sourceAllowed (Allow.SqlRouting.completeCycle ⟨[1]⟩ 1 true)"
+    }
+  ],
+  "sources": [
+    {
+      "title": "PostgreSQL16 protocol message flow",
+      "url": "https://www.postgresql.org/docs/16/protocol-flow.html"
+    },
+    {
+      "title": "PostgreSQL16 protocol message formats",
+      "url": "https://www.postgresql.org/docs/16/protocol-message-formats.html"
+    },
+    {
+      "path": "/home/augustus/SQLeanParser/SQLean/PostgresGrammar/Lexer.lean",
+      "claim": "Lexer assumes standard_conforming_strings=on"
+    }
+  ],
+  "refinement_history": [
+    {
+      "revision": 3,
+      "failure": "Native pg_dump getColumnACLs SQL PREPARE rejected after68admittedqueries",
+      "repair": "Explicit exact-source grammar admission plus connection-local native prepared statement tracking; no direct bypass or no-ACL workaround",
+      "evidence": "gates/sql/baseline-r3/recovery-failure.json"
+    },
+    {
+      "revision": 4,
+      "finding": "Guard can admit UPDATE pg_settings, whose effects may change lexer mode before a later pipelined query. Direct SET/set_config restrictions alone do not establish lexical precondition.",
+      "repair": "Conservative effect-cycle barrier blocks later Q/P until matching ReadyForQuery and validated ParameterStatus.",
+      "evidence": "reviews/sql-r4-astra-1.json"
+    },
+    {
+      "revision": 5,
+      "finding": "PostgreSQL Parse, Bind and Describe can invoke analysis or planning hooks before Execute; Q/E-only effect accounting is insufficient without an effect-free assumption.",
+      "repair": "Conservatively account for Q/P/B/D/E/C/S before forwarding while retaining non-source progress and ordered Q/Sync completion.",
+      "evidence": "reviews/sql-r5-astra-2.json"
+    }
+  ]
+}

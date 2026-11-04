@@ -1,0 +1,20 @@
+{
+  "status": "AUTHORIZED_LOCAL_IMPLEMENTATION_AFTER_FORMAL_GATE",
+  "formal_report": "gates/document/draft-runs/final-r5/report.json",
+  "formal_report_sha256": "29da0bb27694261eaeb7d81853b426303422e4ccbf39b2b827bd5b512410354b",
+  "formal_input_root": "b812108ba5ce720adb74c5d467e8c3b108671703cb5b82fc43475d898eea6bcf",
+  "council": "reviews/document-council.json",
+  "council_sha256": "c38218447805f2f19e592ca52ecda77b45e7f229686ac6e7e67a60c63ddd12f2",
+  "frozen_candidate": "gates/document/review-candidate-r5/manifest.json",
+  "requirements": [
+    "Every PostgreSQL query uses existing SQLeanParser proxy and sql_connections; no direct fallback.",
+    "Java/JS/TS every callable documented and at most30physical lines, state encapsulated.",
+    "Complete declared runtime tests; keep browser/manual/performance/rights/market gates explicit."
+  ],
+  "not_claimed": [
+    "Alloy parser or implementation refinement proof",
+    "G2/G3 closure",
+    "browser/accessibility/performance acceptance",
+    "commercial release"
+  ]
+}

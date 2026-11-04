@@ -1,0 +1,46 @@
+{
+  "closure_id": "ALLOW-CONTEXT-CLEANUP-MODEL-R1",
+  "candidate_claim_count": 28,
+  "required_clean_builds": 2,
+  "lean_binary": "/home/augustus/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+  "lean_binary_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "allowed_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel/elaborator/pretty-printer and bundled Std library",
+    "propext, Quot.sound and Classical.choice when present in exact axiom audit",
+    "Python verifier, SHA256 collision resistance, OS/filesystem/hardware",
+    "Interpretation of abstract backend identity, peer identity, journal state, timeout prelude, transport closure and absence observations; adapters remain unproved"
+  ],
+  "excluded": [
+    "Production activation and re-proving the inherited309 theorem inventory",
+    "Actual PostgreSQL authentication/metadata visibility/backend termination, SQL parsing or query cancellation",
+    "Actual Unix peer credentials/PID-start identity, fsync durability, transport closure and cgroup/process behavior",
+    "Runtime clock/deadline enforcement, memory/resource capacity, latency and commercialization",
+    "Universal Java/Python/SQL implementation correspondence",
+    "Observer lifecycle, crash/restart reservation and same-role permission enforcement; observer<=1 is a capacity premise",
+    "Ordinary PostgreSQL backend bound from live-handler admission: disconnected backend tails can exhaust slots; no observer/context slot availability guarantee"
+  ],
+  "nondeterministic_fields": [
+    "run directory identifier",
+    "timestamp",
+    "temporary build directory path",
+    "platform version metadata"
+  ],
+  "decision": {
+    "valid_states": [
+      "VERIFIED",
+      "BLOCKED",
+      "INFRASTRUCTURE_FAILURE"
+    ],
+    "manual_override_allowed": false
+  },
+  "witness_theorems": [
+    "Allow.ContextCleanup.normal_cleanup_witness",
+    "Allow.ContextCleanup.unidentified_crash_witness"
+  ]
+}

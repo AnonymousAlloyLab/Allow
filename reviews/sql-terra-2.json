@@ -1,0 +1,28 @@
+{
+  "reviewer": "terra-2",
+  "seat": "sql-terra-2",
+  "review_type": "FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 3,
+  "spec_sha256": "8b7fe792f44662ae295e8e13cd095adb880f9e8ff642171c4ed3edbf6350b61b",
+  "formal_file_sha256": "228d56de2998e31554d577356ff953ca506fafb40390288175559871bcbd56ad",
+  "blocking_design_findings": [],
+  "review_basis": [
+    "Read the complete 16-obligation Lean model, specification and type inventory; checked grammar report production IDs, source reconstruction and evidence fields against parser implementation; inspected current bootstrap, migration, psycopg and recovery call sites.",
+    "The parser exposes all derivation production IDs, while statementFamilies stops at outer statements, supporting the specified nested-form denial design. Current migration contains DO and dynamic EXECUTE and the application uses parameterized set_config, so their specified rewrites are necessary.",
+    "Reviewed prior Astra findings and revision 3 reconciliation. No new concrete unresolved design blocker found."
+  ],
+  "implementation_acceptance_notes": [
+    "The Lean state model proves provenance for reachable accepted Parse/Bind states, not protocol correspondence, lifecycle or successful execution. It does not model Close, errors, unnamed invalidation, backend status or cache implementation; exercise these independently.",
+    "Build and verify a complete mapping from pinned grammar production IDs to forbidden nonterminals, including nested forms, and ensure mode checks happen before pipelined forwarding. Preserve strict source equality, identity and response checks.",
+    "Verify each actual connection path and real dump/restore independently, and exercise fresh, upgraded and partially applied migrations. Maintain failure-closed behavior with no direct fallback.",
+    "Treat the 16 obligations as abstract policy facts. Final two clean proof builds must bind this exact revision; the earlier draft report is not final evidence."
+  ],
+  "formal_limits": [
+    "No independent Lean build was run in this review.",
+    "Admission flags and identity are assumptions of the abstract model, not proofs of Python wire framing, the parser subprocess, PostgreSQL behavior, or network isolation."
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 3 bounded implementation plan only; successful implementation, runtime acceptance and rights beyond user-authorized local use remain separate."
+}

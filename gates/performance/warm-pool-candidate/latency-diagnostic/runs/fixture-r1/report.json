@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "input_root_sha256": "d5b18a23f479bc57bb6d50e0e3fbb93a50b8360d52a0cf0077d7d1f3b64568fe",
+  "registration": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/latency-diagnostic/runs/fixture-r1/registration.json",
+    "sha256": "c5b7b5662971cb4830b8e7e77d797a66aed21c4723c8dd31a1a3dd349842173d",
+    "size": 14189,
+    "mode": 384
+  },
+  "mode": "PREFLIGHT",
+  "variants": {
+    "fixture-fresh": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/latency-fixture-fresh-r1/report.json",
+      "sha256": "55ba30ce0983924c86ca2be9fcd7419b30e26c7b7831ce46ddec5a5dfef3e16e",
+      "size": 26341,
+      "mode": 384
+    },
+    "fixture-pool": {
+      "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/runtime-experiments/runs/latency-fixture-pool-r1/report.json",
+      "sha256": "41fd689bb30ac4cd21ecac57ffbf43bbd4940e0b8443098d0557decc17b2b95c",
+      "size": 40267,
+      "mode": 384
+    }
+  },
+  "production_selection": "DISABLED",
+  "promotion_authorized": false,
+  "http_acceptance": "OPEN",
+  "comparison": {
+    "status": "PASS",
+    "normalized_generated_ids": 504,
+    "full_response_equal": true
+  },
+  "oracle": {
+    "path": "/home/augustus/Allow/gates/performance/warm-pool-candidate/latency-diagnostic/runs/fixture-r1/oracle.json",
+    "sha256": "7445c1f7bad3090b9cf8bfb6e70fd9f3fcf597430c2878b349525e4bd586cdb1",
+    "size": 401065,
+    "mode": 384
+  },
+  "terminal_input_recheck": "PASS"
+}

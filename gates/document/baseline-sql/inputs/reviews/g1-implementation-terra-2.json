@@ -1,0 +1,59 @@
+{
+  "reviewer": "terra-2",
+  "requested_model": "gpt-6.1-terra",
+  "actual_model": "Not independently observable; parent reports dispatch.",
+  "verdict": "BLOCKED_AT_REVIEWED_SNAPSHOT",
+  "files_sha256": {
+    "scripts/check-code-style.mjs": "dafedec5a602e610df6707d97daa9d9437e1084de972b62652b4003ec786ec56",
+    "scripts/test-code-style.mjs": "cd269c347529cd25bf8e92243e344d7c9a37e7d2dfedbfc2804c795d2325f4a4",
+    "config/checkstyle.xml": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+    "scripts/build.py": "6c5335ea4a520c094f88b09de7fbcfe8f3caa7aac8c634729f8a997e277dcff0",
+    "scripts/bootstrap.py": "9cde714d178deab6727aea8b1a00ed8eb927cc4030b63a73366c9000188c606d",
+    "scripts/run_local.py": "bdf10df23cf93b3721c3a3478b1a2be6771ae321694ae1d7895577a090579d66",
+    "backend/pom.xml": "fc34149427dded3395134880cb448e2933c5656c063797cf69f319e93bd319bf",
+    "spec/implementation-g1.json": "03fae7eca486c559f599c999a39283de2becf047198133c8b18c9ceccd7d3654"
+  },
+  "findings": [
+    {
+      "id": "G1-IMPL-T2-01",
+      "severity": "HIGH",
+      "status": "OPEN_AT_REVIEWED_SNAPSHOT",
+      "evidence": "check-code-style.mjs isExcludedDirectory excludes the basename dist, build, vendor, generated and node_modules anywhere in the tree. Authored files under e.g. frontend/src/generated or scripts/build are therefore silently absent from the inventory. This conflicts with the contract requiring narrow explicit generated/vendor exclusions.",
+      "remediation": "Restrict exclusions to known exact generated/dependency paths and add tests proving similarly named authored nested paths are scanned."
+    },
+    {
+      "id": "G1-IMPL-T2-02",
+      "severity": "MEDIUM",
+      "status": "OPEN_AT_REVIEWED_SNAPSHOT",
+      "evidence": "build.py executes test-code-style.mjs without setting ALLOW_CHECKSTYLE_JAR; that test explicitly returns zero Java cases without the environment variable. Local execution reported 39 JS/TS cases and 0 Java cases. Thus ordinary build does not establish the specified Java negative-fixture acceptance, although Maven invokes Checkstyle on project source and tests.",
+      "remediation": "Supply a verified pinned Checkstyle CLI to fixtures during the standard build and fail when unavailable, then rerun all fixtures."
+    },
+    {
+      "id": "G1-IMPL-T2-03",
+      "severity": "MEDIUM",
+      "status": "LIMITATION",
+      "evidence": "Checkstyle VisibilityModifier and JS/TS checkField detect exposed mutable fields, but do not establish private final Java fields by default or detect a getter returning a private mutable object. Documentation checks cannot mechanically determine meaningfulness, relevant failures, or side effects in general.",
+      "remediation": "Enforce inspectable portions with targeted checks/fixtures and record manual review of state exposure and documentation semantics; avoid asserting complete mechanical enforcement."
+    }
+  ],
+  "observations": [
+    "The JS/TS AST scan reports parse failures, inventories nested callables, checks physical lines and documentation, and rejects anonymous callbacks. Local scan reported 11 files, 116 callables, and zero violations at the reviewed snapshot.",
+    "Maven validate invokes pinned Checkstyle with test sources enabled; the configuration covers constructors, methods, length, documentation and field visibility.",
+    "build.py installs dependencies via npm ci, runs style checks and frontend tests/build, then Maven verify and copies frontend assets; Maven bootstrap verifies the archive SHA-512. run_local.py checks prerequisites and requires bubblewrap/prlimit."
+  ],
+  "limitations": "Review was read-only except for this report. No full clean build or running server was attempted because the parent coordinates rebuilds and source changes. Java fixtures were not run with a CLI JAR. Dependency reproducibility was assessed from scripts, not verified in a clean offline environment; Maven transitive and JDK bytes are not proven reproducible. Findings are tied to the recorded hashes and may be subsequently fixed. No checker completeness proof is claimed.",
+  "final_disposition": {
+    "verdict": "FINDINGS_01_AND_02_RESOLVED; FINDING_03_DOCUMENTED_LIMITATION",
+    "evidence": "Final default build log reports 49 JS/TS and 13 Java style fixtures, 117 inventoried callables without violations, 16 frontend tests, 37 backend tests, and BUILD SUCCESS. Exact known-path exclusions and traversal fixtures address finding 01; verified Checkstyle bootstrap and build environment address finding 02. Documentation explicitly records limits of mechanical checks for finding 03. This is not a checker completeness proof.",
+    "log_sha256": "19a7ba47d80e04501b1dd92286e8bed5232b753bc17b67d732ccb802ddd7efde",
+    "current_files_sha256": {
+      "scripts/check-code-style.mjs": "d158e738101e4e18da29db74af5ce57e1cebee6d09c21f8424f8f8e51f744159",
+      "scripts/test-code-style.mjs": "93eac543d423478ae29091c3ddb86a5c2ecd4bc6f731167a874887a9a10001eb",
+      "config/checkstyle.xml": "851e58b2183013ab69453db6863fc62682909295d834160b75d8851120e68388",
+      "scripts/build.py": "3c17aafc7349766e871c5f482e845578a215e57339f0991b029b2dc0b588d588",
+      "scripts/bootstrap.py": "3a49da5825bca91a7f4d243bbb5c93f0b9261ace693596abd00a05b761a4b3da",
+      "docs/implementation-g1.md": "1ae00e20f86d5f4de6f1217e52e6e75a4c6d9adf32e7d0929c115e10bb32e310"
+    },
+    "limits": "Build log inspected; no independent clean or offline rebuild performed in this final disposition. Documentation and mutable-state escape require human review."
+  }
+}

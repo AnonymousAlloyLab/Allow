@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "classification": "DOCUMENTATION_METADATA_CHECK_NOT_CORRECTNESS_PROOF",
+  "status": "PASS",
+  "archived_preimages": {
+    "path": "gates/documentation/warm-pool-20261104/pre-update/manifest.json",
+    "sha256": "c2510a2ac1bef76690e0c3bfaeedd154538ecaa19735ca46ca3cc871643bc7a2"
+  },
+  "updated_documents": [
+    {
+      "path": "README.md",
+      "before_sha256": "399dfbc41127ca219c2e4062475f78e281605be42037c9f35a68730c4e6c9ca0",
+      "after_sha256": "aaf6ae459a09eb9b0ae3156769bf03fc5661a9ae1e10500fe28fa4b0a433b030"
+    },
+    {
+      "path": "docs/current-status.md",
+      "before_sha256": "cd63fe32505557608f705bf376c9d78976c69597c93be10554fca6e5b27b6ffb",
+      "after_sha256": "fe9aaeec635b29908a432723f3ccea99eaf5845c5ec45e96f17830859ff1d6d4"
+    },
+    {
+      "path": "docs/performance-remediation-plan.md",
+      "before_sha256": "11c8f6f4f8eae5f4e62e8dd3acdca57359a37ddefdddd1c9714ba47c09301d85",
+      "after_sha256": "71d51d36dfec465efde1b2f7021f845ce39a4b2167dcd774576667b24fed70c6"
+    }
+  ],
+  "new_documents": [
+    {
+      "path": "docs/warm-pool.md",
+      "sha256": "db4436ef583812f756b4cbfd06dce9edf6361e513b6eb58e3ee1b214d058cf45"
+    }
+  ],
+  "local_link_checks": {
+    "count": 104,
+    "missing": []
+  },
+  "current_source_projection": {
+    "files": 335,
+    "status": "PASS",
+    "source_ready_sha256": "ad5c22afa88eddd12f551c2ea40de114c862fa3d9fd9abba686adbb0737c2254"
+  },
+  "evidence": [
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/status.json",
+      "sha256": "66fa549b35d95685c7917bacce491be577b895b1291f590ab9307be590017573"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/development-full-r4-report.json",
+      "sha256": "71a6bf7ff539d5b56fed8a2057ae7e7de74c76d813a71ca2207587a8ded24beb"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/helper-boundaries-r3-report.json",
+      "sha256": "b247b343b516082e3107032f822a7c31f93ce51a0e42ac5a74950d760dee99c0"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/implementation/shutdown-development-report-r11.json",
+      "sha256": "c9e28ab11bfb09484d80f86f29740c54c2ce3d84464afcb8ccabe80553251272"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/ownership-r5/report.json",
+      "sha256": "5580a0aba27293444e36d2d09086fa0afdf3505f7e28253023c833b066275873"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/runtime-experiments/runs/semantic-r3/report.json",
+      "sha256": "ac39a7a1fac507619d5eab615dc717c2e3fdc86d0b5cecbcbb936d9fb786f54b"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/formal-runs/final-v1/report.json",
+      "sha256": "95e3568442a1f1010d3c1914699a41e19efca27142cb455c84270f99f0897fc9"
+    },
+    {
+      "path": "gates/performance/warm-pool-candidate/council-disposition.json",
+      "sha256": "f90f94c5951d662d15e8e2222b8e7c8e6accc9ec4baaf718be97206411b5fcfe"
+    }
+  ],
+  "scope": "Archived old docs and refreshed disabled warm-pool status. Historical reports were not rewritten; source projection comparison is not a new test run. No performance or production activation claim."
+}

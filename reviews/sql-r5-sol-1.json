@@ -1,0 +1,57 @@
+{
+  "reviewer": "Sol council seat 1",
+  "seat": "sql-r5-sol-1",
+  "review_type": "EXACT_HASH_ADVERSARIAL_DESIGN_REVIEW",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 5,
+  "spec_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "formal_path": "formal/Allow/SqlRouting.lean",
+  "formal_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "remaining_design_blockers": [],
+  "scope": "Revision 5 accepted native prepared namespace and conservative source-admission lexical barrier; runtime remains the frozen revision 3 implementation.",
+  "findings": [
+    {
+      "id": "SOL1-R5-01",
+      "topic": "Exact native source and provenance",
+      "assessment": "Whole PREPARE and EXECUTE requests each require exact grammar admission. Sole top-level classification, rejection of nested/multiple forms, immutable portal capture, shared connection-local namespace, and restrictions inside bodies/arguments preserve the intended all-client SQL boundary. Admission does not establish backend preparation success."
+    },
+    {
+      "id": "SOL1-R5-02",
+      "topic": "Indirect lexical changes",
+      "assessment": "Rejecting new Q/P while a forwarded Q/E effect is pending closes the revision 4 stale-lexer pipeline gap without assuming a complete setting-mutation blacklist. Mark pending before forwarding, order acknowledgements by Q/Sync cycle, retain newer pending effects, and validate lexical ParameterStatus before releasing the barrier. COPY/Sync/Flush/control progress remains available."
+    },
+    {
+      "id": "SOL1-R5-03",
+      "topic": "Protocol name aliasing",
+      "assessment": "Native ASCII names are limited to 63 bytes and folded only for lookup. Conservatively reject protocol prepared statement names over 63 bytes in implementation: SQL EXECUTE truncation could otherwise select a backend object under an alias not represented by exact protocol-name lookup. This rejection is permitted by the specification conservative policy; do not normalize forwarded protocol strings."
+    },
+    {
+      "id": "SOL1-R5-04",
+      "topic": "Frozen runtime gap",
+      "assessment": "Read current sql_guard.py and sql_proxy.py. They still reject PrepareStmt/ExecuteStmt and have no pending-effect Q/P lexical barrier. Their present behavior is baseline evidence, not revision 5 compliance. No production source was changed by this review."
+    },
+    {
+      "id": "SOL1-R5-05",
+      "topic": "Full recovery and provenance",
+      "assessment": "Keep the complete native pg_dump/pg_restore path with ACLs and original revision 3 backup failure evidence. No ACL omission or backup-content reduction may be substituted for native preparation support. Unresolved upstream LICENSE/NOTICE provenance remains recorded; local authorized use does not grant redistribution or commercial license clearance."
+    }
+  ],
+  "formal_review": {
+    "registered_sql_obligations": 28,
+    "assessment": "Read abstract admission/provenance and CycleState definitions. New barrier theorems show pending effects block source admission, false validation retains state, and acknowledgement removes only older/equal cycles while retaining newer ones. They are appropriate policy lemmas, not Python or PostgreSQL correspondence proofs.",
+    "adapter_trust": "NativePrepare.bodyPart proves nonempty substring decomposition only. Correct top-level grammar classification, body/name extraction, PostgreSQL ASCII name correspondence, ordered unique cycle assignment and association of ReadyForQuery with its Q/Sync barrier remain adapter obligations.",
+    "proof_execution": "This review does not replace the required two clean Lean builds or assert their completion."
+  },
+  "implementation_acceptance_obligations": [
+    "Real unchanged full pg_dump and pg_restore including ACLs through canonical proxy endpoints; per-entry-point counter deltas and endpoint evidence, plus recovery and revocation integrity.",
+    "Native and both cross-protocol preparation paths; fresh-connection cached EXECUTE denial; unknown/cross-connection names; duplicate/failed native or protocol preparations; immutable old portals and state budgets.",
+    "Quoted/Unicode/overlong SQL names and over-63-byte protocol names reject conservatively; mixed-case native ASCII lookup does not rewrite SQL.",
+    "Opaque/nested/multiple statement forms and unsafe set_config/lexical expressions inside native PREPARE/EXECUTE reject before forwarding.",
+    "Delayed and fragmented backend status, E then P before Sync, Q then Q/P, older Ready after newer Execute, and an isolated pg_settings mutation cannot forward newly parsed SQL under stale mode assumptions.",
+    "Barrier progress with Sync/Flush/COPY/cancellation; successful matching safe completion permits later SQL on a session that has not been rejected. A rejected session stays closed.",
+    "Retain existing parser tamper/unavailable, exact bytes, framing, migration partial-recovery, database/RLS, ML-integrity and HTTP checks."
+  ],
+  "runtime_edits": false,
+  "final_conclusion": "Approve only the exact revision 5 contract for implementation. Runtime acceptance and final mechanical evidence remain outstanding implementation gates."
+}

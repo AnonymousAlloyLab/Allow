@@ -1,0 +1,618 @@
+{
+  "profile": "allow-egraph-rules-v1",
+  "pattern_grammar": "A string p/q/r is a typed pattern variable; an array [OP,children...] is an operator pattern. All variables in one rule have exactly the rule family sort, including one identical relational schema. Every RHS variable occurs in LHS. Constants have zero children. Engine uses only declared forward orientations; proof symmetry is an explicit checked step.",
+  "rules": [
+    {
+      "id": "B_AND_COMM",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        "q"
+      ],
+      "right": [
+        "AND",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.andComm"
+    },
+    {
+      "id": "B_AND_ASSOC",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        [
+          "AND",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "AND",
+        "p",
+        [
+          "AND",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.andAssoc"
+    },
+    {
+      "id": "B_AND_IDEM",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Certificate.andIdem"
+    },
+    {
+      "id": "B_OR_COMM",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        "q"
+      ],
+      "right": [
+        "OR",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.orComm"
+    },
+    {
+      "id": "B_OR_ASSOC",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        [
+          "OR",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "OR",
+        "p",
+        [
+          "OR",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.orAssoc"
+    },
+    {
+      "id": "B_OR_IDEM",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Certificate.orIdem"
+    },
+    {
+      "id": "B_NOT_NOT",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "NOT",
+          "p"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Certificate.doubleNot"
+    },
+    {
+      "id": "B_DEMORGAN_AND",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "AND",
+          "p",
+          "q"
+        ]
+      ],
+      "right": [
+        "OR",
+        [
+          "NOT",
+          "p"
+        ],
+        [
+          "NOT",
+          "q"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Certificate.deMorgan"
+    },
+    {
+      "id": "B_AND_TRUE",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "TRUE"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.andTrue"
+    },
+    {
+      "id": "B_AND_FALSE",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "FALSE"
+        ]
+      ],
+      "right": [
+        "FALSE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.andFalse"
+    },
+    {
+      "id": "B_OR_FALSE",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "FALSE"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.orFalse"
+    },
+    {
+      "id": "B_OR_TRUE",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "TRUE"
+        ]
+      ],
+      "right": [
+        "TRUE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.orTrue"
+    },
+    {
+      "id": "B_AND_ABSORB",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "OR",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.andAbsorb"
+    },
+    {
+      "id": "B_OR_ABSORB",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "AND",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "Rule.orAbsorb"
+    },
+    {
+      "id": "B_AND_DISTRIB",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "OR",
+          "q",
+          "r"
+        ]
+      ],
+      "right": [
+        "OR",
+        [
+          "AND",
+          "p",
+          "q"
+        ],
+        [
+          "AND",
+          "p",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.andDistrib"
+    },
+    {
+      "id": "B_OR_DISTRIB",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "AND",
+          "q",
+          "r"
+        ]
+      ],
+      "right": [
+        "AND",
+        [
+          "OR",
+          "p",
+          "q"
+        ],
+        [
+          "OR",
+          "p",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.orDistrib"
+    },
+    {
+      "id": "B_AND_COMPLEMENT",
+      "family": "BOOL",
+      "left": [
+        "AND",
+        "p",
+        [
+          "NOT",
+          "p"
+        ]
+      ],
+      "right": [
+        "FALSE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.andComplement"
+    },
+    {
+      "id": "B_OR_COMPLEMENT",
+      "family": "BOOL",
+      "left": [
+        "OR",
+        "p",
+        [
+          "NOT",
+          "p"
+        ]
+      ],
+      "right": [
+        "TRUE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.orComplement"
+    },
+    {
+      "id": "B_DEMORGAN_OR",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "OR",
+          "p",
+          "q"
+        ]
+      ],
+      "right": [
+        "AND",
+        [
+          "NOT",
+          "p"
+        ],
+        [
+          "NOT",
+          "q"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.deMorganOr"
+    },
+    {
+      "id": "B_NOT_TRUE",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "TRUE"
+        ]
+      ],
+      "right": [
+        "FALSE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.notTrue"
+    },
+    {
+      "id": "B_NOT_FALSE",
+      "family": "BOOL",
+      "left": [
+        "NOT",
+        [
+          "FALSE"
+        ]
+      ],
+      "right": [
+        "TRUE"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "Rule.notFalse"
+    },
+    {
+      "id": "R_INTER_COMM",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        "q"
+      ],
+      "right": [
+        "INTER",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interComm"
+    },
+    {
+      "id": "R_INTER_ASSOC",
+      "family": "REL",
+      "left": [
+        "INTER",
+        [
+          "INTER",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "INTER",
+        "p",
+        [
+          "INTER",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interAssoc"
+    },
+    {
+      "id": "R_INTER_IDEM",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interIdem"
+    },
+    {
+      "id": "R_UNION_COMM",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        "q"
+      ],
+      "right": [
+        "UNION",
+        "q",
+        "p"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionComm"
+    },
+    {
+      "id": "R_UNION_ASSOC",
+      "family": "REL",
+      "left": [
+        "UNION",
+        [
+          "UNION",
+          "p",
+          "q"
+        ],
+        "r"
+      ],
+      "right": [
+        "UNION",
+        "p",
+        [
+          "UNION",
+          "q",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionAssoc"
+    },
+    {
+      "id": "R_UNION_IDEM",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        "p"
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionIdem"
+    },
+    {
+      "id": "R_UNION_EMPTY",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        [
+          "EMPTY"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionEmpty"
+    },
+    {
+      "id": "R_INTER_EMPTY",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        [
+          "EMPTY"
+        ]
+      ],
+      "right": [
+        "EMPTY"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interEmpty"
+    },
+    {
+      "id": "R_INTER_ABSORB",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        [
+          "UNION",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interAbsorb"
+    },
+    {
+      "id": "R_UNION_ABSORB",
+      "family": "REL",
+      "left": [
+        "UNION",
+        "p",
+        [
+          "INTER",
+          "p",
+          "q"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.unionAbsorb"
+    },
+    {
+      "id": "R_INTER_DISTRIB",
+      "family": "REL",
+      "left": [
+        "INTER",
+        "p",
+        [
+          "UNION",
+          "q",
+          "r"
+        ]
+      ],
+      "right": [
+        "UNION",
+        [
+          "INTER",
+          "p",
+          "q"
+        ],
+        [
+          "INTER",
+          "p",
+          "r"
+        ]
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.interDistrib"
+    },
+    {
+      "id": "R_DIFF_SELF",
+      "family": "REL",
+      "left": [
+        "DIFF",
+        "p",
+        "p"
+      ],
+      "right": [
+        "EMPTY"
+      ],
+      "orientation": "forward",
+      "lean_constructor": "RelRule.diffSelf"
+    },
+    {
+      "id": "R_DIFF_EMPTY",
+      "family": "REL",
+      "left": [
+        "DIFF",
+        "p",
+        [
+          "EMPTY"
+        ]
+      ],
+      "right": "p",
+      "orientation": "forward",
+      "lean_constructor": "RelRule.diffEmpty"
+    }
+  ],
+  "non_rules": [
+    "quantifier movement or renaming",
+    "call inlining or recursive unfolding",
+    "join commutativity",
+    "difference associativity or commutativity",
+    "integer arithmetic as relation algebra",
+    "temporal transformations",
+    "cross-schema union or merge",
+    "equality based solely on vector/digest or UF IDs"
+  ]
+}

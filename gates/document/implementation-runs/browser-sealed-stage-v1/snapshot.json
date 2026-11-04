@@ -1,0 +1,23 @@
+{
+  "status": "PRESERVED_COMPLETED_STAGE_WITH_OPEN_PRODUCT_GATES",
+  "files": {
+    "gates/document/implementation-report.json": "4997384b1d95d0599a03cf7dee1634e989667c1d4ddccff107d74b72bac6d28d",
+    "gates/document/implementation-manifest.json": "415fd82846ec2142b99e2e02395e44d61b5ab8954e7f2bc12c07dc5cf87c5d9c",
+    "gates/document/http-smoke.json": "da6a5b5870f3250bb88ee4512cdb0b64068e8cf8b0183c68217aaee227bc9a98",
+    "gates/document/restart-report.json": "2fabd9a713745959739c7eadeb86dc24420cbd2bcd67d43d8e54f59dcf99d40b",
+    "gates/document/document-recovery-report.json": "8fba2a2d4ca04828fcc573235b3d4ce78b03cf32cfd33d919e98da1c5230b824",
+    "gates/document/inherited-runtime-tests.json": "9c45ebc238a32030293aa5ac2a37489eb405c65cd86b669ba7ff505bb0e5e1c1",
+    "gates/document/sql-client-inventory.json": "6bbd6c6511c4525b2f95c51906249f8473e613393834dd112bf693f089dfbd6c",
+    "gates/document/server-performance.json": "fc84bacd3dbb5f30e79f74f909f59856331c1dde036f4c1d6166b7ca80348c6a",
+    "gates/document/headless-preview-performance.json": "f13b7e34fc52835e0cc4c78a5b3441b9cc1c4cdbe6f228f0770e0dbca52a5869",
+    "gates/document/persistence-profile-sealed.json": "b87a8af8f9b0163d703815ed353f3babc1c3f4c3af55670e13a580408425a46d",
+    "gates/retrieval/http-smoke.json": "99e3eea87e0a386ba6fd2d05ebcacbc7d4240a2ecd43b534b1a64b30b65c3c89",
+    "gates/sql/runtime-tests.json": "6ac3cbf980c6bced7c6ccc8143ef5070f406600213f6d3276c2d213e4754e760",
+    "gates/sql/client-coverage.json": "63d13fb82647d75d79683e2705a5f885e5994d8e80ebd41e449eb5b31b6a9e25",
+    "gates/sql/recovery-report.json": "5b30c46b0a044d80463f96b31a7190b0fe2e526c619d55108ef94fead8692300",
+    "docs/document-stage.md": "520dfd8f98033e03e14e08eda93c7238d21a857561dbbde55492f0cd3088ebf0"
+  },
+  "warm_browser": "gates/document/browser-benchmark-runs/final-sealed-v3/report.json",
+  "server_latency": "FAIL_468.348787_MS_VS_300_MS",
+  "purpose": "Preserve completed current-stage results before a separately reviewed future change. This snapshot does not upgrade any product gate."
+}

@@ -1,0 +1,71 @@
+{
+  "id": "ALLOW-DOCUMENT-STAGE-DRAFT-0.1",
+  "status": "DRAFT_NOT_AUTHORIZED_FOR_IMPLEMENTATION_OR_GATE_CLOSURE",
+  "revision": 0,
+  "extends": [
+    "spec/allow-contract.json",
+    "spec/retrieval-stage.json",
+    "spec/sql-stage.json"
+  ],
+  "sequence": [
+    "Complete and preserve SQL routing stage evidence",
+    "Freeze this supplement and additional Lean propositions",
+    "Obtain two Terra, two Sol and two Astra independent reviews and resolve findings",
+    "Run two clean formal builds with exact frozen propositions and baseline, before production edits",
+    "Implement and test server document transactions, full palette, text projection and accessibility",
+    "Run every inherited G2/G3 gate; explicitly retain unmet gates"
+  ],
+  "current_baseline": {
+    "browser": "frontend/src/model.ts supports only kind-only holes/ref/and/or/implies/not/some/no/union; browser Workbench increments local revision after worker validation; no durable authoritative commit or complete palette is shown.",
+    "server": "Worker AlloyEngine parses modules using Alloy; parser acceptance alone does not prove the graph is typed, scope-safe or atomically persisted. Existing jobs and retrieval storage are not a document transaction API.",
+    "formal": "formal/Allow/Typing.lean proves a smaller exact-nominal subset; the isolated draft groups operator typing families, is not registered and does not establish full implementation correspondence."
+  },
+  "scope": {
+    "palette": [
+      "signature declarations and fields with explicit nominal column types and declared multiplicity",
+      "predicate parameters and stable variable references",
+      "and, or, not, implies, iff",
+      "some, no, one, lone relation tests",
+      "equality and subset",
+      "union, intersection, difference",
+      "join, product, transpose",
+      "all and some quantification",
+      "fact, predicate, assertion, run and check"
+    ],
+    "fragment": "Block-supported IR permits static self-contained modules with exact nominal nonempty schemas, no inheritance, integer expressions or alternative schemas; names are syntax/display only, with stable declaration IDs and explicit scope IDs. Reject unsupported construction as block-supported, without truncation. Parser-accepted solver-policy-supported other syntax remains TEXT_ONLY per A4; this bounded slice does not close unsupported original obligations by relabeling them.",
+    "constraints": "Set operations, equality and subset require identical nonempty column schemas. Product concatenates nonempty schemas; join requires equal nominal endpoint sorts and a nonempty result; transpose requires binary relation. Boolean operators require formulas. Multiplicity tests accept nonempty relation schema. All/some bind one atom of a declared nominal signature with an explicitly scoped stable binder; predicate parameter declarations are checked at calls. Reject cycles, unknown/unbound references and captures; recheck entire module after every edit. Enforce field/declaration multiplicity and dependencies using the trusted Alloy parser and server policy.",
+    "identity": "Use server-created stable IDs for declarations, binders, nodes and distinct source occurrences. Move/copy capture avoidance uses identity and lexical scope, never display text or reused de Bruijn indices. Reject duplicate declarations and unresolved or escaping bindings, with specific diagnostics. No silent hole completion."
+  },
+  "accepted_state": {
+    "artifact": "Every immutable accepted revision is tagged BLOCK_SUPPORTED with validated typed IR, exact UTF-8 source, occurrence map and trivia, or TEXT_ONLY with exact parser-accepted solver-policy-supported source/import closure and no invented IR, block graph or canonical CorpusPair. Preserve exact source including CRLF. Drafts are separately visible, may contain holes or invalid text and never mutate accepted state.",
+    "validation": "Server independently bounds, parses and elaborates the entire candidate and authoritative declaration environment, checks scopes, graph acyclicity, every shipped type and multiplicity rule, and re-renders/maps where applicable. Browser checks are advisory. Worker time/memory/output, request and graph size bounds must be declared and enforced before implementation; timeout/error/unknown reject commit. Authentication and workspace/document ownership checked before validation and commit.",
+    "atomicity": "Within one PostgreSQL transaction, lock or conditionally compare current revision and atomically persist immutable accepted artifact/source/maps, incremented revision, scoped idempotency request digest and original outcome. Do not hold an unbounded parser subprocess inside a database transaction: validate a frozen complete candidate first, then lock and recheck base revision and candidate identity. Any stale, validation, persistence, crash or serialization failure leaves the previous revision unchanged and reports no success. All SQL through the required SQLeanParser proxy; parser or proxy failure denies commit.",
+    "idempotency": "Scope key by authenticated principal, launch/workspace/document and key; bind exact canonical request bytes and all semantic fields, including expected revision and undo target. Atomically record commit outcome for at least 24 hours and active retry window; retry identical request returns original result without another revision even after lost response/restart. Concurrent same-key requests serialize; changed payload or hash collision after exact comparison rejects. After expiry refresh accepted revision and use a new key, never blindly replay. DB clock/cleanup and restart tests prove retention behavior.",
+    "undo_redo": "Undo and redo select an immutable historical artifact, revalidate under current policy and dependencies, and commit as a fresh revision under expected-revision and idempotency rules. No history mutation or revision decrement. Stale, invalidated or unavailable historical artifacts reject and preserve current accepted artifact. Concurrent edits and retries cannot apply an undo twice."
+  },
+  "projection": {
+    "round_trip": "For every supported IR family, Alloy parse(print(IR)) equals IR modulo specified alpha-renaming and declared presentation normalization. Comments/trivia retain explicit attachment and behavior on edits; no exact byte round-trip from canonical IR is promised. Unsupported parsed syntax becomes TEXT_ONLY; mode switches commit atomically.",
+    "maps": "Exact strict UTF-8 bytes are hashed; reject invalid UTF-8 and unpaired UTF-16 surrogates, never normalize newlines. Zero-based half-open UTF-16 code unit offsets bind accepted revision and presentation epoch; byte/parser offsets convert explicitly against exact decoded source, including multi-byte Unicode, combining characters and CRLF. Map distinct occurrences separately even for shared node IDs; reject or explicitly represent ambiguous mappings.",
+    "freshness": "Increment monotone presentation epoch for each raw or tentative block edit, document change, undo/redo, selection or bounds change. Diagnostics require exact draft ID, epoch and UTF-8 hash. Evidence is current only for exact accepted analysis key, matching epoch and identical current draft/source; stale asynchronous results cannot restore a badge. Label historical evidence separately."
+  },
+  "formal_draft": {
+    "path": "gates/document/draft/Document.lean",
+    "coverage": "Proof draft models exact-nominal operator typing, lexical references, nonempty join result, atomic candidate transition and exact retry, with positive and negative examples. It is not imported by active Allow, not registered, and not a clean-build gate. All grouped operator tags need distinct production-adapter correspondence obligations, and module/declaration typing, undo, revision/idempotency concurrency and source-map rules need further formal work before proof freeze.",
+    "trust": "Lean does not prove Alloy parsing, name resolution, field multiplicity semantics, source/render mapping, PostgreSQL transaction isolation, browser accessibility, subprocess or Java/TypeScript refinement. Register exact propositions, proofs, witnessed acceptance and denial before production; test parser and adapters against Lean oracle separately."
+  },
+  "validation": [
+    "All full-palette operators: valid and invalid exact schemas, direction/arity, destination scope, bound variables, params, declaration edits and dependency cascades; malformed graph, cycle and unbound negatives.",
+    "Server-authoritative commit, concurrent conflicting expected revisions, rejected candidate unchanged, lost response, concurrent duplicate and collision, retention through restart and expiry; atomic persistence under forced transaction failure and parser unavailable.",
+    "Undo/redo as fresh revisions including stale, failed, concurrent and restart cases; historical source and maps exact.",
+    "Round-trip every supported constructor modulo defined alpha/presentation equivalence; text-only transitions and invalid draft retains historical view, no stale evidence.",
+    "Occurrence maps for repeated nodes/identical text, nested spans, non-BMP, combining marks, CRLF/LF and invalid encodings, with revision/epoch validation and delayed-response regression.",
+    "Full keyboard create/connect/move/delete/undo/redo, focus and live announcements; automated WCAG 2.2 AA checks and named manual browser/screen-reader scenarios.",
+    "Inherited canonical proof checker, Java truth-table/certificate differential checks, budget tests and G2/G3 exit criteria remain required. Report each original gate independently; no automatic closure from this supplement."
+  ],
+  "open_review_questions": [
+    "Select precise finite graph/source/resource budgets and policy for import closure before freezing.",
+    "Specify authoritative parser-to-IR identity and byte-to-UTF16 occurrence correspondence; prove or test every operator adapter, including syntax unsupported by the block fragment.",
+    "Define durable key lifecycle and transaction isolation in existing local principal/workspace model; prove no stale validation commits after declaration/policy revision changes.",
+    "Define exact semantics and UX for occurrence ambiguity and trivia reattachment; preserve accepted text and distinguish projection loss."
+  ]
+}

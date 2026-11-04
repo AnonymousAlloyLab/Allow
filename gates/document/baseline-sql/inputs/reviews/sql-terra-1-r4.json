@@ -1,0 +1,24 @@
+{
+  "seat": "terra-1",
+  "status": "APPROVE",
+  "scope": "Incremental SQL revision 4 policy, abstract proof model and preserved revision 3 backup failure; approval does not assert completed implementation or backup recovery.",
+  "supplement": "spec/sql-stage.json",
+  "supplement_sha256": "ad39977bf241f2dd3a6beb25a2c30f81ae30ab903a97f1594f493af8870e4733",
+  "formal_file": "formal/Allow/SqlRouting.lean",
+  "formal_sha256": "648e16bd95be98f8089fe5bbd14290a21efe0c0405422be91c8081c82699f9f8",
+  "types_file": "spec/sql-types.json",
+  "types_sha256": "156723aa97fe7cffafbec87fa342cea535d9f90bfdb6c7c1884f7fa034e919f0",
+  "findings": [
+    "Revision 3 full pg_dump failed at native SQL PREPARE after 68 admitted queries; its evidence remains preserved, not counted as successful recovery.",
+    "Native PREPARE stores the exact admitted source including a nonempty body span into the same abstract statement table as protocol Parse. SQL EXECUTE requires its own admitted request and lookup of a known statement; reachable-state induction proves the target is admitted.",
+    "The abstract SQL-prepared statement can be bound to a protocol portal; cache lookup leaves statement state unchanged; a missing name denies native execution. Witnesses cover native PREPARE and EXECUTE.",
+    "Revision 4 requires sole top-level statements, conservative ASCII name handling, nested opaque/mode checks and full unmodified pg_dump/restore tests. These remain implementation and test obligations."
+  ],
+  "limitations": [
+    "Lean assumes request classification, source/body span, exact byte interpretation, binary/profile pinning and truthful parser reports; bodyPart is a nonempty substring condition and does not independently establish an Alloy or PostgreSQL grammar derivation.",
+    "The model does not prove SQL name normalization, trusted parser production classification, atomic protocol processing, backend acceptance, cross-protocol wire correspondence, prepared object lifetimes, resource limits or implementation refinement.",
+    "Optimistic provenance may survive backend errors; server execution failure is not success. The revision 3 backup failure stays BLOCKED until real full backup and restore pass through the proxy.",
+    "Six reviews and the final frozen-input two-clean-build gate against the revision 3 production snapshot are required before production changes."
+  ],
+  "blockers": []
+}

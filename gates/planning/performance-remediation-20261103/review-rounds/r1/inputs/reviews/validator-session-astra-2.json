@@ -1,0 +1,53 @@
+{
+  "reviewer": "astra-2",
+  "decision": "REQUEST_CHANGES",
+  "input_root_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "input_hashes": {
+    "gates/document/validator-session-candidate/ValidatorSession.lean": "42c49d2cb8c65f31642f2112389047243d9fd4747d58f696c34687c93f61a271",
+    "gates/document/validator-session-candidate/claims.json": "3d531f7fdc4031087ba3dff884468d2342c77b3b78647f9cbadb0541faad5952",
+    "gates/document/validator-session-candidate/contract.json": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d",
+    "gates/document/validator-session-candidate/development-check.json": "b76b0a35e4ec03519564096c9a9f34e968a4307ec01acdbfb460b1dfdd38dbf2",
+    "gates/document/validator-session-candidate/runtime-test-plan.json": "eab89c16afbe713648a3b5971da47bedae996031e9d4ced3ff0f945baedb60b0",
+    "gates/document/validator-session-candidate/source-evidence.json": "79cd993e64d1275c435ee39455408bd47391e534d9dd4710732f8833aada87a1"
+  },
+  "scope": "Frozen r1 design review. No active/candidate edits, builds, HTTP or browser execution. Review is not implementation authorization or closure.",
+  "blocking_findings": [
+    {
+      "id": "VSA2-01",
+      "severity": "high",
+      "location": "claims.json:VSM22.exact_source_declaration_before_proof",
+      "problem": "The alleged exact statement ends at `publishable { witnessSession with phase`. It was truncated at a structure-update assignment and omits the rest of the witness proposition. The 22 names match but this is not an exact22-proposition inventory.",
+      "required_change": "Regenerate complete statements using an elaborated exact-type inventory or syntax-aware extraction, preserve the entire witness proposition, and add a mechanical inventory check that detects incomplete/truncated types. Freeze new package hashes and obtain exact reviews before the registered two-build audit."
+    },
+    {
+      "id": "VSA2-02",
+      "severity": "high",
+      "location": "contract.json:isolation_and_reset; VS-U02; runtime VS10/VS13",
+      "problem": "Fresh child loaders address child-defined mutable statics such as Type.SMALL_INT, but the fixed delegated JDK allowlist, reached transitive class set, JDK-global registration audit and concrete reset-observation mechanism are not frozen. Thread/file inventories cannot establish absence of child references in shared JDK caches or a fresh semantic state. The contract correctly calls this unresolved; it remains a preimplementation design blocker rather than a condition a RESET_READY flag can discharge.",
+      "required_change": "Freeze an audited loading/delegation/resource/provider policy and concrete ownership/reset observations, including parent reflection handles, exception paths, context loaders, service caches, thread locals and shutdown hooks. Define which observations are enforceable and which are trusted audit obligations; retain fresh-process fallback as the selected architecture if this cannot be established, rather than weakening reset."
+    },
+    {
+      "id": "VSA2-03",
+      "severity": "high",
+      "location": "contract.json:VS-U01/VS-U03 and immutable_image",
+      "problem": "Sealed image bootstrap/descriptor transport/logical-manifest reconstruction is still an unimplemented design placeholder, and the candidate does not establish a credible remaining latency budget for fresh loaders and repeated full build scans. Supplied newer observations are roughly273-295ms fresh worker plus two SQL CLI calls around82ms each, with HTTP p95 around468ms. Those numbers identify a failed target, not the savings achievable with child-loader reuse.",
+      "required_change": "Before choosing this implementation, freeze the actual helper-to-JVM fd/mount/bootstrap ownership design and bounded image inventory, and obtain an isolated feasibility/profile witness for fresh-loader validation and retirement under the inherited limits. Update the stale pending-measurement text with exact referenced evidence. Keep the full500-node100/1000 HTTP acceptance unchanged; component arithmetic cannot certify p95."
+    }
+  ],
+  "nonblocking_observations": [
+    "All six package files and canonical manifest root match the requested root and contract hash. The source contains22 theorem names and the claims list covers those names exactly; this does not cure VSM22 statement truncation.",
+    "The Lean propositions inspected are narrow conditional facts with straightforward proofs. No unsound axiom/sorry escape is present in the inspected file. Single authoring elaboration is explicitly not a clean-build or axiom closure result.",
+    "canStart/publishable predicates encode checked premises, not a guarded reachable-state transition system. start,finish,reaped and releaseReaped remain callable without proof-bearing transition preconditions. Consequently the model does not prove global no-revival, exactly-once permit release, cancellation-race safety or a two-worker invariant over all execution traces. These remain runtime obligations; avoid broader formal summaries.",
+    "per_request_cpu_from_lifetime assumes a bounded after counter and proves only subtraction arithmetic. It establishes neither actual RLIMIT accounting nor aggregate helper/JVM CPU. The contract appropriately distinguishes these.",
+    "fresh_correspondence_is_required simply instantiates assumed pointwise equality. It does not model history-dependent session outputs or prove noninterference; a stronger future formal claim would require histories/reachability and a relational invariant.",
+    "Classloader retention may cause metaspace/OOM before64requests even if reset is semantically sound. Retirement and faults must remain visible in the unchanged benchmark. No claim that class unloading or a512MiB heap cap bounds total RSS follows.",
+    "Advisory-only scope, no response/authority cache, exact fresh SQL context, zero advisory queue, live-slot retention while idle, and preservation of durable one-shot recovery paths are sound restrictions at design level.",
+    "Warm latency, cold behavior, availability, accessibility, security review, commercial rights and market validation remain distinct. Neither22candidate propositions nor287inherited models establishes release readiness or commercial value."
+  ],
+  "safer_alternative": {
+    "selection": "Separately review a combined exact authorized read+ownedIds bridge while keeping fresh one-shot validation JVMs.",
+    "reason": "It can remove one process/transaction round trip without introducing cross-request Alloy/JDK state or a reset protocol. Keep exact principal/document/base/history ownership checks and all SQL through the pinned parser.",
+    "limit": "An approximately82ms component saving alone would not establish p95<300ms from the observed endpoint result. Profile and test the full unchanged workload; preserve failure if still over target."
+  },
+  "acceptance_boundary": "Do not implement or promote on this vote. Repair exact inventory and resolve preimplementation isolation/bootstrap/feasibility obligations, then seek a newly frozen review. Required runtime checks and two clean exact-type/axiom builds remain separate."
+}

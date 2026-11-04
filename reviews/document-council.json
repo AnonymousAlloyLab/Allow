@@ -1,0 +1,57 @@
+{
+  "status": "SIX_APPROVED_GAMEPLAN_FORMAL_BUILDS_PENDING",
+  "candidate": "gates/document/review-candidate-r5/manifest.json",
+  "candidate_sha256": "acda03535d825386234c3b8ce634159a4aaf700f7517ca7faf8163b4414baec2",
+  "inputs": {
+    "spec/document-stage-draft.json": "957b8a798ebaaa2b824433305e6cdbd965d9422acb94482b9dba11db291f2368",
+    "spec/document-wire-draft.json": "12de31cd26209ddc2dfb628520cf8f0bb61cadacec6c9dd3cb8571d0e573f08a",
+    "spec/document-ui-draft.json": "5358d97fb8ccb755a1182223e81cfbd08eff3d7c06a39922474ae8fd20c1a66c",
+    "spec/document-adapter-draft.json": "ea0047534c4c811d87b99ed25460366d1ddec9c55d5f8f52109d8be70621a4a0",
+    "gates/document/draft/Document.lean": "a9ce61793dc79676395211cd8e5d94c0e0767316755040224f63f2a1af3b3b07",
+    "gates/document/draft/types.json": "fd0a31b549a8c20d079b960f68b306603b66aaed3facfd2e4a4bc302ea336109"
+  },
+  "reviews": [
+    {
+      "seat": "terra-1",
+      "path": "reviews/document-r5-terra-1.json",
+      "sha256": "f51f544895f4941aeb2ae00e08c66f1abd17d55b6bb794de94df83aff3d13d2a",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "terra-2",
+      "path": "reviews/document-r5-terra-2.json",
+      "sha256": "d261c523f977d1f37698e00bc1221285ef5791e7def3cccfd62974b8703523f4",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "sol-1",
+      "path": "reviews/document-r5-sol-1.json",
+      "sha256": "777739bc13ad4126d7e61d25f2c345fae13c510989468ff28d0a15e73c8512b3",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "sol-2",
+      "path": "reviews/document-r5-sol-2.json",
+      "sha256": "1f28c8974b8dbd3bff7edfc3c6779410d6c66d7a794a2e3c6828f444c8762966",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "astra-1",
+      "path": "reviews/document-r5-astra-1.json",
+      "sha256": "9f6098a3c267b62b862baece70e1d416486e1ce3204b6bef93a8c4b52dfbe942",
+      "decision": "APPROVE_GAMEPLAN"
+    },
+    {
+      "seat": "astra-2",
+      "path": "reviews/document-r5-astra-2.json",
+      "sha256": "23f88d0605be1a6d6ddfbc8eb247b9e3c8044ba6b8613485ca6c1243f0bb1d4b",
+      "decision": "APPROVE_GAMEPLAN_FOR_FORMAL_GATE"
+    }
+  ],
+  "required_models": {
+    "terra": "2 GPT-6.1 Terra",
+    "sol": "2 GPT-6.1 Sol",
+    "astra": "2 GPT-6 Astra"
+  },
+  "boundary": "No runtime refinement, G2/G3, commercial, accessibility or performance acceptance inferred."
+}

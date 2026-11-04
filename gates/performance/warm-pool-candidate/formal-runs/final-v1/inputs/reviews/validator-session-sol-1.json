@@ -1,0 +1,41 @@
+{
+  "reviewer": "sol-1",
+  "decision": "REQUEST_CHANGES",
+  "package_root_sha256": "4007670066f98a3cccf4e2dfd00306a49c4a3797b87c21f920627b0ebf1faf4c",
+  "input_hashes": {
+    "gates/document/validator-session-candidate/ValidatorSession.lean": "42c49d2cb8c65f31642f2112389047243d9fd4747d58f696c34687c93f61a271",
+    "gates/document/validator-session-candidate/claims.json": "3d531f7fdc4031087ba3dff884468d2342c77b3b78647f9cbadb0541faad5952",
+    "gates/document/validator-session-candidate/contract.json": "0bbabf4a5bccd7c214d306b26e79134ebf7ab6be9f10fb6f47dc3ce9a3eec90d",
+    "gates/document/validator-session-candidate/development-check.json": "b76b0a35e4ec03519564096c9a9f34e968a4307ec01acdbfb460b1dfdd38dbf2",
+    "gates/document/validator-session-candidate/runtime-test-plan.json": "eab89c16afbe713648a3b5971da47bedae996031e9d4ced3ff0f945baedb60b0",
+    "gates/document/validator-session-candidate/source-evidence.json": "79cd993e64d1275c435ee39455408bd47391e534d9dd4710732f8833aada87a1"
+  },
+  "scope": "Design review only; no benchmark, active source or candidate mutations.",
+  "findings": [
+    {
+      "id": "VS-S1-01",
+      "severity": "high",
+      "location": "resources_and_lifetime.capacity/termination; VS09/17/27; VS-U03/U04",
+      "issue": "The candidate intentionally leaves actual helper/bubblewrap/JVM ownership topology and live-slot mapping unresolved. In particular, parent-server SIGKILL cannot run Java finally or retire/reap transitions. Current launcher has --die-with-parent, but adding a startup helper and transferred images introduces a new parent-death chain; enumerating descendants afterward is not containment against exit/reparent races. VS27 currently promises no orphan without specifying how the new helper is covered.",
+      "requested_change": "Before implementation approval freeze a lifecycle/topology table identifying parent/PID-start identity, death propagation/containment, fd owner and permit owner for each helper, bubblewrap and JVM state. Preserve explicit --die-with-parent/pid-namespace semantics and specify the helper parent-death mechanism. Define atomic registration before exposing/cancelling a launched child, idempotent cleanup owner, dead/reaped versus cleanup-incomplete state and exact single-release rule. Add deterministic SIGKILL at each topology stage and spawn-versus-cancel/register races; no replacement session or permit release while old ownership is uncertain."
+    },
+    {
+      "id": "VS-S1-02",
+      "severity": "medium",
+      "location": "claims.json VSM22 exact_source_declaration_before_proof",
+      "issue": "The purported exact declaration is truncated at `publishable { witnessSession with phase`, because the record update contains := before the theorem proof separator. It does not freeze the full VSM22 proposition and cannot support the claimed exact22-type review/build comparison.",
+      "requested_change": "Freeze complete elaborated expected theorem types or parse declaration syntax structurally rather than split on first :=. Include the full witness publication proposition and validate inventory completeness in the registered verifier before two-build closure."
+    }
+  ],
+  "permit_refinement": "Retain staged request ownership through final dependency scan/publication decision. Under one documented linearization discipline publish/advance sequence/mark clean idle/release active permit, or retire on cancellation; reset acknowledgement alone must not permit a second request to overwrite the staged operation. Test cancel/arrival after reset but during final fence. Global live slot remains held until whole-tree exit and closure; model releaseReaped itself is unrestricted and does not prove exactly-once ownership.",
+  "performance_assessment": "Observed273-295ms worker and roughly164ms two SQL calls explain why the468ms HTTP p95 is unresolved, but component sums do not establish endpoint distributions. Reuse cannot remove SQL authorization, both build scans or fresh child-loader cost. Resolve U01 with actual loader/reset/retirement profile and complete unchanged100/1000HTTP evidence; retain all startup/retirement failures. Prefer separately reviewed combined context bridge if session complexity has insufficient measured benefit.",
+  "positive_assessment": [
+    "Advisory-only scope correctly keeps durable recovery/commit/solver exit evidence on one-shot workers.",
+    "Exact identities, one pipe owner, incremental bounds, staged DATA plus observed RESET_READY, poison-on-error and no ambiguous retry are appropriate.",
+    "Fresh child-loader audit, byte-only boundary, JDK-global caches/thread locals and finite retirement are explicitly mandatory rather than inferred from fresh objects.",
+    "Immutable classpath with full live-build fences avoids lazy mutable-disk class loading; packaging/fd transfer remains unimplemented and blocking."
+  ],
+  "formal_limit": "22 abstract propositions establish only modeled predicates and assumed observations; no theorem proves clean reset, Alloy equivalence, process-tree containment, exact-once semaphore release or latency. fresh_correspondence_is_required assumes the desired equivalence.287 inherited exact types require separate preservation checks.",
+  "commercialization": "No commercial readiness follows. Dependency/dataset redistribution and licensing rights remain unresolved; named manual accessibility/browser evidence, operational memory/process cost, fault recovery and support economics remain independent gates. Session reuse adds operational and correctness obligations that a warm speed result cannot discharge.",
+  "validation": "Read six manifest inputs and inspected existing WorkerCapacity and BubblewrapLauncher ownership boundary; independently verified all six hashes and canonical package root. No runtime tests, Lean builds, benchmark or source changes performed."
+}

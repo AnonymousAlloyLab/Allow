@@ -1,0 +1,97 @@
+{
+  "status": "ML_SOURCE_FROZEN_FINAL_REPAIR_MEASUREMENT_PENDING_SQL_ADAPTER",
+  "fixture": "Self-authored synthetic structural input. No claim these are solver-admitted corpus witnesses.",
+  "model_id": "allow-e5-hierarchy-v1-query-480-8192-32-membermean-a40f0d4e5d9dd1cc213cbb55676491a47044352a7bd98a25120c774d6746b259",
+  "dimension": 3072,
+  "norm": 1.0,
+  "finite": true,
+  "seconds": 0.5593178272247314,
+  "coverage": [
+    {
+      "tokens": 14,
+      "covered_tokens": 14,
+      "chunks": 1
+    },
+    {
+      "tokens": 13,
+      "covered_tokens": 13,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    },
+    {
+      "tokens": 7,
+      "covered_tokens": 7,
+      "chunks": 1
+    }
+  ],
+  "onnx": {
+    "custom_operator_libraries": false,
+    "ir_version": 6,
+    "opsets": {
+      "": 11
+    },
+    "operators": [
+      ":Add",
+      ":Cast",
+      ":Concat",
+      ":Constant",
+      ":Div",
+      ":Erf",
+      ":Gather",
+      ":MatMul",
+      ":Mul",
+      ":Pow",
+      ":ReduceMean",
+      ":Reshape",
+      ":Shape",
+      ":Slice",
+      ":Softmax",
+      ":Sqrt",
+      ":Sub",
+      ":Transpose",
+      ":Unsqueeze"
+    ]
+  },
+  "tests": "11 ML tests passed including actual pinned E5 cache replay/corruption rejection and historical manifest corruption rejection. Final accepted repaired measurement remains pending SQL adapter integrity approval.",
+  "source_hashes": {
+    "retrieval/allow_retrieval/embedding.py": "d57ce3ea1d5812575d2fb780cde863e5bd4234c7b61e659aabdb407ed283f21b",
+    "retrieval/allow_retrieval/training.py": "82c1bd77e9650d341dc4f1a41aa55547778198f10bf0908c449d1c8df7e7bccc",
+    "retrieval/allow_retrieval/evaluation.py": "dfe386c47f4ac083da5f7a0dedc100517d3c1ca4409c9554d765323dcccfbeb1",
+    "retrieval/bootstrap_ml.py": "daf98fb50c936a73e56049499b9acc3160c2048f23b5b8f93330c18c673f3865",
+    "retrieval/tests/test_ml.py": "20a677459164466c2fe1b3de8e39c040c1aaf183c1c1ac51f20d03be91f1d023"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "isolated": true,
+    "torch": "2.14.1+cpu",
+    "onnxruntime": "1.23.2",
+    "onnx": "1.23.2",
+    "langgraph": "1.2.19",
+    "langchain-core": "1.7.4"
+  },
+  "handoff": "retrieval/ML-HANDOFF.md"
+}

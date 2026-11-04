@@ -1,0 +1,13 @@
+{
+  "status": "PRIVATE_PARSER_RESOURCE_SPIKE_PASS_NOT_RUNTIME_ACCEPTANCE",
+  "exit": 0,
+  "address_space_bytes": 2147483648,
+  "java_flags": "Same JVM heap/stack/GC/metaspace/classspace/codecache/processor flags as existing BubblewrapLauncher; no bwrap/filesystem isolation in this supplementary spike.",
+  "inputs": {
+    ".runtime/document-spike/Probe.java": "3390d53871aa816d19bfff47504a5fb61940359efceb72dcd20bb42fdfb578b8",
+    ".runtime/document-spike/Probe.class": "bad2037eb5378e856ad53be20f1e48305a98e3708361061b601a7ec7f4ba5c18",
+    "backend/target/solver/alloy.jar": "6037cbeee0e8423c1c468447ed10f5fcf2f2743a2ffc39cb1c81f2905c0fdb9d",
+    ".runtime/document-spike/results-2gib-exact-jvm-flags.txt": "0a58143bd91b1292c212c5c2e3140a75adcfd1a0a09aee61ec40a923ddad04c2"
+  },
+  "limitation": "Original8GiB spike lacked tuned JVM region limits. This run demonstrates local parser probe startup under2GiB with tunedflags; not actual documentworker, sandbox, solve, latency or fulladmission acceptance."
+}

@@ -1,0 +1,15 @@
+{
+  "source_sha256": "2ba089c616ccbb3932db659d43d2672cd857196ad62e2a7d463850966e79be9e",
+  "count": 7,
+  "symbols": [
+    "Allow.ImmutableImageCandidate.checked_preserves_pin",
+    "Allow.ImmutableImageCandidate.closed_denied",
+    "Allow.ImmutableImageCandidate.different_object_denied",
+    "Allow.ImmutableImageCandidate.reuse_exact",
+    "Allow.ImmutableImageCandidate.stale_generation_denied",
+    "Allow.ImmutableImageCandidate.stable_image",
+    "Allow.ImmutableImageCandidate.stopped_not_ready"
+  ],
+  "exact_check_output": "Allow.ImmutableImageCandidate.checked_preserves_pin {p : Allow.ImmutableImageCandidate.Pin}\n  {i : Allow.ImmutableImageCandidate.Image} {o : Allow.ImmutableImageCandidate.Observation}\n  (hi : Allow.ImmutableImageCandidate.initialized p i) (ho : Allow.ImmutableImageCandidate.checked i o) :\n  o.image.bytes = p.bytes \u2227 o.image.size = p.size\nAllow.ImmutableImageCandidate.closed_denied {i : Allow.ImmutableImageCandidate.Image}\n  {o : Allow.ImmutableImageCandidate.Observation} (h : o.live = false) : \u00acAllow.ImmutableImageCandidate.checked i o\nAllow.ImmutableImageCandidate.different_object_denied {i : Allow.ImmutableImageCandidate.Image}\n  {o : Allow.ImmutableImageCandidate.Observation} (h : o.image.object \u2260 i.object) :\n  \u00acAllow.ImmutableImageCandidate.checked i o\nAllow.ImmutableImageCandidate.reuse_exact {g : Nat} {i : Allow.ImmutableImageCandidate.Image}\n  {o : Allow.ImmutableImageCandidate.Observation} {q : Allow.SqlRouting.Request}\n  {e : Allow.ImmutableImageCandidate.CacheEntry} (h : Allow.ImmutableImageCandidate.reuse g i o q e) :\n  q = e.entry.request \u2227 Allow.SqlRouting.admitted q e.entry.report\nAllow.ImmutableImageCandidate.stale_generation_denied {g : Nat} {i : Allow.ImmutableImageCandidate.Image}\n  {o : Allow.ImmutableImageCandidate.Observation} {q : Allow.SqlRouting.Request}\n  {e : Allow.ImmutableImageCandidate.CacheEntry} (h : e.generation \u2260 g) : \u00acAllow.ImmutableImageCandidate.reuse g i o q e\nAllow.ImmutableImageCandidate.stable_image {p : Allow.ImmutableImageCandidate.Pin}\n  {before after : Allow.ImmutableImageCandidate.Image} (h : Allow.ImmutableImageCandidate.initialized p before)\n  (kernelPreserves : after = before) : Allow.ImmutableImageCandidate.initialized p after\nAllow.ImmutableImageCandidate.stopped_not_ready {s : Allow.ImmutableImageCandidate.Status} (h : s.live = false) :\n  \u00acAllow.ImmutableImageCandidate.ready s\n",
+  "scope": "abstract conditional proofs; no axiom audit yet"
+}

@@ -1,0 +1,52 @@
+{
+  "reviewer": "Sol council seat 2",
+  "seat": "sql-r5-sol-2",
+  "review_type": "ADVERSARIAL_FINAL_DESIGN_COUNCIL",
+  "decision": "APPROVE_FOR_IMPLEMENTATION",
+  "spec_path": "spec/sql-stage.json",
+  "spec_revision": 5,
+  "spec_sha256": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "approved_exact_hash": "4541bcbc761c0df2257a8a954af81fd4237da73f9358ae4bcfe1b790c59d74d9",
+  "formal_file_sha256": "f97241913ae908ac42e5c4a9efc7266a0f772aae83d653fe1411a0eafc98a84f",
+  "types_file_sha256": "55db73baea89f6415455214ea3425a5c7caa79d812906a507f67acae7e6b50ac",
+  "blocking_design_findings": [],
+  "review_basis": [
+    "Read complete revision 5 policy, the Astra revision 4 finding, the six new cycle claims and all retained SQL definitions/proofs. Mechanically matched all 28 SQL obligation symbols/statements to spec/sql-types.json.",
+    "Registered production baseline comparison returned no changes. Reviewed current pre-refinement proxy state/ReadyForQuery handling without editing it.",
+    "Checked official PostgreSQL 16 protocol and settings documentation, including one Ready per Sync, extended-query error skipping, Execute not emitting Ready by itself, and UPDATE pg_settings being equivalent to SET.",
+    "Read Terra 2's protocol-name collision finding and the root final-rev5 formal report; the report records VERIFIED with 112 total propositions, 28 SQL propositions, and no production changes at freeze. This seat did not independently run Lean."
+  ],
+  "approval_basis": [
+    "The effect barrier repairs the indirect pg_settings path without assuming that a settings-name blacklist covers all aliases/rules or trusted-routine effects. New source-bearing Q/P is rejected while forwarded Q/E effects remain pending.",
+    "Marking an effect before forwarding prevents an asynchronous backend reply from opening a window. Validating lexical ParameterStatus before releasing the matching completed barrier prevents later SQL from being admitted under stale lexical assumptions.",
+    "Cycle-specific release retains newer effects: E in cycle 0, Sync 0, then E in cycle 1 must leave cycle 1 pending when Ready for cycle 0 arrives. CommandComplete, PortalSuspended, ErrorResponse and Flush alone do not release the source barrier.",
+    "Existing admitted Bind/Execute, Sync/Flush, COPY progress and cancellation retain a completion path. New-source pipelining can be conservatively rejected and closed without promising pipeline throughput or retrying accepted effects.",
+    "Revision 4's native PREPARE/EXECUTE admission, immutable cache classification, conservative names and shared admitted namespace remain approvable under the previously recorded conditions."
+  ],
+  "required_implementation_acceptance_conditions": [
+    "Maintain pending effect cycles separately from the initial readiness event. Mark Q/E pending synchronously before any await that can expose forwarding; bind each ReadyForQuery to the ordered Q/Sync boundary that actually generated it. Never clear all pending effects on any Ready, CommandComplete or error.",
+    "For the adversarial trace E0, Sync0, E1, delayed Ready0, Pnew, reject Pnew before parser admission/backend forwarding while preserving pending E1. Then test completion of E1 plus its own Sync/Ready permits later source on a session that has never been rejected.",
+    "Check delayed/fragmented unsafe ParameterStatus before matching Ready release. Exercise indirect pg_settings changes followed by Q and by P, multiple E in one cycle, old Ready after newer E, errors and skip-until-Sync, transaction Ready statuses I/T/E, COPY completion, cancellation and conservative connection closure.",
+    "Treat a rejected session as closed: no later Ready can revive it. Preserve the distinction between rollback of its unfinished transaction and previously committed autocommit work.",
+    "Conservatively reject protocol prepared-statement names longer than 63 UTF-8 bytes, or implement PostgreSQL's truncation/collision behavior exactly. Exact protocol strings alone are insufficient when backend names alias at the 63-byte boundary. Cover Parse, Bind statement references and statement Close/Describe, including native/protocol cross-use and equal 63-byte prefixes.",
+    "Retain exact ordered singleton statement-family plus leading PREPARE/EXECUTE token checks, all-production restrictions and safe expression policy for native requests. Keep SQL identifier folding separate from exact protocol names; do not let cache hits fabricate preparation or known targets.",
+    "Test native unknown/quoted/Unicode/overlong names, duplicate-name/backend failures, both cross-protocol directions and state limits. bodyPart remains a substring-only premise; parser-selected body spans, SQL classification and name normalization require trusted adapter checks.",
+    "Complete independent real PostgreSQL, per-client routing counters, full unchanged ACL-bearing pg_dump/pg_restore, migration repair, retrieval integrity and HTTP checks after implementation. Bind final evidence to stable daemon PID/start identity, matching loaded input hashes and the pinned parser binary, rejecting STALE_RUNTIME."
+  ],
+  "formal_limits": [
+    "CycleState contains only pending natural-number IDs. forwardEffect blocks source and completeCycle retains newer IDs, but correct cycle assignment, legitimate acknowledgement IDs and truthful lexical-status validation are supplied by the runtime adapter.",
+    "The six cycle claims do not prove backend message order, coroutine scheduling, network framing, event/state transitions, actual settings stability or Python refinement. An arbitrary too-new acknowledgement could release state in the abstract model; implementation must establish correspondence to ordered real Q/Sync barriers.",
+    "Native body classification/span/name extraction, backend successful preparation, prepared-object lifecycle and cache/namespace correspondence remain outside the Lean claims.",
+    "Formal report observation and this design approval do not substitute for post-implementation runtime/recovery evidence. Local execution authorization does not resolve redistribution or commercial licensing."
+  ],
+  "sources": [
+    "https://www.postgresql.org/docs/16/protocol-flow.html",
+    "https://www.postgresql.org/docs/16/config-setting.html",
+    "reviews/sql-r4-astra-1.json",
+    "reviews/sql-r5-terra-2.json",
+    "gates/sql/formal-runs/final-rev5/report.json",
+    "formal/Allow/SqlRouting.lean"
+  ],
+  "production_edits": false,
+  "approval_scope": "Exact revision 5 bounded design and abstract-model scope. Implementation acceptance remains conditional on the explicit finite runtime checks above."
+}

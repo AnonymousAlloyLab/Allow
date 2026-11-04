@@ -1,0 +1,266 @@
+{
+  "status": "ISOLATED_DRAFT_REVIEW_CANDIDATE_NOT_REGISTERED",
+  "source": "gates/document/draft/Document.lean",
+  "source_sha256": "60e9134b08fe7d91512347f984427a3f052a1eb03702b0ee78b5de08b76ee7a3",
+  "compiler": "leanprover/lean4:v4.34.1",
+  "extraction": "Lean #check output from exact source",
+  "theorem_types": {
+    "variable_resolves": "Allow.DocumentDraft.variable_resolves {m : Allow.DocumentDraft.Module} {\u0393 : Allow.DocumentDraft.Env}\n  {id : Allow.DocumentDraft.Id} {s : Allow.DocumentDraft.Schema}\n  (h : Allow.DocumentDraft.Typed m \u0393 (Allow.DocumentDraft.Expr.varRef id) (Allow.DocumentDraft.Ty.relation s)) :\n  Allow.DocumentDraft.lookup \u0393 id = some s",
+    "join_nonempty_bounded": "Allow.DocumentDraft.join_nonempty_bounded {m : Allow.DocumentDraft.Module} {\u0393 : Allow.DocumentDraft.Env}\n  {a b : Allow.DocumentDraft.Expr} {s : Allow.DocumentDraft.Schema}\n  (h : Allow.DocumentDraft.Typed m \u0393 (a.join b) (Allow.DocumentDraft.Ty.relation s)) : s \u2260 [] \u2227 List.length s \u2264 8",
+    "schema_ok_boolean_exact": "Allow.DocumentDraft.schema_ok_boolean_exact (sigs s : List Allow.DocumentDraft.Id) :\n  Allow.DocumentDraft.schemaOkB sigs s = true \u2194 Allow.DocumentDraft.SchemaOK sigs s",
+    "infer_sig_sound": "Allow.DocumentDraft.infer_sig_sound {m : Allow.DocumentDraft.Module} {\u0393 : Allow.DocumentDraft.Env}\n  {id : Allow.DocumentDraft.Id} {s : Allow.DocumentDraft.Schema}\n  (h : Allow.DocumentDraft.infer m \u0393 (Allow.DocumentDraft.Expr.sigRef id) = some (Allow.DocumentDraft.Ty.relation s)) :\n  Allow.DocumentDraft.Typed m \u0393 (Allow.DocumentDraft.Expr.sigRef id) (Allow.DocumentDraft.Ty.relation s)",
+    "infer_sig_complete": "Allow.DocumentDraft.infer_sig_complete {m : Allow.DocumentDraft.Module} {\u0393 : Allow.DocumentDraft.Env}\n  {id : Allow.DocumentDraft.Id} {s : Allow.DocumentDraft.Schema}\n  (h : Allow.DocumentDraft.Typed m \u0393 (Allow.DocumentDraft.Expr.sigRef id) (Allow.DocumentDraft.Ty.relation s)) :\n  Allow.DocumentDraft.infer m \u0393 (Allow.DocumentDraft.Expr.sigRef id) = some (Allow.DocumentDraft.Ty.relation s)",
+    "infer_var_sound": "Allow.DocumentDraft.infer_var_sound {m : Allow.DocumentDraft.Module} {\u0393 : Allow.DocumentDraft.Env}\n  {id : Allow.DocumentDraft.Id} {s : Allow.DocumentDraft.Schema}\n  (h : Allow.DocumentDraft.infer m \u0393 (Allow.DocumentDraft.Expr.varRef id) = some (Allow.DocumentDraft.Ty.relation s)) :\n  Allow.DocumentDraft.Typed m \u0393 (Allow.DocumentDraft.Expr.varRef id) (Allow.DocumentDraft.Ty.relation s)",
+    "infer_var_complete": "Allow.DocumentDraft.infer_var_complete {m : Allow.DocumentDraft.Module} {\u0393 : Allow.DocumentDraft.Env}\n  {id : Allow.DocumentDraft.Id} {s : Allow.DocumentDraft.Schema}\n  (h : Allow.DocumentDraft.Typed m \u0393 (Allow.DocumentDraft.Expr.varRef id) (Allow.DocumentDraft.Ty.relation s)) :\n  Allow.DocumentDraft.infer m \u0393 (Allow.DocumentDraft.Expr.varRef id) = some (Allow.DocumentDraft.Ty.relation s)",
+    "ranked_path": "Allow.DocumentDraft.ranked_path {edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id)}\n  {rank : Allow.DocumentDraft.Id \u2192 Nat} {a b : Allow.DocumentDraft.Id} (h : Allow.DocumentDraft.Ranked edges rank)\n  (p : Allow.DocumentDraft.Path edges a b) : rank b < rank a",
+    "ranked_acyclic": "Allow.DocumentDraft.ranked_acyclic {edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id)}\n  {rank : Allow.DocumentDraft.Id \u2192 Nat} (h : Allow.DocumentDraft.Ranked edges rank) (a : Allow.DocumentDraft.Id) :\n  \u00acAllow.DocumentDraft.Path edges a a",
+    "checked_declaration_binder_disjoint": "Allow.DocumentDraft.checked_declaration_binder_disjoint {m : Allow.DocumentDraft.Module}\n  {edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id)} {rank : Allow.DocumentDraft.Id \u2192 Nat}\n  (h : Allow.DocumentDraft.CheckedModule m edges rank) {ident : Allow.DocumentDraft.Id}\n  (decl : ident \u2208 Allow.DocumentDraft.allDeclarationIds m) : \u00acident \u2208 Allow.DocumentDraft.allBinderIds m",
+    "checked_tuple_field_set": "Allow.DocumentDraft.checked_tuple_field_set {m : Allow.DocumentDraft.Module}\n  {edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id)} {rank : Allow.DocumentDraft.Id \u2192 Nat}\n  (h : Allow.DocumentDraft.CheckedModule m edges rank) {f : Allow.DocumentDraft.Field} (member : f \u2208 m.fields)\n  (tuple : List.length f.range \u2260 1) : f.multiplicity = Allow.DocumentDraft.Multiplicity.set",
+    "checked_roots": "Allow.DocumentDraft.checked_roots {m : Allow.DocumentDraft.Module}\n  {edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id)} {rank : Allow.DocumentDraft.Id \u2192 Nat}\n  (h : Allow.DocumentDraft.CheckedModule m edges rank) {e : Allow.DocumentDraft.Expr} (he : e \u2208 m.roots) :\n  Allow.DocumentDraft.Typed m [] e Allow.DocumentDraft.Ty.formula",
+    "checked_no_cycle": "Allow.DocumentDraft.checked_no_cycle {m : Allow.DocumentDraft.Module}\n  {edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id)} {rank : Allow.DocumentDraft.Id \u2192 Nat}\n  (h : Allow.DocumentDraft.CheckedModule m edges rank) (id : Allow.DocumentDraft.Id) :\n  \u00acAllow.DocumentDraft.Path edges id id",
+    "width_append": "Allow.DocumentDraft.width_append (w : Allow.DocumentDraft.Scalar \u2192 Nat) (xs ys : List Allow.DocumentDraft.Scalar) :\n  Allow.DocumentDraft.widthSum w (xs ++ ys) = Allow.DocumentDraft.widthSum w xs + Allow.DocumentDraft.widthSum w ys",
+    "prefix_bound": "Allow.DocumentDraft.prefix_bound (w : Allow.DocumentDraft.Scalar \u2192 Nat) (xs ys : List Allow.DocumentDraft.Scalar) :\n  Allow.DocumentDraft.widthSum w xs \u2264 Allow.DocumentDraft.widthSum w (xs ++ ys)",
+    "utf8_positive": "Allow.DocumentDraft.utf8_positive (s : Allow.DocumentDraft.Scalar) : 0 < Allow.DocumentDraft.utf8Width s",
+    "utf16_positive": "Allow.DocumentDraft.utf16_positive (s : Allow.DocumentDraft.Scalar) : 0 < Allow.DocumentDraft.utf16Width s",
+    "strict_extension": "Allow.DocumentDraft.strict_extension (w : Allow.DocumentDraft.Scalar \u2192 Nat)\n  (positive : \u2200 (c : Allow.DocumentDraft.Scalar), 0 < w c) (pre : List Allow.DocumentDraft.Scalar)\n  (c : Allow.DocumentDraft.Scalar) (suffix : List Allow.DocumentDraft.Scalar) :\n  Allow.DocumentDraft.widthSum w pre < Allow.DocumentDraft.widthSum w (pre ++ c :: suffix)",
+    "equal_width_of_nested_prefix": "Allow.DocumentDraft.equal_width_of_nested_prefix (w : Allow.DocumentDraft.Scalar \u2192 Nat)\n  (positive : \u2200 (c : Allow.DocumentDraft.Scalar), 0 < w c) {xs ys : List Allow.DocumentDraft.Scalar} (p : xs <+: ys)\n  (h : Allow.DocumentDraft.widthSum w xs = Allow.DocumentDraft.widthSum w ys) : xs = ys",
+    "boundary_injective": "Allow.DocumentDraft.boundary_injective (w : Allow.DocumentDraft.Scalar \u2192 Nat)\n  (positive : \u2200 (c : Allow.DocumentDraft.Scalar), 0 < w c) {xs ys full : List Allow.DocumentDraft.Scalar}\n  (hx : xs <+: full) (hy : ys <+: full) (h : Allow.DocumentDraft.widthSum w xs = Allow.DocumentDraft.widthSum w ys) :\n  xs = ys",
+    "occurrence_bound": "Allow.DocumentDraft.occurrence_bound (o : Allow.DocumentDraft.Occurrence) : Allow.DocumentDraft.OccurrenceBound o",
+    "text_has_no_blocks": "Allow.DocumentDraft.text_has_no_blocks {a : Allow.DocumentDraft.Artifact} {policy : Nat}\n  (certificate : Allow.DocumentDraft.Artifact \u2192 Prop) (h : Allow.DocumentDraft.CandidateValid a policy)\n  (text : a.moduleIR = none) : a.occurrences = [] \u2227 \u00acAllow.DocumentDraft.CorpusEligible certificate a",
+    "invalid_report_denied": "Allow.DocumentDraft.invalid_report_denied {a : Allow.DocumentDraft.Artifact} {policy : Nat}\n  (bad : a.report.accepted = false) : \u00acAllow.DocumentDraft.CandidateValid a policy",
+    "mismatched_report_denied": "Allow.DocumentDraft.mismatched_report_denied {a : Allow.DocumentDraft.Artifact} {policy : Nat}\n  (bad : a.report.source \u2260 a.bytes) : \u00acAllow.DocumentDraft.CandidateValid a policy",
+    "mismatched_report_policy_denied": "Allow.DocumentDraft.mismatched_report_policy_denied {a : Allow.DocumentDraft.Artifact} {policy : Nat}\n  (bad : a.report.policy \u2260 policy) : \u00acAllow.DocumentDraft.CandidateValid a policy",
+    "same_wire_same_payload": "Allow.DocumentDraft.same_wire_same_payload (decoder : Allow.DocumentDraft.WireDecoder)\n  (q1 q2 : Allow.DocumentDraft.Request) (h1 : Allow.DocumentDraft.DecodedRequest decoder q1)\n  (h2 : Allow.DocumentDraft.DecodedRequest decoder q2) (same : q1.wire = q2.wire) :\n  Allow.DocumentDraft.requestPayload q1 = Allow.DocumentDraft.requestPayload q2",
+    "admitted_success_checked": "Allow.DocumentDraft.admitted_success_checked {decoder : Allow.DocumentDraft.WireDecoder}\n  {parser : Allow.DocumentDraft.ParserAdmission} {frame : Allow.DocumentDraft.CheckedFrameBinding} {auth : Prop}\n  {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request}\n  {a : Allow.DocumentDraft.Artifact} {n : Nat} {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.AdmittedStep decoder parser frame auth s k q a (Allow.DocumentDraft.Result.accepted n) out) :\n  Allow.DocumentDraft.DecodedRequest decoder q \u2227\n    parser a.report \u2227\n      frame q.wire (Allow.DocumentDraft.requestPayload q) a q.policy \u2227 Allow.DocumentDraft.CandidateValid a q.policy",
+    "admitted_text_no_blocks": "Allow.DocumentDraft.admitted_text_no_blocks {decoder : Allow.DocumentDraft.WireDecoder}\n  {parser : Allow.DocumentDraft.ParserAdmission} {frame : Allow.DocumentDraft.CheckedFrameBinding} {auth : Prop}\n  {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request}\n  {a : Allow.DocumentDraft.Artifact} {n : Nat} {out : Allow.DocumentDraft.State}\n  (certificate : Allow.DocumentDraft.Artifact \u2192 Prop)\n  (h : Allow.DocumentDraft.AdmittedStep decoder parser frame auth s k q a (Allow.DocumentDraft.Result.accepted n) out)\n  (text : a.moduleIR = none) :\n  parser a.report \u2227\n    a.occurrences = [] \u2227\n      \u00acAllow.DocumentDraft.CorpusEligible certificate a \u2227\n        a.report.source = a.bytes \u2227 a.report.policy = q.policy \u2227 a.report.accepted = true",
+    "admitted_replay": "Allow.DocumentDraft.admitted_replay {decoder : Allow.DocumentDraft.WireDecoder}\n  {parser : Allow.DocumentDraft.ParserAdmission} {frame : Allow.DocumentDraft.CheckedFrameBinding} {auth : Prop}\n  {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request}\n  {a : Allow.DocumentDraft.Artifact} {r : Allow.DocumentDraft.Receipt} (ha : auth)\n  (hr : Allow.DocumentDraft.receipt s k = some r) (same : r.requestWire = q.wire) :\n  Allow.DocumentDraft.AdmittedStep decoder parser frame auth s k q a (Allow.DocumentDraft.Result.replay r.outcome) s",
+    "admitted_wire_determines_payload": "Allow.DocumentDraft.admitted_wire_determines_payload {decoder : Allow.DocumentDraft.WireDecoder}\n  {parser : Allow.DocumentDraft.ParserAdmission} {frame : Allow.DocumentDraft.CheckedFrameBinding} {auth : Prop}\n  {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request}\n  {a : Allow.DocumentDraft.Artifact} {n : Nat} {out : Allow.DocumentDraft.State} {q2 : Allow.DocumentDraft.Request}\n  (h : Allow.DocumentDraft.AdmittedStep decoder parser frame auth s k q a (Allow.DocumentDraft.Result.accepted n) out)\n  (other : Allow.DocumentDraft.DecodedRequest decoder q2) (same : q.wire = q2.wire) :\n  Allow.DocumentDraft.requestPayload q = Allow.DocumentDraft.requestPayload q2",
+    "replay_available": "Allow.DocumentDraft.replay_available {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {r : Allow.DocumentDraft.Receipt} (ha : auth)\n  (hr : Allow.DocumentDraft.receipt s k = some r) (hb : r.requestWire = q.wire) :\n  Allow.DocumentDraft.Step auth s k q a (Allow.DocumentDraft.Result.replay r.outcome) s",
+    "collision_unchanged": "Allow.DocumentDraft.collision_unchanged {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.collision out) : out = s",
+    "accepted_checked": "Allow.DocumentDraft.accepted_checked {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat} {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a (Allow.DocumentDraft.Result.accepted n) out) :\n  Allow.DocumentDraft.CandidateValid a q.policy",
+    "accepted_appends": "Allow.DocumentDraft.accepted_appends {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat} {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a (Allow.DocumentDraft.Result.accepted n) out) :\n  out.revision = s.revision + 1 \u2227 out.history = s.history ++ [a]",
+    "rejected_head_unchanged": "Allow.DocumentDraft.rejected_head_unchanged {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact}\n  {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.rejected out) :\n  out.revision = s.revision \u2227 out.history = s.history",
+    "same_base_cannot_commit_twice": "Allow.DocumentDraft.same_base_cannot_commit_twice {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k1 k2 : Allow.DocumentDraft.Scope} {q1 q2 : Allow.DocumentDraft.Request} {a1 a2 : Allow.DocumentDraft.Artifact}\n  {n1 n2 : Nat} {middle out : Allow.DocumentDraft.State}\n  (first : Allow.DocumentDraft.Step auth s k1 q1 a1 (Allow.DocumentDraft.Result.accepted n1) middle)\n  (second : Allow.DocumentDraft.Step auth middle k2 q2 a2 (Allow.DocumentDraft.Result.accepted n2) out)\n  (sameBase : q2.base = s.revision) : False",
+    "capacity_denied_unchanged": "Allow.DocumentDraft.capacity_denied_unchanged {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact}\n  {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.capacity out) : out = s",
+    "known_rollback_unchanged": "Allow.DocumentDraft.known_rollback_unchanged {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact}\n  {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.rollback out) : out = s",
+    "policy_change_revalidation": "Allow.DocumentDraft.policy_change_revalidation {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} (ha : auth)\n  (hr : Allow.DocumentDraft.receipt s k = none) (changed : q.policy \u2260 s.policy) :\n  Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.revalidate s",
+    "policy_changed_no_terminal_receipt": "Allow.DocumentDraft.policy_changed_no_terminal_receipt {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact}\n  {out : Allow.DocumentDraft.State} (changed : q.policy \u2260 s.policy)\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.rejected out) : out = s",
+    "stale_records_denial": "Allow.DocumentDraft.stale_records_denial {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} (response : Allow.DocumentDraft.Bytes)\n  (ha : auth) (hr : Allow.DocumentDraft.receipt s k = none) (quota : Allow.DocumentDraft.Admission s q a)\n  (policyCurrent : q.policy = s.policy) (reportCurrent : a.report.policy = q.policy) (stale : q.base \u2260 s.revision) :\n  Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.rejected\n    { revision := s.revision, history := s.history,\n      receipts :=\n        { scope := k, requestWire := q.wire, digest := q.digest,\n            outcome := Allow.DocumentDraft.Outcome.denied response } ::\n          s.receipts,\n      policy := s.policy }",
+    "accepted_can_lose_response": "Allow.DocumentDraft.accepted_can_lose_response {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat}\n  {out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Step auth s k q a (Allow.DocumentDraft.Result.accepted n) out) :\n  Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.unknown out",
+    "same_digest_different_bytes_rejected": "Allow.DocumentDraft.same_digest_different_bytes_rejected {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact}\n  {r : Allow.DocumentDraft.Receipt} (ha : auth) (hr : Allow.DocumentDraft.receipt s k = some r)\n  (_digestSame : r.digest = q.digest) (bytesDiffer : r.requestWire \u2260 q.wire) :\n  Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.collision s",
+    "unauthorized_unchanged": "Allow.DocumentDraft.unauthorized_unchanged {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} (h : \u00acauth) :\n  Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.rejected s",
+    "stored_denial_replays": "Allow.DocumentDraft.stored_denial_replays {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {response : Allow.DocumentDraft.Bytes}\n  (ha : auth) :\n  Allow.DocumentDraft.Step auth\n    { revision := s.revision, history := s.history,\n      receipts :=\n        { scope := k, requestWire := q.wire, digest := q.digest,\n            outcome := Allow.DocumentDraft.Outcome.denied response } ::\n          s.receipts,\n      policy := s.policy }\n    k q a (Allow.DocumentDraft.Result.replay (Allow.DocumentDraft.Outcome.denied response))\n    { revision := s.revision, history := s.history,\n      receipts :=\n        { scope := k, requestWire := q.wire, digest := q.digest,\n            outcome := Allow.DocumentDraft.Outcome.denied response } ::\n          s.receipts,\n      policy := s.policy }",
+    "historical_accept_appends": "Allow.DocumentDraft.historical_accept_appends {auth : Prop} {target fresh : Allow.DocumentDraft.Artifact}\n  {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request}\n  {direction : Allow.DocumentDraft.Direction} {n : Nat} {out : Allow.DocumentDraft.State}\n  (h :\n    Allow.DocumentDraft.HistoricalStep auth target fresh s k q direction (Allow.DocumentDraft.Result.accepted n) out) :\n  target \u2208 s.history \u2227 Allow.DocumentDraft.SameContent target fresh \u2227 out.history = s.history ++ [fresh]",
+    "historical_accept_checked": "Allow.DocumentDraft.historical_accept_checked {auth : Prop} {target fresh : Allow.DocumentDraft.Artifact}\n  {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request}\n  {direction : Allow.DocumentDraft.Direction} {n : Nat} {out : Allow.DocumentDraft.State}\n  (h :\n    Allow.DocumentDraft.HistoricalStep auth target fresh s k q direction (Allow.DocumentDraft.Result.accepted n) out) :\n  Allow.DocumentDraft.CandidateValid fresh q.policy",
+    "receipt_head": "Allow.DocumentDraft.receipt_head (s : Allow.DocumentDraft.State) (k : Allow.DocumentDraft.Scope)\n  (q : Allow.DocumentDraft.Request) (n : Allow.DocumentDraft.Outcome) :\n  Allow.DocumentDraft.receipt\n      { revision := s.revision, history := s.history,\n        receipts := { scope := k, requestWire := q.wire, digest := q.digest, outcome := n } :: s.receipts,\n        policy := s.policy }\n      k =\n    some { scope := k, requestWire := q.wire, digest := q.digest, outcome := n }",
+    "same_key_cannot_commit_twice": "Allow.DocumentDraft.same_key_cannot_commit_twice {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q1 q2 : Allow.DocumentDraft.Request} {a1 a2 : Allow.DocumentDraft.Artifact}\n  {n1 n2 : Nat} {middle out : Allow.DocumentDraft.State}\n  (first : Allow.DocumentDraft.Step auth s k q1 a1 (Allow.DocumentDraft.Result.accepted n1) middle)\n  (second : Allow.DocumentDraft.Step auth middle k q2 a2 (Allow.DocumentDraft.Result.accepted n2) out) : False",
+    "committed_retry": "Allow.DocumentDraft.committed_retry {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {n : Nat} {out : Allow.DocumentDraft.State}\n  (ha : auth) (h : Allow.DocumentDraft.Step auth s k q a (Allow.DocumentDraft.Result.accepted n) out) :\n  \u2203 response,\n    Allow.DocumentDraft.Step auth out k q a\n      (Allow.DocumentDraft.Result.replay (Allow.DocumentDraft.Outcome.committed n response)) out",
+    "unknown_retry": "Allow.DocumentDraft.unknown_retry {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {out : Allow.DocumentDraft.State} (ha : auth)\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.unknown out) :\n  \u2203 response,\n    Allow.DocumentDraft.Step auth out k q a\n      (Allow.DocumentDraft.Result.replay (Allow.DocumentDraft.Outcome.committed (s.revision + 1) response)) out",
+    "unknown_denial_retry": "Allow.DocumentDraft.unknown_denial_retry {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {out : Allow.DocumentDraft.State} (ha : auth)\n  (h : Allow.DocumentDraft.Step auth s k q a Allow.DocumentDraft.Result.unknownDenial out) :\n  \u2203 response,\n    Allow.DocumentDraft.Step auth out k q a\n      (Allow.DocumentDraft.Result.replay (Allow.DocumentDraft.Outcome.denied response)) out",
+    "receipts_preserved": "Allow.DocumentDraft.receipts_preserved {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {result : Allow.DocumentDraft.Result}\n  {out : Allow.DocumentDraft.State} (h : Allow.DocumentDraft.Step auth s k q a result out)\n  (r : Allow.DocumentDraft.Receipt) : r \u2208 s.receipts \u2192 r \u2208 out.receipts",
+    "history_preserved": "Allow.DocumentDraft.history_preserved {auth : Prop} {s : Allow.DocumentDraft.State} {k : Allow.DocumentDraft.Scope}\n  {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact} {result : Allow.DocumentDraft.Result}\n  {out : Allow.DocumentDraft.State} (h : Allow.DocumentDraft.Step auth s k q a result out)\n  (old : Allow.DocumentDraft.Artifact) : old \u2208 s.history \u2192 old \u2208 out.history",
+    "revision_consistency_preserved": "Allow.DocumentDraft.revision_consistency_preserved {auth : Prop} {s : Allow.DocumentDraft.State}\n  {k : Allow.DocumentDraft.Scope} {q : Allow.DocumentDraft.Request} {a : Allow.DocumentDraft.Artifact}\n  {result : Allow.DocumentDraft.Result} {out : Allow.DocumentDraft.State}\n  (before : Allow.DocumentDraft.RevisionConsistent s) (step : Allow.DocumentDraft.Step auth s k q a result out) :\n  Allow.DocumentDraft.RevisionConsistent out",
+    "receipts_retained": "Allow.DocumentDraft.receipts_retained {auth : Prop} {s out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Steps auth s out) (r : Allow.DocumentDraft.Receipt) : r \u2208 s.receipts \u2192 r \u2208 out.receipts",
+    "history_retained": "Allow.DocumentDraft.history_retained {auth : Prop} {s out : Allow.DocumentDraft.State}\n  (h : Allow.DocumentDraft.Steps auth s out) (a : Allow.DocumentDraft.Artifact) : a \u2208 s.history \u2192 a \u2208 out.history",
+    "witness_typed_test": "Allow.DocumentDraft.witness_typed_test :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1))\n    Allow.DocumentDraft.Ty.formula",
+    "witness_unbound_denied": "Allow.DocumentDraft.witness_unbound_denied :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.varRef 7)\n      (Allow.DocumentDraft.Ty.relation [1])",
+    "witness_boolean_family": "Allow.DocumentDraft.witness_boolean_family (op : Allow.DocumentDraft.BoolOp) :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.bool op\n      (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1))\n      (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.no (Allow.DocumentDraft.Expr.sigRef 1)))\n    Allow.DocumentDraft.Ty.formula",
+    "witness_test_family": "Allow.DocumentDraft.witness_test_family (op : Allow.DocumentDraft.TestOp) :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.test op (Allow.DocumentDraft.Expr.sigRef 1)) Allow.DocumentDraft.Ty.formula",
+    "witness_compare_family": "Allow.DocumentDraft.witness_compare_family (op : Allow.DocumentDraft.CompareOp) :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.compare op (Allow.DocumentDraft.Expr.sigRef 1) (Allow.DocumentDraft.Expr.sigRef 1))\n    Allow.DocumentDraft.Ty.formula",
+    "witness_set_family": "Allow.DocumentDraft.witness_set_family (op : Allow.DocumentDraft.SetOp) :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.set op (Allow.DocumentDraft.Expr.sigRef 1) (Allow.DocumentDraft.Expr.sigRef 1))\n    (Allow.DocumentDraft.Ty.relation [1])",
+    "witness_quant_family": "Allow.DocumentDraft.witness_quant_family (op : Allow.DocumentDraft.QuantOp) :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.quant op 7 1\n      (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.varRef 7)))\n    Allow.DocumentDraft.Ty.formula",
+    "witness_unary_transpose_denied": "Allow.DocumentDraft.witness_unary_transpose_denied :\n  \u00ac\u2203 s t,\n      Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 1).transpose\n        (Allow.DocumentDraft.Ty.relation [s, t])",
+    "witness_unknown_predicate_denied": "Allow.DocumentDraft.witness_unknown_predicate_denied :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.call 8 [])\n      Allow.DocumentDraft.Ty.formula",
+    "witness_bad_scope_denied": "Allow.DocumentDraft.witness_bad_scope_denied :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.varRef 7))\n      Allow.DocumentDraft.Ty.formula",
+    "witness_join": "Allow.DocumentDraft.witness_join :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule []\n    ((Allow.DocumentDraft.Expr.fieldRef 4).join (Allow.DocumentDraft.Expr.fieldRef 5))\n    (Allow.DocumentDraft.Ty.relation [1, 3])",
+    "witness_product": "Allow.DocumentDraft.witness_product :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule []\n    ((Allow.DocumentDraft.Expr.sigRef 1).product (Allow.DocumentDraft.Expr.sigRef 2))\n    (Allow.DocumentDraft.Ty.relation [1, 2])",
+    "witness_transpose": "Allow.DocumentDraft.witness_transpose :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule [] (Allow.DocumentDraft.Expr.fieldRef 4).transpose\n    (Allow.DocumentDraft.Ty.relation [2, 1])",
+    "witness_unary_one_permitted": "Allow.DocumentDraft.witness_unary_one_permitted :\n  List.length Allow.DocumentDraft.unaryOneField.range = 1 \u2228\n    Allow.DocumentDraft.unaryOneField.multiplicity = Allow.DocumentDraft.Multiplicity.set",
+    "witness_tuple_one_denied": "Allow.DocumentDraft.witness_tuple_one_denied (edges : List (Allow.DocumentDraft.Id \u00d7 Allow.DocumentDraft.Id))\n  (rank : Allow.DocumentDraft.Id \u2192 Nat) :\n  \u00acAllow.DocumentDraft.CheckedModule Allow.DocumentDraft.tupleOneModule edges rank",
+    "witness_predicate_call": "Allow.DocumentDraft.witness_predicate_call :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.callModule []\n    (Allow.DocumentDraft.Expr.call 5 [Allow.DocumentDraft.Expr.sigRef 1]) Allow.DocumentDraft.Ty.formula",
+    "witness_wrong_call_arity": "Allow.DocumentDraft.witness_wrong_call_arity :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.callModule [] (Allow.DocumentDraft.Expr.call 5 [])\n      Allow.DocumentDraft.Ty.formula",
+    "oracle_join_accept": "Allow.DocumentDraft.oracle_join_accept :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.relationModule []\n      ((Allow.DocumentDraft.Expr.fieldRef 4).join (Allow.DocumentDraft.Expr.fieldRef 5)) =\n    some (Allow.DocumentDraft.Ty.relation [1, 3])",
+    "oracle_bad_scope_deny": "Allow.DocumentDraft.oracle_bad_scope_deny :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.varRef 7)) =\n    none",
+    "oracle_bad_arity_deny": "Allow.DocumentDraft.oracle_bad_arity_deny :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.callModule [] (Allow.DocumentDraft.Expr.call 5 []) = none",
+    "oracle_call_accept": "Allow.DocumentDraft.oracle_call_accept :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.callModule []\n      (Allow.DocumentDraft.Expr.call 5 [Allow.DocumentDraft.Expr.sigRef 1]) =\n    some Allow.DocumentDraft.Ty.formula",
+    "oracle_unary_transpose_deny": "Allow.DocumentDraft.oracle_unary_transpose_deny :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 1).transpose = none",
+    "oracle_bool_denial": "Allow.DocumentDraft.oracle_bool_denial (op : Allow.DocumentDraft.BoolOp) :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.bool op (Allow.DocumentDraft.Expr.sigRef 1)\n        (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1))) =\n    none",
+    "oracle_test_denial": "Allow.DocumentDraft.oracle_test_denial (op : Allow.DocumentDraft.TestOp) :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.test op\n        (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1))) =\n    none",
+    "oracle_compare_denial": "Allow.DocumentDraft.oracle_compare_denial (op : Allow.DocumentDraft.CompareOp) :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.relationModule []\n      (Allow.DocumentDraft.Expr.compare op (Allow.DocumentDraft.Expr.sigRef 1) (Allow.DocumentDraft.Expr.sigRef 2)) =\n    none",
+    "oracle_set_denial": "Allow.DocumentDraft.oracle_set_denial (op : Allow.DocumentDraft.SetOp) :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.relationModule []\n      (Allow.DocumentDraft.Expr.set op (Allow.DocumentDraft.Expr.sigRef 1) (Allow.DocumentDraft.Expr.sigRef 2)) =\n    none",
+    "oracle_quant_denial": "Allow.DocumentDraft.oracle_quant_denial (op : Allow.DocumentDraft.QuantOp) :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.quant op 7 42\n        (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.varRef 7))) =\n    none",
+    "oracle_join_denial": "Allow.DocumentDraft.oracle_join_denial :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.relationModule []\n      ((Allow.DocumentDraft.Expr.fieldRef 4).join (Allow.DocumentDraft.Expr.fieldRef 4)) =\n    none",
+    "oracle_product_denial": "Allow.DocumentDraft.oracle_product_denial :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.relationModule []\n      ((Allow.DocumentDraft.Expr.sigRef 1).product (Allow.DocumentDraft.Expr.varRef 7)) =\n    none",
+    "oracle_not_denial": "Allow.DocumentDraft.oracle_not_denial :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 1).not = none",
+    "oracle_unknown_sig_denial": "Allow.DocumentDraft.oracle_unknown_sig_denial :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 999) = none",
+    "oracle_unknown_field_denial": "Allow.DocumentDraft.oracle_unknown_field_denial :\n  Allow.DocumentDraft.infer Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.fieldRef 999) = none",
+    "witness_boolean_family_denial": "Allow.DocumentDraft.witness_boolean_family_denial (op : Allow.DocumentDraft.BoolOp) :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.bool op (Allow.DocumentDraft.Expr.sigRef 1)\n        (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1)))\n      Allow.DocumentDraft.Ty.formula",
+    "witness_test_family_denial": "Allow.DocumentDraft.witness_test_family_denial (op : Allow.DocumentDraft.TestOp) :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.test op\n        (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1)))\n      Allow.DocumentDraft.Ty.formula",
+    "witness_quant_family_denial": "Allow.DocumentDraft.witness_quant_family_denial (op : Allow.DocumentDraft.QuantOp) :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n      (Allow.DocumentDraft.Expr.quant op 7 42\n        (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.varRef 7)))\n      Allow.DocumentDraft.Ty.formula",
+    "witness_not_denial": "Allow.DocumentDraft.witness_not_denial :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 1).not\n      Allow.DocumentDraft.Ty.formula",
+    "witness_compare_family_denial": "Allow.DocumentDraft.witness_compare_family_denial (op : Allow.DocumentDraft.CompareOp) :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.relationModule []\n      (Allow.DocumentDraft.Expr.compare op (Allow.DocumentDraft.Expr.sigRef 1) (Allow.DocumentDraft.Expr.sigRef 2))\n      Allow.DocumentDraft.Ty.formula",
+    "witness_set_family_denial": "Allow.DocumentDraft.witness_set_family_denial (op : Allow.DocumentDraft.SetOp) :\n  \u00ac\u2203 s,\n      Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule []\n        (Allow.DocumentDraft.Expr.set op (Allow.DocumentDraft.Expr.sigRef 1) (Allow.DocumentDraft.Expr.sigRef 2))\n        (Allow.DocumentDraft.Ty.relation s)",
+    "witness_join_denial": "Allow.DocumentDraft.witness_join_denial :\n  \u00ac\u2203 s,\n      Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule []\n        ((Allow.DocumentDraft.Expr.fieldRef 4).join (Allow.DocumentDraft.Expr.fieldRef 4))\n        (Allow.DocumentDraft.Ty.relation s)",
+    "witness_product_denial": "Allow.DocumentDraft.witness_product_denial :\n  \u00ac\u2203 s,\n      Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule []\n        ((Allow.DocumentDraft.Expr.sigRef 1).product (Allow.DocumentDraft.Expr.varRef 7))\n        (Allow.DocumentDraft.Ty.relation s)",
+    "witness_not_accept": "Allow.DocumentDraft.witness_not_accept :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule []\n    (Allow.DocumentDraft.Expr.test Allow.DocumentDraft.TestOp.some (Allow.DocumentDraft.Expr.sigRef 1)).not\n    Allow.DocumentDraft.Ty.formula",
+    "witness_sig_accept": "Allow.DocumentDraft.witness_sig_accept :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 1)\n    (Allow.DocumentDraft.Ty.relation [1])",
+    "witness_sig_denial": "Allow.DocumentDraft.witness_sig_denial :\n  \u00acAllow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.sigRef 99)\n      (Allow.DocumentDraft.Ty.relation [99])",
+    "witness_field_accept": "Allow.DocumentDraft.witness_field_accept :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.relationModule [] (Allow.DocumentDraft.Expr.fieldRef 4)\n    (Allow.DocumentDraft.Ty.relation [1, 2])",
+    "witness_field_denial": "Allow.DocumentDraft.witness_field_denial :\n  \u00ac\u2203 s,\n      Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule [] (Allow.DocumentDraft.Expr.fieldRef 99)\n        (Allow.DocumentDraft.Ty.relation s)",
+    "witness_variable_accept": "Allow.DocumentDraft.witness_variable_accept :\n  Allow.DocumentDraft.Typed Allow.DocumentDraft.exModule [(7, [1])] (Allow.DocumentDraft.Expr.varRef 7)\n    (Allow.DocumentDraft.Ty.relation [1])",
+    "witness_commit": "Allow.DocumentDraft.witness_commit :\n  Allow.DocumentDraft.Step True Allow.DocumentDraft.exampleState Allow.DocumentDraft.exampleScope\n    Allow.DocumentDraft.exampleRequest Allow.DocumentDraft.exampleArtifact (Allow.DocumentDraft.Result.accepted 1)\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 3 }",
+    "witness_text_valid": "Allow.DocumentDraft.witness_text_valid : Allow.DocumentDraft.CandidateValid Allow.DocumentDraft.textArtifact 3",
+    "witness_text_commit": "Allow.DocumentDraft.witness_text_commit :\n  Allow.DocumentDraft.Step True Allow.DocumentDraft.textBase Allow.DocumentDraft.textScope\n    Allow.DocumentDraft.textRequest Allow.DocumentDraft.textArtifact (Allow.DocumentDraft.Result.accepted 2)\n    { revision := 2,\n      history :=\n        [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact, Allow.DocumentDraft.textArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.textScope, requestWire := { method := [10], route := [11], raw := [2] },\n            digest := [8], outcome := Allow.DocumentDraft.Outcome.committed 2 [] },\n          { scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 3 }",
+    "witness_admitted_text_commit": "Allow.DocumentDraft.witness_admitted_text_commit :\n  Allow.DocumentDraft.AdmittedStep (fun x => some (Allow.DocumentDraft.requestPayload Allow.DocumentDraft.textRequest))\n    (fun r => r = Allow.DocumentDraft.textArtifact.report) (fun x x_1 x_2 x_3 => True) True Allow.DocumentDraft.textBase\n    Allow.DocumentDraft.textScope Allow.DocumentDraft.textRequest Allow.DocumentDraft.textArtifact\n    (Allow.DocumentDraft.Result.accepted 2)\n    { revision := 2,\n      history :=\n        [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact, Allow.DocumentDraft.textArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.textScope, requestWire := { method := [10], route := [11], raw := [2] },\n            digest := [8], outcome := Allow.DocumentDraft.Outcome.committed 2 [] },\n          { scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 3 }",
+    "witness_revision_zero_content": "Allow.DocumentDraft.witness_revision_zero_content :\n  Allow.DocumentDraft.OperationValid Allow.DocumentDraft.restoreZeroBase Allow.DocumentDraft.restoreZeroRequest\n    Allow.DocumentDraft.freshInitial",
+    "witness_fresh_report_valid": "Allow.DocumentDraft.witness_fresh_report_valid : Allow.DocumentDraft.CandidateValid Allow.DocumentDraft.freshInitial 4",
+    "witness_revision_zero_restore": "Allow.DocumentDraft.witness_revision_zero_restore :\n  Allow.DocumentDraft.Step True Allow.DocumentDraft.restoreZeroBase Allow.DocumentDraft.textScope\n    Allow.DocumentDraft.restoreZeroRequest Allow.DocumentDraft.freshInitial (Allow.DocumentDraft.Result.accepted 1)\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.freshInitial],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.textScope, requestWire := { method := [10], route := [11], raw := [3] },\n            digest := [7], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 4 }",
+    "witness_denial_lost_ack": "Allow.DocumentDraft.witness_denial_lost_ack :\n  Allow.DocumentDraft.Step True Allow.DocumentDraft.textBase Allow.DocumentDraft.textScope\n    Allow.DocumentDraft.staleTextRequest Allow.DocumentDraft.textArtifact Allow.DocumentDraft.Result.unknownDenial\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.textScope, requestWire := { method := [10], route := [11], raw := [4] },\n            digest := [6], outcome := Allow.DocumentDraft.Outcome.denied [42] },\n          { scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 3 }",
+    "witness_denial_lost_ack_replay": "Allow.DocumentDraft.witness_denial_lost_ack_replay :\n  \u2203 response,\n    Allow.DocumentDraft.Step True\n      { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n        receipts :=\n          [{ scope := Allow.DocumentDraft.textScope, requestWire := { method := [10], route := [11], raw := [4] },\n              digest := [6], outcome := Allow.DocumentDraft.Outcome.denied [42] },\n            { scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n              digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n        policy := 3 }\n      Allow.DocumentDraft.textScope Allow.DocumentDraft.staleTextRequest Allow.DocumentDraft.textArtifact\n      (Allow.DocumentDraft.Result.replay (Allow.DocumentDraft.Outcome.denied response))\n      { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n        receipts :=\n          [{ scope := Allow.DocumentDraft.textScope, requestWire := { method := [10], route := [11], raw := [4] },\n              digest := [6], outcome := Allow.DocumentDraft.Outcome.denied [42] },\n            { scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n              digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n        policy := 3 }",
+    "witness_text_no_corpus": "Allow.DocumentDraft.witness_text_no_corpus (certificate : Allow.DocumentDraft.Artifact \u2192 Prop) :\n  \u00acAllow.DocumentDraft.CorpusEligible certificate Allow.DocumentDraft.textArtifact",
+    "witness_bad_report": "Allow.DocumentDraft.witness_bad_report :\n  \u00acAllow.DocumentDraft.CandidateValid\n      { bytes := [], moduleIR := none, scalars := [], occurrences := [],\n        report := { source := [], policy := 3, accepted := false, mode := Allow.DocumentDraft.SupportMode.text } }\n      3",
+    "witness_wrong_report_source": "Allow.DocumentDraft.witness_wrong_report_source :\n  \u00acAllow.DocumentDraft.CandidateValid\n      { bytes := [], moduleIR := none, scalars := [], occurrences := [],\n        report := { source := [1], policy := 3, accepted := true, mode := Allow.DocumentDraft.SupportMode.text } }\n      3",
+    "witness_wrong_report_policy": "Allow.DocumentDraft.witness_wrong_report_policy : \u00acAllow.DocumentDraft.CandidateValid Allow.DocumentDraft.textArtifact 4",
+    "witness_replay_changed_policy": "Allow.DocumentDraft.witness_replay_changed_policy :\n  Allow.DocumentDraft.Step True\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 4 }\n    Allow.DocumentDraft.exampleScope Allow.DocumentDraft.exampleRequest Allow.DocumentDraft.exampleArtifact\n    (Allow.DocumentDraft.Result.replay (Allow.DocumentDraft.Outcome.committed 1 []))\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [1] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 4 }",
+    "witness_digest_collision": "Allow.DocumentDraft.witness_digest_collision :\n  Allow.DocumentDraft.Step True\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [2] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 3 }\n    Allow.DocumentDraft.exampleScope Allow.DocumentDraft.exampleRequest Allow.DocumentDraft.exampleArtifact\n    Allow.DocumentDraft.Result.collision\n    { revision := 1, history := [Allow.DocumentDraft.initialArtifact, Allow.DocumentDraft.exampleArtifact],\n      receipts :=\n        [{ scope := Allow.DocumentDraft.exampleScope, requestWire := { method := [10], route := [11], raw := [2] },\n            digest := [9], outcome := Allow.DocumentDraft.Outcome.committed 1 [] }],\n      policy := 3 }"
+  },
+  "typed_constructor_fixture_matrix": {
+    "signature_ref": {
+      "positive": "witness_sig_accept",
+      "negative": "witness_sig_denial"
+    },
+    "field_ref": {
+      "positive": "witness_field_accept",
+      "negative": "witness_field_denial"
+    },
+    "variable_ref": {
+      "positive": "witness_variable_accept",
+      "negative": "witness_unbound_denied"
+    },
+    "predicate_call": {
+      "positive": "witness_predicate_call",
+      "negative": "witness_wrong_call_arity"
+    },
+    "not": {
+      "positive": "witness_not_accept",
+      "negative": "witness_not_denial"
+    },
+    "product": {
+      "positive": "witness_product",
+      "negative": "witness_product_denial"
+    },
+    "join": {
+      "positive": "witness_join",
+      "negative": "witness_join_denial"
+    },
+    "transpose": {
+      "positive": "witness_transpose",
+      "negative": "witness_unary_transpose_denied"
+    },
+    "and": {
+      "positive": "witness_boolean_family and",
+      "negative": "witness_boolean_family_denial and"
+    },
+    "or": {
+      "positive": "witness_boolean_family or",
+      "negative": "witness_boolean_family_denial or"
+    },
+    "implies": {
+      "positive": "witness_boolean_family implies",
+      "negative": "witness_boolean_family_denial implies"
+    },
+    "iff": {
+      "positive": "witness_boolean_family iff",
+      "negative": "witness_boolean_family_denial iff"
+    },
+    "some_test": {
+      "positive": "witness_test_family some",
+      "negative": "witness_test_family_denial some"
+    },
+    "no_test": {
+      "positive": "witness_test_family no",
+      "negative": "witness_test_family_denial no"
+    },
+    "one_test": {
+      "positive": "witness_test_family one",
+      "negative": "witness_test_family_denial one"
+    },
+    "lone_test": {
+      "positive": "witness_test_family lone",
+      "negative": "witness_test_family_denial lone"
+    },
+    "equal": {
+      "positive": "witness_compare_family equal",
+      "negative": "witness_compare_family_denial equal"
+    },
+    "subset": {
+      "positive": "witness_compare_family subset",
+      "negative": "witness_compare_family_denial subset"
+    },
+    "union": {
+      "positive": "witness_set_family union",
+      "negative": "witness_set_family_denial union"
+    },
+    "all_quant": {
+      "positive": "witness_quant_family all",
+      "negative": "witness_quant_family_denial all"
+    },
+    "some_quant": {
+      "positive": "witness_quant_family some",
+      "negative": "witness_quant_family_denial some"
+    },
+    "intersection": {
+      "positive": "witness_set_family inter",
+      "negative": "witness_set_family_denial inter"
+    },
+    "difference": {
+      "positive": "witness_set_family diff",
+      "negative": "witness_set_family_denial diff"
+    }
+  },
+  "oracle_fixture_theorems": [
+    "oracle_join_accept",
+    "oracle_bad_scope_deny",
+    "oracle_bad_arity_deny",
+    "oracle_call_accept",
+    "oracle_unary_transpose_deny",
+    "oracle_bool_denial",
+    "oracle_test_denial",
+    "oracle_compare_denial",
+    "oracle_set_denial",
+    "oracle_quant_denial",
+    "oracle_join_denial",
+    "oracle_product_denial",
+    "oracle_not_denial",
+    "oracle_unknown_sig_denial",
+    "oracle_unknown_field_denial"
+  ],
+  "limitations": [
+    "Wire decoder, checked-frame binding and parser-report admission are abstract trusted adapters; concrete strict HTTP decoding, identity remapping and bounded isolated Alloy worker correspondence require finite and integration tests.",
+    "No proof of actual Alloy parser/printer, source-span correspondence, Java or TypeScript refinement, SQL atomicity or browser behavior.",
+    "State transitions are serialized abstract steps, not database linearizability; workspace aggregate quota, reservations, admission fencing and CAS execution require tests.",
+    "Experimental infer is proven sound and complete only for signature and variable references; other results are not a complete formal typing oracle. Finite 23-tag fixtures carry separate Typed judgments.",
+    "Occurrence paths are checked for existence and source binding, not proven to denote the parser-reported source construct; UUID-to-forest correspondence is trusted/tested.",
+    "Single-document admission bounds are an abstraction; revision zero is retained and receipts persist across all modeled steps, with no wall-clock or deletion model.",
+    "Receipt digest computation, parser/source elaboration, exact response bytes and command translation are concrete adapter obligations; replay authority uses exact method, route and body bytes.",
+    "Unknown applied success and unknown applied denial are separate abstract constructors; the runtime maps both to UNKNOWN_COMMIT_OUTCOME. Absence of commit/denial after unknown requires database recovery, not inferred rollback."
+  ],
+  "text_only_witnesses": [
+    "witness_text_valid",
+    "witness_text_commit",
+    "witness_admitted_text_commit",
+    "witness_text_no_corpus",
+    "witness_bad_report",
+    "witness_wrong_report_source",
+    "witness_wrong_report_policy"
+  ],
+  "refinement_witnesses": [
+    "witness_revision_zero_content",
+    "witness_fresh_report_valid",
+    "witness_revision_zero_restore",
+    "witness_unary_one_permitted",
+    "witness_tuple_one_denied",
+    "witness_denial_lost_ack",
+    "witness_denial_lost_ack_replay"
+  ]
+}

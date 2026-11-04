@@ -1,0 +1,261 @@
+{
+  "recorded_utc": "2026-11-03T13:57:45.346164+00:00",
+  "status": "DEVELOPMENT_SLICE_TESTED_WITH_OPEN_ACCEPTANCE_GATES",
+  "classification": "IMPLEMENTATION_TEST_EVIDENCE_NOT_FORMAL_REFINEMENT",
+  "source_input_root_sha256": "c0766b5a087326e00c3c881db1a712d2abaaefa697ed7d336005284c1cd0c25d",
+  "source_files": 124,
+  "evidence": [
+    {
+      "path": "gates/g1/build.log",
+      "sha256": "19a7ba47d80e04501b1dd92286e8bed5232b753bc17b67d732ccb802ddd7efde"
+    },
+    {
+      "path": "gates/g1/dependencies.json",
+      "sha256": "ef00e6b9bd4eaf367f717cb904d4ae5a0eecdd7b9ccada25f58849d9fe47df16"
+    },
+    {
+      "path": "gates/g1/formal-report.json",
+      "sha256": "8b375bdb7b10c6005f840eb98a20c70dd01989ffbe3562988fdb1de68b83f371"
+    },
+    {
+      "path": "gates/g1/http-smoke.json",
+      "sha256": "8a9609bcab757b9e0ee1095f099af42f7c8efb93cff4e5807ae121229bd4cbac"
+    },
+    {
+      "path": "gates/g1/java-tests.json",
+      "sha256": "5803fdde3c7eb2649790ee79ea8136987d6f6fc60bbc26868a794d16c425d955"
+    },
+    {
+      "path": "gates/g1/npm-audit.json",
+      "sha256": "94e956aa393d56fa32a43b754c41a1961266b8fe3e8b893e1a714e8174eec04a"
+    }
+  ],
+  "compiled_artifacts": [
+    {
+      "path": "backend/target/classes/dev/allow/backend/AllowApplication.class",
+      "sha256": "5ea146749d6cc8ff532d154e5c253c5fce4b6e1f8a9212bd2f05209dbb486a4f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/ApiController.class",
+      "sha256": "bb3a0946f23dc6a7d81e99f57ec0d5269734c50e914768badca6425feb17839b"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/AuthorityFilter.class",
+      "sha256": "03e4316e1d7dfaad97e50f3c6073225aa63c53562797bdbef81c56ba74c1bc4f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/BoundedCapture.class",
+      "sha256": "68648e407c630f830f6d738c5517f804f5a8a7a75d9923a04038c48487cdef1d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/BubblewrapLauncher.class",
+      "sha256": "504108d01a4ae7f08bf5fdb06021100c0a331c3e7c72d5452eda22ae52d7e9bf"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/BuildIdentity.class",
+      "sha256": "1c4b75ec5711528ca58f691c5f7b8e3513acc5448028ebccabba991235d0eb63"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobControl.class",
+      "sha256": "fa6b56479829f9284a126d4b0c5ed96658d16302f9ae6cde8c8f09e2302f0057"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobRecord.class",
+      "sha256": "9930ad31f30205126ac61c90be0140352284e2472d153cf4d8ecf2797a03a402"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobRunner.class",
+      "sha256": "fa93f06db392b421de12f47d9dd13e9bd7212df92d2628b1055f0c2e93b387ec"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobService$JobTask.class",
+      "sha256": "6a2748011b12ae02e31fb1bfbc295f2eceb17c96120f34fe22bbc5aac8723907"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/JobService.class",
+      "sha256": "65b5b6c8736315c65613e596ca8423d940f4248c0f7a4d83936d918d9e29a613"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/LaunchAuthority.class",
+      "sha256": "605435bab069d41d3daa4001258a0aa2b2abf61afd1329ef99cb009e304e8b89"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/LoopbackBinding.class",
+      "sha256": "6b1924afa09ada4cb885006f28a020205b3511bc8ca14ac1524d415cd42c5cbd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/ProcessRunner$FrameWriter.class",
+      "sha256": "cbc2b7581dcc0c2bcd8454490c9d3f5946f4ae719c4c7a0274996846df88926d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/ProcessRunner.class",
+      "sha256": "8dda56a0045cf5c414e659d1f7ce61752878837261d6fabc07d09e8f2750cbf7"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/backend/SandboxLauncher.class",
+      "sha256": "812014707865ec106bafc90e03991e8d7f1bd95e06d63202ec7541ab0816460e"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/AnonymizedArtifact.class",
+      "sha256": "04c1bb6b0b0e0354f1125c16add0fa632aef7c3c3f58c6dd9591757b83d4cd59"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CanonicalDigest.class",
+      "sha256": "1e58fcc51fbab1df1131d19cafeff3925a4a19955caa29995d4b3bf7a9159381"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CanonicalNodes.class",
+      "sha256": "d57fa18db19533297be4e5b07b21a200bcd19909799096543e99460f3f99168f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/CanonicalView.class",
+      "sha256": "527b332b87fc7885f669e207281f04f6e6b763bcfa960e984a6e77073f7f1b91"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/Canonicalizer.class",
+      "sha256": "536b668262880bc48b1315d5d7f89a269985cfb31ef3f7b1750772f859563d92"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/EmbeddingEncoder.class",
+      "sha256": "538f80c5ec81f250e303cdcae3361032ab8b32cebcf2a66e05040147ab626122"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/ExpressionEncoder.class",
+      "sha256": "9137be9c02c444adfa0190c6968a4cd54413a3610b703ef3a38e49f3541bb854"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/ModuleEncoder.class",
+      "sha256": "de06b3e90ba0b544ff5de2e7ed7e9b1256ec778d973b8b889b1944f7e6e8c61f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/OperatorPolicy.class",
+      "sha256": "73d5099f64ce08763ec28cb660f0e6afb1d77daa46547370e82a9912fab8126d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/SlotRegistry.class",
+      "sha256": "927737b4213a60aff1c1fc9dfa56c9c43cd87efdeb1018ca20bf8efe10f4c8df"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/canonical/UnsupportedCanonical.class",
+      "sha256": "16360f120102a603b16dc71ca2c572e78ff4505514c15488723481efb717c473"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/AtomView.class",
+      "sha256": "11e996224d80195efc8e3055092c334dee6d6385d231c683739108b8cd6f3e0a"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/CommandView.class",
+      "sha256": "9cc8d19287a094b1929dcf7094873c67a7ccc98804cd9eb61cbb6ccda31eb45e"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/JobRequest.class",
+      "sha256": "6430499db0a9761d1b32b4d6389319a00b942a006c7c814ff5e163c01432d04d"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/JobView.class",
+      "sha256": "a11ec540d9545b2c7ade70343971f8bbabc0f5ea332f06b066bd8e6f3e54a9b4"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/RelationView.class",
+      "sha256": "5dd3017c61d6ffa4244573ef98665066c70051bc4d960453ebc012cf9f439c5a"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/StateView.class",
+      "sha256": "9d8b262eb6e71cd64fc897b503a734be08b9910931275c7be7e7b7bbbb4713a2"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/WitnessView.class",
+      "sha256": "ccbf996117b6a4251de3f3b7fdfed494f070a64adb72b65f592604c2e1968c82"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/WorkerRequest.class",
+      "sha256": "b1284c1a057fcead75fe34b9eff4626a86b256c33c4bd5a4c19faa6c16312ae9"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/dto/WorkerResponse.class",
+      "sha256": "997bd24b63e747cc049663b3ec9efcf38eca245946bdfb6aa9ca749a759af889"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/AlloyEngine.class",
+      "sha256": "9b9e0deca38ed59024998553036f5bbd45ae240cb7c37d52193fe24ab125df60"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/AstPolicy$Entry.class",
+      "sha256": "4f57d66534843e7ee905eda3fe5e9177cd54eafc9568b318457607db87171713"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/AstPolicy.class",
+      "sha256": "fc272ed10da6efc98ce587908aedb4cffc5e0c220b7508dc13818814766241bc"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/Hashes.class",
+      "sha256": "5456433efbc8d546f9ffd2353f409872017c43e8d3ee5c63210972af5078b365"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/JsonWire.class",
+      "sha256": "4a079da16ce1edb35aba49fd891a81558d30bc25c7cabcb896e11d824160789f"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/SourcePolicy.class",
+      "sha256": "2ce0e4c143ab0234ec35e392c561dd961f804a850f3939cbb250b9cf5eb37dbd"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/WitnessProjector.class",
+      "sha256": "0fdb0fa226f4d8acf62fa2d8212a35d427f7d26e5ca0340429e0d6abdc27a987"
+    },
+    {
+      "path": "backend/target/classes/dev/allow/worker/WorkerMain.class",
+      "sha256": "85efb23d77fe500280a889adac8080132c08bacb4e48dd3db94528264fe91110"
+    },
+    {
+      "path": "frontend/dist/assets/index-DEj0XeFM.js",
+      "sha256": "e2867ae5f7d97d80f3ffa8973f7df733a58b18d3db8bbff50b538db77c07f6f2"
+    },
+    {
+      "path": "frontend/dist/assets/index-D_cYyQ3O.css",
+      "sha256": "3f57c9d9f050b7f2b111c74b64fa234ee453a92b06ee84780491d32351267c1f"
+    },
+    {
+      "path": "frontend/dist/index.html",
+      "sha256": "2cf452aa75e5097a6fbcc56d56aac5974a5a0a950481c74b02d85a7a09532778"
+    }
+  ],
+  "checks": {
+    "backend_tests": 37,
+    "frontend_tests": 16,
+    "style_js_ts_fixtures": 49,
+    "style_java_fixtures": 13,
+    "checkstyle": "PASS",
+    "typescript_build": "PASS",
+    "http_integration": "PASS",
+    "npm_audit_total": 0,
+    "formal_model_propositions": 33,
+    "formal_clean_builds": 2,
+    "formal_sources_unchanged_since_preimplementation_freeze": true
+  },
+  "gates": {
+    "G1_development_foundation": "TESTED",
+    "G1_commercial_clearance": "OPEN",
+    "G2_initial_subset": "IMPLEMENTED_WITH_BROWSER_ACCEPTANCE_OPEN",
+    "G2_full_palette_and_roundtrip": "NOT_IMPLEMENTED",
+    "G3_live_code_and_canonical_profile": "STRUCTURAL_SLOT_SUBSET_ONLY; FULL_GATE_OPEN",
+    "G4_solver_evidence_pools": "SINGLE_RUN_RESULTS_ONLY; POOLS_NOT_IMPLEMENTED",
+    "G5_vector_corpus": "NOT_IMPLEMENTED",
+    "G6_commercial_pilot": "NOT_CLEARED"
+  },
+  "open_items": [
+    "No browser surface: real keyboard/drop/visual QA not run",
+    "No universal parser-to-slot or Java/TypeScript refinement proof",
+    "Style checks cannot prove documentation meaning, single responsibility or absence of mutable object escapes",
+    "JDK version is recorded; exact JDK binaries/libraries not fingerprinted",
+    "Sandbox paths currently require the documented Debian/Ubuntu-style host layout",
+    "Alloy/component redistribution and dataset usage rights remain unresolved",
+    "No vector database, dataset ingestion, e-graph saturation, LLM or production deployment"
+  ],
+  "runtime": {
+    "mode": "local single-user memory-only jobs",
+    "preview_after_checks": "STOPPED"
+  },
+  "dataset_sources_used_in_tests": false,
+  "launch_capability_recorded": false
+}

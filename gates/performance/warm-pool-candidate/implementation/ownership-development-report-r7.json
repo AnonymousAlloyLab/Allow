@@ -1,0 +1,113 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "scope": "Six new ownership guard regressions plus40 prior focused checks. Actual private workspace FileChannel/FileLock and WorkerJournal writes, actual ledger disable/release/close state transitions; pool cleanup receipt and cgroup identity are inert test fixtures. No worker process launch, SQL authority, kernel cleanup, formal refinement or promotion claim. Active target untouched.",
+  "copied_root": "/tmp/allow-warm-ownership-r7-vo_245yp",
+  "new_test": {
+    "path": "backend/src/test/java/dev/allow/backend/WarmRuntimeOwnershipTest.java",
+    "sha256": "23e4b91085072624bf8474da4fb3cd01ae18a5476b5b28f0fa81cebfd8fd3623"
+  },
+  "production_snapshot": [
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/DocumentRuntime.java",
+      "sha256": "ce2034d70b9b9482e21bb7771086b73e4be3e5b8d91be1eae81c21575967d6c7"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/WarmRuntime.java",
+      "sha256": "38e041b43a7a8b68782bfb236141be1a4d8a8e0a43a066415ab50301d34c2cd4"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/OwnedWorkerRun.java",
+      "sha256": "df581c147c80bf465fe7a643ca9587959cea3dbff8337e8133c077cc0f705f28"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/DocumentWorker.java",
+      "sha256": "1b4f4c4ae2081ee49296f5aed1014d12e0028b292344af5000edf2eafdfba279"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/WorkerPoolLedger.java",
+      "sha256": "7b1a101d1c03d5cb167898f81703fb6c4977a11d91879badfb3df19e809d8544"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/WorkerJournal.java",
+      "sha256": "4a74f45cd3c24ca97424d26c4be8c3465c2176f48a20a6b4666b0ce80c9cc550"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/WorkerReservation.java",
+      "sha256": "2ff0c8c89f1eaa66dfa500e413f893348ac4b68266cf489bd8fc1ddde8b00822"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/WorkerCgroup.java",
+      "sha256": "3c2a8df2e6a889ab3cb005a0b878015dc10f1cb996c7069f37de23bb8d6671ba"
+    },
+    {
+      "copied_path": "/tmp/allow-warm-ownership-r7-vo_245yp/backend/src/main/java/dev/allow/backend/WarmWorkerPool.java",
+      "sha256": "ff39912b321c73485736096a4b15ac1b6c97acce3e5811142649e7774f0a1918"
+    }
+  ],
+  "suites": [
+    {
+      "name": "dev.allow.backend.OwnedWorkerRecoveryTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmCoordinatorTest",
+      "tests": "16",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WarmRuntimeOwnershipTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerJournalTest",
+      "tests": "15",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "dev.allow.backend.WorkerReservationTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "tests": 46,
+  "style": "PASS for new test; documented callables<=30lines, no Java lambdas",
+  "assertions": [
+    "Failed warm cleanup preserves actual workspace lock when document close follows",
+    "Successful pool receipt plus actual journal close clears association and allows actual lock reacquisition",
+    "Unrelated constructor failing after acquire releases its distinct workspace resources",
+    "Observed mismatch poisons and persists exact ledger; later matching observation does not revive it",
+    "Unreadable image observation disables current ledger",
+    "Ledger close failure retains document ownership"
+  ],
+  "remaining_finding": "Same-workspace failed duplicate constructor still opens a second FileChannel before tryLock; reported potential process-wide POSIX lock disturbance to root. Distinct-workspace constructor cleanup test does not cover this.",
+  "logs": [
+    {
+      "path": "/tmp/allow-warm-ownership-r7-vo_245yp/main-compile.log",
+      "sha256": "dece862a32d4e989fd23df958ea691a7e58fa3157857498e3049c7e8b6c37239"
+    },
+    {
+      "path": "/tmp/allow-warm-ownership-r7-vo_245yp/test-compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/allow-warm-ownership-r7-vo_245yp/focused-tests.log",
+      "sha256": "24e0ff0e08220d77773e5cbc973dcafcace16c2c9c939ad95a22d93cfeea11b8"
+    },
+    {
+      "path": "/tmp/allow-warm-ownership-r7-vo_245yp/checkstyle.log",
+      "sha256": "2ee89ca49ecae1bb5b3de5ffcc8a964e605f1b1c6fbe072073a1ea4feaa4e230"
+    }
+  ]
+}

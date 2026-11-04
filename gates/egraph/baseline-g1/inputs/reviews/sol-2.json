@@ -1,0 +1,206 @@
+{
+  "reviewer_id": "sol-2",
+  "model_identity": {
+    "requested_model": "gpt-6.1-sol",
+    "dispatch_model_reported_by_parent": "gpt-6.1-sol",
+    "actual_runtime_model_independently_observable": false,
+    "actual_runtime_model": null,
+    "note": "Dispatch identity is reported accurately; underlying runtime is not independently observable to this reviewer."
+  },
+  "status": "ADVERSARIAL_CONTRACT_REVIEW",
+  "scope": [
+    "Java 17/Spring/React feasibility",
+    "complete low-code workflow",
+    "vector lifecycle and recovery",
+    "implementation sequencing",
+    "resource limits",
+    "commercial pilot gates"
+  ],
+  "reviewed_contract_id": "ALLOW-CONTRACT-0.1.0",
+  "reviewed_contract_revision": 2,
+  "reviewed_contract_sha256": "d97781f33756b6fcdb77acf59a8ea27f6b0a93ffb57970710be53a863c63b425",
+  "reviewed_sources": [
+    {
+      "path": "formal/Allow/Typing.lean",
+      "sha256": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8"
+    },
+    {
+      "path": "formal/Allow/Canonical.lean",
+      "sha256": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc"
+    },
+    {
+      "path": "formal/Allow/Evidence.lean",
+      "sha256": "439cf04a2ccf9fc3e3613ca037953451cd6061a5a272d85e8dae1d3f73c5763a"
+    },
+    {
+      "path": "formal/Allow.lean",
+      "sha256": "340b3b09f545c8bf432f3a14e4f3dfa4b5bf30d7f9e9f94ca768f00509ad3581"
+    }
+  ],
+  "verdict": "REQUEST_CHANGES",
+  "summary": "The phased Java/Spring/React plan is technically plausible and appropriately separates model proofs, implementation acceptance and commercial validation. Two gaps remain in aggregate resource containment and deletion/rights behavior after backup restore. These are concrete lifecycle gaps that current single-operation gates do not resolve.",
+  "findings": [
+    {
+      "id": "SOL2-F01",
+      "severity": "HIGH",
+      "contract_paths": [
+        "resource_and_security_contract.input_limits",
+        "resource_and_security_contract.enforcement",
+        "architecture.A1.worker_protocol",
+        "milestones.G1",
+        "milestones.G4"
+      ],
+      "title": "Per-source limits do not bound aggregate import closures, uploads or queued payloads",
+      "failure_scenario": "Each uploaded module is below source_bytes and each worker request appears individually valid, but a project supplies many files or a wide/deep import closure. Reading, retaining, hashing or parsing the closure can exhaust service memory or disk before a bounded worker starts. Four queued jobs can also retain unspecified-sized upload/import payloads. ast_nodes and source_bytes do not say whether they cover one file or the whole closure.",
+      "required_fix": "Define aggregate limits for an entire upload/project import closure: file count, total decoded bytes, per-file bytes, dependency edges/depth and total resulting AST nodes. Reject cycles or process them with a visited set and bounded work. Specify how request decompression and queued payload bytes are charged, with per-launch total memory/disk/inflight quotas. Require all untrusted parser/elaborator/canonicalizer work for validateDraft and commit to use bounded execution as well as analyze. Reject before eagerly reading an unbounded closure and keep the accepted artifact unchanged on a limit failure.",
+      "acceptance_cases": [
+        "Many individually valid modules exceeding closure total bytes/file count fail RESOURCE_LIMIT without accepted-state mutation.",
+        "Diamond and cyclic import fixtures show deduplication/termination and bounded resource use.",
+        "Simultaneous validation, commit and maximum queued jobs cannot bypass aggregate inflight-byte/disk quotas.",
+        "A limit reached during parsing/import resolution kills and reaps bounded work and leaves the server responsive."
+      ],
+      "proof_boundary": "No current Lean theorem establishes process or disk containment. This should be an explicit G1/G4 acceptance obligation."
+    },
+    {
+      "id": "SOL2-F02",
+      "severity": "HIGH",
+      "contract_paths": [
+        "architecture.A5.retention",
+        "architecture.A5.rights",
+        "architecture.A5.pair_transaction",
+        "milestones.G5"
+      ],
+      "title": "Restoring an older backup can resurrect deleted or revoked corpus records",
+      "failure_scenario": "Backup B contains live permitted rows and a pending embedding outbox item. The user deletes the project or revokes embed/retrieve permission after B. Restoring B reinstates live rows and the old outbox item. If recovery merely rebuilds vectors from authoritative rows, removed content becomes retrievable or is regenerated despite the current revocation. Documenting eventual backup expiry alone does not prevent this.",
+      "required_fix": "Define recovery ordering and a durable deletion/rights-revocation authority that survives or is reconciled across restores. Restore into a deny-first/quarantined state; replay all deletion/revocation events newer than the backup before enabling retrieval, embedding regeneration or export. Do not replay old outbox work without checking current rights and deletion generation at execution and publication. If current authorization/deletion history cannot be established, retain the deny state until the user resolves it. Clarify the backup-retention and export consequences without claiming that already exported third-party copies can be recalled.",
+      "acceptance_cases": [
+        "Backup, delete, restore, rebuild: deleted rows stay unavailable and old embedding tasks do not republish.",
+        "Backup, revoke only embed/retrieve permission, restore: each withdrawn purpose remains denied.",
+        "Crash between tombstone commit and asynchronous vector removal cannot make data retrievable after restart.",
+        "Recovery without the post-backup revocation journal fails closed for corpus retrieval and regeneration."
+      ],
+      "proof_boundary": "retrieval_is_authorized assumes current deleted/permitted values. It does not prove those values survive restore or remain synchronized with outbox execution."
+    }
+  ],
+  "positive_assessments": [
+    "Official Spring Boot system requirements support the proposed Java 17 baseline; third-party and Alloy adapter compatibility remain correctly deferred to the G1 smoke matrix.",
+    "One server-owned accepted artifact, explicit text-only mode, exact source bytes and presentation epochs provide a coherent full editor workflow.",
+    "The block list is broader than the first Lean kernel, but the contract explicitly prohibits shipping the added blocks before their model/adapter obligations are supplied.",
+    "Positive and negative pools share target context while retaining distinct query identities; this avoids an impossible same-query identity constraint.",
+    "Normalized evidence is authoritative and vectors are rebuildable, filtered derived data; ANN underfill is not allowed to broaden authorization.",
+    "Canonicalization has a small explicit atom cap and a distinct unavailable-budget result, preserving solver use without a false canonical identity.",
+    "Commercial demand, rights clearance and pilot economics are explicitly unproved hypotheses with a predeclared go/no-go gate."
+  ],
+  "implementation_gameplan_assessment": {
+    "judgment": "Executable phased roadmap after the two lifecycle additions; no product implementation is authorized in this phase.",
+    "critical_path": [
+      "G0: freeze the JSON projection, complete all named Lean symbols, generate configuration correspondence, run isolated proof builds and reconcile each council finding.",
+      "G1: pin Java-compatible dependencies and licenses, then prove the real Alloy/SAT4J adapter and local authority boundary by smoke and failure cases.",
+      "G2/G3: build immutable revision/mode transactions and the smallest proved typed block fragment, then parser/printer correspondence, source maps, presentation freshness and accessible complete tasks.",
+      "G4: isolate bounded solver work and validate complete own-query witnesses with explicit bounded labels and separate enumeration completeness.",
+      "G5: add transactional code/pool writes, versioned local embeddings, current-rights checks, deletion-safe outbox/recovery and export/rebuild acceptance.",
+      "G6: require license/security/accessibility/resource evidence and a fixed comparator pilot before commercial claims."
+    ],
+    "commercial_caveat": "Deterministic local vectors establish a working retrieval pipeline, not useful semantic relevance. Freeze a small relevance/coverage evaluation at the future corpus gate before presenting retrieval quality as a differentiator."
+  },
+  "proof_review": {
+    "lean_sources_reviewed": true,
+    "built_by_this_reviewer": false,
+    "notes": [
+      "Typing.lean uses dependent inference results and exact nominal relation schemas; this is a deliberately restricted syntactic kernel.",
+      "Canonical.lean proves fixed-count/order Boolean table equivalence; inspected version did not yet include distinct_inventories_distinct_keys, so F18 remains pending in this snapshot.",
+      "Evidence.lean visibility checks epoch, full key and draft source equality, and pool admission checks target/polarity/own query/SAT/validated flag.",
+      "Generated.lean and complete closure evidence were still being authored; no complete proof-build or G0 success is asserted.",
+      "Evidence authorization and validation flags remain explicit trusted abstractions, so neither SQL lifecycle nor external witness validation follows from the theorems."
+    ]
+  },
+  "external_primary_sources": [
+    {
+      "url": "https://docs.spring.io/spring-boot/system-requirements.html",
+      "observed_on": "2026-11-03",
+      "supports": "Page observed as Spring Boot 4.1.2, minimum Java 17; third-party support may have additional requirements."
+    },
+    {
+      "url": "https://github.com/AlloyTools/org.alloytools.alloy/releases/tag/v6.2.0",
+      "observed_on": "2026-11-03",
+      "supports": "Official Alloy release and JAR distribution exist; this is not a tested Java integration result."
+    },
+    {
+      "url": "https://github.com/pgvector/pgvector",
+      "observed_on": "2026-11-03",
+      "supports": "Official project documents PostgreSQL vectors, exact/ANN tradeoffs, index dimension limits and filtered ANN behavior; selected pins still require G5 tests."
+    }
+  ],
+  "external_actions": {
+    "contacted_anyone": false,
+    "uploaded_sources": false,
+    "product_implementation_written": false
+  },
+  "write_scope": "reviews/sol-2.json only",
+  "final_review": {
+    "reviewed_at_utc": "2026-11-03T12:47:59.081005+00:00",
+    "contract_id": "ALLOW-CONTRACT-0.1.0",
+    "contract_revision": 4,
+    "contract_sha256": "8db9111142d896de53b0ba80fa1b2ba90293123c92105e9da2579deb5fbbbb4b",
+    "formal_hashes": {
+      "formal/Allow/Canonical.lean": "850da814c8e8a3b8b68261e44176cc336bc22a993071af83bb3a979778fdcffc",
+      "formal/Allow/Contract.lean": "6e612012d543e99494bd312ca11791c9223b215ddd821b8a15320de1d59b5f10",
+      "formal/Allow/Evidence.lean": "048375d676e94af0ede42997e354ca988ccd1aed18be6fcb4fd035cf3aa59045",
+      "formal/Allow/Generated.lean": "341c6ae5c5a124639ba9a3a1b55b35f0b6f53ea117f9a42f38be57e3dd5bd925",
+      "formal/Allow/Kernel.lean": "ecd97d798c6d1927253d70c288d8e647c7119b11f413b038e0e6cc71e4d0f503",
+      "formal/Allow/Typing.lean": "6e4858bcd6603a149dff6e39e4e2ccc119fd6aed522a8602dae73ddcad5f3bb8",
+      "formal/Allow.lean": "9ee4e8bd139c0385729d4c22ecea1e887737f4bd3f995215e78082140994727b",
+      "formal/lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "formal/lakefile.toml": "00e1b55d54b7b4e6c79500d9fb62f5a1511fce07978b00508339ae68914d67a6",
+      "formal/lake-manifest.json": "58c14e76084b8514765deb185e47743bf95339f17023336e73ce8ee0fe357fa4"
+    },
+    "verdict": "ACCEPT_SPECIFICATION_WITH_IMPLEMENTATION_GATES",
+    "scope": "Specification and inspected formal model only. Finite closure runner/report is pending and excluded from this verdict; no release, software refinement, security-runtime or commercialization approval.",
+    "finding_dispositions": [
+      {
+        "finding_id": "SOL2-F01",
+        "status": "RESOLVED_IN_CONTRACT",
+        "evidence": [
+          "resource_and_security_contract.input_limits import_files/import_closure_bytes/import_depth/queued_request_bytes/project_storage_bytes",
+          "resource_and_security_contract.enforcement covers duplicate/cyclic imports, bounded validation/commit/canonicalization, decompression and reject-before-persistence",
+          "milestones.G4 aggregate quota negative tests and bounded validation/commit workers"
+        ],
+        "assessment": "Explicit aggregate defaults and shared bounded-worker policy close the specification gap. Their enforcement and measured adequacy remain mandatory future acceptance evidence."
+      },
+      {
+        "finding_id": "SOL2-F02",
+        "status": "RESOLVED_IN_CONTRACT",
+        "evidence": [
+          "architecture.A5.retention append-only deletion/revocation journal outside ordinary point-in-time restores",
+          "architecture.A5.retention deny-first restore quarantine, replay-before-retrieval/export/outbox, blocked service for unknown journal continuity",
+          "milestones.G5 restore-after-delete/revocation quarantine and replay tests"
+        ],
+        "assessment": "The recovery ordering and fail-closed journal continuity rule prevent the specified restore resurrection scenario at the contract level. Crash/restart/race behavior still requires G5 implementation tests."
+      }
+    ],
+    "additional_clarifications_accepted": [
+      "AnalysisRun existenceStatus and enumerationStatus separate earlier SAT observations from later timeout/cancellation, retaining correctly validated witnesses without inventing absence evidence.",
+      "F18 now requires exact inventory equality in same-context canonical merges and proves different inventories have unequal canonical keys.",
+      "Generated configuration and Contract witnesses are present; first-pass pending observations are superseded for these source-presence checks."
+    ],
+    "verification": {
+      "command": "lake build",
+      "working_directory": "/home/augustus/Allow/formal",
+      "exit_code": 0,
+      "observed_output": "Build completed successfully (9 jobs).",
+      "kind": "Existing local build, not either isolated closure build.",
+      "formal_obligations_registered": 19,
+      "named_theorems_missing_from_inspected_sources": [],
+      "complete_closure_verified": false
+    },
+    "remaining_acceptance_gates": [
+      "G1 actual pinned Java17/Spring/Alloy/SAT4J integration, dependency/license audit and private local authority tests.",
+      "G2/G3 shipped block-rule coverage, parser/printer refinement, accessible workflow, source-map and freshness regressions.",
+      "G4 aggregate resource enforcement and bounded evidence/witness validation under failures and load.",
+      "G5 current-rights outbox execution, deletion/revocation races, restore quarantine/journal recovery and vector regeneration tests.",
+      "G6 independently measured relevance and customer task/support economics, rights/security clearance and commercial go/no-go."
+    ],
+    "model_identity": "Parent-reported gpt-6.1-sol dispatch; actual underlying runtime independently unobservable.",
+    "product_implementation_written": false
+  }
+}

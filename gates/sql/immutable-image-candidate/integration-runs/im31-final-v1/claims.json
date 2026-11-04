@@ -1,0 +1,45 @@
+{
+  "IM31": "All six registered evidence roles pass with unchanged installed sources and exact model-source projection",
+  "sql_wire_and_postgresql": {
+    "tests": 52,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true,
+    "real_proxy_coverage": true
+  },
+  "full_python": {
+    "tests": 164,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "source_unchanged": true
+  },
+  "sql_clients": {
+    "source_unchanged": true,
+    "each_registered_tag_accepted": true,
+    "live_corpus_unchanged": true
+  },
+  "retrieval_recovery": {
+    "source_unchanged": true,
+    "live_corpus_modified": false
+  },
+  "document_recovery": {
+    "source_unchanged": true,
+    "actual_pg_dump_restore": true,
+    "live_database_targeted": false,
+    "restored_rows_owners_rls_and_acls_equal": true,
+    "fresh_process_exact_receipt_recovery": true,
+    "private_metadata_unchanged": true
+  },
+  "trust": [
+    "Registered executable test verifiers and their honest runtime instrumentation",
+    "SHA256 and Python",
+    "OS/processes/PostgreSQL and hardware"
+  ],
+  "excluded": [
+    "Universal runtime or SQL semantics correctness",
+    "IM32 performance discharge",
+    "Future revisions or changed report/source hashes"
+  ]
+}

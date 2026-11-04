@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "run_id": "r15-regressions",
+  "input_root_sha256": "ea4efe54f25362ee0dc25fa7324db9d19f1a8a5f8e25a4114e5f820bd84e75a4",
+  "steps": [
+    {
+      "name": "bootstrap",
+      "exit_code": 0,
+      "elapsed_seconds": 1.8663431519962614,
+      "log_sha256": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e",
+      "status": "PASS"
+    },
+    {
+      "name": "migrate",
+      "exit_code": 0,
+      "elapsed_seconds": 4.1698310840001795,
+      "log_sha256": "f61fcfabd3044e28be6bd0b96a0528bc316ac6bf06326f4234c95997074bbe6a",
+      "status": "PASS"
+    },
+    {
+      "name": "initialize-retrieval",
+      "exit_code": 0,
+      "elapsed_seconds": 0.31395897100446746,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "name": "bootstrap-documents",
+      "exit_code": 0,
+      "elapsed_seconds": 1.8661073539988138,
+      "log_sha256": "db5265310a8947eff5f62249eb59500651be7243617cd63eb06216c8eba78836",
+      "status": "PASS"
+    },
+    {
+      "name": "python-all",
+      "exit_code": 0,
+      "elapsed_seconds": 41.22193035300006,
+      "log_sha256": "6773417031a6960515fff7cf17835527d75e50289a55375bbc29327b888b0ab0",
+      "status": "PASS"
+    },
+    {
+      "name": "sql-runtime",
+      "exit_code": 0,
+      "elapsed_seconds": 21.79388719299459,
+      "log_sha256": "5e653725c2af49fd210c0aa4ed46a62dc9b08a3548b67ed22b1c724a1dc812e8",
+      "status": "PASS"
+    },
+    {
+      "name": "sql-clients-and-retrieval-recovery",
+      "exit_code": 0,
+      "elapsed_seconds": 19.79086809900764,
+      "log_sha256": "e7f27d9e925eace67f9cde8953c460be1f0af334f5016e80e83df171900cb324",
+      "status": "PASS"
+    },
+    {
+      "name": "document-recovery",
+      "exit_code": 0,
+      "elapsed_seconds": 9.926840494008502,
+      "log_sha256": "14ce9a64536d94a2700dd9c6e5d0870080fa81c65dcda8c58342fcfacc21024a",
+      "status": "PASS"
+    },
+    {
+      "name": "http-smoke",
+      "exit_code": 0,
+      "elapsed_seconds": 8.826156747003552,
+      "log_sha256": "b2e8763938dc703ab9509291edce8b137fbe1019f7cc90373875a5e607589295",
+      "status": "PASS"
+    },
+    {
+      "name": "http-restart",
+      "exit_code": 0,
+      "elapsed_seconds": 0.4140923890081467,
+      "log_sha256": "feed9f8f5600eb0ad23f35b17273c3b8be31472b6ec81cee24f129b03ee57ae6",
+      "status": "PASS"
+    }
+  ],
+  "manifest_sha256_before_execution": "b6781fdb1d81164c3588d6d98dcd46c1b8f1b9269dda4a9d2826f3c66d70be44",
+  "p1_33_case_acceptance": "BLOCKED",
+  "shared_runtime_modified": false,
+  "spring_crash": {
+    "owned_identity_absent": true,
+    "exit_code": -9,
+    "intentional_crash": true,
+    "emergency_escalation": false
+  },
+  "spring_cleanup": {
+    "owned_identity_absent": true,
+    "exit_code": 143,
+    "intentional_crash": false,
+    "emergency_escalation": false
+  },
+  "service_cleanup": [
+    {
+      "service": "proxy",
+      "emergency_escalation": false,
+      "owned_identity_absent": true
+    },
+    {
+      "service": "postgres",
+      "emergency_escalation": false,
+      "owned_identity_absent": true
+    }
+  ],
+  "source_mutation": [],
+  "tooling_mutation": [],
+  "managed_runtime_inventory_unchanged": true,
+  "managed_runtime_links_unchanged": true,
+  "manifest_unchanged_after_execution": true,
+  "copied_artifacts": [
+    {
+      "path": "client-coverage.json",
+      "sha256": "faf7d86a3e169e5d1a1d36a34719358b892615fce06c1c3bee96a95eef194e17"
+    },
+    {
+      "path": "recovery-report.json",
+      "sha256": "b933305998b891a5cba71149d71fbf6edf1d6761a62a070a5580fec154d6db46"
+    },
+    {
+      "path": "document-recovery-report.json",
+      "sha256": "68c49bcef16846950021f1fb3299433e2ab94c892e88726ae37adb66b0b3c1d3"
+    },
+    {
+      "path": "http-smoke.json",
+      "sha256": "16d79c7dac27b483c1bab018956ea4eddde993812d48df6289688c77bfad0662"
+    },
+    {
+      "path": "restart-report.json",
+      "sha256": "2da7340ba50f5fb9d28f6c39289697fef49f39b5023f1ce5a7529bc2cbf9b866"
+    }
+  ],
+  "boundary": "Finite current regressions; default profile, no timing selection, no all33 closure or shared service promotion."
+}

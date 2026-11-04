@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "id": "allow-iis-linux-private-deployment-policy-v1",
+  "status": "POLICY_MODEL_PROVED",
+  "closure_status": "NOT_A_FULL_CLOSURE_RUN",
+  "contract": {
+    "path": "spec/iis-deployment.json",
+    "sha256": "b3bcc8a6e3188f468d6549247bc6c34918a7039ef5e9c966b0d2dbb7e6d55b32"
+  },
+  "proof": {
+    "path": "formal/Allow/IisDeployment.lean",
+    "sha256": "1efc9c283216bf0911f98236754f3a2b0ae485bcb160818ac18580c9fb326280",
+    "theorem_count": 22,
+    "theorems": [
+      "Allow.IisDeployment.route_exact",
+      "Allow.IisDeployment.api_requires_exact_capability",
+      "Allow.IisDeployment.hostile_or_duplicate_host_rejected",
+      "Allow.IisDeployment.hostile_or_duplicate_origin_rejected",
+      "Allow.IisDeployment.absent_invalid_duplicate_capability_rejected",
+      "Allow.IisDeployment.forwarded_authority_irrelevant",
+      "Allow.IisDeployment.forwarded_authority_cannot_bypass",
+      "Allow.IisDeployment.browser_admissible",
+      "Allow.IisDeployment.capability_client_admissible",
+      "Allow.IisDeployment.unknown_config_rejected",
+      "Allow.IisDeployment.closed_config_values",
+      "Allow.IisDeployment.advisory_tier1_selected",
+      "Allow.IisDeployment.local_default_preserved",
+      "Allow.IisDeployment.durable_default",
+      "Allow.IisDeployment.solver_default",
+      "Allow.IisDeployment.tier1_only_advisory",
+      "Allow.IisDeployment.pool_disabled",
+      "Allow.IisDeployment.profile_selection_does_not_accept",
+      "Allow.IisDeployment.acceptance_requires_evidence",
+      "Allow.IisDeployment.private_payload_excluded",
+      "Allow.IisDeployment.eligible_contains_no_private_payload",
+      "Allow.IisDeployment.package_positive_witness"
+    ]
+  },
+  "toolchain": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "builds": [
+    {
+      "directory": "gates/deployment/iis-v1/clean-1",
+      "source_sha256": "1efc9c283216bf0911f98236754f3a2b0ae485bcb160818ac18580c9fb326280",
+      "olean_sha256": "116768a8d59017afa449541df9261dcc436ed3a0aa3a5e5675fd606c078c103d",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axiom_log_sha256": "192d8182d519f1316cc4616edfaec6581b18697010a247e2cc5d40577aaa48bf"
+    },
+    {
+      "directory": "gates/deployment/iis-v1/clean-2",
+      "source_sha256": "1efc9c283216bf0911f98236754f3a2b0ae485bcb160818ac18580c9fb326280",
+      "olean_sha256": "116768a8d59017afa449541df9261dcc436ed3a0aa3a5e5675fd606c078c103d",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axiom_log_sha256": "192d8182d519f1316cc4616edfaec6581b18697010a247e2cc5d40577aaa48bf"
+    }
+  ],
+  "checks": {
+    "two_fresh_isolated_directories": true,
+    "matching_olean": true,
+    "matching_axiom_inventory": true,
+    "no_sorry_or_custom_axioms": true,
+    "positive_route_and_package_witnesses": true
+  },
+  "axioms": {
+    "allowed_standard": [
+      "propext",
+      "Quot.sound"
+    ],
+    "observed": [
+      "propext",
+      "Quot.sound"
+    ],
+    "custom": [],
+    "sorryAx": false
+  },
+  "preserved_failed_candidates": [
+    "gates/deployment/iis-v1/failed-candidate-1"
+  ],
+  "proved_scope": [
+    "exact finite route and capability predicates",
+    "hostile, missing and duplicate Host rejection",
+    "hostile and duplicate Origin rejection",
+    "absent invalid and duplicate capability rejection",
+    "forwarded authority irrelevant and cannot bypass",
+    "positive browser and capability-client witnesses",
+    "closed profile configuration and unknown rejection",
+    "Tier1 only advisory; local durable solver DEFAULT",
+    "pool disabled",
+    "selection does not constitute acceptance evidence",
+    "eligible payload excludes private runtime credentials datasets checkpoints browser state tokens and venvs",
+    "positive package witness"
+  ],
+  "trusted": [
+    "Lean 4.34.1 kernel and Std distribution",
+    "host compiler/runtime/filesystem executing Lean",
+    "SHA-256 input binding",
+    "finite policy abstractions and human contract interpretation"
+  ],
+  "excluded": [
+    "implementation correspondence/refinement",
+    "Java Python PowerShell IIS SSH execution",
+    "cryptography and deployment security",
+    "Windows target execution",
+    "target-host performance or capacity acceptance",
+    "licensing/redistribution clearance",
+    "full mechanical closure"
+  ],
+  "implementation_correspondence": "OPEN_SEPARATE_SOURCE_TESTS_AND_PACKAGE_AUDIT_REQUIRED"
+}

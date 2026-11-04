@@ -1,0 +1,148 @@
+{
+  "id": "ALLOW-P1-GAP-AUDIT-R2",
+  "status": "BLOCKED",
+  "preview_read_only_check": {
+    "same_spring_pid_start_argv": true,
+    "proxy_loaded_identity": "PASS",
+    "context": "READY_UNOCCUPIED",
+    "http_documents": "200_OK_14",
+    "browser_touched": false
+  },
+  "complete_reference": "case-readiness-r2.json",
+  "high_priority_remaining": [
+    {
+      "cases": [
+        "CC08",
+        "CC10",
+        "CC11",
+        "CC17"
+      ],
+      "work": "Actual statement/idle/wall/observation cutoff boundaries, late-success suppression and independently observed resource absence.",
+      "production_change": "Confirmed strict budget defect repaired in staged copy; full regression pending. Remaining actual PostgreSQL timeout/observation fixtures are evidence-only unless they reveal additional defects."
+    },
+    {
+      "cases": [
+        "CC04",
+        "CC12",
+        "CC13",
+        "CC14",
+        "CC18",
+        "CC19",
+        "CC20",
+        "CC21",
+        "CC22",
+        "CC24",
+        "CC25"
+      ],
+      "work": "Durability barriers, CLI/Java/proxy/observer death, parser loss, EOF/cancel and restart reconciliation. Exact declared phase variants remain unexecuted, except CLI-after-decode and idle final graceful stop.",
+      "production_change": "No architecture change known necessary for finite safety fixtures. Gate-only deterministic barrier wrappers and ownership traces needed; fix production only when bound failures demand it."
+    },
+    {
+      "cases": [
+        "CC23",
+        "CC26",
+        "CC27",
+        "CC28",
+        "CC32"
+      ],
+      "work": "Full handler/observer limits,65receipt/60sTTL/concurrent awaits, actual7logging configurations, private marker audit,20ordinary-tail attempts and PG-slot exhaustion.",
+      "production_change": "Evidence-first. Current implementation intentionally fails closed on uncertain ownership; no promised aggregate17backend cap or guaranteed context slot."
+    },
+    {
+      "cases": [
+        "CC01",
+        "CC02",
+        "CC03",
+        "CC05",
+        "CC06",
+        "CC07",
+        "CC09",
+        "CC15",
+        "CC16",
+        "CC29",
+        "CC30",
+        "CC31",
+        "CC33"
+      ],
+      "work": "Bind existing source/normal/quota/regression evidence, execute still-missing control/peer/protocol/identity variants and delayedCLEAN Java-spawn fence, then complete final inventory/two-build binder.",
+      "production_change": "Mostly executable verifier and evidence assembly; no claim that partial coverage closes these entire IDs."
+    }
+  ],
+  "smallest_verifier_architecture": [
+    "One frozen copied-install supervisor using current canonical bootstrap, pidfd ownership and immutable per-attempt reports.",
+    "One parameterized case table enumerating every subvariant from the33-case plan; explicit NOT_EXECUTED/BLOCKED statuses, no inferred PASS.",
+    "Three gate-only hook packs: durable/state transition barriers; real wire/control peer and owned process faults; independent PG metadata/resource/durable snapshots and private marker audit. No SQL-template overrides.",
+    "One final binder that checks exact source/tool/driver/fixture hashes, actual case/subcase completeness, allowed nondeterminism and two clean implementation builds; preserve existing failed runs and r6 selector-hash caveat."
+  ],
+  "next_slice": {
+    "first": "Complete fresh isolated fullPython/52SQL/backup/HTTP/restart regression on exact repaired bytes; preserve r11 unchanged.",
+    "then": "Owned localdev DEFAULT proxy/Spring refresh, privatebackup and exact userdata invariance; unchanged PostgreSQL incarnation. This is local restoration, not production certification.",
+    "following": "Freeze actual CC08 statement57014, CC10 idle25P03, CC17 held observation beyond2.5s with3cleanup attempts + BOUNDcontext/BOUNDobserver death/restart anchors; then expand each declared phase and all33 subvariants."
+  },
+  "urgent_blockers": [
+    {
+      "kind": "CONFIRMED_BUDGET_DEFECT_STAGED_REPAIR_PASS",
+      "detail": "Original reproduced lateCLEAN2.854630828s; staged clamp/recheck passes82focusedtests and real-delay fixture. Pending complete fresh regression and active localdev refresh."
+    },
+    {
+      "kind": "EXPLICIT_DESIGN_AVAILABILITY_GAP",
+      "detail": "Pre-key crash may retain UNKNOWN indefinitely. Finite fail-closed safety tests cannot close prompt automatic restart availability; a stronger mechanism requires separate reviewed contract/Lean/council if that gate must be fulfilled."
+    },
+    {
+      "kind": "CONSERVATIVE_AVAILABILITY_LIMIT",
+      "detail": "Observer loss or UNKNOWN makes readiness DEGRADED; observer_attempted prevents same-manager automatic replacement. Restart can reconcile complete identity. Do not market automatic recovery as implemented."
+    }
+  ],
+  "source_sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4",
+  "frozen_references": [
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-test-plan.json",
+      "sha256": "22c95620d15ec14a44efa464b7faca97845a0dfeab7aa1ca3563aca0636c7e3b"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/readiness-report-r2.json",
+      "sha256": "c67dc131cc244c2ff9e3a558cd5b04edaea6ee7e9ec544f0eee249258035d363"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/case-readiness-r2.json",
+      "sha256": "c21c48312d21e7d476536fd34dbab2dff4136052283152ede8962e4597e342af"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r1/report.json",
+      "sha256": "91a18dbf1354d6f81ae7b564c06b1703aed99e30573b6d3d50eb8e3ef68ff447"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-r2/report.json",
+      "sha256": "c19c98069f167859bd34fbb36ed7dee0d6293a22b04ea48393f8ed5344a80dd3"
+    },
+    {
+      "path": "gates/document/context-cleanup-candidate/runtime-experiments/observation-deadline-focused-r2/report.json",
+      "sha256": "53cad188906888cfb9153b4181e233aa0c15afa909fec0cbd7893fec5025fd5e"
+    }
+  ],
+  "repair": {
+    "scope": "Strict existing2.5s observation deadline; no SQL/constants/Java change. Staged only at audit creation.",
+    "changed_files": [
+      {
+        "path": "/tmp/allow-cc-deadline-oatuhlyh/retrieval/allow_retrieval/sql_context_lease.py",
+        "sha256": "7f427f2c0705f61c24c3912c2aa9c10edc2a0f2aada26f8b2a1b0b9e7ad1abc4"
+      },
+      {
+        "path": "/tmp/allow-cc-deadline-oatuhlyh/retrieval/tests/test_context_leases.py",
+        "sha256": "bbf913c5ef92785174968dbf011c0c8d6d89934f78d3dcd32ec7f00709e0655f"
+      }
+    ],
+    "focused_test_count": 82,
+    "new_boundary_tests": 8,
+    "real_async_result": "UNKNOWN at2.501957693s; no lateCLEAN; scheduler overhead is not counted as accepted observation",
+    "evidence_boundary": "Synthetic metadata, real asyncio timer; not PostgreSQL identity/kernel absence proof. Full33 remains BLOCKED."
+  },
+  "evidence_only_vs_unavailable_behavior": {
+    "evidence_only": "Remaining33case safety verifier: exact source/tool/phase/peer/wire/slot/privacy/crash/restart subvariants with independently checked absence and durable invariance. Current claims stay BLOCKED until actual execution+finalbinder.",
+    "unavailable_behavior": [
+      "Prompt automatic recovery of pre-key ambiguous backend ownership remainsOPEN; cannot be obtained by relabeling UNKNOWN safety evidence.",
+      "Same-manager automatic observer replacement after failure is intentionally unavailable; readiness degrades and restart reconciliation requires complete identity."
+    ],
+    "new_design_required_only_if": "Product gate demands prompt automatic pre-key or observer recovery; then propose reviewed crash-containment contract/Lean and implementation separately. No unreviewed PID-only termination or same-process reuse."
+  }
+}

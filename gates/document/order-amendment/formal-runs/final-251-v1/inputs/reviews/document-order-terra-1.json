@@ -1,0 +1,21 @@
+{
+  "reviewer": "Terra council seat 1",
+  "review_type": "FIELD_ORDER_AMENDMENT_REVIEW",
+  "decision": "APPROVE_GAMEPLAN",
+  "input_hashes": {
+    "spec/document-field-order.json": "9943997f71d63e9f4666b80299b3d25bcb3d5237e5aea673bbc7b3bbb6115870",
+    "gates/document/order-amendment/FieldOrder.lean": "6bebf364f90286cbea205d488073cef5bb1bfda099b138e7c41b699be5b9e3a0",
+    "gates/document/order-amendment/types.json": "8bd4640dc2b7cf0a178a08b5de02e9f20cdaf7a0d128471202711833f9e14563"
+  },
+  "checker_pre_guard": {
+    "path": "backend/src/main/java/dev/allow/document/ModuleChecker.java",
+    "sha256": "71a6d42375a4a2e6067d45ea81288e7d088ed796ccb8f8b6a05a0840bf1cab77"
+  },
+  "resolution": [
+    "The previous all-result guard is replaced with OrderRequired, which checks CandidateOrder only on accepted and unknown-applied-success results. Existing receipt replay, changed-wire collision and authorization denial are represented without candidate validation.",
+    "Universal guarded admitted replay/collision/authorization-denial propositions and concrete replay/collision witnesses use an unordered candidate while decoder, parser and checked-frame adapters are unavailable. Successful and unknown-applied-success block artifacts retain their field-order obligations.",
+    "Grouping by signature order preserves each owner subsequence and gives a deterministic order consistent with nested Alloy field declarations. A node registry permutation remains an adapter/round-trip test requirement rather than an asserted Lean theorem."
+  ],
+  "verification": "Exact spec, Lean and registry hashes checked; one preliminary isolated clean workspace built and all 14 exact #check types extracted. Six final approvals and two registered clean builds remain required before guard implementation. 112 inherited + 125 document + 14 amendment gives 251 registered propositions.",
+  "scope_limit": "Gameplan approval only; no runtime, parser or Java/TypeScript refinement, accessibility, G2/G3 or commercial clearance."
+}

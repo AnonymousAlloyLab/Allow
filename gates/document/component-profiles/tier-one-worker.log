@@ -1,0 +1,11 @@
+PROFILE_MS=22.031518,0.539935,178.502252,201.073705 OUTPUT_BYTES=257511
+PROFILE_MS=21.045059,0.517484,179.623973,201.186516 OUTPUT_BYTES=257511
+PROFILE_MS=20.145501,0.712387,181.822732,202.68062 OUTPUT_BYTES=257511
+PROFILE_MS=21.082649,0.528655,179.510701,201.122005 OUTPUT_BYTES=257511
+PROFILE_MS=20.102331,0.499394,180.828353,201.430078 OUTPUT_BYTES=257511
+Warning:
+unchecked cast
+  required: java.util.List<java.lang.String>
+  found:    java.lang.Object
+  var args=new ArrayList<String>((List<String>)command.invoke(launcher,Path.of("backend/target/solver/alloy.jar").toAbsolutePath()));
+                                               ^----------------------------------------------------------------------------------^

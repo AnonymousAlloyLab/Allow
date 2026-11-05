@@ -1,0 +1,12 @@
+formal/Allow/SecurityDrag.lean:35:44: error: unsolved goals
+r : Http
+⊢ r.method = Method.get ∨ r.method = Method.head →
+    ((r.path = PathClass.root ∨ r.path = PathClass.index) ∨ r.path = PathClass.approvedAsset ↔
+      r.path = PathClass.root ∨ r.path = PathClass.index ∨ r.path = PathClass.approvedAsset)
+formal/Allow/SecurityDrag.lean:39:2: error: Type mismatch: After simplification, term
+  pass
+ has type
+  (¬r.path = PathClass.alias ∧ r.exactHostOrigin = true) ∧ r.bearer = Bearer.exactValid
+but is expected to have type
+  r.bearer = Bearer.exactValid
+formal/Allow/SecurityDrag.lean:102:32: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`

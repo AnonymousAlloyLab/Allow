@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "inputs": [
+    {
+      "path": "scripts/package_iis.py",
+      "sha256": "a5a294d80eea2876a21d3fba6c3f698f618150e6d1455c816d72d424e1bb3014"
+    },
+    {
+      "path": "deploy/configure.py",
+      "sha256": "e6fe088037d3ea611e71f9fba3ea3b23d83f9cc01a6881d5c65096fe952a8ba4"
+    },
+    {
+      "path": "deploy/test_configure.py",
+      "sha256": "9080fb1257767b56837520208ba5b0701cc141c32afe6e6edd7b06bf83f039ef"
+    },
+    {
+      "path": "deploy/linux/public_guard.py",
+      "sha256": "34ca0ee897616276fe6ff685f903d2711bcdbf355e25e938902bc0cadb28ffab"
+    },
+    {
+      "path": "deploy/linux/check_public.py",
+      "sha256": "52264509fb37c0bc6322b3b259d23329cd442fe045ac6c1b2bf52bbc74e7c625"
+    },
+    {
+      "path": "deploy/linux/trust.py",
+      "sha256": "121751fbfb66fabd96d20a3b015b6421f05f8d656afc87be272d7920fbd2ece7"
+    },
+    {
+      "path": "deploy/linux/setup.py",
+      "sha256": "871b86997835c0e3b82bdd475b6ffb9041d795167a3a66dca5108a9eed6d71b4"
+    },
+    {
+      "path": "deploy/linux/service.py",
+      "sha256": "5bf071b90037c315a708b9246bcca2c082925ad60d1ec820dc91497e58856a28"
+    },
+    {
+      "path": "deploy/linux/wsl_keepalive.py",
+      "sha256": "7da5882434082a1d1e980f9415a6b52d72d6ab88486d3bc1061df8146ddd3886"
+    },
+    {
+      "path": "deploy/linux/test_public_guard.py",
+      "sha256": "fe216cf2d46fc274976b740994a4fc1e36bf47a620946f149df06cf98cee6fcc"
+    },
+    {
+      "path": "deploy/linux/test_deployment.py",
+      "sha256": "9ee09bea61c1af448dad45a0a12e2ee0065f52e7f7d7db532857334e83c06dfc"
+    },
+    {
+      "path": "deploy/windows/Start-Wsl.ps1",
+      "sha256": "0b0d44c66f03433c1d7c2cb887c66701e904bb721226fedd668a7633272618dc"
+    },
+    {
+      "path": "deploy/windows/Test-Wsl.ps1",
+      "sha256": "3d8a31010103cb33f355f12ec38b38e508b1be5e24bfa069326533cb6769ccc8"
+    },
+    {
+      "path": "gates/deployment/cutover-v1/test-wsl-mocks.ps1",
+      "sha256": "b33cddf529d161e6102c450f87207bedf804ac062eac8cc8d6b7c3a1b040406d"
+    },
+    {
+      "path": "docs/staged-public-cutover.md",
+      "sha256": "1422fcff6eeb65981676dcb0e8e7f36ce1176dccbf8d24ba23da8f519db17e94"
+    }
+  ]
+}

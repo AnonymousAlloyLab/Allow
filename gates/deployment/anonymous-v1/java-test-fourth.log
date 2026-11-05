@@ -1,0 +1,26 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< dev.allow:allow-backend >-----------------------
+[INFO] Building allow-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (default) @ allow-backend ---
+[INFO] Starting audit...
+[ERROR] /tmp/allow-anonymous-build/backend/src/test/java/dev/allow/backend/PublicResponseTest.java:133:38: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+Audit done.
+[INFO] There is 1 error reported by Checkstyle 10.21.2 with /tmp/allow-anonymous-build/backend/../config/checkstyle.xml ruleset.
+[ERROR] src/test/java/dev/allow/backend/PublicResponseTest.java:[133,38] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.914 s
+[INFO] Finished at: 2026-11-04T15:37:12-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0:check (default) on project allow-backend: You have 1 Checkstyle violation. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

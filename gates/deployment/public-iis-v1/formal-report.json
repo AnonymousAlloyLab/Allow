@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "id": "allow-public-iis-staging-policy-v1",
+  "status": "POLICY_MODEL_PROVED",
+  "closure_status": "NOT_A_FULL_CLOSURE_RUN",
+  "review_date": "2026-11-04",
+  "contract": {
+    "path": "spec/public-iis-staging.json",
+    "sha256": "8715a796bbfa259e05485602b5b1ab0a78644d80f90f3de335de29852872ff96",
+    "seat": "Sol1",
+    "decision": "APPROVE"
+  },
+  "proof": {
+    "path": "formal/Allow/PublicIisStaging.lean",
+    "sha256": "2e303e548043a723df4ff3c8759ffa349bf9b73c1a981fae62c3bcd39174b249",
+    "theorem_count": 37,
+    "theorems": [
+      "Allow.PublicIisStaging.preflight_only_never_mutates",
+      "Allow.PublicIisStaging.failed_preflight_never_mutates",
+      "Allow.PublicIisStaging.mutation_requires_preflight",
+      "Allow.PublicIisStaging.unavailable_revocation_rejects",
+      "Allow.PublicIisStaging.untrusted_certificate_rejects",
+      "Allow.PublicIisStaging.binding_conflict_rejects",
+      "Allow.PublicIisStaging.stage_stays_stopped",
+      "Allow.PublicIisStaging.stage_has_sni_and_safe_logs",
+      "Allow.PublicIisStaging.staging_not_public_acceptance",
+      "Allow.PublicIisStaging.failed_preflight_state_unchanged",
+      "Allow.PublicIisStaging.preflight_only_state_unchanged",
+      "Allow.PublicIisStaging.successful_stage_stopped",
+      "Allow.PublicIisStaging.cleanup_requires_invocation_owner",
+      "Allow.PublicIisStaging.preexisting_resource_preserved",
+      "Allow.PublicIisStaging.uncertain_identity_preserved",
+      "Allow.PublicIisStaging.uncertain_cleanup_keeps_failure",
+      "Allow.PublicIisStaging.unresolved_target_never_exposed",
+      "Allow.PublicIisStaging.unresolved_audience_never_exposed",
+      "Allow.PublicIisStaging.missing_native_acceptance_never_exposed",
+      "Allow.PublicIisStaging.no_default_public_start",
+      "Allow.PublicIisStaging.finite_request_count",
+      "Allow.PublicIisStaging.real_authority_input_rejected",
+      "Allow.PublicIisStaging.tls_bypass_rejected",
+      "Allow.PublicIisStaging.redirect_fails",
+      "Allow.PublicIisStaging.body_overflow_fails",
+      "Allow.PublicIisStaging.timeout_fails",
+      "Allow.PublicIisStaging.missing_required_headers_fails",
+      "Allow.PublicIisStaging.wrong_status_fails",
+      "Allow.PublicIisStaging.incomplete_probe_fails",
+      "Allow.PublicIisStaging.passing_probe_has_exact_fixed_inventory",
+      "Allow.PublicIisStaging.evidence_independent_of_body_headers_secrets",
+      "Allow.PublicIisStaging.probe_success_not_acceptance",
+      "Allow.PublicIisStaging.preflight_positive",
+      "Allow.PublicIisStaging.stage_positive",
+      "Allow.PublicIisStaging.owned_cleanup_positive",
+      "Allow.PublicIisStaging.probe_positive",
+      "Allow.PublicIisStaging.separately_accepted_exposure_positive"
+    ]
+  },
+  "toolchain": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "builds": [
+    {
+      "directory": "gates/deployment/public-iis-v1/clean-1",
+      "source_sha256": "2e303e548043a723df4ff3c8759ffa349bf9b73c1a981fae62c3bcd39174b249",
+      "olean_sha256": "88d153f4eb7eac64264a19d196a0c9d99d1bc50eaf445ba09211eaa8183ba9bf",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_source_sha256": "481449ac2dfa0d62a7cbc35f68560066b89c72090b3f33aa6f10f8748e68999e",
+      "axiom_log_sha256": "abbbb4b3ec6d313cb76bf1bc2bb9090d282f4cad92a66a89453c111763e196e9"
+    },
+    {
+      "directory": "gates/deployment/public-iis-v1/clean-2",
+      "source_sha256": "2e303e548043a723df4ff3c8759ffa349bf9b73c1a981fae62c3bcd39174b249",
+      "olean_sha256": "88d153f4eb7eac64264a19d196a0c9d99d1bc50eaf445ba09211eaa8183ba9bf",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_source_sha256": "481449ac2dfa0d62a7cbc35f68560066b89c72090b3f33aa6f10f8748e68999e",
+      "axiom_log_sha256": "abbbb4b3ec6d313cb76bf1bc2bb9090d282f4cad92a66a89453c111763e196e9"
+    }
+  ],
+  "checks": {
+    "two_fresh_isolated_directories": true,
+    "matching_olean": true,
+    "matching_axiom_inventory": true,
+    "no_sorry_or_custom_axioms": true,
+    "positive_witnesses": true,
+    "probe_fixed_check_inventory": true
+  },
+  "axioms": {
+    "observed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "custom": [],
+    "sorryAx": false
+  },
+  "preserved_candidates": {
+    "failed": [
+      "gates/deployment/public-iis-v1/failed-candidate-1"
+    ],
+    "superseded": [
+      "gates/deployment/public-iis-v1/superseded-unlabelled-probe"
+    ]
+  },
+  "proved_scope": [
+    "preflight-only and failed-preflight actions never mutate modeled installation",
+    "mutation requires full preflight including fail-closed certificate/revocation and no binding conflict",
+    "successful staging keeps site stopped and autostart false with modeled SNI/log policy",
+    "staging never establishes public acceptance",
+    "cleanup requires invocation-created exact-identity nonpreexisting resource; uncertainty remains failure",
+    "public exposure requires resolved target audience native acceptance and intentional start/ingress",
+    "fixed eight-check sequential inventory required for passing probe",
+    "probe rejects real-bearer/launch input TLS bypass redirects timeout body overflow wrong status missing required headers and incomplete inventories",
+    "redacted evidence is independent of response bodies headers and secrets",
+    "successful probe never establishes deployment acceptance",
+    "positive preflight/staging/owned-cleanup/probe/separately-accepted-exposure witnesses"
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel and Std distribution",
+    "host compiler/runtime/filesystem executing Lean",
+    "SHA256 input binding",
+    "finite policy abstractions and human interpretation",
+    "concrete certificate/path/status/header/network observations supplied as model predicates require separate implementation tests"
+  ],
+  "excluded": [
+    "implementation correspondence/refinement",
+    "Windows PowerShell IIS HTTP.sys execution/security/atomicity",
+    "TLS cryptography OS ACLs and revocation availability",
+    "target/audience resolution",
+    "public deployment acceptance",
+    "licensing and artifact redistribution permission",
+    "production performance",
+    "full mechanical closure"
+  ],
+  "implementation_correspondence": "OPEN_SEPARATE_RUNTIME_SOURCE_TESTS_AND_NATIVE_WINDOWS_TARGET_EVIDENCE_REQUIRED"
+}

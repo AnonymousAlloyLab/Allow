@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "source": "User-supplied read-only WSL command output",
+  "independent_target_inspection": false,
+  "distribution": "Ubuntu-24.04",
+  "linux": {
+    "pid1": "systemd",
+    "architecture": "x86_64",
+    "kernel_release": "6.18.40.1-microsoft-standard-WSL2",
+    "command_paths": {
+      "java": "/usr/bin/java",
+      "bwrap": "/usr/bin/bwrap",
+      "prlimit": "/usr/bin/prlimit"
+    },
+    "python": "3.12.3",
+    "service_account": {
+      "name": "allow",
+      "uid": 999,
+      "gid": 989,
+      "home": "/opt/allow",
+      "shell": "/usr/sbin/nologin"
+    }
+  },
+  "service": {
+    "WorkingDirectory": "/opt/allow",
+    "User": "allow",
+    "Group": "allow",
+    "LoadState": "loaded",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/allow.service",
+    "UnitFileState": "enabled"
+  },
+  "deployment_effect": "Existing active installation; fresh initialization and overlay extraction are inappropriate until installed release and upgrade requirements are established",
+  "open": [
+    "Installed package manifest hash",
+    "Java version and installation ownership/mode",
+    "Actual bubblewrap namespace/cgroup/resource tests",
+    "Schema and active access/transport mode",
+    "Controlled existing-install upgrade and native IIS/TLS/restart acceptance"
+  ],
+  "remote_mutations": false,
+  "package_revision": "R4 unchanged; this is target evidence only"
+}

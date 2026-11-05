@@ -1,0 +1,60 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< dev.allow:allow-backend >-----------------------
+[INFO] Building allow-backend 0.1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- checkstyle:3.6.0:check (default) @ allow-backend ---
+[INFO] Starting audit...
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/AccessMode.java:16:23: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicController.java:41:44: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicController.java:76:63: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/AnonymousSessions.java:99:42: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/AnonymousSessions.java:124:31: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/AnonymousSessions.java:144:85: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/AnonymousSessions.java:156:96: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/AnonymousSessions.java:169:23: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/JobService.java:54:43: Expected @throws tag for 'RejectedExecutionException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/JobService.java:59:23: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/JobService.java:125:23: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/JobService.java:185:57: Expected @throws tag for 'IllegalArgumentException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/JobService.java:222:39: Expected @throws tag for 'RejectedExecutionException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicResponse.java:108:74: Expected @throws tag for 'IllegalStateException'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicAccess.java:89:23: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicAccess.java:112:23: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicAccess.java:156:52: Expected @throws tag for 'PublicFailure'. [JavadocMethod]
+[ERROR] /tmp/allow-anonymous-build/backend/src/main/java/dev/allow/backend/PublicWorkspace.java:97:38: Expected @throws tag for 'IllegalStateException'. [JavadocMethod]
+Audit done.
+[INFO] There are 18 errors reported by Checkstyle 10.21.2 with /tmp/allow-anonymous-build/backend/../config/checkstyle.xml ruleset.
+[ERROR] src/main/java/dev/allow/backend/AccessMode.java:[16,23] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[ERROR] src/main/java/dev/allow/backend/PublicController.java:[41,44] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/PublicController.java:[76,63] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/AnonymousSessions.java:[99,42] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/AnonymousSessions.java:[124,31] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/AnonymousSessions.java:[144,85] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[ERROR] src/main/java/dev/allow/backend/AnonymousSessions.java:[156,96] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[ERROR] src/main/java/dev/allow/backend/AnonymousSessions.java:[169,23] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/JobService.java:[54,43] (javadoc) JavadocMethod: Expected @throws tag for 'RejectedExecutionException'.
+[ERROR] src/main/java/dev/allow/backend/JobService.java:[59,23] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[ERROR] src/main/java/dev/allow/backend/JobService.java:[125,23] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[ERROR] src/main/java/dev/allow/backend/JobService.java:[185,57] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalArgumentException'.
+[ERROR] src/main/java/dev/allow/backend/JobService.java:[222,39] (javadoc) JavadocMethod: Expected @throws tag for 'RejectedExecutionException'.
+[ERROR] src/main/java/dev/allow/backend/PublicResponse.java:[108,74] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalStateException'.
+[ERROR] src/main/java/dev/allow/backend/PublicAccess.java:[89,23] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/PublicAccess.java:[112,23] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/PublicAccess.java:[156,52] (javadoc) JavadocMethod: Expected @throws tag for 'PublicFailure'.
+[ERROR] src/main/java/dev/allow/backend/PublicWorkspace.java:[97,38] (javadoc) JavadocMethod: Expected @throws tag for 'IllegalStateException'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.309 s
+[INFO] Finished at: 2026-11-04T15:29:57-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.6.0:check (default) on project allow-backend: You have 18 Checkstyle violations. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,242 @@
+Browser tab: 2, Title: "Allow · Alloy workbench", URL: "http://127.0.0.1:18084/".
+0 AXWebArea Allow · Alloy workbench, URL: 127.0.0.1:18084/
+	1 container root
+		2 container Workspace sections
+			3 link Description: Editor, Value: 127.0.0.1:18084/#editor
+			4 link Description: Predicate library, Value: 127.0.0.1:18084/#predicate-library
+		5 container
+			6 heading Allow, Value: 1
+				7 text Allow
+			8 text Build an Alloy model with blocks, edit its source, and explore examples.
+			9 text Draft checked. Your saved version is unchanged.
+			10 container Documents
+				11 container
+					12 text New model name
+					13 text field (settable) New model name, Value: Untitled model
+				14 button Create model
+				15 container
+					16 text Your models
+					17 pop up button (collapsed, settable) Your models, Value: Block canvas acceptance, Secondary Actions: Expand
+						18 menu
+							19 Choose explicitly
+							36 Deployment smoke
+							37 Visual block acceptance
+							38 (selected) Block canvas acceptance
+							39 Typed blocks — browser check
+				20 button Open and discard unsaved changes
+				21 button Refresh
+			40 container Draft acceptance
+				41 text Unsaved changes
+				42 button Check model
+				43 button Save version
+				44 button (collapsed) Save details, Secondary Actions: Expand
+					45 text Save details
+			46 container Declaration editors
+				47 heading Declarations, Value: 2
+					48 text Declarations
+				49 button Add signature
+					50 text Add 
+					51 text signature
+				52 button Add field
+					53 text Add 
+					54 text field
+				55 button Add predicate
+					56 text Add 
+					57 text predicate
+				58 button Add fact
+					59 text Add 
+					60 text fact
+				61 button Add assertion
+					62 text Add 
+					63 text assertion
+				64 button Add run
+					65 text Add 
+					66 text run
+				67 button Add check
+					68 text Add 
+					69 text check
+				70 container signature
+					71 text signature
+					72 container
+						73 text Name
+						74 text field (settable) Name, Value: Person
+					75 container
+						76 text Multiplicity
+						77 pop up button (collapsed, settable) Multiplicity, Value: set, Secondary Actions: Expand
+							78 menu
+								79 Choose explicitly
+								80 (selected) set
+								81 one
+								82 lone
+								83 some
+					84 button Delete signature
+						85 text Delete 
+						86 text signature
+					87 button (collapsed) Declaration identity, Secondary Actions: Expand
+						88 text Declaration identity
+				89 container predicate
+					90 text predicate
+					91 container
+						92 text Name
+						93 text field (settable) Name, Value: Present
+					94 container Ordered set-valued parameters
+						95 text Ordered set-valued parameters
+						96 button Add parameter
+					97 button Select predicate body
+						98 text Select 
+						99 text predicate
+						100 text  body
+					101 button Delete predicate
+						102 text Delete 
+						103 text predicate
+					104 button (collapsed) Declaration identity, Secondary Actions: Expand
+						105 text Declaration identity
+				106 container predicate
+					107 text predicate
+					108 container
+						109 text Name
+						110 text field (settable) Name, Value: AlsoPresent
+					111 container Ordered set-valued parameters
+						112 text Ordered set-valued parameters
+						113 button Add parameter
+					114 button Select predicate body
+						115 text Select 
+						116 text predicate
+						117 text  body
+					118 button Delete predicate
+						119 text Delete 
+						120 text predicate
+					121 button (collapsed) Declaration identity, Secondary Actions: Expand
+						122 text Declaration identity
+			123 container Typed block editor
+				124 heading Typed blocks, Value: 2
+					125 text Typed blocks
+				126 container Complete expression palette
+					127 text Complete expression palette
+					128 container
+						129 text Declaration or in-scope variable
+						130 pop up button (collapsed, settable) Declaration or in-scope variable, Value: Signature Person, Secondary Actions: Expand
+							131 menu
+								132 Choose explicitly
+								133 (selected) Signature Person
+								134 Predicate Present
+								135 Predicate AlsoPresent
+					136 container
+						137 text Quantifier variable name
+						138 text field (settable) Quantifier variable name, Value: variable
+					139 container
+						140 text Expected destination:  nonempty relation schema
+					141 content list In-scope variables
+					142 heading REFERENCES, Value: 4
+						143 text REFERENCES
+					144 button Signature
+					145 button Field
+					146 button Variable
+					147 button Call predicate
+					148 heading FORMULA, Value: 4
+						149 text FORMULA
+					150 button Not
+					151 button Some tuples
+					152 button No tuples
+					153 button Exactly one tuple
+					154 button At most one tuple
+					155 button And
+					156 button Or
+					157 button Implies
+					158 button If and only if
+					159 button Equals
+					160 button Subset
+					161 heading RELATIONS, Value: 4
+						162 text RELATIONS
+					163 button Transpose
+					164 button Union
+					165 button Intersection
+					166 button Difference
+					167 button Join
+					168 button Product
+					169 heading QUANTIFIERS, Value: 4
+						170 text QUANTIFIERS
+					171 button For every variable
+					172 button For some variable
+				173 button Copy (Ctrl/Cmd+C)
+				174 button Cut (Ctrl/Cmd+X)
+				175 button Paste (Ctrl/Cmd+V)
+				176 button Delete selected
+				177 text Drag an existing block to move; Ctrl/Cmd-drag copies. Selection preserves clipboard content identity.
+				178 text Drag a block to a typed slot, or select a slot and choose a block.
+				179 container Owned expression forest
+					180 heading predicate Present, Value: 3
+						181 text predicate Present
+					182 container
+						183 checkbox Some tuples · formula, Value: 0, ID: block-server:a6649512-f747-4064-a9f4-9ea2235f92d6
+							184 text Some tuples
+							185 text ·
+							186 text formula
+						187 container constraint-server:a6649512-f747-4064-a9f4-9ea2235f92d6
+							188 text Expected:  formula
+						234 checkbox Signature · Person · Person, Value: 1, ID: block-draft:2014ad5b-0c00-4115-8831-155fa8e9d594
+							235 text Signature · Person
+							236 text ·
+							237 text Person
+						238 container constraint-draft:2014ad5b-0c00-4115-8831-155fa8e9d594
+							239 text Expected:  nonempty relation schema
+					195 heading predicate AlsoPresent, Value: 3
+						196 text predicate AlsoPresent
+					197 container
+						198 checkbox Some tuples · formula, Value: 0, ID: block-server:455701d0-a3c4-4a91-b272-060ce33d2728
+							199 text Some tuples
+							200 text ·
+							201 text formula
+						202 container constraint-server:455701d0-a3c4-4a91-b272-060ce33d2728
+							203 text Expected:  formula
+						204 checkbox Signature · Person · Person, Value: 0, ID: block-server:1e15d707-561c-4185-bcdc-3eb46317ae2e
+							205 text Signature · Person
+							206 text ·
+							207 text Person
+						208 container constraint-server:1e15d707-561c-4185-bcdc-3eb46317ae2e
+							209 text Expected:  nonempty relation schema
+			210 container Source and accepted artifact
+				211 heading Alloy source, Value: 2
+					212 text Alloy source
+				213 text Live block preview.
+				214 container
+					215 text Source
+					216 text entry area (settable) Source, ID: document-source-draft, Value: sig Person {
+
+}
+pred Present[] { (some (Person)) }
+pred AlsoPresent[] { (some (Person)) }
+
+				217 container Explore this model
+					218 text Explore this model
+					219 container
+						220 text Command
+						221 pop up button (collapsed, settable) Command, Value: Choose explicitly, Secondary Actions: Expand
+							222 menu
+								223 (selected) Choose explicitly
+					224 button (disabled) Run analysis
+					225 text Save your changes before analyzing this model.
+				226 button (collapsed) Saved source and provenance · version 2, Secondary Actions: Expand
+					227 text Saved source and provenance · version 
+					228 text 2
+			229 container Draft diagnostics
+				230 heading Specific diagnostics, Value: 2
+					231 text Specific diagnostics
+			232 button (collapsed) Version history and provenance, Secondary Actions: Expand
+				233 text Version history and provenance
+		22 container Description: Private predicate retrieval, ID: predicate-library
+			23 container Predicate corpus
+				24 text 04
+				25 heading Predicate corpus, Value: 2, ID: corpus-title
+					26 text Predicate corpus
+				27 text LOCAL RETRIEVAL
+				28 text Explore anonymous predicates with checked e-graph representatives and both witness polarities.
+				29 button Load corpus
+				30 text Query predicate
+				31 pop up button (disabled, collapsed, settable) Query predicate, Value: Load eligible records, ID: corpus-record, Secondary Actions: Expand
+					32 menu
+						33 (disabled) Load eligible records
+				34 button (disabled) Find related predicates
+				35 text Browse locally stored predicates and their example pools.
+
+The focused UI element is 234 checkbox Signature · Person · Person, Value: 1, ID: block-draft:2014ad5b-0c00-4115-8831-155fa8e9d594

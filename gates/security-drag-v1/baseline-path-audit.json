@@ -1,0 +1,14 @@
+{
+  "scope": "Unauthenticated raw HTTP against isolated current compiled backend; no corpus configured",
+  "results": {
+    "/api/config": "HTTP/1.1 403 ",
+    "/%61pi/config": "HTTP/1.1 200 ",
+    "/api;ignored/config": "HTTP/1.1 200 ",
+    "//api/config": "HTTP/1.1 404 ",
+    "/%61pi/jobs": "HTTP/1.1 405 ",
+    "/api/../api/config": "HTTP/1.1 403 ",
+    "/assets/../api/config": "HTTP/1.1 404 ",
+    "/assets/%2e%2e/api/config": "HTTP/1.1 404 "
+  },
+  "filter_sha256": "27bcba9be5837e86c006868d495c3104bd13d8f7828ffab1771c9e04857e2688"
+}

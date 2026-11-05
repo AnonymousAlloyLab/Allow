@@ -1,0 +1,46 @@
+{
+  "contract": "spec/staged-public-cutover.json",
+  "sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121",
+  "status": "APPROVED_FOR_IMPLEMENTATION_AFTER_LEAN",
+  "reviews": [
+    {
+      "seat": "iis_terra_1",
+      "requested_model": "gpt-6.1-terra",
+      "decision": "APPROVE",
+      "contract_sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    },
+    {
+      "seat": "cutover_terra_2",
+      "requested_model": "gpt-6.1-terra",
+      "decision": "APPROVE",
+      "contract_sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    },
+    {
+      "seat": "iis_sol_1",
+      "requested_model": "gpt-6.1-sol",
+      "decision": "APPROVE",
+      "contract_sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    },
+    {
+      "seat": "iis_sol_2",
+      "requested_model": "gpt-6.1-sol",
+      "decision": "APPROVE",
+      "contract_sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    },
+    {
+      "seat": "cutover_astra_1",
+      "requested_model": "gpt-6-astra",
+      "decision": "APPROVE",
+      "contract_sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    },
+    {
+      "seat": "cutover_astra_2",
+      "requested_model": "gpt-6-astra",
+      "decision": "APPROVE",
+      "contract_sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    }
+  ],
+  "scope": "Finite policy gameplan only; actual target, implementation correspondence, rollback evidence, licensing and commercialization remain separate",
+  "refinement": "Terra2 blocked original Conflicts dependency because systemd could stop legacy before guard; final contract removes implicit old-service effects and checks before supported start transaction",
+  "formal_report_sha256": "2553b33bf3d51b322d0d50966b5222c5071b4f6fa71032f61a73b520eee64e61"
+}

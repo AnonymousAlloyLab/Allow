@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "scope": "Unauthenticated HTTPS boundary probe only",
+  "status": "FAIL",
+  "checks": [
+    {
+      "check": "root_html",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 35.33,
+      "error": "network"
+    },
+    {
+      "check": "absent_bearer",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 33.58,
+      "error": "network"
+    },
+    {
+      "check": "invalid_bearer",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 36.59,
+      "error": "network"
+    },
+    {
+      "check": "hostile_origin",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 35.26,
+      "error": "network"
+    },
+    {
+      "check": "hostile_host",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 36.64,
+      "error": "network"
+    },
+    {
+      "check": "forwarded",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 34.99,
+      "error": "network"
+    },
+    {
+      "check": "encoded_alias",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 34.87,
+      "error": "network"
+    },
+    {
+      "check": "matrix_alias",
+      "status": null,
+      "passed": false,
+      "elapsed_ms": 33.71,
+      "error": "network"
+    }
+  ],
+  "public_deployment_acceptance": "OPEN"
+}

@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "id": "allow-security-and-visual-drag-v1",
+  "recorded_at": "2026-11-04T20:29:21.270863+00:00",
+  "status": "SCOPED_IMPLEMENTATION_VALIDATED_WITH_OPEN_ACCEPTANCE",
+  "contract": {
+    "path": "spec/security-drag.json",
+    "sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+  },
+  "council": {
+    "path": "gates/security-drag-v1/council-disposition.json",
+    "sha256": "9d2ca3080f28e683cd90eed1dc42ace9b051b4ce6d1cf0d97f20ae6aa726e5af",
+    "seats": "2 GPT-6.1 Terra, 2 GPT-6.1 Sol, 2 GPT-6 Astra",
+    "decision": "APPROVED_REFINED_CONTRACT_BEFORE_CORRESPONDING_PRODUCTION_PATCH"
+  },
+  "formal": {
+    "path": "gates/security-drag-v1/formal-report.json",
+    "sha256": "d3831510fb55018311cafead241596de7f72a12b04baac18229271d9fac30078",
+    "theorems": 47,
+    "clean_builds": 2,
+    "scope": "Finite policy model only; no implementation refinement or production security proof"
+  },
+  "sources": {
+    "manifest": "gates/security-drag-v1/source-inputs.json",
+    "sha256": "d0da959652278d585657972c356ae9d577bd3bba08d1f4071d9bd43e98d4f9ee",
+    "backend_frontend_isolated_copies_identical": true
+  },
+  "tests": {
+    "java": {
+      "passed": 314,
+      "log": "java-test-final.log"
+    },
+    "frontend": {
+      "passed": 169,
+      "log": "frontend-test-final.log"
+    },
+    "deployment_python": {
+      "passed": 22,
+      "log": "deployment-test.log"
+    },
+    "typescript_build": "frontend-build-final.log",
+    "style": {
+      "files": 278,
+      "callables": 2815,
+      "violations": 0,
+      "log": "style-final.log"
+    }
+  },
+  "security_findings_resolved": [
+    "Default bearer authorization closes raw-prefix encoded and matrix route bypasses; narrow uppercase%3A and literal server:UUID compatibility remains authenticated",
+    "Verified source-only isolated Python entry rejects shadow modules, timestamp/unchecked bytecode and extra installed inputs",
+    "Fresh provisioning refuses existing generated tools/runtime; protected ownership and private authority paths",
+    "Lifetime deployment flock prevents rejected competitors from changing tokens or stopping the owner SQL stack",
+    "Sanitized Java/Bubblewrap preflight prevents ambient JVM option agents",
+    "Owned drag nonce/current-generation/destination/type checks and atomic rejection"
+  ],
+  "package": {
+    "package": "/home/augustus/Allow/dist/allow-iis-linux-private-20261104-r6.zip",
+    "sha256": "836aa75c50250a3167b9838f1b2674d2cbf967c904538a00746ccd0c73b40c3a",
+    "files": 278,
+    "bytes": 75794936
+  },
+  "package_audit": "package-audit-final.json",
+  "linux_smoke": "smoke-r6/report.json",
+  "fresh_setup": "setup-r6-result.json",
+  "sql_route": "SQLEAN_PROXY; no direct SQL test access",
+  "browser": {
+    "status": "PARTIAL_NATIVE_ACCEPTANCE",
+    "surface": "Actual in-app browser, isolated loopback server18084, synthetic disposable store; DEFAULT validation profile. Separate package smoke verifies deployed advisoryTier1.",
+    "passed": [
+      "Create/open/save/reopen through encoded document routes",
+      "Build Some(Person) from declaration and expression controls; live Alloy projection",
+      "Explicit subtree copy/paste with destination type checks",
+      "Keyboard activation of Save version and Escape cancellation",
+      "Native reference palette insertion into compatible relation destination (R6)",
+      "Native relation-to-formula move rejected; AX diff changed only notice (R6)",
+      "Native reference palette drop filled an unresolved relation hole; validation/save controls became enabled (R6)"
+    ],
+    "open": [
+      "Full native Boolean constructor, modified copy/move and cancellation gesture matrix; some attempts cancelled or browser tool returned No node found at given location",
+      "Narrow viewport and full keyboard shortcut acceptance; browser virtual clipboard intercepted Ctrl+V",
+      "Firefox ESR/Orca and touchscreen acceptance"
+    ],
+    "synthetic_drag_events_used": false,
+    "screenshots": [
+      "editor-desktop.png",
+      "editor-full-page.png",
+      "editor-typed-hole.png"
+    ],
+    "evidence": [
+      "browser-compatible-reference-final.txt",
+      "browser-rejected-drag-final.txt",
+      "browser-typed-hole-insertion.txt"
+    ],
+    "owned_test_stack_shutdown": "PASS"
+  },
+  "historical_failures_preserved": [
+    "candidate-1 contains initial all-encoding rejection contract/proof and browser server:UUID reopen regression; R2 is not a deployment candidate",
+    "Earlier isolated full Java rerun omitted fixture; failure preserved and corrected full314run passes",
+    "Two R4 shell sessions exited143 with unresolved cause; roots/logs preserved. Separate fresh R4c, R5 and R6 runs captured child/parent0."
+  ],
+  "open_acceptance": [
+    "Actual Windows IIS/ARR/SSH/TLS route",
+    "4vCPU/8GiB target host sustained load/security/performance",
+    "Remaining native browser/accessibility matrix",
+    "Dataset/dependency rights, customer pilot and support economics; commercial release remains NO_GO"
+  ],
+  "proof_claim": "NOT_A_FULL_MECHANICAL_CLOSURE_RUN",
+  "live_production_installation_changed": false,
+  "evidence_sha256": {
+    "java-test-final.log": "cdae15944bd5c8878d6699ed6b0babd34683edbdc6ddff5db5e27b2d9d0e9754",
+    "frontend-test-final.log": "aed5f093fbe21160ba022a57b94332d05aa120f0ed7dfb571386810d608f55c2",
+    "deployment-test.log": "f90b7be5daed9ddae1ceee9fb46bc7748466a03e116ec28c0887d4a99bb612e1",
+    "frontend-build-final.log": "24fe9a4a9bdd252a9fc63941bfbd494709dcd5a66e61be94a35d4717ddeae8d4",
+    "style-final.log": "58896a71a506098ccca70e1955893aa00de33fcaf6b2c09ae9a90f6f8016af5f",
+    "editor-desktop.png": "11cb78e304e6fd4d5f5345878ffda8c81ab0980855dc922d2001cf5d833801eb",
+    "editor-full-page.png": "6bc393950e00d3855e7f0d730648e595d984ffe609b794bd3605cec69150630b",
+    "editor-typed-hole.png": "1c57a717725e6310eda68ed98699cd831797bd67c8645c9797c246f06d53388f",
+    "browser-compatible-reference-final.txt": "2fc2e2e06c79b8e08cefbc7054ae1e60b31d40d8d1f35613f6e7da811bdbec48",
+    "browser-rejected-drag-final.txt": "8d2283c78c49e38939c755655f96ddbf8d67128987b2bfac1c529c55565bc3d5",
+    "browser-typed-hole-insertion.txt": "334e4a3301e68a0373c772ecad0798df88cb4efd9f3b0e96bfb4340ba8ae7e74"
+  }
+}

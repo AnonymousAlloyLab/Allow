@@ -7,6 +7,7 @@ from pathlib import Path
 import os
 import re
 import zipfile
+import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN = {'.runtime', '.git', '__pycache__', 'node_modules', 'retrieval-venv',
@@ -22,6 +23,18 @@ FIXED = (
     'formal/Allow/IisDeployment.lean',
     'gates/deployment/iis-v1/council-disposition.json',
     'gates/deployment/iis-v1/formal-report.json',
+    'spec/security-drag.json', 'formal/Allow/SecurityDrag.lean',
+    'gates/security-drag-v1/council-disposition.json',
+    'gates/security-drag-v1/formal-report.json',
+    'spec/public-iis-staging.json', 'formal/Allow/PublicIisStaging.lean',
+    'gates/deployment/public-iis-v1/council-disposition.json',
+    'gates/deployment/public-iis-v1/formal-report.json',
+    'spec/anonymous-workspaces.json', 'formal/Allow/AnonymousWorkspaces.lean',
+    'gates/deployment/anonymous-v1/council-disposition.json',
+    'gates/deployment/anonymous-v1/formal-report.json', 'docs/wsl-anonymous-deployment.md',
+    'spec/staged-public-cutover.json', 'formal/Allow/StagedPublicCutover.lean',
+    'gates/deployment/cutover-v1/council-disposition.json',
+    'gates/deployment/cutover-v1/formal-report.json', 'docs/staged-public-cutover.md',
 )
 
 
@@ -55,11 +68,12 @@ def collect(root, target, frontend):
     for name in FIXED:
         add(name, root / name)
     add('README.md', root / 'deploy/README.md')
-    module_names = ('retrieval/allow_documents/__init__.py', 'retrieval/allow_documents/cli.py', 'retrieval/allow_documents/context_lease.py', 'retrieval/allow_documents/identifiers.py', 'retrieval/allow_documents/identity.py', 'retrieval/allow_documents/migration.py', 'retrieval/allow_documents/store.py', 'retrieval/allow_documents/wire.py', 'retrieval/allow_retrieval/__init__.py', 'retrieval/allow_retrieval/cli.py', 'retrieval/allow_retrieval/common.py', 'retrieval/allow_retrieval/corpus.py', 'retrieval/allow_retrieval/database.py', 'retrieval/allow_retrieval/embedding.py', 'retrieval/allow_retrieval/evaluation.py', 'retrieval/allow_retrieval/importer.py', 'retrieval/allow_retrieval/journal.py', 'retrieval/allow_retrieval/manage.py', 'retrieval/allow_retrieval/migration.py', 'retrieval/allow_retrieval/promotion.py', 'retrieval/allow_retrieval/rag.py', 'retrieval/allow_retrieval/ranking.py', 'retrieval/allow_retrieval/sql_connections.py', 'retrieval/allow_retrieval/sql_context_control.py', 'retrieval/allow_retrieval/sql_context_identity.py', 'retrieval/allow_retrieval/sql_context_journal.py', 'retrieval/allow_retrieval/sql_context_lease.py', 'retrieval/allow_retrieval/sql_context_observer.py', 'retrieval/allow_retrieval/sql_context_protocol.py', 'retrieval/allow_retrieval/sql_guard.py', 'retrieval/allow_retrieval/sql_image.py', 'retrieval/allow_retrieval/sql_image_config.py', 'retrieval/allow_retrieval/sql_image_init.py', 'retrieval/allow_retrieval/sql_inventory.py', 'retrieval/allow_retrieval/sql_proxy.py', 'retrieval/allow_retrieval/training.py')
+    module_names = ('retrieval/allow_documents/lifecycle.py', 'retrieval/allow_documents/__init__.py', 'retrieval/allow_documents/cli.py', 'retrieval/allow_documents/context_lease.py', 'retrieval/allow_documents/identifiers.py', 'retrieval/allow_documents/identity.py', 'retrieval/allow_documents/migration.py', 'retrieval/allow_documents/store.py', 'retrieval/allow_documents/wire.py', 'retrieval/allow_retrieval/__init__.py', 'retrieval/allow_retrieval/cli.py', 'retrieval/allow_retrieval/common.py', 'retrieval/allow_retrieval/corpus.py', 'retrieval/allow_retrieval/database.py', 'retrieval/allow_retrieval/embedding.py', 'retrieval/allow_retrieval/evaluation.py', 'retrieval/allow_retrieval/importer.py', 'retrieval/allow_retrieval/journal.py', 'retrieval/allow_retrieval/manage.py', 'retrieval/allow_retrieval/migration.py', 'retrieval/allow_retrieval/promotion.py', 'retrieval/allow_retrieval/rag.py', 'retrieval/allow_retrieval/ranking.py', 'retrieval/allow_retrieval/sql_connections.py', 'retrieval/allow_retrieval/sql_context_control.py', 'retrieval/allow_retrieval/sql_context_identity.py', 'retrieval/allow_retrieval/sql_context_journal.py', 'retrieval/allow_retrieval/sql_context_lease.py', 'retrieval/allow_retrieval/sql_context_observer.py', 'retrieval/allow_retrieval/sql_context_protocol.py', 'retrieval/allow_retrieval/sql_guard.py', 'retrieval/allow_retrieval/sql_image.py', 'retrieval/allow_retrieval/sql_image_config.py', 'retrieval/allow_retrieval/sql_image_init.py', 'retrieval/allow_retrieval/sql_inventory.py', 'retrieval/allow_retrieval/sql_proxy.py', 'retrieval/allow_retrieval/training.py')
     for name in module_names:
         add(name, root / name)
-    for name in ('deploy/configure.py', 'deploy/windows/Start-Tunnel.ps1',
-                 'deploy/windows/Install-Site.ps1', 'deploy/linux/setup.py', 'deploy/linux/service.py'):
+    for name in ('deploy/configure.py', 'deploy/probe_public.py', 'deploy/windows/Start-Tunnel.ps1',
+                 'deploy/windows/Install-Site.ps1', 'deploy/windows/Start-Wsl.ps1', 'deploy/windows/Test-Wsl.ps1', 'deploy/linux/setup.py', 'deploy/linux/service.py', 'deploy/linux/trust.py', 'deploy/linux/wsl_keepalive.py',
+                 'deploy/linux/public_guard.py', 'deploy/linux/check_public.py'):
         add(name, root / name)
     for source in sorted((target / 'classes').rglob('*')):
         if source.is_file() and 'static' not in source.relative_to(target / 'classes').parts:
@@ -73,7 +87,7 @@ def collect(root, target, frontend):
                 raise ValueError('Unexpected frontend artifact: ' + str(source))
             add('backend/target/classes/static/' + str(source.relative_to(frontend)), source)
     required = ('backend/target/classes/dev/allow/backend/AllowApplication.class',
-                'backend/target/classes/static/index.html', 'deploy/linux/setup.py', 'deploy/linux/service.py')
+                'backend/target/classes/static/index.html', 'deploy/linux/setup.py', 'deploy/linux/service.py', 'deploy/linux/trust.py')
     if any(name not in members for name in required) or not list((target / 'dependency').glob('*.jar')):
         raise ValueError('Incomplete application build')
     parser_lock = json.loads((root / 'config/sqlean-parser-lock.json').read_text())
@@ -90,11 +104,29 @@ def hash_file(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
+
+def member_info(name):
+    """Normalize every shipped Unix file mode independently of source permissions."""
+    info = zipfile.ZipInfo(name, date_time=(2026, 11, 4, 0, 0, 0))
+    info.create_system = 3
+    mode = 0o755 if name == '.tools/sqlean/sqlean_pg_grammar' else 0o644
+    info.external_attr = (0o100000 | mode) << 16
+    info.compress_type = zipfile.ZIP_DEFLATED
+    return info
+
+
+def write_member(archive, name, source):
+    """Stream a regular source into its fixed-mode archive entry."""
+    with source.open('rb') as incoming, archive.open(member_info(name), 'w') as outgoing:
+        shutil.copyfileobj(incoming, outgoing, length=1048576)
+
+
 def build(root, target, frontend, output):
     """Write a new archive atomically with deterministic names and a bound manifest."""
     members = collect(root, target, frontend)
-    manifest = {'schema': 1, 'id': 'allow-iis-linux-private-v1',
-                'scope': 'Operator-private artifact; target acceptance remains OPEN',
+    manifest = {'schema': 1, 'id': 'allow-iis-linux-dual-mode-candidate-v3',
+                'scope': 'Private-transfer dual-mode PRIVATE/ANONYMOUS deployment candidate; native Windows/WSL/IIS and public exposure acceptance OPEN',
+                'access_modes': ['PRIVATE', 'ANONYMOUS'], 'native_target_acceptance': 'OPEN',
                 'files': {name: hash_file(source) for name, source in sorted(members.items())}}
     raw = (json.dumps(manifest, indent=2, sort_keys=True) + '\n').encode()
     output = Path(os.path.abspath(output))
@@ -107,17 +139,17 @@ def build(root, target, frontend, output):
     try:
         with os.fdopen(fd, 'wb') as stream, zipfile.ZipFile(stream, 'w', zipfile.ZIP_DEFLATED) as archive:
             for name, source in sorted(members.items()):
-                archive.write(source, name)
-            archive.writestr('MANIFEST.json', raw)
-            archive.writestr('MANIFEST.sha256', hashlib.sha256(raw).hexdigest() + '  MANIFEST.json\n')
+                write_member(archive, name, source)
+            archive.writestr(member_info('MANIFEST.json'), raw)
+            archive.writestr(member_info('MANIFEST.sha256'), hashlib.sha256(raw).hexdigest() + '  MANIFEST.json\n')
         with zipfile.ZipFile(output) as archive:
             for name, expected in manifest['files'].items():
                 if hashlib.sha256(archive.read(name)).hexdigest() != expected:
                     raise ValueError('Post-write package mismatch')
         checksum = output.with_suffix(output.suffix + '.sha256')
-        with checksum.open('x') as stream:
+        checksum_fd = os.open(checksum, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+        with os.fdopen(checksum_fd, 'w') as stream:
             stream.write(hash_file(output) + '  ' + output.name + '\n')
-        checksum.chmod(0o600)
     except BaseException:
         output.unlink(missing_ok=True)
         raise

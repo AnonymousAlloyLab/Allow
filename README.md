@@ -9,11 +9,36 @@ completed production platform.
 Start with the [current status and evidence index](docs/current-status.md),
 [document operations](docs/document-stage.md), and
 [performance remediation plan](docs/performance-remediation-plan.md).
-An [IIS + Linux deployment package](docs/iis-deployment.md) now supplies a private
-HTTPS/SSH deployment path. Its advisory validation explicitly selects the faster
-measured fresh Tier-1 profile; local launch remains DEFAULT and pooling remains
-disabled. The package passed fresh Linux initialization and HTTP restart tests;
-Windows IIS/SSH and actual target-host acceptance remain open.
+The [Windows/WSL deployment candidate](docs/wsl-anonymous-deployment.md) targets
+`https://allow.alloy4.fun` on Windows 10 21H2 IoT Enterprise with WSL2 Ubuntu 24.04
+(operator-confirmed distribution name `Ubuntu-24.04`).
+Explicit ANONYMOUS mode supplies separate temporary workspaces, with four reserved
+sessions, 30-minute lifetimes, scoped documents/jobs and bounded cleanup. PRIVATE
+remains the default. Public mode disables the private corpus. The reviewed
+[anonymous contract](spec/anonymous-workspaces.json) and its separate 56-theorem
+[Lean policy check](gates/deployment/anonymous-v1/formal-report.json) preceded
+implementation; they do not prove the runtime implementation.
+
+Native Windows/WSL/IIS, reboot and external public acceptance remain open. No
+remote configuration has been changed by this work. A read-only probe found the
+existing public site's `/api;ignored/config` alias returns configuration without
+authentication; that deployed route fails acceptance until the corrected build
+and target routing are verified. See the [current evidence](docs/current-status.md).
+The [private R7 archive](dist/allow-iis-linux-private-20261104-r7.zip) is retained
+as a historical private staging artifact and does not supply anonymous isolation.
+Advisory validation selects fresh Tier-1 JVMs; durable validation and solvers
+retain DEFAULT, and warm pooling remains disabled.
+The [separate public cutover procedure](docs/staged-public-cutover.md) preserves
+the target's identified private R1 installation. Its reviewed contract and
+50-theorem Lean supplement precede the new account/root/service guard. The
+current [R5 transfer archive](dist/allow-iis-wsl-anonymous-20261104-r5.zip) and
+[SHA-256 sidecar](dist/allow-iis-wsl-anonymous-20261104-r5.zip.sha256) are bound to
+the [cutover evidence report](gates/deployment/cutover-v1/report.json).
+Its 310-file audit passes; application, retrieval and database bytes match the
+tested R4 baseline. The new deployment guard, selector and cleanup checks pass
+local tests. The retained R4 archive records the earlier deployment tooling and
+is not an in-place upgrade procedure.
+They are staging artifacts, not authorization to expose an unverified target.
 Older milestone reports below retain their original scope and source hashes.
 
 The [implementation supplement](spec/implementation-g1.json) and

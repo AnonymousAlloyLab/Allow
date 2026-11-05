@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/allow-anonymous-package-r5/deploy/linux/setup.py", line 116, in <module>
+    main()
+  File "/tmp/allow-anonymous-package-r5/deploy/linux/setup.py", line 101, in main
+    trust.verify_package(ROOT)
+  File "/tmp/allow-anonymous-package-r5/deploy/linux/trust.py", line 115, in verify_package
+    verify_inventory(entries, root)
+  File "/tmp/allow-anonymous-package-r5/deploy/linux/trust.py", line 107, in verify_inventory
+    raise ValueError('Unlisted application/bootstrap input: ' + str(installed))
+ValueError: Unlisted application/bootstrap input: /tmp/allow-anonymous-package-r5/deploy/primary-instance.json

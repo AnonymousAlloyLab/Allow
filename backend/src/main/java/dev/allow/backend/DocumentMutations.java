@@ -38,6 +38,17 @@ final class DocumentMutations {
         this.workers = workers;
     }
 
+    /** Verifies retained attempts before an expired public workspace may be purged.
+     * @return whether all retained workers are finished and reaped or never started
+     */
+    boolean cleanupSafe() {
+        for (DocumentAttempt attempt : pending.values()) {
+            try { attempt.recovery(); }
+            catch (IOException | IllegalStateException uncertain) { return false; }
+        }
+        return true;
+    }
+
     /** Performs a mutation while preserving exact original receipt authority across failures.
      * @param request authenticated endpoint's exact bounded original intent
      * @return complete bounded original HTTP response bytes

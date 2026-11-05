@@ -3,8 +3,9 @@ import type {SetStateAction} from 'react';
 import type {Accepted,Artifact,DraftModule,DraftNode,Expression,Id,SlotObligation} from './types';
 import type {Controller,ViewState} from './controller';
 import type {DocumentState} from './state';
-import {insert,dropNode,pasteClipboard,copy,removeSelected,changeModule} from './controller';
+import {insert,dropNode,pasteClipboard,copy,removeSelected,changeModule,previewGesture,commitGesture} from './controller';
 import {initialState,openAccepted,candidate} from './state';
+import {contentSnapshot,type Gesture} from './gesture';
 import {checkModule,FORMULA} from './model';
 import {DEFAULT_PARTIAL_LIMITS} from './partialAnalysis';
 import {construct,newContradiction,paste,replacement} from './operations';
@@ -195,6 +196,54 @@ function movedInternalConstraint():void {
   expect(newContradiction(moved.module,attempt.module,moved.slotObligations,attempt.slotObligations)).not.toBeNull();
 }
 test('PT-001 known partial formula insertion rejects before mutation',rejectsPartialNot);
+/** Reject stale bindings and missing destinations without a content transition. @returns Nothing. */
+function staleGesture():void {
+  const fixture=harness(),state=fixture.controller.current.current.document;
+  const gesture:Gesture={kind:'palette',tag:'not',target:'',name:'variable',nonce:'owned',snapshot:contentSnapshot(state)};
+  try {
+    expect(previewGesture(fixture.controller,gesture,'destination',false).kind).toBe('incompatible');
+    commitGesture(fixture.controller,{...gesture,snapshot:'stale'},'third',false);
+    noticeOnly(state,fixture.controller.current.current.document);
+    const next=fixture.controller.current.current.document;commitGesture(fixture.controller,gesture,'missing',false);
+    expect(fixture.controller.current.current.document.module).toBe(next.module);
+    expect(fixture.controller.current.current.document.contentGeneration).toBe(next.contentGeneration);
+  } finally {vi.unstubAllGlobals();}
+}
+/** Selection changes preserve a gesture's content binding, while move still checks type. @returns Nothing. */
+function gestureSelectionAndMove():void {
+  const fixture=harness(),state=fixture.controller.current.current.document;
+  const gesture:Gesture={kind:'node',source:'thirdRelation',nonce:'owned',snapshot:contentSnapshot(state)};
+  try {
+    fixture.controller.current.current={...fixture.controller.current.current,document:{...state,selected:'destination'}};
+    expect(previewGesture(fixture.controller,gesture,'destination',false).kind).not.toBe('incompatible');
+    commitGesture(fixture.controller,gesture,'destination',false);
+    expect(fixture.controller.current.current.document.contentGeneration).toBe(state.contentGeneration+1);
+    expect(previewGesture(fixture.controller,gesture,'destination',false).kind).toBe('incompatible');
+  } finally {vi.unstubAllGlobals();}
+}
+/** Reject unknown source and self moves while preserving draft identity. @returns Nothing. */
+function gestureInvalidSources():void {
+  const fixture=harness(),state=fixture.controller.current.current.document;
+  const gesture:Gesture={kind:'node',source:'missing',nonce:'owned',snapshot:contentSnapshot(state)};
+  try {
+    expect(previewGesture(fixture.controller,gesture,'destination',false).kind).toBe('incompatible');
+    commitGesture(fixture.controller,gesture,'destination',false);noticeOnly(state,fixture.controller.current.current.document);
+    const self={...gesture,source:'third'},before=fixture.controller.current.current.document;
+    expect(previewGesture(fixture.controller,self,'thirdRelation',false).kind).toBe('incompatible');
+    commitGesture(fixture.controller,self,'thirdRelation',false);expect(fixture.controller.current.current.document.module).toBe(before.module);
+  } finally {vi.unstubAllGlobals();}
+}
+/** Never label an incomplete candidate as fully checked. @returns Nothing. */
+function gestureUnresolved():void {
+  const fixture=harness(),state=fixture.controller.current.current.document;
+  const gesture:Gesture={kind:'palette',tag:'not',target:'',name:'variable',nonce:'owned',snapshot:contentSnapshot(state)};
+  try {expect(previewGesture(fixture.controller,gesture,'third',false).kind).toBe('unresolved');}
+  finally {vi.unstubAllGlobals();}
+}
+test('gesture rejects foreign source and descendant move',gestureInvalidSources);
+test('gesture labels incomplete candidates unresolved',gestureUnresolved);
+test('gesture rejects stale identity and missing destination atomically',staleGesture);
+test('gesture allows selection-only changes but expires after content edit',gestureSelectionAndMove);
 test('PT-018 PT-030 copy and move drops preserve pre-gesture state on rejection',atomicRejectedDrops);
 test('valid drag publishes exactly one edit and schedules focus once',singleSuccessfulDrop);
 test('PT-028 explicit hole constraints survive partial replacement and later filling',retainedHoleConstraint);

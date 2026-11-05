@@ -1,3 +1,4 @@
+import {signalExpired} from '../publicSession';
 import type {Envelope,ListData,Accepted,CommitData,Validation,Pending,Candidate,MutationData} from './types';
 export const BASE='/api/v1/documents';
 /** Serialize a bounded exact mutation or validation body. @param value Closed request value. @returns Original UTF8 JSON body. @throws Error on request size excess. */
@@ -25,6 +26,7 @@ export async function digest(source:string):Promise<string> {
 /** Send a closed same-origin authenticated request. @param token Fresh launch authority. @param path Endpoint. @param body Exact retained body. @param signal Optional bounded session cancellation. @returns Protocol envelope. @throws Error for unavailable/invalid transport. */
 export async function request<T>(token:string,path:string,body?:string,signal?:AbortSignal):Promise<Envelope<T>> {
   const response=await fetch(path,{method:body===undefined?'GET':'POST',body,signal,headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'}});
+  signalExpired(response,token);
   const envelope:unknown=await response.json();
   if(!envelope||typeof envelope!=='object'||!('protocol' in envelope)||envelope.protocol!==1||!('status' in envelope)||!('data' in envelope)) throw new Error(`Unavailable document protocol (${response.status}); retry exact pending request.`);
   return envelope as Envelope<T>;

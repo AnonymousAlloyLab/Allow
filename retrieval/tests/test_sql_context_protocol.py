@@ -254,3 +254,44 @@ class ContextProtocolTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class AnonymousContextProtocolTests(unittest.TestCase):
+    """Public registry fence is an exact extra read-only branch, never generic SQL."""
+    def test_public_prefix_lock_registry_read_and_commit(self):
+        """Require the exact lock before first SELECT and scoped registry read before data."""
+        from allow_retrieval.sql_context_protocol import PUBLIC_REGISTRY_LOCK_SQL, PUBLIC_REGISTRY_READ_SQL
+        protocol = ready()
+        for sql in ('BEGIN', CONTEXT_ISOLATION_SQL, *CONTEXT_TIMEOUT_SQL):
+            complete(protocol, sql)
+        protocol.frontend(b'Q', wire_sql(PUBLIC_REGISTRY_LOCK_SQL) + b'\0')
+        protocol.backend(b'C', b'LOCK TABLE\0')
+        protocol.backend(b'Z', b'T')
+        for sql in (*CONTEXT_SCOPE_SQL, PUBLIC_REGISTRY_READ_SQL, CONTEXT_HEAD_SQL, CONTEXT_BASE_SQL, 'COMMIT'):
+            complete(protocol, sql, extended=sql.startswith('SELECT '))
+        self.assertTrue(protocol.success_ready)
+
+    def test_public_branch_cannot_skip_registry_or_use_stronger_lock(self):
+        """Neither arbitrary lock modes nor direct transition to document reads is accepted."""
+        from allow_retrieval.sql_context_protocol import PUBLIC_REGISTRY_LOCK_SQL
+        for candidate in ('LOCK TABLE documents.public_workspace_lifecycle IN ACCESS EXCLUSIVE MODE', CONTEXT_HEAD_SQL):
+            protocol = ready()
+            for sql in ('BEGIN', CONTEXT_ISOLATION_SQL, *CONTEXT_TIMEOUT_SQL):
+                complete(protocol, sql)
+            if candidate == CONTEXT_HEAD_SQL:
+                protocol.frontend(b'Q', wire_sql(PUBLIC_REGISTRY_LOCK_SQL) + b'\0')
+                protocol.backend(b'C', b'LOCK TABLE\0')
+                protocol.backend(b'Z', b'T')
+                for sql in CONTEXT_SCOPE_SQL:
+                    complete(protocol, sql, extended=True)
+            with self.assertRaises(ContextProtocolError):
+                protocol.frontend(b'Q', wire_sql(candidate) + b'\0')
+
+    def test_public_timeout_whitelist_is_disjoint_and_exact(self):
+        """Fixed public deadlines cannot authorize context settings or arbitrary values."""
+        from allow_retrieval.sql_context_protocol import PUBLIC_TIMEOUT_SQL, is_public_setting
+        for statement in PUBLIC_TIMEOUT_SQL:
+            self.assertTrue(is_public_setting(wire_sql(statement)))
+            self.assertFalse(is_context_setting(wire_sql(statement)))
+        for statement in (*CONTEXT_TIMEOUT_SQL, 'SET statement_timeout = 0', 'SET LOCAL lock_timeout = 999999'):
+            self.assertFalse(is_public_setting(wire_sql(statement)))

@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "status": "ISOLATED_TWO_STORE_REHEARSAL_PASS",
+  "private_root": "/tmp/allow-iis-smoke-r1",
+  "public_root": "/tmp/allow-cutover-public",
+  "private_fixture": "Previously initialized disposable actual R1 package, stopped baseline at original path; four existing synthetic documents read through Store and canonical SQL parser proxy.",
+  "public_fixture": "Fresh independent PostgreSQL cluster, credentials, private bootstrap identity and two anonymous public scope registrations on separate socket; no private runtime, credential or document copied.",
+  "evidence": {
+    "private_stopped_runtime_inventory_entries": 1414,
+    "private_stopped_runtime_inventory_sha256": "022db80302569e3e51d7cbb17661350f2789b6c60354aee0fe8ab3141cf0d18c",
+    "private_stopped_runtime_byte_mode_inventory_equal_after_public": true,
+    "private_identity_sha256": "32265dff000de3954a3eb372a7ce4a276020b168665deb12714fc5891bddee99",
+    "private_read_before": {
+      "count": 4,
+      "content_sha256": "378ae87e89036d855dd565a33d0cf0dab3c75c7798390a9a5d290b214083b0c7"
+    },
+    "private_read_after": {
+      "count": 4,
+      "content_sha256": "378ae87e89036d855dd565a33d0cf0dab3c75c7798390a9a5d290b214083b0c7"
+    },
+    "public_sql_test": "1 unittest: two registrations and document commits with same key; cross-scope history denied, independent receipts, purge tested",
+    "old_and_new_stopped_after_rehearsal": true
+  },
+  "inputs": {
+    "private_package": {
+      "path": "dist/allow-iis-linux-private-20261104-r1.zip",
+      "sha256": "8529bd9cc46e81cb2c0b970860e9de0fa6ee6a9178a45cbaf6b9ab5f813ed67b"
+    },
+    "private_package_manifest_sha256": "7e40d4d1b07f0543b1f2beb02be149e4c5fccd2f87365212863a5887294aa1d6",
+    "public_package": {
+      "path": "dist/allow-iis-wsl-anonymous-20261104-r4.zip",
+      "sha256": "2076de0c751929b778cd5aec07b1d021f7d4bfd2badc0df7df14e9eb0fd5a4ef"
+    },
+    "public_package_manifest_sha256": "de3a5a4c32a4d54064711143c2c382129fc44bf10d5bd6eca642e75e3ebebec9",
+    "postgres_executable_sha256": "d4af37df1f8f58d97ebdccaf64f172390c706eb7b680259c2ae054101fad51ce",
+    "test_anonymous_sql_sha256": "1c3a6a7d4260f32bc44a28cf7a0a8414d63b8a843c1adcc272de249413f86b77",
+    "test_documents_sha256": "4bdfb775649138e1a3c7912eb454fb35c9b05703d461f4b301ce26ef6195a91f"
+  },
+  "dependency_reuse": "Copied installed PostgreSQL/pgvector, parser and cached archives from prior disposable anonymous fixture; recreated venv without pip and copied psycopg and typing packages. Not evidence of independent target provisioning.",
+  "logs": {
+    "rehearsal-private-read-after.json": "d2b2d97c7065ebe0493808c587d1f80db116ea9e70c9dc114f36c925db44ff51",
+    "rehearsal-private-read-before.json": "d2b2d97c7065ebe0493808c587d1f80db116ea9e70c9dc114f36c925db44ff51",
+    "rehearsal-private-restart.log": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e",
+    "rehearsal-private-start.log": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e",
+    "rehearsal-private-stop-after.log": "089b66164b943685def8a0b47f1278e0153d743f3cbd58928bc57cc57c40f8af",
+    "rehearsal-private-stop-before.log": "089b66164b943685def8a0b47f1278e0153d743f3cbd58928bc57cc57c40f8af",
+    "rehearsal-public-migrate.log": "2787fc1e50f3101e86e1d436651cac1a9e8b785ebadcde45f37d7ee1cd9a9c6e",
+    "rehearsal-public-start.log": "1b08fcaf58d96b7a54732334b8848a29a4ad5eb3ff4e2344fc4fe1e03646761e",
+    "rehearsal-public-stop.log": "089b66164b943685def8a0b47f1278e0153d743f3cbd58928bc57cc57c40f8af",
+    "rehearsal-public-workspace.log": "019ac747b285d461102b22df8f74a764bfdea81f10f978570b0aff9003f56966"
+  },
+  "limitations": [
+    "Both roots run as same workstation UID with no real allow-public user/systemd guard or target ACL proof.",
+    "Public scope exercised through actual Python lifecycle/store SQL route, not Java HTTP session or browser.",
+    "The 1414-entry stopped-runtime inventory covered .runtime, not all code or external symlink targets; R1 fixture inventory contained no confidential user data.",
+    "No Windows, WSL, IIS, target backup/restore, fresh dependency download or deployment acceptance is claimed."
+  ]
+}

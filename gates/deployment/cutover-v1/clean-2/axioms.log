@@ -1,0 +1,50 @@
+'Allow.StagedPublicCutover.missing_slot_preserves_primary' does not depend on any axioms
+'Allow.StagedPublicCutover.primary_name_accepted' does not depend on any axioms
+'Allow.StagedPublicCutover.replacement_name_accepted' does not depend on any axioms
+'Allow.StagedPublicCutover.unknown_slot_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.primary_validation_unchanged' does not depend on any axioms
+'Allow.StagedPublicCutover.replacement_positive' does not depend on any axioms
+'Allow.StagedPublicCutover.mixed_binding_rejected' depends on axioms: [propext]
+'Allow.StagedPublicCutover.old_root_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.old_account_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.old_service_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.private_mode_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.ssh_transport_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.wrong_port_rejected' does not depend on any axioms
+'Allow.StagedPublicCutover.ready_positive' does not depend on any axioms
+'Allow.StagedPublicCutover.active_legacy_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.enabled_legacy_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.legacy_main_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.legacy_job_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.nonempty_cgroup_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.missing_legacy_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.shared_or_root_uid_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.private_read_access_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.private_write_access_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.private_execute_access_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.wrong_public_owner_denied' depends on axioms: [propext]
+'Allow.StagedPublicCutover.prepare_preserves_private' does not depend on any axioms
+'Allow.StagedPublicCutover.prepare_is_not_exposure' does not depend on any axioms
+'Allow.StagedPublicCutover.prepare_rejects_private_identity_reuse' depends on axioms: [propext]
+'Allow.StagedPublicCutover.prepare_rejects_active_legacy' depends on axioms: [propext]
+'Allow.StagedPublicCutover.prepare_guard_failure_has_no_transition' depends on axioms: [propext]
+'Allow.StagedPublicCutover.public_edit_preserves_private' does not depend on any axioms
+'Allow.StagedPublicCutover.public_stop_preserves_private' does not depend on any axioms
+'Allow.StagedPublicCutover.start_preserves_private' does not depend on any axioms
+'Allow.StagedPublicCutover.start_requires_inactive_legacy' depends on axioms: [propext]
+'Allow.StagedPublicCutover.start_rejects_unprepared' depends on axioms: [propext]
+'Allow.StagedPublicCutover.start_never_exposes' does not depend on any axioms
+'Allow.StagedPublicCutover.no_native_acceptance_no_exposure' depends on axioms: [propext]
+'Allow.StagedPublicCutover.no_tls_acceptance_no_exposure' depends on axioms: [propext]
+'Allow.StagedPublicCutover.no_restart_acceptance_no_exposure' depends on axioms: [propext]
+'Allow.StagedPublicCutover.active_legacy_prevents_exposure' depends on axioms: [propext]
+'Allow.StagedPublicCutover.no_intent_no_exposure' depends on axioms: [propext]
+'Allow.StagedPublicCutover.rollback_requires_restricted_ingress' depends on axioms: [propext]
+'Allow.StagedPublicCutover.rollback_requires_cleanup' depends on axioms: [propext]
+'Allow.StagedPublicCutover.rollback_refuses_active_public' depends on axioms: [propext]
+'Allow.StagedPublicCutover.rollback_never_exposes_legacy' does not depend on any axioms
+'Allow.StagedPublicCutover.rollback_keeps_both_stores' does not depend on any axioms
+'Allow.StagedPublicCutover.fresh_preparation_positive' does not depend on any axioms
+'Allow.StagedPublicCutover.public_start_positive' does not depend on any axioms
+'Allow.StagedPublicCutover.fully_accepted_exposure_positive' does not depend on any axioms
+'Allow.StagedPublicCutover.restricted_rollback_positive' does not depend on any axioms

@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "source": "User-supplied read-only WSL command output",
+  "independent_target_inspection": false,
+  "distribution": "Ubuntu-24.04",
+  "linux": {
+    "pid1": "systemd",
+    "architecture": "x86_64",
+    "kernel_release": "6.18.40.1-microsoft-standard-WSL2",
+    "command_paths": {
+      "java": "/usr/bin/java",
+      "bwrap": "/usr/bin/bwrap",
+      "prlimit": "/usr/bin/prlimit"
+    },
+    "python": "3.12.3",
+    "service_account": {
+      "name": "allow",
+      "uid": 999,
+      "gid": 989,
+      "home": "/opt/allow",
+      "shell": "/usr/sbin/nologin"
+    },
+    "java_version": "17.0.20.1",
+    "java_runtime": "OpenJDK 64-Bit Server VM (17.0.20.1+1-1-24.04-Ubuntu, mixed mode, sharing)"
+  },
+  "service": {
+    "WorkingDirectory": "/opt/allow",
+    "User": "allow",
+    "Group": "allow",
+    "LoadState": "loaded",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/allow.service",
+    "UnitFileState": "enabled"
+  },
+  "deployment_effect": "Use fresh separate PUBLIC_REPLACEMENT root/account/unit; no overlay, old store migration, identity reset or private data import",
+  "open": [
+    "Effective bubblewrap/cgroup/resource tests and distinct-account access",
+    "Existing Windows startup/tunnel owners and effective IIS/ARR configuration",
+    "Private stopped snapshot/backup and target restricted rollback",
+    "Fresh public provisioning and native TLS/isolation/expiry/restart/reboot acceptance"
+  ],
+  "remote_mutations": false,
+  "package_revision": "R5 preparation; target facts are operator-reported only",
+  "installation": {
+    "root": "/opt/allow",
+    "owner": "allow",
+    "group": "allow",
+    "mode": "0700",
+    "manifest_sha256": "7e40d4d1b07f0543b1f2beb02be149e4c5fccd2f87365212863a5887294aa1d6",
+    "identified_release": "Original private R1"
+  },
+  "iis": {
+    "site": "Allow",
+    "state": "Started",
+    "physical_path": "C:\\inetpub\\allow",
+    "protocol": "https",
+    "binding_information": "*:443:allow.alloy4.fun",
+    "ssl_flags": 1,
+    "certificate_hash": "D4F797340E09BD15BEE28FC0DE40CB481F09D3B8",
+    "certificate_store": "My",
+    "certificate_validity": "NOT_VERIFIED",
+    "other_sites": "Nine other reported started sites; outside cutover scope"
+  },
+  "windows_startup": {
+    "reported_task_path": "\\",
+    "reported_task_name": "Allow Private Tunnel",
+    "reported_state": "Running",
+    "actions_and_recovery": "NOT_INSPECTED",
+    "scope": "Possible owner identified by task-name/action-filter output; no task changed"
+  }
+}

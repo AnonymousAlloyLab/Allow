@@ -29,12 +29,13 @@ final class DocumentController {
     }
 
     /** Lists only the authenticated workspace's bounded document summaries.
+     * @param request authenticated scoped request
      * @return JSON envelope
      * @throws IOException store unavailable
      * @throws InterruptedException interrupted bridge
      */
     @GetMapping
-    byte[] list() throws IOException, InterruptedException { return queries.list(); }
+    byte[] list(HttpServletRequest request) throws IOException, InterruptedException { return queries(request).list(); }
 
     /** Creates revision zero and its exact idempotent creation receipt.
      * @param request bounded original HTTP intent
@@ -50,17 +51,18 @@ final class DocumentController {
     /** Reads a head or retained immutable revision without granting scope through the path.
      * @param id owned server document identifier
      * @param revision optional historical revision
+     * @param request authenticated scoped request
      * @return accepted artifact with revision envelope
      * @throws IOException unavailable snapshot
      * @throws InterruptedException interrupted store
      * @throws IllegalArgumentException invalid historical revision
      */
     @GetMapping("/{id}")
-    byte[] read(@PathVariable String id, @RequestParam(required = false) Long revision)
+    byte[] read(@PathVariable String id, @RequestParam(required = false) Long revision, HttpServletRequest request)
             throws IOException, InterruptedException {
         identifier(id);
         if (revision != null && (revision < 0 || revision > 9007199254740991L)) throw new IllegalArgumentException("Invalid revision");
-        return queries.read(id, revision);
+        return queries(request).read(id, revision);
     }
 
     /** Validates a draft diagnostically without creating an accepted revision.
@@ -73,7 +75,7 @@ final class DocumentController {
     @PostMapping(value = "/{id}/validate", consumes = "application/json")
     byte[] validate(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
         identifier(id);
-        return queries.validate(id, body(request));
+        return queries(request).validate(id, body(request));
     }
 
     /** Appends a fully checked candidate under exact receipt, policy and revision fences.
@@ -112,20 +114,21 @@ final class DocumentController {
     @PostMapping(value = "/{id}/analyze", consumes = "application/json")
     byte[] analyze(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
         identifier(id);
-        return queries.analyze(id, body(request));
+        return queries(request).analyze(id, body(request));
     }
 
     /** Polls accepted-document evidence without using the legacy draft-only result identity.
      * @param id owned document
      * @param job opaque job identifier
+     * @param request authenticated scoped request
      * @return labeled current or historical result
      * @throws IOException unknown or unavailable evidence
      * @throws InterruptedException interrupted store read
      */
     @GetMapping("/{id}/analysis/{job}")
-    byte[] analysis(@PathVariable String id, @PathVariable String job) throws IOException, InterruptedException {
+    byte[] analysis(@PathVariable String id, @PathVariable String job, HttpServletRequest request) throws IOException, InterruptedException {
         identifier(id);
-        return queries.analysis(id, job);
+        return queries(request).analysis(id, job);
     }
 
     /** Converts only pre-admission/query failures; mutation uncertainty is handled by its coordinator.
@@ -154,7 +157,25 @@ final class DocumentController {
     private byte[] mutation(HttpServletRequest request, String document, String operation)
             throws IOException, InterruptedException {
         if (request.getQueryString() != null) throw new IllegalArgumentException("Mutation query parameters unsupported");
-        return mutations.mutate(new DocumentRequest(document, request.getRequestURI(), operation, body(request)));
+        return mutations(request).mutate(new DocumentRequest(document, request.getRequestURI(), operation, body(request)));
+    }
+
+    /** Resolves only the trusted request's immutable query owner.
+     * @param request authenticated request
+     * @return scoped or existing private queries
+     */
+    private DocumentQueries queries(HttpServletRequest request) {
+        PublicWorkspace workspace = PublicWorkspace.from(request);
+        return workspace == null ? queries : workspace.queries();
+    }
+
+    /** Resolves only the trusted request's immutable mutation owner.
+     * @param request authenticated request
+     * @return scoped or existing private mutations
+     */
+    private DocumentMutations mutations(HttpServletRequest request) {
+        PublicWorkspace workspace = PublicWorkspace.from(request);
+        return workspace == null ? mutations : workspace.mutations();
     }
 
     /** Enforces the complete HTTP byte budget before JSON parsing or draft expansion.

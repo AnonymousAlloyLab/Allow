@@ -1,0 +1,36 @@
+'Allow.PublicIisStaging.preflight_only_never_mutates' depends on axioms: [propext]
+'Allow.PublicIisStaging.failed_preflight_never_mutates' depends on axioms: [propext]
+'Allow.PublicIisStaging.mutation_requires_preflight' depends on axioms: [propext]
+'Allow.PublicIisStaging.unavailable_revocation_rejects' depends on axioms: [propext]
+'Allow.PublicIisStaging.untrusted_certificate_rejects' depends on axioms: [propext]
+'Allow.PublicIisStaging.binding_conflict_rejects' depends on axioms: [propext]
+'Allow.PublicIisStaging.stage_stays_stopped' does not depend on any axioms
+'Allow.PublicIisStaging.stage_has_sni_and_safe_logs' does not depend on any axioms
+'Allow.PublicIisStaging.staging_not_public_acceptance' does not depend on any axioms
+'Allow.PublicIisStaging.failed_preflight_state_unchanged' depends on axioms: [propext]
+'Allow.PublicIisStaging.preflight_only_state_unchanged' depends on axioms: [propext]
+'Allow.PublicIisStaging.successful_stage_stopped' depends on axioms: [propext]
+'Allow.PublicIisStaging.cleanup_requires_invocation_owner' depends on axioms: [propext]
+'Allow.PublicIisStaging.preexisting_resource_preserved' depends on axioms: [propext]
+'Allow.PublicIisStaging.uncertain_identity_preserved' depends on axioms: [propext]
+'Allow.PublicIisStaging.uncertain_cleanup_keeps_failure' does not depend on any axioms
+'Allow.PublicIisStaging.unresolved_target_never_exposed' depends on axioms: [propext]
+'Allow.PublicIisStaging.unresolved_audience_never_exposed' depends on axioms: [propext]
+'Allow.PublicIisStaging.missing_native_acceptance_never_exposed' depends on axioms: [propext]
+'Allow.PublicIisStaging.no_default_public_start' depends on axioms: [propext]
+'Allow.PublicIisStaging.finite_request_count' does not depend on any axioms
+'Allow.PublicIisStaging.real_authority_input_rejected' depends on axioms: [propext]
+'Allow.PublicIisStaging.tls_bypass_rejected' depends on axioms: [propext]
+'Allow.PublicIisStaging.redirect_fails' depends on axioms: [propext]
+'Allow.PublicIisStaging.body_overflow_fails' depends on axioms: [propext]
+'Allow.PublicIisStaging.timeout_fails' depends on axioms: [propext]
+'Allow.PublicIisStaging.missing_required_headers_fails' depends on axioms: [propext]
+'Allow.PublicIisStaging.wrong_status_fails' depends on axioms: [propext]
+'Allow.PublicIisStaging.incomplete_probe_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.PublicIisStaging.evidence_independent_of_body_headers_secrets' does not depend on any axioms
+'Allow.PublicIisStaging.probe_success_not_acceptance' does not depend on any axioms
+'Allow.PublicIisStaging.preflight_positive' does not depend on any axioms
+'Allow.PublicIisStaging.stage_positive' does not depend on any axioms
+'Allow.PublicIisStaging.owned_cleanup_positive' does not depend on any axioms
+'Allow.PublicIisStaging.probe_positive' does not depend on any axioms
+'Allow.PublicIisStaging.separately_accepted_exposure_positive' does not depend on any axioms

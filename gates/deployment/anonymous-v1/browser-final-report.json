@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "status": "PASS_BOUNDED_NATIVE_SMOKE",
+  "root": "/tmp/allow-anonymous-sql-r1",
+  "native_http_report": "gates/deployment/anonymous-v1/http-r4-report.json",
+  "native_http_checks": 52,
+  "browser_target_inputs": "gates/deployment/anonymous-v1/browser-build-inputs.json",
+  "final_browser_target_bytes_unchanged": true,
+  "http_to_browser_java_nonstatic_bytes_unchanged": true,
+  "frontend_static_changed_after_http": "Final frontend explanation-copy rebuild copied before browser launch, then frozen",
+  "public_registry_empty_before_shutdown": true,
+  "remaining_public_slots": 0,
+  "retirement_status_sha256": "21a93a0a4704db938730e522db77b1ce4b8a2dd30341cc37a1630a331eea90a9",
+  "private_identity_and_control_row_unchanged": true,
+  "private_check_evidence": "Owning launcher baseline/final digests; final stdout BROWSER_OWNED_STACK_STOPPED private_control_unchanged=True sql_exit=0",
+  "java_and_proxy_listener_status": {
+    "18095": "NO_LISTENER",
+    "18096": "NO_LISTENER"
+  },
+  "sql_stack_status": "STOPPED",
+  "browser_launcher_exited": true,
+  "browser_observations_from_parent": [
+    "Two distinct sessions show independent document lists",
+    "Session A created/saved V1, tab reload resumed authority, exact source reopened",
+    "Session B created/saved independently and remained usable after A ended",
+    "A ended while an unsaved draft remained visible, server controls disabled, export downloaded exact88bytes",
+    "B checked its model after A ended, then ended; both test tabs closed"
+  ],
+  "artifacts": {
+    "browser-ended-draft.png": {
+      "sha256": "2b823eaaf6bdb9283b1228643207657f75fbb267120a6a0691d9d41941d17fa3",
+      "bytes": 172458
+    },
+    "browser-export.als": {
+      "sha256": "631d1c437ccf991cb17701e73d9d577f1a54cd7f94760b4dac59290a0d78e555",
+      "bytes": 88
+    },
+    "browser-owned-launcher.py": {
+      "sha256": "3c96f41bda068ebdc04e6d46b97fdf088173b2a96dd4331a45e0b4eb39bbb228",
+      "bytes": 9157
+    }
+  },
+  "observed_open": [
+    "Actual clipboard bytes unverified: UI reported Copied but tool clipboard read empty",
+    "Windows10 WSL2 IIS TLS domain reboot firewall and production resource acceptance",
+    "Full accessibility/touch/native drag acceptance outside these session checks"
+  ],
+  "adapter": "Loopback UX proxy18096 fixes Host and replaces existing Origin only; strips hop headers and suppresses request/token logging. It does not prove TLS/IIS/real-Origin routing.",
+  "tokens": "Only browser sessionStorage/in-memory request processing; no token values intentionally persisted in evidence",
+  "dependency_boundary": "SQL-only fixture reused pinned dependency binaries; not fresh dependency/deployment acceptance",
+  "logs": {
+    "browser-owned-1793828611860059971-server.log": "49e6403a0bf202dd2ea4d10090fcc08aa48d2aff7815f10d2a6d6ed322f712e1",
+    "browser-owned-1793828611860059971-sql.log": "627386e18274eb4e531940792f193f1531ba634e06fe2c8ea551973b333a070a",
+    "browser-owned-1793828654406409514-server.log": "49e6403a0bf202dd2ea4d10090fcc08aa48d2aff7815f10d2a6d6ed322f712e1",
+    "browser-owned-1793828654406409514-sql.log": "627386e18274eb4e531940792f193f1531ba634e06fe2c8ea551973b333a070a"
+  }
+}

@@ -1,0 +1,25 @@
+public_config_nonsecret PASS 200
+enrollment_requires_origin PASS 403
+enrollment_closed_empty_body PASS 400
+enrollment_no_query PASS 403
+enrollment_no_bearer_authority PASS 403
+enrollment_success_1 PASS 201
+enrollment_private_headers_1 PASS 
+enrollment_success_2 PASS 201
+enrollment_private_headers_2 PASS 
+separate_capabilities PASS 
+private_launch_token_rejected PASS 401
+public_corpus_disabled PASS 403
+document_create_1 PASS 200
+document_create_2 PASS 200
+same_key_distinct_documents PASS 
+scope_receipt_replay_1 PASS 200
+scope_receipt_replay_2 PASS 200
+own_document_read_encoded PASS 200
+own_document_read_literal PASS 200
+foreign_document_read PASS 503
+foreign_history_read PASS 503
+source_advisory_real_sandbox PASS 200
+source_save_real_sandbox PASS 200
+foreign_commit_receipt FAIL 200
+private_control_unchanged PASS 

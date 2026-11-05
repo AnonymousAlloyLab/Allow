@@ -85,3 +85,18 @@ REVOKE ALL ON documents.admission FROM PUBLIC;
 GRANT SELECT,INSERT ON documents.admission TO allow_app;
 GRANT UPDATE ON documents.workspace,documents.admission TO allow_app;
 GRANT UPDATE(head_revision,title) ON documents.document TO allow_app;
+
+-- Anonymous lifecycle provenance is admin-only; app-role DELETE remains forbidden.
+SET ROLE allow_owner;
+CREATE TABLE IF NOT EXISTS documents.public_workspace_lifecycle (
+ principal_id text NOT NULL, workspace_id text NOT NULL, launch_id text NOT NULL,
+ incarnation text NOT NULL, expires_at_ms bigint NOT NULL CHECK(expires_at_ms>0),
+ policy_version text NOT NULL, state text NOT NULL CHECK(state IN ('PROVISIONING','READY','QUARANTINED')),
+ PRIMARY KEY(principal_id,workspace_id), UNIQUE(launch_id));
+REVOKE ALL ON documents.public_workspace_lifecycle FROM PUBLIC,allow_app;
+ALTER TABLE documents.public_workspace_lifecycle ENABLE ROW LEVEL SECURITY;
+ALTER TABLE documents.public_workspace_lifecycle FORCE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS public_registry_scope ON documents.public_workspace_lifecycle;
+CREATE POLICY public_registry_scope ON documents.public_workspace_lifecycle FOR SELECT USING (principal_id=current_setting('allow.tenant',true) AND workspace_id=current_setting('allow.project',true) AND current_setting('allow.purpose',true)='document');
+GRANT SELECT ON documents.public_workspace_lifecycle TO allow_app;
+RESET ROLE;

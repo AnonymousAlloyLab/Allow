@@ -41,10 +41,15 @@ final class ProcessRunner implements JobRunner {
      * @return terminal result
      * @throws Exception failed launch or protocol
      * @throws IOException invalid worker exit or wire
+     * @throws RejectedExecutionException shared worker admission exhausted before launch
      */
     @Override
     public JobView execute(WorkerRequest request, JobControl control) throws Exception {
-        WorkerCapacity.acquire();
+        try { WorkerCapacity.acquire(); }
+        catch (RejectedExecutionException unavailable) {
+            control.finished(true);
+            throw unavailable;
+        }
         try {
             return runOwned(request, control);
         } finally {
@@ -60,8 +65,12 @@ final class ProcessRunner implements JobRunner {
      * @throws IOException invalid child exit or protocol frame
      */
     private JobView runOwned(WorkerRequest request, JobControl control) throws Exception {
-        try (OwnedWorkerRun owned = new OwnedWorkerRun(launcher)) {
+        OwnedWorkerRun owned = new OwnedWorkerRun(launcher);
+        try {
             return exchangeOwned(request, control, owned, owned.launch());
+        } finally {
+            try { owned.close(); }
+            finally { control.finished(owned.clean() && !owned.startupUncertain()); }
         }
     }
 

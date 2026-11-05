@@ -54,9 +54,10 @@ final class CorpusGateway {
      */
     private Process launch() throws IOException {
         ProcessBuilder builder = new ProcessBuilder("/usr/bin/prlimit", "--as=2147483648", "--cpu=20", "--",
-                root.resolve(".tools/retrieval-venv/bin/python").toString(), "-m", "allow_retrieval.cli");
+                root.resolve(".tools/retrieval-venv/bin/python").toString(), "-B", "-m", "allow_retrieval.cli");
         builder.directory(root.toFile());
         builder.environment().put("PYTHONPATH", root.resolve("retrieval").toString());
+        builder.environment().put("PYTHONDONTWRITEBYTECODE", "1");
         builder.environment().put("ALLOW_CORPUS_RUNTIME", root.resolve(".runtime/corpus").toString());
         builder.environment().put("LANGSMITH_TRACING", "false");
         builder.environment().put("OPENBLAS_NUM_THREADS", "1");

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Render a new IIS/Linux instance without installing services or changing IIS."""
+import sys
+if not sys.flags.isolated or not sys.flags.dont_write_bytecode:
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B')
+
 import argparse
+import os
 import json
 from pathlib import Path
 import re
@@ -67,10 +72,10 @@ def web_config(public_origin, tunnel_port):
     return ET.tostring(root, encoding='unicode', xml_declaration=True) + '\n'
 
 
-def service_unit(root, account):
+def service_unit(root, account, transport="ssh", installation_slot="PRIMARY"):
     """Keep PostgreSQL, SQLeanParser, Spring and their children in one bounded unit."""
     return f'''[Unit]
-Description=Allow private workspace behind IIS
+Description={"Allow anonymous replacement behind IIS" if installation_slot == "PUBLIC_REPLACEMENT" else "Allow private workspace behind IIS"}
 After=network.target
 
 [Service]
@@ -79,14 +84,14 @@ User={account}
 Group={account}
 WorkingDirectory={root}
 UMask=0077
-ExecStart=/usr/bin/python3 {root}/deploy/linux/service.py --config {root}/deploy/instance.json
+ExecStart=/usr/bin/python3 -I -B {root}/deploy/linux/service.py --config {root}/deploy/instance.json
 KillMode=control-group
 TimeoutStopSec=60
 Restart=on-failure
 RestartSec=5
 CPUQuota=400%
-MemoryHigh=5G
-MemoryMax=6G
+MemoryHigh={"3G" if transport == "wsl" else "5G"}
+MemoryMax={"4G" if transport == "wsl" else "6G"}
 MemorySwapMax=0
 TasksMax=512
 
@@ -95,22 +100,47 @@ WantedBy=multi-user.target
 '''
 
 
+def validate_slot(slot, access, transport, root, account, backend, tunnel):
+    """Bind the replacement selector to one closed, independently owned installation."""
+    if slot not in ('PRIMARY', 'PUBLIC_REPLACEMENT'):
+        raise ValueError('Unknown installation slot')
+    if slot == 'PRIMARY' and (root == '/opt/allow-public' or account == 'allow-public'):
+        raise ValueError('Reserved public root/account requires PUBLIC_REPLACEMENT')
+    if slot == 'PUBLIC_REPLACEMENT' and (access, transport, root, account, backend, tunnel) != (
+            'ANONYMOUS', 'wsl', '/opt/allow-public', 'allow-public', 18081, 18081):
+        raise ValueError('PUBLIC_REPLACEMENT requires its exact isolated installation tuple')
+
+
 def render(args):
     """Write only a new configuration directory; never replace existing instance files."""
     public = origin(args.origin)
+    transport = getattr(args, "transport", "ssh")
+    access = getattr(args, "access_mode", "PRIVATE")
+    if transport not in ("ssh", "wsl") or access not in ("PRIVATE", "ANONYMOUS"):
+        raise ValueError("Unknown deployment profile")
     tunnel, backend = port(args.tunnel_port), port(args.backend_port)
     root = install_root(args.install_root)
+    slot = getattr(args, "installation_slot", "PRIMARY")
+    validate_slot(slot, access, transport, root, args.account, backend, tunnel)
+    if transport == "wsl" and (tunnel != 18081 or backend != 18081):
+        raise ValueError("WSL requires both loopback ports to be 18081")
     if not re.fullmatch(r'[a-z_][a-z0-9_-]{0,30}', args.account):
         raise ValueError('Use a dedicated simple Linux account name')
     destination = Path(args.output)
-    destination.mkdir(parents=True, exist_ok=False)
-    (destination/'iis').mkdir()
-    (destination/'linux').mkdir()
+    destination.mkdir(mode=0o700, parents=True, exist_ok=False)
+    (destination/'iis').mkdir(mode=0o700)
+    (destination/'linux').mkdir(mode=0o700)
     config = {'public_origin': public, 'tunnel_port': tunnel, 'backend_port': backend,
-              'advisory_profile': args.advisory_profile}
-    (destination/'linux/instance.json').write_text(json.dumps(config, indent=2) + '\n')
-    (destination/'linux/allow.service').write_text(service_unit(root, args.account))
+              'advisory_profile': args.advisory_profile, 'access_mode': access, 'transport': transport,
+              'installation_slot': slot}
+    fd = os.open(destination/'linux/instance.json', os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(fd, 'w') as output:
+        output.write(json.dumps(config, indent=2) + '\n')
+    unit = 'allow-public.service' if slot == 'PUBLIC_REPLACEMENT' else 'allow.service'
+    (destination/'linux'/unit).write_text(service_unit(root, args.account, transport, slot))
     (destination/'iis/web.config').write_text(web_config(public, tunnel))
+    if transport == 'wsl':
+        (destination/'wslconfig.proposal').write_text('[wsl2]\nmemory=5GB\nprocessors=4\nswap=0\nlocalhostForwarding=true\n')
     (destination/'instance-summary.json').write_text(json.dumps(config | {'install_root': root,
         'account': args.account, 'target_iis_acceptance': 'OPEN'}, indent=2) + '\n')
 
@@ -119,6 +149,9 @@ def main():
     """Parse nonsecret operator values and render reviewable deployment configuration."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--origin', required=True)
+    parser.add_argument('--installation-slot', choices=['PRIMARY', 'PUBLIC_REPLACEMENT'], default='PRIMARY')
+    parser.add_argument('--access-mode', choices=['PRIVATE', 'ANONYMOUS'], default='PRIVATE')
+    parser.add_argument('--transport', choices=['ssh', 'wsl'], default='ssh')
     parser.add_argument('--output', required=True)
     parser.add_argument('--install-root', default='/opt/allow')
     parser.add_argument('--account', default='allow')

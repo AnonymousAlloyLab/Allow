@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/tmp/allow-sec-smoke-r4c/deploy/linux/service.py", line 144, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/tmp/allow-sec-smoke-r4c/deploy/linux/service.py", line 140, in main
+    return serve(config)
+           ^^^^^^^^^^^^^
+  File "/tmp/allow-sec-smoke-r4c/deploy/linux/service.py", line 85, in serve
+    with trust.exclusive(root) as runtime:
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/tmp/allow-sec-smoke-r4c/deploy/linux/trust.py", line 156, in exclusive
+    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+BlockingIOError: [Errno 11] Resource temporarily unavailable

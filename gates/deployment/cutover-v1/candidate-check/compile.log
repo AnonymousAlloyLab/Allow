@@ -1,0 +1,13 @@
+/home/augustus/Allow/formal/Allow/StagedPublicCutover.lean:154:77: error: Type mismatch
+  guard.left.right
+has type
+  (!s.legacyActive) = true
+but is expected to have type
+  s.legacyActive = false
+/home/augustus/Allow/formal/Allow/StagedPublicCutover.lean:154:49: warning: This simp argument is unused:
+  Bool.not_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Bool.and_eq_true] at guard
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

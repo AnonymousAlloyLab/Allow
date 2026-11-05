@@ -6,6 +6,7 @@ from psycopg.rows import dict_row
 import psycopg
 from allow_retrieval.sql_connections import connect
 from . import identity, wire, identifiers, context_lease
+from allow_retrieval.sql_context_protocol import PUBLIC_TIMEOUT_SQL, PUBLIC_REGISTRY_LOCK_SQL, PUBLIC_REGISTRY_READ_SQL
 
 RESERVATION = 4194304
 MAX_BYTES = 268435456
@@ -22,26 +23,48 @@ class KnownRollback(RuntimeError):
 class Store:
     """One trusted owner/workspace/launch, always derived from private metadata."""
 
-    def __init__(self, scope=None):
+    def __init__(self, scope=None, public=False):
         """Load durable authority; explicit scope is an internal test seam only."""
         self.scope = scope if scope is not None else identity.load()
+        self.public = public
         self.principal = self.scope['principalId']
         self.workspace = self.scope['workspaceId']
         self.launch = self.scope['logicalLaunchId']
 
     @contextmanager
-    def transaction(self):
+    def transaction(self, initializing=False):
         """Set fixed transaction-local scope keys on canonical proxy connection."""
         with connect(client='allow-app', row_factory=dict_row) as connection:
+            if self.public:
+                self._public_start(connection)
             connection.execute("SELECT set_config('allow.tenant',%s,true)", (self.principal,))
             connection.execute("SELECT set_config('allow.project',%s,true)", (self.workspace,))
             connection.execute("SELECT set_config('allow.purpose',%s,true)", ('document',))
+            if self.public:
+                self._public_guard(connection, initializing)
             yield connection
+
+    @staticmethod
+    def _public_start(connection, context=False):
+        """Fence purge before establishing any snapshot, with bounded backend waits."""
+        if not context:
+            for statement in PUBLIC_TIMEOUT_SQL:
+                connection.execute(statement)
+        connection.execute(PUBLIC_REGISTRY_LOCK_SQL)
+
+    def _public_guard(self, connection, initializing=False):
+        """Check provenance in the same transaction whose table lock fences cleanup."""
+        row = connection.execute(PUBLIC_REGISTRY_READ_SQL,
+                                 (self.principal, self.workspace)).fetchone()
+        allowed = ('PROVISIONING', 'READY') if initializing else ('READY',)
+        if row is None or row['launch_id'] != self.launch or row['state'] not in allowed:
+            raise ValueError('anonymous_transaction_scope_not_ready')
 
     def initialize(self, policy):
         """Register private workspace and resumed logical scope without resetting policy."""
         self.policy_value(policy)
-        with self.transaction() as c:
+        manager = self.transaction(initializing=True) if self.public else self.transaction()
+        with manager as c:
             c.execute('INSERT INTO documents.workspace(principal_id,workspace_id,policy_version) VALUES(%s,%s,%s) ON CONFLICT DO NOTHING', (self.principal,self.workspace,policy))
             current = self.lock(c, 'CREATE')
             if current['policy_version'] != policy:
@@ -163,10 +186,11 @@ class Store:
         if operation != 'CREATE' and body['expectedRevision'] != expected:
             raise ValueError('base_body_mismatch')
         create = int(operation == 'CREATE')
-        full = workspace['document_count'] + workspace['reserved_documents'] + create > 64
-        full |= workspace['revision_count'] + workspace['reserved_revisions'] + 1 > 4096
-        full |= workspace['receipt_count'] + workspace['reserved_receipts'] + 1 > 16384
-        full |= workspace['accounted_bytes'] + workspace['reserved_bytes'] + RESERVATION > MAX_BYTES
+        limits = (3, 128, 256, 16777216) if self.public else (64, 4096, 16384, MAX_BYTES)
+        full = workspace['document_count'] + workspace['reserved_documents'] + create > limits[0]
+        full |= workspace['revision_count'] + workspace['reserved_revisions'] + 1 > limits[1]
+        full |= workspace['receipt_count'] + workspace['reserved_receipts'] + 1 > limits[2]
+        full |= workspace['accounted_bytes'] + workspace['reserved_bytes'] + RESERVATION > limits[3]
         if full:
             return {'status':'CAPACITY_PRE_ADMISSION'}
         nonce,document = str(uuid.uuid4()), wire.fresh_id() if create else req[0]
@@ -341,9 +365,13 @@ class Store:
             connection.execute('SET LOCAL statement_timeout = 1500')
             connection.execute('SET LOCAL lock_timeout = 250')
             connection.execute('SET LOCAL idle_in_transaction_session_timeout = 1000')
+            if self.public:
+                self._public_start(connection, context=True)
             connection.execute("SELECT set_config('allow.tenant',%s,true)", (self.principal,))
             connection.execute("SELECT set_config('allow.project',%s,true)", (self.workspace,))
             connection.execute("SELECT set_config('allow.purpose',%s,true)", ('document',))
+            if self.public:
+                self._public_guard(connection)
             yield connection
 
     @staticmethod

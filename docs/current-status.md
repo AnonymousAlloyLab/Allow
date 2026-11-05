@@ -7,6 +7,75 @@ The source tree contains the new cleanup path, a disabled JVM optimization
 profile and a disabled prestarted-worker pool. Full acceptance is still in progress. The application remains a local development system,
 with commercial release **NO_GO**.
 
+## Anonymous Windows/WSL deployment candidate — 4 November 2026
+
+The selected target is `https://allow.alloy4.fun`, Windows 10 21H2 IoT Enterprise,
+WSL2 Ubuntu 24.04, for anyone using separate temporary workspaces. The operator
+reported `Ubuntu-24.04` Running on WSL2, WSL 3.0.1.0 and Windows build
+10.0.19044.7807. Subsequent operator output reports PID 1 systemd, x86-64,
+Python 3.12.3, Java/Bubblewrap/prlimit command paths and the `allow` service account.
+`allow.service` is loaded, active and enabled, running as `allow:allow` from
+`/opt/allow`. The reported manifest matches original private R1 exactly; Java is
+17.0.20.1 and the root is `allow:allow` mode0700. IIS site `Allow` at
+`C:\inetpub\allow` has HTTPS SNI binding `*:443:allow.alloy4.fun`. The selected
+[separate public cutover](staged-public-cutover.md) leaves that private store
+in place and initializes a fresh `/opt/allow-public` under `allow-public`.
+It supplies no in-place migration. Its six-seat-reviewed contract and separate
+50-theorem Lean policy check preceded implementation. The local two-store
+rehearsal preserved the stopped old runtime and all four private fixture
+readbacks; it used one workstation UID and reused test dependencies. See the
+[operator inventory](../gates/deployment/anonymous-v1/target-linux-inventory.json).
+The six required
+reviewers approved the exact [contract](../spec/anonymous-workspaces.json), then
+the [56 finite policy theorems](../gates/deployment/anonymous-v1/formal-report.json)
+passed two matching clean Lean builds before production changes. This is a policy
+model result, not proof of implementation correspondence or commercial readiness.
+
+Source now implements closed PRIVATE/ANONYMOUS modes, scoped document and solver
+ownership, four capacity-consuming reservations, a 30-minute absolute lifetime,
+expiry publication checks and parser-routed lifecycle cleanup. Unknown cleanup
+retains its reservation. Public mode has no corpus access. The frontend offers
+explicit enrollment, reload/resume and draft export after ending a workspace.
+The [WSL transfer procedure](wsl-anonymous-deployment.md) stages loopback-only
+routing and a foreground supervisor without changing other WSL distributions.
+
+The [R5 transfer archive](../dist/allow-iis-wsl-anonymous-20261104-r5.zip) passes
+its 310-file manifest/extraction audit. It changes nine deployment/documentation
+files and adds seven cutover inputs relative to R4; 294 existing files match
+exactly, including all224 compiled/dependency/frontend/solver artifacts and all
+retrieval/database inputs. New checks pass35 Linux tests, eight renderer tests,
+12 cutover PowerShell mock checks and four legacy supervisor mock checks.
+Fresh PRIMARY package preflight passes, and all three replacement entrypoints
+reject a wrong root before runtime/SQL effects. The guard now verifies the
+cgroup2 mount before accepting an absent group and reserves the public numeric
+UID despite account aliases. Failed service-stop cleanup releases the Windows
+mutex. Independent reviews found those defects and verified the fixes. See the
+[cutover report](../gates/deployment/cutover-v1/report.json).
+
+The unchanged application's earlier local evidence
+records 334 Java tests, 172 frontend tests, 65 selected SQL/context tests (six
+real anonymous SQL cases), 52 actual HTTP checks, 45 deployment/probe/renderer
+tests and four portable WSL supervisor mock checks. The frontend's final expiry
+wording was rebuilt after its test run. Browser checks passed separate enrollment,
+scoped model lists, saving, reload/resume, ending one session while the other
+remained usable, retained unsaved source and exact-file export. Native clipboard
+verification and a full wall-clock expiry/browser matrix remain open. See the
+[candidate report](../gates/deployment/anonymous-v1/report.json) for exact evidence
+and the local proxy adapter's limits. Anonymous R1/R2/R3 archives are superseded
+as transfer packages; R4 is also superseded by R5's separate-install tooling.
+Their evidence remains preserved.
+
+Native Windows/WSL/IIS, effective resource limits, TLS, reboot/outage recovery and
+external anonymous acceptance remain **OPEN**. Remote desktop control is not
+available in this session; no remote deployment or ingress changes were made.
+The [read-only existing-domain probe](../gates/deployment/anonymous-v1/existing-public-boundary-probe.json)
+failed: `/api;ignored/config` returned configuration without a bearer in the
+tested request, and several denial responses missed expected security headers.
+Do not treat the already-running public site as the tested candidate.
+
+Historical baselines below keep their original counts and scope. The R7 package
+is a private staging baseline; it is not an anonymous deployment artifact.
+
 ## Tested baseline
 
 The [formal report](../gates/document/validation-context-candidate/formal-runs/final-309-v1/report.json)
@@ -237,25 +306,76 @@ and solver profiles retain DEFAULT, and warm pooling remains disabled. This is
 an explicit opt-in selection under a new contract, not a revision of KEEP_F0 or
 the failed strict latency gate.
 
-All six council seats approved the deployment contract, and 22 finite Lean
-policy propositions passed two clean builds before production edits. The new
-isolated build passes **310 Java tests**, **164 frontend tests**, code style,
-and **14 deployment Python tests**. A fresh extracted package initialized its
-own PostgreSQL/SQLeanParser state, validated an advisory draft, committed/read
-history, obtained SAT4J SAT evidence, restarted with retained documents and a
-rotated token, rejected the old token, and shut down its owned stack. The
-[deployment report](../gates/deployment/iis-v1/report.json) binds the archive and
-these checks. These source changes supersede old build receipts as descriptions
-of current bytes; historical benchmarks remain scoped to their original inputs.
-Real Windows IIS/SSH execution and target-host performance remain **OPEN**.
+The initial IIS archive's 310 Java, 164 frontend and 14 Python checks remain
+[historical deployment evidence](../gates/deployment/iis-v1/report.json).
+The current **R6 private archive** supersedes it after the
+[security and visual-drag contract](../spec/security-drag.json). All six requested
+reviewers approved the refined contract; its 47 finite Lean policy theorems
+passed two clean builds before the corresponding production corrections. These
+prove the encoded policies, not implementation refinement or production security.
 
-Cold-browser measurements, positive pointer-drag acceptance, complete keyboard
-scenarios and the named Firefox ESR/Orca accessibility run remain open. Dataset
-and dependency redistribution rights, a consenting customer task pilot and
-support economics also remain open. The warm browser result does not close
-these separate gates.
+The security patch closes encoded/matrix-path authentication bypasses, defaults
+nonpublic routes to bearer authentication, and narrowly preserves the existing
+literal/encoded `server:UUID` document routes. Deployment entrypoints now require
+isolated Python, verify source before loading helpers, reject stray application
+bytecode/imports and preexisting generated tools, check ownership and permissions,
+and hold a shared exclusive lock through startup and cleanup. JVM preflight
+also receives the sanitized environment. Every SQL operation still uses SQLeanParser.
+
+The current build passes **314 Java tests**, **169 frontend tests**, **22 deployment
+Python tests**, and code-style checks. The R6 archive passed fresh Linux setup
+with an explicitly captured zero exit, authenticated and encoded document
+operations, supervisor contention, SAT4J execution, restart persistence, token
+rotation and owned-stack shutdown. The
+[current report](../gates/security-drag-v1/report.json) binds sources, archive and
+receipts. Prior benchmark numbers remain scoped to their original binaries.
+No production service was upgraded by these isolated tests.
+
+The editor has a grouped, scrollable palette beside a connected block canvas,
+explicit reference names, typed dashed holes and fixed-size drag feedback.
+Owned gesture nonces and current-content checks prevent foreign/stale drops;
+hover and final mutation use the same type/scope preparation. Actual browser
+checks confirmed native compatible reference insertion, rejection of a
+relation-to-formula move without a content change, click-based construction,
+explicit copy/paste, source projection and saving/reopening. The remaining
+Boolean-gate and modified move/copy pointer matrix is **OPEN**: some automation
+attempts cancelled or reported a missing hit-test node. That result is not a
+complete browser acceptance pass. Narrow viewport, full keyboard shortcuts,
+Firefox ESR/Orca and touchscreen drag acceptance are also open.
+
+Real Windows/IIS/SSH, target-host performance, cold-browser measurements,
+dataset/dependency redistribution rights, a consenting customer pilot and
+support economics remain **OPEN**. Private packaging is not commercial release.
+Two earlier R4 setup shell sessions exited143 for an unresolved reason; those
+logs and roots are preserved. A separate fresh R4 run and the final R6 setup
+and smoke captured child and parent exit0. The failed initial document-path
+candidate and earlier archives are also retained and explicitly superseded.
 
 ## Architecture and work in progress
+
+The [R7 Windows/IIS staging report](../gates/deployment/public-iis-v1/report.json)
+adds a stopped-by-default installer and bounded unauthenticated HTTPS probe.
+The exact [public staging contract](../spec/public-iis-staging.json) received all
+six required council reviews, and 37 finite Lean policy theorems passed two clean
+builds before production edits. This is a policy model, not implementation
+refinement or a Windows security certificate.
+
+R7 contains the same 213 compiled application artifacts as R6. Its archive audit
+and Linux package preflight passed; full R6 database/bootstrap smoke results
+remain historical evidence and were not rerun as R7. Deployment tests comprise
+17 probe tests (including real local TLS, full subprocess CLI and deadline
+termination), 18 Linux tests, 4 renderer tests and 11 portable PowerShell helper
+checks. The helper checks do not execute native Windows IIS/HTTP.sys.
+
+The site installer validates a closed rendered configuration and certificate
+policy, stages SNI with auto-start disabled, and sets restricted W3C fields.
+Uncertain commit failures retain artifacts for operator inspection. NTFS ACLs,
+ancestor reparse points, effective logging, actual stopped state and all native
+acceptance remain open. The probe uses no real token and its PASS cannot establish
+authenticated flows or public readiness. At the R7 milestone, domain, target
+access and audience were pending; the anonymous candidate section above records
+their later selection. No remote deployment, DNS, firewall or public exposure was
+performed by this work. Public artifact redistribution remains a separate decision.
 
 - [Document operations](document-stage.md): typed blocks and exact source,
   immutable revisions, advisory validation and recovery boundaries.

@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "id": "allow-separate-public-cutover-r5",
+  "recorded_utc": "2026-11-05T00:04:33.637398+00:00",
+  "status": "LOCAL_TRANSFER_CANDIDATE_TESTED_NATIVE_TARGET_OPEN",
+  "remote_mutations": false,
+  "public_release": "NOT_ACCEPTED",
+  "commercial_release": "NO_GO",
+  "mechanical_closure": "NOT_CLAIMED",
+  "target": {
+    "path": "gates/deployment/cutover-v1/target-inventory.json",
+    "sha256": "29acc6ba68c2a540df6eca743d8cb7f49026c2c4a31de07f28cb6abdba2c6d16"
+  },
+  "strategy": "Fresh /opt/allow-public, distinct allow-public account, allow-public.service; preserve stopped original R1 /opt/allow in place. No overlay or old store migration. Restrict ingress and deliberately quiesce the old site/task/unit before new initialization.",
+  "package": {
+    "package": "/home/augustus/Allow/dist/allow-iis-wsl-anonymous-20261104-r5.zip",
+    "sha256": "ad6ffe042a677775d52962211ff8685fbf2ea834fd7ff7a36e3e600c153c0c78",
+    "files": 310,
+    "bytes": 75885624,
+    "manifest_sha256": "a6fd56c126619b47ec47861aeca20975de88f7b2f79874b10502d739ad92bb55",
+    "manifest_files": 310,
+    "zip_members": 312,
+    "audit": {
+      "path": "gates/deployment/cutover-v1/package-audit-r5.json",
+      "sha256": "b71909259a22bc69936a6954b7836aabf27a03da6933960be111e4678b11ddf4"
+    }
+  },
+  "proof_first": {
+    "contract": {
+      "path": "spec/staged-public-cutover.json",
+      "sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+    },
+    "council": {
+      "path": "gates/deployment/cutover-v1/council-disposition.json",
+      "sha256": "75c435dc2770911d4551d62bbe7dfc4f889658fc93f545e735e255ec0b140ceb"
+    },
+    "formal": {
+      "path": "gates/deployment/cutover-v1/formal-report.json",
+      "sha256": "2553b33bf3d51b322d0d50966b5222c5071b4f6fa71032f61a73b520eee64e61"
+    },
+    "theorems": 50,
+    "clean_builds": 2,
+    "scope": "Finite policy only; no implementation refinement or host isolation proof"
+  },
+  "checks": {
+    "linux": {
+      "tests": 35,
+      "log": {
+        "path": "gates/deployment/cutover-v1/linux-tests-final.log",
+        "sha256": "db110dc1bd9b56ae8f04292927163ea1f6de19bb81432be6cd803ad733c4382c"
+      }
+    },
+    "renderer": {
+      "tests": 8,
+      "log": {
+        "path": "gates/deployment/cutover-v1/renderer-tests-final.log",
+        "sha256": "c6352adff70a6982c739a1cd77bbb43d2425eefd2dc2112b92b0ceebf2a6ca31"
+      }
+    },
+    "powershell": {
+      "cutover_checks": 12,
+      "legacy_checks": 4,
+      "report": {
+        "path": "gates/deployment/cutover-v1/windows-wsl-mocks.json",
+        "sha256": "47747c3c63eb7a6ae4b7b96964da18d85f7d5d19a2d310ddbc66d97497442ec2"
+      },
+      "legacy_report": {
+        "path": "gates/deployment/cutover-v1/windows-primary-regressions.json",
+        "sha256": "396e5dc5a0c3d682f32b58f591822312fb7f9cc0b494ab9fe41f36f93a873d75"
+      },
+      "prior_failed_stop_regression": {
+        "path": "gates/deployment/cutover-v1/windows-failed-stop-regression.json",
+        "sha256": "19534ed46a31e3fe38ec6fd8c95eb4452ad953aa166e4dc61ce4c1259d0f3ba9"
+      },
+      "native_windows": "OPEN"
+    },
+    "two_store": {
+      "path": "gates/deployment/cutover-v1/rehearsal-two-store-report.json",
+      "sha256": "ff785d5196d4e74092014714e03637f49760997b618672afd4f0a222ec0311f2"
+    },
+    "extracted_package": {
+      "primary_host_prerequisites": "PASS",
+      "public_wrong_root_denied_before_runtime": [
+        "check_public.py",
+        "setup.py",
+        "service.py"
+      ],
+      "sql_started": false,
+      "runtime_created": false,
+      "native_public_account_systemd_wsl_iis": "OPEN"
+    },
+    "implementation_review": {
+      "path": "gates/deployment/cutover-v1/implementation-review.json",
+      "sha256": "85847172845cb83cca66c7bea5953e08d6840297d71464deb0c3211b997b52ff"
+    },
+    "source_inputs": {
+      "path": "gates/deployment/cutover-v1/source-inputs.json",
+      "sha256": "2a2c7957984087f1b0d17690d5b12c59af492894e809caddb76f389f69b3d6cf"
+    }
+  },
+  "inherited_application_evidence": {
+    "report": {
+      "path": "gates/deployment/anonymous-v1/report.json",
+      "sha256": "8fe481b960286b2c5b34420b67785e211021004e9dfe1b385baf3dca3ec58a23"
+    },
+    "scope": "224 backend/frontend/dependency/solver artifacts and retrieval/DB/parser inputs byte-identical to R4; its Java334/frontend172/SQL65/HTTP52/browser evidence inherited, not rerun for deployment-only changes",
+    "unchanged_manifest_files": 294
+  },
+  "preserved_failure": "Initial R5 audit used unsupported deploy/primary-instance.json; inventory correctly rejected it. Initial harness/log/extraction retained. Corrected harness uses sole allowed deploy/instance.json and passed in a new extraction. No application correction was needed.",
+  "open": [
+    "Target stopped-boundary inventory/backup and exclusive maintenance; named task action/recovery and unmanaged children",
+    "Fresh provisioning under actual distinct allow-public UID; native cgroup/ACL/sandbox/resource acceptance",
+    "Existing IIS configuration/ARR host preservation/logging, certificate validation and restricted TLS/Host/Origin/alias tests",
+    "Actual two-session isolation, expiry, cleanup, outage/reboot and external acceptance",
+    "Performance on 4vCPU/8GiB target, licensing/redistribution and commercialization"
+  ],
+  "trust": "Root administrators/NSS/systemd/kernel/native task scheduler/WSL remain trusted; read-only checks do not provide atomic exclusion. Same-UID disposable rehearsal reused dependencies and is not target backup/restore. Existing public R1 boundary remains failed until corrected deployment is externally accepted.",
+  "runbook": {
+    "path": "docs/staged-public-cutover.md",
+    "sha256": "1422fcff6eeb65981676dcb0e8e7f36ce1176dccbf8d24ba23da8f519db17e94"
+  }
+}

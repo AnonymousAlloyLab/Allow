@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "id": "allow-anonymous-wsl-candidate-r4",
+  "recorded_utc": "2026-11-04T23:20:58.063480+00:00",
+  "status": "LOCAL_CANDIDATE_TESTED_NATIVE_TARGET_ACCEPTANCE_OPEN",
+  "commercial_release": "NO_GO",
+  "mechanical_closure": "NOT_CLAIMED",
+  "target": {
+    "origin": "https://allow.alloy4.fun",
+    "windows": "Windows10 21H2 IoT Enterprise",
+    "linux": "WSL2 Ubuntu24.04",
+    "distribution_name": "Ubuntu-24.04",
+    "remote_changes_performed": false,
+    "remote_desktop": "TCP endpoint reachable; supported native desktop control unavailable; no login attempted",
+    "reported_wsl_version": "3.0.1.0",
+    "reported_windows_build": "10.0.19044.7807",
+    "operator_confirmation": {
+      "path": "gates/deployment/anonymous-v1/target-confirmation.json",
+      "sha256": "e3b4edc17b5f686cc565495dbe19e2a6a19164a390d32798f35cf26762fc71f5"
+    },
+    "native_inspection": "Operator reports original private R1 manifest, Java17.0.20.1, allow-owned mode0700 root, active enabled old unit and identified IIS site/task; native acceptance remains open",
+    "linux_inventory": {
+      "path": "gates/deployment/anonymous-v1/target-linux-inventory.json",
+      "sha256": "29acc6ba68c2a540df6eca743d8cb7f49026c2c4a31de07f28cb6abdba2c6d16"
+    },
+    "deployment_path": "Fresh separate PUBLIC_REPLACEMENT installation under /opt/allow-public; retain original private R1 at /opt/allow unchanged after its deliberate maintenance stop"
+  },
+  "package": {
+    "package": "/home/augustus/Allow/dist/allow-iis-wsl-anonymous-20261104-r4.zip",
+    "sha256": "2076de0c751929b778cd5aec07b1d021f7d4bfd2badc0df7df14e9eb0fd5a4ef",
+    "files": 303,
+    "bytes": 75864893,
+    "manifest_files": 303,
+    "zip_members": 305,
+    "manifest_sha256": "de3a5a4c32a4d54064711143c2c382129fc44bf10d5bd6eca642e75e3ebebec9",
+    "contents": "Allowlisted code, compiled application and pinned dependencies; no live runtime, user workspace, trained models or credentials",
+    "supersedes": [
+      "anonymous candidate R1 before worker-admission repair",
+      "anonymous candidate R2 before final privacy wording",
+      "anonymous candidate R3 before exact distribution and startup-sequence documentation"
+    ]
+  },
+  "proof_first": {
+    "council": {
+      "path": "gates/deployment/anonymous-v1/council-disposition.json",
+      "sha256": "9eef34e65f3593e7a246c15f179718fd11d7522e8a2de570ae2d39f4deea8a77"
+    },
+    "model": {
+      "path": "gates/deployment/anonymous-v1/formal-report.json",
+      "sha256": "dd3f0cb89acfd0ce74a738c4aa373a84c40f1996626180b5d5e08e9a6ed37bd0"
+    },
+    "theorems": 56,
+    "matching_clean_builds": 2,
+    "scope": "Finite policy model only, not implementation refinement"
+  },
+  "checks": {
+    "java": {
+      "tests": 334,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log": {
+        "path": "gates/deployment/anonymous-v1/java-test-r2.log",
+        "sha256": "9f64f1026b2c8899e052627396a5cc1294093ce1af45c57fd37365e364eb4983"
+      },
+      "source_inputs": {
+        "path": "gates/deployment/anonymous-v1/java-source-inputs.json",
+        "sha256": "2468100b0853aacac3b4b8b023706bf6ce586a146305aed1f569498c90cd1695"
+      },
+      "style": "Maven Checkstyle passed documentation, encapsulation and method length checks"
+    },
+    "frontend": {
+      "tests": 172,
+      "test_files": 19,
+      "report": {
+        "path": "gates/deployment/anonymous-v1/frontend-report.json",
+        "sha256": "474f2dbf5820401812e637dae81b4e8eaca8a22f7980bd83a76eb80b4326f2f5"
+      },
+      "final_copy_change": "Tests preceded wording-only expiry correction; final TypeScript/Vite build and style passed"
+    },
+    "sql": {
+      "selected_tests": 65,
+      "real_anonymous_sql_cases": 6,
+      "skips": 0,
+      "report": {
+        "path": "gates/deployment/anonymous-v1/sql-runtime-report.json",
+        "sha256": "51d349ba47ecc178713d3437cfa9e8555e7ed0bb1c62e37a26d0e97ac299062f"
+      },
+      "all_queries": "canonical sql_connections with pinned SQLeanParser"
+    },
+    "http": {
+      "checks": 52,
+      "report": {
+        "path": "gates/deployment/anonymous-v1/http-r4-report.json",
+        "sha256": "eaf9150494c799863859bed4e1869fa9d4c238956c4361e6aaa6ca546ee78046"
+      },
+      "package_binding": "All nonstatic compiled/dependency/solver hashes match final package; frontend wording-only rebuild tested separately in browser"
+    },
+    "deployment": {
+      "linux_tests": 20,
+      "renderer_tests": 5,
+      "probe_tests": 20,
+      "portable_wsl_mock_checks": 4,
+      "logs": [
+        {
+          "path": "gates/deployment/anonymous-v1/linux-deploy-tests.log",
+          "sha256": "07f5b7e7ad479f5c39df7ff646fac6f50d701cc6b906283b4bef31e84ca2491e"
+        },
+        {
+          "path": "gates/deployment/anonymous-v1/renderer-tests.log",
+          "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6"
+        },
+        {
+          "path": "gates/deployment/anonymous-v1/probe-tests.log",
+          "sha256": "128fb5b1df63b0364801c4f48f5e046ba45fe0ca32978d1baaa02bdc25cbfaae"
+        },
+        {
+          "path": "gates/deployment/anonymous-v1/windows-wsl-mocks.json",
+          "sha256": "396e5dc5a0c3d682f32b58f591822312fb7f9cc0b494ab9fe41f36f93a873d75"
+        }
+      ]
+    },
+    "package_audit": {
+      "path": "gates/deployment/anonymous-v1/package-audit-r4.json",
+      "sha256": "e92a9ffd8dde5ecaf01c8963d8a81d95315330c475f4387341d5cb7f59c3180f"
+    },
+    "browser": {
+      "ux": {
+        "path": "gates/deployment/anonymous-v1/browser-report.json",
+        "sha256": "6d7cf271e668c4e8a6fe6e2d763187b6db1ecef3b6b9524f7b8fb40f535fb24f"
+      },
+      "cleanup_and_build": {
+        "path": "gates/deployment/anonymous-v1/browser-final-report.json",
+        "sha256": "c42146a363467fedb3cc361492b289e784fcea61039a66b995715418b748335d"
+      },
+      "package_binding": "R4 application/static/dependency/solver bytes are identical to browser-tested R3; only two documentation files changed"
+    }
+  },
+  "repairs": [
+    "Scoped immutable document coordinators and explicit solver ownership",
+    "Absolute expiry response-publication fence with bounded staging; redirect/allocation/error-writer escape paths closed",
+    "Shutdown cannot revive a provisioned capability",
+    "Permit rejection records definite no-start; attempted launch failure retains uncertainty",
+    "Persistent parser-routed lifecycle registry, scoped purge, quotas and quarantine",
+    "Public bootstrap/session storage, explicit enrollment/end, retained draft and exact source export",
+    "Public launcher omits operator launch link and caps HTTP transport resources",
+    "Closed mode-aware HTTPS probe preserves private expectations"
+  ],
+  "preservation": {
+    "user_preview": "Untouched",
+    "live_workstation_database": "Untouched; all integration used a fresh disposable SQL cluster",
+    "private_fixture_control": "Unchanged",
+    "owned_test_services": "STOPPED",
+    "temporary_public_registry": "EMPTY",
+    "agent_created_browser_tabs": "CLOSED"
+  },
+  "existing_public_site": {
+    "status": "FAILED_BOUNDARY_ACCEPTANCE",
+    "probe": {
+      "path": "gates/deployment/anonymous-v1/existing-public-boundary-probe.json",
+      "sha256": "51e31de4d18ae199cab4c5b021cb096b18f2eec3f77822c0b252530c67ec5d5b"
+    },
+    "finding": "A read-only /api;ignored/config request returned200 configuration without bearer; several denial responses lacked expected headers. Existing domain does not represent the tested candidate.",
+    "ingress_changed": false
+  },
+  "open": [
+    "Native distinct-account isolation, old runtime quiescence, private stopped preservation and fresh separate public provisioning",
+    "Native IIS TLS/SNI/logging/Host/Origin/alias/duplicate-header and loopback-only networking",
+    "Boot/task supervision, reboot/outage recovery and external public acceptance",
+    "Full30minute browser expiry/interruption/pointer/accessibility matrix and native clipboard delivery",
+    "Fresh full package dependency provisioning on target; SQL runtime fixture reused PostgreSQL/pgvector binaries",
+    "Complete adversarial fault/resource/load acceptance and implementation correspondence",
+    "Commercial licensing, artifact redistribution and broader production readiness"
+  ],
+  "trust": "Lean kernel/finite abstraction; JDK/Python/PostgreSQL/pinned parser/solver dependencies and host OS remain trusted. Local browser used an explicit fixed-Host/existing-Origin adapter; it does not establish TLS/IIS routing. Logical deletion is not secure erasure.",
+  "revision_scope": {
+    "from": "R3",
+    "changed_files": [
+      "README.md",
+      "docs/wsl-anonymous-deployment.md"
+    ],
+    "unchanged_manifest_files": 301,
+    "application_and_tooling_identical": true,
+    "contract_and_lean_unchanged": true,
+    "full_test_suites_rerun": false,
+    "reason": "Documentation and target metadata only; manifest/delta/extraction audit and fresh Linux preflight rerun",
+    "previous_report": {
+      "path": "gates/deployment/anonymous-v1/report-r3.json",
+      "sha256": "4467bf9373083d6dba13d6bd869da5837b8e07c60ed9976184b4d152bfb554b8"
+    }
+  },
+  "existing_installation_constraint": "Fresh setup does not migrate a recognized existing store. Legacy private releases need explicit parser-routed anonymous-registry migration; no guarded existing-store upgrade CLI is shipped. Preserve current identity/data/credentials/locks and avoid overlaying live code.",
+  "superseded_by": "R5 tooling/package preparation in gates/deployment/cutover-v1; R4 application evidence remains historical and byte-comparable"
+}

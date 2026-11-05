@@ -1,0 +1,59 @@
+PublicIisStaging.lean:46:2: error: unexpected token 'exists'; expected command
+PublicIisStaging.lean:52:10: error: unexpected identifier; expected 'instance'
+PublicIisStaging.lean:54:25: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Allow.PublicIisStaging.Site.mk` does not have explicit fields, but 6 were provided
+PublicIisStaging.lean:58:41: error(lean.invalidField): Invalid field `running`: The environment does not contain `Allow.PublicIisStaging.Site.running`, so it is not possible to project the field `running` from an expression
+  stagedSite
+of type `Site`
+PublicIisStaging.lean:58:70: error(lean.invalidField): Invalid field `autoStart`: The environment does not contain `Allow.PublicIisStaging.Site.autoStart`, so it is not possible to project the field `autoStart` from an expression
+  stagedSite
+of type `Site`
+PublicIisStaging.lean:59:49: error(lean.invalidField): Invalid field `sniConfigured`: The environment does not contain `Allow.PublicIisStaging.Site.sniConfigured`, so it is not possible to project the field `sniConfigured` from an expression
+  stagedSite
+of type `Site`
+PublicIisStaging.lean:60:15: error(lean.invalidField): Invalid field `logSecretsExcluded`: The environment does not contain `Allow.PublicIisStaging.Site.logSecretsExcluded`, so it is not possible to project the field `logSecretsExcluded` from an expression
+  stagedSite
+of type `Site`
+PublicIisStaging.lean:61:51: error(lean.invalidField): Invalid field `publicAccepted`: The environment does not contain `Allow.PublicIisStaging.Site.publicAccepted`, so it is not possible to project the field `publicAccepted` from an expression
+  stagedSite
+of type `Site`
+PublicIisStaging.lean:69:30: error(lean.invalidField): Invalid field `running`: The environment does not contain `Allow.PublicIisStaging.Site.running`, so it is not possible to project the field `running` from an expression
+  install p Mode.stage before
+of type `Site`
+PublicIisStaging.lean:69:74: error(lean.invalidField): Invalid field `autoStart`: The environment does not contain `Allow.PublicIisStaging.Site.autoStart`, so it is not possible to project the field `autoStart` from an expression
+  install p Mode.stage before
+of type `Site`
+PublicIisStaging.lean:69:95: error: unsolved goals
+p : Preflight
+before : Site
+h : preflightPass p = true
+⊢ sorry () = false
+PublicIisStaging.lean:70:31: warning: declaration uses `sorry`
+PublicIisStaging.lean:70:8: warning: This simp argument is unused:
+  install
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mayMutate, h, stagedSite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PublicIisStaging.lean:70:17: warning: This simp argument is unused:
+  mayMutate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [install, h, stagedSite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PublicIisStaging.lean:70:28: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [install, mayMutate, stagedSite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PublicIisStaging.lean:70:31: warning: This simp argument is unused:
+  stagedSite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [install, mayMutate, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+PublicIisStaging.lean:208:54: error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Allow.PublicIisStaging.Site.mk` does not have explicit fields, but 6 were provided

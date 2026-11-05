@@ -17,6 +17,7 @@ final class OwnedWorkerRun implements AutoCloseable {
     private boolean transportStarted;
     private boolean transportClosed;
     private boolean clean;
+    private boolean unmanagedAttempted;
 
     /** Reserves shared live capacity only in the selected pooled installation.
      * @param original existing trusted fresh launcher
@@ -41,8 +42,12 @@ final class OwnedWorkerRun implements AutoCloseable {
      * @throws InterruptedException cancelled startup
      */
     Process launch() throws IOException, InterruptedException {
-        if (child != null) throw new IOException("Fresh worker launch already attempted");
-        if (runtime == null) { child = original.launch(); return child; }
+        if (child != null || unmanagedAttempted) throw new IOException("Fresh worker launch already attempted");
+        if (runtime == null) {
+            unmanagedAttempted = true;
+            child = original.launch();
+            return child;
+        }
         requireRunning();
         if (!(original instanceof BubblewrapLauncher installed)) throw new IOException("Unsupported selected launcher");
         String current = runtime.pool().verifyImage();
@@ -96,10 +101,12 @@ final class OwnedWorkerRun implements AutoCloseable {
         return reservation.childStartTicks();
     }
 
-    /** Distinguishes an unkeyed managed launch attempt from proved absence of any attempt.
+    /** Distinguishes an unkeyed launch attempt from proved absence of any attempt.
      * @return whether no-worker-started recovery would invent an absence claim
      */
-    boolean startupUncertain() { return reservation != null && reservation.attempted() && child == null; }
+    boolean startupUncertain() {
+        return child == null && (unmanagedAttempted || reservation != null && reservation.attempted());
+    }
 
     /** Reports whether this installation requires the shared live-tree cleanup adapter.
      * @return whether pooling selected managed fresh containment
@@ -143,7 +150,7 @@ final class OwnedWorkerRun implements AutoCloseable {
     private void closeOwned() throws IOException, InterruptedException {
         if (runtime == null) {
             if (child != null) FrameProcess.reap(child);
-            clean = child == null || !child.isAlive();
+            clean = !startupUncertain() && (child == null || !child.isAlive());
             return;
         }
         runtime.ledger().cleanup(reservation, System.nanoTime() + 2_500_000_000L, this::requireTransportClosed);

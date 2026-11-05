@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "allow-public-iis-staging-v1",
+  "status": "LOCAL_STAGING_TOOLING_TESTED_TARGET_DEPLOYMENT_PENDING",
+  "closure_status": "NOT_A_FULL_MECHANICAL_CLOSURE_RUN",
+  "date": "2026-11-04",
+  "package": {
+    "package": "/home/augustus/Allow/dist/allow-iis-linux-private-20261104-r7.zip",
+    "sha256": "661950b574ee44d876a4b50fce2b0437760a6367c23903994ee24d66a23c7373",
+    "files": 283,
+    "bytes": 75811635
+  },
+  "proof": {
+    "theorems": 37,
+    "clean_builds": 2,
+    "council_seats": 6,
+    "scope": "Finite policy only; no implementation refinement"
+  },
+  "tests": {
+    "probe": 17,
+    "linux_deployment": 18,
+    "renderer": 4,
+    "powershell_helper_assertions": 11,
+    "python_total": 39,
+    "status": "PASS",
+    "powershell_runtime": "7.6.9 on Linux; native Windows PowerShell5.1/IIS not executed",
+    "powershell_distribution_sha256": "1da6d6d6035d651f20e70ddee7c4c15ac6ab8b9fb40ee92240d91263f28a884b",
+    "real_network_scope": "Owned local TLS fixture and reserved .invalid DNS failures only; no public target contacted"
+  },
+  "package_checks": {
+    "manifest_audit": "PASS",
+    "fresh_extraction_preflight": "PASS",
+    "reused_application_members": 213,
+    "r6_application_hashes_unchanged": true,
+    "new_database_initialized": false,
+    "prior_linux_smoke": "gates/security-drag-v1/report.json; historical R6 evidence, not rerun or relabelled"
+  },
+  "review_repairs": [
+    "Truncated HTTP Content-Length false pass fixed and tested with real TLS",
+    "Valid mixed-case chunked transfer supported and tested",
+    "Misleading inert mock assertions removed; actual logging helper tested"
+  ],
+  "open": [
+    "Named public domain and Windows/Linux connection aliases/configuration",
+    "Audience decision: private shared operator capability vs new access model",
+    "Native WindowsPowerShell5.1/IIS/ARR/HTTP.sys certificates, stopped state and effective logs",
+    "Restrictive NTFS ACLs and ancestor reparse-free path verified by target operator",
+    "Authenticated URI normalization/duplicates/document/solver/browser acceptance",
+    "Tunnel supervision, reboot/outage recovery, backend private firewall and external route",
+    "Target4vCPU8GiB resource/latency, backup/recovery and TLS renewal",
+    "Existing wider browser/accessibility, commercial and artifact redistribution gates"
+  ],
+  "remote_operations_performed": false,
+  "public_site_live": false,
+  "live_workspace_changed": false,
+  "limitations": "Helper mocks and finite proof policies cannot establish native deployment behavior. No automatic rollback claim across IIS/HTTP.sys; uncertain failure artifacts retained. Probe PASS alone never accepts deployment.",
+  "evidence": {
+    "formal-report.json": "c3ebfe35da24b521c1d42305c8771f9b9870f57bcf1f5f8263de123a52ccbba6",
+    "council-disposition.json": "5379b6344421bc2475cb3639c6b2f3f2b4f725e692e45a2e82bc462167d6e88f",
+    "reused-build-inputs.json": "9e55b0810a87f02a127d07559b6dbfbb157442c80c9c8f2094dbe740bb76d0b5",
+    "probe-tests.log": "c0e60d036ce6ac6583db63022006fc51c48bd3f2a3891c0a8875764979855147",
+    "renderer-tests.log": "82a67edb949711c194c856bd6c816a4670f39b27a627fae4db45028b31ed34a9",
+    "linux-tests.log": "1f4dc9e06b4fc51ad93f8831e1e06497485f7226fa7d6ec07c1819c025cf4092",
+    "windows-mock-tests.json": "6efc9b551fd1476b2645e1c970cb30754146622fa80278dc898cab1a5dae42a7",
+    "package-build.json": "dd2d1459b3a61c6d27c6c1daf31bf4916c60aea0cc87b26582d093d4959b9e62",
+    "package-audit.json": "fb6f559652c9802219173240d262e0df94d3719fd7753f534414719c3043d3ad",
+    "package-preflight.log": "e17a71bf70845734230b299e03fb8aaa83e6eba91597dc13a6c33826f513b0a7",
+    "probe-negative-cli.json": "b1609804e9679445ffbb097b321dbb914382ad5e3587b6eca269e5f26fbe9ab1",
+    "source-inputs.json": "297b46547d01768a64c15ab10171488a52856e19b51df402f1162e87456f8503",
+    "audit_package.py": "5404c85d45583809d696b5985e849b0326534f75c51f2cae9b207bd1b189c4af",
+    "compare_reused_build_inputs.py": "59ebc4b118e39e192a63bd8844a10bed5bf068b5897c48bcb2da6b0dd964da8f"
+  }
+}

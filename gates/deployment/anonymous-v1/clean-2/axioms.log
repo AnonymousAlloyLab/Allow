@@ -1,0 +1,56 @@
+'Allow.AnonymousWorkspaces.wrong_capability_rejected' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.resolved_scope_server_owned' does not depend on any axioms
+'Allow.AnonymousWorkspaces.expired_session_inaccessible' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.expired_capability_rejected' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.restarted_incarnation_rejected' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.provisioning_not_accessible' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.draining_not_accessible' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.quarantined_not_accessible' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.cross_scope_resource_denied' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.known_id_cannot_grant_scope' does not depend on any axioms
+'Allow.AnonymousWorkspaces.same_key_different_scope_independent' does not depend on any axioms
+'Allow.AnonymousWorkspaces.completed_after_expiry_not_published' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.publication_requires_live_scope' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.thirty_minute_fixed_lifetime' does not depend on any axioms
+'Allow.AnonymousWorkspaces.full_capacity_no_change' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.reservation_never_evicts' does not depend on any axioms
+'Allow.AnonymousWorkspaces.reservation_bound_four' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.reused_scope_not_allocated' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.reused_capability_not_allocated' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.cleanup_uncertain_no_reuse' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.unreaped_children_no_reuse' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.unresolved_queue_no_reuse' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.uncertain_context_no_reuse' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.private_scope_never_purged' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.quarantined_slot_not_released' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.uncertain_cleanup_retains_slot' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.quarantined_retains_slot' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.expired_queued_job_never_starts' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.quota_counts_reservations' does not depend on any axioms
+'Allow.AnonymousWorkspaces.stored_bytes_alone_insufficient' depends on axioms: [propext, Quot.sound]
+'Allow.AnonymousWorkspaces.four_slot_accounting_bound' does not depend on any axioms
+'Allow.AnonymousWorkspaces.global_request_cap' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.session_request_cap' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.second_expensive_operation_rejected' does not depend on any axioms
+'Allow.AnonymousWorkspaces.anonymous_corpus_disabled' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.private_token_no_anonymous_authority' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.anonymous_token_no_private_authority' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.private_mode_no_public_enrollment' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.unready_restart_blocks_enrollment' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.enrollment_requires_capacity' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.enrollment_requires_rate_permit' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.all_sql_requires_parser' does not depend on any axioms
+'Allow.AnonymousWorkspaces.wsl_prerequisites_not_acceptance' does not depend on any axioms
+'Allow.AnonymousWorkspaces.no_default_public_exposure' depends on axioms: [propext]
+'Allow.AnonymousWorkspaces.own_session_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.other_session_capability_denied' does not depend on any axioms
+'Allow.AnonymousWorkspaces.cross_session_document_denied' does not depend on any axioms
+'Allow.AnonymousWorkspaces.own_document_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.own_job_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.expiry_boundary_denied' does not depend on any axioms
+'Allow.AnonymousWorkspaces.drained_release_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.bounded_reservation_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.quota_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.enrollment_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.request_admission_positive' does not depend on any axioms
+'Allow.AnonymousWorkspaces.parser_route_positive' does not depend on any axioms

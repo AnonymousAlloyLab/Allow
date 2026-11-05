@@ -1,0 +1,380 @@
+test_body_cap (test_probe_public.PublicProbeTest.test_body_cap)
+A streamed response larger than the cap fails without retaining its content. ... ERROR
+test_child_result_is_closed_and_redacted (test_probe_public.PublicProbeTest.test_child_result_is_closed_and_redacted)
+A compromised or malformed child report cannot smuggle arbitrary data. ... ok
+test_denial_must_not_be_success_or_outage (test_probe_public.PublicProbeTest.test_denial_must_not_be_success_or_outage)
+Both unauthorized API success and gateway failure fail the probe. ... ERROR
+test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+Every prescribed request passes over certificate-verified fixture TLS. ... 
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='root_html')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='absent_bearer')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='invalid_bearer')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='hostile_origin')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='hostile_host')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='forwarded')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='encoded_alias')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+  test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='matrix_alias')
+Every prescribed request passes over certificate-verified fixture TLS. ... ERROR
+test_no_redirect_following_or_body_disclosure (test_probe_public.PublicProbeTest.test_no_redirect_following_or_body_disclosure)
+Redirects fail and no hostile Location or body enters the report. ... ERROR
+test_origin_and_timeout_boundaries (test_probe_public.PublicProbeTest.test_origin_and_timeout_boundaries)
+Inputs cannot carry capabilities or turn the probe into arbitrary browsing. ... ok
+test_parent_deadline_includes_dns_and_reaps_worker (test_probe_public.PublicProbeTest.test_parent_deadline_includes_dns_and_reaps_worker)
+The parent uses subprocess timeout even if child networking never returns. ... ok
+test_public_root_must_be_allow_html (test_probe_public.PublicProbeTest.test_public_root_must_be_allow_html)
+A generic successful proxy page cannot pass as the application. ... ERROR
+test_real_child_isolation_and_failure_exit (test_probe_public.PublicProbeTest.test_real_child_isolation_and_failure_exit)
+A real isolated worker rejects failed DNS without emitting exception details. ... ok
+test_report_does_not_promote_probe_to_acceptance (test_probe_public.PublicProbeTest.test_report_does_not_promote_probe_to_acceptance)
+Even all passing checks retain deployment acceptance OPEN. ... ok
+test_socket_deadline (test_probe_public.PublicProbeTest.test_socket_deadline)
+A fixture that stalls before headers exceeds the network deadline. ... ERROR
+test_untrusted_tls_fails (test_probe_public.PublicProbeTest.test_untrusted_tls_fails)
+A certificate outside the normal trust store cannot be bypassed. ... ERROR
+test_weak_or_duplicate_security_headers_fail (test_probe_public.PublicProbeTest.test_weak_or_duplicate_security_headers_fail)
+Missing, duplicate and weakened policy headers all fail. ... ERROR
+
+======================================================================
+ERROR: test_body_cap (test_probe_public.PublicProbeTest.test_body_cap)
+A streamed response larger than the cap fails without retaining its content.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 135, in test_body_cap
+    self.assertEqual(self.observe()['error'], 'body_limit')
+                     ^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_body_cap (test_probe_public.PublicProbeTest.test_body_cap)
+
+======================================================================
+ERROR: test_denial_must_not_be_success_or_outage (test_probe_public.PublicProbeTest.test_denial_must_not_be_success_or_outage)
+Both unauthorized API success and gateway failure fail the probe.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 158, in test_denial_must_not_be_success_or_outage
+    self.assertFalse(self.observe(index=1)['passed'])
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_denial_must_not_be_success_or_outage (test_probe_public.PublicProbeTest.test_denial_must_not_be_success_or_outage)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='root_html')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='absent_bearer')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='invalid_bearer')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='hostile_origin')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='hostile_host')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='forwarded')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='encoded_alias')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture) (check='matrix_alias')
+Every prescribed request passes over certificate-verified fixture TLS.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 117, in test_eight_fixed_checks_pass_tls_fixture
+    result = self.observe(index)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+
+======================================================================
+ERROR: test_no_redirect_following_or_body_disclosure (test_probe_public.PublicProbeTest.test_no_redirect_following_or_body_disclosure)
+Redirects fail and no hostile Location or body enters the report.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 128, in test_no_redirect_following_or_body_disclosure
+    result = self.observe()
+             ^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_no_redirect_following_or_body_disclosure (test_probe_public.PublicProbeTest.test_no_redirect_following_or_body_disclosure)
+
+======================================================================
+ERROR: test_public_root_must_be_allow_html (test_probe_public.PublicProbeTest.test_public_root_must_be_allow_html)
+A generic successful proxy page cannot pass as the application.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 145, in test_public_root_must_be_allow_html
+    self.assertEqual(self.observe()['error'], 'html')
+                     ^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_public_root_must_be_allow_html (test_probe_public.PublicProbeTest.test_public_root_must_be_allow_html)
+
+======================================================================
+ERROR: test_socket_deadline (test_probe_public.PublicProbeTest.test_socket_deadline)
+A fixture that stalls before headers exceeds the network deadline.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 140, in test_socket_deadline
+    self.assertEqual(self.observe(timeout=.03)['error'], 'timeout')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_socket_deadline (test_probe_public.PublicProbeTest.test_socket_deadline)
+
+======================================================================
+ERROR: test_untrusted_tls_fails (test_probe_public.PublicProbeTest.test_untrusted_tls_fails)
+A certificate outside the normal trust store cannot be bypassed.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 122, in test_untrusted_tls_fails
+    self.assertEqual(self.observe(trusted=False)['error'], 'tls')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 103, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 97, in observe
+    connection.request('GET', CHECKS[index][1], headers=headers)
+  File "/usr/lib/python3.12/http/client.py", line 1365, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1411, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1360, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.12/http/client.py", line 1120, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.12/http/client.py", line 1064, in send
+    self.connect()
+  File "/usr/lib/python3.12/http/client.py", line 1499, in connect
+    super().connect()
+  File "/usr/lib/python3.12/http/client.py", line 1030, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 828, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 92, in resolve
+    return self.original_resolve('127.0.0.1' if host == 'allow.test' else host,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: getaddrinfo() argument 1 must be string or None
+
+======================================================================
+ERROR: test_weak_or_duplicate_security_headers_fail (test_probe_public.PublicProbeTest.test_weak_or_duplicate_security_headers_fail)
+Missing, duplicate and weakened policy headers all fail.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 152, in test_weak_or_duplicate_security_headers_fail
+    self.assertEqual(self.observe()['error'], 'headers')
+                     ^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 105, in observe
+    return probe.observe(self.origin, index, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/probe_public.py", line 95, in observe
+    timeout=timeout, context=ssl.create_default_context())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_probe_public.py", line 97, in trusted_context
+    return self.original_context(cafile=str(self.cert))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/ssl.py", line 692, in create_default_context
+    raise TypeError(purpose)
+TypeError: test_weak_or_duplicate_security_headers_fail (test_probe_public.PublicProbeTest.test_weak_or_duplicate_security_headers_fail)
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.549s
+
+FAILED (errors=15)

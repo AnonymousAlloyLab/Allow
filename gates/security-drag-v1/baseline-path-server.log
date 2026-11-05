@@ -1,0 +1,13 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-04T13:44:03.067-06:00  WARN 57956 --- [.1-46903-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2026-11-04T13:44:03.069-06:00  WARN 57956 --- [.1-46903-exec-8] o.s.w.s.resource.ResourceHandlerUtils    : "Path contains "../" after call to StringUtils#cleanPath: [assets/../api/config]"
+2026-11-04T13:44:03.071-06:00  WARN 57956 --- [.1-46903-exec-9] o.s.w.s.resource.ResourceHandlerUtils    : "Path contains "../" after call to StringUtils#cleanPath: [assets/../api/config]"

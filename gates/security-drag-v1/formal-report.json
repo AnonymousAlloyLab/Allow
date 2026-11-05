@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "id": "allow-security-and-visual-drag-policy-v1",
+  "status": "POLICY_MODEL_PROVED",
+  "closure_status": "NOT_A_FULL_CLOSURE_RUN",
+  "review_date": "2026-11-04",
+  "contract": {
+    "path": "spec/security-drag.json",
+    "sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c",
+    "seat": "Sol1",
+    "decision": "APPROVE"
+  },
+  "proof": {
+    "path": "formal/Allow/SecurityDrag.lean",
+    "sha256": "f9ed5b220935b805c70613895ce28d5483bc343562533a30f57710916f0c6b6b",
+    "theorem_count": 47,
+    "theorems": [
+      "Allow.SecurityDrag.aliases_always_rejected",
+      "Allow.SecurityDrag.public_exception_exact",
+      "Allow.SecurityDrag.protected_default_requires_bearer",
+      "Allow.SecurityDrag.hostile_authority_rejected",
+      "Allow.SecurityDrag.forwarded_authority_irrelevant",
+      "Allow.SecurityDrag.public_positive",
+      "Allow.SecurityDrag.authenticated_positive",
+      "Allow.SecurityDrag.document_routes_never_public",
+      "Allow.SecurityDrag.document_routes_require_bearer",
+      "Allow.SecurityDrag.document_routes_unauthorized_rejected",
+      "Allow.SecurityDrag.encoded_document_read_and_mutation_positive",
+      "Allow.SecurityDrag.literal_document_read_and_mutation_positive",
+      "Allow.SecurityDrag.bootstrap_requires_all_checks",
+      "Allow.SecurityDrag.unisolated_bootstrap_rejected",
+      "Allow.SecurityDrag.bytecode_bootstrap_rejected",
+      "Allow.SecurityDrag.unverified_source_rejected",
+      "Allow.SecurityDrag.extra_executable_rejected",
+      "Allow.SecurityDrag.unsafe_ownership_rejected",
+      "Allow.SecurityDrag.nonprivate_authority_rejected",
+      "Allow.SecurityDrag.fresh_rejects_old_tools",
+      "Allow.SecurityDrag.fresh_rejects_unknown_runtime",
+      "Allow.SecurityDrag.competing_initializer_rejected",
+      "Allow.SecurityDrag.competing_supervisor_no_effects",
+      "Allow.SecurityDrag.side_effects_require_owner",
+      "Allow.SecurityDrag.bootstrap_positive",
+      "Allow.SecurityDrag.fresh_positive",
+      "Allow.SecurityDrag.supervisor_positive",
+      "Allow.SecurityDrag.foreign_editor_rejected",
+      "Allow.SecurityDrag.missing_gesture_rejected",
+      "Allow.SecurityDrag.stale_document_rejected",
+      "Allow.SecurityDrag.stale_revision_rejected",
+      "Allow.SecurityDrag.stale_draft_rejected",
+      "Allow.SecurityDrag.stale_generation_rejected",
+      "Allow.SecurityDrag.missing_destination_rejected",
+      "Allow.SecurityDrag.missing_source_rejected",
+      "Allow.SecurityDrag.descendant_self_rejected",
+      "Allow.SecurityDrag.incompatible_rejected",
+      "Allow.SecurityDrag.unresolved_not_typechecked",
+      "Allow.SecurityDrag.selection_only_irrelevant",
+      "Allow.SecurityDrag.hover_does_not_authorize",
+      "Allow.SecurityDrag.rejected_drop_no_mutation",
+      "Allow.SecurityDrag.drop_never_commits",
+      "Allow.SecurityDrag.drop_preserves_clipboard",
+      "Allow.SecurityDrag.successful_drop_one_transition",
+      "Allow.SecurityDrag.valid_gesture_positive",
+      "Allow.SecurityDrag.unresolved_positive_without_checked_claim",
+      "Allow.SecurityDrag.rejected_witness"
+    ]
+  },
+  "toolchain": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "builds": [
+    {
+      "directory": "gates/security-drag-v1/candidate-2-clean-1",
+      "source_sha256": "f9ed5b220935b805c70613895ce28d5483bc343562533a30f57710916f0c6b6b",
+      "olean_sha256": "33ce99385fa60e787c5062ef4dbe33b262f1e09cac7cdfb30066c6a13a720c93",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_source_sha256": "7ea63fa5b830d577164b4bdc2116ccb3845782d4fdff3bbc050e907e05adda6e",
+      "axiom_log_sha256": "ee8d32be4fdc91abd30673f9c0d2be7cd806db959499ee5af8d890b9b9d92579"
+    },
+    {
+      "directory": "gates/security-drag-v1/candidate-2-clean-2",
+      "source_sha256": "f9ed5b220935b805c70613895ce28d5483bc343562533a30f57710916f0c6b6b",
+      "olean_sha256": "33ce99385fa60e787c5062ef4dbe33b262f1e09cac7cdfb30066c6a13a720c93",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_source_sha256": "7ea63fa5b830d577164b4bdc2116ccb3845782d4fdff3bbc050e907e05adda6e",
+      "axiom_log_sha256": "ee8d32be4fdc91abd30673f9c0d2be7cd806db959499ee5af8d890b9b9d92579"
+    }
+  ],
+  "checks": {
+    "two_fresh_isolated_directories": true,
+    "matching_olean": true,
+    "matching_axiom_inventory": true,
+    "no_sorry_or_custom_axioms": true,
+    "positive_witnesses": true
+  },
+  "axioms": {
+    "observed": [
+      "propext"
+    ],
+    "custom": [],
+    "sorryAx": false
+  },
+  "preserved_failed_candidates": [
+    "gates/security-drag-v1/failed-candidate-1",
+    "gates/security-drag-v1/failed-candidate-2"
+  ],
+  "proved_scope": [
+    "aliases always rejected including bearer-authenticated aliases",
+    "exact abstract public resource and safe-method exception; default bearer requirement",
+    "exact authority requirement and forwarded-authority irrelevance",
+    "isolated no-bytecode verified-source closed-inventory trusted-ownership private-file bootstrap gate",
+    "fresh initialization rejects old generated tools unknown runtime and competing owners",
+    "all supervisor effects require exclusive owner; competing owner no-effects",
+    "gesture editor nonce document revision draft content-generation destination source and descendant validity",
+    "known incompatible rejected; unresolved never typechecked",
+    "selection-only changes and hover do not establish authority",
+    "rejected drop preserves all semantic editor state",
+    "successful drop increments generation exactly once and never commits or alters clipboard",
+    "positive public/authenticated/bootstrap/fresh/supervisor/checked/unresolved gesture witnesses",
+    "exact-classifier-approved encoded and literal document route classes are never public and require exact valid bearer",
+    "positive authenticated read/mutation witnesses for both document route classes"
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel and Std distribution",
+    "host compiler/runtime/filesystem executing Lean",
+    "SHA256 input binding",
+    "finite policy abstractions and human contract interpretation; concrete path grammar parsing is outside model",
+    "Classification of exact document UUID/uppercase-percent-colon/literal-colon segment strings into finite route classes remains an implementation obligation"
+  ],
+  "excluded": [
+    "Java TypeScript Python IIS implementation correspondence/refinement",
+    "cryptography",
+    "OS race freedom and actual lock/ownership mechanisms",
+    "semantic completeness",
+    "visual usability/accessibility acceptance",
+    "Windows/IIS/SSH target execution",
+    "deployment security and performance acceptance",
+    "licensing",
+    "full mechanical closure"
+  ],
+  "implementation_correspondence": "OPEN_SEPARATE_RUNTIME_SOURCE_TESTS_AND_PACKAGE_AUDIT_REQUIRED",
+  "revision": 2,
+  "prior_contract_sha256": "356487d4c9d74a782915133b81f1b9d24f35ce591b88b371e499dfd0cbe06d4c",
+  "prior_proof_sha256": "0bf5aab4386c915c6b3c41b35b3d1b864f43fc3683d5dc86465d71b0ed24153d",
+  "prior_evidence_preserved": "gates/security-drag-v1/candidate-1"
+}

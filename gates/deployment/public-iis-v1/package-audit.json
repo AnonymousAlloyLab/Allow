@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "manifest_files": 283,
+  "zip_members": 285,
+  "manifest_sha256": "17a5ea930a9c74fdcd777f265743134767e2320433e8393f5f9a10a7bef581e5",
+  "new": [
+    "deploy/probe_public.py",
+    "formal/Allow/PublicIisStaging.lean",
+    "gates/deployment/public-iis-v1/council-disposition.json",
+    "gates/deployment/public-iis-v1/formal-report.json",
+    "spec/public-iis-staging.json"
+  ],
+  "changed": [
+    "README.md",
+    "deploy/windows/Install-Site.ps1",
+    "docs/iis-deployment.md"
+  ],
+  "removed": [],
+  "application_build": "EXACT_R6_BYTES",
+  "extracted_root": "/tmp/allow-public-iis-r7",
+  "archive_sha256": "661950b574ee44d876a4b50fce2b0437760a6367c23903994ee24d66a23c7373"
+}

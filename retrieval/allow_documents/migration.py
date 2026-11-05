@@ -67,6 +67,14 @@ def migrate():
             found = connection.execute("SELECT 1 FROM pg_policies WHERE schemaname='documents' AND tablename=%s AND policyname='document_scope'", (table,)).fetchone()
             if found is None:
                 connection.execute('CREATE POLICY document_scope ON documents.' + table + ' USING (' + POLICY + ') WITH CHECK (' + POLICY + ')')
+        from .lifecycle import REGISTRY_DDL
+        connection.execute(REGISTRY_DDL)
+        connection.execute('REVOKE ALL ON documents.public_workspace_lifecycle FROM PUBLIC,allow_app')
+        connection.execute('ALTER TABLE documents.public_workspace_lifecycle ENABLE ROW LEVEL SECURITY')
+        connection.execute('ALTER TABLE documents.public_workspace_lifecycle FORCE ROW LEVEL SECURITY')
+        connection.execute('DROP POLICY IF EXISTS public_registry_scope ON documents.public_workspace_lifecycle')
+        connection.execute('CREATE POLICY public_registry_scope ON documents.public_workspace_lifecycle FOR SELECT USING (' + POLICY + ')')
+        connection.execute('GRANT SELECT ON documents.public_workspace_lifecycle TO allow_app')
         connection.execute('RESET ROLE')
         connection.execute('REVOKE ALL ON SCHEMA documents FROM PUBLIC')
         connection.execute('GRANT USAGE ON SCHEMA documents TO allow_app')

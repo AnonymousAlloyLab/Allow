@@ -8,6 +8,8 @@ final class JobRecord {
     private final WorkerRequest request;
     private final JobControl control = new JobControl();
     private JobView view;
+    private boolean started;
+    private boolean finished;
 
     /**
      * Starts one queued job.
@@ -32,6 +34,7 @@ final class JobRecord {
      */
     synchronized boolean start() {
         if (!view.status().equals("QUEUED")) return false;
+        started = true;
         view = ProcessRunner.outcome(request, "RUNNING", "Analyzing in isolated worker.");
         return true;
     }
@@ -42,6 +45,16 @@ final class JobRecord {
      */
     synchronized void finish(JobView result) {
         if (!terminal()) view = result;
+    }
+
+    /** Records actual task exit after the runner's cleanup path. */
+    synchronized void executionFinished() { finished = true; }
+
+    /** Distinguishes cancelled display state from actual process cleanup.
+     * @return safe-to-forget evidence for an expired public owner
+     */
+    synchronized boolean cleanupSafe() {
+        return (!started && terminal()) || (finished && control.cleanupSafe());
     }
 
     /**

@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "id": "allow-anonymous-wsl-candidate-r3",
+  "recorded_utc": "2026-11-04T21:49:18.396645+00:00",
+  "status": "LOCAL_CANDIDATE_TESTED_NATIVE_TARGET_ACCEPTANCE_OPEN",
+  "commercial_release": "NO_GO",
+  "mechanical_closure": "NOT_CLAIMED",
+  "target": {
+    "origin": "https://allow.alloy4.fun",
+    "windows": "Windows10 21H2 IoT Enterprise",
+    "linux": "WSL2 Ubuntu24.04",
+    "distribution_name": "AWAITING_OPERATOR_VALUE",
+    "remote_changes_performed": false,
+    "remote_desktop": "TCP endpoint reachable; supported native desktop control unavailable; no login attempted"
+  },
+  "package": {
+    "package": "/home/augustus/Allow/dist/allow-iis-wsl-anonymous-20261104-r3.zip",
+    "sha256": "783bfe2131f5e17f28a57ecf9756751e483c5d57f085d393b1e969b7bd1c9dd5",
+    "files": 303,
+    "bytes": 75863893,
+    "manifest_files": 303,
+    "zip_members": 305,
+    "manifest_sha256": "a0f38127e02dfb5a15d0ee037ee2129d6bbe994867f74abc85d9529ab77a839c",
+    "contents": "Allowlisted code, compiled application and pinned dependencies; no live runtime, user workspace, trained models or credentials",
+    "supersedes": [
+      "anonymous candidate R1 before worker-admission repair",
+      "anonymous candidate R2 before final privacy wording"
+    ]
+  },
+  "proof_first": {
+    "council": {
+      "path": "gates/deployment/anonymous-v1/council-disposition.json",
+      "sha256": "9eef34e65f3593e7a246c15f179718fd11d7522e8a2de570ae2d39f4deea8a77"
+    },
+    "model": {
+      "path": "gates/deployment/anonymous-v1/formal-report.json",
+      "sha256": "dd3f0cb89acfd0ce74a738c4aa373a84c40f1996626180b5d5e08e9a6ed37bd0"
+    },
+    "theorems": 56,
+    "matching_clean_builds": 2,
+    "scope": "Finite policy model only, not implementation refinement"
+  },
+  "checks": {
+    "java": {
+      "tests": 334,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "log": {
+        "path": "gates/deployment/anonymous-v1/java-test-r2.log",
+        "sha256": "9f64f1026b2c8899e052627396a5cc1294093ce1af45c57fd37365e364eb4983"
+      },
+      "source_inputs": {
+        "path": "gates/deployment/anonymous-v1/java-source-inputs.json",
+        "sha256": "2468100b0853aacac3b4b8b023706bf6ce586a146305aed1f569498c90cd1695"
+      },
+      "style": "Maven Checkstyle passed documentation, encapsulation and method length checks"
+    },
+    "frontend": {
+      "tests": 172,
+      "test_files": 19,
+      "report": {
+        "path": "gates/deployment/anonymous-v1/frontend-report.json",
+        "sha256": "474f2dbf5820401812e637dae81b4e8eaca8a22f7980bd83a76eb80b4326f2f5"
+      },
+      "final_copy_change": "Tests preceded wording-only expiry correction; final TypeScript/Vite build and style passed"
+    },
+    "sql": {
+      "selected_tests": 65,
+      "real_anonymous_sql_cases": 6,
+      "skips": 0,
+      "report": {
+        "path": "gates/deployment/anonymous-v1/sql-runtime-report.json",
+        "sha256": "51d349ba47ecc178713d3437cfa9e8555e7ed0bb1c62e37a26d0e97ac299062f"
+      },
+      "all_queries": "canonical sql_connections with pinned SQLeanParser"
+    },
+    "http": {
+      "checks": 52,
+      "report": {
+        "path": "gates/deployment/anonymous-v1/http-r4-report.json",
+        "sha256": "eaf9150494c799863859bed4e1869fa9d4c238956c4361e6aaa6ca546ee78046"
+      },
+      "package_binding": "All nonstatic compiled/dependency/solver hashes match final package; frontend wording-only rebuild tested separately in browser"
+    },
+    "deployment": {
+      "linux_tests": 20,
+      "renderer_tests": 5,
+      "probe_tests": 20,
+      "portable_wsl_mock_checks": 4,
+      "logs": [
+        {
+          "path": "gates/deployment/anonymous-v1/linux-deploy-tests.log",
+          "sha256": "07f5b7e7ad479f5c39df7ff646fac6f50d701cc6b906283b4bef31e84ca2491e"
+        },
+        {
+          "path": "gates/deployment/anonymous-v1/renderer-tests.log",
+          "sha256": "6273232de4d3ef7acd4ecafa5c86beeeb974f56586b21089a2990b3f72facbe6"
+        },
+        {
+          "path": "gates/deployment/anonymous-v1/probe-tests.log",
+          "sha256": "128fb5b1df63b0364801c4f48f5e046ba45fe0ca32978d1baaa02bdc25cbfaae"
+        },
+        {
+          "path": "gates/deployment/anonymous-v1/windows-wsl-mocks.json",
+          "sha256": "396e5dc5a0c3d682f32b58f591822312fb7f9cc0b494ab9fe41f36f93a873d75"
+        }
+      ]
+    },
+    "package_audit": {
+      "path": "gates/deployment/anonymous-v1/package-audit-r3.json",
+      "sha256": "b917b71d91425012a9261d21a634a53c2d72cf34d03a4c937ac32fae14b3654e"
+    },
+    "browser": {
+      "ux": {
+        "path": "gates/deployment/anonymous-v1/browser-report.json",
+        "sha256": "6d7cf271e668c4e8a6fe6e2d763187b6db1ecef3b6b9524f7b8fb40f535fb24f"
+      },
+      "cleanup_and_build": {
+        "path": "gates/deployment/anonymous-v1/browser-final-report.json",
+        "sha256": "c42146a363467fedb3cc361492b289e784fcea61039a66b995715418b748335d"
+      },
+      "package_binding": "All browser-run compiled/static/dependency/solver hashes match R3 package"
+    }
+  },
+  "repairs": [
+    "Scoped immutable document coordinators and explicit solver ownership",
+    "Absolute expiry response-publication fence with bounded staging; redirect/allocation/error-writer escape paths closed",
+    "Shutdown cannot revive a provisioned capability",
+    "Permit rejection records definite no-start; attempted launch failure retains uncertainty",
+    "Persistent parser-routed lifecycle registry, scoped purge, quotas and quarantine",
+    "Public bootstrap/session storage, explicit enrollment/end, retained draft and exact source export",
+    "Public launcher omits operator launch link and caps HTTP transport resources",
+    "Closed mode-aware HTTPS probe preserves private expectations"
+  ],
+  "preservation": {
+    "user_preview": "Untouched",
+    "live_workstation_database": "Untouched; all integration used a fresh disposable SQL cluster",
+    "private_fixture_control": "Unchanged",
+    "owned_test_services": "STOPPED",
+    "temporary_public_registry": "EMPTY",
+    "agent_created_browser_tabs": "CLOSED"
+  },
+  "existing_public_site": {
+    "status": "FAILED_BOUNDARY_ACCEPTANCE",
+    "probe": {
+      "path": "gates/deployment/anonymous-v1/existing-public-boundary-probe.json",
+      "sha256": "51e31de4d18ae199cab4c5b021cb096b18f2eec3f77822c0b252530c67ec5d5b"
+    },
+    "finding": "A read-only /api;ignored/config request returned200 configuration without bearer; several denial responses lacked expected headers. Existing domain does not represent the tested candidate.",
+    "ingress_changed": false
+  },
+  "open": [
+    "Actual Windows/WSL distribution, systemd/cgroups, bwrap, effective VM/service resource limits",
+    "Native IIS TLS/SNI/logging/Host/Origin/alias/duplicate-header and loopback-only networking",
+    "Boot/task supervision, reboot/outage recovery and external public acceptance",
+    "Full30minute browser expiry/interruption/pointer/accessibility matrix and native clipboard delivery",
+    "Fresh full package dependency provisioning on target; SQL runtime fixture reused PostgreSQL/pgvector binaries",
+    "Complete adversarial fault/resource/load acceptance and implementation correspondence",
+    "Commercial licensing, artifact redistribution and broader production readiness"
+  ],
+  "trust": "Lean kernel/finite abstraction; JDK/Python/PostgreSQL/pinned parser/solver dependencies and host OS remain trusted. Local browser used an explicit fixed-Host/existing-Origin adapter; it does not establish TLS/IIS routing. Logical deletion is not secure erasure."
+}

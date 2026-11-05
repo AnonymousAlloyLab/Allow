@@ -1,0 +1,52 @@
+public_config_nonsecret PASS 200
+enrollment_requires_origin PASS 403
+enrollment_closed_empty_body PASS 400
+enrollment_no_query PASS 403
+enrollment_no_bearer_authority PASS 403
+enrollment_success_1 PASS 201
+enrollment_private_headers_1 PASS 
+enrollment_success_2 PASS 201
+enrollment_private_headers_2 PASS 
+separate_capabilities PASS 
+private_launch_token_rejected PASS 401
+public_corpus_disabled PASS 403
+document_create_1 PASS 200
+document_create_2 PASS 200
+same_key_distinct_documents PASS 
+scope_receipt_replay_1 PASS 200
+scope_receipt_replay_2 PASS 200
+own_document_read_encoded PASS 200
+own_document_read_literal PASS 200
+foreign_document_read PASS 503
+foreign_history_read PASS 503
+source_advisory_real_sandbox PASS 200
+source_save_real_sandbox PASS 200
+foreign_commit_receipt PASS 200
+foreign_history_mutation PASS 200
+foreign_validation_context PASS 503
+foreign_identifier_inventory_rejected PASS 200
+foreign_rejection_no_revision_change PASS 200
+owned_solver_submission PASS 200
+foreign_job_poll PASS 404
+foreign_job_cancel PASS 404
+own_solver_completed_not_foreign_cancelled PASS 
+own_job_cancel_authorized PASS 200
+accepted_analysis_descriptor_available PASS 
+accepted_solver_submission PASS 200
+foreign_accepted_analysis_poll PASS 503
+own_accepted_analysis_poll PASS 200
+enrollment_success_3 PASS 201
+enrollment_private_headers_3 PASS 
+enrollment_success_4 PASS 201
+enrollment_private_headers_4 PASS 
+fifth_session_capacity_denied PASS 429
+end_session_1 PASS 204
+ended_capability_immediate_401_1 PASS 401
+end_session_2 PASS 204
+ended_capability_immediate_401_2 PASS 401
+end_session_3 PASS 204
+ended_capability_immediate_401_3 PASS 401
+end_session_4 PASS 204
+ended_capability_immediate_401_4 PASS 401
+retired_registry_eventually_empty PASS 
+private_control_unchanged PASS 

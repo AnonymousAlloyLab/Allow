@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/allow-anonymous-http-smoke.py", line 248, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/tmp/allow-anonymous-http-smoke.py", line 191, in main
+    probe.bind(('127.0.0.1', PORT))
+OSError: [Errno 98] Address already in use

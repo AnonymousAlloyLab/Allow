@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "19fdf4c49defb920ceaf74051bcb714d2e06d5255729ae26518889e335d8f525",
+  "script_sha256": "287c30c0c7e5ca548fdb343f52dfbb3238cf4df54a8746d744dde8e8866470da",
+  "windows_iis_ssh_acceptance": "OPEN",
+  "scope": "Actual relocated Linux service and HTTP with explicit proxy Host/Origin; no real IIS or SSH hop.",
+  "concurrent_supervisor_rejected_without_owner_disruption": true,
+  "sql_app_accepted": 164,
+  "advisory": "VALIDATED",
+  "solver": "SAT",
+  "durable_revision": 1,
+  "restart_persistence": "PASS",
+  "old_token_rejected": true,
+  "owned_stack_shutdown": "PASS",
+  "logs": [
+    {
+      "path": "/home/augustus/Allow/gates/security-drag-v1/smoke-r5/service-first.log",
+      "sha256": "c4caf2d9b812b7e8735f3745fe3fc006822ee7d38292585cd1e72d9615dcf6f4"
+    },
+    {
+      "path": "/home/augustus/Allow/gates/security-drag-v1/smoke-r5/service-restart.log",
+      "sha256": "c4caf2d9b812b7e8735f3745fe3fc006822ee7d38292585cd1e72d9615dcf6f4"
+    }
+  ],
+  "root": "/tmp/allow-sec-smoke-r5",
+  "archive_sha256": "a5e2625c68cc46076de1ae12c99916b8fc545597fce4064a4d109f038ad093cf",
+  "encoded_document_read_validate_commit": "PASS",
+  "missing_and_wrong_bearer_rejected": true,
+  "malformed_aliases_rejected": true,
+  "setup_initialization": "PASS",
+  "setup_subprocess_exit": 0,
+  "smoke_subprocess_exit": 0,
+  "setup_log_sha256": "bedea82511ad96e571b00a735ea3b65ea3d2787c7842680130b8e374c59a32ac"
+}

@@ -7,6 +7,20 @@ import java.util.concurrent.atomic.AtomicReference;
 final class JobControl {
     private final AtomicBoolean cancelled = new AtomicBoolean();
     private final AtomicReference<Process> process = new AtomicReference<>();
+    private final AtomicBoolean clean = new AtomicBoolean();
+
+    /** Records the owned runner's verified cleanup result, independently of display status.
+     * @param verified whether startup and all owned process cleanup are certain
+     */
+    void finished(boolean verified) { clean.set(verified); }
+
+    /** Requires both cleanup evidence and actual direct-child absence.
+     * @return whether a completed runner can safely release its workspace
+     */
+    boolean cleanupSafe() {
+        Process child = process.get();
+        return clean.get() && (child == null || !child.isAlive());
+    }
 
     /**
      * Attaches a process, handling cancellation that won the spawn race.

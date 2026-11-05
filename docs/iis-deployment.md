@@ -45,14 +45,19 @@ Windows modules or change global ARR settings automatically.
 
 ## Render instance configuration
 
-Extract the package into `/opt/allow`, set ownership to `allow`, and use restrictive
-directory permissions. Keep only the rendered `web.config` in the IIS site root;
+Extract the package into `/opt/allow` as the dedicated `allow` account with
+`umask 077`; the installation root must be owned by that account and mode0700.
+All installation ancestors must belong to that account or trusted root and must
+not be group/other writable. Root-owned sticky temporary ancestors are allowed
+for isolated checks. The archive normalizes ordinary files to0644 and the pinned
+parser to0755; preserve these modes when extracting. Never make installation or
+runtime directories group writable. Keep only the rendered `web.config` in the IIS site root;
 the Linux package and configuration never belong under a Windows web root.
 
 Run as the service account from `/opt/allow`:
 
 ```bash
-/usr/bin/python3 deploy/configure.py \
+/usr/bin/python3 -I -B deploy/configure.py \
   --origin https://allow.example.com --output /opt/allow/generated-instance \
   --install-root /opt/allow --account allow \
   --tunnel-port 18081 --backend-port 8080
@@ -62,7 +67,8 @@ Choose an output location writable by the account; the renderer requires a new
 directory. Replace `allow.example.com`
 with your lowercase DNS name. Omit `:443`; other explicit HTTPS ports are
 supported. A URL path prefix is not supported. Copy `linux/instance.json` to
-`/opt/allow/deploy/instance.json`, and keep it private to the service account.
+`/opt/allow/deploy/instance.json` with `install -m 600`; it must be a service-owned
+regular file, without hardlinks or symlinks.
 Copy the generated `linux/allow.service` to `/etc/systemd/system/allow.service`
 as administrator. The unit bounds PostgreSQL, SQLeanParser, Spring and workers
 together to 400% CPU, 5-GiB high/6-GiB maximum memory, no swap and 512 tasks.
@@ -73,17 +79,42 @@ As `allow`, first run this command without `--initialize` to verify the package
 manifest and host prerequisites. Add `--initialize` to provision the new installation:
 
 ```bash
-/usr/bin/python3 deploy/linux/setup.py --config deploy/instance.json --initialize
+/usr/bin/python3 -I -B deploy/linux/setup.py --config deploy/instance.json --initialize
 ```
 
 Setup needs network access for hash-pinned Python packages and PostgreSQL/
 pgvector source archives. PostgreSQL is compiled at the installation root;
-Python is provisioned into a new local environment. No existing workstation
+Python is provisioned into a new local environment. A fresh initialization
+refuses any preexisting generated venv/PostgreSQL/download directories, even
+when the runtime is empty. No existing workstation
 database is copied. The pinned SQLeanParser executable is verified against its
 lock; the target does not need `/home/augustus/SQLeanParser`. Every SQL statement,
 including schema initialization, goes through the parser proxy. Setup does not
 download model weights or import a corpus. Predicate retrieval needs separately
 provisioned data/models before it has useful results.
+
+The setup and service entrypoints require `/usr/bin/python3 -I -B`. They load
+only verified application source, reject local application bytecode caches and
+unlisted inputs, and disable application bytecode generation. Do not run these
+entrypoints through a normal Python import or without the isolation flags.
+Standard-library/distribution Python and the transferred manifest/entry scripts
+are trusted bootstrap inputs; the checksum is not a signature. A malicious
+same-UID operator or root remains outside this boundary.
+
+Managed third-party dependencies are separately trusted from hash-pinned fresh
+provisioning. Their bytecode is permitted within the venv. Ownership/mode checks
+allow only the standard generated venv interpreter links to system Python and
+its internal `lib64` link, plus generated PostgreSQL `libpq`/`libecpg`/`libpgtypes`
+shared-library links that resolve inside the private PostgreSQL install. Shipped
+application/configuration and private runtime paths reject symlinks. This does
+not claim that application manifests prove dependency runtime semantics.
+
+Initialization and service share one nonblocking flock retained through cleanup.
+A competing supported supervisor performs no SQL/token/backend action. Leave
+`.runtime/deployment.lock` in place; never unlink it to bypass contention.
+The owner reaps its backend before SQL teardown; cleanup uncertainty fails the
+service. Only that owner removes its launch link. Retained initialized stores
+keep their existing state and credentials; they are never presented as fresh.
 
 Do not use the initializer as an upgrade/migration mechanism for an existing
 installation. Preserve its state and follow the existing SQL backup and recovery
@@ -147,18 +178,103 @@ Copy the rendered `iis/web.config` into a new dedicated directory such as
 directory. The proxy must send Host `127.0.0.1:18081` and preserve the browser's
 Origin and Authorization unchanged. It must never inject a shared token.
 
-Install the certificate in LocalMachine/My, then run:
+Install the certificate in LocalMachine/My, then run from elevated **Windows
+PowerShell 5.1** in an exclusive IIS administration window:
 
 ```powershell
 .\Install-Site.ps1 -SiteName Allow -HostName allow.example.com `
-  -PhysicalPath C:\inetpub\allow -CertificateThumbprint YOUR_40_HEX_THUMBPRINT
+  -PhysicalPath C:\inetpub\allow -CertificateThumbprint YOUR_40_HEX_THUMBPRINT `
+  -PreflightOnly
 ```
 
-The script refuses to overwrite a site, app pool or TLS binding and refuses
-incompatible ARR settings. It creates an HTTPS-only site. Use `-HttpsPort` for
-an explicit nondefault port matching the generated origin. Review local firewall
-rules and DNS; no external port may reach the Spring listener or Windows tunnel.
-Do not add a competing HTTP site or a redirect that echoes untrusted Host values.
+Preflight requires the root to contain only the exact rendered `web.config`,
+matching canonical hostname and a fixed loopback tunnel destination. It rejects
+existing site/app-pool names and **any existing IIS or HTTP.sys binding on the
+selected port**, so use a dedicated instance/port. It verifies modules and ARR,
+certificate dates/private-key presence, and the Windows SSL certificate policy
+for the hostname, trust chain and revocation. Revocation lookup may use the
+network; an unavailable check fails closed. Do not bypass this failure with an
+untrusted certificate. Microsoft describes the checks and their limits in
+[Test-Certificate](https://learn.microsoft.com/en-us/powershell/module/pki/test-certificate?view=windowsserver2025-ps).
+The command does not mutate IIS configuration.
+
+Repeat without `-PreflightOnly` to stage the site. The first configuration commit
+sets `serverAutoStart=false`, the dedicated app pool, SNI and certificate. The
+script never starts the site. It selects site-specific W3C logging fields that
+exclude query strings, usernames, cookies, Authorization and referrer, and clears
+custom fields. Verify effective logging and any global tracing/monitoring on the
+real target; source settings alone do not prove that secrets are absent from logs.
+The configured log fields follow Microsoft's
+[site logging documentation](https://learn.microsoft.com/en-us/iis/configuration/system.applicationhost/sites/site/logfile/).
+
+There is no cross-system transaction guarantee for IIS and HTTP.sys. A failed
+commit reports uncertain state and retains artifacts for inspection. Keep ingress
+restricted, compare the new site/pool/binding with the supplied names, physical
+path, port and certificate, and remove only resources known to belong to the
+failed invocation. Do not delete global TLS registrations or existing sites to
+force a retry. A clean retry still refuses collisions.
+
+Use `-HttpsPort` for an explicit nondefault port matching the rendered origin.
+Review local firewall rules and DNS; no external port may reach the Spring
+listener or Windows tunnel. Do not add a competing HTTP site or a redirect that
+echoes untrusted Host values.
+
+## Controlled public deployment
+
+The public hostname, Windows/Linux connection details and audience must be
+resolved before installing on a target. **Public URL with privately distributed
+operator links** preserves the existing shared-workspace access model. Anonymous
+visitors or registered users with isolated workspaces require a new access design;
+never publish the launch link to simulate public access. Internet hosting does
+not itself approve commercial release or public redistribution of this archive.
+
+Keep the IIS site stopped and ingress restricted to your acceptance client while
+provisioning Linux, the restricted tunnel account/key, a supervised Windows
+tunnel and TLS. Review the Windows account/key/known-host ACLs, web-root ACLs,
+firewall and recovery policy. No task/service supervisor, DNS or firewall change
+is installed automatically. Check the actual certificate chain and renewal
+procedure, including the Windows trust store and external clients.
+
+After preflight and staged configuration inspection, intentionally start the
+site for acceptance from the permitted client:
+
+```powershell
+Start-Website -Name Allow
+```
+
+From an external acceptance client with Python 3, run the nonsecret probe against
+the actual hostname (use `python` on Windows or `/usr/bin/python3` on Linux):
+
+```bash
+python -I -B deploy/probe_public.py --origin https://allow.example.com --timeout 8
+```
+
+The probe runs eight sequential GET checks. It uses normal certificate and
+hostname validation, ignores ambient HTTP proxies, follows no redirects and
+accepts no launch link or real token. Each request has a total subprocess
+deadline including DNS, plus a 64-KiB body cap. Output contains only check IDs,
+statuses, timings and fixed error categories; failure returns exit code 1.
+Do not interpret these diagnostic timings as validation latency. Probe PASS
+establishes the listed unauthenticated checks only. In particular, rejected
+aliases without a bearer do not establish authenticated URI normalization.
+
+Complete the authenticated and operational checks below while ingress remains
+restricted. Test IIS-generated denial/gateway headers separately; the probe
+requires backend security headers on root and canonical backend denials, not
+on all edge errors. If a check fails, stop the new site and preserve diagnostics.
+After audience acceptance and successful native checks, intentionally permit
+the chosen public ingress, retest from an external client, and enable automatic
+site startup if that is the agreed operating policy:
+
+```powershell
+Set-ItemProperty 'IIS:\Sites\Allow' -Name serverAutoStart -Value $true
+```
+
+Demonstrate restart/reboot recovery with the selected tunnel supervisor. Treat
+unattended recovery, target latency and Windows acceptance as open until actual
+results are recorded. The [staging contract](../spec/public-iis-staging.json),
+six-seat council and 37-theorem Lean model precede these tooling changes; the
+model does not prove Windows behavior or implementation correspondence.
 
 ## Target acceptance and rollback
 

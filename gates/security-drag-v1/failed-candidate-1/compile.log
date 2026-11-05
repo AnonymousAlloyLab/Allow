@@ -1,0 +1,270 @@
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:8:45: error: expected token
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:9:10: error: unexpected identifier; expected 'instance'
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:17:10: error: Constructor field `path` of `Allow.SecurityDrag.Http.mk` contains universe level metavariables at the expression
+  {PathClass : Sort ?u.4} → PathClass
+in its type
+  {PathClass : Sort ?u.4} → PathClass
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:26:3: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:26:22: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:26:42: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:27:3: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:27:23: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:26:13: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.root` could not be determined
+
+Hint: Using `IO.FS.DirEntry.root would be unambiguous:
+  [apply] `IO.FS.DirEntry.root`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:26:32: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.index` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Lean.Meta.DSimp.Config.index`
+  [apply] `Lean.Meta.Simp.Config.index`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:26:52: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.approvedAsset` could not be determined
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:27:15: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.get` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `ByteArray.get`
+  [apply] `ByteSlice.get`
+  [apply] `EStateM.get`
+  [apply] `FloatArray.get`
+  [apply] `List.get`
+  [apply] `get`
+  [apply] `MonadStateOf.get`
+  [apply] `Option.get`
+  [apply] `StateRefT'.get`
+  [apply] `StateT.get`
+  [apply] `String.get`
+  [apply] `Subarray.get`
+  [apply] `Task.get`
+  [apply] `Thunk.get`
+  [apply] `Vector.get`
+  [apply] `Lean.RArray.get`
+  [apply] `ST.Ref.get`
+  [apply] `ShareCommon.StateFactory.get`
+  [apply] `Std.DHashMap.get`
+  [apply] `Std.DTreeMap.get`
+  [apply] `Std.ExtDHashMap.get`
+  [apply] `Std.ExtDTreeMap.get`
+  [apply] `Std.ExtHashMap.get`
+  [apply] `Std.ExtHashSet.get`
+  [apply] `Std.ExtTreeMap.get`
+  [apply] `Std.ExtTreeSet.get`
+  [apply] `Std.HashMap.get`
+  [apply] `Std.HashSet.get`
+  [apply] `Std.TreeMap.get`
+  [apply] `Std.TreeSet.get`
+  [apply] `String.Internal.get`
+  [apply] `String.Pos.get`
+  [apply] `Substring.Raw.get`
+  [apply] `Method.get`
+  [apply] `Lean.Omega.Coeffs.get`
+  [apply] `Lean.Omega.IntList.get`
+  [apply] `ST.Prim.Ref.get`
+  [apply] `Std.Async.MaybeTask.get`
+  [apply] `Std.DHashMap.Const.get`
+  [apply] `Std.DHashMap.Raw.get`
+  [apply] `Std.DTreeMap.Const.get`
+  [apply] `Std.DTreeMap.Raw.get`
+  [apply] `Std.ExtDHashMap.Const.get`
+  [apply] `Std.ExtDTreeMap.Const.get`
+  [apply] `Std.HashMap.Raw.get`
+  [apply] `Std.HashSet.Raw.get`
+  [apply] `Std.Http.Extensions.get`
+  [apply] `Std.Http.Headers.get`
+  [apply] `Std.Http.Method.get`
+  [apply] `Std.Http.Request.get`
+  [apply] `Std.Internal.IndexMultiMap.get`
+  [apply] `Std.TreeMap.Raw.get`
+  [apply] `Std.TreeSet.Raw.get`
+  [apply] `String.Pos.Raw.get`
+  [apply] `String.Slice.Pos.get`
+  [apply] `Substring.Raw.Internal.get`
+  [apply] `Std.DHashMap.Internal.AssocList.get`
+  [apply] `Std.DHashMap.Internal.Raw₀.get`
+  [apply] `Std.DHashMap.Raw.Const.get`
+  [apply] `Std.DTreeMap.Internal.Impl.get`
+  [apply] `Std.DTreeMap.Raw.Const.get`
+  [apply] `Std.Do.SVal.GetTy.get`
+  [apply] `Std.Do.Spec.UnfoldLift.get`
+  [apply] `Std.Http.URI.Query.get`
+  [apply] `Std.Sat.AIG.RefVec.get`
+  [apply] `Std.DHashMap.Internal.Raw₀.Const.get`
+  [apply] `Std.DTreeMap.Internal.Impl.Const.get`
+  [apply] `Std.Internal.Do.Spec.UnfoldLift.get`
+  [apply] `Std.Tactic.BVDecide.BVExpr.Assignment.get`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:27:35: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.head` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `List.head`
+  [apply] `Vector.head`
+  [apply] `List.IsPrefix.head`
+  [apply] `List.Mem.head`
+  [apply] `Method.head`
+  [apply] `List.Mem.below.head`
+  [apply] `Std.Http.Method.head`
+  [apply] `Std.Http.Request.head`
+  [apply] `Std.Internal.Do.EPost.Cons.head`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:29:2: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:29:22: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:29:64: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:29:12: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.alias` could not be determined
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:29:76: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.exactValid` could not be determined
+
+Hint: Using `Bearer.exactValid would be unambiguous:
+  [apply] `Bearer.exactValid`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:31:48: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:31:57: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.alias` could not be determined
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:31:89: error: unsolved goals
+Http : Sort u_1
+r : Http
+h : sorry = sorry
+⊢ sorry r = false
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:32:8: warning: declaration uses `sorry`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:32:18: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [admitted]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:34:5: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:34:22: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:34:40: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:35:5: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:35:23: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:34:14: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.root` could not be determined
+
+Hint: Using `IO.FS.DirEntry.root would be unambiguous:
+  [apply] `IO.FS.DirEntry.root`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:34:31: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.index` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `Lean.Meta.DSimp.Config.index`
+  [apply] `Lean.Meta.Simp.Config.index`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:34:49: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.approvedAsset` could not be determined
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:35:16: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.get` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `ByteArray.get`
+  [apply] `ByteSlice.get`
+  [apply] `EStateM.get`
+  [apply] `FloatArray.get`
+  [apply] `List.get`
+  [apply] `get`
+  [apply] `MonadStateOf.get`
+  [apply] `Option.get`
+  [apply] `StateRefT'.get`
+  [apply] `StateT.get`
+  [apply] `String.get`
+  [apply] `Subarray.get`
+  [apply] `Task.get`
+  [apply] `Thunk.get`
+  [apply] `Vector.get`
+  [apply] `Lean.RArray.get`
+  [apply] `ST.Ref.get`
+  [apply] `ShareCommon.StateFactory.get`
+  [apply] `Std.DHashMap.get`
+  [apply] `Std.DTreeMap.get`
+  [apply] `Std.ExtDHashMap.get`
+  [apply] `Std.ExtDTreeMap.get`
+  [apply] `Std.ExtHashMap.get`
+  [apply] `Std.ExtHashSet.get`
+  [apply] `Std.ExtTreeMap.get`
+  [apply] `Std.ExtTreeSet.get`
+  [apply] `Std.HashMap.get`
+  [apply] `Std.HashSet.get`
+  [apply] `Std.TreeMap.get`
+  [apply] `Std.TreeSet.get`
+  [apply] `String.Internal.get`
+  [apply] `String.Pos.get`
+  [apply] `Substring.Raw.get`
+  [apply] `Method.get`
+  [apply] `Lean.Omega.Coeffs.get`
+  [apply] `Lean.Omega.IntList.get`
+  [apply] `ST.Prim.Ref.get`
+  [apply] `Std.Async.MaybeTask.get`
+  [apply] `Std.DHashMap.Const.get`
+  [apply] `Std.DHashMap.Raw.get`
+  [apply] `Std.DTreeMap.Const.get`
+  [apply] `Std.DTreeMap.Raw.get`
+  [apply] `Std.ExtDHashMap.Const.get`
+  [apply] `Std.ExtDTreeMap.Const.get`
+  [apply] `Std.HashMap.Raw.get`
+  [apply] `Std.HashSet.Raw.get`
+  [apply] `Std.Http.Extensions.get`
+  [apply] `Std.Http.Headers.get`
+  [apply] `Std.Http.Method.get`
+  [apply] `Std.Http.Request.get`
+  [apply] `Std.Internal.IndexMultiMap.get`
+  [apply] `Std.TreeMap.Raw.get`
+  [apply] `Std.TreeSet.Raw.get`
+  [apply] `String.Pos.Raw.get`
+  [apply] `String.Slice.Pos.get`
+  [apply] `Substring.Raw.Internal.get`
+  [apply] `Std.DHashMap.Internal.AssocList.get`
+  [apply] `Std.DHashMap.Internal.Raw₀.get`
+  [apply] `Std.DHashMap.Raw.Const.get`
+  [apply] `Std.DTreeMap.Internal.Impl.get`
+  [apply] `Std.DTreeMap.Raw.Const.get`
+  [apply] `Std.Do.SVal.GetTy.get`
+  [apply] `Std.Do.Spec.UnfoldLift.get`
+  [apply] `Std.Http.URI.Query.get`
+  [apply] `Std.Sat.AIG.RefVec.get`
+  [apply] `Std.DHashMap.Internal.Raw₀.Const.get`
+  [apply] `Std.DTreeMap.Internal.Impl.Const.get`
+  [apply] `Std.Internal.Do.Spec.UnfoldLift.get`
+  [apply] `Std.Tactic.BVDecide.BVExpr.Assignment.get`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:35:34: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.head` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `List.head`
+  [apply] `Vector.head`
+  [apply] `List.IsPrefix.head`
+  [apply] `List.Mem.head`
+  [apply] `Method.head`
+  [apply] `List.Mem.below.head`
+  [apply] `Std.Http.Method.head`
+  [apply] `Std.Http.Request.head`
+  [apply] `Std.Internal.Do.EPost.Cons.head`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:35:44: error: unsolved goals
+Http : Sort u_1
+r : Http
+⊢ sorry r = true
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:36:8: warning: declaration uses `sorry`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:38:33: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  r
+has type `Http` which does not have the necessary form.
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:38:44: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.exactValid` could not be determined
+
+Hint: Using `Bearer.exactValid would be unambiguous:
+  [apply] `Bearer.exactValid`
+gates/security-drag-v1/failed-candidate-1/SecurityDrag.lean:39:2: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

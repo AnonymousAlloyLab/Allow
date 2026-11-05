@@ -19,6 +19,13 @@ CONTEXT_SCOPE_SQL = (
     "SELECT set_config('allow.project',%s,true)",
     "SELECT set_config('allow.purpose',%s,true)",
 )
+PUBLIC_TIMEOUT_SQL = (
+    'SET LOCAL statement_timeout = 2000',
+    'SET LOCAL lock_timeout = 300',
+    'SET LOCAL idle_in_transaction_session_timeout = 1500',
+)
+PUBLIC_REGISTRY_LOCK_SQL = 'LOCK TABLE documents.public_workspace_lifecycle IN ACCESS SHARE MODE'
+PUBLIC_REGISTRY_READ_SQL = 'SELECT launch_id,state FROM documents.public_workspace_lifecycle WHERE principal_id=%s AND workspace_id=%s'
 CONTEXT_HEAD_SQL = 'SELECT head_revision FROM documents.document WHERE document_id=%s'
 CONTEXT_BASE_SQL = (
     'SELECT r.revision,r.target_revision,r.direction,a.content FROM documents.revision r '
@@ -58,6 +65,11 @@ _CONTEXT_PREFIX = tuple(wire_sql(sql) for sql in (
     'BEGIN', CONTEXT_ISOLATION_SQL, *CONTEXT_TIMEOUT_SQL, *CONTEXT_SCOPE_SQL,
     CONTEXT_HEAD_SQL, CONTEXT_BASE_SQL,
 ))
+_PUBLIC_CONTEXT_PREFIX = tuple(wire_sql(sql) for sql in (
+    'BEGIN', CONTEXT_ISOLATION_SQL, *CONTEXT_TIMEOUT_SQL, PUBLIC_REGISTRY_LOCK_SQL,
+    *CONTEXT_SCOPE_SQL, PUBLIC_REGISTRY_READ_SQL, CONTEXT_HEAD_SQL, CONTEXT_BASE_SQL,
+))
+_PUBLIC_SETTINGS = frozenset(wire_sql(sql) for sql in PUBLIC_TIMEOUT_SQL)
 _HISTORY = wire_sql(CONTEXT_HISTORY_SQL)
 _OBSERVER_QUERIES = frozenset(wire_sql(sql) for sql in (
     OBSERVER_IDENTITY_SQL, OBSERVER_RECONCILE_SQL, OBSERVER_PREFLIGHT_SQL,
@@ -73,6 +85,11 @@ def is_context_setting(sql):
     """Identify the newly admitted exact settings which ordinary sessions must deny."""
     return isinstance(sql, bytes) and sql in _SETTINGS
 
+
+
+def is_public_setting(sql):
+    """Recognize only the disjoint bounded ordinary-public transaction deadlines."""
+    return isinstance(sql, bytes) and sql in _PUBLIC_SETTINGS
 
 def _field(body, offset=0):
     """Read one wire string without interpreting bound data or emitting its contents."""
@@ -137,6 +154,7 @@ class StrictContextProtocol:
         self._terminated_successfully = False
         self._committed = False
         self._cursor = 0
+        self._context_prefix = _CONTEXT_PREFIX
         self._observer_configured = False
         self._phase = 'startup'
         self._reset_cycle()
@@ -238,11 +256,13 @@ class StrictContextProtocol:
             return
         if self._failed:
             self._deny()
+        if self._role == 'context' and self._cursor == 5 and sql == wire_sql(PUBLIC_REGISTRY_LOCK_SQL):
+            self._context_prefix = _PUBLIC_CONTEXT_PREFIX
         if self._role == 'observer':
             allowed = _OBSERVER_QUERIES if self._observer_configured else {wire_sql(OBSERVER_TIMEOUT_SQL)}
-        elif self._cursor < len(_CONTEXT_PREFIX):
-            allowed = {_CONTEXT_PREFIX[self._cursor]}
-        elif self._cursor == len(_CONTEXT_PREFIX):
+        elif self._cursor < len(self._context_prefix):
+            allowed = {self._context_prefix[self._cursor]}
+        elif self._cursor == len(self._context_prefix):
             allowed = {_HISTORY, b'COMMIT'}
         else:
             allowed = {b'COMMIT'}
@@ -331,7 +351,7 @@ class StrictContextProtocol:
             self._deny()
         if self._extended and not (self._parsed and self._bound):
             self._deny()
-        command = self._sql.split(b' ', 1)[0]
+        command = b'LOCK TABLE' if self._sql == wire_sql(PUBLIC_REGISTRY_LOCK_SQL) else self._sql.split(b' ', 1)[0]
         valid = (re.fullmatch(rb'SELECT [0-9]+\x00', body) is not None
                  if command == b'SELECT' else body == command + b'\0')
         if not valid:

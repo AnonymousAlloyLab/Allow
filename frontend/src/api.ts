@@ -1,3 +1,4 @@
+import {signalExpired} from './publicSession';
 export type Status = 'QUEUED'|'RUNNING'|'VALIDATED'|'SAT'|'UNSAT'|'INVALID'|'UNSUPPORTED'|'UNKNOWN'|'ERROR'|'TIMEOUT'|'CANCELLED';
 export interface Job { jobId: string; status: Status; sourceHash: string; revision: number; epoch: number; [key: string]: unknown }
 export type JobIdentity = Pick<Job,'jobId'|'sourceHash'|'revision'|'epoch'>;
@@ -20,6 +21,7 @@ export function sameIdentity(actual: JobIdentity, expected: JobIdentity): boolea
 /** Send an authenticated request. @param token Launch authority. @param path Same-origin API path. @param init Request options. @returns Parsed response. @throws Error on HTTP failure. */
 async function request(token: string, path: string, init: RequestInit = {}): Promise<Job> {
   const response = await fetch(path,{...init,headers:{'Authorization':`Bearer ${token}`,'Content-Type':'application/json',...init.headers}});
+  signalExpired(response,token);
   if (!response.ok) throw new Error(`Request failed (${response.status}).`);
   return await response.json() as Job;
 }

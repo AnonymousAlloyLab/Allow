@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "id": "allow-anonymous-workspaces-policy-v1",
+  "status": "POLICY_MODEL_PROVED",
+  "closure_status": "NOT_A_FULL_CLOSURE_RUN",
+  "review_date": "2026-11-04",
+  "contract": {
+    "path": "spec/anonymous-workspaces.json",
+    "sha256": "37556e94a580175bd432f8be21537b128ca7f6ebfbfbf4eec45d34181be0094e",
+    "seat": "Sol1",
+    "decision": "APPROVE"
+  },
+  "proof": {
+    "path": "formal/Allow/AnonymousWorkspaces.lean",
+    "sha256": "7738177c34c8e4df59da23c4e6f906d011fc07ad8f8db28e2577e4ce5389204c",
+    "theorem_count": 56,
+    "theorems": [
+      "Allow.AnonymousWorkspaces.wrong_capability_rejected",
+      "Allow.AnonymousWorkspaces.resolved_scope_server_owned",
+      "Allow.AnonymousWorkspaces.expired_session_inaccessible",
+      "Allow.AnonymousWorkspaces.expired_capability_rejected",
+      "Allow.AnonymousWorkspaces.restarted_incarnation_rejected",
+      "Allow.AnonymousWorkspaces.provisioning_not_accessible",
+      "Allow.AnonymousWorkspaces.draining_not_accessible",
+      "Allow.AnonymousWorkspaces.quarantined_not_accessible",
+      "Allow.AnonymousWorkspaces.cross_scope_resource_denied",
+      "Allow.AnonymousWorkspaces.known_id_cannot_grant_scope",
+      "Allow.AnonymousWorkspaces.same_key_different_scope_independent",
+      "Allow.AnonymousWorkspaces.completed_after_expiry_not_published",
+      "Allow.AnonymousWorkspaces.publication_requires_live_scope",
+      "Allow.AnonymousWorkspaces.thirty_minute_fixed_lifetime",
+      "Allow.AnonymousWorkspaces.full_capacity_no_change",
+      "Allow.AnonymousWorkspaces.reservation_never_evicts",
+      "Allow.AnonymousWorkspaces.reservation_bound_four",
+      "Allow.AnonymousWorkspaces.reused_scope_not_allocated",
+      "Allow.AnonymousWorkspaces.reused_capability_not_allocated",
+      "Allow.AnonymousWorkspaces.cleanup_uncertain_no_reuse",
+      "Allow.AnonymousWorkspaces.unreaped_children_no_reuse",
+      "Allow.AnonymousWorkspaces.unresolved_queue_no_reuse",
+      "Allow.AnonymousWorkspaces.uncertain_context_no_reuse",
+      "Allow.AnonymousWorkspaces.private_scope_never_purged",
+      "Allow.AnonymousWorkspaces.quarantined_slot_not_released",
+      "Allow.AnonymousWorkspaces.uncertain_cleanup_retains_slot",
+      "Allow.AnonymousWorkspaces.quarantined_retains_slot",
+      "Allow.AnonymousWorkspaces.expired_queued_job_never_starts",
+      "Allow.AnonymousWorkspaces.quota_counts_reservations",
+      "Allow.AnonymousWorkspaces.stored_bytes_alone_insufficient",
+      "Allow.AnonymousWorkspaces.four_slot_accounting_bound",
+      "Allow.AnonymousWorkspaces.global_request_cap",
+      "Allow.AnonymousWorkspaces.session_request_cap",
+      "Allow.AnonymousWorkspaces.second_expensive_operation_rejected",
+      "Allow.AnonymousWorkspaces.anonymous_corpus_disabled",
+      "Allow.AnonymousWorkspaces.private_token_no_anonymous_authority",
+      "Allow.AnonymousWorkspaces.anonymous_token_no_private_authority",
+      "Allow.AnonymousWorkspaces.private_mode_no_public_enrollment",
+      "Allow.AnonymousWorkspaces.unready_restart_blocks_enrollment",
+      "Allow.AnonymousWorkspaces.enrollment_requires_capacity",
+      "Allow.AnonymousWorkspaces.enrollment_requires_rate_permit",
+      "Allow.AnonymousWorkspaces.all_sql_requires_parser",
+      "Allow.AnonymousWorkspaces.wsl_prerequisites_not_acceptance",
+      "Allow.AnonymousWorkspaces.no_default_public_exposure",
+      "Allow.AnonymousWorkspaces.own_session_positive",
+      "Allow.AnonymousWorkspaces.other_session_capability_denied",
+      "Allow.AnonymousWorkspaces.cross_session_document_denied",
+      "Allow.AnonymousWorkspaces.own_document_positive",
+      "Allow.AnonymousWorkspaces.own_job_positive",
+      "Allow.AnonymousWorkspaces.expiry_boundary_denied",
+      "Allow.AnonymousWorkspaces.drained_release_positive",
+      "Allow.AnonymousWorkspaces.bounded_reservation_positive",
+      "Allow.AnonymousWorkspaces.quota_positive",
+      "Allow.AnonymousWorkspaces.enrollment_positive",
+      "Allow.AnonymousWorkspaces.request_admission_positive",
+      "Allow.AnonymousWorkspaces.parser_route_positive"
+    ]
+  },
+  "toolchain": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "builds": [
+    {
+      "directory": "gates/deployment/anonymous-v1/clean-1",
+      "source_sha256": "7738177c34c8e4df59da23c4e6f906d011fc07ad8f8db28e2577e4ce5389204c",
+      "olean_sha256": "02d577fc5b63177a86aba0e147938468ed32d95be77831c5798fa9eeb5bbf710",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_source_sha256": "243dee40b208b10c2d1541bc8eb89a80ec4ee58da376af20529db5acb6d66bdc",
+      "axiom_log_sha256": "52fb8ff6dbb54b48a90ebe86cf477de755ce994a5bd519721e0b3a9191e19693"
+    },
+    {
+      "directory": "gates/deployment/anonymous-v1/clean-2",
+      "source_sha256": "7738177c34c8e4df59da23c4e6f906d011fc07ad8f8db28e2577e4ce5389204c",
+      "olean_sha256": "02d577fc5b63177a86aba0e147938468ed32d95be77831c5798fa9eeb5bbf710",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "audit_source_sha256": "243dee40b208b10c2d1541bc8eb89a80ec4ee58da376af20529db5acb6d66bdc",
+      "axiom_log_sha256": "52fb8ff6dbb54b48a90ebe86cf477de755ce994a5bd519721e0b3a9191e19693"
+    }
+  ],
+  "checks": {
+    "two_fresh_isolated_directories": true,
+    "matching_olean": true,
+    "matching_axiom_inventory": true,
+    "no_sorry_or_custom_axioms": true,
+    "positive_witnesses": true
+  },
+  "axioms": {
+    "observed": [
+      "Quot.sound",
+      "propext"
+    ],
+    "custom": [],
+    "sorryAx": false
+  },
+  "preserved_candidates": {
+    "failed": [],
+    "superseded": [
+      "gates/deployment/anonymous-v1/superseded-candidate-1"
+    ]
+  },
+  "proved_scope": [
+    "resolved capability returns only its server-owned scope; wrong capability denied",
+    "owner-bound document revision history receipt identifier job result cancellation resource access",
+    "equal idempotency keys are distinct across different scopes; opaque IDs never grant scope",
+    "absolute thirty-minute deadline does not slide; expiry and restart fence access and publication",
+    "expired queued jobs cannot start; completion alone cannot publish",
+    "four occupied slots including provisioning draining quarantine; full admission changes nothing and never evicts",
+    "known-used scope/capability allocation denied",
+    "release requires draining no owners resolved queue actual child reap clean SQL context certain scoped purge and registered public scope",
+    "uncertain cleanup/quarantine retains slot and private scopes cannot be purged",
+    "three documents128revisions256receipts16MiB include reservations; four slot accounting64MiB",
+    "global8 and per-session2 request admission; one outstanding expensive operation",
+    "anonymous/private capability separation and public corpus disabled",
+    "enrollment requires reconciled startup exact bounded inputs rate and capacity permits",
+    "all SQL routes require pinned parser; WSL prerequisites alone cannot accept exposure",
+    "positive own capability/document/job quota reservation enrollment request parser and drained-release witnesses"
+  ],
+  "trusted": [
+    "Lean4.34.1 kernel and Std distribution",
+    "host compiler/runtime/filesystem executing Lean",
+    "SHA256 input binding",
+    "finite policy abstractions and human interpretation",
+    "opaque symbolic identities represent distinct allocations; capability strength and actual runtime scope propagation require separate evidence"
+  ],
+  "excluded": [
+    "JVM Python SQL IIS implementation correspondence/refinement",
+    "cryptography",
+    "OS scheduling and race freedom",
+    "secure deletion of WAL backups or media",
+    "systemd WSL Windows behavior",
+    "practical resource capacity throughput availability",
+    "licensing or public artifact redistribution permission",
+    "target public deployment acceptance",
+    "universal safety",
+    "full mechanical closure"
+  ],
+  "implementation_correspondence": "OPEN_SEPARATE_SCOPE_ISOLATION_EXPIRY_DRAIN_SQL_RUNTIME_AND_NATIVE_TARGET_TESTS_REQUIRED"
+}

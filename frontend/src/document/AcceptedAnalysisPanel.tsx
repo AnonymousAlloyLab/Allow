@@ -31,12 +31,12 @@ function start(ui:AnalysisUI):void {
   void runAnalysis({token:ui.controller.token,snapshot,controller,current,emit});
 }
 /** Render the full bounded Results view only for a completely current accepted identity. @param props Controller/view. @returns Analysis controls and evidence. */
-export function AcceptedAnalysisPanel(props:{controller:Controller;view:ViewState}) {
+export function AcceptedAnalysisPanel(props:{controller:Controller;view:ViewState;online?:boolean}) {
   const [command,setCommand]=useState(''),[outcome,setOutcome]=useState<Outcome|null>(null);
   const active=useRef<AbortController|null>(null),selected=useRef(command),state=props.view.document,options:Option[]=[];
   selected.current=command;
   for(const descriptor of state.accepted?.artifact.analysisDescriptors??[]) options.push({id:descriptor.commandKey,label:descriptor.label});
-  useEffect(lifetime.bind(null,active),[state.draftId,state.epoch,state.contentGeneration,state.accepted?.artifact.artifactId,state.accepted?.documentId,state.dirty,command]);
+  useEffect(lifetime.bind(null,active),[state.draftId,state.epoch,state.contentGeneration,state.accepted?.artifact.artifactId,state.accepted?.documentId,state.dirty,command,props.online]);
   const ui:AnalysisUI={controller:props.controller,command:selected,active,setOutcome};
   /** Change selected command and synchronously fence older asynchronous responses. @param value Command key. @returns Nothing. */
   function changeCommand(value:string):void {
@@ -48,7 +48,7 @@ export function AcceptedAnalysisPanel(props:{controller:Controller;view:ViewStat
   const current=!!data&&!!outcome&&currentAnalysis(data,outcome.snapshot,snapshot);
   return <fieldset className="document-analysis"><legend>Explore this model</legend>
     <SelectControl label="Command" value={command} options={options} onChange={changeCommand}/>
-    <button disabled={!snapshot} onClick={start.bind(null,ui)}>Run analysis</button>
+    <button disabled={!snapshot||props.online===false} onClick={start.bind(null,ui)}>Run analysis</button>
     {current&&data?<Results job={data.job} notice={outcome!.event.notice}/>:<AnalysisNotice outcome={outcome} dirty={state.dirty}/>}
   </fieldset>;
 }

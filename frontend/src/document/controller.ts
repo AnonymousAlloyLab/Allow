@@ -6,6 +6,7 @@ import {selectNode,editModule,editSource,openAccepted,candidate,applyValidation,
 import {checkModule,nodeIndex} from './model';
 import {fieldTransitionNotice} from './fieldOrder';
 import {capturePendingObligations,revisionObligations} from './constraintHistory';
+import {contentSnapshot,type Gesture,type Fit} from './gesture';
 import {construct,hole,replacement,newContradiction,paste,retainCopies,type Clipboard,type EditResult} from './operations';
 export interface ViewState {readonly document:DocumentState;readonly documents:readonly DocumentSummary[];readonly target:number;readonly history:Accepted|null;readonly direction:'UNDO'|'REDO'}
 export interface Controller {readonly token:string;readonly current:MutableRefObject<ViewState>;readonly set:Dispatch<SetStateAction<ViewState>>}
@@ -90,12 +91,16 @@ function applyEdit(c:Controller,state:DocumentState,result:EditResult,notice:str
   const next={...editModule(state,result.module,result.selected,result.copies,result.slotObligations),notice};
   publishDocument(c,next);focusLater(c,next,result.selected);
 }
-/** Insert a closed typed palette node, denying known contradictions before publication. @param c Controller. @param tag Operator. @param target Referent. @param name Binder label. @param destination Slot. @returns Nothing. */
-export function insert(c:Controller,tag:Expression['tag'],target:Id,name:string,destination:Id):void {
-  const state=c.current.current.document,nodes=construct(tag,target,state.module,name);
-  const prepared=replacement(state.module,destination,nodes,state.slotObligations);
+/** Prepare one palette replacement against the current state. @param state Current content. @param tag Closed operator. @param target Referent. @param name Binder. @param destination Owned slot. @returns Candidate or rejection. */
+function prepareInsert(state:DocumentState,tag:Expression['tag'],target:Id,name:string,destination:Id):EditResult {
+  if(!nodeIndex(state.module).has(destination)) return {module:state.module,copies:state.copies,selected:destination,slotObligations:state.slotObligations,error:'Destination is unavailable.'};
+  const nodes=construct(tag,target,state.module,name),prepared=replacement(state.module,destination,nodes,state.slotObligations);
   const error=newContradiction(state.module,prepared.module,state.slotObligations,prepared.slotObligations);
-  applyEdit(c,state,{...prepared,copies:retainCopies(state.copies,prepared.module),selected:nodes[0].id,error},'Inserted draft block; server acceptance pending.');
+  return {...prepared,copies:retainCopies(state.copies,prepared.module),selected:nodes[0].id,error};
+}
+/** Insert a closed typed palette node. @param c Controller. @param tag Operator. @param target Referent. @param name Binder label. @param destination Slot. @returns Nothing. */
+export function insert(c:Controller,tag:Expression['tag'],target:Id,name:string,destination:Id):void {
+  const state=c.current.current.document;applyEdit(c,state,prepareInsert(state,tag,target,name,destination),'Inserted draft block; server acceptance pending.');
 }
 /** Prepare a clipboard identity without publishing selection or changing existing clipboard state. @param state Pre-gesture snapshot. @param nodeId Source subtree. @param cut Move instead of clone. @returns Local clipboard descriptor or unavailable accepted context. */
 function clipboardFor(state:DocumentState,nodeId:Id,cut:boolean):Clipboard|null {
@@ -120,6 +125,26 @@ export function dropNode(c:Controller,source:Id,target:Id,clone:boolean):void {
   if(!clipboard||!nodeIndex(state.module).has(source)) {publishDocument(c,{...state,notice:'Foreign or stale dragged source.'});return;}
   const result=paste(state.module,clipboard,target,state.copies,state.slotObligations);
   applyEdit(c,state,result,'Draft drop completed; scope and nominal schemas rechecked.');
+}
+/** Prepare an owned gesture without publishing. @param state Current document. @param gesture Frozen gesture. @param target Destination. @param clone Copy modifier. @returns Candidate or rejection. */
+function prepareGesture(state:DocumentState,gesture:Gesture,target:Id,clone:boolean):EditResult {
+  const rejected={module:state.module,copies:state.copies,selected:target,slotObligations:state.slotObligations,error:'Stale or foreign drag; draft unchanged.'};
+  if(!state.accepted||gesture.snapshot!==contentSnapshot(state)||!nodeIndex(state.module).has(target)) return rejected;
+  if(gesture.kind==='palette') return prepareInsert(state,gesture.tag,gesture.target,gesture.name,target);
+  const clipboard=clipboardFor(state,gesture.source,!clone);
+  return clipboard?paste(state.module,clipboard,target,state.copies,state.slotObligations):rejected;
+}
+/** Preview one destination with the same candidate rules used for final drop. @param c Controller. @param gesture Active owned descriptor. @param target Destination. @param clone Copy modifier. @returns Honest compatibility state. */
+export function previewGesture(c:Controller,gesture:Gesture,target:Id,clone:boolean):Fit {
+  const result=prepareGesture(c.current.current.document,gesture,target,clone);
+  if(result.error) return {kind:'incompatible',message:result.error};
+  const checked=checkModule(result.module,result.slotObligations),type=checked.types.get(result.selected);
+  if(!type||!checked.complete) return {kind:'unresolved',message:'Potentially compatible; constraints remain unresolved.'};
+  return {kind:'compatible',message:'Compatible with the checked slot constraints.'};
+}
+/** Recheck and publish one current owned drag transaction. @param c Controller. @param gesture Active owned descriptor. @param target Destination. @param clone Copy modifier. @returns Nothing. */
+export function commitGesture(c:Controller,gesture:Gesture,target:Id,clone:boolean):void {
+  const state=c.current.current.document;applyEdit(c,state,prepareGesture(state,gesture,target,clone),'Draft drop completed; scope and nominal schemas rechecked.');
 }
 /** Delete selected expression while retaining the owning destination's independent constraints. @param c Controller. @returns Nothing. */
 export function removeSelected(c:Controller):void {

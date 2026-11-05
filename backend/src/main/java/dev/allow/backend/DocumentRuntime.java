@@ -14,6 +14,7 @@ import java.nio.file.attribute.PosixFilePermissions;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /** Exclusive durable workspace incarnation and installed validator policy fence. */
@@ -30,22 +31,34 @@ final class DocumentRuntime {
     /** Locks the private workspace and installs its exact trusted build policy on startup.
      * @param gateway private operation-only store bridge
      * @param directory trusted installation root; blank disables document endpoints
+     * @param mode private initialization or isolated public installation ownership
      * @throws IOException unavailable installation, identity or exclusive ownership
      * @throws InterruptedException interrupted store initialization
      */
-    DocumentRuntime(DocumentGateway gateway, @Value("${allow.corpus.root:}") String directory)
+    @Autowired
+    DocumentRuntime(DocumentGateway gateway, @Value("${allow.corpus.root:}") String directory, AccessMode mode)
             throws IOException, InterruptedException {
         dependency = directory.isBlank() ? "unavailable" : BuildIdentity.read(Path.of("target"));
         policy = "document-v1:" + dependency;
         if (directory.isBlank()) return;
         try {
             acquire(Path.of(directory).toAbsolutePath().normalize().resolve(".runtime/documents"));
-            initialize(gateway);
+            if (!mode.anonymous()) initialize(gateway);
             ready = true;
         } catch (IOException | InterruptedException | RuntimeException failure) {
             close();
             throw failure;
         }
+    }
+
+    /** Preserves the private construction seam used by isolated runtime checks.
+     * @param gateway private bridge
+     * @param directory trusted installation root
+     * @throws IOException unavailable ownership or policy
+     * @throws InterruptedException interrupted private initialization
+     */
+    DocumentRuntime(DocumentGateway gateway, String directory) throws IOException, InterruptedException {
+        this(gateway, directory, new AccessMode("PRIVATE"));
     }
 
     /** Rejects unsafe directory links and concurrent local server incarnations.

@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "status": "FINITE_POLICY_MODEL_PROVED",
+  "contract": {
+    "path": "spec/staged-public-cutover.json",
+    "sha256": "d21a1e86cd60d983fc9e9b0ca219910c9200c7b4943fbfb8b2acab5bc6f9d121"
+  },
+  "proof": {
+    "path": "formal/Allow/StagedPublicCutover.lean",
+    "sha256": "4c1bfc3c5a91516b0091cc0bd0d936ba666fbcda6570a7048fa716883f65cb16",
+    "theorem_count": 50,
+    "theorems": [
+      "missing_slot_preserves_primary",
+      "primary_name_accepted",
+      "replacement_name_accepted",
+      "unknown_slot_rejected",
+      "primary_validation_unchanged",
+      "replacement_positive",
+      "mixed_binding_rejected",
+      "old_root_rejected",
+      "old_account_rejected",
+      "old_service_rejected",
+      "private_mode_rejected",
+      "ssh_transport_rejected",
+      "wrong_port_rejected",
+      "ready_positive",
+      "active_legacy_denied",
+      "enabled_legacy_denied",
+      "legacy_main_denied",
+      "legacy_job_denied",
+      "nonempty_cgroup_denied",
+      "missing_legacy_denied",
+      "shared_or_root_uid_denied",
+      "private_read_access_denied",
+      "private_write_access_denied",
+      "private_execute_access_denied",
+      "wrong_public_owner_denied",
+      "prepare_preserves_private",
+      "prepare_is_not_exposure",
+      "prepare_rejects_private_identity_reuse",
+      "prepare_rejects_active_legacy",
+      "prepare_guard_failure_has_no_transition",
+      "public_edit_preserves_private",
+      "public_stop_preserves_private",
+      "start_preserves_private",
+      "start_requires_inactive_legacy",
+      "start_rejects_unprepared",
+      "start_never_exposes",
+      "no_native_acceptance_no_exposure",
+      "no_tls_acceptance_no_exposure",
+      "no_restart_acceptance_no_exposure",
+      "active_legacy_prevents_exposure",
+      "no_intent_no_exposure",
+      "rollback_requires_restricted_ingress",
+      "rollback_requires_cleanup",
+      "rollback_refuses_active_public",
+      "rollback_never_exposes_legacy",
+      "rollback_keeps_both_stores",
+      "fresh_preparation_positive",
+      "public_start_positive",
+      "fully_accepted_exposure_positive",
+      "restricted_rollback_positive"
+    ]
+  },
+  "toolchain": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "builds": [
+    {
+      "directory": "gates/deployment/cutover-v1/clean-1",
+      "source_sha256": "4c1bfc3c5a91516b0091cc0bd0d936ba666fbcda6570a7048fa716883f65cb16",
+      "olean_sha256": "4dc2ad887ad6b13e304b627ff696f99734fbcbbbc6f341101e9ddb2244ea5509",
+      "compile_exit": 0,
+      "audit_exit": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axiom_log_sha256": "ff93698bb7b9ce73c52a1058eb6639a7710e4eaef1fb1b8f20845cf6206b6fbd"
+    },
+    {
+      "directory": "gates/deployment/cutover-v1/clean-2",
+      "source_sha256": "4c1bfc3c5a91516b0091cc0bd0d936ba666fbcda6570a7048fa716883f65cb16",
+      "olean_sha256": "4dc2ad887ad6b13e304b627ff696f99734fbcbbbc6f341101e9ddb2244ea5509",
+      "compile_exit": 0,
+      "audit_exit": 0,
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axiom_log_sha256": "ff93698bb7b9ce73c52a1058eb6639a7710e4eaef1fb1b8f20845cf6206b6fbd"
+    }
+  ],
+  "matching_olean": true,
+  "axioms": {
+    "observed": [
+      "propext"
+    ],
+    "sorry_or_custom": false
+  },
+  "scope": "Closed selectors, guarded transitions, private-state preservation in the model, independent identities, no automatic exposure and restricted non-destructive rollback",
+  "excluded": [
+    "Implementation correspondence",
+    "Native systemd/WSL/UID/ACL/race behavior",
+    "Backup completeness or target restore",
+    "Resource fit/throughput",
+    "Production exposure",
+    "Licensing/commercialization",
+    "Full mechanical closure"
+  ],
+  "historical_failed_candidate": "candidate-check/compile.log used default4.35 and had one tactic mismatch; corrected proof compiled with pinned4.34.1 before production"
+}

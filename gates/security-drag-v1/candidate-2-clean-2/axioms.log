@@ -1,0 +1,47 @@
+'Allow.SecurityDrag.aliases_always_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.public_exception_exact' depends on axioms: [propext]
+'Allow.SecurityDrag.protected_default_requires_bearer' depends on axioms: [propext]
+'Allow.SecurityDrag.hostile_authority_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.forwarded_authority_irrelevant' does not depend on any axioms
+'Allow.SecurityDrag.public_positive' does not depend on any axioms
+'Allow.SecurityDrag.authenticated_positive' does not depend on any axioms
+'Allow.SecurityDrag.document_routes_never_public' depends on axioms: [propext]
+'Allow.SecurityDrag.document_routes_require_bearer' depends on axioms: [propext]
+'Allow.SecurityDrag.document_routes_unauthorized_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.encoded_document_read_and_mutation_positive' does not depend on any axioms
+'Allow.SecurityDrag.literal_document_read_and_mutation_positive' does not depend on any axioms
+'Allow.SecurityDrag.bootstrap_requires_all_checks' depends on axioms: [propext]
+'Allow.SecurityDrag.unisolated_bootstrap_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.bytecode_bootstrap_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.unverified_source_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.extra_executable_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.unsafe_ownership_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.nonprivate_authority_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.fresh_rejects_old_tools' depends on axioms: [propext]
+'Allow.SecurityDrag.fresh_rejects_unknown_runtime' depends on axioms: [propext]
+'Allow.SecurityDrag.competing_initializer_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.competing_supervisor_no_effects' depends on axioms: [propext]
+'Allow.SecurityDrag.side_effects_require_owner' depends on axioms: [propext]
+'Allow.SecurityDrag.bootstrap_positive' does not depend on any axioms
+'Allow.SecurityDrag.fresh_positive' does not depend on any axioms
+'Allow.SecurityDrag.supervisor_positive' does not depend on any axioms
+'Allow.SecurityDrag.foreign_editor_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.missing_gesture_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.stale_document_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.stale_revision_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.stale_draft_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.stale_generation_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.missing_destination_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.missing_source_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.descendant_self_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.incompatible_rejected' depends on axioms: [propext]
+'Allow.SecurityDrag.unresolved_not_typechecked' depends on axioms: [propext]
+'Allow.SecurityDrag.selection_only_irrelevant' does not depend on any axioms
+'Allow.SecurityDrag.hover_does_not_authorize' does not depend on any axioms
+'Allow.SecurityDrag.rejected_drop_no_mutation' depends on axioms: [propext]
+'Allow.SecurityDrag.drop_never_commits' does not depend on any axioms
+'Allow.SecurityDrag.drop_preserves_clipboard' does not depend on any axioms
+'Allow.SecurityDrag.successful_drop_one_transition' depends on axioms: [propext]
+'Allow.SecurityDrag.valid_gesture_positive' does not depend on any axioms
+'Allow.SecurityDrag.unresolved_positive_without_checked_claim' does not depend on any axioms
+'Allow.SecurityDrag.rejected_witness' does not depend on any axioms

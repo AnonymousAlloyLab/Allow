@@ -63,7 +63,7 @@ export function HistoryPanel(props:{controller:Controller;view:ViewState}) {
   </details>;
 }
 /** Render live Alloy projection beside blocks, preserving raw edits independently. @param props Controller/view. @returns Source and accepted evidence. */
-export function SourcePanel(props:{controller:Controller;view:ViewState}) {
+export function SourcePanel(props:{controller:Controller;view:ViewState;online?:boolean}) {
   const state=props.view.document,source=state.mode==='SOURCE'?state.source:state.preview??state.historicalPreview??state.source;
   /** Keep raw source edits separate from the saved version. @param event Input. @returns Nothing. */
   function change(event:ChangeEvent<HTMLTextAreaElement>):void {changeSource(props.controller,event.target.value);}
@@ -76,9 +76,21 @@ export function SourcePanel(props:{controller:Controller;view:ViewState}) {
     <p>{state.mode==='SOURCE'?'Editing source directly.':state.preview?'Live block preview.':state.dirty?'Previous source preview; complete blocks are checked automatically.':'Source for the saved model.'}</p>
     <label>Source<textarea id="document-source-draft" value={source} onChange={change} onSelect={selection} spellCheck={false}/></label>
     {state.mode==='SOURCE'&&<button disabled={!state.accepted?.artifact.module} onClick={blocks}>Resume block editing</button>}
-    <AcceptedAnalysisPanel controller={props.controller} view={props.view}/>
+    {props.online===false&&<p>Copy the visible source or export it below. A prior preview may not include unfinished block edits.</p>}
+    {props.online===false&&<><button onClick={copySource.bind(null,props.controller,source)}>Copy visible source</button><button onClick={downloadSource.bind(null,source)}>Export visible source</button></>}
+    <AcceptedAnalysisPanel controller={props.controller} view={props.view} online={props.online!==false}/>
     <AcceptedPanel controller={props.controller} view={props.view}/>
   </section>;
+}
+/** Copy visible text and report browser clipboard denial without losing the draft. @param controller Current view. @param source Visible source. @returns Completion. */
+async function copySource(controller:Controller,source:string):Promise<void> {
+  try {await navigator.clipboard.writeText(source);announce(controller,'Visible source copied.');}
+  catch {announce(controller,'Clipboard unavailable. Select the source text and copy it manually.');}
+}
+/** Download exactly the currently displayed source text. @param source Visible text, possibly a prior preview. @returns Nothing. */
+function downloadSource(source:string):void {
+  const url=URL.createObjectURL(new Blob([source],{type:'text/plain;charset=utf-8'})),link=document.createElement('a');
+  link.href=url;link.download='allow-source.als';link.click();URL.revokeObjectURL(url);
 }
 /** Render immutable source/provenance in a disclosure with freshness-gated map navigation. @param props Controller/view. @returns Saved-version details. */
 function AcceptedPanel(props:{controller:Controller;view:ViewState}) {

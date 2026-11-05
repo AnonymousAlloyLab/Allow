@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": [
+    "primary-default",
+    "replacement-fixed-tuple",
+    "shared-distribution-mutex",
+    "guard-before-start",
+    "guard-denial-no-manager-effects",
+    "retry-rechecks-guard",
+    "owned-public-only-cleanup",
+    "failed-stop-propagates-and-cross-process-mutex-released",
+    "preexisting-owner-refused",
+    "mixed-account-refused-before-wsl",
+    "unknown-selector-before-wsl",
+    "selected-preflight-native-open"
+  ],
+  "nativeWindows": "OPEN"
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/allow-anon-package-r5b/deploy/linux/setup.py", line 116, in <module>
+    main()
+  File "/tmp/allow-anon-package-r5b/deploy/linux/setup.py", line 107, in main
+    trust.public_guard(config, ROOT)
+  File "/tmp/allow-anon-package-r5b/deploy/linux/trust.py", line 228, in public_guard
+    load_source('deploy/linux/public_guard.py', root).check(config, root)
+  File "/tmp/allow-anon-package-r5b/deploy/linux/public_guard.py", line 149, in check
+    raise ValueError('Invalid public replacement tuple')
+ValueError: Invalid public replacement tuple

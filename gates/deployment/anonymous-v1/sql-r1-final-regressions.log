@@ -1,0 +1,119 @@
+test_all_four_registry_slots_including_uncertain_count (test_anonymous.LifecycleTests.test_all_four_registry_slots_including_uncertain_count)
+Count all rows, without filtering out provisioning or quarantine. ... ok
+test_context_status_requires_ready_boolean_idle_lane (test_anonymous.LifecycleTests.test_context_status_requires_ready_boolean_idle_lane)
+Control status must be current READY and exactly false contextOccupied. ... ok
+test_context_uncertainty_quarantines_and_preserves_failure (test_anonymous.LifecycleTests.test_context_uncertainty_quarantines_and_preserves_failure)
+A fresh control failure cannot be converted into successful deletion. ... ok
+test_initialization_failure_retains_committed_provenance (test_anonymous.LifecycleTests.test_initialization_failure_retains_committed_provenance)
+A failed Store.initialize never erases the already committed registry slot. ... ok
+test_listing_overflow_fails_instead_of_hiding_occupied_slots (test_anonymous.LifecycleTests.test_listing_overflow_fails_instead_of_hiding_occupied_slots)
+Five registry rows cannot silently become a four-entry report. ... ok
+test_private_collision_never_marked_public (test_anonymous.LifecycleTests.test_private_collision_never_marked_public)
+An existing unregistered workspace refuses enrollment before INSERT. ... ok
+test_private_or_wrong_incarnation_purge_refused (test_anonymous.LifecycleTests.test_private_or_wrong_incarnation_purge_refused)
+Admin cleanup cannot target an unregistered private workspace or a new owner. ... ok
+test_purge_all_deletes_explicit_scope_and_atomic_connection (test_anonymous.LifecycleTests.test_purge_all_deletes_explicit_scope_and_atomic_connection)
+The fixed dependency order has no unscoped admin DELETE or app connection. ... ok
+test_purge_live_owner_refuses_delete (test_anonymous.LifecycleTests.test_purge_live_owner_refuses_delete)
+CANCELLED presentation or elapsed time never replaces actual owner drain. ... ok
+test_public_caps_and_private_limits_unchanged (test_anonymous.QuotaTests.test_public_caps_and_private_limits_unchanged)
+Each exceeded public dimension rejects before SQL writes; private admits it. ... ok
+test_private_v1_and_lifecycle_protocol_separation (test_anonymous.ScopeProtocolTests.test_private_v1_and_lifecycle_protocol_separation)
+v1 cannot smuggle a scope; v2 cannot modify installed/private policy. ... ok
+test_scope_closed_canonical_and_not_path (test_anonymous.ScopeProtocolTests.test_scope_closed_canonical_and_not_path)
+Only exact integer version and canonical UUID scope fields are accepted. ... ok
+test_v2_listing_has_server_scope_and_smaller_quota (test_anonymous.ScopeProtocolTests.test_v2_listing_has_server_scope_and_smaller_quota)
+The scoped bridge constructs only a registered public Store instance. ... ok
+test_late_initializer_after_purge_cannot_resurrect_workspace (test_anonymous.TransactionFenceTests.test_late_initializer_after_purge_cannot_resurrect_workspace)
+A missing registry row in the same transaction rejects before any INSERT. ... ok
+test_only_initializer_accepts_provisioning (test_anonymous.TransactionFenceTests.test_only_initializer_accepts_provisioning)
+Normal operations cannot run in a registered but unfinished workspace. ... ok
+test_public_transaction_locks_before_first_select (test_anonymous.TransactionFenceTests.test_public_transaction_locks_before_first_select)
+Implicit snapshots cannot precede the registry ACCESS SHARE table lock. ... ok
+test_purge_requires_access_exclusive_registry_lock (test_anonymous.TransactionFenceTests.test_purge_requires_access_exclusive_registry_lock)
+The purge lock conflicts with every scoped read/init transaction fence. ... ok
+test_fourth_document_rejected_in_store (test_anonymous_sql.AnonymousSQLTests.test_fourth_document_rejected_in_store)
+The SQL store, not the browser, enforces three-document anonymous quota. ... ok
+test_initializer_and_purge_serialize_without_orphan_resurrection (test_anonymous_sql.AnonymousSQLTests.test_initializer_and_purge_serialize_without_orphan_resurrection)
+An actual table-lock race drains initialization before deleting its provenance. ... ok
+test_private_workspace_cannot_be_registered_or_purged (test_anonymous_sql.AnonymousSQLTests.test_private_workspace_cannot_be_registered_or_purged)
+A collision cannot turn existing private control data into cleanup authority. ... ok
+test_public_validation_context_exact_registry_branch (test_anonymous_sql.AnonymousSQLTests.test_public_validation_context_exact_registry_branch)
+The real parser/proxy context lane accepts only owned public snapshots. ... ok
+test_registry_rls_read_only_app_permissions (test_anonymous_sql.AnonymousSQLTests.test_registry_rls_read_only_app_permissions)
+App registry reads are scoped and INSERT/UPDATE/DELETE remain denied. ... ok
+test_same_key_independent_and_cross_scope_history_denied (test_anonymous_sql.AnonymousSQLTests.test_same_key_independent_and_cross_scope_history_denied)
+Equal keys in two scopes yield independent receipts/documents, never leakage. ... ok
+test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt (test_documents.DocumentSQLTests.test_applied_commit_lost_ack_and_denial_lost_ack_recover_receipt)
+Injected acknowledgement loss after real commit recovers both outcomes. ... ok
+test_competing_revision_and_terminal_stale_receipt (test_documents.DocumentSQLTests.test_competing_revision_and_terminal_stale_receipt)
+Concurrent bases produce one appended revision and immutable stale denial. ... ok
+test_create_capacity_reserves_pending_documents_and_replay (test_documents.DocumentSQLTests.test_create_capacity_reserves_pending_documents_and_replay)
+63 existing plus pending CREATE rejects another slot; replay ignores quotas. ... ok
+test_create_revision_zero_and_exact_replay_at_stale_base (test_documents.DocumentSQLTests.test_create_revision_zero_and_exact_replay_at_stale_base)
+Exact receipt replay neither revalidates nor appends a second revision. ... ok
+test_encoded_route_preserved_and_encoding_change_collides (test_documents.DocumentSQLTests.test_encoded_route_preserved_and_encoding_change_collides)
+Only literal colon or canonical percent3A route is admitted, never normalized. ... ok
+test_failure_after_append_and_receipt_rolls_back_every_row (test_documents.DocumentSQLTests.test_failure_after_append_and_receipt_rolls_back_every_row)
+A database error after all writes cannot leave partial revision/receipt. ... ok
+test_final_rejection_observed_head_is_locked (test_documents.DocumentSQLTests.test_final_rejection_observed_head_is_locked)
+Denial is not receipted with a stale acceptedRevision response. ... ok
+test_forced_fk_rollback_keeps_previous_head (test_documents.DocumentSQLTests.test_forced_fk_rollback_keeps_previous_head)
+Database rejection atomically rolls back appended artifact and head update. ... ok
+test_live_owner_and_verified_dead_takeover (test_documents.DocumentSQLTests.test_live_owner_and_verified_dead_takeover)
+Process start ticks prevent PID-reuse takeover and new nonce fences old frame. ... ok
+test_live_supervisor_recovery_requires_reap_proof (test_documents.DocumentSQLTests.test_live_supervisor_recovery_requires_reap_proof)
+Same live supervisor rotates nonce only after owned worker death proof. ... ok
+test_locked_historical_fresh_id_collision_and_remapping_denial (test_documents.DocumentSQLTests.test_locked_historical_fresh_id_collision_and_remapping_denial)
+Generated IDs cannot alias unsubmitted historical IDs even of the same kind. ... ok
+test_lost_admission_ack_recovers_same_supervisor_before_worker_start (test_documents.DocumentSQLTests.test_lost_admission_ack_recovers_same_supervisor_before_worker_start)
+A committed admission with lost reply is recoverable without process restart. ... ok
+test_owned_ids_bounded_kinds_and_cross_scope_fk (test_documents.DocumentSQLTests.test_owned_ids_bounded_kinds_and_cross_scope_fk)
+Historical ownership returns stable categories; foreign composite FK denies. ... ok
+test_policy_fence_and_history_zero_fresh_artifact (test_documents.DocumentSQLTests.test_policy_fence_and_history_zero_fresh_artifact)
+Policy changes invalidate checked frames; restore zero appends fresh identity. ... ok
+test_reaped_worker_without_captured_start_ticks_requires_absent_pid (test_documents.DocumentSQLTests.test_reaped_worker_without_captured_start_ticks_requires_absent_pid)
+Null start capture accepts only verified reaped/absent PID, never live reuse. ... ok
+test_receipt_replay_ignores_broken_new_checked_frame (test_documents.DocumentSQLTests.test_receipt_replay_ignores_broken_new_checked_frame)
+Existing receipt is returned before new output/checked artifact validation. ... ok
+test_rejected_receipt_and_nonce_fence (test_documents.DocumentSQLTests.test_rejected_receipt_and_nonce_fence)
+Stale owner cannot finalize; deterministic denial is itself replayable. ... ok
+test_scope_and_immutable_sql_grants (test_documents.DocumentSQLTests.test_scope_and_immutable_sql_grants)
+RLS hides foreign documents and app role cannot rewrite receipts/history. ... ok
+test_simultaneous_exact_key_serializes_and_commits_once (test_documents.DocumentSQLTests.test_simultaneous_exact_key_serializes_and_commits_once)
+Parallel duplicate admissions/finalizers yield one revision and one receipt. ... ok
+test_unknown_sqlstates_never_claim_known_rollback (test_documents.DocumentSQLTests.test_unknown_sqlstates_never_claim_known_rollback)
+Actual psycopg unknown-completion error classes retain uncertainty. ... ok
+test_private_identity_restart_modes_and_symlink (test_documents.WireTests.test_private_identity_restart_modes_and_symlink)
+Durable identity survives load and denies unsafe permissions/symlinks. ... ok
+test_strict_duplicate_surrogate_number_and_limit (test_documents.WireTests.test_strict_duplicate_surrogate_number_and_limit)
+Malformed frames fail before database access or large allocation. ... ok
+test_public_branch_cannot_skip_registry_or_use_stronger_lock (test_sql_context_protocol.AnonymousContextProtocolTests.test_public_branch_cannot_skip_registry_or_use_stronger_lock)
+Neither arbitrary lock modes nor direct transition to document reads is accepted. ... ok
+test_public_prefix_lock_registry_read_and_commit (test_sql_context_protocol.AnonymousContextProtocolTests.test_public_prefix_lock_registry_read_and_commit)
+Require the exact lock before first SELECT and scoped registry read before data. ... ok
+test_public_timeout_whitelist_is_disjoint_and_exact (test_sql_context_protocol.AnonymousContextProtocolTests.test_public_timeout_whitelist_is_disjoint_and_exact)
+Fixed public deadlines cannot authorize context settings or arbitrary values. ... ok
+test_backend_reorder_copy_and_wrong_completion_denied (test_sql_context_protocol.ContextProtocolTests.test_backend_reorder_copy_and_wrong_completion_denied) ... ok
+test_error_messages_do_not_disclose_sql_or_parameters (test_sql_context_protocol.ContextProtocolTests.test_error_messages_do_not_disclose_sql_or_parameters) ... ok
+test_error_rollback_and_terminate_never_restore_success (test_sql_context_protocol.ContextProtocolTests.test_error_rollback_and_terminate_never_restore_success) ... ok
+test_external_failure_and_early_terminate_poison_success (test_sql_context_protocol.ContextProtocolTests.test_external_failure_and_early_terminate_poison_success) ... ok
+test_named_objects_and_parameter_mismatch_denied (test_sql_context_protocol.ContextProtocolTests.test_named_objects_and_parameter_mismatch_denied) ... ok
+test_no_next_sql_until_ready_even_after_commandcomplete (test_sql_context_protocol.ContextProtocolTests.test_no_next_sql_until_ready_even_after_commandcomplete) ... ok
+test_no_second_history_or_postcommit_execution (test_sql_context_protocol.ContextProtocolTests.test_no_second_history_or_postcommit_execution) ... ok
+test_normal_transaction_needs_commit_ready_and_terminate (test_sql_context_protocol.ContextProtocolTests.test_normal_transaction_needs_commit_ready_and_terminate) ... ok
+test_observer_requires_own_timeout_and_fixed_metadata_only (test_sql_context_protocol.ContextProtocolTests.test_observer_requires_own_timeout_and_fixed_metadata_only) ... ok
+test_omitted_sync_and_repeated_sync_fail (test_sql_context_protocol.ContextProtocolTests.test_omitted_sync_and_repeated_sync_fail) ... ok
+test_out_of_order_or_modified_sql_denied (test_sql_context_protocol.ContextProtocolTests.test_out_of_order_or_modified_sql_denied) ... ok
+test_parse_does_not_advance_the_sequence (test_sql_context_protocol.ContextProtocolTests.test_parse_does_not_advance_the_sequence) ... ok
+test_private_settings_helper_has_no_variant_escape (test_sql_context_protocol.ContextProtocolTests.test_private_settings_helper_has_no_variant_escape) ... ok
+test_ready_requires_command_and_expected_transaction_state (test_sql_context_protocol.ContextProtocolTests.test_ready_requires_command_and_expected_transaction_state) ... ok
+test_repeated_bind_and_execute_denied (test_sql_context_protocol.ContextProtocolTests.test_repeated_bind_and_execute_denied) ... ok
+test_startup_ready_is_required_exactly_once (test_sql_context_protocol.ContextProtocolTests.test_startup_ready_is_required_exactly_once) ... ok
+test_sync_order_and_limits (test_sql_context_protocol.ContextProtocolTests.test_sync_order_and_limits) ... ok
+
+----------------------------------------------------------------------
+Ran 65 tests in 1.523s
+
+OK
+PRIVATE_CONTROL_UNCHANGED_AND_PUBLIC_REGISTRY_EMPTY

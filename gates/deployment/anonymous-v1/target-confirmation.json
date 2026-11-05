@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "source": "User-supplied wsl --list --verbose output",
+  "distribution_name": "Ubuntu-24.04",
+  "reported_state": "Running",
+  "reported_wsl_version": 2,
+  "independently_inspected_on_target": false,
+  "remote_actions": false,
+  "native_desktop_control": "Unavailable in this session; inventory exposes browser surfaces only",
+  "remaining": "Native package installation, WSL/systemd/cgroup/sandbox, IIS/TLS/loopback/resource/reboot and public acceptance checks remain OPEN",
+  "contract_effect": "Binds the existing explicit distro parameter only; no policy or application code change",
+  "review": "Existing Sol2 reviewer found no concrete command or sequencing errors in the documentation update",
+  "reported_versions": {
+    "wsl": "3.0.1.0",
+    "kernel": "6.18.40.1-1",
+    "wslg": "1.0.79",
+    "msrdc": "1.2.7214",
+    "windows": "10.0.19044.7807"
+  },
+  "remaining_requested_output": [
+    "Linux prerequisite inventory",
+    "allow.service LoadState/ActiveState/UnitFileState/FragmentPath"
+  ]
+}

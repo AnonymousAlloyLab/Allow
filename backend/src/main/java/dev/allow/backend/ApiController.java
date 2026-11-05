@@ -36,7 +36,7 @@ final class ApiController {
         try {
             byte[] body = request.getInputStream().readNBytes(262145);
             if (body.length > 262144) throw new IllegalArgumentException("Request too large.");
-            return jobs.submit(JsonWire.decode(body, JobRequest.class));
+            return jobs.submit(JsonWire.decode(body, JobRequest.class), owner(request));
         } catch (IOException | IllegalArgumentException error) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid candidate.");
         } catch (RejectedExecutionException error) {
@@ -47,21 +47,23 @@ final class ApiController {
     /**
      * Reads one job.
      * @param id opaque identity
+     * @param request authenticated scoped request
      * @return immutable state
      */
     @GetMapping("/jobs/{id}")
-    JobView get(@PathVariable String id) {
-        return require(jobs.get(id));
+    JobView get(@PathVariable String id, HttpServletRequest request) {
+        return require(jobs.get(id, owner(request)));
     }
 
     /**
      * Cancels one job without creating absence evidence.
      * @param id opaque identity
+     * @param request authenticated scoped request
      * @return absorbing cancelled or prior terminal state
      */
     @DeleteMapping("/jobs/{id}")
-    JobView cancel(@PathVariable String id) {
-        return require(jobs.cancel(id));
+    JobView cancel(@PathVariable String id, HttpServletRequest request) {
+        return require(jobs.cancel(id, owner(request)));
     }
 
     /**
@@ -74,6 +76,15 @@ final class ApiController {
                 "solver", "Alloy 6.2.0 / SAT4J 2.3.1", "assurance", "BOUNDED_ONLY",
                 "canonicalProfile", "allow-slot-ast-v1", "remoteEmbedding", false,
                 "maxScopeAndBitwidth", 8, "maxTrace", 10, "noOverflow", true);
+    }
+
+    /** Resolves job ownership from only the trusted request attribute.
+     * @param request authenticated request
+     * @return immutable public owner or private sentinel
+     */
+    private String owner(HttpServletRequest request) {
+        PublicWorkspace workspace = PublicWorkspace.from(request);
+        return workspace == null ? "" : workspace.owner();
     }
 
     /**

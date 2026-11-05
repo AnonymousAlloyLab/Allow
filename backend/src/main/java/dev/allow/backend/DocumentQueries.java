@@ -21,6 +21,8 @@ final class DocumentQueries {
     private final DocumentGateway gateway;
     private final DocumentRuntime runtime;
     private final JobService jobs;
+    private final String owner;
+    private volatile boolean cleanupSafe = true;
     private final Map<String, JsonNode> analyses = new LinkedHashMap<>();
 
     /** Connects operation-only persistence, current policy and the bounded solver supervisor.
@@ -31,10 +33,22 @@ final class DocumentQueries {
      */
     @Autowired
     DocumentQueries(DocumentGateway gateway, DocumentRuntime runtime, JobService jobs, DeploymentPolicy policy) {
+        this(gateway, runtime, jobs, policy, "");
+    }
+
+    /** Creates a coordinator whose retained analyses belong to one immutable scope.
+     * @param gateway immutable scope bridge
+     * @param runtime installation policy
+     * @param jobs globally bounded jobs
+     * @param policy advisory profile
+     * @param owner server-derived job owner
+     */
+    DocumentQueries(DocumentGateway gateway, DocumentRuntime runtime, JobService jobs, DeploymentPolicy policy, String owner) {
         this.advisoryProfile = policy.advisoryProfile();
         this.gateway = gateway;
         this.runtime = runtime;
         this.jobs = jobs;
+        this.owner = owner;
     }
 
     /** Uses the local default in isolated callers.
@@ -126,8 +140,13 @@ final class DocumentQueries {
         DocumentValidationContext context = DocumentValidationContext.read(gateway, document, base, candidate.path("module"));
         DocumentWorker worker = new DocumentWorker(advisoryProfile);
         if (!worker.identity().equals(runtime.dependency())) throw new IOException("Validator build changed");
-        JsonNode outcome = worker.validate(candidate, context.artifact(), context.inventory(), runtime.policy());
-        return validationReply(request, bytes, outcome);
+        try {
+            JsonNode outcome = worker.validate(candidate, context.artifact(), context.inventory(), runtime.policy());
+            return validationReply(request, bytes, outcome);
+        } finally {
+            try { worker.recovery(); }
+            catch (IllegalStateException uncertain) { cleanupSafe = false; }
+        }
     }
 
     /** Keeps context, response construction and final publication within one admitted operation.
@@ -216,7 +235,7 @@ final class DocumentQueries {
         JsonNode command = command(artifact, request);
         if (analyses.size() >= 128) analyses.remove(analyses.keySet().iterator().next());
         JobView job = jobs.submit(new JobRequest(artifact.path("source").textValue(), command.path("index").intValue(),
-                revision, epoch, "ANALYZE"));
+                revision, epoch, "ANALYZE"), owner);
         ObjectNode key = analysisKey(document, revision, epoch, artifact, command, job);
         analyses.put(job.jobId(), key.deepCopy());
         ObjectNode data = JsonNodeFactory.instance.objectNode().put("jobId", job.jobId());
@@ -256,7 +275,7 @@ final class DocumentQueries {
         JsonNode key = analyses.get(jobId);
         if (key == null || !document.equals(key.path("documentId").asText())) throw new IOException("Unknown analysis");
         JsonNode current = readData(document, null);
-        JobView job = jobs.get(jobId);
+        JobView job = jobs.get(jobId, owner);
         if (job == null || !job.analysisKey().equals(key.path("jobAnalysisKey").asText())
                 || !runtime.policy().equals(key.path("policyVersion").asText())) throw new IOException("Stale analysis");
         ObjectNode data = JsonNodeFactory.instance.objectNode().put("jobId", jobId);
@@ -265,6 +284,11 @@ final class DocumentQueries {
         data.set("job", JsonWire.decode(JsonWire.encode(job), JsonNode.class));
         return reply("OK", data);
     }
+
+    /** Refuses scope reclamation after uncertain advisory child cleanup.
+     * @return whether every attempted advisory child supplied reap/no-start evidence
+     */
+    boolean cleanupSafe() { return cleanupSafe; }
 
     /** Builds complete evidence identity without using expression labels as authority.
      * @param document owned document

@@ -1,0 +1,45 @@
+{
+  "contract": "spec/security-drag.json",
+  "sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c",
+  "status": "APPROVED_FOR_SCOPED_IMPLEMENTATION",
+  "reviews": [
+    {
+      "seat": "iis_terra_1",
+      "requested_model": "gpt-6.1-terra",
+      "decision": "APPROVE",
+      "contract_sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+    },
+    {
+      "seat": "iis_terra_2",
+      "requested_model": "gpt-6.1-terra",
+      "decision": "APPROVE",
+      "contract_sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+    },
+    {
+      "seat": "iis_sol_1",
+      "requested_model": "gpt-6.1-sol",
+      "decision": "APPROVE",
+      "contract_sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+    },
+    {
+      "seat": "iis_sol_2",
+      "requested_model": "gpt-6.1-sol",
+      "decision": "APPROVE",
+      "contract_sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+    },
+    {
+      "seat": "security_drag_astra_1",
+      "requested_model": "gpt-6-astra",
+      "decision": "APPROVE",
+      "contract_sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+    },
+    {
+      "seat": "iis_astra_2",
+      "requested_model": "gpt-6-astra",
+      "decision": "APPROVE",
+      "contract_sha256": "6ae5448715eb84ab7e0f0a53086c58a6d354dab8da639392281852585551a40c"
+    }
+  ],
+  "scope": "Advisory review of contract, not proof or runtime/commerce acceptance",
+  "refinement": "Exact literal/encoded server UUID document segment remains bearer-required; standard managed dependency link exception explicit. All six seats reapproved before production correction."
+}

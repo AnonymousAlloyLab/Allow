@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "REVIEW_FINDINGS_RESOLVED",
+  "scope": "Source and evidence review, not native target acceptance",
+  "reviews": [
+    {
+      "reviewer": "cutover_terra_2",
+      "model": "gpt-6.1-terra",
+      "findings": [
+        "Missing cgroup mount mistaken for absent group",
+        "NSS reverse-name alias bypassed PRIMARY reserved public identity"
+      ],
+      "disposition": "Resolved; canonical cgroup2 mount inventory and controllers checked first, numeric UID reserved",
+      "source_hashes": {
+        "deploy/linux/public_guard.py": "34ca0ee897616276fe6ff685f903d2711bcdbf355e25e938902bc0cadb28ffab",
+        "deploy/linux/trust.py": "121751fbfb66fabd96d20a3b015b6421f05f8d656afc87be272d7920fbd2ece7"
+      }
+    },
+    {
+      "reviewer": "cutover_astra_1",
+      "model": "gpt-6-astra",
+      "findings": [
+        "Terminating cleanup error skipped named mutex release/disposal"
+      ],
+      "disposition": "Resolved; nested finally always releases/disposes; prior failing and fixed cross-process regression retained",
+      "source": {
+        "path": "deploy/windows/Start-Wsl.ps1",
+        "sha256": "0b0d44c66f03433c1d7c2cb887c66701e904bb721226fedd668a7633272618dc"
+      }
+    },
+    {
+      "reviewer": "iis_terra_1",
+      "model": "gpt-6.1-terra",
+      "findings": [
+        "Setup prerequisite check preceded prerequisite installation guidance",
+        "Mode wording did not allow stricter umask results"
+      ],
+      "disposition": "Resolved in final runbook",
+      "source": {
+        "path": "docs/staged-public-cutover.md",
+        "sha256": "1422fcff6eeb65981676dcb0e8e7f36ce1176dccbf8d24ba23da8f519db17e94"
+      }
+    }
+  ]
+}

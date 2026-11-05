@@ -23,10 +23,15 @@ function queue(controller:Controller,scheduler:AdvisoryValidator,manual=false):v
 function createScheduler():AdvisoryValidator {return new AdvisoryValidator();}
 /** Register unmount cleanup without resetting on every content edit. @param scheduler Owned queue. @returns Cleanup callback. */
 function cleanup(scheduler:AdvisoryValidator):()=>void {return scheduler.dispose.bind(scheduler);}
-/** Debounce live code projection and share its single validation slot with the manual button. @param controller Current authority/ref. @param state Rendered content generation. @returns Manual validation action. */
-export function useAdvisory(controller:Controller,state:DocumentState):()=>void {
-  const scheduler=useMemo(createScheduler,[controller.token]);
+/** Debounce live code projection and share its single validation slot with the manual button. @param controller Current authority/ref. @param state Rendered content generation. @param online Whether session permits server actions. @returns Manual validation action. */
+export function useAdvisory(controller:Controller,state:DocumentState,online=true):()=>void {
+  const scheduler=useMemo(createScheduler,[controller.token,online]);
   useEffect(cleanup.bind(null,scheduler),[scheduler]);
-  useEffect(queue.bind(null,controller,scheduler,false),[scheduler,state.draftId,state.contentGeneration,state.baseRevision,state.mode,state.accepted?.documentId]);
-  return queue.bind(null,controller,scheduler,true);
+  useEffect(scheduleOnline.bind(null,controller,scheduler,online),[scheduler,online,state.draftId,state.contentGeneration,state.baseRevision,state.mode,state.accepted?.documentId]);
+  return manualOnline.bind(null,controller,scheduler,online);
 }
+
+/** Stop scheduled work when server actions are unavailable. @param controller Latest draft. @param scheduler Queue. @param online Session status. @returns Cleanup. */
+function scheduleOnline(controller:Controller,scheduler:AdvisoryValidator,online:boolean):()=>void {if(online) queue(controller,scheduler,false);else scheduler.clearPending();return scheduler.clearPending.bind(scheduler);}
+/** Prevent a manual check after expiration. @param controller Latest draft. @param scheduler Queue. @param online Session status. @returns Nothing. */
+function manualOnline(controller:Controller,scheduler:AdvisoryValidator,online:boolean):void {if(online) queue(controller,scheduler,true);}

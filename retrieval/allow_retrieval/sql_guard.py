@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 import re
 
-from .sql_context_protocol import is_context_setting
+from .sql_context_protocol import is_context_setting, is_public_setting
 
 ROOT = Path(__file__).resolve().parents[2]
 PROFILE = 'postgresql-16.15-grammar-v0.1'
@@ -225,7 +225,7 @@ class ParserGate:
         families = {config.production_lhs[i] for i in ids}
         if families & FORBIDDEN: raise SQLGuardError('forbidden statement')
         if (families & {'VariableSetStmt','VariableResetStmt'}
-                and not SAFE_SET.fullmatch(source) and not is_context_setting(sql)):
+                and not SAFE_SET.fullmatch(source) and not is_context_setting(sql) and not is_public_setting(sql)):
             raise SQLGuardError('unreviewed setting')
         if 'CreateExtensionStmt' in families and not SAFE_EXTENSION.fullmatch(source):
             raise SQLGuardError('unreviewed extension')

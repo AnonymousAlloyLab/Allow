@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "manifest_files": 310,
+  "zip_members": 312,
+  "manifest_sha256": "a6fd56c126619b47ec47861aeca20975de88f7b2f79874b10502d739ad92bb55",
+  "changed_from_r4": [
+    "README.md",
+    "deploy/configure.py",
+    "deploy/linux/service.py",
+    "deploy/linux/setup.py",
+    "deploy/linux/trust.py",
+    "deploy/linux/wsl_keepalive.py",
+    "deploy/windows/Start-Wsl.ps1",
+    "deploy/windows/Test-Wsl.ps1",
+    "docs/wsl-anonymous-deployment.md"
+  ],
+  "added_from_r4": [
+    "deploy/linux/check_public.py",
+    "deploy/linux/public_guard.py",
+    "docs/staged-public-cutover.md",
+    "formal/Allow/StagedPublicCutover.lean",
+    "gates/deployment/cutover-v1/council-disposition.json",
+    "gates/deployment/cutover-v1/formal-report.json",
+    "spec/staged-public-cutover.json"
+  ],
+  "unchanged_manifest_files": 294,
+  "application_retrieval_database_parser_bytes_identical_to_r4": true,
+  "application_artifact_count": 224,
+  "extracted_root": "/tmp/allow-anon-package-r5b",
+  "preflight": {
+    "primary_host_prerequisites": "PASS",
+    "public_wrong_root_denied_before_runtime": [
+      "check_public.py",
+      "setup.py",
+      "service.py"
+    ],
+    "sql_started": false,
+    "runtime_created": false,
+    "native_public_account_systemd_wsl_iis": "OPEN"
+  },
+  "archive_sha256": "ad6ffe042a677775d52962211ff8685fbf2ea834fd7ff7a36e3e600c153c0c78"
+}

@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "failure_category": "AssertionError:foreign_commit_receipt",
+  "scope": "Native isolated loopback HTTP + real SQL/parser/sandbox; NOT Windows/IIS/TLS/domain acceptance",
+  "root": "/tmp/allow-anonymous-sql-r1",
+  "backend": "/tmp/allow-anonymous-build/backend",
+  "port": 18095,
+  "checks": [
+    {
+      "check": "public_config_nonsecret",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "enrollment_requires_origin",
+      "pass": true,
+      "http_status": 403
+    },
+    {
+      "check": "enrollment_closed_empty_body",
+      "pass": true,
+      "http_status": 400
+    },
+    {
+      "check": "enrollment_no_query",
+      "pass": true,
+      "http_status": 403
+    },
+    {
+      "check": "enrollment_no_bearer_authority",
+      "pass": true,
+      "http_status": 403
+    },
+    {
+      "check": "enrollment_success_1",
+      "pass": true,
+      "http_status": 201
+    },
+    {
+      "check": "enrollment_private_headers_1",
+      "pass": true,
+      "http_status": null
+    },
+    {
+      "check": "enrollment_success_2",
+      "pass": true,
+      "http_status": 201
+    },
+    {
+      "check": "enrollment_private_headers_2",
+      "pass": true,
+      "http_status": null
+    },
+    {
+      "check": "separate_capabilities",
+      "pass": true,
+      "http_status": null
+    },
+    {
+      "check": "private_launch_token_rejected",
+      "pass": true,
+      "http_status": 401
+    },
+    {
+      "check": "public_corpus_disabled",
+      "pass": true,
+      "http_status": 403
+    },
+    {
+      "check": "document_create_1",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "document_create_2",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "same_key_distinct_documents",
+      "pass": true,
+      "http_status": null
+    },
+    {
+      "check": "scope_receipt_replay_1",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "scope_receipt_replay_2",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "own_document_read_encoded",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "own_document_read_literal",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "foreign_document_read",
+      "pass": true,
+      "http_status": 503
+    },
+    {
+      "check": "foreign_history_read",
+      "pass": true,
+      "http_status": 503
+    },
+    {
+      "check": "source_advisory_real_sandbox",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "source_save_real_sandbox",
+      "pass": true,
+      "http_status": 200
+    },
+    {
+      "check": "foreign_commit_receipt",
+      "pass": false,
+      "http_status": 200
+    },
+    {
+      "check": "private_control_unchanged",
+      "pass": true,
+      "http_status": null
+    }
+  ],
+  "elapsed_seconds": 4.665,
+  "no_tokens_persisted": true,
+  "server_stopped": true
+}

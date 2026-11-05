@@ -1,0 +1,39 @@
+test_actual_stalled_child_is_killed_and_reaped (test_probe_public.PublicProbeTest.test_actual_stalled_child_is_killed_and_reaped)
+An actually stalled subprocess cannot survive the total request budget. ... ok
+test_body_cap (test_probe_public.PublicProbeTest.test_body_cap)
+A streamed response larger than the cap fails without retaining its content. ... ok
+test_child_result_is_closed_and_redacted (test_probe_public.PublicProbeTest.test_child_result_is_closed_and_redacted)
+A compromised or malformed child report cannot smuggle arbitrary data. ... ok
+test_complete_cli_with_fixture_ca_and_ambient_proxy_ignored (test_probe_public.PublicProbeTest.test_complete_cli_with_fixture_ca_and_ambient_proxy_ignored)
+Run all real worker subprocesses with trusted local TLS and an unusable proxy. ... ok
+test_denial_must_not_be_success_or_outage (test_probe_public.PublicProbeTest.test_denial_must_not_be_success_or_outage)
+Both unauthorized API success and gateway failure fail the probe. ... ok
+test_eight_fixed_checks_pass_tls_fixture (test_probe_public.PublicProbeTest.test_eight_fixed_checks_pass_tls_fixture)
+Every prescribed request passes over certificate-verified fixture TLS. ... ok
+test_no_redirect_following_or_body_disclosure (test_probe_public.PublicProbeTest.test_no_redirect_following_or_body_disclosure)
+Redirects fail and no hostile Location or body enters the report. ... ok
+test_origin_and_timeout_boundaries (test_probe_public.PublicProbeTest.test_origin_and_timeout_boundaries)
+Inputs cannot carry capabilities or turn the probe into arbitrary browsing. ... ok
+test_parent_deadline_includes_dns_and_reaps_worker (test_probe_public.PublicProbeTest.test_parent_deadline_includes_dns_and_reaps_worker)
+The parent uses subprocess timeout even if child networking never returns. ... ok
+test_public_root_must_be_allow_html (test_probe_public.PublicProbeTest.test_public_root_must_be_allow_html)
+A generic successful proxy page cannot pass as the application. ... ok
+test_real_child_isolation_and_failure_exit (test_probe_public.PublicProbeTest.test_real_child_isolation_and_failure_exit)
+A real isolated worker rejects failed DNS without emitting exception details. ... ok
+test_report_does_not_promote_probe_to_acceptance (test_probe_public.PublicProbeTest.test_report_does_not_promote_probe_to_acceptance)
+Even all passing checks retain deployment acceptance OPEN. ... ok
+test_socket_deadline (test_probe_public.PublicProbeTest.test_socket_deadline)
+A fixture that stalls before headers exceeds the network deadline. ... ok
+test_truncated_and_ambiguous_http_framing (test_probe_public.PublicProbeTest.test_truncated_and_ambiguous_http_framing)
+Correct title/headers cannot hide premature EOF or duplicate framing. ... ok
+test_untrusted_tls_fails (test_probe_public.PublicProbeTest.test_untrusted_tls_fails)
+A certificate outside the normal trust store cannot be bypassed. ... ok
+test_valid_chunked_case_variant (test_probe_public.PublicProbeTest.test_valid_chunked_case_variant)
+HTTP transfer-coding tokens are case-insensitive and retain normal checks. ... ok
+test_weak_or_duplicate_security_headers_fail (test_probe_public.PublicProbeTest.test_weak_or_duplicate_security_headers_fail)
+Missing, duplicate and weakened policy headers all fail. ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.885s
+
+OK

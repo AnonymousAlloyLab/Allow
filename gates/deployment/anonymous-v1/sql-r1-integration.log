@@ -1,0 +1,13 @@
+test_fourth_document_rejected_in_store (test_anonymous_sql.AnonymousSQLTests.test_fourth_document_rejected_in_store)
+The SQL store, not the browser, enforces three-document anonymous quota. ... ok
+test_initializer_and_purge_serialize_without_orphan_resurrection (test_anonymous_sql.AnonymousSQLTests.test_initializer_and_purge_serialize_without_orphan_resurrection)
+An actual table-lock race drains initialization before deleting its provenance. ... ok
+test_private_workspace_cannot_be_registered_or_purged (test_anonymous_sql.AnonymousSQLTests.test_private_workspace_cannot_be_registered_or_purged)
+A collision cannot turn existing private control data into cleanup authority. ... ok
+test_same_key_independent_and_cross_scope_history_denied (test_anonymous_sql.AnonymousSQLTests.test_same_key_independent_and_cross_scope_history_denied)
+Equal keys in two scopes yield independent receipts/documents, never leakage. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.426s
+
+OK

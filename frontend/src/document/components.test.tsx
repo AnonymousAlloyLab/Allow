@@ -14,6 +14,7 @@ function fullPaletteMarkup():void {
   expect(markup).toContain('Expected destination:');expect(markup).toContain('In-scope variables');
   expect(markup).toContain('Copy (Ctrl/Cmd+C)');expect(markup).toContain('Cut (Ctrl/Cmd+X)');expect(markup).toContain('Paste (Ctrl/Cmd+V)');
   expect(markup).toContain('aria-describedby=');expect(markup).toContain('aria-pressed="true"');
+  expect(markup).toContain('Variable · local');expect(markup).toContain('For every variable · local:');
 }
 /** Render declaration schema/parameter controls without relying on color or drag. @returns Nothing. */
 function declarationMarkup():void {
@@ -29,6 +30,6 @@ test('static markup exposes declaration/parameter exact nominal editors',declara
 function partialResultLabels():void {
   const original=new Fixture().build('not'),nodes=construct('not','',original),module=replaceSubtree(original,original.predicates[0].bodyId,nodes);
   const markup=renderToStaticMarkup(<ExpressionEditor snapshot="partial" module={module} selected={nodes[0].id} onSelect={ignore} onInsert={ignore} onClipboard={ignore} onPaste={ignore} onDelete={ignore} onDropNode={ignore} onCancel={ignore} onNotice={ignore}/>);
-  expect(markup).toContain('not · formula');expect(markup).toContain('Unresolved hole · formula');expect(markup).not.toContain('not · unresolved relation constraint');
+  expect(markup).toContain('>Not</span>');expect(markup).toContain('>formula</span>');expect(markup).toContain('Drop block · Unresolved hole');expect(markup).toContain('class="block-symbol" aria-hidden="true"');
 }
 test('partial block labels display known structural formula sort without invented relation schemas',partialResultLabels);

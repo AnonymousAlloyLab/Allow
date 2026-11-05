@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "PARTIAL_BROWSER_ACCEPTANCE_PASSED",
+  "target": "http://127.0.0.1:18096/",
+  "adapter": {
+    "backend": "127.0.0.1:18095",
+    "host_rewritten": true,
+    "existing_origin_replaced_with": "https://allow.alloy4.fun",
+    "scope": "Owned local browser UX fixture only; not IIS, TLS, WSL or production routing evidence"
+  },
+  "checked": [
+    "two explicit independent enrollments",
+    "each model list contains only its own created model",
+    "both sessions save distinct Alloy source at revision1",
+    "first session reload resumes original expiry and saved model",
+    "first session ends with unsaved draft retained",
+    "ended session navigation/check/save disabled",
+    "exported Alloy file exactly matches88byte visible unsaved draft",
+    "second session validation succeeds after first session ended",
+    "second session ended explicitly",
+    "no corpus section shown",
+    "no capability in observed URLs",
+    "no browser console errors in either test tab"
+  ],
+  "export": {
+    "path": "gates/deployment/anonymous-v1/browser-export.als",
+    "bytes": 88,
+    "sha256": "631d1c437ccf991cb17701e73d9d577f1a54cd7f94760b4dac59290a0d78e555"
+  },
+  "screenshot": {
+    "path": "gates/deployment/anonymous-v1/browser-ended-draft.png",
+    "sha256": "2b823eaaf6bdb9283b1228643207657f75fbb267120a6a0691d9d41941d17fa3"
+  },
+  "open": [
+    "Copy button reported success but browser tool clipboard read returned empty; native clipboard delivery not verified",
+    "30minute wall-clock browser expiry and full interruption/pointer/accessibility matrix",
+    "actual target Windows WSL IIS TLS reboot resource capacity and external acceptance"
+  ],
+  "agent_created_tabs_closed": true,
+  "user_preview_untouched": true,
+  "capabilities_or_credentials_recorded": false
+}

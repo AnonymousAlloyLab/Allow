@@ -102,12 +102,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', type=Path, required=True)
     parser.add_argument('--initialize', action='store_true')
+    parser.add_argument('--provision-ai', type=Path, metavar='OFFLINE_WHEELHOUSE')
     args = parser.parse_args()
     config = trust.load_config(args.config)
     trust.public_guard(config, ROOT)
     trust.prerequisites(ROOT)
     if args.initialize:
         initialize(config=config)
+    if args.provision_ai:
+        if config.get('ai_mode', 'OFF') == 'OFF':
+            raise ValueError('AI provisioning requires explicit private opt-in')
+        with trust.exclusive(ROOT):
+            trust.verify_generated(ROOT)
+            runtime = trust.load_source('services/ai/runtime.py', ROOT)
+            helper = trust.load_source('deploy/linux/ai_runtime.py', ROOT)
+            helper.provision(ROOT, args.provision_ai, runtime, trust.environment(ROOT))
     else:
         print('Package verified. Pass --initialize to provision this private installation.')
 

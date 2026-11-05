@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "date": "2026-11-05",
+  "stage": "allow-ai-langgraph-v1",
+  "status": "ISOLATED_COMPONENT_PASS_LIVE_PROVIDER_AUTHENTICATION_FAILED",
+  "scope": "Reusable Python LangGraph component and fixed anonymous fixture CLI; no public/Spring/React AI enablement.",
+  "contract": "spec/ai-langgraph-implementation.json",
+  "contract_sha256": "83b185134a7d5e913f0354613aee249feafaf3519294af47f771c54efbc4f240",
+  "formal_first": {
+    "report": "gates/ai-langgraph-v1/formal-report.json",
+    "theorems": 22,
+    "clean_builds": 2,
+    "matching_builds": true,
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "scope": "Finite policy only; no implementation correspondence or provider billing proof."
+  },
+  "council": {
+    "record": "gates/ai-langgraph-v1/council-disposition.json",
+    "composition": {
+      "gpt-6.1-terra": 2,
+      "gpt-6.1-sol": 2,
+      "gpt-6-astra": 2
+    },
+    "contract_decisions": 6,
+    "decision": "APPROVED_FOR_ISOLATED_COMPONENT_IMPLEMENTATION",
+    "final_code_audit": "gates/ai-langgraph-v1/code-audit.json"
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "java": "17",
+    "langgraph": "1.2.19",
+    "langchain-core": "1.7.4",
+    "httpx": "0.28.1",
+    "pydantic": "2.14.2",
+    "dependencies": "retrieval/requirements-ml-resolved.txt"
+  },
+  "tests": {
+    "status": "PASS",
+    "count": 50,
+    "failures": 0,
+    "skipped": 0,
+    "warning_policy": "error",
+    "elapsed_seconds": 1.573,
+    "log": "gates/ai-langgraph-v1/tests.log",
+    "command": "systemd-run --user --scope --unit=allow-ai-acceptance-final --property=TasksMax=512 /usr/bin/env PYTHONPATH=/home/augustus/Allow/retrieval /home/augustus/Allow/.tools/retrieval-venv/bin/python -B -W error -m unittest retrieval.tests.test_ai_workflow retrieval.tests.test_ai_provider retrieval.tests.test_ai_journal retrieval.tests.test_ai_verification retrieval.tests.test_ai_integration -v",
+    "real_java_integration_cases": [
+      "Invalid source then valid repair reaches REVIEW_READY after two calls with fresh exact consent.",
+      "Two type-invalid candidates terminate INVALID_PROPOSAL after two calls.",
+      "One valid candidate reaches REVIEW_READY; replay after journal reopen dispatches zero calls."
+    ],
+    "other_checks": [
+      "Async callback admission, consent denial, stale binding and expiry prevent dispatch/publication.",
+      "Provider endpoint/profile, byte/usage bounds, malformed envelopes, refusal, timeouts and sanitized HTTP failures.",
+      "Durable pre-dispatch reservations, crash/replay/concurrent-lock/insecure-path denial and aggregate ceiling.",
+      "Actual subprocess timeout and second cancellation during unfinished cleanup retain ownership until reaped.",
+      "Cgroup membership mapping and ancestor bound; malformed/symlinked metadata fail closed."
+    ]
+  },
+  "offline_fixture": {
+    "status": "PASS",
+    "record": "gates/ai-langgraph-v1/offline-fixture.json",
+    "attempts": 2,
+    "elapsed_ms": 543.171,
+    "verification": "VALIDATED",
+    "projection": "TEXT_ONLY",
+    "limitation": "Single local functional run, not a production benchmark."
+  },
+  "live_fixture": {
+    "status": "AUTHENTICATION_FAILED",
+    "record": "gates/ai-langgraph-v1/live-fixture.json",
+    "endpoint": "https://api.openai.com/v1/responses",
+    "model": "gpt-6.1-sol",
+    "http_status": 401,
+    "attempts": 1,
+    "automatic_retry": false,
+    "elapsed_ms": 343.035,
+    "live_generation_verified": false,
+    "credential_written_to_project": false,
+    "private_content_free_journal_outside_project": true,
+    "reservation_micro_usd": 50000,
+    "reservation_is_actual_bill": false
+  },
+  "environment_resolution": {
+    "per_uid_rlimit": "Fixed RLIMIT_NPROC512 could not launch on the busy shared workstation UID.",
+    "transient_service": "Verified TasksMax512 but bubblewrap failed isolated-loopback setup with EPERM.",
+    "tested_solution": "Transient systemd user scope with TasksMax512; inherited caller AppArmor context and unchanged bubblewrap network isolation passed.",
+    "cause_limit": "AppArmor context difference observed; kernel denial cause inferred, not confirmed by audit logs.",
+    "system_configuration_changed": false
+  },
+  "limitations": [
+    "Live account/model access blocked by HTTP401; no generated candidate validated.",
+    "Source-edit and explanation modes only; typed slot DTOs and Spring authorization integration remain pending.",
+    "No RAG grant/corpus integration, public HTTP endpoint, browser apply/save or deployment.",
+    "No SQL introduced; future PostgreSQL operations must use SQLeanParser.",
+    "Standard published tariff estimate is conditional; provider account billing and surcharges are not proved.",
+    "Lean models finite policy; callbacks, clock, durable filesystem, build/helpers, sandbox/kernel and provider remain trusted.",
+    "Execution/admission/publication deadline is not a guaranteed OS-stalled cleanup return deadline.",
+    "Commercial/public product gates remain open."
+  ],
+  "sha256": {
+    "README.md": "d4345c18c03bacb618f9a7a549705618764a47295f058c0fda95886c472ba3e9",
+    "docs/ai-langgraph.md": "33c4ae55fbcc0520ba286b92d38b044c13b60c3ee44df153228e9c77034a2199",
+    "formal/Allow/AiLangGraphImplementation.lean": "6a09fe8d92b813e3c278585d6b2290decc5090c4e9fc4996ebfe1aab5f5a2330",
+    "gates/ai-langgraph-v1/code-audit.json": "c8fa61224fb9e2ef35166796b597a2a52b49b97831c05fb2705eaa9b076a3734",
+    "gates/ai-langgraph-v1/council-disposition.json": "e4cfb679c472ad359c96ed67dc0ac39cc0b2912497e3a4894d762d9317a349b8",
+    "gates/ai-langgraph-v1/formal-report.json": "3311102ea4ab70fded4a7545e8bd6f854e365c1cce250d646c4f6c54db20c777",
+    "gates/ai-langgraph-v1/live-fixture.json": "6dce38d41aba346a25976e42841b5d6140856af28d1c4e610a300d24cc134d3a",
+    "gates/ai-langgraph-v1/offline-fixture.json": "514c6b4c7c17a5c3ec10650829334e90b67f1eaa5e25df338878a348a5d099aa",
+    "gates/ai-langgraph-v1/tests.log": "47264abd46050dfa5c020366845914d54fcc67c25d50b354a23a207ae4e23ef0",
+    "retrieval/allow_ai/__init__.py": "4b815b96835c03170b8d3e3ec55fa97a76f49286fbf726f05d185bfb2c799ea7",
+    "retrieval/allow_ai/demo.py": "920435b840b0d72dd68f917db5027b95566e1b8fa26e9e6e6767a0892e757309",
+    "retrieval/allow_ai/journal.py": "da5a9fc4889ab6a2a1717b30872a9172e2b476b5b800d4ff48a6b2fd733e2422",
+    "retrieval/allow_ai/provider.py": "e670a4570d63a064cc3ef5e25a086be905c2d0ee15736ac6a7c9fbc884629b9a",
+    "retrieval/allow_ai/types.py": "df0c97482a1f8cb726ead2e03fcd7e2763defed4916f8b2dcbd553e0befa9725",
+    "retrieval/allow_ai/verification.py": "dd324b47dcf258fa33e9a70370cd23c0e668a2d3478c69fce17b2bf7575b475e",
+    "retrieval/allow_ai/verifier_worker.py": "43c5cacb462235c9abe1d75a3fa438c212ad631d6e423f5a1fbcd13c6d447be6",
+    "retrieval/allow_ai/wire.py": "0748de809152f99833036eee7397e56e6f9d5e1f0400fa6a1f72f264ceb66413",
+    "retrieval/allow_ai/workflow.py": "04fdc5a07069903520efe17be599f2b7bb0e87a0ce9ff3dca3bc345a2cadd53a",
+    "retrieval/requirements-ml-resolved.txt": "264fb3296004f366ebb4504f711ef699ff2a03e79c8a95a59499e125f8a39843",
+    "retrieval/tests/test_ai_integration.py": "bfd87f8c475ad62746e4c15ead56667a64a47958a1fdd2812301afc0389350ce",
+    "retrieval/tests/test_ai_journal.py": "d11e0d743a49abb0649e0efd78e3c9a4417551d8f0b60db6cbb2c5be11df028f",
+    "retrieval/tests/test_ai_provider.py": "4648ac5f9645704fad6cfbd8e98913e6c9599270d232349fda291c51808c81cb",
+    "retrieval/tests/test_ai_verification.py": "6157d7b20914ef37b2b91464227bd8978ff975f7ac45956f25a65587471cc8a7",
+    "retrieval/tests/test_ai_workflow.py": "ae7f5623eee71869fd4c03e3e869a9560d7b93cc2d8d5afa912604296090fdf2",
+    "spec/ai-langgraph-implementation.json": "83b185134a7d5e913f0354613aee249feafaf3519294af47f771c54efbc4f240"
+  }
+}

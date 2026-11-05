@@ -80,3 +80,9 @@
 @media(max-width:760px){.document-layout{grid-template-columns:1fr}.document-source{grid-column:auto}.document-workbench{padding:16px 12px}.document-workbench>header{display:block}.document-workbench>header p{font-size:13px}.document-workbench section{padding:15px}.block-canvas{padding:15px 9px}.block-children{margin-left:10px;padding-left:11px}.block-children>.document-branch::before{left:-11px;width:11px}.document-navigation label{flex-basis:100%}.document-workbench .block-palette{gap:9px}}
 @media(max-width:520px){.document-layout>.document-blocks{display:flex;flex-direction:column}.document-blocks>fieldset{position:static;max-height:300px}.document-workbench .block-palette{display:grid;grid-template-columns:1fr 1fr}.document-blocks>.block-canvas{min-height:260px}}
 @media(prefers-reduced-motion:reduce){.document-workbench button{transition:none}}
+
+.document-assistant {margin:1rem 0;padding:1rem;border:1px solid #64748b;border-radius:.5rem;}
+.document-assistant pre {white-space:pre-wrap;overflow-wrap:anywhere;max-height:24rem;overflow:auto;}
+.document-assistant label {display:block;margin:.5rem 0;}
+.document-assistant textarea {display:block;width:100%;min-height:5rem;}
+.assistant-source-comparison {display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1rem;}

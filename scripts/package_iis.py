@@ -32,6 +32,38 @@ FIXED = (
     'spec/anonymous-workspaces.json', 'formal/Allow/AnonymousWorkspaces.lean',
     'gates/deployment/anonymous-v1/council-disposition.json',
     'gates/deployment/anonymous-v1/formal-report.json', 'docs/wsl-anonymous-deployment.md',
+    'retrieval/requirements-ai.lock',
+    'gates/ai-langgraph-v1/council-disposition.json',
+    'gates/ai-langgraph-v1/formal-final-v2-1/AiLangGraphImplementation.olean',
+    'gates/ai-langgraph-v1/formal-final-v2-1/axioms.log',
+    'gates/ai-langgraph-v1/formal-final-v2-1/build.log',
+    'gates/ai-langgraph-v1/formal-final-v2-1/source-check.log',
+    'gates/ai-langgraph-v1/formal-final-v2-2/AiLangGraphImplementation.olean',
+    'gates/ai-langgraph-v1/formal-final-v2-2/build.log',
+    'gates/ai-native-v1/council-disposition.json',
+    'gates/ai-native-v1/formal-final-v2-1/AiNativeDevelopment.olean',
+    'gates/ai-native-v1/formal-final-v2-1/axioms.log',
+    'gates/ai-native-v1/formal-final-v2-1/build.log',
+    'gates/ai-native-v1/formal-final-v2-1/source-check.log',
+    'gates/ai-native-v1/formal-final-v2-2/AiNativeDevelopment.olean',
+    'gates/ai-native-v1/formal-final-v2-2/build.log',
+    'gates/ai-system-v1/council-disposition.md',
+    'gates/ai-system-v1/formal-1/AiSystemIntegration.olean',
+    'gates/ai-system-v1/formal-1/axioms.log',
+    'gates/ai-system-v1/formal-1/build.log',
+    'gates/ai-system-v1/formal-1/source-check.log',
+    'gates/ai-system-v1/formal-2/AiSystemIntegration.olean',
+    'gates/ai-system-v1/formal-2/build.log',
+    'spec/ai-native-development.json', 'formal/Allow/AiNativeDevelopment.lean',
+    'gates/ai-native-v1/claim-map.md', 'gates/ai-native-v1/formal-report.json',
+    'spec/ai-langgraph-implementation.json', 'formal/Allow/AiLangGraphImplementation.lean',
+    'gates/ai-langgraph-v1/claim-map.md', 'gates/ai-langgraph-v1/formal-report.json',
+    'spec/ai-system-integration.json', 'formal/Allow/AiSystemIntegration.lean',
+    'gates/ai-system-v1/claim-map.md', 'gates/ai-system-v1/formal-report.json',
+    'docs/ai-native-development.md', 'docs/ai-langgraph.md', 'docs/ai-system-integration.md',
+    'gates/ai-system-v1/report.json', 'gates/ai-system-v1/browser.json',
+    'gates/ai-system-v1/review-closure.json', 'gates/ai-system-v1/http-release.json',
+    'services/ai/runtime.py', 'services/ai/entry.py', 'services/ai/protocol.py', 'services/ai/journal.py', 'services/ai/bridge.py',
     'spec/staged-public-cutover.json', 'formal/Allow/StagedPublicCutover.lean',
     'gates/deployment/cutover-v1/council-disposition.json',
     'gates/deployment/cutover-v1/formal-report.json', 'docs/staged-public-cutover.md',
@@ -69,11 +101,14 @@ def collect(root, target, frontend):
         add(name, root / name)
     add('README.md', root / 'deploy/README.md')
     module_names = ('retrieval/allow_documents/lifecycle.py', 'retrieval/allow_documents/__init__.py', 'retrieval/allow_documents/cli.py', 'retrieval/allow_documents/context_lease.py', 'retrieval/allow_documents/identifiers.py', 'retrieval/allow_documents/identity.py', 'retrieval/allow_documents/migration.py', 'retrieval/allow_documents/store.py', 'retrieval/allow_documents/wire.py', 'retrieval/allow_retrieval/__init__.py', 'retrieval/allow_retrieval/cli.py', 'retrieval/allow_retrieval/common.py', 'retrieval/allow_retrieval/corpus.py', 'retrieval/allow_retrieval/database.py', 'retrieval/allow_retrieval/embedding.py', 'retrieval/allow_retrieval/evaluation.py', 'retrieval/allow_retrieval/importer.py', 'retrieval/allow_retrieval/journal.py', 'retrieval/allow_retrieval/manage.py', 'retrieval/allow_retrieval/migration.py', 'retrieval/allow_retrieval/promotion.py', 'retrieval/allow_retrieval/rag.py', 'retrieval/allow_retrieval/ranking.py', 'retrieval/allow_retrieval/sql_connections.py', 'retrieval/allow_retrieval/sql_context_control.py', 'retrieval/allow_retrieval/sql_context_identity.py', 'retrieval/allow_retrieval/sql_context_journal.py', 'retrieval/allow_retrieval/sql_context_lease.py', 'retrieval/allow_retrieval/sql_context_observer.py', 'retrieval/allow_retrieval/sql_context_protocol.py', 'retrieval/allow_retrieval/sql_guard.py', 'retrieval/allow_retrieval/sql_image.py', 'retrieval/allow_retrieval/sql_image_config.py', 'retrieval/allow_retrieval/sql_image_init.py', 'retrieval/allow_retrieval/sql_inventory.py', 'retrieval/allow_retrieval/sql_proxy.py', 'retrieval/allow_retrieval/training.py')
+    module_names += tuple('retrieval/allow_ai/' + name for name in (
+        '__init__.py', 'workflow.py', 'types.py', 'provider.py', 'journal.py', 'wire.py',
+        'verification.py', 'verifier_worker.py', 'demo.py'))
     for name in module_names:
         add(name, root / name)
     for name in ('deploy/configure.py', 'deploy/probe_public.py', 'deploy/windows/Start-Tunnel.ps1',
                  'deploy/windows/Install-Site.ps1', 'deploy/windows/Start-Wsl.ps1', 'deploy/windows/Test-Wsl.ps1', 'deploy/linux/setup.py', 'deploy/linux/service.py', 'deploy/linux/trust.py', 'deploy/linux/wsl_keepalive.py',
-                 'deploy/linux/public_guard.py', 'deploy/linux/check_public.py'):
+                 'deploy/linux/public_guard.py', 'deploy/linux/check_public.py', 'deploy/linux/ai_runtime.py'):
         add(name, root / name)
     for source in sorted((target / 'classes').rglob('*')):
         if source.is_file() and 'static' not in source.relative_to(target / 'classes').parts:
@@ -95,7 +130,17 @@ def collect(root, target, frontend):
         raise ValueError('Pinned parser mismatch')
     if hash_file(members['scripts/warm_worker_image.py']) != '85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0':
         raise ValueError('Pinned worker helper mismatch')
+    verify_ai_evidence(members)
     return members
+
+
+def verify_ai_evidence(members):
+    """Bind each included finite-policy report to all of its exact inputs."""
+    for gate in ('ai-native-v1', 'ai-langgraph-v1', 'ai-system-v1'):
+        report = json.loads(members['gates/' + gate + '/formal-report.json'].read_text())
+        for name, expected in report['sha256'].items():
+            if name not in members or hash_file(members[name]) != expected:
+                raise ValueError('AI evidence mismatch: ' + name)
 
 
 def hash_file(path):
@@ -124,9 +169,10 @@ def write_member(archive, name, source):
 def build(root, target, frontend, output):
     """Write a new archive atomically with deterministic names and a bound manifest."""
     members = collect(root, target, frontend)
-    manifest = {'schema': 1, 'id': 'allow-iis-linux-dual-mode-candidate-v3',
-                'scope': 'Private-transfer dual-mode PRIVATE/ANONYMOUS deployment candidate; native Windows/WSL/IIS and public exposure acceptance OPEN',
-                'access_modes': ['PRIVATE', 'ANONYMOUS'], 'native_target_acceptance': 'OPEN',
+    manifest = {'schema': 1, 'id': 'allow-iis-linux-dual-mode-ai-candidate-v4',
+                'scope': 'Private-transfer PRIVATE/ANONYMOUS deployment candidate with private opt-in AI OFF by default; native Windows/WSL/IIS and public exposure acceptance OPEN',
+                'access_modes': ['PRIVATE', 'ANONYMOUS'], 'ai_default': 'OFF',
+                'ai_remote_requires_private_opt_in': True, 'native_target_acceptance': 'OPEN',
                 'files': {name: hash_file(source) for name, source in sorted(members.items())}}
     raw = (json.dumps(manifest, indent=2, sort_keys=True) + '\n').encode()
     output = Path(os.path.abspath(output))

@@ -1,0 +1,21 @@
+test_exact_origin_domain (test_configure.ConfigurationTest.test_exact_origin_domain)
+Only canonical HTTPS DNS authorities enter generated configuration. ... ok
+test_keepalive_closed_readonly_unit_selection (test_configure.ConfigurationTest.test_keepalive_closed_readonly_unit_selection)
+Keepalive maps only trusted selectors to the selected unit, never lifecycle changes. ... ok
+test_mixed_replacement_tuple_rejects_before_output (test_configure.ConfigurationTest.test_mixed_replacement_tuple_rejects_before_output)
+Every replacement selector boundary rejects before creating any directory. ... ok
+test_new_instance_only_and_service_budget (test_configure.ConfigurationTest.test_new_instance_only_and_service_budget)
+Existing instance output is retained, and the whole service receives the budget. ... ok
+test_proxy_preserves_authority_headers (test_configure.ConfigurationTest.test_proxy_preserves_authority_headers)
+Rules reject wrong authority before a fixed destination without token injection. ... ok
+test_public_replacement_tuple_and_unit (test_configure.ConfigurationTest.test_public_replacement_tuple_and_unit)
+The new slot renders an independent unit without implicit legacy lifecycle edges. ... ok
+test_unsafe_root_and_ports (test_configure.ConfigurationTest.test_unsafe_root_and_ports)
+Generated unit arguments cannot introduce shell/unit syntax or long sockets. ... ok
+test_wsl_profile_is_closed_and_bounded (test_configure.ConfigurationTest.test_wsl_profile_is_closed_and_bounded)
+WSL uses matching loopback ports and emits proposals without applying them. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

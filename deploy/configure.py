@@ -132,7 +132,7 @@ def render(args):
     (destination/'linux').mkdir(mode=0o700)
     config = {'public_origin': public, 'tunnel_port': tunnel, 'backend_port': backend,
               'advisory_profile': args.advisory_profile, 'access_mode': access, 'transport': transport,
-              'installation_slot': slot}
+              'installation_slot': slot, 'ai_mode': 'OFF'}
     fd = os.open(destination/'linux/instance.json', os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
     with os.fdopen(fd, 'w') as output:
         output.write(json.dumps(config, indent=2) + '\n')

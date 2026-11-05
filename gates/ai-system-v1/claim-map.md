@@ -1,0 +1,13 @@
+# Finite AI system integration policy map (frozen)
+
+Frozen supplement `spec/ai-system-integration.json` SHA-256 `036930e2fded260c88cbab2a048c1f881eb139edf38ccb2b232e2ac4b9d2e7d5`. This guarded policy is a subset of the contract. IDs, bindings and hashes are equality tokens. Session, clock, rights, serializer, validator, OS/IPC, ledger, editor atomicity and provider are trusted; there is no implementation-refinement, privacy, security or quality proof.
+
+| Contract | Declarations and boundaries |
+| --- | --- |
+| `modes`, `distribution_and_structure.package` | `enabled`, `off_denied`, `anonymous_denied`, `private_fixture_positive`, `private_remote_positive`, `packaged_default_off`. Packaging scripts and actual launch configuration are not modeled. |
+| `api.consent`, `orchestration.consent_and_loop` | `mayDispatch`, `stale_binding_denied`, `wrong_payload_denied`, `wrong_attempt_denied`, `consumed_denied`, `third_attempt_denied`, `repair_needs_new_attempt`, `dispatch_positive`, `repair_positive`. The model uses the zero-based consumed-call index 0/1; the runtime labels prepared attempts 1/2. The model guards dispatch; it does not model verifier classification, journal persistence or actual network calls; see the LangGraph supplement for additional loop abstraction. |
+| `api.approve`, `frontend.binding`, `frontend.distributed_limit` | `applyDraft`, `receipt_stale_denied`, `receipt_consumed_denied`, `invalidation_denied`, `apply_positive`. Locally known invalidation is an observation; unobserved remote changes are not instantaneously enforced. Receipt issuance/authenticity, exact hashing and local atomicity are trusted. |
+| `frontend.undo`, `api.create`, `api.approve` | `apply_no_save`, `undo_no_save`, `intervening_change_denies_undo`, `undo_positive`. The model records only hash/history tokens and a trusted no-intervening-change observation; it does not prove complete UI state restoration or durable commit behavior. |
+| `accounting_and_credentials.journal` | `reserve`, `reserve_bound`, `over_budget_denied`, `reserve_positive`. The ceiling and used balance are trusted; durable accounting, exclusive locking, ambiguous outcomes, key handling and migration remain integration obligations. |
+
+Anonymization and capture-avoiding name restoration, worker authorization, cancellation/reaping, frame schemas, resource constraints, repository layout, deployment and browser tests are not modeled. Accepting witnesses show the guarded policy is not universally rejecting; they do not establish implementation readiness. Two direct isolated builds and the theorem axiom audit are recorded in `formal-report.json`.

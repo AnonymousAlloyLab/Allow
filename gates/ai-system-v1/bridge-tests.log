@@ -1,0 +1,21 @@
+test_insufficient_remaining_budget_prevents_repair (test_bridge.BridgeTests.test_insufficient_remaining_budget_prevents_repair)
+Consent cannot override the durable remaining installation budget. ... ok
+test_loopback_requires_two_exact_consents (test_bridge.BridgeTests.test_loopback_requires_two_exact_consents)
+Deterministic verification failure creates a distinct second preview. ... ok
+test_repair_denial_prevents_second_dispatch (test_bridge.BridgeTests.test_repair_denial_prevents_second_dispatch)
+Explicitly declined repair cannot reuse initial disclosure consent. ... ok
+test_wrong_response_nonce_and_sequence (test_bridge.BridgeTests.test_wrong_response_nonce_and_sequence)
+An unrelated or replayed response cannot unblock a capability callback. ... ok
+test_ceiling_and_profile_immutable_on_restart (test_bridge.JournalTests.test_ceiling_and_profile_immutable_on_restart)
+Changing configuration cannot reopen the journal with a larger budget. ... ok
+test_corruption_missing_and_ceiling_type (test_bridge.JournalTests.test_corruption_missing_and_ceiling_type)
+Ambiguous persisted state and boolean numeric coercion fail closed. ... ok
+test_custom_ceiling_preserves_completed_and_unknown_cost (test_bridge.JournalTests.test_custom_ceiling_preserves_completed_and_unknown_cost)
+More than the old demo ceiling is possible only within a pinned new bound. ... ok
+test_frame_limits_and_duplicate_fields (test_bridge.JournalTests.test_frame_limits_and_duplicate_fields)
+Reject malformed, excessive and ambiguous protocol frames before callbacks. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.115s
+
+OK

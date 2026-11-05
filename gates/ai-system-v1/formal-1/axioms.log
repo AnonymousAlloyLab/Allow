@@ -1,0 +1,24 @@
+'Allow.AiSystemIntegration.off_denied' depends on axioms: [propext]
+'Allow.AiSystemIntegration.anonymous_denied' does not depend on any axioms
+'Allow.AiSystemIntegration.private_fixture_positive' does not depend on any axioms
+'Allow.AiSystemIntegration.private_remote_positive' does not depend on any axioms
+'Allow.AiSystemIntegration.stale_binding_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiSystemIntegration.wrong_payload_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiSystemIntegration.wrong_attempt_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiSystemIntegration.consumed_denied' depends on axioms: [propext]
+'Allow.AiSystemIntegration.third_attempt_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiSystemIntegration.repair_needs_new_attempt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Allow.AiSystemIntegration.apply_no_save' does not depend on any axioms
+'Allow.AiSystemIntegration.undo_no_save' does not depend on any axioms
+'Allow.AiSystemIntegration.receipt_stale_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiSystemIntegration.receipt_consumed_denied' depends on axioms: [propext]
+'Allow.AiSystemIntegration.invalidation_denied' depends on axioms: [propext]
+'Allow.AiSystemIntegration.intervening_change_denies_undo' depends on axioms: [propext]
+'Allow.AiSystemIntegration.reserve_bound' does not depend on any axioms
+'Allow.AiSystemIntegration.over_budget_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiSystemIntegration.packaged_default_off' does not depend on any axioms
+'Allow.AiSystemIntegration.dispatch_positive' does not depend on any axioms
+'Allow.AiSystemIntegration.repair_positive' does not depend on any axioms
+'Allow.AiSystemIntegration.apply_positive' does not depend on any axioms
+'Allow.AiSystemIntegration.undo_positive' does not depend on any axioms
+'Allow.AiSystemIntegration.reserve_positive' does not depend on any axioms

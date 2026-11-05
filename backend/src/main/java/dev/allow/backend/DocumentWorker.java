@@ -69,7 +69,29 @@ final class DocumentWorker {
         frame.set("candidate", candidate.deepCopy());
         frame.set("baseArtifact", base.deepCopy());
         frame.set("ownedIdInventory", inventory.deepCopy());
-        return execute(frame, nonce);
+        return execute(frame, nonce, 10000);
+    }
+
+    /** Validates an AI candidate inside the same owned worker and caller permit.
+     * @param candidate exact proposed candidate
+     * @param base authorized document base
+     * @param inventory authorized existing identity kinds
+     * @param policy installed policy
+     * @param millis remaining job and validation deadline
+     * @return independently checked worker result
+     * @throws IOException unavailable sandbox or malformed frame
+     * @throws InterruptedException cancelled owned operation after cleanup
+     */
+    JsonNode validateBounded(JsonNode candidate, JsonNode base, JsonNode inventory, String policy, long millis)
+            throws IOException, InterruptedException {
+        if (millis <= 0 || millis > 10000) throw new IOException("Invalid validation deadline");
+        String nonce = UUID.randomUUID().toString();
+        ObjectNode frame = JsonNodeFactory.instance.objectNode().put("protocol", 1).put("requestId", nonce)
+                .put("policyVersion", policy).put("operation", "VALIDATE");
+        frame.set("candidate", candidate.deepCopy());
+        frame.set("baseArtifact", base.deepCopy());
+        frame.set("ownedIdInventory", inventory.deepCopy());
+        return execute(frame, nonce, millis);
     }
 
     /** Rechecks exact historical content without reprinting or changing its identities/maps.
@@ -88,17 +110,18 @@ final class DocumentWorker {
         frame.putNull("candidate");
         frame.set("baseArtifact", artifact.deepCopy());
         frame.set("ownedIdInventory", inventory.deepCopy());
-        return execute(frame, nonce);
+        return execute(frame, nonce, 10000);
     }
 
     /** Exchanges one immutable internal frame while capturing proof of owned process exit.
      * @param frame complete validation or historical revalidation context
      * @param nonce expected response identity
+     * @param millis bounded remaining validation wall time
      * @return validated private response
      * @throws IOException unavailable process or output
      * @throws InterruptedException caller interruption after child exit
      */
-    private JsonNode execute(JsonNode frame, String nonce) throws IOException, InterruptedException {
+    private JsonNode execute(JsonNode frame, String nonce, long millis) throws IOException, InterruptedException {
         byte[] input = JsonWire.encode(frame);
         if (input.length >= 2097152) throw new IOException("Internal validation context exceeds limit");
         OwnedWorkerRun owned = new OwnedWorkerRun(launcher);
@@ -106,7 +129,7 @@ final class DocumentWorker {
             Process child = owned.launch();
             pid = child.pid();
             startTicks = identityReader.read(pid);
-            return response(owned.exchange(input, 1048577, 10000), nonce);
+            return response(owned.exchange(input, 1048577, millis), nonce);
         } finally {
             try { owned.close(); }
             finally { recoveryIdentity(owned); }

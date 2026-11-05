@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "status": "APPROVED_SPECIFICATION_ONLY",
+  "contract": {
+    "path": "spec/ai-native-development.json",
+    "sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec"
+  },
+  "date": "2026-11-05",
+  "reviews": [
+    {
+      "seat": "ai_terra_1",
+      "requested_model": "gpt-6.1-terra",
+      "decision": "APPROVE",
+      "contract_sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+      "scope": "A0 specification gameplan only; no implementation, provider enablement, public spending or commercial release approval"
+    },
+    {
+      "seat": "ai_terra_2",
+      "requested_model": "gpt-6.1-terra",
+      "decision": "APPROVE",
+      "contract_sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+      "scope": "A0 specification gameplan only; no implementation, provider enablement, public spending or commercial release approval"
+    },
+    {
+      "seat": "ai_sol_1",
+      "requested_model": "gpt-6.1-sol",
+      "decision": "APPROVE",
+      "contract_sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+      "scope": "A0 specification gameplan only; no implementation, provider enablement, public spending or commercial release approval"
+    },
+    {
+      "seat": "ai_sol_2",
+      "requested_model": "gpt-6.1-sol",
+      "decision": "APPROVE",
+      "contract_sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+      "scope": "A0 specification gameplan only; no implementation, provider enablement, public spending or commercial release approval"
+    },
+    {
+      "seat": "ai_astra_1",
+      "requested_model": "gpt-6-astra",
+      "decision": "APPROVE",
+      "contract_sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+      "scope": "A0 specification gameplan only; no implementation, provider enablement, public spending or commercial release approval"
+    },
+    {
+      "seat": "ai_astra_2",
+      "requested_model": "gpt-6-astra",
+      "decision": "APPROVE",
+      "contract_sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+      "scope": "A0 specification gameplan only; no implementation, provider enablement, public spending or commercial release approval"
+    }
+  ],
+  "refinements": [
+    {
+      "finding": "Server receipt issuance cannot atomically revoke previously delivered browser content or draft rights",
+      "raised_by": "ai_sol_2",
+      "resolution": "Explicit approval linearization and bounded local receipt; observed staleness rejects, unobserved later server change can precede local edit, all subsequent server actions and Save recheck authoritative state",
+      "superseded_contract": {
+        "path": "gates/ai-native-v1/superseded-candidate-1/contract.json",
+        "sha256": "4424582dd490ffb9297f9fc0e9b6ea9f16b5786300fac00e2c61126b1f808802"
+      }
+    },
+    {
+      "finding": "Local versus remote record purpose grants ambiguous",
+      "raised_by": "ai_terra_2",
+      "resolution": "ai_generate for every contribution in either mode; ai_disclose additionally for remote records/witnesses"
+    },
+    {
+      "finding": "Provider dispatch attempt versus exact non-dispatch request retry needed distinction",
+      "raised_by": "ai_terra_1",
+      "resolution": "Fresh matching consent for each dispatch; exact request replay returns original receipt without redispatch; unknown dispatch remains reserved"
+    }
+  ],
+  "formal_review": {
+    "author": "ai_terra_1",
+    "independent_reader": "ai_terra_2",
+    "result": "37 theorem declarations mapped; final model/report hashes independently checked; independent reader did not rerun compilation"
+  },
+  "commercialization": "All seats retain commercial NO_GO pending rights, provider terms, actual deployment, customer pilot and measured economics"
+}

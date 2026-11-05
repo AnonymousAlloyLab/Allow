@@ -1,0 +1,85 @@
+Running as unit: allow-ai-acceptance-final.scope; invocation ID: 511ed51f5eb74a5f966c00312bb6dec6
+test_async_callable_object (retrieval.tests.test_ai_workflow.WorkflowTests.test_async_callable_object) ... ok
+test_binding_changes_and_duplicate_json (retrieval.tests.test_ai_workflow.WorkflowTests.test_binding_changes_and_duplicate_json) ... ok
+test_consent_denial_zero_calls (retrieval.tests.test_ai_workflow.WorkflowTests.test_consent_denial_zero_calls) ... ok
+test_consent_preparation_is_frozen (retrieval.tests.test_ai_workflow.WorkflowTests.test_consent_preparation_is_frozen) ... ok
+test_cooperative_callback_crossing_deadline (retrieval.tests.test_ai_workflow.WorkflowTests.test_cooperative_callback_crossing_deadline) ... ok
+test_deadline (retrieval.tests.test_ai_workflow.WorkflowTests.test_deadline) ... ok
+test_expected_provider_quota_codes (retrieval.tests.test_ai_workflow.WorkflowTests.test_expected_provider_quota_codes) ... ok
+test_expiry_after_verified_source_never_publishes (retrieval.tests.test_ai_workflow.WorkflowTests.test_expiry_after_verified_source_never_publishes) ... ok
+test_explanation_is_suggestion (retrieval.tests.test_ai_workflow.WorkflowTests.test_explanation_is_suggestion) ... ok
+test_infrastructure_never_repairs (retrieval.tests.test_ai_workflow.WorkflowTests.test_infrastructure_never_repairs) ... ok
+test_invalid_schema_repairs (retrieval.tests.test_ai_workflow.WorkflowTests.test_invalid_schema_repairs) ... ok
+test_invalid_then_valid_fresh_consent (retrieval.tests.test_ai_workflow.WorkflowTests.test_invalid_then_valid_fresh_consent) ... ok
+test_payload_budget_denies (retrieval.tests.test_ai_workflow.WorkflowTests.test_payload_budget_denies) ... ok
+test_provider_failure_never_repairs (retrieval.tests.test_ai_workflow.WorkflowTests.test_provider_failure_never_repairs) ... ok
+test_second_consent_denial (retrieval.tests.test_ai_workflow.WorkflowTests.test_second_consent_denial) ... ok
+test_stale_after_provider_denies (retrieval.tests.test_ai_workflow.WorkflowTests.test_stale_after_provider_denies) ... ok
+test_sync_callback_never_invoked (retrieval.tests.test_ai_workflow.WorkflowTests.test_sync_callback_never_invoked) ... ok
+test_twice_invalid_stops (retrieval.tests.test_ai_workflow.WorkflowTests.test_twice_invalid_stops) ... ok
+test_unknown_callback_code_is_inert (retrieval.tests.test_ai_workflow.WorkflowTests.test_unknown_callback_code_is_inert) ... ok
+test_valid_first (retrieval.tests.test_ai_workflow.WorkflowTests.test_valid_first) ... ok
+test_wrong_verifier_hash_denies (retrieval.tests.test_ai_workflow.WorkflowTests.test_wrong_verifier_hash_denies) ... ok
+test_bad_identity_status_and_tier (retrieval.tests.test_ai_provider.ProviderTests.test_bad_identity_status_and_tier)
+Refuse unknown aliases, processing status or premium tier. ... ok
+test_duplicate_deep_invalid_and_oversized_text (retrieval.tests.test_ai_provider.ProviderTests.test_duplicate_deep_invalid_and_oversized_text)
+Strict decoding rejects ambiguity, excess nesting and oversized text. ... ok
+test_exact_request_and_no_ambient_transport (retrieval.tests.test_ai_provider.ProviderTests.test_exact_request_and_no_ambient_transport)
+Pin endpoint, request choices and proxy/redirect/TLS controls. ... ok
+test_http_error_sanitized_and_no_retry (retrieval.tests.test_ai_provider.ProviderTests.test_http_error_sanitized_and_no_retry)
+Discard error bodies and preserve only fixed code and HTTP status. ... ok
+test_raw_body_bound_and_no_compression (retrieval.tests.test_ai_provider.ProviderTests.test_raw_body_bound_and_no_compression)
+Bound raw response allocation and disallow compressed expansion. ... ok
+test_request_admission_before_network (retrieval.tests.test_ai_provider.ProviderTests.test_request_admission_before_network)
+Deny tools, remote media input, bad model and excess request bytes. ... ok
+test_same_provider_rejects_overlapping_dispatch (retrieval.tests.test_ai_provider.ProviderTests.test_same_provider_rejects_overlapping_dispatch)
+The adapter does not create an additional provider concurrency lane. ... ok
+test_timeout_closes_body_and_does_not_retry (retrieval.tests.test_ai_provider.ProviderTests.test_timeout_closes_body_and_does_not_retry)
+A hard overall timeout cancels reading and releases the response. ... ok
+test_tools_refusal_multiple_text_and_reasoning (retrieval.tests.test_ai_provider.ProviderTests.test_tools_refusal_multiple_text_and_reasoning)
+Never execute action items or choose among multiple answers. ... ok
+test_usage_caps_and_missing_usage_keep_conservative_path (retrieval.tests.test_ai_provider.ProviderTests.test_usage_caps_and_missing_usage_keep_conservative_path)
+Reject reported over-cap usage; missing usage never grants refunds. ... ok
+test_closed_status_and_attempt_sequence (retrieval.tests.test_ai_journal.JournalTests.test_closed_status_and_attempt_sequence)
+Reject arbitrary journal content and graph-supplied attempt jumps. ... ok
+test_concurrent_lock_and_outside_context (retrieval.tests.test_ai_journal.JournalTests.test_concurrent_lock_and_outside_context)
+One exclusive lock covers all runner/network activity. ... ok
+test_crash_unknown_and_reopen_cannot_repair_or_replay (retrieval.tests.test_ai_journal.JournalTests.test_crash_unknown_and_reopen_cannot_repair_or_replay)
+An unfinished durable dispatch remains consumed on restart. ... ok
+test_failed_fsync_poisoning_and_no_new_dispatch (retrieval.tests.test_ai_journal.JournalTests.test_failed_fsync_poisoning_and_no_new_dispatch)
+Ambiguous durable write failure prevents all subsequent admissions. ... ok
+test_malformed_duplicate_oversized_and_insecure_state (retrieval.tests.test_ai_journal.JournalTests.test_malformed_duplicate_oversized_and_insecure_state)
+Deny corrupt accounting rather than repairing or resetting it. ... ok
+test_missing_after_initialization_does_not_reset (retrieval.tests.test_ai_journal.JournalTests.test_missing_after_initialization_does_not_reset)
+Existing lock plus missing state is ambiguous and fails closed. ... ok
+test_project_path_and_open_directory_denied (retrieval.tests.test_ai_journal.JournalTests.test_project_path_and_open_directory_denied)
+Require a private parent outside the project trust boundary. ... ok
+test_reserve_two_calls_and_global_ceiling (retrieval.tests.test_ai_journal.JournalTests.test_reserve_two_calls_and_global_ceiling)
+Persist both reservations before calls, with no refunds on finish. ... ok
+test_symlink_ancestor_file_and_hardlink_denied (retrieval.tests.test_ai_journal.JournalTests.test_symlink_ancestor_file_and_hardlink_denied)
+Do not follow linked operator paths or accept shared ledger inodes. ... ok
+test_unknown_first_call_cannot_loop (retrieval.tests.test_ai_journal.JournalTests.test_unknown_first_call_cannot_loop)
+Even a live graph cannot claim a repair for uncertain dispatch. ... ok
+test_invalid_and_symlinked_metadata_rejected (retrieval.tests.test_ai_verification.CgroupTests.test_invalid_and_symlinked_metadata_rejected)
+Noncanonical membership and symlinked pids.max fail closed. ... ok
+test_mount_mapping_and_ancestor_limit (retrieval.tests.test_ai_verification.CgroupTests.test_mount_mapping_and_ancestor_limit)
+A finite mounted-root ceiling applies to a descendant membership. ... ok
+test_build_change_fails_closed (retrieval.tests.test_ai_verification.VerifierTests.test_build_change_fails_closed)
+A new supervisor identity cannot replace an established pin. ... ok
+test_repeated_cancel_reaps_supervisor (retrieval.tests.test_ai_verification.VerifierTests.test_repeated_cancel_reaps_supervisor)
+A second cancellation cannot interrupt unfinished shielded cleanup. ... ok
+test_source_limit_without_launch (retrieval.tests.test_ai_verification.VerifierTests.test_source_limit_without_launch)
+Oversized source cannot reach the supervisor. ... ok
+test_timeout_kills_and_reaps_supervisor (retrieval.tests.test_ai_verification.VerifierTests.test_timeout_kills_and_reaps_supervisor)
+A slow owned subprocess is killed before timeout is returned. ... ok
+test_one_valid_source_then_restart_replay_denied (retrieval.tests.test_ai_integration.GraphIntegrationTests.test_one_valid_source_then_restart_replay_denied)
+A restarted run with the same operation cannot send even its first call. ... ok
+test_real_invalid_then_valid_loopback (retrieval.tests.test_ai_integration.GraphIntegrationTests.test_real_invalid_then_valid_loopback)
+A real parse failure receives one fresh-consent repair and passes. ... ok
+test_real_repeated_type_invalid_terminates (retrieval.tests.test_ai_integration.GraphIntegrationTests.test_real_repeated_type_invalid_terminates)
+Independent Alloy rejection twice cannot produce a ready proposal. ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 1.573s
+
+OK

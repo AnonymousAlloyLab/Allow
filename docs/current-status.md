@@ -1,11 +1,27 @@
 # Current status and evidence
 
 This index describes the installed validation-context implementation and the
-checks completed through 4 November 2026. Implementation of the reviewed
+checks completed through 5 November 2026. Implementation of the reviewed
 [performance remediation plan](performance-remediation-plan.md) is underway.
 The source tree contains the new cleanup path, a disabled JVM optimization
 profile and a disabled prestarted-worker pool. Full acceptance is still in progress. The application remains a local development system,
 with commercial release **NO_GO**.
+
+## Private AI integration — 5 November 2026
+
+The [private assistant](ai-system-integration.md) now integrates Spring authority,
+anonymous slot payloads, explicit per-attempt consent, real LangGraph generation
+and shared-lane Java validation with React review, draft-only Apply and one-step
+Undo. The integration supplement received the required six reviews and two
+matching clean Lean builds covering 24 finite policy theorems before production
+edits. AI remains OFF by default; ANONYMOUS cannot enable it. No RAG or private
+corpus disclosure is added.
+
+The [integration report](../gates/ai-system-v1/report.json) records current tests,
+actual local HTTP/browser evidence and the generated distribution. This is an
+opt-in private pilot, not completion of the broader quality, commercial, native
+deployment or public-assistance gates. Historical counts and limits below remain
+scoped to their original runs.
 
 ## Anonymous Windows/WSL deployment candidate — 4 November 2026
 

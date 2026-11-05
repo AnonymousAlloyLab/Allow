@@ -1,0 +1,13 @@
+test_report_hashes_must_match (test_ai_runtime.EvidenceTests.test_report_hashes_must_match)
+Reject a report whose packaged proof input was altered. ... ok
+test_changed_lock_denied (test_ai_runtime.RuntimeTests.test_changed_lock_denied)
+The runtime is bound to the packaged lock bytes. ... ok
+test_exact_inventory_and_changed_code (test_ai_runtime.RuntimeTests.test_exact_inventory_and_changed_code)
+One altered dependency byte denies execution. ... ok
+test_startup_hook_and_unknown_file_denied (test_ai_runtime.RuntimeTests.test_startup_hook_and_unknown_file_denied)
+An unlisted startup hook cannot reach the Python interpreter. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK

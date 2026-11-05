@@ -52,6 +52,7 @@ trust = _verified_bootstrap()
 
 import argparse
 import secrets
+import resource
 import signal
 import subprocess
 
@@ -67,7 +68,20 @@ def command(config, root=ROOT):
             f'--allow.access-mode={config.get("access_mode", "PRIVATE")}',
             '--debug=false', '--trace=false', '--logging.level.root=WARN',
             '--logging.level.org.springframework=WARN']
-    return args + public_transport_bounds(config)
+    return args + public_transport_bounds(config) + ai_arguments(config)
+
+
+def ai_arguments(config):
+    """Forward only closed nonsecret private AI configuration to Spring."""
+    mode = config.get('ai_mode', 'OFF')
+    args = ['--allow.ai.mode=' + mode]
+    names = {'ai_ledger': 'ledger', 'ai_ceiling_micro_usd': 'ceiling-micro-usd',
+             'ai_terms_version': 'terms-version', 'ai_tariff_version': 'tariff-version',
+             'ai_key_file': 'key-file'}
+    for key, name in names.items():
+        if key in config:
+            args.append('--allow.ai.' + name + '=' + str(config[key]))
+    return args
 
 
 def public_transport_bounds(config):
@@ -103,6 +117,8 @@ def serve(config, root=ROOT):
 
 def supervise(config, root, runtime):
     """Own stack cleanup; publish a launch capability only in the private profile."""
+    if config.get('ai_mode', 'OFF') != 'OFF':
+        resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
     backend, stopping, link_owned = None, False, False
 
     def stop(_signum, _frame):
@@ -152,6 +168,8 @@ def main():
     config = trust.load_config(args.config)
     trust.public_guard(config, ROOT)
     trust.prerequisites(ROOT)
+    if config.get('ai_mode', 'OFF') != 'OFF':
+        trust.load_source('services/ai/runtime.py', ROOT).verify(ROOT)
     return serve(config)
 
 

@@ -80,3 +80,41 @@ set `advisory_profile` to `DEFAULT` for the documented rollback.
 This is a private-transfer deployment candidate. Native target acceptance,
 commercial release and public artifact redistribution have separate unresolved
 gates. Public hosting does not establish redistribution rights.
+
+## Optional private AI runtime
+
+AI is `OFF` in generated configurations, and OFF does not require the optional
+runtime or a provider credential. Anonymous installations cannot enable AI.
+Private AI remains subject to the integration release and consent gates; this
+archive does not establish native IIS/WSL acceptance or a commercial launch.
+
+For an authorized private pilot, prepare a private offline wheelhouse containing
+the exact Python 3.12 wheels in `retrieval/requirements-ai.lock`. The installer
+uses `--require-hashes --no-index` and rejects source distributions. Set
+`ai_mode` to `FIXTURE` or `REMOTE_ASSISTED` in the owner-only instance JSON and
+set `ai_ledger` to a dedicated absolute path outside the installation. A fixture
+ledger must be separate from a billed ledger. The optional integer
+`ai_ceiling_micro_usd` is a lifetime ceiling (default 100000; maximum 10000000),
+not a daily reset. `REMOTE_ASSISTED` also requires reviewed `ai_terms_version`
+and `ai_tariff_version` strings and an `ai_key_file` absolute path outside the
+installation. The key file must already be a private, owner-only regular file
+with no linked path; do not put the secret in the JSON, argv, environment,
+archive, logs or repository. No key is needed for FIXTURE.
+
+After the ordinary retrieval runtime has been provisioned, use the setup command
+below with an already prepared wheelhouse. It refuses an existing AI runtime and
+does not overwrite or remove a prior ledger or runtime:
+
+```bash
+/usr/bin/python3 -I -B deploy/linux/setup.py --config deploy/instance.json \
+  --provision-ai /absolute/path/to/offline-wheelhouse
+```
+
+The setup records a private hash inventory of the installed runtime. On private
+AI startup, the service verifies that inventory and the packaged dependency lock.
+The bridge starts with system Python in isolated, no-site mode, verifies the
+inventory again before adding the attested site directory, and does not execute
+`.pth` startup hooks. A changed or unsafe runtime fails closed; preserve and
+investigate it rather than deleting accounting state. Turning AI OFF requires no
+AI runtime. Installation paths, the external journal and its lifetime ceiling
+remain operator-controlled; no HTTP request can select or reset them.

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-05",
+  "mode": "LIVE_SYNTHETIC",
+  "model": "gpt-6.1-sol",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "status": "FAILED",
+  "attempts": 1,
+  "code": "PROVIDER_HTTP_ERROR",
+  "http_status": 401,
+  "verification": null,
+  "projection": null,
+  "elapsed_ms": 343.035,
+  "reserved_micro_usd": 50000,
+  "accounting": "conservative reservation retained; not observed billed amount",
+  "tariff": "published standard-tier assumptions, not independently verified account billing",
+  "production_workspace_or_corpus_access": false,
+  "credential_input": "non-echo terminal, process memory only",
+  "credential_persisted_by_implementation": false,
+  "provider_error_body_retained": false,
+  "automatic_retry": false,
+  "model_access_verified": false,
+  "conclusion": "OpenAI returned HTTP 401. No provider-generated candidate reached verification. Live account/model access remains incomplete."
+}

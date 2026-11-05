@@ -1,0 +1,52 @@
+test_ai_configuration_requires_private_and_closed_settings (test_deployment.DeploymentTests.test_ai_configuration_requires_private_and_closed_settings)
+Default OFF needs no runtime; anonymous AI and incomplete remote fail. ... ok
+test_ai_supervisor_disables_core_dumps_before_launch (test_deployment.DeploymentTests.test_ai_supervisor_disables_core_dumps_before_launch)
+The credential-bearing backend inherits a zero core-dump limit. ... ok
+test_ai_supervisor_refuses_launch_if_core_limit_fails (test_deployment.DeploymentTests.test_ai_supervisor_refuses_launch_if_core_limit_fails)
+Failure to disable dumps cannot launch the backend or SQL helpers. ... ok
+test_clean_subprocess_environment_and_bytecode_flags (test_deployment.DeploymentTests.test_clean_subprocess_environment_and_bytecode_flags)
+Application helpers cannot inherit JVM/Python overrides or emit bytecode. ... ok
+test_competing_supervisor_and_initializer_have_zero_effects (test_deployment.DeploymentTests.test_competing_supervisor_and_initializer_have_zero_effects)
+An actual held flock denies whole lifecycle entry, including cleanup. ... ok
+test_failed_initialization_preserves_error_and_environment (test_deployment.DeploymentTests.test_failed_initialization_preserves_error_and_environment)
+A cleanup failure cannot mask initialization failure or retain polluted env. ... ok
+test_fresh_old_tools_never_execute (test_deployment.DeploymentTests.test_fresh_old_tools_never_execute)
+Old generated tools cause refusal before provision, SQL or cleanup effects. ... ok
+test_generated_dependency_links_are_constrained (test_deployment.DeploymentTests.test_generated_dependency_links_are_constrained)
+Only normal managed interpreter and internal lib links are trusted. ... ok
+test_isolated_shadow_rejected_without_execution (test_deployment.DeploymentTests.test_isolated_shadow_rejected_without_execution)
+A local shadow module never runs and is rejected by closed inventory. ... ok
+test_lock_and_token_hardlinks_and_modes (test_deployment.DeploymentTests.test_lock_and_token_hardlinks_and_modes)
+Private authority/lock files reject symlinks, hardlinks and broad modes. ... ok
+test_permissions_owner_and_symlinks (test_deployment.DeploymentTests.test_permissions_owner_and_symlinks)
+Writable roots/files, foreign owners and linked inputs fail before helpers. ... ok
+test_positive_package_and_isolated_entry (test_deployment.DeploymentTests.test_positive_package_and_isolated_entry)
+Both isolated trusted entrypoints accept unchanged protected inputs. ... ok
+test_prerequisite_processes_cannot_inherit_java_agents (test_deployment.DeploymentTests.test_prerequisite_processes_cannot_inherit_java_agents)
+Even preflight Java/bubblewrap commands receive the fixed clean env. ... ok
+test_preserved_store_is_not_reinitialized (test_deployment.DeploymentTests.test_preserved_store_is_not_reinitialized)
+A valid private retained-store marker preserves existing credentials/state. ... ok
+test_private_configuration_and_closed_values (test_deployment.DeploymentTests.test_private_configuration_and_closed_values)
+Canonical settings require service-owned private ordinary files. ... ok
+test_public_supervisor_never_publishes_private_launch_authority (test_deployment.DeploymentTests.test_public_supervisor_never_publishes_private_launch_authority)
+Public mode supplies only an unused private constructor token, never a launch file. ... ok
+test_public_transport_is_bounded_without_changing_private_defaults (test_deployment.DeploymentTests.test_public_transport_is_bounded_without_changing_private_defaults)
+Closed public transport bounds supplement global and per-workspace admission. ... ok
+test_source_provisioning_never_requests_model_bootstrap (test_deployment.DeploymentTests.test_source_provisioning_never_requests_model_bootstrap)
+Initialization calls only the verified dependency provisioner. ... ok
+test_timestamp_and_unchecked_bytecode_never_execute (test_deployment.DeploymentTests.test_timestamp_and_unchecked_bytecode_never_execute)
+Poison valid import caches without modifying the manifested source bytes. ... ok
+test_unisolated_guard_precedes_shadow_module (test_deployment.DeploymentTests.test_unisolated_guard_precedes_shadow_module)
+The entry guard imports no local standard-library shadow before rejecting. ... ok
+test_unlisted_native_and_configuration_rejected (test_deployment.DeploymentTests.test_unlisted_native_and_configuration_rejected)
+Inventory closes deployment and retrieval roots, not only module packages. ... ok
+test_archive_manifest_and_normalized_modes (test_deployment.PackagingTests.test_archive_manifest_and_normalized_modes)
+Actual zip metadata ignores permissive source modes and freezes file hashes. ... ok
+test_sensitive_member_denials (test_deployment.PackagingTests.test_sensitive_member_denials)
+Never admit runtime, credentials, cached code or learned checkpoints. ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.559s
+
+OK
+Existing initialized workspace preserved; no migration or reprovision performed.

@@ -94,6 +94,8 @@ def verify_file(name, entries, root=ROOT):
 def verify_inventory(entries, root=ROOT):
     """Close every application/bootstrap directory, including all bytecode caches."""
     immutable = ('backend/target', 'retrieval', 'scripts', 'config', '.tools/sqlean', 'deploy')
+    if any(name.startswith('services/') for name in entries):
+        immutable += ('services',)
     for directory in immutable:
         checked_path(root / directory)
         for installed in (root / directory).rglob('*'):
@@ -175,7 +177,7 @@ def load_config(path):
     """Accept closed instance settings, preserving legacy private SSH configurations."""
     value = json.loads(checked_path(path, private=True).read_text(), object_pairs_hook=unique_object)
     required = {'public_origin', 'tunnel_port', 'backend_port', 'advisory_profile'}
-    if not isinstance(value, dict) or not required <= set(value) or set(value) - required - {'access_mode', 'transport', 'installation_slot'}:
+    if not isinstance(value, dict) or not required <= set(value) or set(value) - required - {'access_mode', 'transport', 'installation_slot', 'ai_mode', 'ai_ledger', 'ai_ceiling_micro_usd', 'ai_terms_version', 'ai_tariff_version', 'ai_key_file'}:
         raise ValueError('Unexpected instance settings')
     origin = value['public_origin']
     if not isinstance(origin, str):
@@ -207,7 +209,37 @@ def load_config(path):
             value['access_mode'] != 'ANONYMOUS' or value['transport'] != 'wsl' or
             value['backend_port'] != 18081 or value['tunnel_port'] != 18081):
         raise ValueError('Invalid public replacement profile')
+    validate_ai_config(value)
     return value
+
+
+def validate_ai_config(value):
+    """Require explicit private opt-in and closed, nonsecret AI settings."""
+    mode = value.get('ai_mode', 'OFF')
+    fields = {'ai_ledger', 'ai_ceiling_micro_usd', 'ai_terms_version', 'ai_tariff_version', 'ai_key_file'}
+    if mode not in ('OFF', 'FIXTURE', 'REMOTE_ASSISTED'):
+        raise ValueError('Unknown AI mode')
+    if mode == 'OFF':
+        if fields.intersection(value):
+            raise ValueError('OFF does not accept AI settings')
+        return
+    if value['access_mode'] != 'PRIVATE':
+        raise ValueError('AI requires private access')
+    ledger = value.get('ai_ledger')
+    if not isinstance(ledger, str) or not Path(ledger).is_absolute() or '..' in Path(ledger).parts or Path(ledger).is_relative_to(ROOT):
+        raise ValueError('AI ledger requires an absolute path')
+    amount = value.get('ai_ceiling_micro_usd', 100000)
+    if type(amount) is not int or not 50000 <= amount <= 10000000:
+        raise ValueError('Invalid AI lifetime ceiling')
+    if mode == 'FIXTURE' and any(k in value for k in ('ai_key_file', 'ai_terms_version', 'ai_tariff_version')):
+        raise ValueError('Fixture mode cannot receive remote settings')
+    if mode == 'REMOTE_ASSISTED':
+        for key in ('ai_key_file', 'ai_terms_version', 'ai_tariff_version'):
+            if not isinstance(value.get(key), str) or not value[key] or len(value[key]) > 1024:
+                raise ValueError('Missing AI remote setting')
+        if (not Path(value['ai_key_file']).is_absolute() or '..' in Path(value['ai_key_file']).parts
+                or Path(value['ai_key_file']).is_relative_to(ROOT)):
+            raise ValueError('AI credential path must be absolute')
 
 
 def reserved_public_uid():

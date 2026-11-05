@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-05",
+  "contract_sha256": "036930e2fded260c88cbab2a048c1f881eb139edf38ccb2b232e2ac4b9d2e7d5",
+  "specification_council": "gates/ai-system-v1/council-disposition.md",
+  "implementation_reviews": [
+    {
+      "reviewer": "ai_astra_1",
+      "model": "gpt-6-astra",
+      "scope": "Python bridge, durable journal, isolated runtime, deployment configuration and manifest packaging",
+      "decision": "NO_CONCRETE_BLOCKING_FINDING"
+    },
+    {
+      "reviewer": "ai_astra_2",
+      "model": "gpt-6-astra",
+      "scope": "Frontend lifecycle, backend retained buffers, credential admission and approval cancellation ownership",
+      "decision": "APPROVE_REVIEWED_PRIVATE_PILOT_CHANGES_FOR_COMMIT",
+      "findings_closed": [
+        "Late cancelled preparation cannot erase a newer job.",
+        "Polling across expiry transitions to a terminal state.",
+        "Expired/cancelled/failed/applied frontend jobs clear provider buffers.",
+        "Backend terminal jobs retain only bounded tombstone metadata after expiry/drain.",
+        "Credential file reads use protected ancestry, no-follow bounded opening and identity checks.",
+        "Approval validation owns the shared active lane through cancellation and cleanup."
+      ]
+    }
+  ],
+  "limits": "Read-only code review and finite tests; not implementation refinement, public promotion, native target acceptance or commercial approval."
+}

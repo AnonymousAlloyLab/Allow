@@ -1,0 +1,24 @@
+{
+  "status": "PASS_FINITE_POLICY_ONLY",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "theorems_audited": 37,
+  "standard_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "custom_axioms_or_admissions": false,
+  "two_clean_direct_compilations_match": true,
+  "limits": "Trusted observations and issued receipts; opaque hashes; no implementation correspondence, distributed atomicity, validator, provider, security, or commercial proof.",
+  "sha256": {
+    "spec/ai-native-development.json": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec",
+    "formal/Allow/AiNativeDevelopment.lean": "54624e4532c9189f13935facbfce11209e86d2435b9acd5ea7316e5d5fe8c234",
+    "gates/ai-native-v1/claim-map.md": "4eb305ef8cbd8d373396b099d81cbcf5465a53c580b80ad3828dee22d19b3a20",
+    "gates/ai-native-v1/formal-final-v2-1/AiNativeDevelopment.olean": "0ac19a79660702c46b8859e44d1082132a296ad0b164b9926231216404691423",
+    "gates/ai-native-v1/formal-final-v2-2/AiNativeDevelopment.olean": "0ac19a79660702c46b8859e44d1082132a296ad0b164b9926231216404691423",
+    "gates/ai-native-v1/formal-final-v2-1/axioms.log": "33718e85839be48b596b4c495bb7330b42f32769f3fb70e6d8d6c0dcdc5b80b3",
+    "gates/ai-native-v1/formal-final-v2-1/build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gates/ai-native-v1/formal-final-v2-2/build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gates/ai-native-v1/formal-final-v2-1/source-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

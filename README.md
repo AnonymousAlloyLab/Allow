@@ -154,9 +154,18 @@ normal form. Identifier pseudonymization does not prevent identification through
 model structure. The old 128-dimensional deterministic features remain a separate
 diagnostic; retrieval uses the new pretrained hierarchical encoder. The e-graph uses 21 Boolean rules and
 13 rules over relations with identical full nominal schemas. Other operators
-remain opaque. Retrieval returns candidate evidence; LLM generation is disabled.
+remain opaque. Retrieval returns candidate evidence; website LLM generation is disabled.
 See [retrieval operations and limits](docs/retrieval-stage.md) for setup, the
 bounded real-corpus pilot, learned-adapter evaluation and remaining gates.
+
+The [private AI assistant](docs/ai-system-integration.md) connects Spring, React
+and the tested LangGraph component. Users review anonymous payloads, approve each
+attempt, inspect independently checked proposals and explicitly apply/undo a local
+draft edit. Save remains separate. AI defaults to OFF and is denied in anonymous
+installations. The isolated OpenAI fixture succeeded with GPT-6.1 Sol; the system
+integration report records the application tests and remaining release limits.
+See the [documentation index](docs/README.md), [repository guide](docs/repository.md)
+and [generated release metadata](artifacts/README.md).
 
 ## Evidence and boundaries
 

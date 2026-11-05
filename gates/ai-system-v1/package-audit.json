@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "package": "artifacts/releases/allow-iis-wsl-ai-20261105-r1.zip",
+  "sha256": "1034a8b79dbf88180b3ca68caee8f8288894345e5536d7f65d1378bf6464f5f1",
+  "bytes": 78056132,
+  "manifest_sha256": "ef07232a9062f41d7d871730df8a09967c7757e89cff08d7e4069379e5aeb52c",
+  "files": 377,
+  "members": 379,
+  "member_hashes_verified": true,
+  "safe_paths_unique_regular_members": true,
+  "private_runtime_exclusions_verified": true,
+  "credential_scan": {
+    "openai_project_pattern_all_members": "PASS",
+    "legacy_key_pattern_text_members": "PASS",
+    "binary_legacy_false_positive": "Pinned SQLeanParser ELF contains C++ key_ symbols; binary verified against its pinned digest."
+  },
+  "isolated_entry_preflights": {
+    "setup": {
+      "exit_code": 0,
+      "help_observed": true
+    },
+    "service": {
+      "exit_code": 0,
+      "help_observed": true
+    }
+  },
+  "matches_browser_staging_runtime_files": 249,
+  "ai_default": "OFF",
+  "native_iis_wsl_acceptance": "OPEN",
+  "remote_deployment": false,
+  "audit_harness_correction": "First extraction inherited a group-writable umask and was correctly rejected by bootstrap. Repeated with protected umask 077; both entry preflights passed."
+}

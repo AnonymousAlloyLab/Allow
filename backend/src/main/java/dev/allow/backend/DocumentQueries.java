@@ -285,6 +285,55 @@ final class DocumentQueries {
         return reply("OK", data);
     }
 
+    /** Reads the exact current private head for AI authorization and stale checks.
+     * @param document server-owned document ID
+     * @return bounded authorized current snapshot
+     * @throws IOException unavailable scoped store
+     * @throws InterruptedException interrupted store operation
+     */
+    JsonNode aiHead(String document) throws IOException, InterruptedException { return readData(document, null); }
+
+    /** Checks an AI candidate using the shared context and fresh isolated worker lane.
+     * @param document authorized document
+     * @param base exact expected revision
+     * @param candidate exact bounded candidate
+     * @param millis remaining whole-job budget
+     * @return full independently checked module/source or deterministic invalid result
+     * @throws IOException unavailable context, worker or cleanup
+     * @throws InterruptedException cancelled operation after owned worker cleanup
+     */
+    JsonNode aiValidate(String document, long base, JsonNode candidate, long millis) throws IOException, InterruptedException {
+        runtime.requireReady();
+        WarmDeadline deadline = new WarmDeadline(Math.min(10000, millis));
+        WorkerCapacity.acquire();
+        try { return aiValidateOwned(document, base, candidate, deadline); }
+        finally { WorkerCapacity.release(); }
+    }
+
+    /** Performs bounded validation after acquiring the existing sole worker admission.
+     * @param document authorized document
+     * @param base expected base revision
+     * @param candidate submitted candidate
+     * @param deadline original shared operation deadline
+     * @return full trusted worker response
+     * @throws IOException unavailable worker or deadline
+     * @throws InterruptedException cancelled operation after cleanup
+     */
+    private JsonNode aiValidateOwned(String document, long base, JsonNode candidate, WarmDeadline deadline)
+            throws IOException, InterruptedException {
+        DocumentValidationContext context = DocumentValidationContext.read(gateway, document, base, candidate.path("module"), deadline);
+        DocumentWorker worker = new DocumentWorker();
+        if (!worker.identity().equals(runtime.dependency())) throw new IOException("Validator build changed");
+        try {
+            JsonNode result = worker.validateBounded(candidate, context.artifact(), context.inventory(), runtime.policy(), deadline.remainingMillis());
+            deadline.check();
+            return result;
+        } finally {
+            try { worker.recovery(); }
+            catch (IllegalStateException uncertain) { cleanupSafe = false; }
+        }
+    }
+
     /** Refuses scope reclamation after uncertain advisory child cleanup.
      * @return whether every attempted advisory child supplied reap/no-start evidence
      */

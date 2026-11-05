@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "document_id": "server:bec12a2c-9d39-4b47-87bb-a1b111ce3f5b",
+  "document_title": "AI integration fixture 0e1d326d",
+  "attempts": 2,
+  "projection": "BLOCK_SUPPORTED",
+  "accepted_revision_after_approval": 1,
+  "checks": [
+    "exact create replay",
+    "anonymous payload excludes display names/comments",
+    "fresh consent after real failed Alloy verification",
+    "restored display names",
+    "scoped Java validation",
+    "idempotent apply receipt",
+    "no automatic Save"
+  ],
+  "remote_provider_called": false,
+  "elapsed_seconds": 7.641
+}

@@ -8,6 +8,7 @@ import {ExpressionEditor} from './document/ExpressionEditor';
 import {DocumentNavigation,CommitControls,HistoryPanel,SourcePanel,historyShortcut} from './document/DocumentPanels';
 import {checkModule} from './document/model';
 import {useAdvisory} from './document/useAdvisory';
+import {AssistantPanel} from './document/ai/AssistantPanel';
 import './document/styles.css';
 /** Create an isolated authority-bound controller. @param token Fresh launch authority. @param online Whether server actions are available. @returns View and actions. */
 function useController(token:string,online:boolean):{view:ViewState;controller:Controller} {
@@ -44,6 +45,7 @@ function DocumentBody(props:{controller:Controller;view:ViewState;online:boolean
       <ExpressionSurface controller={controller} view={view}/>
       <SourcePanel controller={controller} view={view} online={props.online}/>
     </div>
+    <AssistantPanel controller={controller} online={props.online}/>
     <section aria-label="Draft diagnostics"><h2>Specific diagnostics</h2><ul>{diagnostics}</ul></section>
     <fieldset disabled={!props.online}><HistoryPanel controller={controller} view={view}/></fieldset>
   </>;

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "audited_staged_added_or_modified_files": 193,
+  "staged_payload_bytes": 27627597,
+  "largest_file": {
+    "path": "gates/ai-native-v1/formal-final-v2-2/AiNativeDevelopment.olean",
+    "bytes": 1765576
+  },
+  "credential_pattern_findings": 0,
+  "runtime_or_archive_findings": 0,
+  "bound_integration_hashes_verified": 372,
+  "release_metadata_bindings_verified": true,
+  "historical_paths_preserved": true,
+  "test_services_cleanup": {
+    "owned_staging_backend": "STOPPED",
+    "owned_staging_sql": "STOPPED",
+    "temporary_browser_tab": "CLOSED"
+  },
+  "whitespace_note": "Original frontend test log has one terminal blank line, preserved because its raw bytes are bound evidence. All other staged files pass git diff --check.",
+  "self_exclusion": "This audit record is not included in its own file count."
+}

@@ -1,0 +1,462 @@
+test_report_hashes_must_match (deploy.linux.test_ai_runtime.EvidenceTests.test_report_hashes_must_match)
+Reject a report whose packaged proof input was altered. ... ok
+test_changed_lock_denied (deploy.linux.test_ai_runtime.RuntimeTests.test_changed_lock_denied)
+The runtime is bound to the packaged lock bytes. ... ok
+test_exact_inventory_and_changed_code (deploy.linux.test_ai_runtime.RuntimeTests.test_exact_inventory_and_changed_code)
+One altered dependency byte denies execution. ... ok
+test_startup_hook_and_unknown_file_denied (deploy.linux.test_ai_runtime.RuntimeTests.test_startup_hook_and_unknown_file_denied)
+An unlisted startup hook cannot reach the Python interpreter. ... ok
+test_ai_configuration_requires_private_and_closed_settings (deploy.linux.test_deployment.DeploymentTests.test_ai_configuration_requires_private_and_closed_settings)
+Default OFF needs no runtime; anonymous AI and incomplete remote fail. ... ERROR
+test_ai_supervisor_disables_core_dumps_before_launch (deploy.linux.test_deployment.DeploymentTests.test_ai_supervisor_disables_core_dumps_before_launch)
+The credential-bearing backend inherits a zero core-dump limit. ... /usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-08qdpkl5'>
+  _warnings.warn(warn_message, ResourceWarning)
+ERROR
+test_ai_supervisor_refuses_launch_if_core_limit_fails (deploy.linux.test_deployment.DeploymentTests.test_ai_supervisor_refuses_launch_if_core_limit_fails)
+Failure to disable dumps cannot launch the backend or SQL helpers. ... ERROR
+test_clean_subprocess_environment_and_bytecode_flags (deploy.linux.test_deployment.DeploymentTests.test_clean_subprocess_environment_and_bytecode_flags)
+Application helpers cannot inherit JVM/Python overrides or emit bytecode. ... ERROR
+test_competing_supervisor_and_initializer_have_zero_effects (deploy.linux.test_deployment.DeploymentTests.test_competing_supervisor_and_initializer_have_zero_effects)
+An actual held flock denies whole lifecycle entry, including cleanup. ... ERROR
+test_failed_initialization_preserves_error_and_environment (deploy.linux.test_deployment.DeploymentTests.test_failed_initialization_preserves_error_and_environment)
+A cleanup failure cannot mask initialization failure or retain polluted env. ... /usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-b93lso37'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-h9samoxa'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-19xqlukd'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-rqspywtm'>
+  _warnings.warn(warn_message, ResourceWarning)
+ERROR
+test_fresh_old_tools_never_execute (deploy.linux.test_deployment.DeploymentTests.test_fresh_old_tools_never_execute)
+Old generated tools cause refusal before provision, SQL or cleanup effects. ... ERROR
+test_generated_dependency_links_are_constrained (deploy.linux.test_deployment.DeploymentTests.test_generated_dependency_links_are_constrained)
+Only normal managed interpreter and internal lib links are trusted. ... ERROR
+test_isolated_shadow_rejected_without_execution (deploy.linux.test_deployment.DeploymentTests.test_isolated_shadow_rejected_without_execution)
+A local shadow module never runs and is rejected by closed inventory. ... ERROR
+test_lock_and_token_hardlinks_and_modes (deploy.linux.test_deployment.DeploymentTests.test_lock_and_token_hardlinks_and_modes)
+Private authority/lock files reject symlinks, hardlinks and broad modes. ... ERROR
+test_permissions_owner_and_symlinks (deploy.linux.test_deployment.DeploymentTests.test_permissions_owner_and_symlinks)
+Writable roots/files, foreign owners and linked inputs fail before helpers. ... /usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-ywd1ii6x'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-ru8qvoky'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-ckfi4u_a'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-pmtjgjbd'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-9_q2zfby'>
+  _warnings.warn(warn_message, ResourceWarning)
+ERROR
+test_positive_package_and_isolated_entry (deploy.linux.test_deployment.DeploymentTests.test_positive_package_and_isolated_entry)
+Both isolated trusted entrypoints accept unchanged protected inputs. ... ERROR
+test_prerequisite_processes_cannot_inherit_java_agents (deploy.linux.test_deployment.DeploymentTests.test_prerequisite_processes_cannot_inherit_java_agents)
+Even preflight Java/bubblewrap commands receive the fixed clean env. ... ERROR
+test_preserved_store_is_not_reinitialized (deploy.linux.test_deployment.DeploymentTests.test_preserved_store_is_not_reinitialized)
+A valid private retained-store marker preserves existing credentials/state. ... ERROR
+test_private_configuration_and_closed_values (deploy.linux.test_deployment.DeploymentTests.test_private_configuration_and_closed_values)
+Canonical settings require service-owned private ordinary files. ... ERROR
+test_public_supervisor_never_publishes_private_launch_authority (deploy.linux.test_deployment.DeploymentTests.test_public_supervisor_never_publishes_private_launch_authority)
+Public mode supplies only an unused private constructor token, never a launch file. ... ERROR
+test_public_transport_is_bounded_without_changing_private_defaults (deploy.linux.test_deployment.DeploymentTests.test_public_transport_is_bounded_without_changing_private_defaults)
+Closed public transport bounds supplement global and per-workspace admission. ... /usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-cw8icyxb'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-2awcdnh5'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-3om8m1r1'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-2h5384c2'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-4wnhb_d6'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/allow-xbzb46h9'>
+  _warnings.warn(warn_message, ResourceWarning)
+ERROR
+test_source_provisioning_never_requests_model_bootstrap (deploy.linux.test_deployment.DeploymentTests.test_source_provisioning_never_requests_model_bootstrap)
+Initialization calls only the verified dependency provisioner. ... ERROR
+test_timestamp_and_unchecked_bytecode_never_execute (deploy.linux.test_deployment.DeploymentTests.test_timestamp_and_unchecked_bytecode_never_execute)
+Poison valid import caches without modifying the manifested source bytes. ... ERROR
+test_unisolated_guard_precedes_shadow_module (deploy.linux.test_deployment.DeploymentTests.test_unisolated_guard_precedes_shadow_module)
+The entry guard imports no local standard-library shadow before rejecting. ... ERROR
+test_unlisted_native_and_configuration_rejected (deploy.linux.test_deployment.DeploymentTests.test_unlisted_native_and_configuration_rejected)
+Inventory closes deployment and retrieval roots, not only module packages. ... ERROR
+test_archive_manifest_and_normalized_modes (deploy.linux.test_deployment.PackagingTests.test_archive_manifest_and_normalized_modes)
+Actual zip metadata ignores permissive source modes and freezes file hashes. ... ok
+test_sensitive_member_denials (deploy.linux.test_deployment.PackagingTests.test_sensitive_member_denials)
+Never admit runtime, credentials, cached code or learned checkpoints. ... ok
+test_configure (unittest.loader._FailedTest.test_configure) ... ERROR
+
+======================================================================
+ERROR: test_ai_configuration_requires_private_and_closed_settings (deploy.linux.test_deployment.DeploymentTests.test_ai_configuration_requires_private_and_closed_settings)
+Default OFF needs no runtime; anonymous AI and incomplete remote fail.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-08qdpkl5/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_ai_supervisor_disables_core_dumps_before_launch (deploy.linux.test_deployment.DeploymentTests.test_ai_supervisor_disables_core_dumps_before_launch)
+The credential-bearing backend inherits a zero core-dump limit.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-rqspywtm/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_ai_supervisor_refuses_launch_if_core_limit_fails (deploy.linux.test_deployment.DeploymentTests.test_ai_supervisor_refuses_launch_if_core_limit_fails)
+Failure to disable dumps cannot launch the backend or SQL helpers.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-b93lso37/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_clean_subprocess_environment_and_bytecode_flags (deploy.linux.test_deployment.DeploymentTests.test_clean_subprocess_environment_and_bytecode_flags)
+Application helpers cannot inherit JVM/Python overrides or emit bytecode.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-h9samoxa/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_competing_supervisor_and_initializer_have_zero_effects (deploy.linux.test_deployment.DeploymentTests.test_competing_supervisor_and_initializer_have_zero_effects)
+An actual held flock denies whole lifecycle entry, including cleanup.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-19xqlukd/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_failed_initialization_preserves_error_and_environment (deploy.linux.test_deployment.DeploymentTests.test_failed_initialization_preserves_error_and_environment)
+A cleanup failure cannot mask initialization failure or retain polluted env.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-9_q2zfby/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_fresh_old_tools_never_execute (deploy.linux.test_deployment.DeploymentTests.test_fresh_old_tools_never_execute)
+Old generated tools cause refusal before provision, SQL or cleanup effects.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-ywd1ii6x/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_generated_dependency_links_are_constrained (deploy.linux.test_deployment.DeploymentTests.test_generated_dependency_links_are_constrained)
+Only normal managed interpreter and internal lib links are trusted.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-ru8qvoky/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_isolated_shadow_rejected_without_execution (deploy.linux.test_deployment.DeploymentTests.test_isolated_shadow_rejected_without_execution)
+A local shadow module never runs and is rejected by closed inventory.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-ckfi4u_a/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_lock_and_token_hardlinks_and_modes (deploy.linux.test_deployment.DeploymentTests.test_lock_and_token_hardlinks_and_modes)
+Private authority/lock files reject symlinks, hardlinks and broad modes.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-pmtjgjbd/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_permissions_owner_and_symlinks (deploy.linux.test_deployment.DeploymentTests.test_permissions_owner_and_symlinks)
+Writable roots/files, foreign owners and linked inputs fail before helpers.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-cw8icyxb/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_positive_package_and_isolated_entry (deploy.linux.test_deployment.DeploymentTests.test_positive_package_and_isolated_entry)
+Both isolated trusted entrypoints accept unchanged protected inputs.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-2awcdnh5/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_prerequisite_processes_cannot_inherit_java_agents (deploy.linux.test_deployment.DeploymentTests.test_prerequisite_processes_cannot_inherit_java_agents)
+Even preflight Java/bubblewrap commands receive the fixed clean env.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-3om8m1r1/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_preserved_store_is_not_reinitialized (deploy.linux.test_deployment.DeploymentTests.test_preserved_store_is_not_reinitialized)
+A valid private retained-store marker preserves existing credentials/state.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-2h5384c2/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_private_configuration_and_closed_values (deploy.linux.test_deployment.DeploymentTests.test_private_configuration_and_closed_values)
+Canonical settings require service-owned private ordinary files.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-4wnhb_d6/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_public_supervisor_never_publishes_private_launch_authority (deploy.linux.test_deployment.DeploymentTests.test_public_supervisor_never_publishes_private_launch_authority)
+Public mode supplies only an unused private constructor token, never a launch file.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-xbzb46h9/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_public_transport_is_bounded_without_changing_private_defaults (deploy.linux.test_deployment.DeploymentTests.test_public_transport_is_bounded_without_changing_private_defaults)
+Closed public transport bounds supplement global and per-workspace admission.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-axzkhtgu/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_source_provisioning_never_requests_model_bootstrap (deploy.linux.test_deployment.DeploymentTests.test_source_provisioning_never_requests_model_bootstrap)
+Initialization calls only the verified dependency provisioner.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-1yp26v46/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_timestamp_and_unchecked_bytecode_never_execute (deploy.linux.test_deployment.DeploymentTests.test_timestamp_and_unchecked_bytecode_never_execute)
+Poison valid import caches without modifying the manifested source bytes.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-f2ecn3i3/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_unisolated_guard_precedes_shadow_module (deploy.linux.test_deployment.DeploymentTests.test_unisolated_guard_precedes_shadow_module)
+The entry guard imports no local standard-library shadow before rejecting.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-m6n9qkwz/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_unlisted_native_and_configuration_rejected (deploy.linux.test_deployment.DeploymentTests.test_unlisted_native_and_configuration_rejected)
+Inventory closes deployment and retrieval roots, not only module packages.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 108, in setUp
+    self.f = Fixture()
+             ^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 48, in __init__
+    self.setup = source_module(self.root / 'deploy/linux/setup.py', 'fixture_setup')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/linux/test_deployment.py", line 24, in source_module
+    exec(compile(path.read_bytes(), str(path), 'exec'), module.__dict__)
+  File "/tmp/allow-179jy6r4/deploy/linux/setup.py", line 5, in <module>
+    raise SystemExit('Invoke with /usr/bin/python3 -I -B; no local imports are permitted')
+SystemExit: Invoke with /usr/bin/python3 -I -B; no local imports are permitted
+
+======================================================================
+ERROR: test_configure (unittest.loader._FailedTest.test_configure)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_configure
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/augustus/Allow/deploy/test_configure.py", line 10, in <module>
+    import configure
+ModuleNotFoundError: No module named 'configure'
+
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.096s
+
+FAILED (errors=22)

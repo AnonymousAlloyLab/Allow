@@ -1,0 +1,19 @@
+{
+  "status": "PASS_FINITE_POLICY_ONLY",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "theorems_audited": 22,
+  "two_clean_direct_builds_match": true,
+  "custom_axioms_or_admissions": false,
+  "limits": "Trusted consent, authority, clock, verifier and durable ledger; deadline and fail-closed cleanup not modeled; no implementation correspondence or billing proof.",
+  "sha256": {
+    "spec/ai-langgraph-implementation.json": "6cbded4769020790882fe1b3542696385b5c98c5212d070ababde0534e004cff",
+    "formal/Allow/AiLangGraphImplementation.lean": "6a09fe8d92b813e3c278585d6b2290decc5090c4e9fc4996ebfe1aab5f5a2330",
+    "gates/ai-langgraph-v1/claim-map.md": "834078c625db4c7f1b2ce64e97ecbbbd44d502ba9138c1d4b84a09f098a01193",
+    "gates/ai-langgraph-v1/formal-final-1/AiLangGraphImplementation.olean": "e47113498f339893722927dfb9667d2ff933091bcb5ee9f86f8ac0e71a011342",
+    "gates/ai-langgraph-v1/formal-final-2/AiLangGraphImplementation.olean": "e47113498f339893722927dfb9667d2ff933091bcb5ee9f86f8ac0e71a011342",
+    "gates/ai-langgraph-v1/formal-final-1/build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gates/ai-langgraph-v1/formal-final-2/build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gates/ai-langgraph-v1/formal-final-1/axioms.log": "73e0b4b74e151fc2c4a2730a6487fd3b3313509abae2cf2739f6b7a683928ee5",
+    "gates/ai-langgraph-v1/formal-final-1/source-check.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

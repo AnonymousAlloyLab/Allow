@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "document_id": "server:7a193932-bf43-499d-8808-758ae1020bbd",
+  "attempts": 2,
+  "projection": "BLOCK_SUPPORTED",
+  "accepted_revision_after_approval": 1,
+  "checks": [
+    "exact create replay",
+    "anonymous payload excludes display names/comments",
+    "fresh consent after real failed Alloy verification",
+    "restored display names",
+    "scoped Java validation",
+    "idempotent apply receipt",
+    "no automatic Save"
+  ],
+  "remote_provider_called": false,
+  "elapsed_seconds": 8.273
+}

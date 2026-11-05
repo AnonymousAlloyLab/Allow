@@ -18,15 +18,30 @@ import org.springframework.web.bind.annotation.RestController;
 final class DocumentController {
     private final DocumentMutations mutations;
     private final DocumentQueries queries;
+    private final AiService ai;
 
     /** Stores the independent command and query services behind the existing authority filter.
      * @param mutations serialized durable mutation coordinator
      * @param queries scoped reads and isolated previews
+     * @param ai bounded private AI cancellation coordinator
      */
-    DocumentController(DocumentMutations mutations, DocumentQueries queries) {
+    @org.springframework.beans.factory.annotation.Autowired
+    DocumentController(DocumentMutations mutations, DocumentQueries queries, AiService ai) {
         this.mutations = mutations;
         this.queries = queries;
+        this.ai = ai;
     }
+
+    /** Preserves isolated document tests without introducing AI authority.
+     * @param mutations existing scoped mutation coordinator
+     * @param queries existing document queries
+     */
+    DocumentController(DocumentMutations mutations, DocumentQueries queries) { this(mutations, queries, null); }
+
+    /** Drains conflicting background AI before an ordinary manual admission.
+     * @param document affected document, or null for workspace create
+     */
+    private void preempt(String document) { if (ai != null) ai.preempt(document); }
 
     /** Lists only the authenticated workspace's bounded document summaries.
      * @param request authenticated scoped request
@@ -75,6 +90,7 @@ final class DocumentController {
     @PostMapping(value = "/{id}/validate", consumes = "application/json")
     byte[] validate(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
         identifier(id);
+        preempt(id);
         return queries(request).validate(id, body(request));
     }
 
@@ -114,6 +130,7 @@ final class DocumentController {
     @PostMapping(value = "/{id}/analyze", consumes = "application/json")
     byte[] analyze(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
         identifier(id);
+        preempt(id);
         return queries(request).analyze(id, body(request));
     }
 
@@ -157,6 +174,7 @@ final class DocumentController {
     private byte[] mutation(HttpServletRequest request, String document, String operation)
             throws IOException, InterruptedException {
         if (request.getQueryString() != null) throw new IllegalArgumentException("Mutation query parameters unsupported");
+        preempt(document.equals("CREATE") ? null : document);
         return mutations(request).mutate(new DocumentRequest(document, request.getRequestURI(), operation, body(request)));
     }
 

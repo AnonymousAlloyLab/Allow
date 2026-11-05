@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "allow-ai-native-development-a0",
+  "date": "2026-11-05",
+  "status": "SPECIFICATION_REVIEWED_FINITE_POLICY_CHECKED_NOT_IMPLEMENTED",
+  "contract": {
+    "path": "spec/ai-native-development.json",
+    "sha256": "b405c6069ee3a85b0973bc63706a51defecc5f9d81ce3e55e929d4476d84d9ec"
+  },
+  "guide": {
+    "path": "docs/ai-native-development.md",
+    "sha256": "20622e9fabec9058ddc808cf7e020938f514b4194af4160da2c71d1554e73d88"
+  },
+  "council": {
+    "path": "gates/ai-native-v1/council-disposition.json",
+    "sha256": "860d7bc2b06903fd79fa4b01d7de00bc9acdcfafa42c6c8a6065b16d071a6cb3"
+  },
+  "formal": {
+    "path": "gates/ai-native-v1/formal-report.json",
+    "sha256": "cfe6cfec5c8c080b486a81131208c849ba7107453cb5d3c4b587cf5126cc5258"
+  },
+  "claim_map": {
+    "path": "gates/ai-native-v1/claim-map.md",
+    "sha256": "4eb305ef8cbd8d373396b099d81cbcf5465a53c580b80ad3828dee22d19b3a20"
+  },
+  "verification": {
+    "json_parse": "PASS",
+    "review_seats": {
+      "gpt-6.1-terra": 2,
+      "gpt-6.1-sol": 2,
+      "gpt-6-astra": 2
+    },
+    "all_final_reviews_same_contract": true,
+    "theorems": 37,
+    "two_clean_pinned_builds_match": true,
+    "formal_file_hashes_checked": 9,
+    "all_theorems_mapped": true,
+    "production_tracked_sources_unchanged": true,
+    "production_tests": "NOT_RUN; no implementation changes",
+    "runtime_ai_enabled": false,
+    "allow_provider_dispatch_performed": false,
+    "sql_or_deployment_mutations": false
+  },
+  "scope": "Requirements and finite policy abstraction only. Trusted receipt/clock/authority/validation/cost observations; no automatic correspondence from all JSON prose to Lean. No runtime implementation, solver or LLM correctness, distributed atomicity, confidentiality, provider billing, license or commercial proof.",
+  "model_refinements": [
+    "Prior model and builds preserved under formal-superseded-model1",
+    "Final proposal/receipt/result identity binding rejects arbitrary applied-result substitution",
+    "Artifact projection distinct from validation; validated TEXT_ONLY source allowed, unsupported typed projection denied"
+  ],
+  "implementation_order": [
+    "A1 fake-provider private explain/fill typed slot",
+    "A2 authorized existing-record retrieval and witness-linked repair",
+    "A3 one opt-in provider with consent and conservative accounting",
+    "A4 limited anonymous pilot after native/abuse/expiry gates, private corpus still off",
+    "A5 commercial candidate and optional parser-compatible enterprise persistence"
+  ],
+  "proposed_thresholds_not_measurements": {
+    "heldout_tasks": 120,
+    "minimum_source_families": 30,
+    "adversarial_cases": 96,
+    "schema_validity_target": 0.95,
+    "edit_correctness_target": 0.8,
+    "explanation_factuality_target": 0.9,
+    "proposal_p95_seconds": 20
+  },
+  "commercial_release": "NO_GO",
+  "open": [
+    "Exact A1 DTO schemas and implementation/refinement tests",
+    "Provider/model/terms/tariff and actual per-principal/global budgets",
+    "Per-origin disclosure/redistribution/commercial rights",
+    "Held-out task authoring, independent human review and supplemental Luna evaluation",
+    "Target performance, native IIS/WSL/browser/accessibility and abuse/recovery acceptance",
+    "Consenting customer pilot, useful-result costs and support/retention commitments"
+  ]
+}

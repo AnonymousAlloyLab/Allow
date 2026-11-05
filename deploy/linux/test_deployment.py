@@ -91,6 +91,18 @@ class Fixture:
 
 class DeploymentTests(unittest.TestCase):
     """Exercise actual entrypoints and lifecycle gates with side effects mocked."""
+    def test_ai_configuration_requires_private_and_closed_settings(self):
+        """Default OFF needs no runtime; anonymous AI and incomplete remote fail."""
+        self.assertEqual(self.f.trust.load_config(self.f.config()).get('ai_mode', 'OFF'), 'OFF')
+        path = self.f.config(ai_mode='FIXTURE', ai_ledger='/tmp/ai-private-ledger')
+        self.assertEqual(self.f.trust.load_config(path)['ai_mode'], 'FIXTURE')
+        path = self.f.config(access_mode='ANONYMOUS', ai_mode='FIXTURE', ai_ledger='/tmp/ai-ledger')
+        with self.assertRaises(ValueError):
+            self.f.trust.load_config(path)
+        path = self.f.config(ai_mode='REMOTE_ASSISTED', ai_ledger='/tmp/ai-ledger')
+        with self.assertRaises(ValueError):
+            self.f.trust.load_config(path)
+
     def setUp(self):
         """Allocate an independent manifest-complete fixture."""
         self.f = Fixture()
@@ -221,6 +233,33 @@ class DeploymentTests(unittest.TestCase):
                 self.assertEqual(len(popen.call_args.kwargs['env']['ALLOW_TOKEN']), 43)
                 self.assertEqual([call.args[1] for call in sql.call_args_list], ['start', 'stop'])
             self.assertFalse((runtime / 'launch.url').exists())
+
+    def test_ai_supervisor_disables_core_dumps_before_launch(self):
+        """The credential-bearing backend inherits a zero core-dump limit."""
+        config = self.f.trust.load_config(self.f.config(ai_mode='FIXTURE', ai_ledger='/tmp/fixture-ledger'))
+        runtime = self.f.trust.private_runtime(self.f.root)
+        backend = Mock()
+        backend.wait.return_value = 0
+        backend.poll.return_value = 0
+        events = []
+        with patch.object(self.f.service.signal, 'signal'), \
+                patch.object(self.f.service.resource, 'setrlimit', side_effect=lambda *args: events.append(('limit', args))), \
+                patch.object(self.f.service.trust, 'run'), \
+                patch.object(self.f.service.subprocess, 'Popen', side_effect=lambda *a, **kw: events.append(('spawn',)) or backend):
+            self.assertEqual(self.f.service.supervise(config, self.f.root, runtime), 0)
+        self.assertEqual(events[0], ('limit', (self.f.service.resource.RLIMIT_CORE, (0, 0))))
+        self.assertEqual(events[1], ('spawn',))
+
+    def test_ai_supervisor_refuses_launch_if_core_limit_fails(self):
+        """Failure to disable dumps cannot launch the backend or SQL helpers."""
+        config = self.f.trust.load_config(self.f.config(ai_mode='FIXTURE', ai_ledger='/tmp/fixture-ledger'))
+        with patch.object(self.f.service.resource, 'setrlimit', side_effect=OSError('denied')), \
+                patch.object(self.f.service.trust, 'run') as sql, \
+                patch.object(self.f.service.subprocess, 'Popen') as popen:
+            with self.assertRaises(OSError):
+                self.f.service.supervise(config, self.f.root, self.f.root)
+        sql.assert_not_called()
+        popen.assert_not_called()
 
     def test_clean_subprocess_environment_and_bytecode_flags(self):
         """Application helpers cannot inherit JVM/Python overrides or emit bytecode."""

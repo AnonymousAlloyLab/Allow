@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-05",
+  "mode": "LIVE_SYNTHETIC",
+  "model": "gpt-6.1-sol",
+  "endpoint": "https://api.openai.com/v1/responses",
+  "status": "REVIEW_READY",
+  "attempts": 1,
+  "code": null,
+  "http_status": 200,
+  "verification": "VALIDATED",
+  "projection": "TEXT_ONLY",
+  "elapsed_ms": 3983.031,
+  "reserved_micro_usd_this_operation": 50000,
+  "reserved_micro_usd_same_ledger_total": 100000,
+  "accounting": "conservative reservations retained, including prior failed dispatch; not observed billed amount",
+  "tariff": "published standard-tier assumptions, not independently verified account billing",
+  "production_workspace_or_corpus_access": false,
+  "credential_input": "non-echo terminal, process memory only",
+  "credential_persisted_by_implementation": false,
+  "provider_content_retained_in_report": false,
+  "automatic_network_retry": false,
+  "repair_needed": false,
+  "model_access_verified": true,
+  "prior_attempt_record": "gates/ai-langgraph-v1/live-fixture.json",
+  "conclusion": "The replacement credential successfully accessed the requested model. The actual LangGraph returned REVIEW_READY after the sandboxed Java worker validated the generated anonymous fixture source.",
+  "limits": [
+    "Single local end-to-end timing includes network, model generation, graph accounting and source verification; it is not a production latency benchmark.",
+    "TEXT_ONLY is a validated source projection, not a typed-block projection or proof of intended behavior.",
+    "Live repair was not needed; the bounded repair loop is covered by deterministic fixtures and real Java integration tests.",
+    "The existing ledger ceiling is now fully reserved. No additional dispatch or automatic reservation refund was performed.",
+    "Public website enablement, Spring/UI/RAG integration and commercialization remain separate gates."
+  ]
+}

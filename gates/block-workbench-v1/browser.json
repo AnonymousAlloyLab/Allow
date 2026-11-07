@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "browser": "ChatGPT in-app browser",
+  "environment": "isolated private loopback installation, AI OFF; authored synthetic fixtures only",
+  "final_fixture": "Reusable block comparison 06645b4a",
+  "viewport_restored": true,
+  "provider_calls": 0,
+  "accepted_revision_after_browser": 1,
+  "assets": {
+    "index-BOguKAvN.js": "ba551b5caf24b2baa0b70d76cbf2f90464d6cb295ea4dd3c36ab3a9a6efbdb6e",
+    "index-CwFyasVt.css": "5d0c6a989886c67ddfd307446acf6a03dbf17524f4ff7d92ffffaaea728e918e"
+  },
+  "desktop": {
+    "viewport_width": 1440,
+    "document_width": 1425,
+    "workbench_width": 1425,
+    "canvas_width": 991.484375,
+    "canvas_fraction_of_workbench": 0.6957785087719298,
+    "canvas_height": 669
+  },
+  "mobile": {
+    "viewport_width": 390,
+    "document_width": 375,
+    "overflowing_controls": 0
+  },
+  "checks": [
+    "Saved selected formula to memory-only shelf",
+    "Formula/relation choices filtered at selected slot",
+    "Hidden shelf entries explain that no saved block fits",
+    "Manage all choices exposes disabled substitutions and checked reasons",
+    "Native pointer drag inserts independent subtree IDs",
+    "Click insertion alternative verified",
+    "Copied formula compared with original gives bounded agreement; both positive and negative same-truth instances shown",
+    "Independent current block formulas produce all four truth categories",
+    "Both native local file choosers read authored .als fixtures",
+    "Parser-derived predicate selectors and shared parameter mapping",
+    "Opposite predicates show nonempty and empty shared set assignments",
+    "Different background facts explicitly rejected with friendly explanation",
+    "Changing scope removes old evidence and requests fresh comparison",
+    "Draft changes require fresh file inspection",
+    "Canvas occupies at least 65 percent of workbench width at 1440 pixels",
+    "Semantic colors accompanied by labels and icons",
+    "390 pixel controls, blocks and results have no page overflow",
+    "No browser error or warning logs in final inspected session",
+    "No automatic Save; accepted revision remains 1"
+  ],
+  "screenshots": {
+    "gates/block-workbench-v1/browser/local-model-comparison-final.jpg": "0c68932519198a26956b4b35310a3833bf3bd5d82d6d234aecd6cf6fb5de3571",
+    "gates/block-workbench-v1/browser/reusable-drag-final.jpg": "1342bfc3de7f616757a0b50b88fa49f1bca5733454fda5900cd7da4b0ff30368"
+  },
+  "limits": [
+    "Manual browser acceptance on one local browser; not a full assistive-technology/device matrix",
+    "Native Windows/IIS and external public acceptance remain OPEN",
+    "Earlier screenshot files without final suffix are iteration evidence, not final asset attestations"
+  ]
+}

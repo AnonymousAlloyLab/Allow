@@ -1,0 +1,34 @@
+{
+  "status": "CLOSED_FOR_LOCAL_IMPLEMENTATION",
+  "contract_sha256": "e29913d518c8e1e80690d4188219bbdf82fa425b6d53e13c4713040da643f95f",
+  "council": "gates/block-workbench-v1/council-disposition.json",
+  "required_seats": {
+    "gpt-6.1-terra": 2,
+    "gpt-6.1-sol": 2,
+    "gpt-6-astra": 2
+  },
+  "independent_implementation_reviews": [
+    {
+      "reviewer": "/root/blocks_astra_1",
+      "scope": "uploaded background matching, declaration remapping, parameter binding, frontend exact-context and final notice/reason changes",
+      "decision": "NO_REMAINING_CONCRETE_BLOCKER",
+      "review_only": true
+    },
+    {
+      "reviewer": "/root/blocks_astra_2",
+      "scope": "comparison solver, ownership/deadline, same-assignment replay and final disjoint binder namespaces",
+      "decision": "NO_REMAINING_CONCRETE_BLOCKER",
+      "review_only": true
+    }
+  ],
+  "findings_closed": [
+    "Unsafe worker cleanup now retains global capacity and rejects further admission",
+    "Existential helper ancestor and descendant binders no longer collide with joint free parameters",
+    "Preserved direct and transitive fact calls use separate background binder names",
+    "Filtered shelf does not falsely claim it is empty",
+    "Changed options clear evidence and reset completion notice",
+    "Background mismatch reasons reach the UI as actionable plain text"
+  ],
+  "refinement": "No specification relaxation; fixes preserve frozen contract semantics",
+  "trust_limit": "Source reviews and executable checks do not prove implementation refinement or commercial readiness"
+}

@@ -17,12 +17,23 @@ final class DocumentValidationContext {
             "assertion", "command", "binder", "expression");
     private final JsonNode artifact;
     private final JsonNode inventory;
+    private final long head;
+
+    /** Preserves the existing semantic fixture construction seam without head authority.
+     * @param artifact exact immutable fixture artifact
+     * @param inventory fixture identity kinds
+     */
+    private DocumentValidationContext(JsonNode artifact, JsonNode inventory) {
+        this(artifact, inventory, -1);
+    }
 
     /** Retains defensive copies without exposing mutable bridge response objects.
      * @param artifact exact immutable base content
      * @param inventory requested scoped historical ID kinds
+     * @param head observed current revision
      */
-    private DocumentValidationContext(JsonNode artifact, JsonNode inventory) {
+    private DocumentValidationContext(JsonNode artifact, JsonNode inventory, long head) {
+        this.head = head;
         this.artifact = artifact.deepCopy();
         this.inventory = inventory.deepCopy();
     }
@@ -142,7 +153,7 @@ final class DocumentValidationContext {
             if (JsonWire.encode(artifact).length > 1048576) throw new IOException("Context artifact exceeds limit");
             JsonNode inventory = data.path("ownedIdInventory");
             checkInventory(inventory, wanted);
-            return new DocumentValidationContext(artifact, inventory);
+            return new DocumentValidationContext(artifact, inventory, data.path("headObserved").longValue());
         } catch (IllegalArgumentException failure) {
             throw new IOException("Malformed validation context", failure);
         }
@@ -164,6 +175,11 @@ final class DocumentValidationContext {
             }
         }
     }
+
+    /** Returns the observed authorized current head.
+     * @return head revision in the same context snapshot
+     */
+    long head() { return head; }
 
     /** Supplies the exact base without exposing retained mutable state.
      * @return defensive base artifact copy

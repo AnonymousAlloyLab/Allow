@@ -1,0 +1,38 @@
+
+> allow-workbench@0.1.0 test
+> vitest run src/document/workspaceLifetime.test.tsx
+
+
+ RUN  v4.1.12 /home/augustus/Allow/frontend
+
+stderr | src/document/workspaceLifetime.test.tsx > document replacement removes the previous real DOM workspace and memory-only oracle
+Encountered two children with the same key, `authority:first`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+
+stderr | src/document/workspaceLifetime.test.tsx > document replacement removes the previous real DOM workspace and memory-only oracle
+Encountered two children with the same key, `authority:second`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+
+ ❯ src/document/workspaceLifetime.test.tsx (1 test | 1 failed) 142ms
+   × document replacement removes the previous real DOM workspace and memory-only oracle 142ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/document/workspaceLifetime.test.tsx > document replacement removes the previous real DOM workspace and memory-only oracle
+AssertionError: expected …(2) to have a length of 1 but got 2
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ documentLifetime src/document/workspaceLifetime.test.tsx:34:162
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  11:43:54
+   Duration  498ms (transform 146ms, setup 0ms, import 189ms, tests 142ms, environment 113ms)
+

@@ -38,6 +38,15 @@ final class ModulePrinter {
         return stripMarkers(out.toString());
     }
 
+    /** Renders one expression from this already checked module.
+     * @param id live expression identity
+     * @return standalone expression with resolved declaration names
+     */
+    String selected(String id) {
+        index();
+        return stripMarkers(expr(id));
+    }
+
     /** Indexes all reference names and expression nodes. */
     private void index() {
         for (String key : new String[]{"signatures", "fields", "predicates", "facts", "assertions"}) {

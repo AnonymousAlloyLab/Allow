@@ -2,6 +2,10 @@
 
 - [Current status](current-status.md): implemented features and acceptance limits.
 - [Repository guide](repository.md): active code, tests, proofs and artifacts.
+- [Block workbench](block-workbench.md): reusable subformulas, contextual choices,
+  shared-instance comparisons and local model-file predicate selection.
+- [Oracle parity](oracle-parity.md): bounded match/difference frames against an
+  uploaded reference predicate, with automatic freshness checks.
 - [AI system integration](ai-system-integration.md): private assistant workflow,
   explicit disclosure, verification and draft application.
 - [AI LangGraph component](ai-langgraph.md): isolated component and live fixture evidence.

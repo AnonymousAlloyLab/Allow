@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "contract_council": "council-disposition.json",
+  "implementation_reviews": [
+    {
+      "agent": "/root/parity_astra_1",
+      "scope": "Frontend lifecycle, evidence validation, scheduling and document switching",
+      "decision": "APPROVE"
+    },
+    {
+      "agent": "/root/parity_astra_2",
+      "scope": "Backend admission, validation, solver witness boundary and bounds",
+      "decision": "APPROVE"
+    }
+  ],
+  "closed_findings": [
+    {
+      "finding": "Numeric bounds could be coerced from strings/fractions/overflow",
+      "resolution": "Require integral in-range values and exact supported bounds; mutation regressions"
+    },
+    {
+      "finding": "Nested SAT witness structure needed closed validation",
+      "resolution": "Validate witness states, atoms, memberships, arity and tuple structure on backend and frontend"
+    },
+    {
+      "finding": "Same-input disable/enable and offline/online ABA could suppress refresh",
+      "resolution": "Include activation generation and test settled/inflight reactivation without unchanged failure retries"
+    },
+    {
+      "finding": "Duplicate React sibling keys retained old workspace/oracle DOM on document switch",
+      "resolution": "Distinct workspace/comparison keys and authority/document lifetime boundary; reproduced failure then added real DOM regression and browser switch acceptance"
+    }
+  ],
+  "limits": "Reviewer approvals are scoped engineering reviews, not commercial certification or formal production refinement."
+}

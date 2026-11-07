@@ -1,11 +1,48 @@
 # Current status and evidence
 
 This index describes the installed validation-context implementation and the
-checks completed through 5 November 2026. Implementation of the reviewed
+checks completed through 7 November 2026. Implementation of the reviewed
 [performance remediation plan](performance-remediation-plan.md) is underway.
 The source tree contains the new cleanup path, a disabled JVM optimization
 profile and a disabled prestarted-worker pool. Full acceptance is still in progress. The application remains a local development system,
 with commercial release **NO_GO**.
+
+## Oracle parity — 7 November 2026
+
+[Oracle parity](oracle-parity.md) frames a chosen current predicate against an
+uploaded reference: green for nonvacuous bounded agreement, red for a replayed
+difference, and neutral for incomplete, stale, unsupported or failed checks and
+empty contexts. It automatically checks completed edits without saving them.
+The exact contract received all six required approvals and 14 finite Lean policy
+theorems passed two matching isolated builds before implementation.
+
+The [parity report](../gates/oracle-parity-v1/report.json) records the independent
+implementation reviews, executable checks and local browser evidence. Earlier
+workbench package and report hashes remain historical; they do not include this
+feature. This update does not promote native deployment or commercial gates.
+
+## Reusable blocks and comparison — 6 November 2026
+
+The [block workbench](block-workbench.md) adds a document-local reusable shelf,
+exact-context substitution filtering and a larger canvas with semantic block
+colors. Comparisons search four truth categories with one shared assignment,
+either from two current formula blocks or from selected predicates in two local
+Alloy files. Uploaded models must have the same checked background; differing
+facts, helper semantics or parameter schemas produce an explicit refusal.
+
+The [contract](../spec/block-workbench.json) received six exact-input council
+approvals and a [27-theorem finite Lean supplement](../gates/block-workbench-v1/formal-report.json)
+with two matching builds before production edits. This does not prove concrete
+parser, solver, renderer or runtime correspondence. Implementation acceptance
+evidence is kept separately under `gates/block-workbench-v1/`; historical results
+below retain their original scope. No native deployment or commercial gate is
+promoted by these features.
+
+The [implementation report](../gates/block-workbench-v1/report.json) records
+372 passing backend tests, 189 passing frontend tests, 13 HTTP checks, manual
+browser acceptance and the audited R2 transfer package. Browser checks include
+actual reusable-block dragging, both local file pickers, shared assignments,
+freshness invalidation and a 390-pixel layout without horizontal overflow.
 
 ## Private AI integration — 5 November 2026
 

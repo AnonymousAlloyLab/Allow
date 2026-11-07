@@ -1,0 +1,128 @@
+{
+  "schema": 1,
+  "status": "IMPLEMENTED_LOCAL_ACCEPTANCE_PASS",
+  "closure_status": "NOT_A_FULL_MECHANICAL_CLOSURE_RUN",
+  "scope": [
+    "Reusable session-local subformula shelf with fresh clone identities",
+    "Exact destination filtering for constructors, references and reusable entries",
+    "Four-category same-assignment SAT4J comparison of current formula blocks",
+    "Two ephemeral local Alloy uploads with independently parsed predicate selection",
+    "Conservative background and positional parameter-schema match",
+    "Larger responsive drag-and-drop canvas with semantic colors"
+  ],
+  "contract_sha256": "e29913d518c8e1e80690d4188219bbdf82fa425b6d53e13c4713040da643f95f",
+  "formal": {
+    "theorems": 27,
+    "matching_clean_builds": 2,
+    "custom_axioms": 0,
+    "meaning": "Finite policy model only; production-code refinement remains trusted"
+  },
+  "tests": {
+    "backend": {
+      "tests": 372,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "frontend": {
+      "tests": 189,
+      "files": 22,
+      "failures": 0
+    },
+    "http_checks": 13,
+    "browser_checks": 19,
+    "package_evidence_tests": 3,
+    "style": "PASS: Java Checkstyle and frontend inventory 299 files / 3022 callables / 0 violations"
+  },
+  "release": {
+    "archive": "artifacts/releases/allow-iis-wsl-blocks-20261106-r2.zip",
+    "sha256": "fea58521d1aebd0bb88532320743c6c5066872e3b201bca1ad77e859e6a68c72",
+    "bytes": 78940769,
+    "manifest_members": 404,
+    "native_target_acceptance": "OPEN",
+    "deployed": false
+  },
+  "source_tree": {
+    "branch": "codex/block-workbench",
+    "base_commit": "ba674dcb7201d24f38e5d52473c4ca7fa0928521",
+    "uncommitted_input_hashes": {
+      "README.md": "a195d44f93944cebbf30cff2ee7095a2412475dc4907d1f618c4491a4c0a21a0",
+      "backend/src/main/java/dev/allow/backend/ComparisonResult.java": "836f89a6b330e16902d093ce3604b0de8d6435788c001e1fe450c6de21eaf60f",
+      "backend/src/main/java/dev/allow/backend/DocumentComparison.java": "89789ac85eea135137ee19bbe6a452a91a71b69895f38b4b2ed1c5da40216023",
+      "backend/src/main/java/dev/allow/backend/DocumentController.java": "0e9e77b4eca5f0fc88e77690142002745ff2048f2e9dad752cfced298be1950b",
+      "backend/src/main/java/dev/allow/backend/DocumentQueries.java": "848240c1603fcddbc993e64eae4cbd907fdee6effbfa461a6fcb9b7dbf6ce1f7",
+      "backend/src/main/java/dev/allow/backend/DocumentValidationContext.java": "a02be0e76c9961fce64b4ad4b822186950973a6ae4927b41c8978d0fac74d376",
+      "backend/src/main/java/dev/allow/backend/DocumentWorker.java": "3a512fb0adb9407b8f92abb239622c2de3d086e8c5eec4d66f4e830491547def",
+      "backend/src/main/java/dev/allow/backend/PublicAccess.java": "ca628a23959dd99fc001a8c5aa8571f0222a07771e111047506979eca87bb203",
+      "backend/src/main/java/dev/allow/document/ComparisonDisplay.java": "f74d379026875df943781b3957ed691d2bc33fcfd592467e39dbb0a15f65f4f4",
+      "backend/src/main/java/dev/allow/document/ComparisonEngine.java": "ccb6933c2906934f56a960faa46ecd6ca8322e5a94670c6682973bab15fd8a57",
+      "backend/src/main/java/dev/allow/document/ComparisonModels.java": "ca790f5a64f14b3648d9eb7c0728c1a032414204abc57a602d7cea9536a17082",
+      "backend/src/main/java/dev/allow/document/ComparisonModelsMerge.java": "1230035fa10cca1e832426b75d5151296c0eaed380ef61baf5083a7f07aa1313",
+      "backend/src/main/java/dev/allow/document/ComparisonModelsSupport.java": "c9725e11740ba9b211359945d72720059f3ebece7bb15563f3a670bfeb9ef332",
+      "backend/src/main/java/dev/allow/document/ComparisonSolver.java": "4e0f9c5f23cf9825ea6a2f6960cf6e799f9d8fd143b91436d128d1d4a12ffa7a",
+      "backend/src/main/java/dev/allow/document/ComparisonSyntax.java": "7a16852fd634f49e5e0ec3fa7e94795d42d9a1b44f19a62433eae19b475ea5c9",
+      "backend/src/main/java/dev/allow/document/ModulePrinter.java": "7ac361f01274de0fc7e1850d5373af712b2994526e6be565f5c29fb9580ad974",
+      "backend/src/main/java/dev/allow/worker/DocumentWorkerMain.java": "c420be87717aa514ea5effffed8905cc43dbf0f9bd82606baca3494e1b3c5e1c",
+      "backend/src/main/java/dev/allow/worker/WitnessProjector.java": "a688bb559dc3dda00c5bf351a542f6c52f3a3d455ae519758329b2b9af99d7d3",
+      "backend/src/test/java/dev/allow/backend/DocumentComparisonAdmissionTest.java": "a2ae8210cc97fe291368e5b9bc4a00e0863b30759a757624c1cbf5d48d971440",
+      "backend/src/test/java/dev/allow/backend/DocumentComparisonWorkerTest.java": "ae096573db879cd2b5bc12cf669648fe4cb69b01bddb50c2cb043f977e0f2316",
+      "backend/src/test/java/dev/allow/document/ComparisonModelsTest.java": "d62e809493963c6122cac74a1c87a400a94d73edb0c80189b5d44288487a231e",
+      "backend/src/test/java/dev/allow/document/ComparisonSolverTest.java": "8ef5710ec236244af2408f1241da39c229b1d03412839bd26c59f88c168d9edd",
+      "deploy/linux/test_block_package.py": "ef50ce753924fc014f69dfe051757eb6949bcc1c49f74ddda8e1d40ea30b5d80",
+      "docs/README.md": "b13a032a5b8c5665ada3c5db081a671b9c3a7a3e02badfd729118081253abd6b",
+      "docs/block-workbench.md": "05ab62775dcfe0b2a1ec89403b3d3e55166863308b7c5e0175df4552df3365fe",
+      "docs/current-status.md": "6dad1808b7143efb3a7fe17b93451a3515fbeec793ce45092a909588c8c21120",
+      "formal/Allow/BlockWorkbench.lean": "dd395b653ddd37ff7f0a5f0e05fe4c7391b0874f6d64f246d814a3a652108e47",
+      "frontend/src/DocumentWorkbench.tsx": "91e75bacf51636927a74e5ee7ca68d4b9133c4890183aac89554aa5251ed8924",
+      "frontend/src/document/BlockComparisonPanel.tsx": "ddc2bc1db1b0daf42b5ac2434f60a9e3b586e6c9505f5b605c84a0dd2c0bb346",
+      "frontend/src/document/BlockComparisonResults.tsx": "85db3fe7407e81e7237fef9376ade46810a05e2e67334fca8dc36a5704cb88ae",
+      "frontend/src/document/BlockShelf.tsx": "1d5d7e4621a96c26b4004564fe8be4a92d5c1d003598659dca6bdef8fe1b06c5",
+      "frontend/src/document/ExpressionEditor.tsx": "6e42653b19f61bffdfbd74fac7dc7f4798640a5294090fc6af28c6a8c5a5e42e",
+      "frontend/src/document/blockComparison.ts": "4dbdc72284e428d63bf199bd83146c2b28f8a34acf6065d5f46cb39079c37d85",
+      "frontend/src/document/blockInventory.ts": "83f7ae08fd14a4ca968b01462d64351ac7869bae500c1c6055933203df31c045",
+      "frontend/src/document/blockLibrary.ts": "db11ec3ddb76e9f733af885645ed3c9748ececc5c63bd52fcb646e3855fde7e3",
+      "frontend/src/document/blockWorkbench.test.ts": "9f3ba08e52c83422e816bca7295c1c1ca34fe7d5df7866ea282141d2ae540cf3",
+      "frontend/src/document/components.test.tsx": "14d09a0843b55a35a5a1fa6abdecae3772347e9238d22472b875a42d57df2e29",
+      "frontend/src/document/controller.ts": "aa317db06c511e077ee697abd84d09c9457ebbf9b2ea67636cc454107d473d38",
+      "frontend/src/document/gesture.ts": "b839dbe9003636335f43d27e5edaf8ccbcc49b43f1de2d194eb529b091bf49a5",
+      "frontend/src/document/styles.css": "61bcc859ed76b45ddc2bd9af7586fd98dda5a57e778369d4d2628492502f90fa",
+      "frontend/src/document/useBlockComparison.ts": "6b93ff0c7107a37253b4e4144974b7e7ff442880490c32bd2d7c4241965f4a09",
+      "scripts/package_iis.py": "be1c772675dec138dc4947aad1b874483c1b7dbf7cbc92112446aed9334e9cbf",
+      "scripts/test_block_workbench_http.py": "eebdc048e01477b6febf6af6e26db28710c1cf88b35e298b203091a8e76d3735",
+      "spec/block-workbench.json": "e29913d518c8e1e80690d4188219bbdf82fa425b6d53e13c4713040da643f95f"
+    }
+  },
+  "evidence_sha256": {
+    "gates/block-workbench-v1/formal-report.json": "ef28cf4fbcfb46de5d013b85c902a28f9cbe0a5c1f87f536ce15f2b70a92f262",
+    "gates/block-workbench-v1/council-disposition.json": "1da3e071cbd20d09ba6d7d9967c7bb1bf394ade0adfb3eec865bd8c36b0552d7",
+    "gates/block-workbench-v1/backend-report.json": "f4f37e1c4e8afe0fdcdc0ca36dc92260cf293060172595af4b4504c12b60f17e",
+    "gates/block-workbench-v1/backend/full-suite.log": "51b4708bcb44bfb3b0705f2e84de152203f7ed4e19b3f16102342aba2ee60df6",
+    "gates/block-workbench-v1/backend/final-background-focused.log": "8931fcda8f1c337305fbf9a81c20f246f33d5db43f893e81b9d0bd02c1cd58bf",
+    "gates/block-workbench-v1/frontend/checks.json": "c5bfb25cec8f44a06a3a442e90c2d9a3938fb12506debbae8515c40529675a24",
+    "gates/block-workbench-v1/frontend/tests.log": "3aaaa4c7f19ce4bb5cdcaf98d49755c1067da2a9f1edb559e393100a3df7f521",
+    "gates/block-workbench-v1/frontend/build.log": "ded0de54d2ea238792081c09cf5a7cebc4766860a4a45c62d2a11edb24daf890",
+    "gates/block-workbench-v1/frontend/style.log": "246bbc0e1786740ed7391e8f42b9dfe2e427cb76b5b4fcc290546316e68a31b1",
+    "gates/block-workbench-v1/http-final.json": "5454d188d24cdd12a734666387f35be3bc7f0fb52f040b61658173abd36d716a",
+    "gates/block-workbench-v1/browser.json": "a843d036de20b8c30ce0100b09ccc3dc324eb90fdc07b97ce3c736c0cf22ddc0",
+    "gates/block-workbench-v1/review-closure.json": "dcc0d640c38910bf5f7760718320b0cfd594062e4c849792a2c4de8870f232bd",
+    "gates/block-workbench-v1/package-audit.json": "f5c855a44bd659be286f25737b1e2ea0fca931b0a835f781c197830cfdcc8831",
+    "gates/block-workbench-v1/package-tests.log": "869ea8047d0ae89dddb808470175fa3bdce5d6007a92e195f2d7e7e762e1f49f",
+    "gates/block-workbench-v1/staging-cleanup.json": "9824e040a3bd5fcddbfc725b19b7e1cbc159f6746cf2a9207434254a65d15c68"
+  },
+  "environment": {
+    "provider_calls": 0,
+    "private_reference_corpus_copied": false,
+    "sql_gateway": "Existing SQLeanParser-backed store operations; no new direct SQL or migration",
+    "temporary_processes": "Stopped; staging-cleanup.json",
+    "browser_viewport": "Restored; agent-created test tab closed"
+  },
+  "limits": [
+    "Comparison is bounded by reported facts, scope, bitwidth and assignment rules; no unbounded equivalence claim",
+    "Local model files require matching supported background and compatible ordered parameter schemas",
+    "Existing supported source grammar restrictions remain, including duplicate binder spelling rejection",
+    "Shelf and uploads are memory-only and do not automatically Save or enter the corpus",
+    "Manual browser checks are not exhaustive assistive-technology/device acceptance",
+    "No new 4 vCPU / 8 GiB performance acceptance claim",
+    "Native Windows/WSL/IIS, public exposure and commercial gates remain OPEN / NO_GO"
+  ]
+}

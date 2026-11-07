@@ -1,0 +1,75 @@
+{
+  "id": "allow-oracle-parity-v1",
+  "date": "2026-11-07",
+  "extends": "spec/block-workbench.json",
+  "goal": "Opt-in automatically refreshed bounded equivalence frame for one completed workbench predicate against one uploaded oracle predicate.",
+  "semantics": {
+    "green": "Both directional difference queries UNSAT and at least one same-truth category SAT; all four outcomes completed and validated. Label bounded match, never unrestricted equivalence.",
+    "red": "At least one directional difference query SAT, replayed on a shared assignment with opposing truth values, all four outcomes completed and validated. Label bounded difference.",
+    "neutral": "Disabled, offline, incomplete or source-authoritative draft, stale evidence, pending checks, unsupported background/schema, any failure, malformed evidence, or all four categories UNSAT (vacuous context).",
+    "query": "Retain shared background facts; compare candidate XOR oracle under common uniform scope 1..5, bitwidth4, maxseq3 using existing four-category SAT4J mechanism. SAT of a matching example alone never grants green.",
+    "oracle": "User-designated reference only; no claim of its correctness. Identical normalized supported background and positionally matched ordered parameter schemas required. Existing selected-predicate background dependency rejection applies."
+  },
+  "ui": {
+    "binding": "One memory-only UTF-8 .als oracle file <=32768 bytes, parser-derived oracle predicate selection, current predicate identity selector, scope, explicit parity-mode enable and manual Check parity. No persistence or external LLM disclosure.",
+    "frame": "Frame the entire selected predicate body in the block forest; green/red with visible text and bounds, neutral otherwise. Never frame unrelated predicates or imply committed validity.",
+    "refresh": "At most one parity request active in the view; debounce complete content/options changes at least350ms, coalesce to latest, never automatically retry unchanged failures. Explicit manual retry allowed. Validation and comparisons retain existing global/public admission, no new worker pool.",
+    "freshness": "Bind result to authority, documentId, draftId, draftEpoch, contentGeneration/content snapshot, baseRevision, accepted artifact/policy/dependency, target predicate ID, exact oracle hash+selected predicate, scope, and enable/online state. Render-time exact-key check removes old color immediately on changes. Disabling clears binding evidence; pending callbacks cannot restore it.",
+    "lifecycle": "Document or authority switch/unmount clears oracle, selection and evidence, cancels browser waits. Client abort does not release server capacity before bounded worker cleanup. Local upload asynchronous file reads also use generation and lifetime guards.",
+    "incomplete": "Requires entire candidate module complete and supported, including selected predicate; incomplete surroundings cannot be silently ignored. Source drafts remain neutral. Oracle descriptor remains reusable for edits in same authority/document; backend reparses exact source on every parity request."
+  },
+  "backend": {
+    "route": "POST /api/v1/documents/{id}/oracle-parity",
+    "body": [
+      "draftId",
+      "draftEpoch",
+      "baseRevision",
+      "artifactId",
+      "candidate",
+      "targetId",
+      "oracle",
+      "scope"
+    ],
+    "candidate": "BLOCK_SUPPORTED module and presentationCopies, independently DocumentEngine validated inside worker before source synthesis. targetId is a predicate declaration ID, remapped by validated ID mapping, never an arbitrary expression or name.",
+    "oracle": [
+      "source",
+      "sourceHash",
+      "predicate"
+    ],
+    "execution": "Existing owned default worker; aggregate10s includes authorization context reads, candidate validation, both source parsing/background matching, four sequential solves, replay and publication fence; global/public costly capacity held through cleanup; unsafe cleanup quarantines.",
+    "response": "Existing exact request hash/authority echo and four validated categories plus exact original targetId and oracle hash/predicate; checked candidate source hash and selected name, shared correspondence, bounds, classification. Strict closed successful payload validation before publication.",
+    "mutation": "No Save, corpus/vector writes, persistent oracle cache, direct SQL, new provider calls or new database migration. Existing SQLeanParser gateway only."
+  },
+  "proof_scope": {
+    "prove": [
+      "Difference-query interpretation with Boolean truth categories",
+      "Green requires both directional UNSAT and nonvacuous same-truth SAT",
+      "Red requires directional SAT",
+      "Unknown/failure/vacuity cannot grant green",
+      "Stale/disabled/incomplete/offline evidence yields neutral",
+      "Changing bound identity invalidates publication",
+      "Advisory checks preserve accepted revision"
+    ],
+    "trusted": [
+      "Concrete parser/type checker/solver/transport refinement",
+      "Existing background matcher and assignment replay",
+      "Hash computation, React rendering and resource cleanup"
+    ],
+    "not_proved": [
+      "Production implementation correctness",
+      "Unbounded equivalence",
+      "Uploaded oracle correctness",
+      "Commercial readiness"
+    ]
+  },
+  "acceptance": [
+    "Six required reviewers approve exact contract before production edits",
+    "Clean Lean proof and axiom audit before production edits",
+    "Real SAT4J same, opposite, inconsistent-facts, parameter and mismatched-background tests",
+    "Strict endpoint auth/body/source hash/target identity/stale-context tests",
+    "Frontend tests for verdict truth table and late responses after edits/disable/oracle replacement",
+    "Actual browser oracle upload, target selection, enable, green equality, red witness, incomplete neutral, stale color clearing and frame rendering",
+    "Full relevant regression and 30-line/documentation checks; preserve previous gate evidence as historical"
+  ],
+  "commercial": "No native Windows/IIS/public/commercial gate promotion; local development feature. Existing upload privacy and supported grammar limits apply."
+}

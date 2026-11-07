@@ -1,0 +1,26 @@
+{
+  "contractSha256": "32a9af30e99a53b4020a52ab3d34ac8044a039a1f9ca492126b6b6b4638d554d",
+  "backendStatus": "PASS",
+  "focused": {
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "log": "focused.log"
+  },
+  "full": {
+    "tests": 379,
+    "failures": 0,
+    "errors": 0,
+    "log": "full.log"
+  },
+  "checks": [
+    "Maven Checkstyle including Javadoc and 30 physical method lines",
+    "Real SAT4J equality/difference/vacuity/shared parameter queries",
+    "Independent candidate validation and fresh draft target-ID remapping",
+    "Reject expression/name target substitution, incompatible schema/background, incomplete module",
+    "Reject unknown request/result fields, source/hash substitution and altered shared assignments",
+    "Reject coerced/overflowing numeric bounds and malformed witness metadata/state"
+  ],
+  "review": "Astra2 final backend re-review CLEAR / APPROVE after strict numeric and witness refinements",
+  "writes": "Backend Java and new gate logs only; no persistent oracle, database migration or document save added"
+}

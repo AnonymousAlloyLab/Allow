@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "driver": "Connected in-app browser through CUA",
+  "origin": "private disposable loopback installation",
+  "frontend_assets": {
+    "frontend/dist/assets/index-DCnGtaxG.js": "d948e1f33ed616e2a118e5d0c385419f74ec660ea79843649f49c444179b3b4c",
+    "frontend/dist/assets/index-zgvGD98t.css": "4b069bc1c0d7bb684a9c332d87420d2f1da95997fe0b20541914abcb01229886"
+  },
+  "final_build_observations": [
+    "Native oracle .als upload, parsed Reference selection and Candidate declaration selection",
+    "Automatic green match at scope 3, bitwidth 4, maxseq 3",
+    "Document switch clears oracle and frame; exactly one workspace and comparison panel remains",
+    "Vacuous shared context gives explicit no-admissible-instances notice and neutral frame",
+    "Return to ordinary document clears old state and permits a fresh green match",
+    "Replacing some with no creates an unresolved hole: neutral frame and disabled parity action",
+    "Filling items into the typed slot completes the unsaved predicate and automatically produces a red difference frame",
+    "Expanded evidence shows both directional SAT witnesses with replayed opposing truths and shared assignments",
+    "Viewport 390x844: document scroll width 375 and frame edges 34..341; override reset",
+    "No captured console warnings or errors",
+    "Test tab closed; saved fixture revision remains 1"
+  ],
+  "earlier_iteration_observations": [
+    "Disable/re-enable refreshes evidence",
+    "Scope change neutralizes previous result before fresh result",
+    "Oracle replacement clears old frame; matching replacement turns green",
+    "Background mismatch remains neutral with unsupported notice"
+  ],
+  "earlier_iteration_limit": "These additional interactions preceded the final React lifetime-key repair; lifecycle behavior was rechecked on the final build and covered by final regression tests.",
+  "screenshots": {
+    "gates/oracle-parity-v1/browser/green-match.jpg": "a51f27afeb213ebb07559217922499628127a5a0f9a94b96b6ca698c2d5365e4",
+    "gates/oracle-parity-v1/browser/red-difference.jpg": "429dcc52e005e1f27bb6320e143d0a8d333316694f51876d215bc15c33334837"
+  },
+  "limits": [
+    "Manual authored-fixture acceptance, not exhaustive browser coverage",
+    "No public IIS/WSL browser acceptance or production hardware benchmark"
+  ]
+}

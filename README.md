@@ -9,6 +9,12 @@ completed production platform.
 Start with the [current status and evidence index](docs/current-status.md),
 [document operations](docs/document-stage.md), and
 [performance remediation plan](docs/performance-remediation-plan.md).
+The [visual block workbench](docs/block-workbench.md) adds a reusable subformula
+shelf, contextual substitution choices, and bounded A/B instance comparisons,
+including predicate selection from two local model files. The larger canvas uses
+semantic colors while retaining keyboard controls and explicit model saving.
+[Oracle parity](docs/oracle-parity.md) adds automatically refreshed bounded
+match/difference frames against an uploaded reference predicate.
 The [Windows/WSL deployment candidate](docs/wsl-anonymous-deployment.md) targets
 `https://allow.alloy4.fun` on Windows 10 21H2 IoT Enterprise with WSL2 Ubuntu 24.04
 (operator-confirmed distribution name `Ubuntu-24.04`).

@@ -1,0 +1,34 @@
+{
+  "status": "FINITE_POLICY_PROVED",
+  "contract_sha256": "32a9af30e99a53b4020a52ab3d34ac8044a039a1f9ca492126b6b6b4638d554d",
+  "proof_sha256": "d9c433f35ef75d3d7454856fdd32d1e02fa1a0f4d16720ce16a390da6ef9b8b1",
+  "theorems": 14,
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "builds": [
+    {
+      "directory": "gates/oracle-parity-v1/formal-1",
+      "hashes": {
+        "OracleParity.lean": "d9c433f35ef75d3d7454856fdd32d1e02fa1a0f4d16720ce16a390da6ef9b8b1",
+        "OracleParity.olean": "edb08574a34714d35407ddd6f57abb4d387bcb00e0fdf62a3942b49ed95d811e",
+        "axioms.log": "3e066836c32f02940fb5ccedc75fbbec30cbbbec0dc5b605712ff750262bdaca",
+        "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exit_code": 0
+    },
+    {
+      "directory": "gates/oracle-parity-v1/formal-2",
+      "hashes": {
+        "OracleParity.lean": "d9c433f35ef75d3d7454856fdd32d1e02fa1a0f4d16720ce16a390da6ef9b8b1",
+        "OracleParity.olean": "edb08574a34714d35407ddd6f57abb4d387bcb00e0fdf62a3942b49ed95d811e",
+        "axioms.log": "3e066836c32f02940fb5ccedc75fbbec30cbbbec0dc5b605712ff750262bdaca",
+        "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "exit_code": 0
+    }
+  ],
+  "axioms": [
+    "propext"
+  ],
+  "custom_axioms": [],
+  "limits": "No concrete parser/solver/transport/UI/refinement/commercial proof; see formal-claim-map.md."
+}

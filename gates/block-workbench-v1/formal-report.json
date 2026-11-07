@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "id": "allow-block-workbench-v1",
+  "status": "FINITE_SUPPLEMENT_PROVED",
+  "closure_status": "NOT_A_FULL_CLOSURE_RUN",
+  "contract": {
+    "path": "spec/block-workbench.json",
+    "sha256": "e29913d518c8e1e80690d4188219bbdf82fa425b6d53e13c4713040da643f95f",
+    "seat": "Terra2",
+    "decision": "APPROVE"
+  },
+  "proof": {
+    "path": "formal/Allow/BlockWorkbench.lean",
+    "sha256": "dd395b653ddd37ff7f0a5f0e05fe4c7391b0874f6d64f246d814a3a652108e47",
+    "theorem_count": 27,
+    "theorems": [
+      "Allow.BlockWorkbench.clone_external",
+      "Allow.BlockWorkbench.clone_owned",
+      "Allow.BlockWorkbench.clone_fresh",
+      "Allow.BlockWorkbench.clone_bound_consistent",
+      "Allow.BlockWorkbench.clone_distinct",
+      "Allow.BlockWorkbench.rejection_atomic",
+      "Allow.BlockWorkbench.never_accepts",
+      "Allow.BlockWorkbench.success_requires_guards",
+      "Allow.BlockWorkbench.unavailable_rejected",
+      "Allow.BlockWorkbench.incompatible_rejected",
+      "Allow.BlockWorkbench.category_both",
+      "Allow.BlockWorkbench.category_left",
+      "Allow.BlockWorkbench.category_right",
+      "Allow.BlockWorkbench.category_neither",
+      "Allow.BlockWorkbench.no_difference_agreement",
+      "Allow.BlockWorkbench.agreement_requires_both_unsat",
+      "Allow.BlockWorkbench.timeout_not_agreement",
+      "Allow.BlockWorkbench.positive_unresolved",
+      "Allow.BlockWorkbench.positive_partition",
+      "Allow.BlockWorkbench.matched_requires_background_and_parameters",
+      "Allow.BlockWorkbench.dependency_rejected_left",
+      "Allow.BlockWorkbench.dependency_rejected_right",
+      "Allow.BlockWorkbench.publish_exact_request",
+      "Allow.BlockWorkbench.publish_matched",
+      "Allow.BlockWorkbench.changed_hash_cannot_publish",
+      "Allow.BlockWorkbench.changed_predicate_cannot_publish",
+      "Allow.BlockWorkbench.matched_positive"
+    ]
+  },
+  "claim_map": {
+    "path": "gates/block-workbench-v1/claim-map.md",
+    "sha256": "b5c90292a9ae5df5c22198b01822a4807c811a9240e9565cec3227270101c126"
+  },
+  "toolchain": "Lean 4.34.1 (leanprover/lean4:v4.34.1)",
+  "builds": [
+    {
+      "directory": "gates/block-workbench-v1/formal-1",
+      "source_sha256": "dd395b653ddd37ff7f0a5f0e05fe4c7391b0874f6d64f246d814a3a652108e47",
+      "olean_sha256": "e486ee0ca06d5966426fc0f749682558e9047ecd9a17b2584ee91081c5020f71",
+      "audit_source_sha256": "7f40829d4bb63ffa109a57f20235416a6b45589ac91155ae0b8b52f822da9233",
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axiom_log_sha256": "10ce2da77a2d78532b4a24255eb01a4ef9c350eb99a9a3276263770f580ed97a",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0
+    },
+    {
+      "directory": "gates/block-workbench-v1/formal-2",
+      "source_sha256": "dd395b653ddd37ff7f0a5f0e05fe4c7391b0874f6d64f246d814a3a652108e47",
+      "olean_sha256": "e486ee0ca06d5966426fc0f749682558e9047ecd9a17b2584ee91081c5020f71",
+      "audit_source_sha256": "7f40829d4bb63ffa109a57f20235416a6b45589ac91155ae0b8b52f822da9233",
+      "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "axiom_log_sha256": "10ce2da77a2d78532b4a24255eb01a4ef9c350eb99a9a3276263770f580ed97a",
+      "compile_exit_code": 0,
+      "axiom_audit_exit_code": 0
+    }
+  ],
+  "checks": {
+    "two_fresh_isolated_directories": true,
+    "matching_olean": true,
+    "matching_axiom_inventory": true,
+    "no_sorry_or_custom_axioms": true
+  },
+  "axioms": {
+    "observed": [
+      "propext",
+      "Quot.sound"
+    ],
+    "custom": [],
+    "sorryAx": false
+  },
+  "trusted": [
+    "Lean 4.34.1 kernel and Std",
+    "host compiler and filesystem",
+    "SHA-256 binding",
+    "allocator freshness and injectivity hypotheses",
+    "checker and implementation refinement",
+    "solver semantics and completeness",
+    "parser, transport, runtime cleanup and browser correspondence",
+    "file hash computation, alpha-normalization, background matching and transitive dependency analysis"
+  ],
+  "excluded": [
+    "unbounded equivalence",
+    "implementation correctness",
+    "full mechanical closure",
+    "commercial acceptance"
+  ]
+}

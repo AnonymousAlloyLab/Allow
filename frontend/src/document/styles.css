@@ -86,3 +86,72 @@
 .document-assistant label {display:block;margin:.5rem 0;}
 .document-assistant textarea {display:block;width:100%;min-height:5rem;}
 .assistant-source-comparison {display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1rem;}
+/* Visual editing is the primary surface; supporting source/declarations are explicit drawers. */
+.document-layout {display:flex;flex-direction:column;gap:14px;align-items:stretch}
+.document-workbench .visual-authority {padding:0;border:0;margin:0;min-width:0}
+.document-layout .document-blocks {display:grid;grid-template-columns:minmax(190px,24%) minmax(0,1fr);grid-template-rows:auto auto auto 1fr;gap:14px;align-content:start;margin:0;min-width:0}
+.document-blocks>.block-shelf {grid-column:1;grid-row:2/5;max-height:80vh;position:sticky;top:12px;overflow:auto;box-sizing:border-box}
+.document-blocks>.drag-feedback {grid-column:2;grid-row:2;height:auto;min-height:44px}
+.document-blocks>.document-actions {grid-column:2;grid-row:3}
+.document-blocks>.block-canvas {grid-column:2;grid-row:4;min-height:65vh;box-sizing:border-box;min-width:0;overflow:auto}
+.document-workbench .shelf-choice {min-width:0;width:100%}
+.document-workbench .shelf-choice .palette-card {width:100%;box-sizing:border-box;white-space:normal}
+.document-workbench .shelf-choice small {display:block;font-size:10px;overflow-wrap:anywhere}
+.document-workbench .block-shelf h3 {margin:18px 0 8px}
+.document-workbench .block-shelf p {font-size:11px}
+.document-workbench .support-panel {padding:10px 18px;border:1px solid #b9cdbd;border-radius:9px;background:#fff;min-width:0}
+.document-workbench .support-panel>summary {font-size:14px;min-height:30px}
+.document-workbench .support-panel section {margin:8px 0;box-shadow:none}
+.document-workbench .document-source {position:static}
+.document-workbench .source-authority {margin:0}
+.document-workbench [data-block-kind=formula] {background:#e6efff;border-color:#688bc8;color:#173e77}
+.document-workbench [data-block-kind=relation] {background:#f0e8ff;border-color:#9874c5;color:#50317a}
+.document-workbench [data-block-kind=reference] {background:#dff5ef;border-color:#579c8b;color:#1d5849}
+.document-workbench [data-block-kind=quantifier] {background:#fff0cf;border-color:#b18a32;color:#62470e}
+.document-workbench [data-block-kind=hole] {background:#f5f0e8;border-color:#9a8770;color:#594b3c}
+.document-workbench .fit-compatible {background:#d9f2d6;border-color:#317b39}
+.document-workbench .fit-incompatible {background:#ffebe8;border-color:#ad453b}
+.document-workbench .fit-unresolved {background:#fff2cc;border-color:#957119}
+.document-workbench .fit-unavailable {background:#eee;border-color:#777}
+.document-workbench .block-comparison {min-width:0;margin:0}
+.file-comparison-arms,.comparison-categories {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.file-comparison-arms>fieldset,.comparison-category {min-width:0;overflow-wrap:anywhere}
+.comparison-category {border:1px solid #b3c7b9;padding:14px;border-radius:8px;background:#f7faf4}
+.comparison-category ul {padding-left:20px;max-height:360px;overflow:auto}
+.comparison-category small,.comparison-results p {overflow-wrap:anywhere}
+.live-comparison-arms {display:flex;align-items:end;gap:8px;flex-wrap:wrap}
+.live-comparison-arms label {flex:1;min-width:180px}
+.block-comparison input[type=file] {box-sizing:border-box;width:100%}
+@media(max-width:760px){.document-layout .document-blocks{grid-template-columns:minmax(150px,27%) minmax(0,1fr);gap:8px}.document-workbench .document-blocks{padding:12px}.file-comparison-arms,.comparison-categories{grid-template-columns:1fr}.document-blocks>.block-shelf{padding:7px}.document-workbench .block-node,.document-workbench .block-slot{padding:8px;gap:4px}.block-node .block-type,.block-slot .block-type{margin-left:0}}
+@media(max-width:520px){.document-layout .document-blocks{display:flex;flex-direction:column}.document-blocks>.block-shelf{position:static;max-height:330px;width:100%}.document-workbench .block-shelf .block-palette{display:flex;flex-direction:column}.document-blocks>.block-canvas{min-height:60vh;width:100%}.document-workbench .block-node,.document-workbench .block-slot{flex-wrap:wrap}.document-workbench .block-comparison{padding:12px}.live-comparison-arms label{min-width:0;width:100%;flex-basis:100%}.document-workbench fieldset{max-width:100%;box-sizing:border-box}.document-workbench input{box-sizing:border-box}}
+/* Keep the first editing viewport focused on the forest, with a compact model toolbar. */
+.document-workbench {padding-top:12px}
+.document-workbench>header {padding-bottom:7px;gap:18px}
+.document-workbench>header h1 {font-size:26px}
+.document-workbench>header p {margin:0;font-size:12px}
+.document-workbench>p[role=status] {margin:6px 0;min-height:21px;font-size:12px}
+.document-workbench>fieldset {border:0;padding:0;margin:5px 0}
+.document-workbench>fieldset>.document-navigation,.document-workbench>fieldset>.document-savebar {margin:0;padding:8px 10px;border-radius:7px;box-shadow:none}
+.document-workbench .document-navigation {gap:9px}
+.document-workbench .document-navigation label {gap:3px;font-size:11px}
+.document-workbench .document-navigation input,.document-workbench .document-navigation select {padding:6px 8px}
+.document-workbench .document-navigation button,.document-workbench .document-savebar button {min-height:32px;padding:6px 10px}
+.document-workbench .document-savebar {align-items:center;gap:8px}
+.document-workbench .document-savebar details {flex-basis:auto;border:0;margin-left:6px}
+.document-workbench .document-savebar details[open] {flex-basis:100%;margin-left:0;border-top:1px solid #e5ece2}
+.document-workbench .document-savebar summary {padding:4px 0}
+.document-workbench .document-blocks {padding-top:14px}
+.document-workbench .document-blocks>.document-actions p {margin:2px 3px}
+.document-workbench .document-blocks>.drag-feedback {padding:7px 10px;min-height:34px}
+@media(max-width:760px){.document-workbench>header{align-items:start}.document-workbench>header p{margin-top:4px}.document-workbench .document-navigation{gap:6px}.document-workbench .document-savebar{gap:5px}.document-workbench .document-savebar strong{flex-basis:100%}.document-workbench .document-savebar details{margin-left:0}}
+.block-workspace {min-width:0}
+.oracle-parity {padding:12px;border:1px solid #b3c7b9;border-radius:8px;margin-bottom:12px}
+.oracle-parity fieldset {display:flex;flex-wrap:wrap;align-items:end;gap:10px}
+.oracle-parity label {display:flex;flex-direction:column;gap:4px}
+.oracle-parity input[type=file] {max-width:260px}
+.parity-frame {border:4px solid;padding:12px;border-radius:10px}
+.parity-match {border-color:#21833d;background:#edf9ee}
+.parity-difference {border-color:#bb2939;background:#fff0f1}
+.parity-label {font-weight:700}
+
+.parity-neutral {border-color:#707b74;background:#f3f5f3}

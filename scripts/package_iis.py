@@ -63,6 +63,26 @@ FIXED = (
     'docs/ai-native-development.md', 'docs/ai-langgraph.md', 'docs/ai-system-integration.md',
     'gates/ai-system-v1/report.json', 'gates/ai-system-v1/browser.json',
     'gates/ai-system-v1/review-closure.json', 'gates/ai-system-v1/http-release.json',
+    'spec/block-workbench.json', 'formal/Allow/BlockWorkbench.lean', 'docs/block-workbench.md',
+    'gates/block-workbench-v1/council-disposition.json',
+    'gates/block-workbench-v1/claim-map.md', 'gates/block-workbench-v1/formal-report.json',
+    'gates/block-workbench-v1/formal-1/BlockWorkbench.lean',
+    'gates/block-workbench-v1/formal-1/BlockWorkbench.olean',
+    'gates/block-workbench-v1/formal-1/Audit.lean',
+    'gates/block-workbench-v1/formal-1/compile.log', 'gates/block-workbench-v1/formal-1/axioms.log',
+    'gates/block-workbench-v1/formal-2/BlockWorkbench.lean',
+    'gates/block-workbench-v1/formal-2/BlockWorkbench.olean',
+    'gates/block-workbench-v1/formal-2/Audit.lean',
+    'gates/block-workbench-v1/formal-2/compile.log', 'gates/block-workbench-v1/formal-2/axioms.log',
+    'spec/oracle-parity.json', 'formal/Allow/OracleParity.lean', 'docs/oracle-parity.md',
+    'gates/oracle-parity-v1/formal-report.json', 'gates/oracle-parity-v1/council-disposition.json',
+    'gates/oracle-parity-v1/formal-claim-map.md',
+    'gates/oracle-parity-v1/formal-1/OracleParity.lean',
+    'gates/oracle-parity-v1/formal-1/OracleParity.olean',
+    'gates/oracle-parity-v1/formal-1/compile.log', 'gates/oracle-parity-v1/formal-1/axioms.log',
+    'gates/oracle-parity-v1/formal-2/OracleParity.lean',
+    'gates/oracle-parity-v1/formal-2/OracleParity.olean',
+    'gates/oracle-parity-v1/formal-2/compile.log', 'gates/oracle-parity-v1/formal-2/axioms.log',
     'services/ai/runtime.py', 'services/ai/entry.py', 'services/ai/protocol.py', 'services/ai/journal.py', 'services/ai/bridge.py',
     'spec/staged-public-cutover.json', 'formal/Allow/StagedPublicCutover.lean',
     'gates/deployment/cutover-v1/council-disposition.json',
@@ -131,6 +151,8 @@ def collect(root, target, frontend):
     if hash_file(members['scripts/warm_worker_image.py']) != '85f217246b6abeab699249f74e97abab586822678e7b573bbf5690588072dca0':
         raise ValueError('Pinned worker helper mismatch')
     verify_ai_evidence(members)
+    verify_block_evidence(members)
+    verify_parity_evidence(members)
     return members
 
 
@@ -143,10 +165,53 @@ def verify_ai_evidence(members):
                 raise ValueError('AI evidence mismatch: ' + name)
 
 
+def verify_block_evidence(members):
+    """Bind the block supplement and both independent compiler/axiom outputs."""
+    gate = 'gates/block-workbench-v1/'
+    report = json.loads(members[gate + 'formal-report.json'].read_text())
+    entries = [report['contract'], report['proof'], report['claim_map']]
+    for entry in entries:
+        if hash_file(members[entry['path']]) != entry['sha256']:
+            raise ValueError('Block-workbench evidence mismatch: ' + entry['path'])
+    output_names = {'BlockWorkbench.lean': 'source_sha256', 'BlockWorkbench.olean': 'olean_sha256',
+                    'Audit.lean': 'audit_source_sha256', 'compile.log': 'compile_log_sha256',
+                    'axioms.log': 'axiom_log_sha256'}
+    for build in report['builds']:
+        for name, key in output_names.items():
+            if hash_file(members[build['directory'] + '/' + name]) != build[key]:
+                raise ValueError('Block-workbench proof build mismatch')
+    council = json.loads(members[gate + 'council-disposition.json'].read_text())
+    if council['contract_sha256'] != report['contract']['sha256'] or len(council['reviewers']) != 6:
+        raise ValueError('Block-workbench council binding mismatch')
+
+
 def hash_file(path):
     """Stream SHA256 without buffering jars or parser executables."""
     with path.open('rb') as stream:
         return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def verify_parity_evidence(members):
+    """Require the oracle contract, proof builds and six approvals to retain exact bindings."""
+    gate = 'gates/oracle-parity-v1/'
+    report = json.loads(members[gate + 'formal-report.json'].read_text())
+    council = json.loads(members[gate + 'council-disposition.json'].read_text())
+    contract = hash_file(members['spec/oracle-parity.json'])
+    if report['contract_sha256'] != contract or council['contract_sha256'] != contract:
+        raise ValueError('Oracle parity contract binding mismatch')
+    if report['proof_sha256'] != hash_file(members['formal/Allow/OracleParity.lean']):
+        raise ValueError('Oracle parity proof binding mismatch')
+    if council['formal_report_sha256'] != hash_file(members[gate + 'formal-report.json']):
+        raise ValueError('Oracle parity council report mismatch')
+    models = sorted(item['model'] for item in council['reviewers'] if item['decision'] == 'APPROVE')
+    if models != sorted(['gpt-6.1-terra', 'gpt-6.1-sol', 'gpt-6-astra'] * 2):
+        raise ValueError('Oracle parity requires six exact council approvals')
+    if len(report['builds']) != 2:
+        raise ValueError('Oracle parity requires two proof builds')
+    for build in report['builds']:
+        for name, expected in build['hashes'].items():
+            if hash_file(members[build['directory'] + '/' + name]) != expected:
+                raise ValueError('Oracle parity proof build mismatch')
 
 
 
@@ -169,7 +234,7 @@ def write_member(archive, name, source):
 def build(root, target, frontend, output):
     """Write a new archive atomically with deterministic names and a bound manifest."""
     members = collect(root, target, frontend)
-    manifest = {'schema': 1, 'id': 'allow-iis-linux-dual-mode-ai-candidate-v4',
+    manifest = {'schema': 1, 'id': 'allow-iis-linux-oracle-parity-candidate-v6',
                 'scope': 'Private-transfer PRIVATE/ANONYMOUS deployment candidate with private opt-in AI OFF by default; native Windows/WSL/IIS and public exposure acceptance OPEN',
                 'access_modes': ['PRIVATE', 'ANONYMOUS'], 'ai_default': 'OFF',
                 'ai_remote_requires_private_opt_in': True, 'native_target_acceptance': 'OPEN',

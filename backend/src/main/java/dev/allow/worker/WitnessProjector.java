@@ -8,16 +8,19 @@ import java.security.MessageDigest;
 import java.util.*;
 
 /** Full-trace identity is computed separately from the bounded display. */
-final class WitnessProjector {
+public final class WitnessProjector {
     private final MessageDigest digest = Hashes.digest();
     private boolean truncated;
+
+    /** Creates one independent bounded witness projector. */
+    public WitnessProjector() {}
 
     /**
      * Projects a real SAT witness without combining trace states.
      * @param solution SAT solution
      * @return display plus complete identity
      */
-    WitnessView project(A4Solution solution) {
+    public WitnessView project(A4Solution solution) {
         List<StateView> states = new ArrayList<>();
         hash(Integer.toString(solution.getTraceLength()));
         hash(Integer.toString(solution.getLoopState()));

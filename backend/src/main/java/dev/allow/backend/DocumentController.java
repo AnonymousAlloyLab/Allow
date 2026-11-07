@@ -94,6 +94,70 @@ final class DocumentController {
         return queries(request).validate(id, body(request));
     }
 
+    /** Compares two exact live draft formula subtrees in isolation.
+     * @param id owned document
+     * @param request bounded comparison intent
+     * @return complete request-bound category evidence
+     * @throws IOException unavailable context or worker
+     * @throws InterruptedException canceled owned operation
+     */
+    @PostMapping(value = "/{id}/compare", consumes = "application/json")
+    byte[] compare(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
+        return comparison(id, request, "COMPARE");
+    }
+
+    /** Inspects one uploaded model without replacing the workbench document.
+     * @param id owned document
+     * @param request exact source/hash envelope
+     * @return parser-derived predicate choices
+     * @throws IOException unavailable context or worker
+     * @throws InterruptedException canceled operation
+     */
+    @PostMapping(value = "/{id}/comparison-model", consumes = "application/json")
+    byte[] comparisonModel(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
+        return comparison(id, request, "COMPARISON_MODEL");
+    }
+
+    /** Compares selected predicates from two exact uploaded model sources.
+     * @param id owned document
+     * @param request checked paired model selection
+     * @return complete bounded shared-context evidence
+     * @throws IOException unavailable context or child
+     * @throws InterruptedException canceled operation
+     */
+    @PostMapping(value = "/{id}/compare-models", consumes = "application/json")
+    byte[] compareModels(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
+        return comparison(id, request, "COMPARE_MODELS");
+    }
+
+    /** Compares one independently validated workbench predicate against an uploaded oracle.
+     * @param id owned document
+     * @param request exact candidate and oracle selection
+     * @return complete bounded parity evidence
+     * @throws IOException unavailable context or child
+     * @throws InterruptedException canceled operation
+     */
+    @PostMapping(value = "/{id}/oracle-parity", consumes = "application/json")
+    byte[] oracleParity(@PathVariable String id, HttpServletRequest request) throws IOException, InterruptedException {
+        return comparison(id, request, "ORACLE_PARITY");
+    }
+
+    /** Resolves scoped query authority before one bounded synchronous comparison.
+     * @param id owned document
+     * @param request exact HTTP request
+     * @param operation server-selected mode
+     * @return complete isolated response
+     * @throws IOException unavailable context or transport
+     * @throws InterruptedException canceled work
+     * @throws IllegalArgumentException unsupported query parameters
+     */
+    private byte[] comparison(String id, HttpServletRequest request, String operation) throws IOException, InterruptedException {
+        identifier(id);
+        if (request.getQueryString() != null) throw new IllegalArgumentException("Comparison query parameters unsupported");
+        preempt(id);
+        return queries(request).compare(id, body(request), operation);
+    }
+
     /** Appends a fully checked candidate under exact receipt, policy and revision fences.
      * @param id owned document
      * @param request exact original intent

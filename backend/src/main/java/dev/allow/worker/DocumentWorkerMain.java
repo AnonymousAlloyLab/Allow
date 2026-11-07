@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import dev.allow.document.DocumentEngine;
+import dev.allow.document.ComparisonEngine;
 import dev.allow.document.DocumentValidationException;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -57,7 +58,7 @@ public final class DocumentWorkerMain {
         if (!fields.equals(Set.of("protocol", "requestId", "policyVersion", "operation", "candidate", "baseArtifact", "ownedIdInventory"))
                 || !request.path("protocol").isInt() || request.path("protocol").intValue() != 1
                 || !request.path("requestId").isTextual() || !request.path("policyVersion").isTextual()
-                || !Set.of("VALIDATE", "REVALIDATE").contains(request.path("operation").asText())) {
+                || !Set.of("VALIDATE", "REVALIDATE", "COMPARE", "COMPARISON_MODEL", "COMPARE_MODELS", "ORACLE_PARITY").contains(request.path("operation").asText())) {
             throw new IOException("Invalid document context");
         }
     }
@@ -75,9 +76,14 @@ public final class DocumentWorkerMain {
         } catch (DocumentValidationException invalid) {
             ObjectNode data = JsonNodeFactory.instance.objectNode().put("code", invalid.code());
             data.set("diagnostics", invalid.diagnostics());
-            response.put("status", "INVALID").set("data", data);
+            response.put("status", comparison(request) ? "UNSUPPORTED" : "INVALID").set("data", data);
+        } catch (edu.mit.csail.sdg.alloy4.Err | IllegalArgumentException rejected) {
+            if (comparison(request)) {
+                response.put("status", "UNSUPPORTED").set("data", JsonNodeFactory.instance.objectNode()
+                        .put("reason", reason(rejected)));
+            } else response.put("status", "UNAVAILABLE").set("data", JsonNodeFactory.instance.objectNode());
         } catch (Exception | StackOverflowError unavailable) {
-            response.put("status", "UNAVAILABLE").set("data", JsonNodeFactory.instance.objectNode());
+            response.put("status", comparison(request) ? "ERROR" : "UNAVAILABLE").set("data", JsonNodeFactory.instance.objectNode());
         }
         return response;
     }
@@ -86,8 +92,12 @@ public final class DocumentWorkerMain {
      * @param request authenticated internal context
      * @return independent checked content
      * @throws DocumentValidationException deterministic invalid candidate
+     * @throws IOException isolated parser failure
+     * @throws edu.mit.csail.sdg.alloy4.Err unsupported Alloy source
      */
-    private static JsonNode engine(JsonNode request) throws DocumentValidationException {
+    private static JsonNode engine(JsonNode request) throws DocumentValidationException, IOException, edu.mit.csail.sdg.alloy4.Err {
+        if (comparison(request)) return new ComparisonEngine().execute(request.path("operation").asText(), request.path("candidate"),
+                request.path("baseArtifact"), request.path("ownedIdInventory"), request.path("policyVersion").asText());
         DocumentEngine engine = new DocumentEngine();
         if (request.path("operation").asText().equals("REVALIDATE")) {
             return engine.revalidate(request.path("baseArtifact"), request.path("ownedIdInventory"),
@@ -96,4 +106,22 @@ public final class DocumentWorkerMain {
         return engine.validate(request.path("candidate"), request.path("baseArtifact"),
                 request.path("ownedIdInventory"), request.path("policyVersion").textValue());
     }
+    /** Identifies the closed expensive comparison operations.
+     * @param request owned internal frame
+     * @return whether comparison dispatch is selected
+     */
+    private static boolean comparison(JsonNode request) {
+        return Set.of("COMPARE", "COMPARISON_MODEL", "COMPARE_MODELS", "ORACLE_PARITY").contains(request.path("operation").asText());
+    }
+
+    /** Bounds authored rejection text without reflecting source fragments or paths.
+     * @param failure deterministic admission failure
+     * @return bounded diagnostic
+     */
+    private static String reason(Exception failure) {
+        if (failure instanceof edu.mit.csail.sdg.alloy4.Err) return "Alloy rejected unsupported model syntax or typing.";
+        String text = failure.getMessage();
+        return text == null ? "Unsupported comparison input." : text.substring(0, Math.min(200, text.length()));
+    }
+
 }

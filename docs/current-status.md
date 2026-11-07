@@ -7,6 +7,21 @@ The source tree contains the new cleanup path, a disabled JVM optimization
 profile and a disabled prestarted-worker pool. Full acceptance is still in progress. The application remains a local development system,
 with commercial release **NO_GO**.
 
+## AI access requests — 7 November 2026
+
+The separate [AI access request page](ai-access-request.md) requires server-verified
+reCAPTCHA and an emailed one-time code before recording an immutable request for
+manual review. It grants no AI authority and issues no token automatically.
+CAPTCHA scripts run only in an opaque sandbox with a separate HTTP policy, keeping
+them away from workbench storage. A finite Lean admission policy and the required
+six reviewers approved the contract before production changes.
+
+Intake defaults OFF. Protected external SMTP/reCAPTCHA settings and a private
+review queue must be provisioned, and live delivery, Google sandbox compatibility,
+independent durable rate limits and public deployment acceptance remain OPEN.
+The [implementation report](../gates/ai-access-request-v1/report.json) distinguishes
+local fixture checks from those external gates.
+
 ## Oracle parity — 7 November 2026
 
 [Oracle parity](oracle-parity.md) frames a chosen current predicate against an

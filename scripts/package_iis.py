@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN = {'.runtime', '.git', '__pycache__', 'node_modules', 'retrieval-venv',
              'checkpoints', 'dataset', 'datasets', 'browser-state', '.env'}
 FIXED = (
+    'spec/ai-access-request.json', 'formal/Allow/AiAccessRequest.lean',
+    'docs/ai-access-request.md', 'gates/ai-access-request-v1/formal-report.json',
+    'gates/ai-access-request-v1/council-disposition.json',
     'config/sqlean-parser-lock.json', 'retrieval/bootstrap_ml.py',
     'retrieval/requirements-ml.lock', 'retrieval/model-lock.json', 'retrieval/model-notice.json',
     'db/migrations/005_expected_catalog.json', 'db/migrations/005_explicit.json',
@@ -153,7 +156,29 @@ def collect(root, target, frontend):
     verify_ai_evidence(members)
     verify_block_evidence(members)
     verify_parity_evidence(members)
+    verify_access_request_evidence(members)
     return members
+
+
+def verify_access_request_evidence(members):
+    """Bind the intake contract and finite proof to all six exact council approvals."""
+    gate = 'gates/ai-access-request-v1/'
+    report = json.loads(members[gate + 'formal-report.json'].read_text())
+    council = json.loads(members[gate + 'council-disposition.json'].read_text())
+    contract = hash_file(members['spec/ai-access-request.json'])
+    proof = hash_file(members['formal/Allow/AiAccessRequest.lean'])
+    if (report['contract_sha256'], report['proof_sha256']) != (contract, proof):
+        raise ValueError('Access-request proof binding mismatch')
+    if (council['contract_sha256'], council['proof_sha256'], council['formal_report_sha256']) != (
+            contract, proof, hash_file(members[gate + 'formal-report.json'])):
+        raise ValueError('Access-request council binding mismatch')
+    expected = sorted(['gpt-6.1-terra'] * 2 + ['gpt-6.1-sol'] * 2 + ['gpt-6-astra'] * 2)
+    reviewers = council['reviewers']
+    if (council['decision'] != 'APPROVED_FOR_IMPLEMENTATION' or council['production_edits_at_gate']
+            or sorted(item['model'] for item in reviewers) != expected
+            or len({item['agent'] for item in reviewers}) != 6
+            or any(item['decision'] != 'APPROVE' or not item['exact_hash_confirmed'] for item in reviewers)):
+        raise ValueError('Access-request requires six exact council approvals')
 
 
 def verify_ai_evidence(members):
@@ -234,7 +259,7 @@ def write_member(archive, name, source):
 def build(root, target, frontend, output):
     """Write a new archive atomically with deterministic names and a bound manifest."""
     members = collect(root, target, frontend)
-    manifest = {'schema': 1, 'id': 'allow-iis-linux-oracle-parity-candidate-v6',
+    manifest = {'schema': 1, 'id': 'allow-iis-linux-access-request-candidate-v7',
                 'scope': 'Private-transfer PRIVATE/ANONYMOUS deployment candidate with private opt-in AI OFF by default; native Windows/WSL/IIS and public exposure acceptance OPEN',
                 'access_modes': ['PRIVATE', 'ANONYMOUS'], 'ai_default': 'OFF',
                 'ai_remote_requires_private_opt_in': True, 'native_target_acceptance': 'OPEN',

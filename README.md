@@ -15,6 +15,8 @@ including predicate selection from two local model files. The larger canvas uses
 semantic colors while retaining keyboard controls and explicit model saving.
 [Oracle parity](docs/oracle-parity.md) adds automatically refreshed bounded
 match/difference frames against an uploaded reference predicate.
+[AI access requests](docs/ai-access-request.md) provide a separate form with email
+verification and isolated reCAPTCHA; intake remains disabled until provisioned.
 The [Windows/WSL deployment candidate](docs/wsl-anonymous-deployment.md) targets
 `https://allow.alloy4.fun` on Windows 10 21H2 IoT Enterprise with WSL2 Ubuntu 24.04
 (operator-confirmed distribution name `Ubuntu-24.04`).

@@ -18,18 +18,21 @@ final class AuthorityFilter extends OncePerRequestFilter {
     private final LaunchAuthority authority;
     private final DeploymentPolicy policy;
     private final PublicAccess publicAccess;
+    private final AiAccessRequest accessRequest;
 
     /**
      * Stores launch authority.
      * @param authority private verifier
      * @param policy exact routing policy
      * @param publicAccess isolated public profile
+     * @param accessRequest isolated request intake
      */
     @Autowired
-    AuthorityFilter(LaunchAuthority authority, DeploymentPolicy policy, PublicAccess publicAccess) {
+    AuthorityFilter(LaunchAuthority authority, DeploymentPolicy policy, PublicAccess publicAccess, AiAccessRequest accessRequest) {
         this.authority = authority;
         this.policy = policy;
         this.publicAccess = publicAccess;
+        this.accessRequest = accessRequest;
     }
 
     /** Preserves the private-only isolated filter construction seam.
@@ -37,7 +40,16 @@ final class AuthorityFilter extends OncePerRequestFilter {
      * @param policy exact routing policy
      */
     AuthorityFilter(LaunchAuthority authority, DeploymentPolicy policy) {
-        this(authority, policy, null);
+        this(authority, policy, null, null);
+    }
+
+    /** Preserves existing public-profile construction seam.
+     * @param authority private launch verifier
+     * @param policy exact routing policy
+     * @param publicAccess isolated public profile
+     */
+    AuthorityFilter(LaunchAuthority authority, DeploymentPolicy policy, PublicAccess publicAccess) {
+        this(authority, policy, publicAccess, null);
     }
 
     /**
@@ -57,6 +69,7 @@ final class AuthorityFilter extends OncePerRequestFilter {
             return;
         }
         if (!validRoute(request)) { reject(response, 403); return; }
+        if (accessRequest != null && accessRequest.handle(request, response)) return;
         if (publicAccess != null && publicAccess.handle(request, response, chain)) return;
         boolean guarded = !RequestPaths.publicRead(request.getMethod(), request.getRequestURI());
         if (guarded && (!single(request, "Authorization") || !authority.accepts(request.getHeader("Authorization")))) {

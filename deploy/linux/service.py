@@ -68,7 +68,13 @@ def command(config, root=ROOT):
             f'--allow.access-mode={config.get("access_mode", "PRIVATE")}',
             '--debug=false', '--trace=false', '--logging.level.root=WARN',
             '--logging.level.org.springframework=WARN']
-    return args + public_transport_bounds(config) + ai_arguments(config)
+    return args + public_transport_bounds(config) + ai_arguments(config) + access_request_arguments(config)
+
+
+def access_request_arguments(config):
+    """Forward only the validated external intake settings path, never its contents."""
+    path = config.get('access_request_config')
+    return ['--allow.access-request.config=' + path] if path else []
 
 
 def ai_arguments(config):
@@ -86,7 +92,7 @@ def ai_arguments(config):
 
 def public_transport_bounds(config):
     """Bound public HTTP transport occupancy independently of workspace admission."""
-    if config.get('access_mode', 'PRIVATE') != 'ANONYMOUS':
+    if config.get('access_mode', 'PRIVATE') != 'ANONYMOUS' and not config.get('access_request_config'):
         return []
     return ['--server.tomcat.threads.max=16', '--server.tomcat.threads.min-spare=2',
             '--server.tomcat.max-connections=64', '--server.tomcat.accept-count=16',
@@ -117,7 +123,7 @@ def serve(config, root=ROOT):
 
 def supervise(config, root, runtime):
     """Own stack cleanup; publish a launch capability only in the private profile."""
-    if config.get('ai_mode', 'OFF') != 'OFF':
+    if config.get('ai_mode', 'OFF') != 'OFF' or config.get('access_request_config'):
         resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
     backend, stopping, link_owned = None, False, False
 

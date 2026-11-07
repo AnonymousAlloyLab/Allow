@@ -1,0 +1,10 @@
+'Allow.AiAccessRequest.captcha_required' depends on axioms: [propext]
+'Allow.AiAccessRequest.email_required' depends on axioms: [propext]
+'Allow.AiAccessRequest.persistence_required' depends on axioms: [propext]
+'Allow.AiAccessRequest.binding_required' depends on axioms: [propext, Quot.sound]
+'Allow.AiAccessRequest.used_denied' depends on axioms: [propext]
+'Allow.AiAccessRequest.replay_denied' depends on axioms: [propext]
+'Allow.AiAccessRequest.expiry_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiAccessRequest.exhausted_denied' depends on axioms: [propext, Quot.sound]
+'Allow.AiAccessRequest.no_token' does not depend on any axioms
+'Allow.AiAccessRequest.positive' does not depend on any axioms

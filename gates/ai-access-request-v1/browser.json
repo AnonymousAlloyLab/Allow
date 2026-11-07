@@ -1,0 +1,34 @@
+{
+  "status": "PASS_DISABLED_INTAKE",
+  "driver": "Connected in-app browser through CUA",
+  "checks": [
+    "Separate page loads directly at /request-ai-access with correct title and required form fields",
+    "Missing configuration visibly disables all fields and submission; no CAPTCHA iframe or external script is loaded",
+    "No console warnings/errors on request page or direct sandbox child navigation",
+    "Desktop layout has no horizontal overflow",
+    "390x844 viewport: document width375, form card edges20..355; override reset",
+    "Workbench navigation link opens independent form",
+    "Direct child navigation serves blank inert Security check page; HTTP test independently confirms sandbox policy",
+    "Agent test tab closed"
+  ],
+  "frontend_assets": {
+    "frontend/dist/assets/accessRequest-CSZbiH3d.js": "224af5f6c83832331c20d036a2b2f4d3a177e54f35b651be142b2ff593cadab8",
+    "frontend/dist/assets/accessRequest-DIQC2Tuw.css": "7edcfd51e0ed00447d9c681ba30f11e2dcdb4593ba3f5ad09eab1f765e1a93cc",
+    "frontend/dist/assets/index-CCAHqM78.js": "5e9c1d870a2efc5d6a0e95cad5dcbca92a67f58790cdffbc300641d5fdbaaec3",
+    "frontend/dist/assets/workbench-DXL9_tRh.js": "38432cf25fefc02af5f8dc57a5510a0be1c6d038dd636af2705a1b243743d908",
+    "frontend/dist/assets/workbench-zgvGD98t.css": "4b069bc1c0d7bb684a9c332d87420d2f1da95997fe0b20541914abcb01229886",
+    "frontend/dist/index.html": "24714c0c18602bac91a3628ddd74868d685179f7f77a131922ce98f72e4aa706",
+    "frontend/dist/request-ai-access/captcha.html": "516d15eef5ca7660fd8adb8a7136ca0baecaea2b14859c6a8ec086e2fe982f9f",
+    "frontend/dist/request-ai-access/captcha.js": "cb003679970f1aea7bbf85c060101bcf7286cd0297351740b2cd8f7ab8461d30",
+    "frontend/dist/request-ai-access/index.html": "88a31b80c11adbfcc0463a59e46d77d7fa34d0c3eb64578c61342cef3c7dab74"
+  },
+  "screenshots": {
+    "gates/ai-access-request-v1/browser/request-page-mobile.jpg": "fce72fe3769919bcabd638040a2ee5e38403bf0e1bc4c60a8e0e0c632400fed2",
+    "gates/ai-access-request-v1/browser/request-page.jpg": "b92e83143ce8f8366c6f6d99b7f54e2f05ffa088fdecde85f5b8454a2b040a4e"
+  },
+  "limits": [
+    "Actual Google iframe compatibility has NOT been established",
+    "No CAPTCHA solved; no real email delivered",
+    "Enabled form/code/provider interactions use unit-test fakes only; production remains disabled"
+  ]
+}

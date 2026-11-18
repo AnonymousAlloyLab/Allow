@@ -285,6 +285,42 @@
 .status-bar{position:sticky;bottom:12px;z-index:20;display:flex;align-items:center;gap:10px;width:fit-content;max-width:min(940px,100%);margin:18px auto 0!important;padding:9px 18px;border-radius:999px;background:var(--ink);color:#f2f6f3!important;font-size:13px;box-shadow:0 10px 28px rgba(10,25,18,.25);pointer-events:none}
 .status-dot{flex:none;width:8px;height:8px;border-radius:50%;background:#7fd49b}
 
+/* Signatures and fields: code-shaped cards above the canvas, usable in block and text editing alike */
+.block-workspace{display:flex;flex-direction:column;gap:12px}
+.structure-panel{min-width:0;padding:0 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-1)}
+.structure-panel[open]{padding-bottom:14px}
+.structure-panel>summary{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:12px 0;list-style:none;cursor:pointer}
+.structure-panel>summary::-webkit-details-marker{display:none}
+.structure-panel>summary::before{content:'';width:8px;height:8px;margin:0 4px 0 2px;border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);transform:rotate(-45deg);transition:transform .15s}
+.structure-panel[open]>summary::before{transform:rotate(45deg)}
+.structure-note{margin:0 0 12px;font-size:12.5px;color:var(--ink-3);max-width:80ch}
+.structure-note.is-text{padding:8px 10px;border:1px solid var(--warn-line);border-radius:var(--radius-s);background:var(--warn-soft);color:var(--warn)}
+.sig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:10px;align-items:start}
+.sig-card{display:flex;flex-direction:column;gap:6px;min-width:0;margin:0;padding:10px 12px;border:1px solid var(--reference-line);border-left-width:4px;border-radius:var(--radius-s);background:var(--reference-bg);color:var(--reference-ink);font-family:var(--font-mono);font-size:13px}
+.sig-card.is-orphan{border-color:var(--bad-line);background:var(--bad-soft);color:var(--bad)}
+.sig-card.sig-new{border-style:dashed;border-left-width:1px;border-color:var(--brand-line);background:var(--surface-2);color:var(--ink-2)}
+.sig-head,.field-row,.field-add,.sig-new-row,.range-editor{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;min-width:0}
+.sig-head{font-weight:600}
+.sig-card .kw{font-weight:700;color:var(--reference-ink)}
+.sig-card .punct{color:var(--ink-3)}
+.sig-card .sig-name{font-weight:700}
+.sig-close{display:block}
+.field-list{display:flex;flex-direction:column;gap:4px;margin:0;padding:0 0 0 16px;list-style:none}
+.field-add{padding-left:16px}
+.field-empty,.sig-empty{margin:0;padding-left:16px;font-family:var(--font-sans);font-size:12px;font-style:italic;color:var(--ink-3)}
+.sig-empty{padding:12px;border:1px dashed var(--line-strong);border-radius:var(--radius-s)}
+.sig-new-label{font-family:var(--font-sans);font-size:12px!important;font-weight:700!important;color:var(--ink-2)!important}
+.document-workbench .structure-panel label.pick,.document-workbench .structure-panel label.name-input{display:inline-flex;flex-direction:row;gap:0;font-size:inherit;font-weight:inherit;color:inherit}
+.document-workbench .structure-panel input,.document-workbench .structure-panel select{min-height:30px;padding:3px 5px;font-family:var(--font-mono);font-size:12.5px;background:var(--surface)}
+.document-workbench .structure-panel .field-add input{width:10ch}
+.field-row>.icon-button:last-child{margin-left:auto}
+.document-workbench .structure-panel .sig-new-row input{flex:1 1 12ch;font-family:var(--font-sans)}
+.document-workbench .structure-panel input[aria-invalid=true]{border-color:var(--bad);background:var(--bad-soft)}
+.document-workbench .structure-panel .field-add button,.document-workbench .structure-panel .sig-new-row button{min-height:30px;padding:3px 10px;font-family:var(--font-sans);font-size:12px}
+.document-workbench .icon-button{min-height:26px;min-width:26px;padding:0 6px;font-family:var(--font-sans);font-size:15px;line-height:1;border-color:transparent;background:transparent}
+.document-workbench .sig-head .icon-button{margin-left:auto}
+.document-workbench .icon-button:hover:not(:disabled){border-color:var(--line-strong);background:var(--surface)}
+
 @media(max-width:1180px){
   .document-layout.with-code{grid-template-columns:minmax(0,1fr)}
   .code-drawer{position:static;max-height:none}

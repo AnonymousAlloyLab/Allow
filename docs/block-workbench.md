@@ -110,6 +110,15 @@ From top to bottom the editor shows:
 - **Document header**: the model title, its saved or unsaved state, any problem
   count, Check model, Save version and a toggle for the Alloy source panel.
   When an empty slot remains, the header says why Check and Save are disabled.
+- **Signatures and fields** (collapsible, above the palette and canvas): one
+  code-shaped card per signature, written `sig Name { field: mult Range }`.
+  Rename a signature or field in place, change its multiplicity or range, or
+  delete it (deleting a signature also deletes its fields). Each card has a
+  row for adding a field, and the last card adds a signature; an empty name
+  gets `Sig1`, `field1` and so on, and invalid or duplicate names are refused
+  with a reason. These controls stay available while the Alloy text is being
+  edited directly: there, a new signature or field is written into the source
+  text, which still needs saving.
 - **Palette** (left): blocks grouped as Logic, Relations, Quantifiers,
   References and Saved blocks, each with its Alloy spelling (for example `and`,
   `in`, `->`, `all x: S |`). A filter field narrows the list. With a slot
@@ -121,8 +130,8 @@ From top to bottom the editor shows:
 - **Canvas**: one card per predicate, fact and assertion, with a count of
   empty slots. Empty slots are dashed. While a block is being dragged, every
   empty slot is highlighted as a drop target, and the hovered slot shows the
-  same fit badge plus the guard’s explanation. The toolbar adds signatures,
-  predicates, facts and assertions without leaving the canvas.
+  same fit badge plus the guard’s explanation. The toolbar adds predicates,
+  facts and assertions without leaving the canvas.
 - **Alloy source** (optional right-hand panel): the exact text the blocks
   produce. Typing there switches the draft to source mode and locks the blocks
   until the text is saved or block editing resumes.

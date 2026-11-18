@@ -1,6 +1,7 @@
 import type {ParityFrame} from './oracleParity';
 import {BlockShelf} from './BlockShelf';
 import {SelectionBar,CanvasToolbar,openDeclarations,type RootTag} from './CanvasParts';
+import {focusNewSignature} from './StructurePanel';
 import {useBlockInventory,type BlockChoice} from './blockInventory';
 import {blockKind,type SavedBlock} from './blockLibrary';
 import {useState,useRef,useEffect} from 'react';
@@ -106,7 +107,7 @@ function Forest(props:ForestProps) {
       <div className="root-heading"><h3><span className={`root-kind root-${declaration.tag}`}>{declaration.tag}</span> {declaration.name}{'parameters' in declaration&&declaration.parameters.length>0&&<span className="root-params">[{declaration.parameters.map(parameterText.bind(null,props.module)).join(', ')}]</span>}</h3><span className={`root-status${empty?' has-empty':''}`}>{empty?`${empty} empty slot${empty===1?'':'s'}`:'✓ Complete'}</span></div>
       <Branch {...props} id={declaration.bodyId} depth={0}/></div>);
   }
-  return <div className="block-canvas" aria-label="Owned expression forest" onDragOver={props.handlers.away}>{roots.length?roots:<div className="canvas-empty"><strong>No formulas yet.</strong><p>Add a signature for the things in your model, then a predicate, fact or assertion. Each one appears here as a card with an empty formula slot to fill with blocks.</p>{props.onAdd&&<div className="canvas-empty-actions"><button type="button" className="secondary" onClick={props.onAdd.bind(null,'signature')}>＋ Add signature</button><button type="button" className="primary" onClick={props.onAdd.bind(null,'predicate')}>＋ Add predicate</button><button type="button" className="ghost" onClick={openDeclarations}>Open declarations</button></div>}</div>}</div>;
+  return <div className="block-canvas" aria-label="Owned expression forest" onDragOver={props.handlers.away}>{roots.length?roots:<div className="canvas-empty"><strong>No formulas yet.</strong><p>Add signatures and fields in the panel above, then a predicate, fact or assertion. Each one appears here as a card with an empty formula slot to fill with blocks.</p>{props.onAdd&&<div className="canvas-empty-actions"><button type="button" className="secondary" onClick={focusNewSignature}>＋ Add signature</button><button type="button" className="primary" onClick={props.onAdd.bind(null,'predicate')}>＋ Add predicate</button><button type="button" className="ghost" onClick={openDeclarations}>Open declarations</button></div>}</div>}</div>;
 }
 /** Count unresolved holes owned by one declaration body. @param props Forest lookups. @param root Body identity. @returns Number of empty slots. */
 function emptySlots(props:ForestProps,root:Id):number {let count=0;for(const id of subtree(props.module,root)) if(props.index.get(id)?.tag==='hole') count++;return count;}

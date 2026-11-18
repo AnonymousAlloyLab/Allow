@@ -29,7 +29,7 @@ function BlockActions(props:Props) {
 /** Explain the semantic block colors with text so color is never the only cue, next to quick-add actions for new formula roots. @param props Optional declaration creator. @returns Canvas toolbar. */
 export function CanvasToolbar(props:{onAdd?:(tag:RootTag)=>void}) {
   const items=[],adds=[];for(const kind of ['formula','relation','quantifier','reference','hole'] as const) items.push(<li key={kind} data-block-kind={kind}>{groupTitle(kind)}</li>);
-  if(props.onAdd) for(const tag of ['signature','predicate','fact','assertion'] as const) adds.push(<button key={tag} type="button" className="ghost" onClick={props.onAdd.bind(null,tag)}>＋ {tag.charAt(0).toUpperCase()+tag.slice(1)}</button>);
+  if(props.onAdd) for(const tag of ['predicate','fact','assertion'] as const) adds.push(<button key={tag} type="button" className="ghost" onClick={props.onAdd.bind(null,tag)}>＋ {tag.charAt(0).toUpperCase()+tag.slice(1)}</button>);
   return <div className="canvas-toolbar"><ul className="canvas-legend" aria-label="Block colors">{items}</ul>{adds.length>0&&<div className="canvas-add" role="group" aria-label="Add to model">{adds}<button type="button" className="ghost" onClick={openDeclarations}>Rename or edit declarations…</button></div>}</div>;
 }
 export type RootTag='signature'|'predicate'|'fact'|'assertion';

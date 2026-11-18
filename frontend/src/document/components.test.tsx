@@ -1,6 +1,7 @@
 import {expect,test} from 'vitest';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {DeclarationEditor} from './DeclarationEditor';
+import {StructurePanel} from './StructurePanel';
 import {ExpressionEditor} from './ExpressionEditor';
 import {Fixture,TAGS} from './fixtures';
 import {construct,replaceSubtree} from './operations';
@@ -33,3 +34,14 @@ function partialResultLabels():void {
   expect(markup).toContain('>Not</span>');expect(markup).toContain('>formula</span>');expect(markup).toContain('Empty slot · drop or choose a block');expect(markup).toContain('class="block-symbol" aria-hidden="true"');
 }
 test('partial block labels display known structural formula sort without invented relation schemas',partialResultLabels);
+/** Offer signature and field creation in block mode and while the text is authoritative. @returns Nothing. */
+function structureMarkup():void {
+  const module=new Fixture().build('predicate_call');
+  const blocks=renderToStaticMarkup(<StructurePanel module={module} source="" textMode={false} onModule={ignore} onSource={ignore} onNotice={ignore}/>);
+  expect(blocks).toContain('Signatures and fields');expect(blocks).toContain('id="new-signature-name"');
+  expect(blocks).toContain('＋ Field');expect(blocks).toContain('Delete signature');
+  const text=renderToStaticMarkup(<StructurePanel module={module} source={'sig Person {}\nsig File { owner: one Person }\n'} textMode onModule={ignore} onSource={ignore} onNotice={ignore}/>);
+  expect(text).toContain('written into the source');expect(text).toContain('2 signature declarations in the Alloy text');
+  expect(text).toContain('aria-label="Add a field to File"');expect(text).not.toContain('Delete signature');
+}
+test('structure panel adds signatures and fields in block and text editing',structureMarkup);

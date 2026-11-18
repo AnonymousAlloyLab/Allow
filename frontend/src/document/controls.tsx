@@ -7,10 +7,10 @@ export function textChange(callback:(value:string)=>void,event:ChangeEvent<HTMLI
 export function TextControl(props:{label:string;value:string;onChange:(value:string)=>void}) {
   return <label>{props.label}<input value={props.value} onChange={textChange.bind(null,props.onChange)}/></label>;
 }
-/** Render an exact-ID picker. @param props Label/options/value. @returns Native select. */
-export function SelectControl(props:{label:string;value:string;options:readonly Option[];onChange:(value:string)=>void}) {
+/** Render an exact-ID picker with no implicit default. @param props Label/options/value and optional empty-choice text. @returns Native select. */
+export function SelectControl(props:{label:string;value:string;options:readonly Option[];onChange:(value:string)=>void;placeholder?:string}) {
   const options=[];for(const option of props.options) options.push(<option key={option.id} value={option.id}>{option.label}</option>);
-  return <label>{props.label}<select value={props.value} onChange={textChange.bind(null,props.onChange)}><option value="">Choose explicitly</option>{options}</select></label>;
+  return <label>{props.label}<select value={props.value} onChange={textChange.bind(null,props.onChange)}><option value="">{props.placeholder??'Select…'}</option>{options}</select></label>;
 }
 /** Build signature options using identity values. @param module Environment. @returns Options. */
 export function signatureOptions(module:DraftModule):readonly Option[] {const result:Option[]=[];for(const sig of module.signatures) result.push({id:sig.id,label:sig.name});return result;}

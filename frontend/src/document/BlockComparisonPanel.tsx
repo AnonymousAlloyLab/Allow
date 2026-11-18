@@ -2,7 +2,7 @@ import type {ChangeEvent} from 'react';
 import type {Controller,ViewState} from './controller';
 import {checkModule,children,nodeIndex} from './model';
 import type {DraftModule,Check} from './types';
-import {paletteLabel} from './ExpressionEditor';
+import {paletteLabel} from './blockCatalog';
 import {contentSnapshot} from './gesture';
 import {useBlockComparison} from './useBlockComparison';
 import type {ComparisonSelection,ModelFile} from './blockComparison';

@@ -104,6 +104,35 @@ reference, quantifier and hole colors supplement labels and icons; color alone
 does not convey compatibility or truth. Every drag action has a native control
 alternative.
 
+From top to bottom the editor shows:
+
+- **Model bar**: open a saved model or create a new one.
+- **Document header**: the model title, its saved or unsaved state, any problem
+  count, Check model, Save version and a toggle for the Alloy source panel.
+  When an empty slot remains, the header says why Check and Save are disabled.
+- **Palette** (left): blocks grouped as Logic, Relations, Quantifiers,
+  References and Saved blocks, each with its Alloy spelling (for example `and`,
+  `in`, `->`, `all x: S |`). A filter field narrows the list. With a slot
+  selected, each block shows a text badge: ✓ Fits, ◌ Possible (constraints
+  still unresolved), ✕ Won’t fit or – Unchecked. Blocks that cannot fit are
+  hidden, and Show all blocks reveals them with the reason.
+- **Selection bar** (above the canvas): the selected block, what its slot
+  accepts, Copy/Cut/Paste/Delete with their shortcuts, and Save selected block.
+- **Canvas**: one card per predicate, fact and assertion, with a count of
+  empty slots. Empty slots are dashed. While a block is being dragged, every
+  empty slot is highlighted as a drop target, and the hovered slot shows the
+  same fit badge plus the guard’s explanation. The toolbar adds signatures,
+  predicates, facts and assertions without leaving the canvas.
+- **Alloy source** (optional right-hand panel): the exact text the blocks
+  produce. Typing there switches the draft to source mode and locks the blocks
+  until the text is saved or block editing resumes.
+- **Run analysis**, then collapsible Problems, Compare alternatives,
+  Declarations and model structure, and Version history panels.
+
+A status bar at the bottom of the window repeats the latest result of every
+action. These presentation changes reuse the existing insertion, drag, save and
+analysis paths; they add no new authority or persistence.
+
 The Lean supplement proves a finite policy model. It does not prove the Java or
 React implementation, parser/solver refinement, operating-system cleanup,
 accessibility, unbounded equivalence or commercial readiness. Existing commercial

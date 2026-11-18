@@ -4,27 +4,28 @@ import type {Controller,ViewState} from './controller';
 import {create,openDocument,refresh,save,transmit,previewHistory,restore,changeSource,announce,publishDocument} from './controller';
 import {TextControl,SelectControl,type Option} from './controls';
 import {candidate,selectNode} from './state';
-import {AcceptedAnalysisPanel} from './AcceptedAnalysisPanel';
 /** Render model navigation and explicit create/open actions. @param props Controller/view. @returns Native model controls. */
 export function DocumentNavigation(props:{controller:Controller;view:ViewState}) {
   const [title,setTitle]=useState('Untitled model'),[id,setId]=useState(''),options:Option[]=[];
-  for(const item of props.view.documents) options.push({id:item.documentId,label:item.title});
+  for(const item of props.view.documents) options.push({id:item.documentId,label:`${item.title} · v${item.headRevision}`});
   /** Create a model with a recoverable pending request. @returns Nothing. */
   function add():void {void create(props.controller,title);}
   /** Explicitly replace the visible draft with a selected saved model. @returns Nothing. */
   function open():void {if(id) void openDocument(props.controller,id);}
   /** Refresh the model list. @returns Nothing. */
   function reload():void {void refresh(props.controller);}
+  const pending=!!props.view.document.pending;
   return <section aria-label="Documents" className="document-navigation">
-    <TextControl label="New model name" value={title} onChange={setTitle}/>
-    <button disabled={!!props.view.document.pending} onClick={add}>Create model</button>
-    <SelectControl label="Your models" value={id} options={options} onChange={setId}/>
-    <button disabled={!id||!!props.view.document.pending} onClick={open}>{props.view.document.dirty?'Open and discard unsaved changes':'Open model'}</button>
-    <button onClick={reload}>Refresh</button>
+    <div className="nav-group"><SelectControl label="Your models" value={id} options={options} onChange={setId} placeholder={options.length?'Choose a model…':'No saved models yet'}/>
+      <button className={props.view.document.dirty?'danger':'secondary'} disabled={!id||pending} onClick={open}>{props.view.document.dirty?'Open and discard unsaved changes':'Open model'}</button>
+      <button className="ghost" onClick={reload} aria-label="Refresh model list" title="Refresh model list">↻ Refresh</button></div>
+    <span className="nav-or" aria-hidden="true">or</span>
+    <div className="nav-group"><TextControl label="New model name" value={title} onChange={setTitle}/>
+      <button className="secondary" disabled={pending} onClick={add}>＋ Create model</button></div>
   </section>;
 }
-/** Render check/save/recovery actions with advanced request details collapsed. @param props Controller/view and shared validation slot. @returns Draft actions. */
-export function CommitControls(props:{controller:Controller;view:ViewState;onValidate:()=>void}) {
+/** Render the open model's title, save state and check/save actions with request details collapsed. @param props Controller/view, shared validation slot, visible title and problem count. @returns Draft actions. */
+export function CommitControls(props:{controller:Controller;view:ViewState;onValidate:()=>void;title?:string;problems?:number}) {
   const state=props.view.document;
   let complete=true;
   try {candidate(state);} catch {complete=false;}
@@ -32,12 +33,19 @@ export function CommitControls(props:{controller:Controller;view:ViewState;onVal
   function commit():void {void save(props.controller);}
   /** Recover the exact pending save. @returns Nothing. */
   function retry():void {if(state.pending) void transmit(props.controller,state.pending);}
+  const reason=complete?'':'Fill every empty slot before checking or saving.';
   return <section aria-label="Draft acceptance" className="document-savebar">
-    <strong>{state.dirty?'Unsaved changes':'Saved version'}</strong>
-    <button disabled={!complete||!state.accepted} onClick={props.onValidate}>Check model</button>
-    <button disabled={!complete||!state.accepted||!!state.pending} onClick={commit}>Save version</button>
-    {state.pending&&<><span>Waiting for save confirmation.</span><button onClick={retry}>Recover save</button></>}
-    <details><summary>Save details</summary><p>Draft mode: {state.mode}; based on version {state.baseRevision}.</p>
+    <div className="savebar-title"><h2>{props.title??'Untitled model'}</h2>
+      <span className={`save-state ${state.dirty?'is-dirty':'is-saved'}`}><span aria-hidden="true">●</span> <strong>{state.dirty?'Unsaved changes':'Saved version'}</strong>{!state.dirty&&state.accepted?` ${state.accepted.revision}`:''}</span>
+      <span className="mode-chip">{state.mode==='SOURCE'?'Editing source text':'Editing blocks'}</span>
+      {!!props.problems&&<span className="problem-chip">{props.problems} problem{props.problems===1?'':'s'}</span>}</div>
+    <div className="savebar-actions">
+      {!complete&&<span className="savebar-reason">{reason}</span>}
+      <button className="secondary" disabled={!complete||!state.accepted} onClick={props.onValidate} title={reason||'Validate the draft on the server without saving'}>✓ Check model</button>
+      <button className="primary" disabled={!complete||!state.accepted||!!state.pending} onClick={commit} title={reason||'Store this draft as a new immutable version'}>Save version</button>
+      {state.pending&&<><span className="savebar-reason">Waiting for save confirmation.</span><button onClick={retry}>Recover save</button></>}
+    </div>
+    <details className="save-details"><summary>Save details</summary><p>Draft mode: {state.mode}; based on version {state.baseRevision}.</p>
       {state.pending&&<p>Pending request: {state.pending.key}. Recovery resends identical bytes; a network error does not establish rollback.</p>}
       <p>Pending model data stays in this tab. After restarting your browser, inspect the saved model and version history before resubmitting changes.</p>
     </details>
@@ -51,8 +59,8 @@ export function HistoryPanel(props:{controller:Controller;view:ViewState}) {
   /** Save previewed content as a fresh version. @returns Nothing. */
   function apply():void {void restore(props.controller);}
   const history=props.view.history,state=props.view.document;
-  return <details className="document-history"><summary>Version history and provenance</summary>
-    <p>Saved version {state.accepted?.headRevision??'none'}. Undo/Redo creates a new version; earlier versions remain unchanged.</p>
+  return <details className="document-history support-panel"><summary><span className="support-title">Version history and provenance</span><span className="support-hint">Preview earlier versions and restore one as a new version</span></summary>
+    <p>Latest saved version: {state.accepted?.headRevision??'none'}. Undo/Redo (Ctrl/Cmd+Z, Shift+Ctrl/Cmd+Z on the canvas) previews a target; restoring creates a new version and earlier versions remain unchanged.</p>
     <TextControl label="Version to restore" value={target} onChange={setTarget}/>
     <SelectControl label="Direction" value={direction} options={[{id:'UNDO',label:'Undo'},{id:'REDO',label:'Redo'}]} onChange={setDirection}/>
     <button disabled={!state.accepted} onClick={preview}>Preview Undo/Redo target</button>
@@ -71,14 +79,16 @@ export function SourcePanel(props:{controller:Controller;view:ViewState;online?:
   function selection():void {const current=props.controller.current.current.document;publishDocument(props.controller,selectNode(current,current.selected));}
   /** Explicitly resume the prior separate block candidate. @returns Nothing. */
   function blocks():void {publishDocument(props.controller,{...selectNode(state,state.selected),mode:'BLOCK_SUPPORTED',dirty:true,contentGeneration:state.contentGeneration+1,clipboard:null,notice:'Block editing resumed. Check and save when ready.'});}
+  const status=state.mode==='SOURCE'?'Editing text':state.preview?'Live from blocks':state.dirty?'Earlier preview':'Saved source';
   return <section aria-label="Source and accepted artifact" className="document-source">
-    <h2>Alloy source</h2>
-    <p>{state.mode==='SOURCE'?'Editing source directly.':state.preview?'Live block preview.':state.dirty?'Previous source preview; complete blocks are checked automatically.':'Source for the saved model.'}</p>
-    <label>Source<textarea id="document-source-draft" value={source} onChange={change} onSelect={selection} spellCheck={false}/></label>
-    {state.mode==='SOURCE'&&<button disabled={!state.accepted?.artifact.module} onClick={blocks}>Resume block editing</button>}
-    {props.online===false&&<p>Copy the visible source or export it below. A prior preview may not include unfinished block edits.</p>}
-    {props.online===false&&<><button onClick={copySource.bind(null,props.controller,source)}>Copy visible source</button><button onClick={downloadSource.bind(null,source)}>Export visible source</button></>}
-    <AcceptedAnalysisPanel controller={props.controller} view={props.view} online={props.online!==false}/>
+    <div className="source-heading"><h2>Alloy source</h2><span className={`source-status${state.preview&&state.mode!=='SOURCE'?' is-live':''}`}>{status}</span></div>
+    <p className="source-note">{state.mode==='SOURCE'?'Text is authoritative. Save it, or resume block editing to discard these text edits.':state.preview?'This is exactly the Alloy text your blocks produce. Typing here switches to text editing and locks the blocks.':state.dirty?'Showing the last checked source. It refreshes once every empty slot is filled.':'Source for the saved version. Typing here switches to text editing and locks the blocks.'}</p>
+    <label><span className="sr-only">Source</span><textarea id="document-source-draft" value={source} onChange={change} onSelect={selection} spellCheck={false}/></label>
+    <div className="source-actions">
+      {state.mode==='SOURCE'&&<button className="secondary" disabled={!state.accepted?.artifact.module} onClick={blocks}>Resume block editing</button>}
+      <button className="ghost" onClick={copySource.bind(null,props.controller,source)}>Copy visible source</button><button className="ghost" onClick={downloadSource.bind(null,source)}>Export visible source</button>
+    </div>
+    {props.online===false&&<p>Copy the visible source or export it. A prior preview may not include unfinished block edits.</p>}
     <AcceptedPanel controller={props.controller} view={props.view}/>
   </section>;
 }

@@ -1,63 +1,90 @@
 import type {ParityFrame} from './oracleParity';
 import {BlockShelf} from './BlockShelf';
+import {SelectionBar,CanvasToolbar,openDeclarations,type RootTag} from './CanvasParts';
 import {useBlockInventory,type BlockChoice} from './blockInventory';
 import {blockKind,type SavedBlock} from './blockLibrary';
 import {useState,useRef,useEffect} from 'react';
 import {dragEndNotice,type Gesture,type Fit} from './gesture';
 import type {DragEvent,KeyboardEvent} from 'react';
 import type {DraftModule,DraftNode,Expression,Id,Check,SlotObligation} from './types';
-import {children,checkModule,nodeIndex,typeLabel} from './model';
+import {children,checkModule,nodeIndex,subtree,typeLabel} from './model';
 import {slotConstraints} from './operations';
-interface Props {
+import {blockHint,fitBadge,matchesId,nodeLabel,operatorSymbol} from './blockCatalog';
+export {operatorSymbol,paletteLabel} from './blockCatalog';
+export interface Props {
  readonly parityFrame?:ParityFrame|null;
  readonly entries:readonly SavedBlock[];readonly onCapture:(name:string)=>void;readonly onRename:(entry:SavedBlock,name:string)=>void;readonly onRemove:(entry:SavedBlock)=>void;readonly onSaved:(entry:SavedBlock,target:Id)=>void;
  readonly module:DraftModule;readonly slotObligations?:readonly SlotObligation[];readonly selected:Id|null;readonly snapshot:string;readonly onSelect:(id:Id)=>void;
  readonly onInsert:(tag:Expression['tag'],target:Id,name:string,destination:Id)=>void;
  readonly onClipboard:(cut:boolean)=>void;readonly onPaste:()=>void;readonly onDelete:()=>void;
  readonly onCancel:()=>void;readonly onDropNode:(source:Id,target:Id,copy:boolean)=>void;readonly onNotice:(message:string)=>void;
- readonly onSnapshot?:()=>string;readonly onPreview?:(gesture:Gesture,target:Id,copy:boolean)=>Fit;readonly onGesture?:(gesture:Gesture,target:Id,copy:boolean)=>void;
+ readonly onAdd?:(tag:RootTag)=>void;readonly onSnapshot?:()=>string;readonly onPreview?:(gesture:Gesture,target:Id,copy:boolean)=>Fit;readonly onGesture?:(gesture:Gesture,target:Id,copy:boolean)=>void;
 }
-/** Render full palette and independently checked forest. @param props Draft callbacks. @returns Accessible editor. */
+type Hover={readonly id:Id;readonly fit:Fit};
+interface DragState {readonly active:{current:Gesture|null};readonly cache:{current:{key:string;fit:Fit}|null};readonly hovered:{current:Hover|null};readonly setHover:(value:Hover|null)=>void;readonly setDragging:(value:boolean)=>void}
+interface DragHandlers {readonly startChoice:(choice:BlockChoice,event:DragEvent)=>void;readonly startNode:(source:Id,event:DragEvent)=>void;readonly over:(destination:Id,event:DragEvent)=>void;readonly away:()=>void;readonly drop:(destination:Id,event:DragEvent)=>void;readonly end:()=>void}
+/** Render the palette, the selection toolbar and the independently checked block canvas. @param props Draft callbacks. @returns Accessible editor. */
 export function ExpressionEditor(props:Props) {
-  const [name,setName]=useState('variable'),checked=checkModule(props.module,props.slotObligations);
-  const [hover,setHover]=useState<{id:Id;fit:Fit}|null>(null),active=useRef<Gesture|null>(null),cache=useRef<{key:string;fit:Fit}|null>(null);
-  const constraints=slotConstraints(props.module,checked),index=nodeIndex(props.module);
+  const [name,setName]=useState('variable'),[label,setLabel]=useState(''),[hover,setHover]=useState<Hover|null>(null),[dragging,setDragging]=useState(false);
+  const checked=checkModule(props.module,props.slotObligations),constraints=slotConstraints(props.module,checked),index=nodeIndex(props.module);
+  const drag:DragState={active:useRef<Gesture|null>(null),cache:useRef<{key:string;fit:Fit}|null>(null),hovered:useRef<Hover|null>(null),setHover,setDragging};
   const inventory=useBlockInventory({module:props.module,checked,selected:props.selected,snapshot:props.snapshot,name,entries:props.entries,obligations:props.slotObligations,preview:props.onPreview});
-  useEffect(clearGesture.bind(null,active,cache,setHover),[props.snapshot]);
+  useEffect(clearGesture.bind(null,drag),[props.snapshot]);
+  const handlers=dragHandlers(props,drag,name,index,checked),expectation=props.selected?constraints.get(props.selected)??'unresolved constraint':'select a body or child slot';
   /** Insert the exact constructor/reference pair or frozen reusable snapshot. @param choice Inventory item. @returns Nothing. */
-  function choose(choice:BlockChoice):void {if(!props.selected) {props.onNotice('Select a destination first.');return;}if(choice.entry) props.onSaved(choice.entry,props.selected);else props.onInsert(choice.tag,choice.target,name,props.selected);}
-  /** Begin a current context-bound shelf gesture. @param choice Exact inventory item. @param event Browser event. @returns Nothing. */
-  function startChoice(choice:BlockChoice,event:DragEvent):void {
-    const base={nonce:crypto.randomUUID(),snapshot:props.snapshot};startGesture(active,cache,choice.entry?{...base,kind:'saved',entry:choice.entry}:{...base,kind:'palette',tag:choice.tag,target:choice.target,name},event);
-    props.onNotice(`Dragging ${choice.label}. Move to a typed slot.`);}
-  /** Begin an owned subtree gesture. @param source Node identity. @param event Browser drag. @returns Nothing. */
-  function startNode(source:Id,event:DragEvent):void {startGesture(active,cache,{kind:'node',source,nonce:crypto.randomUUID(),snapshot:props.snapshot},event);const node=index.get(source);props.onNotice(`Dragging ${node&&node.tag!=='hole'?nodeLabel(props.module,node,checked):'block'}. Move to a typed slot.`);}
-  /** Preview only the current hovered destination. @param destination Node identity. @param event Browser drag. @returns Nothing. */
-  function over(destination:Id,event:DragEvent):void {
-    if(!active.current||!Array.from(event.dataTransfer.types).includes(DRAG_TYPE)) return;
-    event.preventDefault();event.stopPropagation();const copy=active.current.kind!=='node'||event.ctrlKey||event.metaKey,key=JSON.stringify([active.current.nonce,props.onSnapshot?.()??props.snapshot,destination,copy]);
-    if(cache.current?.key!==key) cache.current={key,fit:props.onPreview?.(active.current,destination,copy)??{kind:'incompatible',message:'Drag unavailable.'}};
-    setHover({id:destination,fit:cache.current.fit});event.dataTransfer.dropEffect=['incompatible','unavailable'].includes(cache.current.fit.kind)?'none':copy?'copy':'move';
-  }
-  /** Commit only this editor's exact active gesture. @param destination Slot. @param event Browser drop. @returns Nothing. */
-  function drop(destination:Id,event:DragEvent):void {
-    event.preventDefault();event.stopPropagation();const gesture=active.current,nonce=event.dataTransfer.getData(DRAG_TYPE);clearGesture(active,cache,setHover);
-    if(!gesture||nonce!==gesture.nonce) {props.onNotice('Foreign or stale drag; draft unchanged.');return;}
-    props.onGesture?.(gesture,destination,event.ctrlKey||event.metaKey);}
+  function choose(choice:BlockChoice):void {if(!props.selected) {props.onNotice('Select an empty slot or a block on the canvas first, or drag this block onto a slot.');return;}if(choice.entry) props.onSaved(choice.entry,props.selected);else props.onInsert(choice.tag,choice.target,name,props.selected);}
   /** Cancel current drag and preserve existing Escape action. @param event Keyboard event. @returns Nothing. */
-  function keydown(event:KeyboardEvent):void {if(event.key==='Escape') clearGesture(active,cache,setHover);shortcuts(props,event);}
-  return <section aria-label="Typed block editor" className="document-blocks" onKeyDown={keydown}><h2>Typed blocks</h2><BlockShelf expectation={props.selected?constraints.get(props.selected)??'unresolved constraint':'select a body or child slot'} choices={inventory.choices} pending={inventory.pending} selected={props.selected} name={name} onName={setName} onChoice={choose} onDrag={startChoice} onEnd={finishGesture.bind(null,active,cache,setHover,props.onNotice)} onCapture={props.onCapture} onRename={props.onRename} onRemove={props.onRemove}/><BlockActions {...props}/><p className="drag-feedback" role="status" aria-live="polite">{hover?.fit.message??(active.current?'Dragging block. Move to a typed slot.':'Drag a block to a typed slot, or select a slot and choose a block.')}</p><Forest {...props} constraints={constraints} index={index} checked={checked} onDrop={drop} onOver={over} onDrag={startNode} onEnd={finishGesture.bind(null,active,cache,setHover,props.onNotice)} hover={hover}/></section>;
+  function keydown(event:KeyboardEvent):void {if(event.key==='Escape') clearGesture(drag);shortcuts(props,event);}
+  const feedback=hover?`${fitBadge(hover.fit.kind)} — ${hover.fit.message}`:dragging?'Dragging block. Move it onto a highlighted slot; release to drop, Esc to cancel.':'Drag a block onto a dashed empty slot, or select a slot and click a block in the palette.';
+  return <section aria-label="Typed block editor" className="document-blocks" data-dragging={dragging?'true':undefined} onKeyDown={keydown}><h2 className="sr-only">Typed blocks</h2>
+    <BlockShelf expectation={expectation} choices={inventory.choices} pending={inventory.pending} selected={props.selected} name={name} onName={setName} onChoice={choose} onDrag={handlers.startChoice} onEnd={handlers.end} onRename={props.onRename} onRemove={props.onRemove}/>
+    <div className="canvas-column">
+      <SelectionBar {...props} index={index} checked={checked} expectation={expectation} label={label} onLabel={setLabel}/>
+      <p className={`drag-feedback${hover?` fit-${hover.fit.kind}`:''}`} role="status" aria-live="polite">{feedback}</p>
+      <CanvasToolbar onAdd={props.onAdd}/>
+      <Forest {...props} constraints={constraints} index={index} checked={checked} handlers={handlers} hover={hover}/>
+      <p className="canvas-tips">Drag a placed block to move it · hold Ctrl/Cmd while dropping to copy · Esc cancels a drag · Ctrl/Cmd+Z previews undo</p>
+    </div></section>;
 }
 const DRAG_TYPE='application/x-allow-gesture';
-/** Invalidate the active gesture and its bounded preview. @param active Gesture ref. @param cache Preview ref. @param setHover Feedback setter. @returns Nothing. */
-function clearGesture(active:{current:Gesture|null},cache:{current:{key:string;fit:Fit}|null},setHover:(value:null)=>void):void {active.current=null;cache.current=null;setHover(null);}
-/** Finish an unfinished drag without replacing a successful drop notice. @param active Gesture ref. @param cache Preview ref. @param setHover Feedback setter. @param notice Persistent notice action. @returns Nothing. */
-function finishGesture(active:{current:Gesture|null},cache:{current:{key:string;fit:Fit}|null},setHover:(value:null)=>void,notice:(value:string)=>void):void {
-  const message=dragEndNotice(active.current,cache.current?.fit??null);clearGesture(active,cache,setHover);if(message) notice(message);
+/** Create gesture callbacks bound to the latest props and owned drag refs. @param props Editor props. @param drag Gesture refs and setters. @param name Quantifier binder name. @param index Node lookup. @param checked Current analysis. @returns Drag callbacks. */
+function dragHandlers(props:Props,drag:DragState,name:string,index:ReadonlyMap<Id,DraftNode>,checked:Check):DragHandlers {
+  /** Begin a current context-bound shelf gesture. @param choice Exact inventory item. @param event Browser event. @returns Nothing. */
+  function startChoice(choice:BlockChoice,event:DragEvent):void {
+    const base={nonce:crypto.randomUUID(),snapshot:props.snapshot};startGesture(drag,choice.entry?{...base,kind:'saved',entry:choice.entry}:{...base,kind:'palette',tag:choice.tag,target:choice.target,name},event);
+    props.onNotice(`Dragging ${choice.entry?.name??choice.label}. Move it onto a typed slot.`);}
+  /** Begin an owned subtree gesture. @param source Node identity. @param event Browser drag. @returns Nothing. */
+  function startNode(source:Id,event:DragEvent):void {startGesture(drag,{kind:'node',source,nonce:crypto.randomUUID(),snapshot:props.snapshot},event);const node=index.get(source);props.onNotice(`Dragging ${node&&node.tag!=='hole'?nodeLabel(props.module,node,checked):'block'}. Move it onto a typed slot.`);}
+  /** Preview only the current hovered destination. @param destination Node identity. @param event Browser drag. @returns Nothing. */
+  function over(destination:Id,event:DragEvent):void {
+    if(!drag.active.current||!Array.from(event.dataTransfer.types).includes(DRAG_TYPE)) return;
+    event.preventDefault();event.stopPropagation();const copy=drag.active.current.kind!=='node'||event.ctrlKey||event.metaKey,key=JSON.stringify([drag.active.current.nonce,props.onSnapshot?.()??props.snapshot,destination,copy]);
+    if(drag.cache.current?.key!==key) drag.cache.current={key,fit:props.onPreview?.(drag.active.current,destination,copy)??{kind:'incompatible',message:'Drag unavailable.'}};
+    publishHover(drag,{id:destination,fit:drag.cache.current.fit});event.dataTransfer.dropEffect=['incompatible','unavailable'].includes(drag.cache.current.fit.kind)?'none':copy?'copy':'move';
+  }
+  /** Clear a stale destination preview while the pointer is over empty canvas. @returns Nothing. */
+  function away():void {publishHover(drag,null);}
+  /** Commit only this editor's exact active gesture. @param destination Slot. @param event Browser drop. @returns Nothing. */
+  function drop(destination:Id,event:DragEvent):void {
+    event.preventDefault();event.stopPropagation();const gesture=drag.active.current,nonce=event.dataTransfer.getData(DRAG_TYPE);clearGesture(drag);
+    if(!gesture||nonce!==gesture.nonce) {props.onNotice('Foreign or stale drag; draft unchanged.');return;}
+    props.onGesture?.(gesture,destination,event.ctrlKey||event.metaKey);}
+  return {startChoice,startNode,over,away,drop,end:finishGesture.bind(null,drag,props.onNotice)};
 }
-/** Write only an opaque gesture nonce into the browser transport. @param active Gesture ref. @param cache Preview ref. @param gesture Frozen descriptor. @param event Browser drag. @returns Nothing. */
-function startGesture(active:{current:Gesture|null},cache:{current:{key:string;fit:Fit}|null},gesture:Gesture,event:DragEvent):void {
-  event.stopPropagation();active.current=gesture;cache.current=null;event.dataTransfer.effectAllowed=gesture.kind==='node'?'copyMove':'copy';event.dataTransfer.setData(DRAG_TYPE,gesture.nonce);
+/** Publish a destination preview only when it changes, avoiding a render per dragover event. @param drag Gesture refs. @param next Destination preview or none. @returns Nothing. */
+function publishHover(drag:DragState,next:Hover|null):void {
+  const last=drag.hovered.current;if(last===next||(last&&next&&last.id===next.id&&last.fit===next.fit)) return;
+  drag.hovered.current=next;drag.setHover(next);
+}
+/** Invalidate the active gesture and its bounded preview. @param drag Gesture refs and setters. @returns Nothing. */
+function clearGesture(drag:DragState):void {drag.active.current=null;drag.cache.current=null;drag.hovered.current=null;drag.setHover(null);drag.setDragging(false);}
+/** Finish an unfinished drag without replacing a successful drop notice. @param drag Gesture refs. @param notice Persistent notice action. @returns Nothing. */
+function finishGesture(drag:DragState,notice:(value:string)=>void):void {
+  const message=dragEndNotice(drag.active.current,drag.cache.current?.fit??null);clearGesture(drag);if(message) notice(message);
+}
+/** Write only an opaque gesture nonce into the browser transport. @param drag Gesture refs. @param gesture Frozen descriptor. @param event Browser drag. @returns Nothing. */
+function startGesture(drag:DragState,gesture:Gesture,event:DragEvent):void {
+  event.stopPropagation();drag.active.current=gesture;drag.cache.current=null;drag.hovered.current=null;event.dataTransfer.effectAllowed=gesture.kind==='node'?'copyMove':'copy';event.dataTransfer.setData(DRAG_TYPE,gesture.nonce);drag.setDragging(true);
 }
 /** Route block shortcuts without intercepting native text editing. @param props Actions. @param event Key. @returns Nothing. */
 function shortcuts(props:Props,event:KeyboardEvent):void {
@@ -69,17 +96,26 @@ function shortcuts(props:Props,event:KeyboardEvent):void {
   } else if(event.key==='Delete') {event.preventDefault();props.onDelete();}
   else if(event.key==='Escape') props.onCancel();
 }
-/** Render visible keyboard-equivalent subtree actions. @param props Actions. @returns Buttons. */
-function BlockActions(props:Props) {
-  return <div className="document-actions"><button disabled={!props.selected} onClick={props.onClipboard.bind(null,false)}>Copy (Ctrl/Cmd+C)</button><button disabled={!props.selected} onClick={props.onClipboard.bind(null,true)}>Cut (Ctrl/Cmd+X)</button><button onClick={props.onPaste}>Paste (Ctrl/Cmd+V)</button><button disabled={!props.selected} onClick={props.onDelete}>Delete selected</button><p>Drag an existing block to move; Ctrl/Cmd-drag copies. Selection preserves clipboard content identity.</p></div>;
-}
-interface ForestProps extends Props {constraints:ReadonlyMap<Id,string>;index:ReadonlyMap<Id,DraftNode>;checked:Check;onDrop:(id:Id,event:DragEvent)=>void;onOver:(id:Id,event:DragEvent)=>void;onDrag:(id:Id,event:DragEvent)=>void;onEnd:()=>void;hover:{id:Id;fit:Fit}|null}
-/** Render every owned declaration body. @param props Forest. @returns Roots. */
+interface ForestProps extends Props {constraints:ReadonlyMap<Id,string>;index:ReadonlyMap<Id,DraftNode>;checked:Check;handlers:DragHandlers;hover:Hover|null}
+/** Render every owned declaration body as its own card on the canvas. @param props Forest. @returns Roots. */
 function Forest(props:ForestProps) {
   const roots=[];
-  for(const declaration of [...props.module.predicates,...props.module.facts,...props.module.assertions]) roots.push(<div key={declaration.id} data-parity={props.parityFrame?.targetId===declaration.id?props.parityFrame.verdict:undefined} className={props.parityFrame?.targetId===declaration.id?`parity-frame parity-${props.parityFrame.verdict}`:undefined}>{props.parityFrame?.targetId===declaration.id&&<p className="parity-label" role="status">Bounded {props.parityFrame.verdict} · scope {props.parityFrame.scope}, bitwidth 4, maximum sequence 3</p>}<h3>{declaration.tag} {declaration.name}</h3><Branch {...props} id={declaration.bodyId} depth={0}/></div>);
-  return <div className="block-canvas" aria-label="Owned expression forest">{roots.length?roots:<p>Add a predicate, fact or assertion to create a formula root.</p>}</div>;
+  for(const declaration of [...props.module.predicates,...props.module.facts,...props.module.assertions]) {
+    const framed=props.parityFrame?.targetId===declaration.id,empty=emptySlots(props,declaration.bodyId);
+    roots.push(<div key={declaration.id} data-parity={framed?props.parityFrame!.verdict:undefined} className={`forest-root${framed?` parity-frame parity-${props.parityFrame!.verdict}`:''}`}>{framed&&<p className="parity-label" role="status">Bounded {props.parityFrame!.verdict} · scope {props.parityFrame!.scope}, bitwidth 4, maximum sequence 3</p>}
+      <div className="root-heading"><h3><span className={`root-kind root-${declaration.tag}`}>{declaration.tag}</span> {declaration.name}{'parameters' in declaration&&declaration.parameters.length>0&&<span className="root-params">[{declaration.parameters.map(parameterText.bind(null,props.module)).join(', ')}]</span>}</h3><span className={`root-status${empty?' has-empty':''}`}>{empty?`${empty} empty slot${empty===1?'':'s'}`:'✓ Complete'}</span></div>
+      <Branch {...props} id={declaration.bodyId} depth={0}/></div>);
+  }
+  return <div className="block-canvas" aria-label="Owned expression forest" onDragOver={props.handlers.away}>{roots.length?roots:<div className="canvas-empty"><strong>No formulas yet.</strong><p>Add a signature for the things in your model, then a predicate, fact or assertion. Each one appears here as a card with an empty formula slot to fill with blocks.</p>{props.onAdd&&<div className="canvas-empty-actions"><button type="button" className="secondary" onClick={props.onAdd.bind(null,'signature')}>＋ Add signature</button><button type="button" className="primary" onClick={props.onAdd.bind(null,'predicate')}>＋ Add predicate</button><button type="button" className="ghost" onClick={openDeclarations}>Open declarations</button></div>}</div>}</div>;
 }
+/** Count unresolved holes owned by one declaration body. @param props Forest lookups. @param root Body identity. @returns Number of empty slots. */
+function emptySlots(props:ForestProps,root:Id):number {let count=0;for(const id of subtree(props.module,root)) if(props.index.get(id)?.tag==='hole') count++;return count;}
+/** Format one predicate parameter with its ordered nominal schema. @param module Declarations. @param parameter Ordered parameter. @returns Readable parameter text. */
+function parameterText(module:DraftModule,parameter:{readonly name:string;readonly columns:readonly Id[]}):string {
+  const columns=parameter.columns.map(signatureName.bind(null,module));return `${parameter.name}: ${columns.join(' -> ')||'?'}`;
+}
+/** Resolve a signature name for display only. @param module Declarations. @param id Signature identity. @returns Name or a placeholder. */
+function signatureName(module:DraftModule,id:Id):string {return module.signatures.find(matchesId.bind(null,id))?.name??'?';}
 /** Display known structural sort without fabricating unresolved nominal columns. @param module Declaration names. @param id Expression identity. @param checked Shared partial and exact analysis. @returns Honest structural result label. */
 function resultLabel(module:DraftModule,id:Id,checked:Check):string {
   const exact=checked.types.get(id),fact=checked.facts.get(id);
@@ -97,28 +133,9 @@ function Branch(props:ForestProps&{id:Id;depth:number}) {
   if(!node||props.depth>=32) return <p role="alert">Missing node or depth limit.</p>;
   for(const child of children(node)) branches.push(<Branch key={child} {...props} id={child} depth={props.depth+1}/>);
   for(const error of props.checked.diagnostics) if(error.nodeId===node.id) errors.push(<li key={error.message}>{error.message}</li>);
-  const description=`constraint-${node.id}`,label=node.tag==='hole'?'Drop block · Unresolved hole':nodeLabel(props.module,node,props.checked);
-  return <div className="document-branch"><button className={`${node.tag==='hole'?'block-slot':'block-node'} ${props.hover?.id===node.id?`fit-${props.hover.fit.kind}`:''}`} data-block-kind={blockKind(node.tag)} id={`block-${node.id}`} draggable={node.tag!=='hole'} onDragStart={props.onDrag.bind(null,node.id)} onDragEnd={props.onEnd} onDragOver={props.onOver.bind(null,node.id)} onDrop={props.onDrop.bind(null,node.id)} onClick={props.onSelect.bind(null,node.id)} aria-pressed={props.selected===node.id} aria-describedby={description}><span className="block-symbol" aria-hidden="true">{node.tag==='hole'?'＋':operatorSymbol(node.tag)}</span><span className="block-label">{label}</span> · <span className="block-type">{resultLabel(props.module,node.id,props.checked)}</span></button><p id={description}>Expected: {props.constraints.get(node.id)??'unresolved constraint'}</p>{errors.length>0&&<ul>{errors}</ul>}<div className="document-children block-children">{branches}</div></div>;
-}
-
-/** Resolve a declaration or visible binder without inventing a name for an invalid reference. @param module Draft declarations. @param node Reference node. @param checked Current scopes. @returns Human-readable block title. */
-function nodeLabel(module:DraftModule,node:Expression,checked:Check):string {
-  if(node.tag==='signature_ref') return `Signature · ${module.signatures.find(matchesId.bind(null,node.targetId))?.name??'unresolved reference'}`;
-  if(node.tag==='field_ref') return `Field · ${module.fields.find(matchesId.bind(null,node.targetId))?.name??'unresolved reference'}`;
-  if(node.tag==='variable_ref') return `Variable · ${checked.scopes.get(node.id)?.find(matchesId.bind(null,node.targetId))?.name??'out-of-scope reference'}`;
-  if(node.tag==='predicate_call') return `Call predicate · ${module.predicates.find(matchesId.bind(null,node.predicateId))?.name??'unresolved reference'}`;
-  if(node.tag==='all_quant'||node.tag==='some_quant') return `${paletteLabel(node.tag)} · ${node.binder.name}: ${module.signatures.find(matchesId.bind(null,node.binder.signatureId))?.name??'unresolved signature'}`;
-  return paletteLabel(node.tag);
-}
-/** Compare a declaration identity without exposing unresolved raw identifiers. @param id Requested identity. @param item Candidate declaration. @returns Exact identity match. */
-function matchesId(id:Id,item:{readonly id:Id}):boolean {return item.id===id;}
-/** Supply a compact visual symbol while preserving a spoken text label. @param tag Closed constructor. @returns Operator glyph. */
-export function operatorSymbol(tag:Expression['tag']):string {
-  const symbols:Record<Expression['tag'],string>={signature_ref:'S',field_ref:'↦',variable_ref:'x',predicate_call:'ƒ',not:'¬',some_test:'∃',no_test:'∄',one_test:'1',lone_test:'≤1',transpose:'∼',and:'∧',or:'∨',implies:'⇒',iff:'⇔',equal:'=',subset:'⊆',union:'∪',intersection:'∩',difference:'−',join:'·',product:'×',all_quant:'∀',some_quant:'∃'};
-  return symbols[tag];
-}
-/** Give each closed operator a familiar visible palette label. @param tag Exact operator. @returns User-facing block name. */
-export function paletteLabel(tag:Expression['tag']):string {
-  const labels:Partial<Record<Expression['tag'],string>>={signature_ref:'Signature',field_ref:'Field',variable_ref:'Variable',predicate_call:'Call predicate',some_test:'Some tuples',no_test:'No tuples',one_test:'Exactly one tuple',lone_test:'At most one tuple',all_quant:'For every variable',some_quant:'For some variable',equal:'Equals',subset:'Subset',implies:'Implies',iff:'If and only if'};
-  return labels[tag]??tag.charAt(0).toUpperCase()+tag.slice(1);
+  const hole=node.tag==='hole',selected=props.selected===node.id,fit=props.hover?.id===node.id?props.hover.fit:null,description=`constraint-${node.id}`,label=hole?'Empty slot · drop or choose a block':nodeLabel(props.module,node,props.checked);
+  return <div className={`document-branch${hole?' is-hole':''}${selected?' is-selected':''}${errors.length?' has-errors':''}`}>
+    <button className={`${hole?'block-slot':'block-node'}${fit?` fit-${fit.kind}`:''}`} data-block-kind={blockKind(node.tag)} id={`block-${node.id}`} draggable={!hole} onDragStart={props.handlers.startNode.bind(null,node.id)} onDragEnd={props.handlers.end} onDragOver={props.handlers.over.bind(null,node.id)} onDrop={props.handlers.drop.bind(null,node.id)} onClick={props.onSelect.bind(null,node.id)} aria-pressed={selected} aria-describedby={description} title={hole?'Empty slot: drop a block here, or select it and click a block in the palette':blockHint(node.tag)}>
+      <span className="block-symbol" aria-hidden="true">{hole?'＋':operatorSymbol(node.tag)}</span><span className="block-label">{label}</span>{fit&&<span className={`fit-badge fit-${fit.kind}`}>{fitBadge(fit.kind)}</span>}<span className="sr-only"> · </span><span className="block-type">{resultLabel(props.module,node.id,props.checked)}</span></button>
+    <p id={description} className="node-expect">Slot accepts: {props.constraints.get(node.id)??'unresolved constraint'}</p>{errors.length>0&&<ul className="node-errors">{errors}</ul>}<div className="document-children block-children">{branches}</div></div>;
 }

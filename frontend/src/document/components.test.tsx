@@ -30,6 +30,6 @@ test('static markup exposes declaration/parameter exact nominal editors',declara
 function partialResultLabels():void {
   const original=new Fixture().build('not'),nodes=construct('not','',original),module=replaceSubtree(original,original.predicates[0].bodyId,nodes);
   const markup=renderToStaticMarkup(<ExpressionEditor entries={[]} onCapture={ignore} onRename={ignore} onRemove={ignore} onSaved={ignore} snapshot="partial" module={module} selected={nodes[0].id} onSelect={ignore} onInsert={ignore} onClipboard={ignore} onPaste={ignore} onDelete={ignore} onDropNode={ignore} onCancel={ignore} onNotice={ignore}/>);
-  expect(markup).toContain('>Not</span>');expect(markup).toContain('>formula</span>');expect(markup).toContain('Drop block · Unresolved hole');expect(markup).toContain('class="block-symbol" aria-hidden="true"');
+  expect(markup).toContain('>Not</span>');expect(markup).toContain('>formula</span>');expect(markup).toContain('Empty slot · drop or choose a block');expect(markup).toContain('class="block-symbol" aria-hidden="true"');
 }
 test('partial block labels display known structural formula sort without invented relation schemas',partialResultLabels);

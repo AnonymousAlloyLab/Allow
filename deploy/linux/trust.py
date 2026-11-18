@@ -177,7 +177,7 @@ def load_config(path):
     """Accept closed instance settings, preserving legacy private SSH configurations."""
     value = json.loads(checked_path(path, private=True).read_text(), object_pairs_hook=unique_object)
     required = {'public_origin', 'tunnel_port', 'backend_port', 'advisory_profile'}
-    if not isinstance(value, dict) or not required <= set(value) or set(value) - required - {'access_mode', 'transport', 'installation_slot', 'ai_mode', 'ai_ledger', 'ai_ceiling_micro_usd', 'ai_terms_version', 'ai_tariff_version', 'ai_key_file'}:
+    if not isinstance(value, dict) or not required <= set(value) or set(value) - required - {'access_mode', 'transport', 'installation_slot', 'ai_mode', 'ai_ledger', 'ai_ceiling_micro_usd', 'ai_terms_version', 'ai_tariff_version', 'ai_key_file', 'access_request_config'}:
         raise ValueError('Unexpected instance settings')
     origin = value['public_origin']
     if not isinstance(origin, str):
@@ -210,7 +210,26 @@ def load_config(path):
             value['backend_port'] != 18081 or value['tunnel_port'] != 18081):
         raise ValueError('Invalid public replacement profile')
     validate_ai_config(value)
+    validate_access_request_config(value)
     return value
+
+
+def validate_access_request_config(value):
+    """Accept only a protected external settings path, never inline intake secrets."""
+    if 'access_request_config' not in value:
+        return
+    name = value['access_request_config']
+    if not isinstance(name, str) or not name or len(name) > 1024:
+        raise ValueError('Invalid access-request configuration path')
+    path = Path(name)
+    if not path.is_absolute() or str(path) != name or '..' in path.parts or path.is_relative_to(ROOT):
+        raise ValueError('Access-request settings must be outside the installation')
+    checked_path(path, private=True, regular=True)
+    if not path.is_file() or stat.S_IMODE(path.stat().st_mode) != 0o600:
+        raise ValueError('Access-request settings must be a private regular file')
+    parent = checked_path(path.parent, install=True)
+    if stat.S_IMODE(parent.stat().st_mode) != 0o700:
+        raise ValueError('Access-request settings require a private parent')
 
 
 def validate_ai_config(value):

@@ -136,8 +136,19 @@ final class PublicAccess {
      */
     private boolean allowedRoute(String path) {
         return path.equals("/api/config") || path.equals("/api/jobs") || path.startsWith("/api/jobs/")
-                || path.equals("/api/v1/documents") || path.startsWith("/api/v1/documents/")
+                || documentRoute(path)
                 || path.equals("/api/public/workspaces/current");
+    }
+
+    /** Enumerates document routes allowed to hold anonymous owner authority.
+     * @param path canonical raw request path
+     * @return whether the exact installed document route is public-session eligible
+     */
+    private boolean documentRoute(String path) {
+        if (path.equals("/api/v1/documents")) return true;
+        String root = "/api/v1/documents/server(?::|%3A)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}";
+        return path.matches(root + "(?:/(?:validate|commit|history-copy|analyze|compare|comparison-model|compare-models|oracle-parity))?")
+                || path.matches(root + "/analysis/[0-9a-f-]{36}");
     }
 
     /** Applies the final monotonic publication fence after all synchronous work has returned.

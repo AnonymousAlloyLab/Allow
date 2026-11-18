@@ -1,0 +1,27 @@
+'Allow.BlockWorkbench.clone_external' depends on axioms: [propext]
+'Allow.BlockWorkbench.clone_owned' depends on axioms: [propext]
+'Allow.BlockWorkbench.clone_fresh' depends on axioms: [propext, Quot.sound]
+'Allow.BlockWorkbench.clone_bound_consistent' does not depend on any axioms
+'Allow.BlockWorkbench.clone_distinct' does not depend on any axioms
+'Allow.BlockWorkbench.rejection_atomic' depends on axioms: [propext]
+'Allow.BlockWorkbench.never_accepts' depends on axioms: [propext]
+'Allow.BlockWorkbench.success_requires_guards' depends on axioms: [propext]
+'Allow.BlockWorkbench.unavailable_rejected' depends on axioms: [propext]
+'Allow.BlockWorkbench.incompatible_rejected' depends on axioms: [propext]
+'Allow.BlockWorkbench.category_both' does not depend on any axioms
+'Allow.BlockWorkbench.category_left' does not depend on any axioms
+'Allow.BlockWorkbench.category_right' does not depend on any axioms
+'Allow.BlockWorkbench.category_neither' does not depend on any axioms
+'Allow.BlockWorkbench.no_difference_agreement' depends on axioms: [propext]
+'Allow.BlockWorkbench.agreement_requires_both_unsat' depends on axioms: [propext]
+'Allow.BlockWorkbench.timeout_not_agreement' depends on axioms: [propext]
+'Allow.BlockWorkbench.positive_unresolved' does not depend on any axioms
+'Allow.BlockWorkbench.positive_partition' does not depend on any axioms
+'Allow.BlockWorkbench.matched_requires_background_and_parameters' depends on axioms: [propext, Quot.sound]
+'Allow.BlockWorkbench.dependency_rejected_left' depends on axioms: [propext]
+'Allow.BlockWorkbench.dependency_rejected_right' depends on axioms: [propext]
+'Allow.BlockWorkbench.publish_exact_request' depends on axioms: [propext]
+'Allow.BlockWorkbench.publish_matched' depends on axioms: [propext]
+'Allow.BlockWorkbench.changed_hash_cannot_publish' depends on axioms: [propext]
+'Allow.BlockWorkbench.changed_predicate_cannot_publish' depends on axioms: [propext]
+'Allow.BlockWorkbench.matched_positive' does not depend on any axioms

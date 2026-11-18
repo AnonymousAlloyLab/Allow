@@ -1,0 +1,10 @@
+{
+  "status": "PASS_ABSTRACT_ONLY",
+  "command": "cd formal && lake env lean Allow/AiAccessRequest.lean",
+  "lean": "4.34.1",
+  "runs": 2,
+  "contract_sha256": "ca26dbc84ac51d27e392576b71e3427b0282a1413e29dd282477d3163ce3149f",
+  "proof_sha256": "5ec94e848f12bab5283399b35af2f8a6598ec5a5eb35789194524c0f9281221e",
+  "claims": ["positive admission witness", "captcha and email required", "persistence and immutable binding required", "used and consumed challenges denied", "expired and exhausted challenges denied", "abstract token count zero"],
+  "limits": "Abstract policy only; no implementation refinement, network/provider, clock, cryptography, concurrency, filesystem or deployment correctness established. Council review and external acceptance are OPEN."
+}

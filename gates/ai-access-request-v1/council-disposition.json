@@ -1,0 +1,57 @@
+{
+  "decision": "APPROVED_FOR_IMPLEMENTATION",
+  "contract_sha256": "ca26dbc84ac51d27e392576b71e3427b0282a1413e29dd282477d3163ce3149f",
+  "proof_sha256": "5ec94e848f12bab5283399b35af2f8a6598ec5a5eb35789194524c0f9281221e",
+  "formal_report_sha256": "015945d25b5325fd57b35fbd1c9e5385831cd56222d7220a32b800a47af5484a",
+  "production_edits_at_gate": false,
+  "reviewers": [
+    {
+      "seat": "Terra1",
+      "model": "gpt-6.1-terra",
+      "agent": "/root/access_terra_1",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Terra2",
+      "model": "gpt-6.1-terra",
+      "agent": "/root/access_terra_2",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Sol1",
+      "model": "gpt-6.1-sol",
+      "agent": "/root/access_sol_1",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Sol2",
+      "model": "gpt-6.1-sol",
+      "agent": "/root/access_sol_2",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Astra1",
+      "model": "gpt-6-astra",
+      "agent": "/root/access_astra_1",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Astra2",
+      "model": "gpt-6-astra",
+      "agent": "/root/access_astra_2",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    }
+  ],
+  "root_lean_check": "lake env lean Allow/AiAccessRequest.lean; exit 0",
+  "conditions": [
+    "Terminally retire challenge on ambiguous persistence; never retry with fresh record identity",
+    "No active challenge until SMTP succeeds and deadline remains live",
+    "Actual email delivery, opaque Google sandbox compatibility and public/commercial acceptance remain OPEN"
+  ]
+}

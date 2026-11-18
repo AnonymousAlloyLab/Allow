@@ -74,11 +74,11 @@ export function CorpusResults(props: {result: CorpusSearch | null}) {
 /** Render authenticated local corpus browsing and evidence-only retrieval. @param props Launch authority. @returns Accessible corpus panel. */
 export function CorpusPanel(props: {token: string}) {
   const state = useCorpus();
-  return <section className="panel corpus" aria-labelledby="corpus-title"><div className="panel-title"><div><span className="panel-index">04</span><h2 id="corpus-title">Predicate corpus</h2></div>
-    <span>LOCAL RETRIEVAL</span></div><p>Explore anonymous predicates with checked e-graph representatives and both witness polarities.</p>
-    <div className="corpus-controls"><button className="secondary" disabled={state.busy} onClick={refresh.bind(null,state,props.token)}>Load corpus</button>
+  return <section className="panel corpus" aria-labelledby="corpus-title"><div className="panel-title"><div><span className="panel-index">04</span><h2 id="corpus-title">Predicate library</h2></div>
+    <span>Local retrieval</span></div><p>Find stored predicates that behave like one you choose. Load the library, pick a query predicate, then find related predicates. Each record is anonymous and has checked e-graph representatives with examples and counterexamples.</p>
+    <div className="corpus-controls"><button className="secondary" disabled={state.busy} onClick={refresh.bind(null,state,props.token)}>Load library</button>
       <label htmlFor="corpus-record">Query predicate</label><select id="corpus-record" value={state.selected} onChange={select.bind(null,state)} disabled={!state.records.length}>
-        {!state.records.length && <option value="">Load eligible records</option>}{state.records.map(option)}</select>
+        {!state.records.length && <option value="">Load the library first</option>}{state.records.map(option)}</select>
       <button className="primary" disabled={state.busy || !state.selected} onClick={search.bind(null,state,props.token)}>Find related predicates</button></div>
     {state.status && <p className="corpus-counts">{state.status.full} full pools · {state.status.vectors} embeddings · {state.status.revoked} revoked records</p>}
     <p role="status" aria-live="polite">{state.notice}</p><CorpusResults result={state.result}/></section>;

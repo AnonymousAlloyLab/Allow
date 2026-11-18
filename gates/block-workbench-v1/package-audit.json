@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "superseded": false,
+  "archive": "artifacts/releases/allow-iis-wsl-blocks-20261106-r2.zip",
+  "sha256": "fea58521d1aebd0bb88532320743c6c5066872e3b201bca1ad77e859e6a68c72",
+  "bytes": 78940769,
+  "manifest_members_verified": 404,
+  "zip_entries": 406,
+  "archive_mode": "0o600",
+  "assets": [
+    "assets/index-BOguKAvN.js",
+    "assets/index-CwFyasVt.css",
+    "index.html"
+  ],
+  "checks": [
+    "manifest membership and all member SHA-256 hashes",
+    "manifest checksum",
+    "no duplicate or escaping archive names",
+    "no symlink/private/runtime/checkpoint member names",
+    "private-key/cloud-token patterns and exact disposable staging capability absent",
+    "final backend comparison class bytes match current target",
+    "frontend bytes match explicit build/staging reference",
+    "AI OFF and native target acceptance remains OPEN"
+  ],
+  "findings": [],
+  "package_evidence_tests": {
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "python": "/usr/bin/python3 3.12"
+  }
+}

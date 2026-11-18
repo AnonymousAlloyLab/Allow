@@ -7,7 +7,7 @@ export function Bootstrap(props:{token:string}) {
   useEffect(loadMode.bind(null,setMode),[]);
   if(mode==='PRIVATE') return <AllowApp token={props.token}/>;
   if(mode==='ANONYMOUS') return <PublicApp/>;
-  return <main><h1>Allow</h1><p role="status">{mode==='loading'?'Connecting…':'Service unavailable. Reload to retry.'}</p></main>;
+  return <main className="boot-screen"><span className="app-mark" aria-hidden="true">A</span><h1>Allow</h1><p role="status">{mode==='loading'?'Connecting to your workspace…':'Service unavailable. Reload to retry.'}</p></main>;
 }
 /** Read only the server's closed public mode. @param setMode Mode consumer. @returns Cleanup. */
 function loadMode(setMode:(mode:'PRIVATE'|'ANONYMOUS'|'unavailable')=>void):()=>void {

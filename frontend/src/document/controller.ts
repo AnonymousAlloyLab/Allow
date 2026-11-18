@@ -7,6 +7,7 @@ import {checkModule,nodeIndex} from './model';
 import {fieldTransitionNotice} from './fieldOrder';
 import {capturePendingObligations,revisionObligations} from './constraintHistory';
 import {contentSnapshot,type Gesture,type Fit} from './gesture';
+import {prepareSavedBlock,type SavedBlock} from './blockLibrary';
 import {construct,hole,replacement,newContradiction,paste,retainCopies,type Clipboard,type EditResult} from './operations';
 export interface ViewState {readonly document:DocumentState;readonly documents:readonly DocumentSummary[];readonly target:number;readonly history:Accepted|null;readonly direction:'UNDO'|'REDO'}
 export interface Controller {readonly token:string;readonly current:MutableRefObject<ViewState>;readonly set:Dispatch<SetStateAction<ViewState>>}
@@ -80,19 +81,21 @@ export async function validate(c:Controller,signal?:AbortSignal):Promise<void> {
 export function select(c:Controller,id:Id):void {publishDocument(c,selectNode(c.current.current.document,id));}
 /** Apply an explicit declaration change, retaining dependent errors. @param c Controller. @param module New forest. @returns Nothing. */
 export function changeModule(c:Controller,module:DraftModule):void {
-  const state=c.current.current.document,next=editModule(state,module,state.selected,retainCopies(state.copies,module));
+  const state=c.current.current.document;if(state.mode==='SOURCE') {announce(c,'Source draft is authoritative; save or reopen before editing blocks.');return;}
+  const next=editModule(state,module,state.selected,retainCopies(state.copies,module));
   publishDocument(c,{...next,notice:fieldTransitionNotice(state.module,module)??'Declaration draft changed; dependencies rechecked before acceptance.'});
 }
 /** Edit exact raw source independently of accepted state. @param c Controller. @param source Draft. @returns Nothing. */
 export function changeSource(c:Controller,source:string):void {publishDocument(c,editSource(c.current.current.document,source));}
 /** Publish one validated content transaction or only the rejection notice against its original snapshot. @param c Controller. @param state Pre-operation state. @param result Prepared candidate. @param notice Successful operation notice. @returns Nothing. */
-function applyEdit(c:Controller,state:DocumentState,result:EditResult,notice:string):void {
+export function applyEdit(c:Controller,state:DocumentState,result:EditResult,notice:string):void {
   if(result.error) {publishDocument(c,{...state,notice:result.error});return;}
   const next={...editModule(state,result.module,result.selected,result.copies,result.slotObligations),notice};
   publishDocument(c,next);focusLater(c,next,result.selected);
 }
 /** Prepare one palette replacement against the current state. @param state Current content. @param tag Closed operator. @param target Referent. @param name Binder. @param destination Owned slot. @returns Candidate or rejection. */
-function prepareInsert(state:DocumentState,tag:Expression['tag'],target:Id,name:string,destination:Id):EditResult {
+export function prepareInsert(state:DocumentState,tag:Expression['tag'],target:Id,name:string,destination:Id):EditResult {
+  if(state.mode!=='BLOCK_SUPPORTED') return {module:state.module,copies:state.copies,selected:destination,slotObligations:state.slotObligations,error:'Source draft is authoritative; save or reopen it before using blocks.'};
   if(!nodeIndex(state.module).has(destination)) return {module:state.module,copies:state.copies,selected:destination,slotObligations:state.slotObligations,error:'Destination is unavailable.'};
   const nodes=construct(tag,target,state.module,name),prepared=replacement(state.module,destination,nodes,state.slotObligations);
   const error=newContradiction(state.module,prepared.module,state.slotObligations,prepared.slotObligations);
@@ -115,13 +118,15 @@ export function copy(c:Controller,cut:boolean):void {
 /** Apply current clipboard to current destination as one draft transaction. @param c Controller. @returns Nothing. */
 export function pasteClipboard(c:Controller):void {
   const state=c.current.current.document;
+  if(state.mode==='SOURCE') {announce(c,'Source draft is authoritative.');return;}
   if(!clipboardCurrent(state)||!state.clipboard||!state.selected) {announce(c,'Clipboard stale or missing. Copy/Cut current content again.');return;}
   const result=paste(state.module,state.clipboard,state.selected,state.copies,state.slotObligations);
   applyEdit(c,state,result,'Draft paste completed; scope and nominal schemas rechecked.');
 }
 /** Prepare, validate, and publish a drag using the untouched pre-gesture snapshot. @param c Controller. @param source Source ID. @param target Destination ID. @param clone Copy modifier. @returns Nothing. */
 export function dropNode(c:Controller,source:Id,target:Id,clone:boolean):void {
-  const state=c.current.current.document,clipboard=clipboardFor(state,source,!clone);
+  const state=c.current.current.document;if(state.mode==='SOURCE') {announce(c,'Source draft is authoritative.');return;}
+  const clipboard=clipboardFor(state,source,!clone);
   if(!clipboard||!nodeIndex(state.module).has(source)) {publishDocument(c,{...state,notice:'Foreign or stale dragged source.'});return;}
   const result=paste(state.module,clipboard,target,state.copies,state.slotObligations);
   applyEdit(c,state,result,'Draft drop completed; scope and nominal schemas rechecked.');
@@ -129,7 +134,8 @@ export function dropNode(c:Controller,source:Id,target:Id,clone:boolean):void {
 /** Prepare an owned gesture without publishing. @param state Current document. @param gesture Frozen gesture. @param target Destination. @param clone Copy modifier. @returns Candidate or rejection. */
 function prepareGesture(state:DocumentState,gesture:Gesture,target:Id,clone:boolean):EditResult {
   const rejected={module:state.module,copies:state.copies,selected:target,slotObligations:state.slotObligations,error:'Stale or foreign drag; draft unchanged.'};
-  if(!state.accepted||gesture.snapshot!==contentSnapshot(state)||!nodeIndex(state.module).has(target)) return rejected;
+  if(state.mode!=='BLOCK_SUPPORTED'||!state.accepted||gesture.snapshot!==contentSnapshot(state)||!nodeIndex(state.module).has(target)) return rejected;
+  if(gesture.kind==='saved') return prepareSavedBlock(state,gesture.entry,target);
   if(gesture.kind==='palette') return prepareInsert(state,gesture.tag,gesture.target,gesture.name,target);
   const clipboard=clipboardFor(state,gesture.source,!clone);
   return clipboard?paste(state.module,clipboard,target,state.copies,state.slotObligations):rejected;
@@ -137,7 +143,7 @@ function prepareGesture(state:DocumentState,gesture:Gesture,target:Id,clone:bool
 /** Preview one destination with the same candidate rules used for final drop. @param c Controller. @param gesture Active owned descriptor. @param target Destination. @param clone Copy modifier. @returns Honest compatibility state. */
 export function previewGesture(c:Controller,gesture:Gesture,target:Id,clone:boolean):Fit {
   const result=prepareGesture(c.current.current.document,gesture,target,clone);
-  if(result.error) return {kind:'incompatible',message:result.error};
+  if(result.error) return {kind:/ANALYSIS_|analysis unavailable|Source draft|source mode/.test(result.error)?'unavailable':'incompatible',message:result.error};
   const checked=checkModule(result.module,result.slotObligations),type=checked.types.get(result.selected);
   if(!type||!checked.complete) return {kind:'unresolved',message:'Potentially compatible; constraints remain unresolved.'};
   return {kind:'compatible',message:'Compatible with the checked slot constraints.'};
@@ -148,7 +154,7 @@ export function commitGesture(c:Controller,gesture:Gesture,target:Id,clone:boole
 }
 /** Delete selected expression while retaining the owning destination's independent constraints. @param c Controller. @returns Nothing. */
 export function removeSelected(c:Controller):void {
-  const state=c.current.current.document;if(!state.selected) return;
+  const state=c.current.current.document;if(state.mode==='SOURCE'||!state.selected) return;
   const next=hole(),prepared=replacement(state.module,state.selected,[next],state.slotObligations);
   const error=newContradiction(state.module,prepared.module,state.slotObligations,prepared.slotObligations);
   applyEdit(c,state,{...prepared,copies:retainCopies(state.copies,prepared.module),selected:next.id,error},'Deleted draft subtree; comments become visible orphans on block commit.');
@@ -180,3 +186,6 @@ export function cancelInteraction(c:Controller):void {
   const state=c.current.current.document;
   publishDocument(c,{...state,clipboard:null,notice:'Pending clipboard interaction cancelled.'});
 }
+
+/** Copy a frozen reusable block through the exact current destination guard. @param c Controller. @param entry Shelf snapshot. @param target Destination. @returns Nothing. */
+export function insertSavedBlock(c:Controller,entry:SavedBlock,target:Id):void {const state=c.current.current.document;applyEdit(c,state,prepareSavedBlock(state,entry,target),'Inserted reusable copy; predicate calls use current definitions.');}

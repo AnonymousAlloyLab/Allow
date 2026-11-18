@@ -94,6 +94,28 @@ final class DocumentWorker {
         return execute(frame, nonce, millis);
     }
 
+    /** Runs one comparison or file inspection under the caller's existing admission.
+     * @param operation trusted closed operation
+     * @param request exact checked intent
+     * @param base authorized base artifact
+     * @param inventory historical identity inventory
+     * @param policy installed policy
+     * @param millis remaining absolute operation budget
+     * @return complete owned worker response
+     * @throws IOException deadline, protocol or child failure
+     * @throws InterruptedException cancellation after cleanup
+     */
+    JsonNode compare(String operation, JsonNode request, JsonNode base, JsonNode inventory, String policy, long millis)
+            throws IOException, InterruptedException {
+        if (profile != WorkerLaunchProfile.DEFAULT) throw new IOException("Comparison requires default profile");
+        String nonce = UUID.randomUUID().toString();
+        ObjectNode frame = JsonNodeFactory.instance.objectNode().put("protocol", 1).put("requestId", nonce)
+                .put("policyVersion", policy).put("operation", operation);
+        frame.set("candidate", request.deepCopy()); frame.set("baseArtifact", base.deepCopy());
+        frame.set("ownedIdInventory", inventory.deepCopy());
+        return execute(frame, nonce, millis);
+    }
+
     /** Rechecks exact historical content without reprinting or changing its identities/maps.
      * @param artifact authorized immutable historical content
      * @param inventory server-resolved existing ID inventory
@@ -122,6 +144,7 @@ final class DocumentWorker {
      * @throws InterruptedException caller interruption after child exit
      */
     private JsonNode execute(JsonNode frame, String nonce, long millis) throws IOException, InterruptedException {
+        WarmDeadline deadline = new WarmDeadline(millis);
         byte[] input = JsonWire.encode(frame);
         if (input.length >= 2097152) throw new IOException("Internal validation context exceeds limit");
         OwnedWorkerRun owned = new OwnedWorkerRun(launcher);
@@ -129,7 +152,7 @@ final class DocumentWorker {
             Process child = owned.launch();
             pid = child.pid();
             startTicks = identityReader.read(pid);
-            return response(owned.exchange(input, 1048577, millis), nonce);
+            return response(owned.exchange(input, 1048577, deadline.remainingMillis()), nonce);
         } finally {
             try { owned.close(); }
             finally { recoveryIdentity(owned); }
@@ -159,7 +182,7 @@ final class DocumentWorker {
         DocumentJson.fields(result, "protocol", "requestId", "status", "data");
         if (!result.path("protocol").isInt() || result.path("protocol").intValue() != 1
                 || !nonce.equals(result.path("requestId").asText())
-                || !java.util.Set.of("VALIDATED", "INVALID", "UNAVAILABLE").contains(result.path("status").asText())) {
+                || !java.util.Set.of("VALIDATED", "INVALID", "UNAVAILABLE", "UNSUPPORTED", "ERROR").contains(result.path("status").asText())) {
             throw new IOException("Document worker identity mismatch");
         }
         return result;

@@ -1,0 +1,26 @@
+{
+  "status": "APPROVED_IMPLEMENTATION_CANDIDATE",
+  "contract_council": "council-disposition.json",
+  "implementation_reviewers": [
+    {
+      "agent": "/root/access_astra_1",
+      "decision": "APPROVE",
+      "scope": "Opaque child isolation, HTTP policy, authority ordering, deployment and timeout closure"
+    },
+    {
+      "agent": "/root/access_astra_2",
+      "decision": "APPROVE",
+      "scope": "Code lifecycle, quotas, immutable binding, private queue, authentication and durability"
+    }
+  ],
+  "closed_findings": [
+    "Third-party same-origin scripts could read workspace storage: isolate in HTTP and HTML sandbox allow-scripts only",
+    "Streaming CAPTCHA response could stall after headers: whole-body5second future with cancellation and8192byte subscriber",
+    "SMTP auth flag did not require actual AUTH: require pinned SMTP transport TLS, AUTH capability and235 success before send",
+    "Persistence expiry could pass during directory traversal: recheck before creation and file force; all persistence exceptions terminally retire challenge",
+    "Enabled intake on PRIVATE needed public transport limits: apply bounded Tomcat settings to either profile",
+    "Explicit malformed external settings now reject startup; bounded no-follow reads, trusted external queue, nlink and secret redaction enforced",
+    "Frontend OFF schema aligned; CAPTCHA frame given640px height/compact control to accommodate image challenge"
+  ],
+  "evidence_basis": "Read-only source review and recorded test reports; no live provider or production approval"
+}

@@ -2,8 +2,14 @@
 
 - [Current status](current-status.md): implemented features and acceptance limits.
 - [Repository guide](repository.md): active code, tests, proofs and artifacts.
+- [Block workbench](block-workbench.md): reusable subformulas, contextual choices,
+  shared-instance comparisons and local model-file predicate selection.
+- [Oracle parity](oracle-parity.md): bounded match/difference frames against an
+  uploaded reference predicate, with automatic freshness checks.
 - [AI system integration](ai-system-integration.md): private assistant workflow,
   explicit disclosure, verification and draft application.
+- [AI access requests](ai-access-request.md): separate intake page, verified email,
+  isolated reCAPTCHA and external provisioning requirements.
 - [AI LangGraph component](ai-langgraph.md): isolated component and live fixture evidence.
 - [AI development contract](ai-native-development.md): broader phased product plan.
 - [Windows/WSL deployment](wsl-anonymous-deployment.md): anonymous deployment target.

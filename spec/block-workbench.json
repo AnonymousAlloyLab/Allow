@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "id": "allow-block-workbench-v1",
+  "date": "2026-11-06",
+  "status": "CANDIDATE_BEFORE_PRODUCTION",
+  "purpose": "Reusable document-local subformulas, contextual substitutions, bounded shared-instance comparisons of current blocks or predicates from local model files, and a dominant colorful visual editor.",
+  "extends": [
+    "document-stage-draft.json",
+    "document-ui-draft.json",
+    "document-partial-types.json",
+    "security-drag.json",
+    "anonymous-workspaces.json"
+  ],
+  "reference": {
+    "path": "/home/augustus/AlloyStudio-reverted-work/block-workbench-20261106T211942Z",
+    "use": "Conceptual inspiration from source and feature documentation only; no private corpus, archives, browser state or reference evidence is imported."
+  },
+  "authority": {
+    "accepted_model": "Library operations, filtering and comparison never create or update accepted artifacts, history, canonical records or retrieval pools. Save remains explicit.",
+    "source_mode": "Block mutations, captures and comparison are disabled while an unaccepted SOURCE draft is authoritative; do not overwrite it using the retained older AST.",
+    "sql": "Existing scoped document context reads use SQLeanParser only. No SQL schema or direct SQL connection is added.",
+    "provider": "No LLM, provider credentials, external model call or corpus access is needed."
+  },
+  "library": {
+    "lifetime": "In-memory, originating document and authority only; clear on document/session replacement and unmount. No localStorage, IndexedDB, server persistence or export in v1.",
+    "limits": {
+      "entries": 24,
+      "nodes_per_entry": 128,
+      "aggregate_nodes": 1536,
+      "aggregate_utf8_bytes": 524288,
+      "name_characters": 64
+    },
+    "capture": "Explicitly name and capture a selected non-hole subtree as an immutable snapshot, including internal binders, external identity dependencies and retained slot obligations. Partial children may remain unresolved and are labeled accordingly.",
+    "identity": "Each insertion freshens all owned expression and internal binder IDs, consistently remapping bound references. External declarations and binders are never matched by spelling.",
+    "dependencies": "Capture a conservative declaration-environment identity including signature/field/predicate headers and external binder IDs/types; reject after incompatible environment changes. Predicate references intentionally use current predicate definitions; explain this late binding. Missing or out-of-scope external references reject.",
+    "insert": "Copy into the exact selected/drop destination through one shared preparation/checking path; preserve destination obligations, verify nominal schemas, sibling constraints, scope, ownership and resource limits. Do not import obsolete presentation-copy authority from a saved entry.",
+    "actions": [
+      "Save selected block",
+      "Rename",
+      "Remove",
+      "Insert into selected slot",
+      "Drag a reusable block"
+    ],
+    "failure": "Rejected insertion leaves draft, accepted model and library content unchanged. No partial mutation."
+  },
+  "substitution_filter": {
+    "default": "At a selected edit location hide constructors, reference choices and reusable entries proven incompatible by exact-context preparation. With no destination, display discoverable choices and request selection before insertion.",
+    "states": [
+      "compatible",
+      "unresolved",
+      "incompatible",
+      "unavailable"
+    ],
+    "unresolved": "A constructor with remaining holes may be offered as unresolved, never described as fully type-checked. Incomplete constraints are not proof of global satisfiability.",
+    "unavailable": "Invalid graph or analysis/resource failure cannot authorize insertion or appear compatible.",
+    "shared_guard": "Filter, click, keyboard and drag/drop prepare the same whole-candidate transaction. Commit rechecks against current content, destination and declaration context; cached previews never authorize mutations.",
+    "reference_choices": "Filter declaration/binder options by their applicable reference or quantifier constructor; users can discover a compatible reference without selecting an invalid hidden constructor first.",
+    "cache": "Memoize one bounded current-context inventory keyed by document/content snapshot, selected destination, obligations and constructor inputs. Do not run all candidates repeatedly on hover or retain historical cache entries.",
+    "preview_budget": {
+      "candidate_preparations_per_inventory": 192
+    },
+    "budget_behavior": "Candidates beyond the preview budget are explicitly unavailable for that inventory; never silently called invalid. Final explicit insertion always invokes the ordinary bounded guard.",
+    "explanation": "Offer a managed/all-choices view with rejection reasons and a visible hidden-count; incompatible choices remain disabled."
+  },
+  "comparison": {
+    "inputs": "Two selected live formula-valued node IDs A and B in one complete BLOCK_SUPPORTED draft module; users compose alternative subtrees in the forest and assign either to A/B. Relation-valued nodes and holes are rejected. Selection alone does not edit the model.",
+    "same_snapshot": "Both arms resolve from the identical independently validated module. Changing content invalidates displayed evidence; surviving arm IDs may be retained for a fresh explicit run. Deletion/document switch clears missing arms.",
+    "assumptions": "Preserve every original declaration and fact, including a fact containing an arm. Original run/check commands are not extra assumptions. Show this rule and the selected uniform scope in the UI.",
+    "free_variables": "Take the union of free variable references by declaration identity. Same ID uses one shared assignment; same spelling with different IDs remains independent. Quantifier variables are singleton atoms; predicate parameters are set-valued relations with their original ordered product schema.",
+    "construction": "Worker-side trusted rendering with collision-free alpha-renaming creates one joint existential binder around each category expression. Never existentially close A and B separately, slice source text, drop facts or parse user source in the supervisor.",
+    "categories": {
+      "both": "A and B",
+      "leftOnly": "A and not B",
+      "rightOnly": "not A and B",
+      "neither": "not A and not B"
+    },
+    "bounds": {
+      "uniform_scope_min": 1,
+      "uniform_scope_max": 5,
+      "bitwidth": 4,
+      "maxseq": 3,
+      "categories": 4,
+      "witnesses_per_category": 1,
+      "free_variables": 32
+    },
+    "synthesis_policy": "Recheck existing source, AST, depth, arity and transport policies after synthesis; exceedance is unsupported/unavailable, never truncation or altered bounds.",
+    "witness": "SAT comes from Alloy/Kodkod/SAT4J. Return bounded model atoms/relations and the shared free-variable assignment labeled by original identity/name. Independently evaluate both arms on that exact solution/assignment and require the reported truth pair. Hash full assignment and category evidence; label display truncation.",
+    "outcomes": [
+      "SAT",
+      "UNSAT",
+      "TIMEOUT",
+      "ERROR",
+      "UNSUPPORTED",
+      "UNAVAILABLE"
+    ],
+    "classification": "A SAT difference is a bounded distinguishing example. Both difference categories UNSAT implies agreement only under displayed facts, assignments and bounds. All four UNSAT is separately labeled no admissible bounded instances (possibly inconsistent facts or empty domains). Non-UNSAT failures never imply agreement.",
+    "identity": "Echo exact raw request hash, document ID, draft UUID/epoch, base revision/artifact identity, ordered arm IDs, module/source hash, uniform bounds, installed policy and worker dependency identity. Browser publishes only for its exact current request/content/arm selection/options and authority. Model-file comparison additionally binds both exact source hashes and ordered predicate names; selected-parameter/background correspondence is returned explicitly.",
+    "transport": "A distinct POST /api/v1/documents/{id}/compare endpoint reads only the authorized current base, validates the closed request and executes one isolated default-profile document worker. It does not reuse accepted-analysis badges or save generated commands.",
+    "capacity": "One synchronous admitted comparison request holds existing global WorkerCapacity and public expensive-operation lease through child reaping and context cleanup; four solves execute sequentially inside that worker. No parallel category fanout or unbounded queue.",
+    "deadline_ms": 10000,
+    "deadline_rule": "One absolute budget starts before context reads and worker launch, includes validation and all four solves. Parent kills and reaps on expiration. If no complete response survives, report comparison timeout/unavailable and discard partial outcomes; never fabricate UNSAT.",
+    "client_cancel": "Client abort or content change suppresses publication; synchronous server work remains bounded by its original deadline and retains ownership through cleanup.",
+    "public": "Explicitly allow only the comparison route through the existing anonymous route policy, classify it as expensive, preserve session ownership, quotas, body/output bounds and expiration. Private and anonymous modes share solver rules.",
+    "refresh": "Recheck base/head/policy before publishing; stale context cannot be labeled current. No persistence or cross-session result cache."
+  },
+  "layout": {
+    "desktop": "Visual editing is the first primary full-width surface. The forest occupies at least 65 percent of the main workbench content width at a 1440px viewport with support drawers closed. Palette/library is a compact sidebar; declarations and source remain reachable in labeled collapsible support panels.",
+    "height": "Give the canvas a useful viewport-scaled minimum height with ordinary page scrolling; avoid fixed heights clipping controls or results.",
+    "narrow": "At 390px, stack controls without page-level horizontal overflow; the bounded canvas may scroll internally.",
+    "accessibility": "Native buttons/inputs, keyboard equivalents for every drag action, visible focus, persistent selection, live insertion/rejection feedback, labeled comparison categories and explicit unsaved state. No required pointer-only gesture.",
+    "colors": "Use distinct accessible semantic colors for formulas/logical gates, relations, references, quantifiers and holes across the palette, reusable shelf and actual forest nodes. Preserve text/icons and visible focus; compatibility and truth outcomes never depend on color alone."
+  },
+  "implementation_rules": {
+    "java_js_ts": "Every callable documented with Javadoc/JSDoc; maximum 30 physical lines; encapsulated classes.",
+    "proof_first": "Freeze this contract, obtain the six-model council review and compile the Lean supplement twice before production edits.",
+    "lean_scope": "Finite cloning/reference, guarded mutation/freshness and Boolean partition/classification model. Allocator freshness, checker refinement, Java/React correspondence, parser, solver, OS cleanup and browser layout are explicit tested trust assumptions, not proved implementation correctness.",
+    "commercial": "Existing commercial NO_GO remains; no license, redistribution, public-load or operational gate is promoted by this feature."
+  },
+  "acceptance": [
+    "Two matching clean pinned Lean builds, no admissions/custom axioms; claim map and exact input hashes.",
+    "Council: 2 GPT-6.1 Terra, 2 GPT-6.1 Sol, 2 GPT-6 Astra; close concrete findings before release.",
+    "Reusable snapshot survives unrelated edits; fresh IDs/internal binding preserved; forbidden captures, foreign documents, changed environments, out-of-scope references, quota and stale gestures reject atomically.",
+    "Palette hides grammar/type mismatches at formula, nominal relation, join endpoint and binder scopes; unresolved and unavailable distinct; filter/click/drop parity and bounded cache verified.",
+    "Real Alloy tests cover all four truth categories, shared binder assignments, distinct same-name binders, relation-valued parameters, quantifier singleton multiplicity, empty domains, inconsistent facts, identical arms, differing arms and unsupported input.",
+    "HTTP authority, strict shape, stale binding, deadline/capacity and no-save checks; failures never classified as equivalence.",
+    "Browser checks exercise reusable capture/insertion by click and drag, filtered palette, actual comparison, stale invalidation, visible bounded witnesses and dominant desktop/narrow layouts.",
+    "Existing relevant frontend/backend and style regressions pass; historical bound evidence remains unchanged.",
+    "Update current feature documentation and package allowlist where needed; do not overwrite prior release archive or imply remote IIS deployment.",
+    "Two independently uploaded files expose parser-derived predicate selectors, compare compatible selected predicates with shared positional parameters, preserve both exact source identities and never overwrite/save the current model.",
+    "Upload tests reject invalid UTF-8/oversize/imports/unsupported syntax, differing facts/helper semantics/multiplicities/ordered schemas, selected-predicate background dependencies, stale inspections and cross-session requests; names may differ only where the contract permits.",
+    "Real browser exercises file pickers, per-side predicate selection, mismatch explanations and semantic colors on actual blocks."
+  ],
+  "model_files": {
+    "ui": "A separate model-file comparison mode offers one local .als file picker and a parser-derived predicate selector on each side. Current-block comparison remains available. Uploading does not replace the workbench model.",
+    "lifetime": "Source is held in component memory only, scoped to current document/authority. No localStorage, IndexedDB, durable upload, corpus insertion or use of client file paths on the server.",
+    "limits": {
+      "files": 2,
+      "utf8_bytes_per_file": 32768,
+      "inspection_deadline_ms": 10000
+    },
+    "decode": "Enforce byte cap before strict UTF-8 decoding. Render filename/source as text. Reject malformed bytes and unsupported syntax/imports; never silently repair a model.",
+    "inspection": "POST /api/v1/documents/{id}/comparison-model validates a closed source/hash/base/draft envelope and parses inside the existing owned worker, returning exact sourceHash and predicate names plus ordered parameter schemas. Dropdowns come only from that response. Selection is validated again during comparison.",
+    "comparison_route": "POST /api/v1/documents/{id}/compare-models accepts two exact sources/hashes/selected predicate names, common scope, and exact authorized document/base/draft identity. Reparse both inside one admitted comparison worker under the same aggregate 10-second budget.",
+    "background": "Require identical supported background after deterministic structural normalization: signature/field names, multiplicities, ordered schemas, facts, assertions and all nonselected predicate definitions. Ignore comments and run/check commands only. Selected predicate names, parameter names and bodies may differ.",
+    "mapping": "Map declarations by unique exact names and checked structure; normalize node/binder IDs and bound parameter names by ownership/position, never guessed text similarity. Show the shared signature/field mapping and both selected predicates parameter mapping in results.",
+    "selected_dependencies": "Reject every retained fact/assertion/helper predicate that refers to its side selected predicate, directly or transitively. This conservative restriction prevents changed selected bodies from altering background assumptions.",
+    "parameters": "Selected predicate parameters pair by position and exactly matching mapped ordered product schema; names may differ. They denote the same shared set-valued relation assignment. Zero parameters are supported. Unequal arity/schema rejects with an explanation.",
+    "construction": "Preserve the identical common background once, build two fresh selected predicates through identity-based AST rewriting, and run the existing four-category comparison on their calls with the shared parameter assignment. Recheck synthesized ownership, typing, source/AST/size budgets.",
+    "mismatch": "Return explicit UNSUPPORTED with a bounded reason for background, dependencies or schema mismatch; never silently conjoin differing fact sets or infer equivalence of the two model files.",
+    "freshness": "Changing either file, predicate, scope, document or draft immediately invalidates inspection/comparison results; exact source hashes and ordered predicates bind request/result. Late replies cannot restore old file contents or evidence.",
+    "authority": "Both added routes use existing owner resolution, expensive public-operation admission, global capacity, exact-head/policy fencing, no-save and owned cleanup rules.",
+    "meaning": "Evidence compares the selected predicates under the identical shared background and shown bounds; it does not establish equivalence of complete model files."
+  }
+}

@@ -91,6 +91,22 @@ class Fixture:
 
 class DeploymentTests(unittest.TestCase):
     """Exercise actual entrypoints and lifecycle gates with side effects mocked."""
+    def test_intake_path_is_forwarded_without_secret_contents(self):
+        """Anonymous intake does not enable AI or put settings contents in arguments."""
+        with tempfile.TemporaryDirectory() as directory:
+            settings = Path(directory) / 'settings.json'
+            settings.write_text('{"smtpPassword":"inert-test-value"}')
+            settings.chmod(0o600)
+            config = self.f.trust.load_config(self.f.config(
+                access_mode='ANONYMOUS', access_request_config=str(settings)))
+            command = self.f.service.command(config, self.f.root)
+            self.assertIn('--allow.access-request.config=' + str(settings), command)
+            self.assertIn('--allow.ai.mode=OFF', command)
+            self.assertNotIn('inert-test-value', ' '.join(command))
+            self.assertEqual(self.f.service.access_request_arguments({}), [])
+            self.assertIn('--server.tomcat.threads.max=16',
+                          self.f.service.public_transport_bounds({'access_request_config': str(settings)}))
+
     def test_ai_configuration_requires_private_and_closed_settings(self):
         """Default OFF needs no runtime; anonymous AI and incomplete remote fail."""
         self.assertEqual(self.f.trust.load_config(self.f.config()).get('ai_mode', 'OFF'), 'OFF')

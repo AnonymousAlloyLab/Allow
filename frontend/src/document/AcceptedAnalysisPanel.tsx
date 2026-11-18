@@ -46,16 +46,17 @@ export function AcceptedAnalysisPanel(props:{controller:Controller;view:ViewStat
   }
   const snapshot=analysisSnapshot(state,command),data=outcome?.event.data;
   const current=!!data&&!!outcome&&currentAnalysis(data,outcome.snapshot,snapshot);
-  return <fieldset className="document-analysis"><legend>Explore this model</legend>
-    <SelectControl label="Command" value={command} options={options} onChange={changeCommand}/>
-    <button disabled={!snapshot||props.online===false} onClick={start.bind(null,ui)}>Run analysis</button>
+  return <fieldset className="document-analysis"><legend>Run analysis</legend>
+    <p className="analysis-intro">A <strong>run</strong> command looks for an example instance; a <strong>check</strong> command looks for a counterexample. Both search only within the command’s bounds.</p>
+    <div className="analysis-controls"><SelectControl label="Command from the saved model" value={command} options={options} onChange={changeCommand} placeholder={options.length?'Choose a command…':'No run or check commands saved'}/>
+    <button className="primary" disabled={!snapshot||props.online===false} onClick={start.bind(null,ui)}>▶ Run analysis</button></div>
     {current&&data?<Results job={data.job} notice={outcome!.event.notice}/>:<AnalysisNotice outcome={outcome} dirty={state.dirty}/>}
   </fieldset>;
 }
 /** Keep stale or unavailable evidence separate from current result badges. @param props Last event and draft status. @returns Plain explanatory notice. */
 function AnalysisNotice(props:{outcome:Outcome|null;dirty:boolean}) {
-  if(props.dirty) return <p>Save your changes before analyzing this model.</p>;
-  if(!props.outcome) return <p>Select a command to look for an instance or counterexample.</p>;
+  if(props.dirty) return <p className="empty-note">Save your changes first: analysis always runs on a saved version.</p>;
+  if(!props.outcome) return <p className="empty-note">Choose a command, then Run analysis. Add commands under Declarations and model structure, then save.</p>;
   if(props.outcome.event.kind==='current'||props.outcome.event.kind==='historical') return <p>Historical analysis: the model, command or selection changed. Run again for a current result.</p>;
   return <p role="status">{props.outcome.event.notice}</p>;
 }

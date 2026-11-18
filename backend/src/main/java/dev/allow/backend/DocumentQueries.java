@@ -98,6 +98,21 @@ final class DocumentQueries {
         return result;
     }
 
+    /** Compares exact current draft formulas or independently inspected model files.
+     * @param document authorized route document
+     * @param bytes exact bounded HTTP intent
+     * @param operation trusted fixed route dispatch
+     * @return request-bound isolated result without persistence
+     * @throws IOException infrastructure or response failure
+     * @throws InterruptedException cancellation after cleanup
+     */
+    byte[] compare(String document, byte[] bytes, String operation) throws IOException, InterruptedException {
+        if (!cleanupSafe) throw new IOException("Document worker cleanup is quarantined");
+        DocumentComparison comparison = new DocumentComparison(gateway, runtime);
+        try { return comparison.execute(document, bytes, operation); }
+        finally { if (!comparison.cleanupSafe()) cleanupSafe = false; }
+    }
+
     /** Applies advisory validation to an exact request without advancing accepted state.
      * @param document authorized document
      * @param bytes retained original HTTP body

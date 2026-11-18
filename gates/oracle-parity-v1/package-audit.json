@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "package": "/home/augustus/Allow/artifacts/releases/allow-iis-wsl-oracle-parity-20261107-r2.zip",
+  "sha256": "b5892bd41f44d5b5aa03ecba25818e76cf31c84dbbd8efd79f6febd07ddde93e",
+  "manifest_sha256": "792a7edf041e6f15c66efe6bcff4215594bf142f8bbbe0d6597833ecfadb69ea",
+  "manifest_files": 420,
+  "archive_entries": 422,
+  "checked_current_source_and_build_payloads": 420,
+  "checks": {
+    "all_manifest_payload_hashes": true,
+    "manifest_hash_and_exact_member_set": true,
+    "all_payloads_equal_current_repository_or_explicit_build_inputs": true,
+    "current_frontend_js_and_css": true,
+    "proof_and_council_bindings": true,
+    "forbidden_paths_runtime_and_key_extensions_absent": true,
+    "exact_stage_private_token_absent_from_every_archive_payload": true,
+    "duplicate_and_nonregular_members_absent": true
+  },
+  "frontend_files": [
+    "backend/target/classes/static/assets/index-DCnGtaxG.js",
+    "backend/target/classes/static/assets/index-zgvGD98t.css",
+    "backend/target/classes/static/index.html"
+  ],
+  "scope": "Local private transfer candidate; native Windows/WSL/IIS and public/commercial gates OPEN",
+  "supersedes": "allow-iis-wsl-oracle-parity-20261107-r1.zip",
+  "stage_untouched": true
+}

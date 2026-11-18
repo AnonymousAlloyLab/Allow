@@ -8,9 +8,9 @@ export function DeclarationEditor(props:Props) {
   /** Add an explicit declaration draft. @param tag Kind. @returns Nothing. */
   function add(tag:Declaration['tag']):void {props.onChange(addDeclaration(props.module,tag));}
   const buttons=[],rows=[];
-  for(const tag of ['signature','field','predicate','fact','assertion','run','check'] as const) buttons.push(<button key={tag} onClick={add.bind(null,tag)}>Add {tag}</button>);
+  for(const tag of ['signature','field','predicate','fact','assertion','run','check'] as const) buttons.push(<button key={tag} className="secondary" onClick={add.bind(null,tag)}>＋ Add {tag}</button>);
   for(const item of [...props.module.signatures,...props.module.fields,...props.module.predicates,...props.module.facts,...props.module.assertions,...props.module.commands]) rows.push(<DeclarationRow key={item.id} {...props} item={item}/>);
-  return <section aria-label="Declaration editors"><h2>Declarations</h2><div className="document-actions">{buttons}</div>{rows}</section>;
+  return <section aria-label="Declaration editors" className="declaration-editor"><h2>Declarations</h2><div className="document-actions">{buttons}</div>{rows.length?rows:<p className="empty-note">No declarations yet. Start with Add signature, then add a predicate or fact to get a formula slot on the canvas.</p>}</section>;
 }
 /** Render a declaration's labeled controls and body selector. @param props Row. @returns Native editors. */
 function DeclarationRow(props:RowProps) {
@@ -21,7 +21,7 @@ function DeclarationRow(props:RowProps) {
   /** Remove only explicitly selected declaration. @returns Nothing. */
   function remove():void {props.onChange(deleteDeclaration(props.module,props.item));}
   const item=props.item;
-  return <fieldset><legend>{item.tag}</legend>{'name' in item&&<TextControl label="Name" value={item.name} onChange={rename}/>}<DeclarationFields {...props} update={update}/>{'bodyId' in item&&<button onClick={props.onSelect.bind(null,item.bodyId)}>Select {item.tag} body</button>}<button onClick={remove}>Delete {item.tag}</button><details><summary>Declaration identity</summary><small>{item.id}</small></details></fieldset>;
+  return <fieldset className={`declaration-card decl-${item.tag}`}><legend>{item.tag}</legend>{'name' in item&&<TextControl label="Name" value={item.name} onChange={rename}/>}<DeclarationFields {...props} update={update}/>{'bodyId' in item&&<button onClick={props.onSelect.bind(null,item.bodyId)}>Select {item.tag} body</button>}<button className="danger-quiet" onClick={remove}>Delete {item.tag}</button><details><summary>Declaration identity</summary><small>{item.id}</small></details></fieldset>;
 }
 /** Dispatch the closed declaration-specific editor. @param props Row and update. @returns Relevant controls. */
 function DeclarationFields(props:RowProps&{update:(item:Declaration)=>void}) {

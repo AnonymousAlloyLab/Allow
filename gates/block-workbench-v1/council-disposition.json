@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "date": "2026-11-06",
+  "contract": "spec/block-workbench.json",
+  "contract_sha256": "e29913d518c8e1e80690d4188219bbdf82fa425b6d53e13c4713040da643f95f",
+  "decision": "APPROVED_FOR_IMPLEMENTATION",
+  "reviewers": [
+    {
+      "seat": "Terra1",
+      "model": "gpt-6.1-terra",
+      "agent": "/root/blocks_terra_1",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Terra2",
+      "model": "gpt-6.1-terra",
+      "agent": "/root/blocks_terra_2",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Sol1",
+      "model": "gpt-6.1-sol",
+      "agent": "/root/blocks_sol_1",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Sol2",
+      "model": "gpt-6.1-sol",
+      "agent": "/root/blocks_sol_2",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Astra1",
+      "model": "gpt-6-astra",
+      "agent": "/root/blocks_astra_1",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    },
+    {
+      "seat": "Astra2",
+      "model": "gpt-6-astra",
+      "agent": "/root/blocks_astra_2",
+      "decision": "APPROVE",
+      "exact_hash_confirmed": true
+    }
+  ],
+  "formal_report_sha256": "ef28cf4fbcfb46de5d013b85c902a28f9cbe0a5c1f87f536ce15f2b70a92f262",
+  "production_edits_at_gate": false,
+  "closed_design_findings": [
+    "Typed immutable subtree cloning with exact identity guards",
+    "Bounded shared preparation for filtering and all insertions",
+    "One aggregate worker deadline and ownership through cleanup",
+    "Four truth categories with same-assignment replay, honest vacuity and failures",
+    "Local model sources ephemeral and parser-derived predicate selection",
+    "Exact normalized background and positional schema match; selected dependency rejection",
+    "Semantic colors with text/icons and dominant accessible canvas"
+  ],
+  "remaining_acceptance": "Concrete implementation, tests and browser checks; commercial and native deployment remain open."
+}

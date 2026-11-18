@@ -19,6 +19,13 @@ names; the frozen r5 manifest and external implementation release identify the
 approved bytes. The six seats comprise two GPT-6.1 Terra, two GPT-6.1 Sol and two
 GPT-6 Astra reviewers. Their findings were reconciled before implementation.
 
+The saved-analysis amendment supersedes the r5 wire rule that required a new
+revision after a backend policy change. A compatible saved command can run
+after transient validation under the installed policy. The polling response
+retains the saved artifact and command identity. The backend checks the job
+against the policy and worker build that executed it. See the
+[saved-analysis amendment](../spec/saved-analysis-upgrade.json).
+
 The r5 formal run checks 112 inherited plus 125 document propositions. The
 field-order amendment adds 14, for 251 exact model propositions with two clean,
 matching builds. These statements model typing, scope, transaction outcomes,

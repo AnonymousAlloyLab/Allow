@@ -1,0 +1,15 @@
+{
+  "id": "allow-saved-analysis-upgrade-v1",
+  "amends": {
+    "base": "spec/document-wire-draft.json",
+    "revision": 5,
+    "sections": ["/api/analyze/response", "/analysis_descriptors/rules", "/errors/not_receipted"],
+    "superseded": "For analysis only, a different saved policy or dependency triggers transient revalidation. The former POLICY_REVALIDATION_REQUIRED response and mandatory new revision no longer apply. Commit, undo and receipt invariants retain their separate contracts."
+  },
+  "reference": {"project":"ACGN", "tag":"v3", "commit":"8770cb4b5f7133bad78058d9bc214f0ca36130d0", "tree":"57d5bfcc4407bd7ff3b78adcecfc18764b4b1025", "use":"Package an independently verifiable canonicalization reference pin into the backend build identity. Allow uses its own canonicalizer and Alloy/SAT4J solver."},
+  "selection": "Resolve the requested revision from caller-owned storage. Bind its exact source bytes and the saved command key, artifact, source hash, saved policy, and command occurrence before submission.",
+  "admission": "Current artifacts use their checked descriptor. An older policy or dependency requires successful transient revalidation of the same immutable revision with the installed default worker. Require exact source and matching current command occurrence (index, kind, label, options). Fail closed on invalid or changed content, unavailable storage, worker drift or uncertain cleanup. Use existing admission limits.",
+  "result": "Keep acceptedAnalysisKey bound to the original saved revision and descriptor. Separately bind the actual execution build and policy to the registered job, and require that identity, job key and document owner on polling. Mark results historical after the head advances.",
+  "effects": "Analysis is read-only with respect to saved models. The HTTP response for incompatible saved content is REJECTED with data.code SAVED_MODEL_INCOMPATIBLE or SAVED_COMMAND_CHANGED and a fixed message. Malformed or unbound selections cannot create a job. UI presentation is outside this amendment.",
+  "acceptance": "CI runs distinct SAT and UNSAT commands through the R5-to-current HTTP upgrade on a disposable SQLean-routed store. Cover current head, historical revision, an already registered job after head advancement, preserved source and accepted analysis keys, and rejection before solver dispatch. Exercise BLOCK_SUPPORTED and TEXT_ONLY artifacts. Check private poll ownership, document, job key, runtime policy and dependency. The Lean obligations cover abstract admission and receipt identity. Java and HTTP tests exercise their implementation."
+}

@@ -23,7 +23,8 @@ final class DocumentQueries {
     private final JobService jobs;
     private final String owner;
     private volatile boolean cleanupSafe = true;
-    private final Map<String, JsonNode> analyses = new LinkedHashMap<>();
+    private record AnalysisRegistration(JsonNode key, String policy, String dependency) {}
+    private final Map<String, AnalysisRegistration> analyses = new LinkedHashMap<>();
 
     /** Connects operation-only persistence, current policy and the bounded solver supervisor.
      * @param gateway scoped private store
@@ -234,7 +235,7 @@ final class DocumentQueries {
         return diagnostics;
     }
 
-    /** Resolves solver source/command entirely from an accepted immutable current-policy artifact.
+    /** Resolves an immutable saved command and checks older artifacts against the running policy.
      * @param document authorized document
      * @param bytes closed accepted-analysis selection
      * @return job and complete accepted analysis identity
@@ -246,37 +247,76 @@ final class DocumentQueries {
         DocumentJson.fields(request, "acceptedRevision", "commandKey", "draftEpoch", "exactSourceHash");
         long revision = DocumentJson.revision(request, "acceptedRevision");
         long epoch = DocumentJson.revision(request, "draftEpoch");
+        if (!cleanupSafe) throw new IOException("Document worker cleanup is quarantined");
+        runtime.requireReady();
         JsonNode artifact = readData(document, revision).path("artifact");
-        JsonNode command = command(artifact, request);
-        if (analyses.size() >= 128) analyses.remove(analyses.keySet().iterator().next());
+        JsonNode command = SavedAnalysis.command(artifact, request);
+        try { dev.allow.worker.SourcePolicy.check(artifact.path("source").textValue()); }
+        catch (IllegalArgumentException incompatible) {
+            return analysisRejection("SAVED_MODEL_INCOMPATIBLE",
+                    "The saved model exceeds current source bounds or uses unsupported imports. Edit and save it before analyzing again.");
+        }
+        if (!runtime.policy().equals(artifact.path("policyVersion").asText())
+                || !runtime.dependency().equals(artifact.path("dependencyHash").asText())) {
+            byte[] rejection = revalidateAnalysis(document, artifact, command);
+            if (rejection != null) return rejection;
+        }
         JobView job = jobs.submit(new JobRequest(artifact.path("source").textValue(), command.path("index").intValue(),
                 revision, epoch, "ANALYZE"), owner);
         ObjectNode key = analysisKey(document, revision, epoch, artifact, command, job);
-        analyses.put(job.jobId(), key.deepCopy());
+        if (analyses.size() >= 128) analyses.remove(analyses.keySet().iterator().next());
+        analyses.put(job.jobId(), new AnalysisRegistration(key.deepCopy(), runtime.policy(), runtime.dependency()));
         ObjectNode data = JsonNodeFactory.instance.objectNode().put("jobId", job.jobId());
         data.set("acceptedAnalysisKey", key);
         data.set("job", JsonWire.decode(JsonWire.encode(job), JsonNode.class));
         return reply("SUBMITTED", data);
     }
 
-    /** Rejects absent, stale or substituted command descriptors without trusting a browser index.
-     * @param artifact exact accepted content
-     * @param request closed command selection
-     * @return unique stored descriptor
-     * @throws IllegalArgumentException stale policy/source or unknown command
+    /** Rechecks immutable saved content without creating a replacement artifact or revision.
+     * @param document authorized immutable owner
+     * @param artifact selected stored artifact
+     * @param command selected stored command
+     * @return bounded rejection or null after exact current-policy validation
+     * @throws IOException unavailable validator, build drift or uncertain cleanup
+     * @throws InterruptedException interrupted admission or worker
      */
-    private JsonNode command(JsonNode artifact, JsonNode request) {
-        if (!runtime.policy().equals(artifact.path("policyVersion").asText())
-                || !artifact.path("sourceHash").equals(request.path("exactSourceHash"))) {
-            throw new IllegalArgumentException("Accepted source requires current-policy revalidation");
-        }
-        for (JsonNode command : artifact.path("analysisDescriptors")) {
-            if (command.path("commandKey").equals(request.path("commandKey"))
-                    && command.path("artifactId").equals(artifact.path("artifactId"))
-                    && command.path("sourceHash").equals(artifact.path("sourceHash"))
-                    && command.path("policyVersion").equals(artifact.path("policyVersion"))) return command;
-        }
-        throw new IllegalArgumentException("Unknown accepted command");
+    private byte[] revalidateAnalysis(String document, JsonNode artifact, JsonNode command)
+            throws IOException, InterruptedException {
+        WorkerCapacity.acquire();
+        try {
+            JsonNode inventory = DocumentMutationValidation.inventory(gateway, document, artifact.path("module"));
+            DocumentWorker worker = new DocumentWorker();
+            if (!worker.identity().equals(runtime.dependency())) throw new IOException("Validator build changed");
+            JsonNode outcome;
+            try { outcome = worker.revalidate(artifact, inventory, runtime.policy()); }
+            finally {
+                try { worker.recovery(); }
+                catch (IllegalStateException uncertain) {
+                    cleanupSafe = false;
+                    throw new IOException("Analysis validator cleanup is uncertain", uncertain);
+                }
+            }
+            JsonNode checked = DocumentMutationValidation.checked(outcome);
+            if (outcome.path("status").asText().equals("INVALID")) {
+                return analysisRejection("SAVED_MODEL_INCOMPATIBLE",
+                        "The saved model does not validate under the current policy and whole-module bounds. Edit and save it before analyzing again.");
+            }
+            if (!SavedAnalysis.matches(artifact, command, checked)) {
+                return analysisRejection("SAVED_COMMAND_CHANGED",
+                        "The saved command differs under the current policy. Review the command and save the model before analyzing again.");
+            }
+            return null;
+        } finally { WorkerCapacity.release(); }
+    }
+
+    /** Returns a fixed content-free explanation for a valid but incompatible saved selection.
+     * @param code bounded machine-readable reason
+     * @param message fixed user action
+     * @return rejected analysis envelope
+     * @throws IOException serialization failure
+     */
+    private byte[] analysisRejection(String code, String message) throws IOException {
+        return reply("REJECTED", JsonNodeFactory.instance.objectNode().put("code", code).put("message", message));
     }
 
     /** Reads accepted-document evidence only through its original full identity binding.
@@ -287,12 +327,14 @@ final class DocumentQueries {
      * @throws InterruptedException interrupted artifact lookup
      */
     synchronized byte[] analysis(String document, String jobId) throws IOException, InterruptedException {
-        JsonNode key = analyses.get(jobId);
+        AnalysisRegistration registration = analyses.get(jobId);
+        JsonNode key = registration == null ? null : registration.key();
         if (key == null || !document.equals(key.path("documentId").asText())) throw new IOException("Unknown analysis");
         JsonNode current = readData(document, null);
         JobView job = jobs.get(jobId, owner);
         if (job == null || !job.analysisKey().equals(key.path("jobAnalysisKey").asText())
-                || !runtime.policy().equals(key.path("policyVersion").asText())) throw new IOException("Stale analysis");
+                || !runtime.policy().equals(registration.policy())
+                || !runtime.dependency().equals(registration.dependency())) throw new IOException("Stale analysis");
         ObjectNode data = JsonNodeFactory.instance.objectNode().put("jobId", jobId);
         data.put("historical", current.path("headRevision").longValue() != key.path("acceptedRevision").longValue());
         data.set("acceptedAnalysisKey", key.deepCopy());

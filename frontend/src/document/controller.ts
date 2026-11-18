@@ -79,11 +79,11 @@ export async function validate(c:Controller,signal?:AbortSignal):Promise<void> {
 }
 /** Change selected node and invalidate presentation only. @param c Controller. @param id Selection. @returns Nothing. */
 export function select(c:Controller,id:Id):void {publishDocument(c,selectNode(c.current.current.document,id));}
-/** Apply an explicit declaration change, retaining dependent errors. @param c Controller. @param module New forest. @returns Nothing. */
-export function changeModule(c:Controller,module:DraftModule):void {
+/** Apply an explicit declaration change, retaining dependent errors. @param c Controller. @param module New forest. @param notice Optional plain status text for the change. @returns Nothing. */
+export function changeModule(c:Controller,module:DraftModule,notice?:string):void {
   const state=c.current.current.document;if(state.mode==='SOURCE') {announce(c,'Source draft is authoritative; save or reopen before editing blocks.');return;}
   const next=editModule(state,module,state.selected,retainCopies(state.copies,module));
-  publishDocument(c,{...next,notice:fieldTransitionNotice(state.module,module)??'Declaration draft changed; dependencies rechecked before acceptance.'});
+  publishDocument(c,{...next,notice:notice??fieldTransitionNotice(state.module,module)??'Declaration draft changed; dependencies rechecked before acceptance.'});
 }
 /** Edit exact raw source independently of accepted state. @param c Controller. @param source Draft. @returns Nothing. */
 export function changeSource(c:Controller,source:string):void {publishDocument(c,editSource(c.current.current.document,source));}

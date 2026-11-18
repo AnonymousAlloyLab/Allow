@@ -1,0 +1,67 @@
+name: Saved analysis compatibility
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend and R5 upgrade
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /backend/
+            /config/
+            /db/
+            /dist/allow-iis-wsl-anonymous-20261104-r5.zip
+            /gates/document/headless-preview-fixture.json
+            /retrieval/
+            /scripts/
+            /spec/
+      - name: Install the Linux worker and database build prerequisites
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends openjdk-17-jdk-headless bubblewrap util-linux python3-venv build-essential bison flex
+          echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> "$GITHUB_ENV"
+          echo "/usr/lib/jvm/java-17-openjdk-amd64/bin" >> "$GITHUB_PATH"
+      - name: Verify the backend and sandboxed worker
+        run: |
+          maven=$(/usr/bin/python3 scripts/bootstrap.py)
+          "$maven" --batch-mode --no-transfer-progress -f backend/pom.xml verify
+      - name: Save on R5 and analyze on the current backend through SQLeanParser
+        run: /usr/bin/python3 scripts/ci_saved_analysis_http.py
+
+  contract:
+    name: Lean contract and ACGN reference
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /formal/
+            /tests/formal/
+            /scripts/verify_acgn_reference.py
+            /spec/saved-analysis-upgrade.json
+            /backend/src/main/resources/profiles/acgn-reference.json
+      - uses: leanprover/lean-action@c544e89643240c6b398f14a431bcdc6309e36b3e # v1.4.0
+        with:
+          lake-package-directory: formal
+          auto-config: "false"
+          build: "true"
+          use-github-cache: "false"
+      - name: Check saved-analysis theorem types and allowed axioms
+        working-directory: formal
+        run: lake env lean ../tests/formal/SavedAnalysis.lean
+      - name: Check the annotated public ACGN tag, source tree and tagged Alloy JAR
+        run: |
+          git clone --bare --depth 1 --filter=blob:none --branch v3 https://github.com/AlexandervonWu/ACGN.git "$RUNNER_TEMP/acgn.git"
+          /usr/bin/python3 scripts/verify_acgn_reference.py "$RUNNER_TEMP/acgn.git"

@@ -5,7 +5,8 @@ import {useEffect,useRef,useState,type ReactNode} from 'react';
 import {initialState} from './document/state';
 import type {Controller,ViewState} from './document/controller';
 import {contentSnapshot} from './document/gesture';
-import {refresh,changeModule,select,insert,copy,pasteClipboard,removeSelected,dropNode,announce,cancelInteraction,previewGesture,commitGesture} from './document/controller';
+import {refresh,changeModule,changeSource,select,insert,copy,pasteClipboard,removeSelected,dropNode,announce,cancelInteraction,previewGesture,commitGesture} from './document/controller';
+import {StructurePanel} from './document/StructurePanel';
 import {DeclarationEditor} from './document/DeclarationEditor';
 import {addDeclaration} from './document/declarations';
 import type {RootTag} from './document/CanvasParts';
@@ -49,10 +50,10 @@ function WelcomePanel() {
       <li><strong>Check, save and run</strong><span>Check model validates the draft, Save version stores it, and Run analysis searches for instances or counterexamples.</span></li>
     </ol></section>;
 }
-/** Collect local and server diagnostics for the draft. @param state Current draft. @returns Rendered list items. */
+/** Collect local and server diagnostics for the draft; while text is authoritative the block draft is not checked locally. @param state Current draft. @returns Rendered list items. */
 function draftDiagnostics(state:DocumentState):ReactNode[] {
   const diagnostics:ReactNode[]=[];
-  for(const item of checkModule(state.module,state.slotObligations).diagnostics) diagnostics.push(<li key={`${item.nodeId}:${item.message}`}>{item.message}</li>);
+  if(state.mode!=='SOURCE') for(const item of checkModule(state.module,state.slotObligations).diagnostics) diagnostics.push(<li key={`${item.nodeId}:${item.message}`}>{item.message}</li>);
   for(const item of [...state.rejectionDiagnostics,...state.validation?.diagnostics??[]]) diagnostics.push(<li key={`server:${item.nodeId}:${item.message}`}>{item.message}</li>);
   return diagnostics;
 }
@@ -124,6 +125,8 @@ function ExpressionSurface(props:{controller:Controller;view:ViewState;parityFra
 
 /** Add a declaration from the canvas through the same path as the declarations editor. @param controller Current draft. @param tag Declaration kind. @returns Nothing. */
 function addRoot(controller:Controller,tag:RootTag):void {changeModule(controller,addDeclaration(controller.current.current.document.module,tag));}
+/** Write a structure change into the authoritative source draft and say what changed. @param controller Current draft. @param source New text. @param notice Status text. @returns Nothing. */
+function editText(controller:Controller,source:string,notice:string):void {changeSource(controller,source);announce(controller,notice);}
 /** Rename only a matching shelf entry. @param id Identity. @param name Label. @param entry Current entry. @returns Updated entry. */
 function renameEntry(id:string,name:string,entry:SavedBlock):SavedBlock {return entry.id===id?{...entry,name}:entry;}
 /** Retain all shelf entries except the removed identity. @param id Removed identity. @param entry Candidate. @returns Whether retained. */
@@ -132,5 +135,6 @@ function keepEntry(id:string,entry:SavedBlock):boolean {return entry.id!==id;}
 /** Share exact parity evidence between controls and the current predicate forest. @param props Authority-bound workspace. @returns Visual editor followed by its parity controls. */
 function BlockWorkspace(props:{controller:Controller;view:ViewState;online:boolean}) {
   const ui=useOracleParity(props.controller,props.online);
-  return <div className="block-workspace"><fieldset className="visual-authority" disabled={props.view.document.mode==='SOURCE'}><ExpressionSurface controller={props.controller} view={props.view} parityFrame={ui.frame}/></fieldset><OracleParityPanel ui={ui} module={props.view.document.module} online={props.online}/>{ui.data&&ui.frame?.verdict!=='neutral'&&<details className="parity-evidence"><summary>Parity evidence</summary><BlockComparisonResults data={ui.data}/></details>}</div>;
+  const state=props.view.document;
+  return <div className="block-workspace"><StructurePanel module={state.module} source={state.source} textMode={state.mode==='SOURCE'} onModule={changeModule.bind(null,props.controller)} onSource={editText.bind(null,props.controller)} onNotice={announce.bind(null,props.controller)}/><fieldset className="visual-authority" disabled={props.view.document.mode==='SOURCE'}><ExpressionSurface controller={props.controller} view={props.view} parityFrame={ui.frame}/></fieldset><OracleParityPanel ui={ui} module={props.view.document.module} online={props.online}/>{ui.data&&ui.frame?.verdict!=='neutral'&&<details className="parity-evidence"><summary>Parity evidence</summary><BlockComparisonResults data={ui.data}/></details>}</div>;
 }

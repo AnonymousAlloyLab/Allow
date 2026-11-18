@@ -21,3 +21,5 @@ import Allow.PartialTypes
 import Allow.ImmutableImageCandidate
 
 import Allow.ValidationContextCandidate
+
+import Allow.SavedAnalysisUpgrade

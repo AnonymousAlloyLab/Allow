@@ -3,10 +3,13 @@ package dev.allow.backend;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /** Guards behavior-changing resources against reuse of a stale analysis identity. */
 class BuildIdentityTest {
@@ -39,6 +42,23 @@ class BuildIdentityTest {
         assertNotEquals(initial, BuildIdentity.read(target));
         Files.delete(settings);
         assertEquals(initial, BuildIdentity.read(target));
+    }
+
+    /** Requires the packaged reference to be available and bound to the worker identity.
+     * @throws IOException if the resource or synthetic build cannot be read
+     */
+    @Test
+    void acgnReferenceIsPackagedAndAffectsIdentity() throws IOException {
+        byte[] reference;
+        try (var input = getClass().getResourceAsStream("/profiles/acgn-reference.json")) {
+            assertNotNull(input);
+            reference = input.readAllBytes();
+        }
+        assertTrue(new String(reference, StandardCharsets.UTF_8).contains("8770cb4b5f7133bad78058d9bc214f0ca36130d0"));
+        Path target = fixture();
+        String initial = BuildIdentity.read(target);
+        Files.write(target.resolve("classes/profiles/acgn-reference.json"), reference);
+        assertNotEquals(initial, BuildIdentity.read(target));
     }
 
     /** Creates isolated synthetic byte inputs without modifying the real running build.
